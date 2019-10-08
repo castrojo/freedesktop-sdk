@@ -1,7 +1,0 @@
-variables:
-  python: python3
-
-config:
-  strip-commands:
-  - |
-    %{strip-binaries}
