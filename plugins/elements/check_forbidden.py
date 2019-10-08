@@ -4,11 +4,9 @@ from buildstream import Element, ElementError, Scope
 class CheckForbiddenElement(Element):
 
     def configure(self, node):
-        self.node_validate(node, [
-            'forbidden'
-        ])
+        node.validate_keys(['forbidden'])
 
-        self.forbidden = set(self.node_get_member(node, list, 'forbidden'))
+        self.forbidden = set(node.get_str_list('forbidden'))
 
     def preflight(self):
         pass
