@@ -4,7 +4,7 @@ variables:
   # directory.
   XDG_CACHE_HOME: "${CI_PROJECT_DIR}/cache"
   GET_SOURCES_ATTEMPTS: 3
-  BST_CACHE_SERVER_ADDRESS: 'freedesktop-sdk-cache.codethink.co.uk'
+  BST_CACHE_SERVER_ADDRESS: 'public.aws.celduin.co.uk'
   RUNTIME_VERSION: '20.08'
   STABLE_ABI: 'false'
 
@@ -74,9 +74,12 @@ before_script:
   # Private SSL keys/certs for pushing to the CAS server
   - |
     if [ "${CI_JOB_NAME}" != app_x86_64-no-cache ] && [ "${CI_JOB_NAME}" != app_arm-no-cache ]; then
-      if [ -n "$GITLAB_CAS_PUSH_CERT" ] && [ -n "$GITLAB_CAS_PUSH_KEY" ]; then
+      if [ -n "$CELDUIN_CAS_PUSH_CERT" ] && [ -n "$CELDUIN_CAS_PUSH_KEY" ] && [ -n "$GITLAB_CAS_PUSH_CERT" ] && [ -n "$GITLAB_CAS_PUSH_KEY" ]; then
         echo "$GITLAB_CAS_PUSH_CERT" > /etc/ssl/CAS/server.crt
         echo "$GITLAB_CAS_PUSH_KEY" > /etc/ssl/CAS/server.key
+
+        echo "$CELDUIN_CAS_PUSH_CERT" > /etc/ssl/CAS/celduin-server.crt
+        echo "$CELDUIN_CAS_PUSH_KEY" > /etc/ssl/CAS/celduin-server.key
 
         echo "projects:" >> ~/.config/buildstream.conf
         echo "  freedesktop-sdk:" >> ~/.config/buildstream.conf
@@ -90,13 +93,11 @@ before_script:
               echo "      push: true" >> ~/.config/buildstream.conf
             fi
         fi
-        if [ "${DISABLE_REMOTE_CACHE:+set}" != set ]; then
-          echo "    - url: https://${BST_CACHE_SERVER_ADDRESS}:11002" >> ~/.config/buildstream.conf
-          echo "      client-key: /etc/ssl/CAS/server.key" >> ~/.config/buildstream.conf
-          echo "      client-cert: /etc/ssl/CAS/server.crt" >> ~/.config/buildstream.conf
-          if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
-             echo "      push: true" >> ~/.config/buildstream.conf
-          fi
+        echo "    - url: https://push.${BST_CACHE_SERVER_ADDRESS}" >> ~/.config/buildstream.conf
+        echo "      client-key: /etc/ssl/CAS/celduin-server.key" >> ~/.config/buildstream.conf
+        echo "      client-cert: /etc/ssl/CAS/celduin-server.crt" >> ~/.config/buildstream.conf
+        if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
+          echo "      push: true" >> ~/.config/buildstream.conf
         fi
       fi
     fi
