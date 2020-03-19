@@ -5,7 +5,7 @@ variables:
   XDG_CACHE_HOME: "${CI_PROJECT_DIR}/cache"
   GET_SOURCES_ATTEMPTS: 3
   BST_CACHE_SERVER_ADDRESS: 'freedesktop-sdk-cache.codethink.co.uk'
-  RUNTIME_VERSION: '20.08'
+  RUNTIME_VERSION: '20.08-bst2'
   STABLE_ABI: 'true'
 
   # Docker Images
