@@ -3,7 +3,7 @@
 # anywhere else, otherwise elements will need to be rebuilt.
 # This file is for Flatpak
 variables:
-  runtime-version: '20.08-devel'
+  runtime-version: '20.08-bst2'
   # Flatpak ignores releases in apstream data that don't have a release
   # date. To be able to test the mechanism internally we need something
   # here and this date is used elsewhere in project for reproducible
