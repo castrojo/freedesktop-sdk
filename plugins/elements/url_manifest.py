@@ -122,7 +122,7 @@ class UrlManifestElement(Element):
 
     def configure(self, node):
         if 'path' in node:
-            self.path = self.node_subst_member(node, 'path', None)
+            self.path = self.node_subst_vars(node.get_scalar('path'))
         else:
             self.path = None
 
