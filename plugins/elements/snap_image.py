@@ -1,4 +1,3 @@
-import collections
 import os
 from ruamel import yaml
 from buildstream import Element, ElementError, Scope
@@ -6,27 +5,15 @@ from buildstream import Element, ElementError, Scope
 class SnapImageElement(Element):
 
     def configure(self, node):
-        self.node_validate(node, [
+        node.validate_keys([
             'directory', 'include', 'exclude', 'metadata',
             'include-orphans'
         ])
-        self.directory = self.node_subst_member(node, 'directory')
-        self.include = self.node_get_member(node, list, 'include')
-        self.exclude = self.node_get_member(node, list, 'exclude')
-        self.include_orphans = self.node_get_member(node, bool, 'include-orphans')
-        self.metadata = self._clean_meta_data(node.get('metadata'))
-
-    def _clean_meta_data(self, node):
-        ret = {}
-        for k, v in node.items():
-            if not k.startswith('__bst'):
-                if isinstance(v, collections.Mapping):
-                    ret[k] = self._clean_meta_data(v)
-                elif isinstance(v, list):
-                    ret[k] = self.node_subst_list(node, k)
-                else:
-                    ret[k] = self.node_subst_member(node, k)
-        return ret
+        self.directory = self.node_subst_vars(node.get_scalar('directory'))
+        self.include = node.get_str_list('include')
+        self.exclude = node.get_str_list('exclude')
+        self.include_orphans = node.get_bool('include-orphans')
+        self.metadata = node.get_node('metadata')
 
     def preflight(self):
         runtime_deps = list(self.dependencies(Scope.RUN, recurse=False))
