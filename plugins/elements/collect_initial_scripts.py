@@ -4,11 +4,9 @@ from buildstream import Element, ElementError, Scope
 
 class ExtractInitialScriptsElement(Element):
     def configure(self, node):
-        self.node_validate(node, [
-            'path',
-        ])
+        node.validate_keys(['path'])
 
-        self.path = self.node_subst_member(node, 'path')
+        self.path = self.node_subst_vars(node.get_scalar('path'))
 
     def preflight(self):
         runtime_deps = list(self.dependencies(Scope.RUN, recurse=False))
@@ -39,7 +37,7 @@ class ExtractInitialScriptsElement(Element):
         for dependency in self.dependencies(Scope.BUILD):
             public = dependency.get_public_data('initial-script')
             if public and 'script' in public:
-                script = self.node_subst_member(public, 'script')
+                script = self.node_subst_vars(public.get_scalar('script'))
                 index += 1
                 depname = re.sub('[^A-Za-z0-9]', '_', dependency.name)
                 basename = '{:03}-{}'.format(index, depname)

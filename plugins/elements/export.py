@@ -27,10 +27,10 @@ class ExportElement(Element):
         for dep in self.dependencies(Scope.BUILD):
             result = dep.stage_artifact(sandbox, path='files')
             bstdata = dep.get_public_data('bst')
-            commands = dep.node_get_member(bstdata, list, 'integration-commands', [])
-            for i in range(len(commands)):
+            commands = bstdata.get_str_list('integration-commands', [])
+            for command in commands:
 
-                cmd = self.node_subst_list_element(bstdata, 'integration-commands', [i])
+                cmd = self.node_subst_vars(command)
                 commands.append(cmd)
 
             splits_rules = bstdata.get('split-rules')
