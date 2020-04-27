@@ -43,6 +43,15 @@ before_script:
   # Create CAS directory for SSL keys
   - mkdir -p /etc/ssl/CAS
 
+  - |
+    case "${CI_RUNNER_DESCRIPTION}" in
+       *.osuosl.org)
+         sed -i '/artifacts:/,+1 d' project.conf
+         DISABLE_REMOTE_CACHE=true
+         ;;
+    esac
+
+
   # Private SSL keys/certs for pushing to the CAS server
   - |
     if [ -n "$GITLAB_CAS_PUSH_CERT" ] && [ -n "$GITLAB_CAS_PUSH_KEY" ]; then
@@ -72,10 +81,12 @@ before_script:
             echo "      server-cert: /cache-certificate/server.crt"  >> ~/.config/buildstream.conf
             echo "      push: true" >> ~/.config/buildstream.conf
         fi
-        echo "    - url: https://${BST_CACHE_SERVER_ADDRESS}:11002" >> ~/.config/buildstream.conf
-        echo "      client-key: /etc/ssl/CAS/server.key" >> ~/.config/buildstream.conf
-        echo "      client-cert: /etc/ssl/CAS/server.crt" >> ~/.config/buildstream.conf
-        echo "      push: true" >> ~/.config/buildstream.conf
+        if [ "${DISABLE_REMOTE_CACHE:+set}" != set ]; then
+          echo "    - url: https://${BST_CACHE_SERVER_ADDRESS}:11002" >> ~/.config/buildstream.conf
+          echo "      client-key: /etc/ssl/CAS/server.key" >> ~/.config/buildstream.conf
+          echo "      client-cert: /etc/ssl/CAS/server.crt" >> ~/.config/buildstream.conf
+          echo "      push: true" >> ~/.config/buildstream.conf
+        fi
     fi
 
   # flat-manager tokens to upload the releases
