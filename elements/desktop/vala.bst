@@ -24,4 +24,4 @@ sources:
   # See https://wiki.gnome.org/Projects/Vala for last version
   url: gnome:vala.git
   track: '0.44'
-  ref: 0.44.9-0-gada3bc3e066e73988b2534fe476cd2a499c0e634
+  ref: 0.44.11-0-gf9f1f6ebc3f13cb20e48aa49bbc34395506181d4
