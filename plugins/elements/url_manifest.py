@@ -118,6 +118,8 @@ def get_source_locations(sources):
 
 class UrlManifestElement(Element):
 
+    BST_MIN_VERSION = "2.0"
+
     BST_FORMAT_VERSION = 0.2
 
     def configure(self, node):

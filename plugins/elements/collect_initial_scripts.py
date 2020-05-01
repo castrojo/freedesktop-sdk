@@ -3,6 +3,9 @@ import re
 from buildstream import Element, ElementError, Scope
 
 class ExtractInitialScriptsElement(Element):
+
+    BST_MIN_VERSION = "2.0"
+
     def configure(self, node):
         node.validate_keys(['path'])
 
