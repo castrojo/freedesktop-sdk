@@ -119,8 +119,7 @@ def get_source_locations(sources):
 class UrlManifestElement(Element):
 
     BST_MIN_VERSION = "2.0"
-
-    BST_FORMAT_VERSION = 0.2
+    BST_VIRTUAL_DIRECTORY = True
 
     def configure(self, node):
         if 'path' in node:
@@ -132,10 +131,7 @@ class UrlManifestElement(Element):
         pass
 
     def get_unique_key(self):
-        key = {
-            'path': self.path,
-            'version': self.BST_FORMAT_VERSION
-        }
+        key = {"path": self.path}
         return key
 
     def configure_sandbox(self, sandbox):
@@ -160,19 +156,14 @@ class UrlManifestElement(Element):
                     'element': dep.name, 'sources': sources})
 
         if self.path:
-            basedir = sandbox.get_directory()
-            path = os.path.join(basedir, self.path.lstrip(os.path.sep))
-            if os.path.isfile(path):
-                if path[-1].isdigit():
-                    version = int(path[-1]) + 1
-                    new_path = list(path)
-                    new_path[-1] = str(version)
-                    path = ''.join(new_path)
-                else:
-                    path = path + '-1'
-            os.makedirs(os.path.dirname(path), exist_ok=True)
+            basedir = sandbox.get_virtual_directory()
+            dirname = os.path.dirname(self.path)
+            filename = os.path.basename(self.path)
+            vdir = basedir.descend(
+                *dirname.lstrip(os.path.sep).split(os.path.sep), create=True
+            )
 
-            with open(path, 'w') as open_file:
+            with vdir.open_file(filename, mode="w") as open_file:
                 json.dump(manifest, open_file, indent=2)
 
         return os.path.sep
