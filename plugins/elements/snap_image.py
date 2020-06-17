@@ -15,7 +15,7 @@ class SnapImageElement(Element):
         self.include = node.get_str_list('include')
         self.exclude = node.get_str_list('exclude')
         self.include_orphans = node.get_bool('include-orphans')
-        self.metadata = node.get_node('metadata')
+        self.metadata = node.get_node('metadata').strip_node_info()
 
     def preflight(self):
         runtime_deps = list(self.dependencies(Scope.RUN, recurse=False))
@@ -44,13 +44,6 @@ class SnapImageElement(Element):
         pass
 
     def assemble(self, sandbox):
-        basedir = sandbox.get_directory()
-
-        reldirectory = os.path.relpath(self.directory, os.sep)
-        rootdir = os.path.join(basedir, reldirectory)
-
-        metadir = os.path.join(rootdir, 'meta')
-        metadata = os.path.join(metadir, 'snap.yaml')
 
         with self.timed_activity("Creating snap image", silent_nested=True):
             self.stage_dependency_artifacts(sandbox,
@@ -59,13 +52,17 @@ class SnapImageElement(Element):
                                             exclude=self.exclude,
                                             orphans=self.include_orphans)
 
-            os.makedirs(metadir, exist_ok=True)
+            reldirectory_path = os.path.relpath(self.directory, os.sep)
+            metadir_path = os.path.join(reldirectory_path, 'meta')
+            metadata_filename = 'snap.yaml'
 
-            with open(metadata, 'w') as file:
+            basedir = sandbox.get_virtual_directory()
+            metadir = basedir.descend(*metadir_path.split(os.sep), create=True)
+
+            with metadir.open_file(metadata_filename, mode='w') as file:
                 yaml.dump(self.metadata, file)
 
-
-        return os.path.join(os.sep, reldirectory)
+        return os.path.join(os.sep, reldirectory_path)
 
 def setup():
     return SnapImageElement
