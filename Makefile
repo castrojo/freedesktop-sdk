@@ -61,7 +61,7 @@ build-tar:
 bootstrap:
 	$(BST) build bootstrap/export-bootstrap.bst
 	[ -d bootstrap/ ] || mkdir -p bootstrap/
-	$(BST) checkout bootstrap/export-bootstrap.bst bootstrap/$(ARCH)
+	$(BST) artifact checkout bootstrap/export-bootstrap.bst --directory bootstrap/$(ARCH)
 
 check-abi:
 	REFERENCE=$$(git merge-base origin/$(TARGET_BRANCH) HEAD) && \
@@ -71,7 +71,7 @@ export: clean-runtime
 	$(BST) build flatpak-release.bst public-stacks/flatpak-publish-tools.bst
 
 	mkdir -p $(CHECKOUT_ROOT)
-	$(BST) checkout --hardlinks "flatpak-release.bst" $(CHECKOUT_ROOT)
+	$(BST) artifact checkout --hardlinks "flatpak-release.bst" --directory $(CHECKOUT_ROOT)
 
 	test -e $(REPO) || ostree init --repo=$(REPO) --mode=archive
 
@@ -87,7 +87,7 @@ export-tar:
 	mkdir -p $(TAR_CHECKOUT_ROOT)
 	set -e; for tarball in $(TARBALLS); do \
 		dir="$(ARCH)-$${tarball}"; \
-		bst --colors $(ARCH_OPTS) checkout --hardlinks "tarballs/$${tarball}.bst" "$(TAR_CHECKOUT_ROOT)/$${dir}"; \
+		bst --colors $(ARCH_OPTS) artifact checkout --hardlinks "tarballs/$${tarball}.bst" --directory "$(TAR_CHECKOUT_ROOT)/$${dir}"; \
 	done
 
 clean-vm:
@@ -96,10 +96,10 @@ clean-vm:
 
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_ROOT):
 	$(BST) build $(VM_ARTIFACT_ROOT)
-	$(BST) checkout --hardlinks $(VM_ARTIFACT_ROOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_ROOT)
+	$(BST) artifact checkout --hardlinks $(VM_ARTIFACT_ROOT) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_ROOT)
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT):
 	$(BST) build $(VM_ARTIFACT_BOOT)
-	$(BST) checkout --hardlinks $(VM_ARTIFACT_BOOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
+	$(BST) artifact checkout --hardlinks $(VM_ARTIFACT_BOOT) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
 
 build-vm: clean-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_ROOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
 
@@ -163,8 +163,8 @@ manifest:
 	$(BST) build manifests/platform-manifest.bst
 	$(BST) build manifests/sdk-manifest.bst
 
-	$(BST) checkout manifests/platform-manifest.bst platform-manifest/
-	$(BST) checkout manifests/sdk-manifest.bst sdk-manifest/
+	$(BST) artifact checkout manifests/platform-manifest.bst --directory platform-manifest/
+	$(BST) artifact checkout manifests/sdk-manifest.bst --directory sdk-manifest/
 
 markdown-manifest: manifest
 	python3 utils/jsontomd.py platform-manifest/usr/manifest.json
@@ -173,7 +173,7 @@ markdown-manifest: manifest
 url-manifest:
 	rm -rf release-url-manifest/
 	$(BST) build manifests/release-url-manifest.bst
-	$(BST) checkout manifests/release-url-manifest.bst release-url-manifest/
+	$(BST) artifact checkout manifests/release-url-manifest.bst --directory release-url-manifest/
 
 test-apps: export XDG_DATA_HOME=$(CURDIR)/runtime
 test-apps: $(REPO)
@@ -236,7 +236,7 @@ clean: clean-repo clean-runtime clean-test clean-vm
 
 export-snap:
 	bst --colors $(ARCH_OPTS) build "snap-images/images.bst"
-	bst --colors $(ARCH_OPTS) checkout "snap-images/images.bst" snap/
+	bst --colors $(ARCH_OPTS) artifact checkout "snap-images/images.bst" --directory snap/
 
 export-oci:
 	$(BST) build oci/platform-oci.bst \
@@ -245,7 +245,7 @@ export-oci:
 	             oci/flatpak-oci.bst
 	set -e; \
 	for name in platform sdk debug flatpak; do \
-	  $(BST) checkout "oci/$${name}-oci.bst" --tar "$${name}-oci.tar"; \
+	  $(BST) artifact checkout "oci/$${name}-oci.bst" --tar "$${name}-oci.tar"; \
 	done
 
 export-docker:
@@ -255,7 +255,7 @@ export-docker:
 	             oci/flatpak-docker.bst
 	set -e; \
 	for name in platform sdk debug flatpak; do \
-	  $(BST) checkout "oci/$${name}-docker.bst" --tar "$${name}-docker.tar"; \
+	  $(BST) artifact checkout "oci/$${name}-docker.bst" --tar "$${name}-docker.tar"; \
 	done
 
 track-mesa-git:
@@ -312,7 +312,7 @@ ostree-serve: ostree-repo
 $(CHECKOUT_ROOT)/ostree-vm-$(ARCH): files/vm/ostree-config/fdsdk.gpg ostree-config.yml ostree-repo
 	$(BST) track vm/minimal-ostree/image.bst
 	$(BST) build vm/minimal-ostree/image.bst
-	$(BST) checkout vm/minimal-ostree/image.bst "$@"
+	$(BST) artifact checkout vm/minimal-ostree/image.bst --directory "$@"
 
 ifeq ($(ARCH),i686)
 OVMF_CODE=/usr/share/qemu/edk2-i386-code.fd
