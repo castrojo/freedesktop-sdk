@@ -1,6 +1,7 @@
 import os
 import json
 from buildstream import Element
+from buildstream import Node
 
 class ReImportElement(Element):
 
@@ -22,10 +23,11 @@ class ReImportElement(Element):
         self.stage_sources(sandbox, '/')
 
     def assemble(self, sandbox):
-        with open(os.path.join(sandbox.get_directory(), 'metadata'), 'r') as file:
+        basedir = sandbox.get_virtual_directory()
+        with basedir.open_file('metadata', mode='r') as file:
             metadata = json.load(file)
 
-        self.set_public_data('bst', metadata)
+        self.set_public_data('bst', Node.from_dict(metadata))
         return os.path.join(os.sep, 'files')
 
 def setup():
