@@ -35,12 +35,12 @@ class ExportElement(Element):
                 cmd = self.node_subst_vars(command)
                 commands.append(cmd)
 
-            splits_rules = bstdata.get('split-rules')
-            for domain, rules in dep.node_items(splits_rules):
+            splits_rules = bstdata.get_node('split-rules')
+            for domain, rules in splits_rules.items():
                 abspaths = []
                 for path in result.files_written:
                     abspaths.append(os.path.join(os.sep, path))
-                for rule in rules:
+                for rule in rules.as_str_list():
                     for path in glob(abspaths, rule):
                         if domain not in splits:
                             splits[domain] = []
@@ -50,7 +50,9 @@ class ExportElement(Element):
             'split-rules': splits,
             'integration-commands': commands
         }
-        with open(os.path.join(sandbox.get_directory(), 'metadata'), 'w') as file:
+
+        basedir = sandbox.get_virtual_directory()
+        with basedir.open_file('metadata', mode='w') as file:
             json.dump(metadata, file)
 
         return os.sep
