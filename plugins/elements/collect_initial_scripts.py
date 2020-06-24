@@ -34,8 +34,9 @@ class ExtractInitialScriptsElement(Element):
         pass
 
     def assemble(self, sandbox):
-        basedir = sandbox.get_directory()
-        path = os.path.join(basedir, self.path.lstrip(os.sep))
+        basedir = sandbox.get_virtual_directory()
+        path_components = self.path.strip(os.sep).split(os.sep)
+
         index = 0
         for dependency in self.dependencies(Scope.BUILD):
             public = dependency.get_public_data('initial-script')
@@ -44,11 +45,11 @@ class ExtractInitialScriptsElement(Element):
                 index += 1
                 depname = re.sub('[^A-Za-z0-9]', '_', dependency.name)
                 basename = '{:03}-{}'.format(index, depname)
-                filename = os.path.join(path, basename)
-                os.makedirs(path, exist_ok=True)
-                with open(filename, 'w') as f:
+
+                pathdir = basedir.descend(*path_components, create=True)
+                with pathdir.open_file(basename, mode='w') as f:
                     f.write(script)
-                os.chmod(filename, 0o755)
+                    os.chmod(f.fileno(), 0o755)
 
         return os.sep
 
