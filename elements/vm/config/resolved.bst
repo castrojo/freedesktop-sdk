@@ -17,7 +17,7 @@ config:
 public:
   bst:
     overlap-whitelist:
-    - etc/systemd/resolved.conf
+    - '%{sysconfdir}/systemd/resolved.conf'
 
 sources:
 - kind: local
