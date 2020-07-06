@@ -308,6 +308,7 @@ app_i686:
     - cache_i686
   variables:
     ARCH: i686
+  allow_failure: true
   dependencies: []
 
 app_aarch64:
@@ -326,6 +327,7 @@ app_arm:
     - armhf
   variables:
     ARCH: arm
+  allow_failure: true
   dependencies: []
 
 app_arm-no-cache:
@@ -335,6 +337,7 @@ app_arm-no-cache:
     - armhf
   variables:
     ARCH: arm
+  allow_failure: true
   dependencies: []
   except:
     - tags
@@ -405,6 +408,7 @@ minimal_systemd_vm_i686:
     VM_ARTIFACT_BOOT: vm/boot/virt.bst
     VM_ARTIFACT_FILESYSTEM: vm/minimal/virt.bst
     DIALOG: root-login
+  allow_failure: true
   dependencies: []
 
 minimal_systemd_vm_aarch64:
@@ -430,6 +434,7 @@ minimal_systemd_vm_arm:
     VM_ARTIFACT_BOOT: vm/boot/virt.bst
     VM_ARTIFACT_FILESYSTEM: vm/minimal/virt.bst
     DIALOG: root-login
+  allow_failure: true
   dependencies: []
 
 minimal_systemd_vm_powerpc64le:
@@ -689,6 +694,7 @@ publish_i686:
     - cache_i686
   variables:
     ARCH: i686
+  allow_failure: true
   dependencies:
     - prepare_publish_branch
     - prepare_publish_release
@@ -711,6 +717,7 @@ publish_arm:
     - armhf
   variables:
     ARCH: arm
+  allow_failure: true
   dependencies:
     - prepare_publish_branch
     - prepare_publish_release
@@ -744,6 +751,7 @@ publish_i686_tar:
     - x86_64
   variables:
     ARCH: i686
+  allow_failure: true
   dependencies: []
   when: manual
 
@@ -764,6 +772,7 @@ publish_arm_tar:
     - armhf
   variables:
     ARCH: arm
+  allow_failure: true
   dependencies: []
   when: manual
 
@@ -854,6 +863,7 @@ reproducible_i686:
     - x86_64
   variables:
     ARCH: i686
+  allow_failure: true
   when: manual
 
 reproducible_aarch64:
@@ -872,6 +882,7 @@ reproducible_arm:
     - armhf
   variables:
     ARCH: arm
+  allow_failure: true
   when: manual
 
 .snap_publish_template:
@@ -932,6 +943,7 @@ publish_snap_i686:
     - cache_i686
   variables:
     ARCH: i686
+  allow_failure: true
   when: manual
 
 publish_snap_arm:
@@ -941,6 +953,7 @@ publish_snap_arm:
     - armhf
   variables:
     ARCH: arm
+  allow_failure: true
   when: manual
 
 publish_snap_aarch64:
@@ -1012,6 +1025,7 @@ publish_docker_i686:
   variables:
     ARCH: i686
     DISABLE_CACHE_PUSH: 1
+  allow_failure: true
   dependencies: []
 
 publish_docker_aarch64:
@@ -1032,6 +1046,7 @@ publish_docker_arm:
   variables:
     ARCH: arm
     DISABLE_CACHE_PUSH: 1
+  allow_failure: true
   dependencies: []
 
 publish_docker_ppc64le:
