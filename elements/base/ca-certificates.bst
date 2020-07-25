@@ -41,3 +41,5 @@ sources:
   ref: debian/20180409-0-gdbbd11e56af93bb79f21d0ee6059a901f83f70a5
 - kind: patch
   path: patches/ca-certificates/ca-certificates-Make-it-possible-to-overwrite-python-version.patch
+- kind: patch
+  path: patches/ca-certificates/0001-Remove-AddTrust-External-CA-Root.patch
