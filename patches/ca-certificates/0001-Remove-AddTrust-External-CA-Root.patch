@@ -1,0 +1,24 @@
+From 088741fe823c1f5da80371894047cc4af5fcf2a3 Mon Sep 17 00:00:00 2001
+From: Seppo Yli-Olli <seppo.yliolli@gmail.com>
+Date: Sat, 25 Jul 2020 16:45:43 +0300
+Subject: [PATCH 1/1] Remove AddTrust External CA Root
+
+---
+ mozilla/blacklist.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/mozilla/blacklist.txt b/mozilla/blacklist.txt
+index 37f515c..d240df3 100644
+--- a/mozilla/blacklist.txt
++++ b/mozilla/blacklist.txt
+@@ -10,4 +10,6 @@
+ "MITM subCA 2 issued by Trustwave"
+ "TURKTRUST Mis-issued Intermediate CA 1"
+ "TURKTRUST Mis-issued Intermediate CA 2"
+-
++# Blacklist expired certificate (Not After : May 30 10:48:38 2020 GMT)
++# See: https://bugs.debian.org/961907
++"AddTrust External CA Root"
+-- 
+2.20.1
+
