@@ -46,7 +46,7 @@ script to add mirror info to the manifest after it's created.
 import json
 import os
 import re
-from buildstream import Element, Scope
+from buildstream import Element
 
 def get_source_locations(sources):
     """
@@ -144,7 +144,7 @@ class UrlManifestElement(Element):
         manifest = []
         visited_names_list = []
 
-        for dep in self.dependencies(Scope.ALL, recurse=True):
+        for dep in self.dependencies():
             #de-duplicate list (some elements in bootstrap seem to get listed multiple times)
             if dep.name in visited_names_list:
                 continue
