@@ -1,10 +1,12 @@
 import os
 from ruamel import yaml
-from buildstream import Element, ElementError, Scope
+from buildstream import Element, ElementError
 
 class SnapImageElement(Element):
 
     BST_MIN_VERSION = "2.0"
+    BST_FORBID_RDEPENDS = True
+    BST_FORBID_SOURCES = True
 
     def configure(self, node):
         node.validate_keys([
@@ -18,14 +20,7 @@ class SnapImageElement(Element):
         self.metadata = node.get_node('metadata').strip_node_info()
 
     def preflight(self):
-        runtime_deps = list(self.dependencies(Scope.RUN, recurse=False))
-        if runtime_deps:
-            raise ElementError("{}: Only build type dependencies supported by flatpak_image elements"
-                               .format(self))
-
-        sources = list(self.sources())
-        if sources:
-            raise ElementError("{}: flatpak_image elements may not have sources".format(self))
+        pass
 
     def get_unique_key(self):
         key = {}
@@ -41,17 +36,15 @@ class SnapImageElement(Element):
         pass
 
     def stage(self, sandbox):
-        pass
-
-    def assemble(self, sandbox):
-
-        with self.timed_activity("Creating snap image", silent_nested=True):
+        with self.timed_activity("Staging dependencies", silent_nested=True):
             self.stage_dependency_artifacts(sandbox,
-                                            Scope.BUILD,
                                             include=self.include,
                                             exclude=self.exclude,
                                             orphans=self.include_orphans)
 
+    def assemble(self, sandbox):
+
+        with self.timed_activity("Creating snap image", silent_nested=True):
             reldirectory_path = os.path.relpath(self.directory, os.sep)
             metadir_path = os.path.join(reldirectory_path, 'meta')
             metadata_filename = 'snap.yaml'
