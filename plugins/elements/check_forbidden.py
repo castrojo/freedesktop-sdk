@@ -1,5 +1,5 @@
 import os
-from buildstream import Element, ElementError, Scope
+from buildstream import Element, ElementError
 
 class CheckForbiddenElement(Element):
 
@@ -26,7 +26,7 @@ class CheckForbiddenElement(Element):
             return True
         traversed.add(elt)
         bad = False
-        for dep in elt.dependencies(Scope.RUN, recurse=False):
+        for dep in elt.dependencies(recurse=False):
             if self._find_bad_dependencies(dep, traversed):
                 self.warn('{} depends on {}'.format(elt, dep))
                 bad = True
@@ -37,7 +37,7 @@ class CheckForbiddenElement(Element):
 
     def assemble(self, sandbox):
         traversed = set()
-        for dep in self.dependencies(Scope.BUILD, recurse=False):
+        for dep in self.dependencies(recurse=False):
             if self._find_bad_dependencies(dep, traversed):
                 raise ElementError("Some elements were forbidden")
         return os.sep
