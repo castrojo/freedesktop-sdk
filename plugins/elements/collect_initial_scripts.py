@@ -1,10 +1,12 @@
 import os
 import re
-from buildstream import Element, ElementError, Scope
+from buildstream import Element, ElementError
 
 class ExtractInitialScriptsElement(Element):
 
     BST_MIN_VERSION = "2.0"
+    BST_FORBID_RDEPENDS = True
+    BST_FORBID_SOURCES = True
 
     def configure(self, node):
         node.validate_keys(['path'])
@@ -12,14 +14,7 @@ class ExtractInitialScriptsElement(Element):
         self.path = self.node_subst_vars(node.get_scalar('path'))
 
     def preflight(self):
-        runtime_deps = list(self.dependencies(Scope.RUN, recurse=False))
-        if runtime_deps:
-            raise ElementError("{}: Only build type dependencies supported by collect-integration elements"
-                               .format(self))
-
-        sources = list(self.sources())
-        if sources:
-            raise ElementError("{}: collect-integration elements may not have sources".format(self))
+        pass
 
     def get_unique_key(self):
         key = {
@@ -38,7 +33,7 @@ class ExtractInitialScriptsElement(Element):
         path_components = self.path.strip(os.sep).split(os.sep)
 
         index = 0
-        for dependency in self.dependencies(Scope.BUILD):
+        for dependency in self.dependencies():
             public = dependency.get_public_data('initial-script')
             if public and 'script' in public:
                 script = self.node_subst_vars(public.get_scalar('script'))
