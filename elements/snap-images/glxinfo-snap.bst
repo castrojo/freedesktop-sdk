@@ -2,14 +2,9 @@ kind: script
 
 build-depends:
 - snap-images/squashfs-tools.bst
-- snap-images/glxinfo.bst
-
-config:
-  layout:
-  - element: snap-images/squashfs-tools.bst
-    destination: '/'
-  - element: snap-images/glxinfo.bst
-    destination: '%{build-root}'
+- filename: snap-images/glxinfo.bst
+  config:
+    location: '%{build-root}'
 
 (@):
 - elements/snap-images/snap-common.yml
