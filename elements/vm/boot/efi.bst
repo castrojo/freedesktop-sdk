@@ -19,21 +19,10 @@ variables:
 
 config:
 
-  layout:
-  - element: ''
-    destination: '/tmp'
-  - element: ''
-    destination: '/var/tmp'
-  - element: ''
-    destination: '/boot'
-  - element: vm/boot/efi/deps.bst
-    destination: '/'
-  - element: vm/boot/efi/initial-scripts.bst
-    destination: '/'
-  - element: vm/prepare-image.bst
-    destination: '/'
-
   commands:
+  - mkdir -p /tmp
+  - mkdir -p /var/tmp
+  - mkdir -p /boot
   - |
     prepare-image.sh --sysroot / --rootpasswd root \
                      --seed "%{uuidnamespace}" >/tmp/vars
