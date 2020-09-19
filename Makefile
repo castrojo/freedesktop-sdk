@@ -48,7 +48,7 @@ build:
 	$(BST) build tests/check-platform.bst \
 	             tests/check-sdk.bst \
 	             components.bst \
-	             flatpak-release.bst \
+	             flatpak-release-repo.bst \
 	             public-stacks/buildsystems.bst \
 	             oci/layers/{bootstrap,debug,platform,sdk,flatpak}.bst
 
@@ -71,16 +71,14 @@ check-debuginfo:
 	$(BST) build tests/test-debug-crc.bst
 
 export: clean-runtime
-	$(BST) build flatpak-release.bst
+	$(BST) build flatpak-release-repo.bst
 
 	mkdir -p $(CHECKOUT_ROOT)
-	$(BST) artifact checkout --hardlinks flatpak-release-repo.bst --directory $(CHECKOUT_ROOT)/flatpak-release-repo.bst
-	$(BST) artifact checkout --hardlinks flatpak-release-repo-extra.bst --directory $(CHECKOUT_ROOT)/flatpak-release-repo-extra.bst
+	$(BST) artifact checkout flatpak-release-repo.bst --directory $(CHECKOUT_ROOT)/flatpak-release-repo.bst
 
 	test -e $(REPO) || ostree init --repo=$(REPO) --mode=archive
 
 	flatpak build-commit-from --src-repo=$(CHECKOUT_ROOT)/flatpak-release-repo.bst $(REPO)
-	flatpak build-commit-from --src-repo=$(CHECKOUT_ROOT)/flatpak-release-repo-extra.bst $(REPO)
 
 	rm -rf $(CHECKOUT_ROOT)
 
@@ -184,7 +182,7 @@ markdown-manifest: manifest
 
 url-manifest:
 	python3 utils/url_manifest.py release-url-manifest/url-manifest-no-mirrors.json \
-	  flatpak-release.bst components.bst \
+	  flatpak-release-repo.bst components.bst \
 	  components/rust-stage1-x86-64.bst components/rust-stage1-i686.bst components/rust-stage1-aarch64.bst \
 	  components/rust-stage1-armv7.bst components/rust-stage1-powerpc64le.bst \
 	  oci/layers/flatpak.bst oci/layers/debug.bst oci/layers/platform.bst oci/layers/sdk.bst
