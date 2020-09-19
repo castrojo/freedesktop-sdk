@@ -3,13 +3,13 @@ description: Generates a flatpak repository with all flatpak image elements
 
 build-depends:
 - components/flatpak-minimal.bst
-- flatpak-release-deps.bst
+- filename: flatpak-release-deps.bst
+  config:
+    flatpak-stack: True
 
 config:
   arch: '%{flatpak_arch}' # This is the interface for flatpak-repo plugin 
   repo-mode: bare-user-only
-  environment:
-  - components/flatpak-minimal.bst
   (?):
   - target_arch == 'i686':
       copy-refs:
