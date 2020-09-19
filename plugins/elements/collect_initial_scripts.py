@@ -11,7 +11,7 @@ class ExtractInitialScriptsElement(Element):
     def configure(self, node):
         node.validate_keys(['path'])
 
-        self.path = self.node_subst_vars(node.get_scalar('path'))
+        self.path = node.get_str('path')
 
     def preflight(self):
         pass
