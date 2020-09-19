@@ -1,34 +1,20 @@
 kind: script
 
-depends:
-- filename: bootstrap/gnu-config.bst
-  type: build
-- filename: bootstrap/build/gcc-stage2.bst
-  type: build
-- filename: bootstrap/build/debug-utils.bst
-  type: build
+build-depends:
+- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
 - filename: bootstrap/glibc.bst
-  type: build
+  config:
+    location: "%{sysroot}"
 - filename: bootstrap/zlib.bst
-  type: build
+  config:
+    location: "%{sysroot}"
 
 variables:
   install-root: "/"
 
 config:
-  layout:
-  - element: bootstrap/gnu-config.bst
-    destination: "/"
-  - element: bootstrap/build/gcc-stage2.bst
-    destination: "/"
-  - element: bootstrap/build/debug-utils.bst
-    destination: "/"
-
-  - element: bootstrap/glibc.bst
-    destination: "%{sysroot}"
-  - element: bootstrap/zlib.bst
-    destination: "%{sysroot}"
-
   commands:
   # zlib may depend on libgcc_s.so.1. This works linking around issues.
   - |

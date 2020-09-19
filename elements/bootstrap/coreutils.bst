@@ -1,11 +1,17 @@
 kind: autotools
 description: GNU coreutils
 
-depends:
-- filename: bootstrap/coreutils-build-deps.bst
-  type: build
+build-depends:
+- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
+- bootstrap/build/coreutils-manpages.bst
 - filename: bootstrap/acl.bst
-  type: runtime
+  config:
+    location: "%{sysroot}"
+
+runtime-depends:
+- bootstrap/acl.bst
 
 (@):
 - elements/bootstrap/include/target.yml
