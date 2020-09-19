@@ -2,7 +2,18 @@ kind: autotools
 description: GNU gcc Stage 2
 
 build-depends:
-- bootstrap/build/gcc-stage-2-build-deps.bst
+- bootstrap/base-sdk/autoconf2.69.bst
+- bootstrap/base-sdk/automake.bst
+- bootstrap/base-sdk/libtool.bst
+- bootstrap/base-sdk/gettext.bst
+- bootstrap/base-sdk/tar.bst
+- bootstrap/base-sdk/flex.bst
+- bootstrap/build/binutils-stage1.bst
+- bootstrap/build/python3.bst
+- bootstrap/gnu-config.bst
+- filename: bootstrap/glibc.bst
+  config:
+    location: "%{sysroot}"
 
 runtime-depends:
 - bootstrap/build/binutils-stage1.bst

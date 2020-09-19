@@ -2,7 +2,16 @@ kind: autotools
 description: GNU C Library
 
 build-depends:
-- bootstrap/glibc-build-deps.bst
+- bootstrap/base-sdk/bison.bst
+- bootstrap/base-sdk/gettext.bst
+- bootstrap/base-sdk/texinfo.bst
+- bootstrap/build/gcc-stage1.bst
+- bootstrap/build/debug-utils.bst
+- bootstrap/build/python3.bst
+- bootstrap/gnu-config.bst
+- filename: bootstrap/linux-headers.bst
+  config:
+    location: "%{sysroot}"
 
 runtime-depends:
 - bootstrap/symlinks.bst
