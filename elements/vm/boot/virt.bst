@@ -11,21 +11,10 @@ variables:
 
 config:
 
-  layout:
-  - element: ''
-    destination: '/tmp'
-  - element: ''
-    destination: '/var/tmp'
-  - element: ''
-    destination: '/boot'
-  - element: vm/boot/virt/deps.bst
-    destination: '/'
-  - element: vm/boot/virt/initial-scripts.bst
-    destination: '/'
-  - element: vm/prepare-image.bst
-    destination: '/'
-
   commands:
+  - mkdir -p /tmp
+  - mkdir -p /var/tmp
+  - mkdir -p /boot
   - |
     prepare-image.sh --rootpasswd root --seed "%{uuidnamespace}" \
                      --noboot \
