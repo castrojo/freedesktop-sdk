@@ -17,21 +17,10 @@ variables:
 
 config:
 
-  layout:
-  - element: ''
-    destination: '/tmp'
-  - element: ''
-    destination: '/efi'
-  - element: ''
-    destination: '/var/tmp'
-  - element: vm/boot/efi-ostree/deps.bst
-    destination: '/'
-  - element: vm/boot/efi-ostree/initial-scripts.bst
-    destination: '/'
-  - element: vm/prepare-image.bst
-    destination: '/'
-
   commands:
+  - mkdir -p /tmp
+  - mkdir -p /var/tmp
+  - mkdir -p /efi
   - |
     prepare-image.sh --rootpasswd root --seed "%{uuidnamespace}" \
          --efipath /boot --efisource LABEL=EFI >/tmp/vars

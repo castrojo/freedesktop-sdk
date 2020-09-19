@@ -3,9 +3,11 @@ kind: script
 build-depends:
 - components/ostree.bst
 - vm/deploy-tools.bst
-- vm/minimal-ostree/filesystem.bst
-- vm/minimal-ostree/initial-scripts.bst
 - vm/prepare-image.bst
+- vm/minimal-ostree/initial-scripts.bst
+- filename: vm/minimal-ostree/filesystem.bst
+  config:
+    location: '/sysroot'
 
 variables:
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
@@ -17,21 +19,10 @@ environment:
   OSTREE_REPO: "%{install-root}/ostree/repo"
 
 config:
-  layout:
-  - element: ''
-    destination: '/tmp'
-  - element: 'vm/deploy-tools.bst'
-    destination: '/'
-  - element: 'components/ostree.bst'
-    destination: '/'
-  - element: 'vm/minimal-ostree/filesystem.bst'
-    destination: '/sysroot'
-  - element: 'vm/minimal-ostree/initial-scripts.bst'
-    destination: '/'
-  - element: ''
-    destination: '/efi'
 
   commands:
+  - mkdir -p /tmp
+  - mkdir -p /efi
   - |
     prepare-image.sh \
        --sysroot /sysroot \
