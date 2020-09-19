@@ -1,17 +1,15 @@
 kind: flatpak_repo
 description: Generates a flatpak repository with all flatpak image elements
 
-depends:
-- filename: public-stacks/flatpak-publish-tools.bst
-  type: build
+build-depends:
+- public-stacks/flatpak-publish-tools.bst
 - filename: flatpak-release-deps.bst
-  type: build
+  config:
+    flatpak-stack: True
 
 config:
   arch: '%{flatpak_arch}' # This is the interface for flatpak-repo plugin 
   repo-mode: bare-user-only
-  environment:
-  - public-stacks/flatpak-publish-tools.bst
   (?):
   - target_arch == 'i686':
       copy-refs:
