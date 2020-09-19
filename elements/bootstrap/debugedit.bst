@@ -1,18 +1,31 @@
 kind: autotools
 
-depends:
-- filename: bootstrap/debugedit-build-deps.bst
-  type: build
-- filename: bootstrap/popt.bst
-  type: runtime
-- filename: bootstrap/bzip2.bst
-  type: runtime
-- filename: bootstrap/elfutils.bst
-  type: runtime
-- filename: bootstrap/file.bst
-  type: runtime
+build-depends:
+- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
 - filename: bootstrap/openssl.bst
-  type: runtime
+  config:
+    location: "%{sysroot}"
+- filename: bootstrap/popt.bst
+  config:
+    location: "%{sysroot}"
+- filename: bootstrap/bzip2.bst
+  config:
+    location: "%{sysroot}"
+- filename: bootstrap/elfutils.bst
+  config:
+    location: "%{sysroot}"
+- filename: bootstrap/file.bst
+  config:
+    location: "%{sysroot}"
+
+runtime-depends:
+- bootstrap/popt.bst
+- bootstrap/bzip2.bst
+- bootstrap/elfutils.bst
+- bootstrap/file.bst
+- bootstrap/openssl.bst
 
 (@):
 - elements/bootstrap/include/target.yml

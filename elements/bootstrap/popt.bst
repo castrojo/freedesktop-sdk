@@ -1,10 +1,16 @@
 kind: autotools
 
-depends:
-- filename: bootstrap/popt-build-deps.bst
-  type: build
+build-depends:
+- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
 - filename: bootstrap/file.bst
-  type: runtime
+  config:
+    location: "%{sysroot}"
+
+runtime-depends:
+- bootstrap/file.bst
+
 
 (@): elements/bootstrap/include/target.yml
 

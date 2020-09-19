@@ -1,11 +1,16 @@
 kind: autotools
 description: GNU Bash
 
-depends:
-- filename: bootstrap/bash-build-deps.bst
-  type: build
+build-depends:
+- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
 - filename: bootstrap/readline.bst
-  type: runtime
+  config:
+    location: "%{sysroot}"
+
+runtime-depends:
+- bootstrap/readline.bst
 
 (@): elements/bootstrap/include/target.yml
 

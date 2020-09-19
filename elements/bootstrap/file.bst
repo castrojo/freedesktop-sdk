@@ -1,10 +1,16 @@
 kind: autotools
 
-depends:
-- filename: bootstrap/file-build-deps.bst
-  type: build
+build-depends:
+- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
+- bootstrap/build/file-stage1.bst
 - filename: bootstrap/zlib.bst
-  type: runtime
+  config:
+    location: "%{sysroot}"
+
+runtime-depends:
+- bootstrap/zlib.bst
 
 (@):
 - elements/bootstrap/include/target.yml

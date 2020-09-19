@@ -1,10 +1,15 @@
 kind: autotools
 
-depends:
-- filename: bootstrap/acl-build-deps.bst
-  type: build
+build-depends:
+- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
 - filename: bootstrap/attr.bst
-  type: runtime
+  config:
+    location: "%{sysroot}"
+
+runtime-depends:
+- bootstrap/attr.bst
 
 public:
   bst:
