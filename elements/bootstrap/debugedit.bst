@@ -1,7 +1,12 @@
 kind: autotools
 
 build-depends:
-- bootstrap/debugedit-build-deps.bst
+- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
+- filename:  bootstrap/elfutils.bst
+  config:
+    location: "%{sysroot}"
 
 runtime-depends:
 - bootstrap/elfutils.bst

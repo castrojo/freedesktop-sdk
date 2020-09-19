@@ -2,7 +2,15 @@ kind: autotools
 description: GNU coreutils
 
 build-depends:
-- bootstrap/coreutils-build-deps.bst
+- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
+- bootstrap/build/coreutils-manpages.bst
+- filename:
+  - bootstrap/acl.bst
+  - bootstrap/libselinux.bst
+  config:
+    location: "%{sysroot}"
 
 runtime-depends:
 - bootstrap/acl.bst

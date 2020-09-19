@@ -1,12 +1,19 @@
 kind: autotools
 
-depends:
-- filename: bootstrap/elfutils-build-deps.bst
-  type: build
+build-depends:
+- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
 - filename: bootstrap/zlib.bst
-  type: runtime
+  config:
+    location: "%{sysroot}"
 - filename: bootstrap/bzip2.bst
-  type: runtime
+  config:
+    location: "%{sysroot}"
+
+runtime-depends:
+- bootstrap/zlib.bst
+- bootstrap/bzip2.bst
 
 (@):
 - elements/bootstrap/include/target.yml

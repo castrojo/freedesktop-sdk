@@ -1,12 +1,17 @@
 kind: autotools
 description: GNU gcc Stage 2
 
-depends:
-- filename: bootstrap/build/gcc-stage-2-build-deps.bst
-  type: build
+build-depends:
+- bootstrap/build/binutils-stage1.bst
+- bootstrap/build/python3.bst
+- bootstrap/gnu-config.bst
+- filename: bootstrap/glibc.bst
+  config:
+    location: "%{sysroot}"
 
-- filename: bootstrap/build/binutils-stage1.bst
-  type: runtime
+runtime-depends:
+- bootstrap/build/binutils-stage1.bst
+
 
 (@):
 - elements/bootstrap/include/gcc-arch-opts.yml
