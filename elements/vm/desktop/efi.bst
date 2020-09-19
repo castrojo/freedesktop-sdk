@@ -2,10 +2,14 @@ kind: script
 
 build-depends:
 - vm/deploy-tools.bst
-- vm/boot/efi-plymouth.bst
-- vm/desktop/filesystem.bst
 - vm/desktop/initial-scripts.bst
 - vm/prepare-image.bst
+- filename: vm/boot/efi-plymouth.bst
+  config:
+    location: '/sysroot/efi'
+- filename: vm/desktop/filesystem.bst
+  config:
+    location: '/sysroot'
 
 variables:
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
@@ -20,21 +24,10 @@ variables:
         linux-root: B921B045-1DF0-41C3-AF44-4C6F280D3FAE
 
 config:
-  layout:
-  - element: ''
-    destination: '/genimage'
-  - element: ''
-    destination: '/tmp'
-  - element: 'vm/deploy-tools.bst'
-    destination: '/'
-  - element: 'vm/boot/efi-plymouth.bst'
-    destination: '/sysroot/efi'
-  - element: 'vm/desktop/filesystem.bst'
-    destination: '/sysroot'
-  - element: 'vm/desktop/initial-scripts.bst'
-    destination: '/'
 
   commands:
+  - mkdir -p /genimage
+  - mkdir -p /tmp
   - prepare-image.sh --sysroot /sysroot --seed "%{uuidnamespace}" >/tmp/vars
 
   - |

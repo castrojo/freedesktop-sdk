@@ -2,31 +2,23 @@ kind: script
 
 build-depends:
 - vm/deploy-tools.bst
-- vm/boot/bios.bst
-- vm/minimal/filesystem.bst
 - vm/minimal/initial-scripts.bst
 - vm/prepare-image.bst
-
+- filename: vm/minimal/filesystem.bst
+  config:
+    location: '/sysroot'
+- filename: vm/boot/bios.bst
+  config:
+    location: '/sysroot/boot'
 
 variables:
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
 
 config:
-  layout:
-  - element: ''
-    destination: '/genimage'
-  - element: ''
-    destination: '/tmp'
-  - element: 'vm/deploy-tools.bst'
-    destination: '/'
-  - element: 'vm/boot/bios.bst'
-    destination: '/sysroot/boot'
-  - element: 'vm/minimal/filesystem.bst'
-    destination: '/sysroot'
-  - element: 'vm/minimal/initial-scripts.bst'
-    destination: '/'
 
   commands:
+  - mkdir -p /tmp
+  - mkdir -p /genimage
   - |
     prepare-image.sh \
        --sysroot /sysroot \

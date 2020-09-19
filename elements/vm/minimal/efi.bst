@@ -2,10 +2,14 @@ kind: script
 
 build-depends:
 - vm/deploy-tools.bst
-- vm/boot/efi.bst
-- vm/minimal/filesystem.bst
 - vm/minimal/initial-scripts.bst
 - vm/prepare-image.bst
+- filename: vm/minimal/filesystem.bst
+  config:
+    location: '/sysroot'
+- filename: vm/boot/efi.bst
+  config:
+    location: '/sysroot/efi'
 
 
 variables:
@@ -21,21 +25,10 @@ variables:
         linux-root: B921B045-1DF0-41C3-AF44-4C6F280D3FAE
 
 config:
-  layout:
-  - element: ''
-    destination: '/genimage'
-  - element: ''
-    destination: '/tmp'
-  - element: 'vm/deploy-tools.bst'
-    destination: '/'
-  - element: 'vm/boot/efi.bst'
-    destination: '/sysroot/efi'
-  - element: 'vm/minimal/filesystem.bst'
-    destination: '/sysroot'
-  - element: 'vm/minimal/initial-scripts.bst'
-    destination: '/'
 
   commands:
+  - mkdir -p /tmp
+  - mkdir -p /genimage
   - |
     prepare-image.sh \
        --sysroot /sysroot \
