@@ -13,7 +13,7 @@ class SnapImageElement(Element):
             'directory', 'include', 'exclude', 'metadata',
             'include-orphans'
         ])
-        self.directory = self.node_subst_vars(node.get_scalar('directory'))
+        self.directory = node.get_str('directory')
         self.include = node.get_str_list('include')
         self.exclude = node.get_str_list('exclude')
         self.include_orphans = node.get_bool('include-orphans')
