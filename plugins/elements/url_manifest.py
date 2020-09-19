@@ -122,10 +122,8 @@ class UrlManifestElement(Element):
     BST_VIRTUAL_DIRECTORY = True
 
     def configure(self, node):
-        if 'path' in node:
-            self.path = self.node_subst_vars(node.get_scalar('path'))
-        else:
-            self.path = None
+        node.validate_keys(["path"])
+        self.path = node.get_str("path", None)
 
     def preflight(self):
         pass
