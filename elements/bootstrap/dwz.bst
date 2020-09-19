@@ -2,14 +2,20 @@ kind: manual
 
 (@): elements/bootstrap/include/target.yml
 
-depends:
-- filename: bootstrap/dwz-build-deps.bst
-  type: build
-
+build-depends:
+- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
 - filename: bootstrap/glibc.bst
-  type: runtime
+  config:
+    location: "%{sysroot}"
 - filename: bootstrap/elfutils.bst
-  type: runtime
+  config:
+    location: "%{sysroot}"
+
+runtime-depends:
+- bootstrap/glibc.bst
+- bootstrap/elfutils.bst
 
 variables:
   make-args: >-

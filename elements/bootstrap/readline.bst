@@ -1,11 +1,16 @@
 kind: autotools
 description: GNU readline
 
-depends:
-- filename: bootstrap/readline-build-deps.bst
-  type: build
+build-depends:
+- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
 - filename: bootstrap/ncurses.bst
-  type: runtime
+  config:
+    location: "%{sysroot}"
+
+runtime-depends:
+- bootstrap/ncurses.bst
 
 (@): elements/bootstrap/include/target.yml
 

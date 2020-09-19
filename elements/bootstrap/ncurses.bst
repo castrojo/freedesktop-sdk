@@ -1,11 +1,17 @@
 kind: autotools
 description: GNU ncurses
 
-depends:
-- filename: bootstrap/ncurses-build-deps.bst
-  type: build
+build-depends:
+- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
+- bootstrap/build/ncurses-stage1.bst
 - filename: bootstrap/glibc.bst
-  type: runtime
+  config:
+    location: "%{sysroot}"
+
+runtime-depends:
+- bootstrap/glibc.bst
 
 (@):
 - elements/bootstrap/include/target.yml
