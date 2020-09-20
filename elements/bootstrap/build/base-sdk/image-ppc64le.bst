@@ -18,3 +18,5 @@ public:
     split-rules:
       filter:
       - "/usr/share/gnu-config/**"
+      - "/usr/bin/dwz"
+      - "/usr/share/man/man1/dwz.1"
