@@ -21,6 +21,7 @@ runtime-depends:
 - components/gpgme.bst
 - components/iana-config.bst
 - components/icu.bst
+- components/imagemagick.bst
 - components/iso-codes.bst
 - components/jpeg.bst
 - components/ladspa-sdk.bst

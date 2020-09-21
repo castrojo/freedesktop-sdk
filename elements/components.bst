@@ -142,6 +142,7 @@ depends:
 - components/ibus.bst
 - components/icu.bst
 - components/iio-sensor-proxy.bst
+- components/imagemagick.bst
 - components/iptables.bst
 - components/iproute2.bst
 - components/iputils.bst
