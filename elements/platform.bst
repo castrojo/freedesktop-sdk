@@ -1,7 +1,7 @@
 kind: stack
 description: Stack of elements in the freedesktop runtime
 
-runtime-depends:
+depends:
 - components/ca-certificates.bst
 - components/cracklib.bst
 - components/curl.bst

@@ -5,8 +5,7 @@ description: |
   extension, and not ship localisation data in the main SDK
 
 depends:
-- filename: bootstrap-import.bst
-  type: runtime
+- bootstrap-import.bst
 
 public:
   bst:

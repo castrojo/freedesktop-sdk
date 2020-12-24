@@ -1,6 +1,6 @@
 kind: stack
 
-runtime-depends:
+depends:
 - bootstrap-import.bst
 - components/util-linux.bst
 - components/linux.bst
@@ -57,12 +57,12 @@ runtime-depends:
 
 (?):
 - not pipewire:
-    runtime-depends:
+    depends:
       (>):
       - vm/config/pulseaudio.bst
       - vm/config/pipewire.bst
 - pipewire:
-    runtime-depends:
+    depends:
       (>):
       - vm/config/pipewire.bst
       - components/pipewire-libpulse.bst
