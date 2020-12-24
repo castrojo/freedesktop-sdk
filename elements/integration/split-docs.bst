@@ -6,8 +6,7 @@ description: |
   actual SDK
 
 depends:
-- filename: bootstrap-import.bst
-  type: runtime
+- bootstrap-import.bst
 
 public:
   bst:
