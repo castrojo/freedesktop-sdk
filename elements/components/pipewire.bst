@@ -17,7 +17,6 @@ config:
   exclude:
   - daemon
   - libjack
-  - libpulse
   include-orphans: True
 
 public:
