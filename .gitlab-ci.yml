@@ -10,7 +10,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "5723da215a83cf1e58ab8f8b839d4cca68e51454"
+  DOCKER_IMAGE_ID: "a0e30fe772ac13cc911cfa16bcb64cfbbc2ba03b"
   DOCKER_AMD64: "${DOCKER_REGISTRY}/bst2/amd64:${DOCKER_IMAGE_ID}"
   DOCKER_AARCH64: "${DOCKER_REGISTRY}/bst2/arm64:${DOCKER_IMAGE_ID}"
   DOCKER_PPC64LE: "${DOCKER_REGISTRY}/bst2/ppc64le:${DOCKER_IMAGE_ID}"
@@ -72,22 +72,25 @@ before_script:
         echo "projects:"
         echo "  freedesktop-sdk:"
         echo "    artifacts:"
+        echo "      servers:"
         if [ -f /cache-certificate/server.crt ]; then
-          echo "    - url: https://local-cas-server:1102"
-          echo "      client-key: /etc/ssl/CAS/server.key"
-          echo "      client-cert: /etc/ssl/CAS/server.crt"
-          echo "      server-cert: /cache-certificate/server.crt"
+          echo "      - url: https://local-cas-server:1102"
           if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
-            echo "      push: true"
+            echo "        push: true"
           fi
+          echo "        auth:"
+          echo "          client-key: /etc/ssl/CAS/server.key"
+          echo "          client-cert: /etc/ssl/CAS/server.crt"
+          echo "          server-cert: /cache-certificate/server.crt"
         fi
         if [ "${DISABLE_REMOTE_CACHE:+set}" != set ]; then
-          echo "    - url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
-          echo "      client-key: /etc/ssl/CAS/server.key"
-          echo "      client-cert: /etc/ssl/CAS/server.crt"
+          echo "      - url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
           if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
-            echo "      push: true"
+            echo "        push: true"
           fi
+          echo "        auth:"
+          echo "          client-key: /etc/ssl/CAS/server.key"
+          echo "          client-cert: /etc/ssl/CAS/server.crt"
         fi
       } >> ~/.config/buildstream.conf
     fi
