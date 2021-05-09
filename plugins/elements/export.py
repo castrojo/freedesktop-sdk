@@ -26,7 +26,6 @@ class ExportElement(Element):
 
     def stage(self, sandbox):
         commands = []
-        splits = {}
 
         for dep in self.dependencies():
             result = dep.stage_artifact(sandbox, path='files')

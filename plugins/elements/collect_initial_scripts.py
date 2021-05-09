@@ -1,6 +1,6 @@
 import os
 import re
-from buildstream import Element, ElementError
+from buildstream import Element
 
 class ExtractInitialScriptsElement(Element):
 

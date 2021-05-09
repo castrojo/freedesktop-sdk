@@ -1,6 +1,6 @@
 import os
 from ruamel import yaml
-from buildstream import Element, ElementError
+from buildstream import Element
 
 class SnapImageElement(Element):
 
