@@ -4,21 +4,15 @@ kind: script
 
 build-depends:
 - oci/oci-builder.bst
-- oci/sdk-oci.bst
-- oci/layers/debug.bst
 - oci/layers/sdk-init-script.bst
+- filename: oci/sdk-oci.bst
+  config:
+    location: /parent
+- filename: oci/layers/debug.bst
+  config:
+    location: /layer
 
 config:
-  layout:
-  - element: oci/oci-builder.bst
-    destination: /
-  - element: oci/layers/debug.bst
-    destination: /layer
-  - element: oci/sdk-oci.bst
-    destination: /parent
-  - element: oci/layers/sdk-init-script.bst
-    destination: /
-
   commands:
   - |
     if [ -d /initial_scripts ]; then

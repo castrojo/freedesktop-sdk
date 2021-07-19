@@ -4,18 +4,12 @@ kind: script
 
 build-depends:
 - oci/oci-builder.bst
-- oci/layers/bootstrap.bst
 - oci/layers/bootstrap-init-script.bst
+- filename: oci/layers/bootstrap.bst
+  config:
+    location: /layer
 
 config:
-  layout:
-  - element: oci/oci-builder.bst
-    destination: /
-  - element: oci/layers/bootstrap.bst
-    destination: /layer
-  - element: oci/layers/bootstrap-init-script.bst
-    destination: /
-
   commands:
   - |
     if [ -d /initial_scripts ]; then
