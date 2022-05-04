@@ -112,6 +112,27 @@ before_script:
           echo "          client-key: /etc/ssl/CAS/server.key"
           echo "          client-cert: /etc/ssl/CAS/server.crt"
         fi
+        echo "    source-caches:"
+        echo "      servers:"
+        if [ -f /cache-certificate/server.crt ]; then
+          echo "      - url: https://local-cas-server:1102"
+          if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
+            echo "        push: true"
+          fi
+          echo "        auth:"
+          echo "          client-key: /etc/ssl/CAS/server.key"
+          echo "          client-cert: /etc/ssl/CAS/server.crt"
+          echo "          server-cert: /cache-certificate/server.crt"
+        fi
+        if [ "${DISABLE_REMOTE_CACHE:+set}" != set ]; then
+          echo "      - url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
+          if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
+            echo "        push: true"
+          fi
+          echo "        auth:"
+          echo "          client-key: /etc/ssl/CAS/server.key"
+          echo "          client-cert: /etc/ssl/CAS/server.crt"
+        fi
       } >> ~/.config/buildstream.conf
     fi
 
