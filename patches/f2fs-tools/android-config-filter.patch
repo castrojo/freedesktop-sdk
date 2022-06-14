@@ -1,0 +1,14 @@
+diff --git a/tools/f2fs_io/f2fs_io.c b/tools/f2fs_io/f2fs_io.c
+index 0edac6f..bbf9f19 100644
+--- a/tools/f2fs_io/f2fs_io.c
++++ b/tools/f2fs_io/f2fs_io.c
+@@ -45,7 +45,9 @@
+ #ifdef HAVE_CONFIG_H
+ #include "config.h"
+ #endif
++#ifdef WITH_ANDROID
+ #include <android_config.h>
++#endif
+ 
+ #include "f2fs_io.h"
+ 
