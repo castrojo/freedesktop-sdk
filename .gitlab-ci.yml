@@ -66,6 +66,8 @@ before_script:
     # Force higher parallelity
     build:
       max-jobs: $(( $(nproc) / 4 ))
+    scheduler:
+      on-error: continue
     EOF
 
   - |
