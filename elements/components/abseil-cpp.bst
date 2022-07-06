@@ -10,6 +10,14 @@ variables:
   cmake-local: >-
     -DBUILD_SHARED_LIBS=ON
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libabsl_*.so'
+
+
 sources:
 - kind: git_repo
   url: github:abseil/abseil-cpp.git

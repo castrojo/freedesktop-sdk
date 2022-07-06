@@ -1,35 +1,29 @@
-kind: autotools
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
+- components/cmake.bst
 
 depends:
 - bootstrap-import.bst
+- components/abseil-cpp.bst
 
 variables:
-  autogen: |
-    libtoolize
-    aclocal
-    automake --add-missing --copy
-    autoconf
+  meson-local: >-
+    -Dcpp_std=c++17
 
 public:
   bst:
     split-rules:
       devel:
         (>):
-        - "%{libdir}/libwebrtc_audio_processing.so"
+        - "%{libdir}/libwebrtc-audio-coding-1.so"
+        - "%{libdir}//libwebrtc-audio-processing-1.so"
 
 sources:
 - kind: git_repo
   url: freedesktop:pulseaudio/webrtc-audio-processing.git
-  track: v0.3.*
-  ref: v0.3.1-0-ge882a5442ac22c93648e12837248d651d18b9247
+  track: v*
+  ref: v1.3-0-g8e258a1933d405073c9e6465628a69ac7d2a1f13
 - kind: patch
-  path: patches/webrtc-audio-processing/add-ppc-family-support.patch
-- kind: patch
-  path: patches/webrtc-audio-processing/riscv_support.patch
-- kind: patch
-  path: patches/webrtc-audio-processing/add-be-le-conversion.patch
-- kind: patch
-  path: patches/webrtc-audio-processing/fix-endianness-read-write.patch
+  path: patches/webrtc-audio-processing/Bring-arch.h-in-line-with-upstream-webrtc.patch
