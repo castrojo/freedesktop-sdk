@@ -5,6 +5,8 @@ build-depends:
 - components/flex.bst
 - components/gzip.bst
 - components/bc.bst
+- components/swig.bst
+- components/python3-setuptools.bst
 
 variables:
   (?):
