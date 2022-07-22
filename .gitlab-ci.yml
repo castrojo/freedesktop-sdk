@@ -19,7 +19,7 @@ variables:
   GIT_SUBMODULE_STRATEGY: "recursive"
 
 default:
-  image: "${DOCKER_REGISTRY}/bst16:${DOCKER_IMAGE_ID}"
+  image: "${DOCKER_REGISTRY}/bst2:${DOCKER_IMAGE_ID}"
   interruptible: true
   after_script:
   - make clean
