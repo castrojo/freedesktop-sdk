@@ -955,7 +955,7 @@ publish_snap_aarch64:
     
     ${BST} -o target_arch ${ARCH} build ${BST_ELEMENTS[@]}
     for element in ${BST_ELEMENTS[@]}; do
-       ${BST} -o target_arch ${ARCH} checkout ${element} --tar - | podman load
+       ${BST} -o target_arch ${ARCH} artifact checkout ${element} --tar - | podman load
     done
 
   - podman login -u "${DOCKER_HUB_USER}" -p "${DOCKER_HUB_PASSWORD}" "${DOCKER_HUB_ADDRESS}"

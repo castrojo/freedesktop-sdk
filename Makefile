@@ -74,8 +74,8 @@ export: clean-runtime
 	$(BST) build flatpak-release.bst
 
 	mkdir -p $(CHECKOUT_ROOT)
-	$(BST) checkout --hardlinks flatpak-release-repo.bst $(CHECKOUT_ROOT)/flatpak-release-repo.bst
-	$(BST) checkout --hardlinks flatpak-release-repo-extra.bst $(CHECKOUT_ROOT)/flatpak-release-repo-extra.bst
+	$(BST) artifact checkout --hardlinks flatpak-release-repo.bst --directory $(CHECKOUT_ROOT)/flatpak-release-repo.bst
+	$(BST) artifact checkout --hardlinks flatpak-release-repo-extra.bst --directory $(CHECKOUT_ROOT)/flatpak-release-repo-extra.bst
 
 	test -e $(REPO) || ostree init --repo=$(REPO) --mode=archive
 
@@ -92,7 +92,7 @@ export-tar: build-tar
 	set -e; for tarball in $(TARBALLS); do \
 		dir="$(ARCH)-$${tarball}"; \
 		mkdir -p "$(TAR_CHECKOUT_ROOT)/$${dir}"; \
-		$(BST) checkout "tarballs/$${tarball}.bst" --tar - | xz -T0 > "$(TAR_CHECKOUT_ROOT)/$${dir}/freedesktop-$${tarball}-$(ARCH).tar.xz"; \
+		$(BST) artifact checkout "tarballs/$${tarball}.bst" --tar - | xz -T0 > "$(TAR_CHECKOUT_ROOT)/$${dir}/freedesktop-$${tarball}-$(ARCH).tar.xz"; \
 	done
 
 clean-vm:
@@ -100,10 +100,10 @@ clean-vm:
 	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
 
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM):
-	$(BST) checkout --hardlinks $(VM_ARTIFACT_FILESYSTEM) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
+	$(BST) artifact checkout --hardlinks $(VM_ARTIFACT_FILESYSTEM) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
 
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT):
-	$(BST) checkout --hardlinks $(VM_ARTIFACT_BOOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
+	$(BST) artifact checkout --hardlinks $(VM_ARTIFACT_BOOT) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
 
 build-vm:
 	$(BST) build $(VM_ARTIFACT_FILESYSTEM) $(VM_ARTIFACT_BOOT)
@@ -175,8 +175,8 @@ manifest:
 
 	$(BST) build manifests/platform-manifest.bst manifests/sdk-manifest.bst
 
-	$(BST) checkout manifests/platform-manifest.bst platform-manifest/
-	$(BST) checkout manifests/sdk-manifest.bst sdk-manifest/
+	$(BST) artifact checkout manifests/platform-manifest.bst --directory platform-manifest/
+	$(BST) artifact checkout manifests/sdk-manifest.bst --directory sdk-manifest/
 
 markdown-manifest: manifest
 	python3 utils/jsontomd.py platform-manifest/usr/manifest.json
@@ -246,7 +246,7 @@ clean: clean-repo clean-runtime clean-test clean-vm clean-efi-vm
 
 export-snap:
 	bst --colors $(ARCH_OPTS) build "snap-images/images.bst"
-	bst --colors $(ARCH_OPTS) checkout "snap-images/images.bst" snap/
+	bst --colors $(ARCH_OPTS) artifact checkout "snap-images/images.bst" --directory snap/
 
 export-oci:
 	$(BST) build oci/platform-oci.bst \
@@ -256,7 +256,7 @@ export-oci:
 	             oci/toolbox-oci.bst
 	set -e; \
 	for name in platform sdk debug flatpak toolbox; do \
-	  $(BST) checkout "oci/$${name}-oci.bst" --tar "$${name}-oci.tar"; \
+	  $(BST) artifact checkout "oci/$${name}-oci.bst" --tar "$${name}-oci.tar"; \
 	done
 
 export-docker:
@@ -267,12 +267,12 @@ export-docker:
 	             oci/toolbox-docker.bst
 	set -e; \
 	for name in platform sdk debug flatpak toolbox; do \
-	  $(BST) checkout "oci/$${name}-docker.bst" --tar "$${name}-docker.tar"; \
+	  $(BST) artifact checkout "oci/$${name}-docker.bst" --tar "$${name}-docker.tar"; \
 	done
 
 track-mesa-git:
-	$(BST) track extensions/mesa-git/libdrm.bst
-	$(BST) track extensions/mesa-git/mesa.bst
+	$(BST) source track extensions/mesa-git/libdrm.bst
+	$(BST) source track extensions/mesa-git/mesa.bst
 
 define OSTREE_GPG_CONFIG
 Key-Type: DSA
@@ -312,7 +312,7 @@ vulkan-stack-update:
 	components/spirv-headers.bst \
 	components/spirv-tools.bst; do \
 	sed -ie "s/- sdk-[1-9]\..*/- sdk-${SDK_VERSION}/" elements/$${name}; \
-	bst track $${name}; \
+	bst source track $${name}; \
 	done
 
 ifeq ($(ARCH),i686)
@@ -368,9 +368,9 @@ ostree-serve: ostree-repo
 	python3 -m http.server 8000 --directory ostree-repo
 
 $(CHECKOUT_ROOT)/ostree-vm-$(ARCH): files/vm/ostree-config/fdsdk.gpg ostree-config.yml ostree-repo
-	$(BST) track vm/minimal-ostree/image.bst
+	$(BST) source track vm/minimal-ostree/image.bst
 	$(BST) build vm/minimal-ostree/image.bst
-	$(BST) checkout vm/minimal-ostree/image.bst "$@"
+	$(BST) artifact checkout vm/minimal-ostree/image.bst --directory "$@"
 
 run-ostree-vm: $(CHECKOUT_ROOT)/ostree-vm-$(ARCH) efi_vars.fd
 	$(QEMU)							\
