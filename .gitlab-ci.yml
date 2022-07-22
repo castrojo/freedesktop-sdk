@@ -21,7 +21,7 @@ variables:
   BUILD_CPU_MULTIPLIER: 1
 
 default:
-  image: "${DOCKER_REGISTRY}/bst16:${DOCKER_IMAGE_ID}"
+  image: "${DOCKER_REGISTRY}/bst2:${DOCKER_IMAGE_ID}"
   interruptible: true
   after_script:
   - make clean
