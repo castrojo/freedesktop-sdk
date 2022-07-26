@@ -9,4 +9,4 @@ build-depends:
 config:
   commands:
   - |
-    %{bindir}/find-rpath.py %{gcc_triplet} /sysroot
+    /utils/find-rpath.py %{gcc_triplet} /sysroot

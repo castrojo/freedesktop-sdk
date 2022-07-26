@@ -1,15 +1,6 @@
-kind: manual
+kind: stack
 
 depends:
 - bootstrap-import.bst
 - components/python3-pyelftools.bst
-
-config:
-  install-commands:
-  - |
-    install -D -t "%{install-root}%{bindir}" find-rpath.py
-
-sources:
-- kind: local
-  path: utils/find-rpath.py
-
+- tests/utils.bst
