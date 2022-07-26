@@ -9,7 +9,7 @@ build-depends:
 config:
   commands:
   - |
-    %{bindir}/scan-for-dev-files.sh /sysroot > found_dev_files.txt
+    /utils/scan-for-dev-files.sh /sysroot > found_dev_files.txt
 
     set -e; if [ -s found_dev_files.txt ]; then
     echo "Found development files:" 1>&2
