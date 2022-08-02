@@ -1,13 +1,15 @@
 kind: autotools
 
-depends:
-- filename: bootstrap-import.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
+build-depends:
+- public-stacks/buildsystem-autotools.bst
 
+depends:
+- bootstrap-import.bst
 
 variables:
-  autogen: autoreconf -vif
+  autogen: |
+    cp /usr/share/gettext/config.rpath .
+    autoreconf -vif
 
 public:
   bst:
@@ -20,4 +22,4 @@ sources:
 - kind: git_tag
   url: github:dbry/WavPack.git
   track: master
-  ref: 5.4.0-0-g2ce3c069be548e82ea9c05741ace6583e549c6de
+  ref: 5.5.0-0-g89ef99e84333534d9d43093a5264a398b5f1e14a
