@@ -43,17 +43,6 @@ variables:
     -Dexamples=disabled
     -Drpicamsrc=disabled
 
-public:
-  cpe:
-    patches:
-    - CVE-2022-1920
-    - CVE-2022-1921
-    - CVE-2022-1922
-    - CVE-2022-1923
-    - CVE-2022-1924
-    - CVE-2022-1925
-    - CVE-2022-2122
-    
 sources:
 - kind: git_tag
   url: freedesktop:gstreamer/gst-plugins-good.git
