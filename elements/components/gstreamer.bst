@@ -39,6 +39,16 @@ public:
         - '%{libdir}/libgstreamer-1.0.so'
         - '%{libdir}/libgstcontroller-1.0.so'
 
+  cpe:
+    patches:
+    - CVE-2022-1920
+    - CVE-2022-1921
+    - CVE-2022-1922
+    - CVE-2022-1923
+    - CVE-2022-1924
+    - CVE-2022-1925
+    - CVE-2022-2122
+
 sources:
 - kind: git_tag
   url: freedesktop:gstreamer/gstreamer.git
