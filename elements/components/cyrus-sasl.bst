@@ -33,7 +33,7 @@ config:
     %{make-install} sasldir="%{libdir}/sasl2"
 
   - |
-    %{delete_libtool_files}
+    %{delete-libtool-archives}
 
 public:
   bst:

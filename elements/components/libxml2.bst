@@ -14,12 +14,6 @@ variables:
     --with-python=%{bindir}/python3
     CPPFLAGS="$(pkg-config --cflags-only-I python3)"
 
-config:
-  install-commands:
-    (>):
-    - |
-      %{delete_libtool_files}
-
 public:
   bst:
     split-rules:
