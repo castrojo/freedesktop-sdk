@@ -1,5 +1,5 @@
 SHELL=/bin/bash
-BRANCH=22.08beta
+BRANCH=23.08beta
 ARCH?=$(shell uname -m | sed "s/^i.86$$/i686/")
 BOOTSTRAP_ARCH?=$(shell uname -m | sed "s/^i.86$$/i686/")
 ifeq ($(ARCH),i686)
