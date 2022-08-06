@@ -21,4 +21,7 @@ public:
       - '%{debugdir}%{libdir}/libbluetooth*.so*'
       - '%{sourcedir}/**'
 
+  cpe:
+    product: bluez
+
 (@): elements/include/bluez.yml
