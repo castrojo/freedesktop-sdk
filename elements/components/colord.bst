@@ -5,6 +5,7 @@ build-depends:
 - components/gobject-introspection.bst
 - components/gtk-doc.bst
 - components/vala.bst
+- components/systemd.bst
 
 depends:
 - components/glib.bst
