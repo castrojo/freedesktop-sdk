@@ -5,6 +5,7 @@ build-depends:
 
 runtime-depends:
 - bootstrap-import.bst
+- components/bluez-manifest.bst
 - components/glib.bst
 - components/dbus.bst
 - components/libical.bst
