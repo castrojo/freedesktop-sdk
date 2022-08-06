@@ -15,6 +15,10 @@ public:
   bst:
     split-rules:
       bluez-libs:
-      - '%{libdir}/libbluetooth.so'
+      - '%{libdir}/libbluetooth*.so.*'
+      - '%{includedir}/bluetooth/**'
+      - '%{debugdir}/dwz/%{element-name}/*'
+      - '%{debugdir}%{libdir}/libbluetooth*.so*'
+      - '%{sourcedir}/**'
 
 (@): elements/include/bluez.yml
