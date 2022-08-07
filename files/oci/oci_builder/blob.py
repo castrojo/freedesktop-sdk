@@ -61,8 +61,9 @@ class Blob:
                     if len(data) == 0:
                         break
                     file_hash.update(data)
+                hexdigest = file_hash.hexdigest()
                 if self.global_conf.mode == 'oci':
-                    self.descriptor['digest'] = 'sha256:{}'.format(file_hash.hexdigest())
+                    self.descriptor['digest'] = f'sha256:{hexdigest}'
                     os.makedirs(os.path.join(self.global_conf.output,
                                              'blobs',
                                              'sha256'),
@@ -74,19 +75,28 @@ class Blob:
                 else:
                     assert self.global_conf.mode == 'docker'
                     if self.media_type.endswith('+json'):
-                        self.filename = os.path.join(self.global_conf.output,
-                                                     '{}.json'.format(file_hash.hexdigest()))
-                        self.descriptor = '{}.json'.format(file_hash.hexdigest())
+                        self.filename = os.path.join(
+                            self.global_conf.output,
+                            '{hexdigest}.json'
+                        )
+                        self.descriptor = '{hexdigest}.json'
                     elif self.media_type.startswith('application/vnd.oci.image.layer.v1.tar'):
                         blobdir = os.path.join(self.global_conf.output, file_hash.hexdigest())
                         os.makedirs(blobdir)
                         self.filename = os.path.join(blobdir, 'layer.tar')
-                        with open(os.path.join(blobdir, 'VERSION'), 'w') as version_file:
+                        with open(
+                            os.path.join(blobdir, 'VERSION'),
+                            'w',
+                            encoding="utf-8",
+                        ) as version_file:
                             version_file.write('1.0')
                         self.legacy_config['id'] = file_hash.hexdigest()
                         self.legacy_id = file_hash.hexdigest()
-                        with open(os.path.join(blobdir, 'json'),
-                                  'w', encoding='utf-8') as legacy_config_file:
+                        with open(
+                            os.path.join(blobdir, 'json'),
+                            'w',
+                            encoding='utf-8',
+                        ) as legacy_config_file:
                             json.dump(self.legacy_config, legacy_config_file)
                         self.descriptor = os.path.join(file_hash.hexdigest(), 'layer.tar')
                     else:
