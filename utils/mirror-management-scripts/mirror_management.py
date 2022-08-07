@@ -6,6 +6,7 @@ that the download mirrors are correctly set up.
 
 See the help information in check_mirrors.py for more information.'''
 
+import functools
 import json
 import re
 import subprocess
@@ -97,19 +98,22 @@ MIRROR_DEFINED_TEST_DICT = {
     'verbose_text': "Identifying sources where no mirror_url is defined:"
 }
 
-GLAB_MIRROR_DICT = {}
+@functools.cache
+def glab_mirror_dict():
+    mapping = {}
+    mapping.update(get_repo_list_from_gitlab())
+    mapping.update(get_file_mirror_list_from_gitlab())
+    return mapping
+
 def mirror_exists_test(source_dict):
     '''Accesses a list of all the mirrors we've created in our gitlab group,
     and tests whether the current source is mirrored there.
     Returns a string describing the problem, or 'None' if all is well.'''
-    if GLAB_MIRROR_DICT == {}:
-        GLAB_MIRROR_DICT.update(get_repo_list_from_gitlab())
-        GLAB_MIRROR_DICT.update(get_file_mirror_list_from_gitlab())
 
     mirror_url = source_dict['mirror_url']
     if mirror_url and mirror_url.endswith('.git'):
         mirror_url = mirror_url[:-4]
-    if mirror_url not in GLAB_MIRROR_DICT:
+    if mirror_url not in glab_mirror_dict():
         return "Download mirror doesn't seem to have been created"
     return None
 
@@ -140,7 +144,7 @@ def get_repo_list_from_gitlab():
     glb = gitlab.Gitlab(GITLAB_URL)
     print("Contacting Gitlab instance")
     mirror_group = glb.groups.get(MIRROR_GROUP_ID)
-    print("Getting list of git mirrors from {}".format(mirror_group.web_url))
+    print(f"Getting list of git mirrors from {mirror_group.web_url}")
     projects = mirror_group.projects.list(all=True, include_subgroups=True)
 
     output_dict = {}
@@ -158,7 +162,7 @@ def get_file_mirror_list_from_gitlab():
     glb = gitlab.Gitlab(GITLAB_URL)
     print("Contacting Gitlab instance")
     tar_project = glb.projects.get(TAR_PROJECT_ID)
-    print("Getting list of file mirrors from {}".format(tar_project.http_url_to_repo))
+    print(f"Getting list of file mirrors from {tar_project.http_url_to_repo}")
     tar_list = tar_project.repository_tree(recursive=True, all=True)
     output_dict = {}
     for tar_file in tar_list:
@@ -185,7 +189,7 @@ def clear_line():
     '''Clears the current line of stdout, and moves cursor back to the left of
     the screen. Used after sys.stdout.write()'''
     if IS_TTY:
-        sys.stdout.write(u'\u001b[2K\u001b[1000D') # Clear line & reset cursor back to the left
+        sys.stdout.write('\u001b[2K\u001b[1000D') # Clear line & reset cursor back to the left
         sys.stdout.flush()
 
 INIT_COMMAND = 'git init'
@@ -201,7 +205,7 @@ def test_commit_exists(repo_url, commit_ref):
     Anything up to a 'g' character will be removed, to leave the sha1'''
     sha1 = re.search("(.*g)?(.*)", commit_ref).group(2)
     if IS_TTY:
-        info_string = "Checking commit exists at {}  ".format(repo_url)
+        info_string = f"Checking commit exists at {repo_url}"
         sys.stdout.write(info_string)
         sys.stdout.flush()
     with tf.TemporaryDirectory() as tmp_dir:
@@ -225,7 +229,7 @@ def test_commit_exists(repo_url, commit_ref):
 def test_ostree_url_exists(repo_url, commit_ref):
     '''Tests if a remote repository contains a given commit, given an url and a
     ref.'''
-    info_string = "Checking ostree commit exists at {}".format(repo_url)
+    info_string = f"Checking ostree commit exists at {repo_url}"
     is_tty = sys.stdout.isatty()
     if is_tty:
         sys.stdout.write(info_string)
