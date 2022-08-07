@@ -87,7 +87,7 @@ def build_qemu_image_command(args):
     except subprocess.CalledProcessError:
         sys.stderr.write('Cannot query qemu for accelerator. Not using it.\n')
 
-    return [QEMU, '-drive', 'file=%s,format=raw' % args.sda, '-nographic'] + QEMU_EXTRA_ARGS + kvm_args
+    return [QEMU, '-drive', f'file={args.sda},format=raw', '-nographic'] + QEMU_EXTRA_ARGS + kvm_args
 
 
 def build_command(args):
@@ -98,7 +98,7 @@ def argument_parser():
     parser = argparse.ArgumentParser(
         description="Test that a minimal-system VM image works as expected")
     parser.add_argument('--dialog', dest='dialog', default='root-login',
-                        help='dialog to follow (valid values {}, default: root-login)'.format(DIALOGS.keys()))
+                        help=f'dialog to follow (valid values {DIALOGS.keys()}, default: root-login)')
 
     subparsers = parser.add_subparsers()
     image_parser = subparsers.add_parser('image')
@@ -165,8 +165,9 @@ async def run_test(command, dialog):
 
 
 def fail_timeout(qemu_task):
-    sys.stderr.write("Test failed as timeout of %i seconds was reached.\n" %
-                     FAILURE_TIMEOUT)
+    sys.stderr.write(
+        f"Test failed as timeout of {FAILURE_TIMEOUT} seconds was reached.\n"
+    )
     qemu_task.cancel()
 
 
