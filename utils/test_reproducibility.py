@@ -80,7 +80,7 @@ class BuildstreamConfiguration:
         if not found:
             self._default_cache_folder()
         else:
-            with open(config, "r") as config_file:
+            with open(config, "r", encoding="utf-8") as config_file:
                 parsed_config = yaml.load(config_file.read(), Loader=yaml.SafeLoader)
                 if "artifactdir" in parsed_config:
                     self.cache_folder = os.path.join(
@@ -513,7 +513,7 @@ def write_html_report(results, output_dir: str, output_filename: str) -> None:
                         with tag("td"):
                             text(" - ")
 
-    with open(output_filename, "w") as file:
+    with open(output_filename, "w", encoding="utf-8") as file:
         result = indent(doc.getvalue())
         file.write(result)
 
