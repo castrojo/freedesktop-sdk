@@ -17,7 +17,7 @@ data = {
 }
 encoded_data = urllib.parse.urlencode(data).encode('ascii')
 
-req = urllib.request.Request('https://auth.docker.io/token?{}'.format(urllib.parse.urlencode(data)))
+req = urllib.request.Request('https://auth.docker.io/token?{urllib.parse.urlencode(data)}')
 with urllib.request.urlopen(req) as resp:
     jresp = json.load(resp)
     token = jresp['access_token']
