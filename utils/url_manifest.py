@@ -64,9 +64,9 @@ def get_source_locations(sources):
             cargo_alias = raw_cargo_url.split(':', 1)[0]
             base_cargo_url = source.translate_url(source.url)
             for crate in source.ref:
-                rest_of_url = '/{}/{}-{}.crate'.format(
-                    crate['name'], crate['name'], crate['version']
-                )
+                name = crate["name"]
+                version = crate["version"]
+                rest_of_url = f'/{name}/{name}-{version}.crate'
                 source_locations.append({
                     'kind': 'cargo',
                     'alias': cargo_alias,
@@ -136,5 +136,5 @@ if __name__ == '__main__':
 
     os.makedirs(os.path.dirname(manifest_file), exist_ok=True)
 
-    with open(sys.argv[1], 'w') as f:
+    with open(sys.argv[1], 'w', encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)
