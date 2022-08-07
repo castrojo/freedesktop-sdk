@@ -147,7 +147,11 @@ PROBLEM_FILE_HELP = (
         "the path to the json file listing unmirrored sources. Defaults to "
         + DEFAULT_PROBLEM_FILE + "."
     )
-PROCEED = lambda: input("Proceed (Y/n)? ")[:1] in ['Y', 'y', '']
+
+
+def PROCEED():
+    return input("Proceed (Y/n)? ")[:1] in ['Y', 'y', '']
+
 
 def get_arg_parser():
     """Prepare the arg_parser object."""
@@ -220,7 +224,7 @@ def main():
                 create_file_mirror(mirror_dict['source_url'], tar_repo_dir, new_mirror_url)
 
             else:
-                print("{} mirrors not implemented yet, cancelling".format(source_kind))
+                print(f"{source_kind} mirrors not implemented yet, cancelling")
     print("===============================================================")
     if tar_repo_initialized:
         push_tar_repo(tar_repo_dir, access_token, prompt_needed=args.require_prompt)
@@ -279,7 +283,7 @@ def get_access_token(access_token_file_name):
     '''Acquires the access token from the specified filename if available, and
     requests it from user input otherwise.'''
     if os.path.exists(access_token_file_name):
-        with open(access_token_file_name, mode='r') as token_file:
+        with open(access_token_file_name, mode='r', encoding="utf-8") as token_file:
             return token_file.read().strip()
     else:
         print_green("\nPlease supply a Gitlab API access token.")
@@ -292,7 +296,7 @@ def read_problems_file(problem_file_name):
     """Loads the list of mirrors that need creating, from the supplied filename.
     Prints an error and exits script if the load fails."""
     try:
-        with open(problem_file_name, mode='r') as problems_file:
+        with open(problem_file_name, mode='r', encoding="utf-8") as problems_file:
             return json.load(problems_file)
     except FileNotFoundError:
         print_red("Couldn't access file ", problem_file_name)
@@ -302,15 +306,15 @@ def read_problems_file(problem_file_name):
 def print_green(green_thing, white_thing=''):
     """Utility function for printing more eyecatching information updates"""
     print(
-        '\u001b[32m' + "{}".format(green_thing)
-        + '\u001b[0m' + "{}".format(white_thing)
+        f"u001b[32m{green_thing}"
+        f"u001b[0m{white_thing}"
     )
 
 def print_red(red_thing, white_thing=''):
     """Utility function for printing more eyecatching information updates"""
     print(
-        '\u001b[31m' + "{}".format(red_thing)
-        + '\u001b[0m' + "{}".format(white_thing)
+        f"\u001b[31m{red_thing}"
+        f"\u001b[0m{white_thing}"
     )
 
 def get_mirror_url_and_proceed(mirror_dict, prompt_needed=True):
@@ -367,23 +371,23 @@ def get_gitlab_group_id(gitlab_instance, top_group, relative_group_path):
     parent_full_path = top_group.full_path
     for group_path in group_path_list:
         parent_group = gitlab_instance.groups.get(parent_group_id)
-        daughter_full_path = '/'.join([parent_full_path, group_path])
-        print("Finding subgroup:   {}".format(daughter_full_path))
+        child_full_path = '/'.join([parent_full_path, group_path])
+        print("Finding subgroup:   {child_full_path}")
 
-        daughter_group_id = None
+        child_group_id = None
         for subg in parent_group.subgroups.list(all=True):
-            if subg.full_path == daughter_full_path:
-                daughter_group_id = subg.id
+            if subg.full_path == child_full_path:
+                child_group_id = subg.id
                 break
-        if daughter_group_id is not None:
-            # if we successfully found the daughter group
+        if child_group_id is not None:
+            # if we successfully found the child group
             # move one step down the chain
-            parent_group_id = daughter_group_id
-            parent_full_path = daughter_full_path
+            parent_group_id = child_group_id
+            parent_full_path = child_full_path
         else:
-            # create the daughter group
+            # create the child group
             print('\u001b[1A' + '\u001b[32m' + "Creating subgroup:" + '\u001b[0m')
-            daughter_group = gitlab_instance.groups.create(
+            child_group = gitlab_instance.groups.create(
                 {
                     'name': group_path,
                     'path': group_path,
@@ -392,11 +396,11 @@ def get_gitlab_group_id(gitlab_instance, top_group, relative_group_path):
                 }
             )
             # check that the newly created group has the path we wanted it to:
-            if daughter_group.full_path != daughter_full_path:
+            if child_group.full_path != child_full_path:
                 raise ValueError
             # and move one step down the chain
-            parent_group_id = daughter_group.id
-            parent_full_path = daughter_group.full_path
+            parent_group_id = child_group.id
+            parent_full_path = child_group.full_path
     return parent_group_id
 
 def create_project(gitlab_instance, parent_group_id, new_project_path, import_url):
@@ -519,7 +523,7 @@ def initialize_tar_repo(repo_path, access_token, prompt_needed=True):
         else:
             print_red("Tar file repo doesn't exist in the target folder")
             print_green("Ready to fetch the repository from ", TAR_REPO_URL)
-            print("Into target folder: {}".format(os.path.abspath(repo_path)))
+            print(f"Into target folder: {os.path.abspath(repo_path)}")
             print_red("IMPORTANT: ", "this script is about to download the "
                       + "tarball-lfs repository into the directory listed above. This "
                       + "is a large repository (around 10 Gigabytes at time of writing"
