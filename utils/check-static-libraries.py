@@ -25,7 +25,7 @@ all_identified_static_libraries = []
 complain_list = []
 
 #read the allow_list from file
-with open(args.allow_list_filename, "r") as allow_list_file:
+with open(args.allow_list_filename, "r", encoding="utf-8") as allow_list_file:
     allow_list = (allow_list_file.read().split("\n"))
 
 #filter the allow_list to remove empty lines, and hash-marked comments
@@ -44,15 +44,15 @@ for root, dirs, files in os.walk(args.target_dir):
 if args.verbose:
     print("Static Library files identified:")
     for identified_file in all_identified_static_libraries:
-        print("  {}".format(identified_file))
+        print(f"  {identified_file}")
     print("Allowing static files that match the following patterns:")
     for allowed_file_pattern in allow_list:
-        print("  {}".format(allowed_file_pattern))
+        print(f"  {allowed_file_pattern}")
     if not complain_list:
         print("No un-allowed static libraries identified.")
 
 if complain_list:
     print("Identified the following static library files, which are not in the allow_list:")
     for complain_filename in complain_list:
-        print("  {}".format(complain_filename))
+        print(f"  {complain_filename}")
     sys.exit(1)
