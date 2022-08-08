@@ -39,6 +39,8 @@ sources:
   exclude:
   - '*.*[13579].*'
   ref: 2.54.4-0-g6539eef7be69c3f7089489c9a8f39d085e677bad
+- kind: patch
+  path: patches/librsvg/rsvg-convert-stability.patch
 - kind: cargo
   url: crates:crates
   ref:
