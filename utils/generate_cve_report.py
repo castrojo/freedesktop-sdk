@@ -151,7 +151,7 @@ if __name__ == "__main__":
 
     entries.sort(key=by_score, reverse=True)
 
-    with open(sys.argv[2], 'w') as out:
+    with open(sys.argv[2], 'w', encoding="utf-8") as out:
         out.write("|Vulnerability|Element|Version|Summary|Score|WIP|\n")
         out.write("|---|---|---|---|---|---|\n")
 
