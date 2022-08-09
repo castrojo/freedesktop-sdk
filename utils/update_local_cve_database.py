@@ -21,13 +21,13 @@ from urllib3.util.retry import Retry
 TIMEOUT = (10, 30)
 
 
-def update_year(session, updated_year):
-    url = 'https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-{}.json.gz'.format(updated_year)
+def update_year(session, year):
+    url = f'https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-{year}.json.gz'
     headers = {}
-    filename = 'nvdcve-1.1-{}.json.gz'.format(year)
+    filename = f'nvdcve-1.1-{year}.json.gz'
     if os.path.exists(filename):
         try:
-            with open(f"{filename}.etag") as file:
+            with open(f"{filename}.etag", encoding="utf-8") as file:
                 etag = file.read()
         except FileNotFoundError:
             etag = None
@@ -40,20 +40,20 @@ def update_year(session, updated_year):
                            timeout=TIMEOUT)
     if not response.ok:
         if response.status_code == 404:
-            print("{} not found".format('nvdcve-1.1-{}.json.gz'.format(year)))
+            print(f"nvdce-1.1-{year}.json.gz not found".format)
             for _ in response.iter_content():
                 pass
     elif response.status_code == 304:
         response.close()
-        print("Cached {}".format('nvdcve-1.1-{}.json.gz'.format(year)))
+        print("Cached nvdce-1.1-{year}.json.gz")
     else:
         etag = response.headers["ETag"]
         assert etag is not None
         with open(filename, 'wb') as file:
             for chunk in response.iter_content(1024**2):
                 file.write(chunk)
-            print("Downloaded {}".format(file.name))
-            with open(f"{filename}.etag", "w") as file:
+            print(f"Downloaded {file.name}")
+            with open(f"{filename}.etag", "w", encoding="utf-8") as file:
                 file.write(etag)
 
 if __name__ == "__main__":
@@ -61,5 +61,5 @@ if __name__ == "__main__":
     with requests.session() as session:
         retries = Retry(total=5, backoff_factor=1)
         session.mount('https://', HTTPAdapter(max_retries=retries))
-        for year in range(2002, datetime.datetime.now().year + 1):
-            update_year(session, str(year))
+        for item in range(2002, datetime.datetime.now().year + 1):
+            update_year(session, str(item))

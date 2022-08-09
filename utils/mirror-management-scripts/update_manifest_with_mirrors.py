@@ -33,18 +33,26 @@ def main():
         '-o', '--output_file', default=DEFAULT_OUTPUT_FILENAME,
         metavar='OUTPUT_FILENAME.json',
         help='The filename in which to save a json output manifest' +
-        '\ndefaults to: {}'.format(DEFAULT_OUTPUT_FILENAME)
+        f'\ndefaults to: {DEFAULT_OUTPUT_FILENAME}'
     )
     args = arg_parser.parse_args()
 
     manifest = get_manifest_with_mirrors(args.manifest_file, args.mirror_aliases_file)
 
-    with open('url-manifest-with-mirrors.json', mode='w') as output_file:
+    with open(
+        'url-manifest-with-mirrors.json',
+        mode='w',
+        encoding="utf-8",
+    ) as output_file:
         json.dump(manifest, output_file, indent=2)
 
 def get_manifest_with_mirrors(manifest_filepath, mirror_aliases_file_path):
     '''Combines everything into one function, for ease of use.'''
-    with open(manifest_filepath, mode='r') as input_manifest_file:
+    with open(
+        manifest_filepath,
+        mode='r',
+        encoding="utf-8",
+    ) as input_manifest_file:
         manifest = json.load(input_manifest_file)
     mirror_alias_dict = get_mirror_alias_dict(mirror_aliases_file_path)
     update_manifest_with_mirrors(manifest, mirror_alias_dict)
@@ -54,7 +62,11 @@ def get_mirror_alias_dict(mirror_path):
     '''Collects the mirror alias information from a yaml file, and parses it
     into the format we need'''
     yaml = YAML(typ='safe')
-    with open(mirror_path, mode='r') as mirror_file:
+    with open(
+        mirror_path,
+        mode='r',
+        encoding="utf-8",
+    ) as mirror_file:
         mirror_list = yaml.load(mirror_file)['mirrors']
     # mirror_list contains dictionaries with groups of mirror-aliases
     # each dict has format {'name':<name>, 'aliases':<alias_dict>}
@@ -64,7 +76,7 @@ def get_mirror_alias_dict(mirror_path):
     for mirror_group_dict in mirror_list:
         m_dict = mirror_group_dict['aliases']
         for alias, url_list in m_dict.items():
-            if alias not in mirror_alias_dict.keys():
+            if alias not in mirror_alias_dict:
                 mirror_alias_dict[alias] = url_list
             else:
                 mirror_alias_dict[alias].extend(url_list)

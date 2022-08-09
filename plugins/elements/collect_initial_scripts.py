@@ -27,12 +27,11 @@ class ExtractInitialScriptsElement(Element):
     def preflight(self):
         runtime_deps = list(self.dependencies(Scope.RUN, recurse=False))
         if runtime_deps:
-            raise ElementError("{}: Only build type dependencies supported by collect-integration elements"
-                               .format(self))
+            raise ElementError(f"{self}: Only build type dependencies supported by collect-integration elements")
 
         sources = list(self.sources())
         if sources:
-            raise ElementError("{}: collect-integration elements may not have sources".format(self))
+            raise ElementError(f"{self}: collect-integration elements may not have sources")
 
     def get_unique_key(self):
         key = {
@@ -56,10 +55,10 @@ class ExtractInitialScriptsElement(Element):
                 script = self.node_subst_member(public, 'script')
                 index += 1
                 depname = re.sub('[^A-Za-z0-9]', '_', dependency.name)
-                basename = '{:03}-{}'.format(index, depname)
+                basename = f'{index:03}-{depname}'
                 filename = os.path.join(path, basename)
                 os.makedirs(path, exist_ok=True)
-                with open(filename, 'w') as f:
+                with open(filename, 'w', encoding="utf-8") as f:
                     f.write(script)
                 os.chmod(filename, 0o755)
 
