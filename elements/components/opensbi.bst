@@ -21,8 +21,4 @@ sources:
 - kind: git_tag
   url: github:riscv/opensbi.git
   track: master
-  ref: v0.9-0-g234ed8e427f4d92903123199f6590d144e0d9351
-- kind: patch
-  path: patches/opensbi/no-stack-protector.patch
-- kind: patch_queue
-  path: patches/sifive-unmatched/opensbi
+  ref: v1.1-0-g4489876e933d8ba0d8bc6c64bae71e295d45faac
