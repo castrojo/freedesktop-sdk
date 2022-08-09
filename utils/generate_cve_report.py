@@ -25,7 +25,7 @@ import packaging.version
 
 LOOKUP_TABLE = {}
 
-with open(sys.argv[1], 'rb', encoding="utf-8") as f:
+with open(sys.argv[1], 'rb') as f:
     manifest = json.load(f)
     for module in manifest["modules"]:
         cpe = module["x-cpe"]
