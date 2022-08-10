@@ -55,11 +55,13 @@ def extract_product_vulns_sub(node):
 def extract_product_vulns(tree):
     for item in tree['CVE_Items']:
         summary = item['cve']['description']['description_data'][0]['value']
-        score = item['impact'].get('baseMetricV2', {}).get('cvssV2', {}).get('baseScore')
+        scorev2 = item['impact'].get('baseMetricV2', {}).get('cvssV2', {}).get('baseScore')
+        scorev3 = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('baseScore')
+
         cve_id = item['cve']['CVE_data_meta']['ID']
         for node in item['configurations']["nodes"]:
             for cpe_match in extract_product_vulns_sub(node):
-                yield cve_id, summary, score, cpe_match
+                yield cve_id, summary, scorev2, scorev3, cpe_match
 
 api = os.environ.get("CI_API_V4_URL")
 project_id = os.environ.get("CI_PROJECT_ID")
@@ -87,7 +89,7 @@ def extract_vulnerabilities(filename):
     print(f"Processing {filename}")
     with gzip.open(filename) as file:
         tree = json.load(file)
-        for cve_id, summary, score, cpe_match in extract_product_vulns(tree):
+        for cve_id, summary, scorev2, scorev3, cpe_match in extract_product_vulns(tree):
             product_name = cpe_match["cpe23Uri"]
             vendor, name, version = product_name.split(':')[3:6]
 
@@ -123,41 +125,50 @@ def extract_vulnerabilities(filename):
             else:
                 vulnerable = False
 
-            yield cve_id, module["name"], module["version"], summary, score, vulnerable
+            yield cve_id, module["name"], module["version"], summary, scorev2, scorev3, vulnerable
 
 
-
-def by_score(entry, ): # TODO why the empty 2nd args?
-    entry_score = entry[4]
+def maybe_score(item):
     try:
-        return float(entry_score)
+        return float(item)
     except (ValueError, TypeError):
-        return float("inf")
+        return -1
+
+
+def by_score(entry):
+    scorev2 = maybe_score(entry[4])
+    scorev3 = maybe_score(entry[5])
+    return scorev3, scorev2
+
+def format_score(score):
+    if score is None:
+        return ""
+    return score
 
 
 if __name__ == "__main__":
     vuln_map = {}
     for filename in sorted(glob.glob("nvdcve-1.1-*.json.gz")):
-        for cve_id, name, version, summary, score, vulnerable in extract_vulnerabilities(filename):
+        for cve_id, name, version, summary, scorev2, scorev3, vulnerable in extract_vulnerabilities(filename):
             if not vulnerable:
                 try:
                     del vuln_map[cve_id]
                 except KeyError:
                     pass
             else:
-                vuln_map[cve_id] = cve_id, name, version, summary, score
+                vuln_map[cve_id] = cve_id, name, version, summary, scorev2, scorev3
 
     entries = list(vuln_map.values())
 
     entries.sort(key=by_score, reverse=True)
 
     with open(sys.argv[2], 'w', encoding="utf-8") as out:
-        out.write("|Vulnerability|Element|Version|Summary|Score|WIP|\n")
-        out.write("|---|---|---|---|---|---|\n")
+        out.write("|Vulnerability|Element|Version|Summary|CVSS V3.x|CVSS V2.0|WIP|\n")
+        out.write("|---|---|---|---|---|---|---|\n")
 
-        for ID, name, version, summary, score in entries:
+        for ID, name, version, summary, scorev2, scorev3 in entries:
             issues_mrs = ", ".join(f"[{id}]({link})" for id, link in get_issues_and_mrs(ID)) or "None"
-            out.write(f"|[{ID}](https://nvd.nist.gov/vuln/detail/{ID})|{name}|{version}|{summary}|{score}|{issues_mrs}|\n")
+            out.write(f"|[{ID}](https://nvd.nist.gov/vuln/detail/{ID})|{name}|{version}|{summary}|{format_score(scorev3)}|{format_score(scorev2)}|{issues_mrs}|\n")
 
         out.write('<!-- Markdeep: -->'
                   '<style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>'
