@@ -7,6 +7,14 @@ build-depends:
 - filename: bootstrap-import.bst
 - filename: components/python3-pip.bst
 
+config:
+  install-commands:
+    (>):
+    - |
+      for f in "%{install-root}%{bindir}/"*.py; do
+        ln -s "$(basename "${f}")" "%{install-root}%{bindir}/$(basename "${f}" .py)"
+      done
+
 sources:
 - kind: pypi
   name: docutils
