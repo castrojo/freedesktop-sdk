@@ -38,3 +38,5 @@ sources:
   url: github:FeralInteractive/gamemode.git
   track: master
   ref: 1.7-0-g4dc99dff76218718763a6b07fc1900fa6d1dafd9
+- kind: patch
+  path: patches/gamemode/Fix-building-when-pidfd_open-is-available.patch
