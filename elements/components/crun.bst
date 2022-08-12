@@ -44,3 +44,5 @@ sources:
   url: github:containers/yajl.git
   directory: libocispec
   ref: 49923ccb2143e36850bcdeb781e2bcdf5ce22f15
+- kind: patch
+  path: patches/crun/linux-fix-build-with-glibc-2.36.patch

@@ -50,5 +50,5 @@ sources:
   path: bsdiff
   url: github:mendsley/bsdiff.git
   ref: b817e9491cf7b8699c8462ef9e2657ca4ccd7667
-- kind: patch
-  path: patches/ostree/no-boot-symlink.patch
+- kind: patch_queue
+  path: patches/ostree

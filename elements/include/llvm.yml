@@ -11,3 +11,5 @@ sources:
 - kind: patch
   # https://sources.debian.org/data/main/l/llvm-toolchain-14/1%3A14.0.0-2/debian/patches/risc/clang-riscv64-multiarch.diff
   path: patches/llvm/clang-riscv64-multiarch.diff
+- kind: patch
+  path: patches/llvm/sanitizer-Remove-include-linux-fs.h-to-resolve-fscon.patch
