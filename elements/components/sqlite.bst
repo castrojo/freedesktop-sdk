@@ -37,7 +37,7 @@ sources:
   url: github:sqlite/sqlite.git
   track: master
   track-extra:
-  - branch-3.38
+  - branch-3.39
   match:
   - 'version-*'
-  ref: version-3.39.0-0-g47d8c40ca522babfadf3f774d9869cf5f6a5896e
+  ref: version-3.39.2-0-g202b2a7b54ea2dd13a8a5adfd75523abe4dcf17f
