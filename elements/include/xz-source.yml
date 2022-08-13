@@ -7,4 +7,4 @@ sources:
   exclude:
   - v*alpha
   - v*beta
-  ref: v5.2.5-0-g2327a461e1afce862c22269b80d3517801103c1b
+  ref: v5.2.6-0-g8dfed05bdaa4873833ba24279f02ad2db25effea
