@@ -23,7 +23,6 @@ runtime-depends:
 - components/python3-schema.bst
 - components/python3-toposort.bst
 - components/python3-wheezy-template.bst
-- components/python3-xdg.bst
 - components/python3-networkx.bst
 - components/python3-cchardet.bst
 - components/python3-pkgconfig.bst
