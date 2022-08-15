@@ -1,0 +1,3 @@
+variables:
+  ffmpeg-prefix: '%{libdir}/ffmpeg'
+  ffmpeg-libdir: '%{ffmpeg-prefix}/lib'

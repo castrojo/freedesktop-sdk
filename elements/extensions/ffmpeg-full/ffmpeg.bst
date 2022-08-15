@@ -3,6 +3,7 @@ description: ffmpeg shipped in the ffmpeg-full extension, has more codecs enable
 
 (@):
 - elements/include/ffmpeg.yml
+- elements/extensions/ffmpeg-full/config.yml
 
 variables:
   extra-aud-enc: wmav1,wmav2
@@ -15,7 +16,4 @@ variables:
   extra-parsers: hevc,h263,h264,dca
   extra-muxers: asf,avi,h263,h264,hevc,mp4
   extra-demuxers: ape,asf,avi,h263,h264,hevc,m4v,mjpeg_2000,mp4,wav,xwma
-
-  ffmpeg-prefix: '%{libdir}/ffmpeg'
-  ffmpeg-libdir: '%{ffmpeg-prefix}/lib'
 
