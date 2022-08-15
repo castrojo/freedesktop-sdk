@@ -383,7 +383,6 @@ depends:
 - components/python3-virtualenv.bst
 - components/python3-wheel.bst
 - components/python3-wheezy-template.bst
-- components/python3-xdg.bst
 - components/python3-yarl.bst
 - components/python3.bst
 - components/qpdf.bst
