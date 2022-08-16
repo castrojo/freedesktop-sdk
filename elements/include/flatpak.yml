@@ -5,6 +5,8 @@ sources:
   # track: 1.1[02468]*
   # We track development versions until 1.16
   ref: 1.15.4-0-ge936e3100d406c50ba49f3ad6a0ecae455345ec0
+- kind: patch
+  path: patches/flatpak/revert-compat-arch.patch
 - kind: git_module
   path: subprojects/libglnx
   url: gnome:libglnx.git
