@@ -1,10 +1,10 @@
-kind: autotools
+kind: meson
 
 depends:
 - bootstrap-import.bst
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 - components/flatpak-minimal.bst
 - components/fontconfig.bst
 - components/fuse3.bst
@@ -13,8 +13,9 @@ build-depends:
 - components/pipewire.bst
 
 variables:
-  conf-local: >-
-    --disable-libportal
+  meson-local: >-
+    -Dlibportal=disabled
+    -Ddocbook-docs=disabled
 
 public:
   bst:
@@ -29,5 +30,7 @@ sources:
   url: github:flatpak/xdg-desktop-portal.git
   track: main
   track-extra:
-  - xdg-desktop-portal-1.14
+  - xdg-desktop-portal-1.15
   ref: 1.15.0-0-g95b70566e05ef493539cdcbe2d9321a529858eb7
+- kind: patch
+  path: patches/xdg-desktop-portal/test-portals-Include-utils-even-if-libportal-is-unav.patch
