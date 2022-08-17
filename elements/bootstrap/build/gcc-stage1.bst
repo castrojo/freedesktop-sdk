@@ -25,11 +25,11 @@ variables:
     # https://sourceware.org/bugzilla/show_bug.cgi?id=26360
       conf-extra: --with-long-double-128
   autogen: |
-    autoreconf2.69 -fvi
-    for conf in */configure.ac; do
+    autoreconf2.69 -fvi %{conf-root}
+    for conf in %{conf-root}/*/configure.ac; do
       dir="$(dirname "${conf}")"
       case "$(dirname "${conf}")" in
-        isl)
+        */isl)
           args=()
           ;;
         *)
@@ -37,7 +37,7 @@ variables:
           ;;
       esac
       echo "autoreconf: ${dir}"
-      (cd "${dir}" && autoreconf2.69 "${args[@]}" -fvi)
+      autoreconf2.69 "${args[@]}" -fvi ${dir}
     done
 
   conf-local: |
@@ -76,7 +76,7 @@ config:
 
     - |
       rm "%{install-root}%{bindir}/%{triplet}-gcc"
-      ln -s "%{triplet}-gcc-$(cat gcc/BASE-VER)" "%{install-root}%{bindir}/%{triplet}-gcc"
+      ln -s "%{triplet}-gcc-$(cat %{conf-root}/gcc/BASE-VER)" "%{install-root}%{bindir}/%{triplet}-gcc"
 
     - |
       for f in "%{install-root}%{bindir}/"*; do

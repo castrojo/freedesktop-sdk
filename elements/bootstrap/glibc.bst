@@ -17,15 +17,12 @@ runtime-depends:
 config:
   configure-commands:
   - |
-    mkdir "%{build-dir}"
-    cd "%{build-dir}"
-
     echo slibdir=%{libdir} >configparms
     echo complocaledir=%{indep-libdir}/locale >>configparms
     echo gconvdir=%{libdir}/gconv >>configparms
     echo rootsbindir=%{sbindir} >>configparms
     echo sbindir=%{sbindir} >>configparms
-    ../%{configure}
+    %{configure}
 
   install-commands:
     (>):
@@ -42,9 +39,9 @@ config:
 # Move the dynamic linker into the arch prefix
     - |
       set -x
-      rtlddir=$(echo '@libc_cv_rtlddir@' | %{build-dir}/config.status --file=-)
-      dynamic_linker="$(sed "/^ld.so-version=/{;s///;q;};d" "%{build-dir}/soversions.mk")"
-      libdir=$(echo '@libdir@' | %{build-dir}/config.status --file=-)
+      rtlddir=$(echo '@libc_cv_rtlddir@' | ./config.status --file=-)
+      dynamic_linker="$(sed "/^ld.so-version=/{;s///;q;};d" "soversions.mk")"
+      libdir=$(echo '@libdir@' | ./config.status --file=-)
       sourcedir="%{install-root}${rtlddir}"
       targetdir="%{install-root}${libdir}"
 
@@ -88,6 +85,7 @@ variables:
     --enable-stackguard-randomization \
     --enable-stack-protector=strong \
     --enable-bind-now \
+    --without-selinux \
     --disable-werror \
     %{arch_options}
 

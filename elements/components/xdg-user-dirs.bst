@@ -9,17 +9,7 @@ variables:
   conf-link-args: ''
   conf-local: |
     --disable-documentation
-
-config:
-  build-commands:
-  - |
-    cd "%{build-dir}"
-    %{make} SUBDIRS=po
-
-  install-commands:
-  - |
-    cd "%{build-dir}"
-    %{make-install} SUBDIRS=po
+  make-args: SUBDIRS=po
 
 sources:
 - kind: git_tag

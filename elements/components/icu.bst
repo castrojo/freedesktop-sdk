@@ -5,12 +5,8 @@ depends:
 - filename: components/python3.bst
   type: build
 
-config:
-  configure-commands:
-  - |
-    mkdir "%{build-dir}"
-    cd "%{build-dir}"
-    ../icu4c/source/configure %{conf-args}
+variables:
+  conf-root: "%{build-root}/icu4c/source"
 
 public:
   bst:

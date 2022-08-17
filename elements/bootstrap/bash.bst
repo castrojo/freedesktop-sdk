@@ -36,7 +36,6 @@ config:
     # disabling that some include directories.
     (<):
     - |
-      cd "%{build-dir}"
       make RL_INCLUDEDIR=/non-existant mksyntax bashversion mksignames recho zecho printenv xcase
       make RL_INCLUDEDIR=/non-existant -C builtins mkbuiltins psize.aux
 

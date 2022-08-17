@@ -12,7 +12,7 @@ runtime-depends:
 - bootstrap/glibc.bst
 
 variables:
-  autogen: ./autogen.sh --no-po4a
+  autogen: cd %{conf-root} && ./autogen.sh --no-po4a
 
 public:
   bst:

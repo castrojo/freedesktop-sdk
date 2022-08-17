@@ -24,17 +24,6 @@ variables:
 
   make: make 'FILE_COMPILE=%{tools}/bin/file'
 
-config:
-  configure-commands:
-    (<):
-      - autoreconf -ivf
-
-  install-commands:
-    (>):
-    # Remove empty directory triggering BuildStream #647
-    - |
-      rm -rf "%{install-root}%{mandir}/man5"
-
 public:
   bst:
     split-rules:

@@ -19,25 +19,17 @@ variables:
   - target_arch in ["x86_64", "aarch64", "ppc64le"]:
       arch-conf: enable-ec_nistp_64_gcc_128
 
+  conf-cmd: "%{conf-root}/Configure"
+  conf-args: >-
+    %{arch-conf}
+    %{openssl-target}
+    --prefix=%{prefix}
+    --libdir=%{lib}
+    --openssldir=%{sysconfdir}/pki/tls
+    shared
+    threads
+
 config:
-  configure-commands:
-  - |
-    if [ -n "%{build-dir}" ]; then
-      mkdir %{build-dir}
-      cd %{build-dir}
-        reldir=..
-      else
-        reldir=.
-    fi
-
-    ${reldir}/Configure %{arch-conf} \
-      %{openssl-target} \
-      --prefix=%{prefix} \
-      --libdir=%{lib} \
-      --openssldir=%{sysconfdir}/pki/tls \
-      shared \
-      threads
-
   install-commands:
     (>):
     - rm %{install-root}%{libdir}/lib*.a

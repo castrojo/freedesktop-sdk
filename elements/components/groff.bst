@@ -11,7 +11,6 @@ config:
     (<):
       # This is a workaround for a bug with parallel builds.
     - |
-      cd "%{build-dir}"
       make -j1 arch/misc
 
   install-commands:

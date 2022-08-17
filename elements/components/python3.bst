@@ -31,9 +31,6 @@ variables:
 config:
   install-commands:
   - |
-    if [ -n "%{build-dir}" ]; then
-    cd %{build-dir}
-    fi
     %{make-install} %{install-conf} DESTSHARED=/usr/lib/python%{version_long}/lib-dynload
 
   - |

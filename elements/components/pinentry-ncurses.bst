@@ -20,7 +20,7 @@ variables:
 config:
   build-commands:
     (<):
-    - make -C "%{build-dir}/doc" ../../doc/stamp-vti
+    - make -C doc ../../doc/stamp-vti
 
   install-commands:
     (>):

@@ -15,11 +15,6 @@ runtime-depends:
 (@): elements/bootstrap/include/target.yml
 
 config:
-  configure-commands:
-    (<):
-    - |
-      autoreconf -fvi
-
   install-commands:
     (>):
     - |

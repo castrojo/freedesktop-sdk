@@ -39,8 +39,7 @@ config:
   build-commands:
     (<):
     - |
-      mkdir -p "%{build-dir}/man"
-      cp /coreutils-manpages/man1/* "%{build-dir}/man/"
+      cp /coreutils-manpages/man1/* "%{build-root}/man/"
 
   install-commands:
     (>):

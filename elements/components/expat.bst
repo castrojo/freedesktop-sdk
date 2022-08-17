@@ -5,6 +5,9 @@ depends:
 - filename: public-stacks/buildsystem-autotools.bst
   type: build
 
+variables:
+  conf-root: "%{build-root}/expat"
+
 public:
   bst:
     split-rules:
@@ -15,16 +18,11 @@ public:
   cpe:
     version-match: '(\d+)_(\d+)_(\d+)'
 
-config:
-  configure-commands:
-  - |
-    cd expat
-    %{autogen}
-
-  - |
-    mkdir %{build-dir}
-    cd %{build-dir}
-    ../expat/%{configure}
+# config:
+#   configure-commands:
+#   - |
+#     cd %{build-root}/expat
+#     %{autogen}
 
 sources:
 - kind: git_tag

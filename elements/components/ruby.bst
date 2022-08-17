@@ -35,5 +35,5 @@ config:
     - |
       find .bundle -name extconf.rb -exec \
       sed -i \
-      -e '/create_makefile/i \$arch_hdrdir = "%{build-root}/%{build-dir}/.ext/include/%{ruby-arch}-linux"' \
-      -e '/create_makefile/i \$DLDFLAGS << " -L%{build-root}/%{build-dir}"' {} \;
+      -e '/create_makefile/i \$arch_hdrdir = "%{build-root}/%{command-subdir}/.ext/include/%{ruby-arch}-linux"' \
+      -e '/create_makefile/i \$DLDFLAGS << " -L%{build-root}/%{command-subdir}"' {} \;

@@ -27,6 +27,9 @@ variables:
     %{common_options}
     %{arch_options}
 
+  autogen: |
+    cd %{build-root} && ./autogen.sh
+
 public:
   bst:
     split-rules:

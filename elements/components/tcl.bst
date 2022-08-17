@@ -19,7 +19,7 @@ public:
 config:
   install-commands:
     (>):
-    - sed -i "s|%{build-root}/%{build-dir}|%{includedir}/tcl-private|" %{install-root}%{libdir}/tclConfig.sh
+    - sed -i "s|%{build-root}/%{command-subdir}|%{includedir}/tcl-private|" %{install-root}%{libdir}/tclConfig.sh
     - sed -i "s|%{build-root}|%{includedir}/tcl-private|" %{install-root}%{libdir}/tclConfig.sh
     - mkdir -p "%{install-root}%{includedir}/tcl-private/doc/"
     - cp "%{build-root}/doc/man.macros" "%{install-root}%{includedir}/tcl-private/doc/"

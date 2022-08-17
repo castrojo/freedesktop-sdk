@@ -1,8 +1,6 @@
 # Project-wide configuration of autotools elements
 
 variables:
-  build-dir: bst_build_dir
-
   conf-deterministic: |
     --enable-deterministic-archives
   conf-link-args: |
@@ -15,43 +13,15 @@ variables:
   conf-libtool-force-dlsearch: |
     lt_cv_sys_lib_dlsearch_path_spec="/usr/lib/%{gcc_triplet}"
 
-  remove-libtool-modules: "true"
-  remove-libtool-libraries: "true"
-
   conf-global: >-
       %{conf-deterministic}
       %{conf-link-args}
       %{conf-build}
       %{conf-host}
       %{conf-libtool-force-dlsearch}
-  conf-cmd: configure
 
-config:
-  configure-commands:
-  - |
-    %{autogen}
-    if [ -n "%{build-dir}" ]; then
-      mkdir %{build-dir}
-      cd %{build-dir}
-      reldir=..
-    else
-      reldir=.
-    fi
-    ${reldir}/%{configure}
+  conf-root: "%{build-root}"
+  command-subdir: _build
 
-  build-commands:
-  - |
-    if [ -n "%{build-dir}" ]; then
-      cd %{build-dir}
-    fi
-    %{make}
-
-  install-commands:
-  - |
-    if [ -n "%{build-dir}" ]; then
-      cd %{build-dir}
-    fi
-    %{make-install}
-
-  - |
-    %{delete-libtool-archives}
+  remove-libtool-modules: "true"
+  remove-libtool-libraries: "true"

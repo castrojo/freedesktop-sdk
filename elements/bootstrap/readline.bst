@@ -5,7 +5,7 @@ build-depends:
 - bootstrap/gnu-config.bst
 - bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
-- filename: bootstrap/ncurses.bst
+- filename: bootstrap/ncursesw.bst
   config:
     location: "%{sysroot}"
 
@@ -22,7 +22,6 @@ variables:
 config:
   build-commands:
   - |
-    cd "%{build-dir}"
     %{make} SHLIB_LIBS="-Wl,--push-state,--no-as-needed -lncursesw -Wl,--pop-state"
 
   install-commands:

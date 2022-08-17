@@ -21,8 +21,6 @@ runtime-depends:
 variables:
   conf-local: >-
     --disable-stripping
-    --with-pkg-config="%{bindir}/pkg-config"
-    --with-pkg-config-libdir="%{libdir}/pkgconfig"
     --with-shared
     --without-ada
     --without-normal
@@ -31,6 +29,8 @@ variables:
     TIC="%{tools}/bin/tic"
     --disable-widec
 
+#    --with-pkg-config="%{bindir}/pkg-config"
+#    --with-pkg-config-libdir="%{libdir}/pkgconfig"
 # config:
 #   configure-commands:
 #   - |

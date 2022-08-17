@@ -4,16 +4,15 @@ depends:
 - bootstrap-import.bst
 - components/openssl.bst
 
+variables:
+  conf-args: --prefix=%{prefix}
+
 config:
   configure-commands:
-  - |
-    echo 'list(INSERT CMAKE_SYSTEM_LIBRARY_PATH 0 "%{libdir}")' >>Modules/Platform/UnixPaths.cmake
-    echo 'list(INSERT CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES 0 "%{libdir}")' >>Modules/Platform/UnixPaths.cmake
-
-  - |
-    mkdir %{build-dir}
-    cd %{build-dir}
-    ../configure --prefix=%{prefix}
+    (<):
+    - |
+      echo 'list(INSERT CMAKE_SYSTEM_LIBRARY_PATH 0 "%{libdir}")' >>Modules/Platform/UnixPaths.cmake
+      echo 'list(INSERT CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES 0 "%{libdir}")' >>Modules/Platform/UnixPaths.cmake
 
 sources:
 - kind: git_tag

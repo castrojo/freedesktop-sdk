@@ -16,8 +16,8 @@ depends:
 config:
   install-commands:
   - |
-    cd "%{build-dir}/debuginfod"
-    make -j1 install DESTDIR="%{install-root}"
+    cd debuginfod
+    %{make-install}
 
 public:
   bst:

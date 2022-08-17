@@ -9,8 +9,3 @@ depends:
 (@):
 - elements/bootstrap/include/build.yml
 - elements/bootstrap/include/file-source.yml
-
-config:
-  configure-commands:
-    (<):
-      - autoreconf -ivf
