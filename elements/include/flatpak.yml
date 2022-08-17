@@ -3,6 +3,8 @@ sources:
   url: github:flatpak/flatpak.git
   track: main
   ref: 1.13.3-0-g36b4d325fdcb890c48e6380852f7cdada18defad
+- kind: patch
+  path: patches/flatpak/revert-compat-arch.patch
 - kind: git_module
   path: subprojects/libglnx
   url: gnome:libglnx.git
