@@ -56,7 +56,7 @@ config:
     image root.img {
         ext4  {
             label = "root"
-            extraargs = "-U ${uuid_root} -E hash_seed=${hash_seed}"
+            extraargs = "-U ${uuid_root} -E hash_seed=${hash_seed},no_copy_xattrs"
             use-mke2fs = true
             fs-timestamp = "${SOURCE_DATE_EPOCH}"
         }

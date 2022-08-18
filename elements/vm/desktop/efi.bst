@@ -45,7 +45,7 @@ config:
     image root.img {
         ext4  {
             label = "root"
-            extraargs = "-U ${uuid_root}"
+            extraargs = "-U ${uuid_root} -E no_copy_xattrs"
             use-mke2fs = true
         }
         size = 5G
