@@ -1,0 +1,32 @@
+From 0c84932508c7857db4d3d82ea6b9df3129a43030 Mon Sep 17 00:00:00 2001
+From: Seppo Yli-Olli <seppo.yliolli@gmail.com>
+Date: Sun, 21 Aug 2022 10:59:24 +0300
+Subject: [PATCH 3/3] Unconditionally disable -march=native
+
+This is likely to result in reproducibility issues
+
+diff --git a/src/include/defaults.mk b/src/include/defaults.mk
+index b8cc590..1291b92 100644
+--- a/src/include/defaults.mk
++++ b/src/include/defaults.mk
+@@ -71,16 +71,7 @@ override SOFLAGS = $(_SOFLAGS) \
+ 		   -Wl,--version-script=$(MAP) \
+ 		   $(call family,SOFLAGS)
+ 
+-HOST_ARCH=$(shell uname -m)
+-ifneq ($(HOST_ARCH),ia64)
+-ifneq ($(HOST_ARCH),riscv64)
+-	HOST_MARCH=-march=native
+-else
+-	HOST_MARCH=
+-endif
+-else
+-	HOST_MARCH=
+-endif
++HOST_MARCH=
+ HOST_CPPFLAGS ?= $(CPPFLAGS)
+ override _HOST_CPPFLAGS := $(HOST_CPPFLAGS)
+ override HOST_CPPFLAGS = $(_HOST_CPPFLAGS) \
+-- 
+2.37.1
+
