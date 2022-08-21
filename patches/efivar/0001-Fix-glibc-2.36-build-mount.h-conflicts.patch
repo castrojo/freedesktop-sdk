@@ -1,7 +1,7 @@
-From bc65d63ebf8fe6ac8a099ff15ca200986dba1565 Mon Sep 17 00:00:00 2001
+From 5866e09ab38afc29bc5583ab891e72069f41503e Mon Sep 17 00:00:00 2001
 From: Robbie Harwood <rharwood@redhat.com>
 Date: Thu, 28 Jul 2022 16:11:24 -0400
-Subject: [PATCH] Fix glibc 2.36 build (mount.h conflicts)
+Subject: [PATCH 1/3] Fix glibc 2.36 build (mount.h conflicts)
 
 glibc has decided that sys/mount.h and linux/mount.h are no longer
 usable at the same time.  This broke the build, since linux/fs.h itself
@@ -11,11 +11,6 @@ sys/mount.h where we need it.
 See-also: https://sourceware.org/glibc/wiki/Release/2.36#Usage_of_.3Clinux.2Fmount.h.3E_and_.3Csys.2Fmount.h.3E
 Resolves: #227
 Signed-off-by: Robbie Harwood <rharwood@redhat.com>
----
- src/gpt.c   | 1 +
- src/linux.c | 1 +
- src/util.h  | 1 -
- 3 files changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/src/gpt.c b/src/gpt.c
 index 1eda049..21413c3 100644

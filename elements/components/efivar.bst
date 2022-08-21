@@ -23,5 +23,5 @@ sources:
   url: github:rhboot/efivar.git
   track: main
   ref: 38-0-g1753149d4176ebfb2b135ac0aaf79340bf0e7a93
-- kind: patch
-  path: patches/efivar/Fix-glibc-2.36-build-mount.h-conflicts.patch
+- kind: patch_queue
+  path: patches/efivar
