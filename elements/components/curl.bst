@@ -46,3 +46,5 @@ sources:
   path: patches/curl/remove-doc-timestamp.patch
 - kind: patch
   path: patches/curl/sched_yield.patch
+- kind: patch
+  path: patches/curl/avoid-latomic.patch
