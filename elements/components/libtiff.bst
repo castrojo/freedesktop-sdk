@@ -32,6 +32,10 @@ public:
     - CVE-2022-2057
     - CVE-2022-2058
     - CVE-2022-34526
+    ignored:
+    - CVE-2022-2867
+    - CVE-2022-2868
+    - CVE-2022-2869
 
 sources:
 - kind: git_tag
