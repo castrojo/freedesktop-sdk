@@ -9,5 +9,6 @@ depends:
 sources:
 - kind: pypi
   name: pygments
-  url: pypi:59/0f/eb10576eb73b5857bc22610cdfc59e424ced4004fe7132c8f2af2cc168d3/Pygments-2.12.0.tar.gz
-  sha256sum: 5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb
+  ref:
+    sha256sum: 5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb
+    suffix: 59/0f/eb10576eb73b5857bc22610cdfc59e424ced4004fe7132c8f2af2cc168d3/Pygments-2.12.0.tar.gz

@@ -12,5 +12,6 @@ depends:
 sources:
 - kind: pypi
   name: dbus-python
-  url: pypi:b1/5c/ccfc167485806c1936f7d3ba97db6c448d0089c5746ba105b6eb22dba60e/dbus-python-1.2.18.tar.gz
-  sha256sum: 92bdd1e68b45596c833307a5ff4b217ee6929a1502f5341bae28fd120acf7260
+  ref:
+    sha256sum: 92bdd1e68b45596c833307a5ff4b217ee6929a1502f5341bae28fd120acf7260
+    suffix: b1/5c/ccfc167485806c1936f7d3ba97db6c448d0089c5746ba105b6eb22dba60e/dbus-python-1.2.18.tar.gz

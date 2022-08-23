@@ -14,7 +14,8 @@ config:
 sources:
 - kind: pypi
   name: setuptools
-  url: pypi:ef/75/2bc7bef4d668f9caa9c6ed3f3187989922765403198243040d08d2a52725/setuptools-59.8.0.tar.gz
   include:
   - 59[.].*[.].*
-  sha256sum: 09980778aa734c3037a47997f28d6db5ab18bdf2af0e49f719bfc53967fd2e82
+  ref:
+    sha256sum: 09980778aa734c3037a47997f28d6db5ab18bdf2af0e49f719bfc53967fd2e82
+    suffix: ef/75/2bc7bef4d668f9caa9c6ed3f3187989922765403198243040d08d2a52725/setuptools-59.8.0.tar.gz
