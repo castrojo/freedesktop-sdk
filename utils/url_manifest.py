@@ -46,6 +46,7 @@ import re
 import sys
 
 from buildstream._frontend.app import App
+from buildstream.types import _PipelineSelection
 
 def get_source_locations(sources):
     """
@@ -125,7 +126,7 @@ if __name__ == '__main__':
     app = App.create({'no_interactive': True, 'colors': True, 'directory': '', 'config': '', 'log_file': '', 'option':''})
 
     with app.initialized():
-        for dep in app.stream.load_selection(elements, selection='all'):
+        for dep in app.stream.load_selection(elements, selection=_PipelineSelection.ALL):
             if dep.name in visited_names_list:
                 continue
             visited_names_list.add(dep.name)

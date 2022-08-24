@@ -1,13 +1,18 @@
 kind: autotools
 description: GNU gcc Stage 3
 
-depends:
-- filename: bootstrap/gcc-build-deps.bst
-  type: build
-- filename: bootstrap/binutils.bst
-  type: runtime
+build-depends:
+- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
+- bootstrap/build/python3.bst
 - filename: bootstrap/glibc.bst
-  type: runtime
+  config:
+    location: "%{sysroot}"
+
+runtime-depends:
+- bootstrap/glibc.bst
+- bootstrap/binutils.bst
 
 (@):
 - elements/bootstrap/include/gcc-arch-opts.yml

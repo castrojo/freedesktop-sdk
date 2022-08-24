@@ -1,7 +1,9 @@
 kind: script
 build-depends:
 - bootstrap-import.bst
-- snap-images/sdk-snap-image.bst
+- filename: snap-images/sdk-snap-image.bst
+  config:
+    location: "%{install-root}"
 
 variables:
   install-root: /buildstream-install
@@ -32,11 +34,6 @@ variables:
     /var/app
 
 config:
-  layout:
-    - element: bootstrap-import.bst
-      destination: /
-    - element: snap-images/sdk-snap-image.bst
-      destination: "%{install-root}"
   commands:
     - |
       rm -rf "%{install-root}/etc"

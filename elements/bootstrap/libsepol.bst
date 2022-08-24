@@ -1,7 +1,12 @@
 kind: make
 
 build-depends:
-- bootstrap/libsepol-build-deps.bst
+- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
+- filename: bootstrap/pcre2.bst
+  config:
+    location: '%{sysroot}'
 
 runtime-depends:
 - bootstrap/pcre2.bst

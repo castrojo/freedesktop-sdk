@@ -4,21 +4,15 @@ kind: script
 
 build-depends:
 - oci/oci-builder.bst
-- oci/sdk-oci.bst
-- oci/layers/flatpak.bst
 - oci/layers/flatpak-init-script.bst
+- filename: oci/sdk-oci.bst
+  config:
+    location: /parent
+- filename: oci/layers/flatpak.bst
+  config:
+    location: /layer
 
 config:
-  layout:
-  - element: oci/oci-builder.bst
-    destination: /
-  - element: oci/layers/flatpak.bst
-    destination: /layer
-  - element: oci/sdk-oci.bst
-    destination: /parent
-  - element: oci/layers/flatpak-init-script.bst
-    destination: /
-
   commands:
   - |
     if [ -d /initial_scripts ]; then

@@ -19,7 +19,7 @@ variables:
   GIT_SUBMODULE_STRATEGY: "recursive"
 
 default:
-  image: "${DOCKER_REGISTRY}/bst16:${DOCKER_IMAGE_ID}"
+  image: "${DOCKER_REGISTRY}/bst2:${DOCKER_IMAGE_ID}"
   interruptible: true
   after_script:
   - make clean
@@ -86,22 +86,46 @@ before_script:
         echo "projects:"
         echo "  freedesktop-sdk:"
         echo "    artifacts:"
+        echo "      servers:"
         if [ -f /cache-certificate/server.crt ]; then
-          echo "    - url: https://local-cas-server:1102"
-          echo "      client-key: /etc/ssl/CAS/server.key"
-          echo "      client-cert: /etc/ssl/CAS/server.crt"
-          echo "      server-cert: /cache-certificate/server.crt"
+          echo "      - url: https://local-cas-server:1102"
           if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
-            echo "      push: true"
+            echo "        push: true"
           fi
+          echo "        auth:"
+          echo "          client-key: /etc/ssl/CAS/server.key"
+          echo "          client-cert: /etc/ssl/CAS/server.crt"
+          echo "          server-cert: /cache-certificate/server.crt"
         fi
         if [ "${DISABLE_REMOTE_CACHE:+set}" != set ]; then
-          echo "    - url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
-          echo "      client-key: /etc/ssl/CAS/server.key"
-          echo "      client-cert: /etc/ssl/CAS/server.crt"
+          echo "      - url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
           if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
-            echo "      push: true"
+            echo "        push: true"
           fi
+          echo "        auth:"
+          echo "          client-key: /etc/ssl/CAS/server.key"
+          echo "          client-cert: /etc/ssl/CAS/server.crt"
+        fi
+        echo "    source-caches:"
+        echo "      servers:"
+        if [ -f /cache-certificate/server.crt ]; then
+          echo "      - url: https://local-cas-server:1102"
+          if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
+            echo "        push: true"
+          fi
+          echo "        auth:"
+          echo "          client-key: /etc/ssl/CAS/server.key"
+          echo "          client-cert: /etc/ssl/CAS/server.crt"
+          echo "          server-cert: /cache-certificate/server.crt"
+        fi
+        if [ "${DISABLE_REMOTE_CACHE:+set}" != set ]; then
+          echo "      - url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
+          if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
+            echo "        push: true"
+          fi
+          echo "        auth:"
+          echo "          client-key: /etc/ssl/CAS/server.key"
+          echo "          client-cert: /etc/ssl/CAS/server.crt"
         fi
       } >> ~/.config/buildstream.conf
     fi
@@ -469,7 +493,7 @@ minimal_systemd_vm_aarch64:
     - ${BST} -o target_arch "${ARCH}" build vm/"${TYPE}"/efi.bst
     - |
       if [ "${DIALOG+set}" = set ]; then
-        ${BST} -o target_arch "${ARCH}" checkout vm/"${TYPE}"/efi.bst ./vm
+        ${BST} -o target_arch "${ARCH}" artifact checkout vm/"${TYPE}"/efi.bst --directory ./vm
         EFI_CODE="-drive if=pflash,format=raw,unit=0,file=/usr/share/qemu/edk2-x86_64-code.fd,readonly=on"
         cp /usr/share/qemu/edk2-i386-vars.fd .
         EFI_VARS="-drive if=pflash,format=raw,unit=1,file=${PWD}/edk2-i386-vars.fd"
@@ -836,7 +860,7 @@ publish_snap_aarch64:
     
     ${BST} build ${BST_ELEMENTS[@]}
     for element in ${BST_ELEMENTS[@]}; do
-       ${BST} checkout ${element} --tar - | podman load
+       ${BST} artifact checkout ${element} --tar - | podman load
     done
 
   - podman login -u "${DOCKER_HUB_USER}" -p "${DOCKER_HUB_PASSWORD}" "${DOCKER_HUB_ADDRESS}"
