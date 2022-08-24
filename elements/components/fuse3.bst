@@ -12,6 +12,11 @@ variables:
   meson-local: >-
     -Duseroot=false
 
+config:
+  install-commands:
+    (>):
+    - rm -r "%{install-root}/etc/init.d"
+
 public:
   initial-script:
     script: |

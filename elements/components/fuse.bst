@@ -12,6 +12,11 @@ variables:
 environment:
   MOUNT_FUSE_PATH: '%{sbindir}'
 
+config:
+  install-commands:
+    (>):
+    - rm -r "%{install-root}/etc/init.d"
+
 public:
   initial-script:
     script: |
