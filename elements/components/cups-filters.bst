@@ -21,6 +21,15 @@ depends:
 variables:
   # There's a related Python script which opens files assuming no build-dir
   build-dir: ''
+  conf-local: >-
+    --without-rcdir
+
+config:
+  install-commands:
+    (>):
+    - |
+      systemdsystemunitdir="$(pkg-config --variable systemdsystemunitdir systemd)"
+      install -Dm644 -t "%{install-root}${systemdsystemunitdir}" utils/cups-browsed.service
 
 sources:
 - kind: git_tag
