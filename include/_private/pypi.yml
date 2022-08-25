@@ -1,3 +1,2 @@
 config:
-  scheme: pypi
-  match_pattern: https://files.pythonhosted.org/packages/
+  url: "pypi:"

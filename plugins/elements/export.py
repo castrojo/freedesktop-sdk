@@ -48,7 +48,7 @@ class ExportElement(Element):
             'split-rules': splits,
             'integration-commands': commands
         }
-        with open(os.path.join(sandbox.get_directory(), 'metadata'), 'w') as file:
+        with open(os.path.join(sandbox.get_directory(), 'metadata'), 'w', encoding="utf-8") as file:
             json.dump(metadata, file)
 
         return os.sep

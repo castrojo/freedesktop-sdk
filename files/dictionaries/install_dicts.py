@@ -31,7 +31,7 @@ def parse_props(elem, origin):
             for i in list(prop)[0].itertext():
                 res = res + i.replace("%origin%", origin).split()
         else:
-            print("Unknown type %s" % prop_type)
+            print(f"Unknown type {prop_type}")
         props[prop_name] = res
     return props
 
@@ -46,7 +46,7 @@ def handle_file(filename):
             origin = os.path.dirname(filename)
         props = parse_props(element, origin)
         props_format = props['Format']
-        print("Installing %s dictionary %s:" % (props_format, name))
+        print(f"Installing {props_format}  dictionary {name}:")
         if props_format == 'DICT_SPELL':
             dest = SPELL_DEST
             prefix = ""
@@ -60,7 +60,7 @@ def handle_file(filename):
             prefix = "th_"
             suffix = "_v2"
         else:
-            print("Unknown format %s" % props_format)
+            print(f"Unknown format {props_format}")
             continue
 
         install_root = os.environ.get('DESTDIR', '')
@@ -71,10 +71,16 @@ def handle_file(filename):
             if props_format == 'DICT_THES' and file.endswith(".dat") and os.path.isfile(file):
                 idxname = file.replace(".dat", ".idx")
                 if not os.path.isfile(idxname):
-                    print(" Generate %s from %s" % (idxname, file))
-                    f_in = open(file, "r")
-                    f_out = open(idxname, "w")
-                    subprocess.run(["./th_gen_idx.pl"], stdin=f_in, stdout=f_out)
+                    print(f" Generate {idxname} from {file}")
+                    with (
+                        open(file, "r", encoding="utf-8") as f_in,
+                        open(idxname, "w", encoding="utf-8") as f_out,
+                    ):
+                        subprocess.run(
+                            ["./th_gen_idx.pl"],
+                            stdin=f_in,
+                            stdout=f_out,
+                        )
                     if idxname not in props['Locations']:
                         props['Locations'].append(idxname)
 
@@ -91,12 +97,12 @@ def handle_file(filename):
                     full_dest_file = full_dest + basename
                 else:
                     full_dest_file = symlink_dest + basename
-                print(" copy %s to %s" % (file, install_root + full_dest_file))
+                print(f" copy {file} to {install_root + full_dest_file}")
                 shutil.copyfile(file, install_root + full_dest_file)
                 loc = re.sub("(?P<lang>.*)-(?P<country>[A-Z][A-Z])(?P<suffix>(?:-.*)?)", r"\g<lang>_\g<country>\g<suffix>", loc)
                 symlink = symlink_dest + prefix + loc+suffix+ext
                 if symlink != full_dest_file:
-                    print(" symlink %s to %s" % (install_root + symlink, full_dest_file))
+                    print(f" symlink {install_root + symlink} to {full_dest_file}")
                     os.symlink(os.path.relpath(full_dest_file, os.path.dirname(symlink)), install_root + symlink)
 
 for i in sys.argv[1:]:

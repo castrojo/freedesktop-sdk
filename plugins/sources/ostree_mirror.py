@@ -20,7 +20,7 @@ class OSTreeMirrorSource(Source):
         else:
             path = self.node_get_project_path(node, 'path')
             fullpath = os.path.join(self.get_project_directory(), path)
-            self.url = self.original_url = 'file://{}'.format(fullpath)
+            self.url = self.original_url = f'file://{fullpath}'
         self.ref = self.node_get_member(node, list, 'ref', None)
         if self.ref is not None:
             for r in self.ref:
@@ -100,7 +100,7 @@ class OSTreeMirrorSource(Source):
             'refs': refs,
         })
 
-        local_repo.pull_with_options('file://{}'.format(self.mirror),
+        local_repo.pull_with_options(f'file://{self.mirror}',
                                      options, None)
         for ref, checksum in self._refs():
             local_repo.set_ref_immediate(None, ref, checksum, None)

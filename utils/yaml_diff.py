@@ -11,14 +11,14 @@ path, old_file, _, _, new_file, _, _ = \
 
 def diff(path, old, new):
     subprocess.run(["diff", '-u',
-                    '--label=a/{}'.format(path),
-                    '--label=b/{}'.format(path),
+                    f'--label=a/{path}',
+                    f'--label=b/{path}',
                     old, new])
 
 with contextlib.ExitStack() as stack:
     try:
-        old_data = yaml.load(stack.enter_context(open(old_file, 'r')), Loader=yaml.Loader)
-        new_data = yaml.load(stack.enter_context(open(new_file, 'r')), Loader=yaml.Loader)
+        old_data = yaml.load(stack.enter_context(open(old_file, 'r', encoding="utf-8")), Loader=yaml.Loader)
+        new_data = yaml.load(stack.enter_context(open(new_file, 'r', encoding="utf-8")), Loader=yaml.Loader)
     except yaml.YAMLError:
         diff(path, old_file, new_file)
     else:

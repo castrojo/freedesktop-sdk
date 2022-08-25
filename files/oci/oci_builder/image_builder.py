@@ -190,7 +190,7 @@ def build_layer(upper, lowers, legacy_config, global_conf):
             new_layer_descs.append(copied_blob.descriptor)
             new_legacy_parent = copied_blob.legacy_id
 
-        new_diff_ids = ['sha256:{}'.format(tar_hash.hexdigest())]
+        new_diff_ids = [f'sha256:{tar_hash.hexdigest()}']
 
     return new_layer_descs, new_legacy_parent, new_diff_ids
 

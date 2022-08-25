@@ -5,7 +5,10 @@ import subprocess
 link_re = re.compile(r'^Link:\s*(?P<quote1>"?)(?P<link_name>.*)(?P=quote1)(?<!\s)\s+->\s+(?P<quote2>"?)(?P<target>.*)(?P=quote2)(?<!\s)\s*$')
 file_re = re.compile(r'^File:\s*(?P<quote>"?)(?P<name>.*)(?P=quote)(?<!\s)\s*$')
 
-with open('WHENCE', 'r') as whence, open('WHENCE.new', 'w') as new:
+with (
+    open('WHENCE', 'r', encoding="utf-8") as whence,
+    open('WHENCE.new', 'w', encoding="utf-8") as new
+):
     while line := whence.readline():
         line = line.rstrip('\r\n')
         mlink = link_re.match(line)

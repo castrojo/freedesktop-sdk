@@ -52,12 +52,12 @@ class UrlOpenTimeout:
 
 
 def update_year(updated_year, url_timeout):
-    url = 'https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-{}.json.gz'.format(updated_year)
+    url = f'https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-{updated_year}.json.gz'
 
-    filename = 'nvdcve-1.1-{}.json.gz'.format(year)
+    filename = f'nvdcve-1.1-{year}.json.gz'
     if os.path.exists(filename):
         try:
-            with open(f"{filename}.etag") as file:
+            with open(f"{filename}.etag", encoding="utf-8") as file:
                 etag = file.read()
         except FileNotFoundError:
             etag = None
@@ -78,20 +78,20 @@ def update_year(updated_year, url_timeout):
                 while True:
                     buf = resp.read(4096)
                     if not buf:
-                        print("Downloaded {}".format(file.name))
+                        print(f"Downloaded {file.name}")
                         break
                     file.write(buf)
-            with open(f"{filename}.etag", "w") as file:
+            with open(f"{filename}.etag", "w", encoding="utf-8") as file:
                 file.write(new_etag)
     except TimeoutError:
         if etag is None:
             raise
-        print("Timeout, using cache for {}".format('nvdcve-1.1-{}.json.gz'.format(year)))
+        print(f"Timeout, using cache for {filename}")
     except urllib.error.HTTPError as error:
         if error.code == 304:
-            print("Cached {}".format('nvdcve-1.1-{}.json.gz'.format(year)))
+            print(f"Cached {filename}")
         elif error.code == 404:
-            print("{} not found".format('nvdcve-1.1-{}.json.gz'.format(year)))
+            print(f"{filename} not found")
             return
         else:
             raise

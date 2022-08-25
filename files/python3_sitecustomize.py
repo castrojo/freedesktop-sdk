@@ -1,4 +1,5 @@
-from distutils import sysconfig
+import sysconfig
 import site
 
-site.addsitedir(sysconfig.get_python_lib(prefix='/app'))
+fmt = "/app/{platlibdir}/python{py_version_short}/site-packages"
+site.addsitedir(fmt.format(**sysconfig.get_config_vars()))

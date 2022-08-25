@@ -68,12 +68,12 @@ def main():
         mirror_problems += mm.test_sources(manifest, test_dict, args.verbose, ignore_dict)
 
     if args.output_file:
+        output_file = abspath(args.output_file)
         if mirror_problems:
-            print("Saving problem list to {}".format(abspath(args.output_file)))
+            print(f"Saving problem list to {output_file}")
         else:
-            print("No problems identified. Saving empty list to " +
-                  "{}".format(abspath(args.output_file)))
-        with open(args.output_file, mode='w') as output_file:
+            print(f"No problems identified. Saving empty list to {output_file}")
+        with open(output_file, mode='w', encoding="utf-8") as output_file:
             json.dump(mirror_problems, output_file, indent=2)
     if mirror_problems:
         sys.exit(1)
@@ -85,7 +85,7 @@ def get_ignore_dict(ignore_filename):
     implemented a workaround.'''
     if not ignore_filename:
         return {}
-    with open(ignore_filename, mode='r') as ignore_file:
+    with open(ignore_filename, mode='r', encoding="utf-8") as ignore_file:
         return json.load(ignore_file)
 
 def get_arg_parser():
@@ -110,7 +110,7 @@ def get_arg_parser():
         '-o', '--output_file', default=DEFAULT_OUTPUT_FILENAME,
         metavar='OUTPUT_FILENAME.json',
         help='The filename in which to save a json output manifest' +
-        '\ndefaults to: {}'.format(DEFAULT_OUTPUT_FILENAME)
+        f'\ndefaults to: {DEFAULT_OUTPUT_FILENAME}'
     )
     arg_parser.add_argument(
         '-i', '--ignore_file', default=None,

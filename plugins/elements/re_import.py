@@ -20,7 +20,7 @@ class ReImportElement(Element):
         self.stage_sources(sandbox, '/')
 
     def assemble(self, sandbox):
-        with open(os.path.join(sandbox.get_directory(), 'metadata'), 'r') as file:
+        with open(os.path.join(sandbox.get_directory(), 'metadata'), 'r', encoding="utf-8") as file:
             metadata = json.load(file)
 
         self.set_public_data('bst', metadata)
