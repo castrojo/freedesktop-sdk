@@ -66,7 +66,7 @@ config:
     image disk.img {
         hdimage {
             align = 1M
-            gpt = true
+            partition-table-type = "gpt"
             disk-uuid = "${disk_uuid}"
         }
         partition efi {

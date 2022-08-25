@@ -78,7 +78,7 @@ config:
     image disk.img {
         hdimage {
             align = 1M
-            gpt = true
+            partition-table-type = "gpt"
         }
         partition efi {
             image = "efi.img"

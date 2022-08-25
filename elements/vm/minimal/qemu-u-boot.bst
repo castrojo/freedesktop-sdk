@@ -95,7 +95,7 @@ config:
     image disk.img {
         hdimage {
             align = 1M
-            gpt = true
+            partition-table-type = "gpt"
         }
         partition boot {
             image = "boot.img"

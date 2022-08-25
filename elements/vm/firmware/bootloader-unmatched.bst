@@ -40,7 +40,7 @@ config:
     }
     image disk.img {
         hdimage {
-            gpt = true
+            partition-table-type = "gpt"
         }
         partition u-boot-spl {
             image = "u-boot-spl.bin"
