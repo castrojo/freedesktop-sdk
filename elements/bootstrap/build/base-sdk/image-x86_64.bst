@@ -17,6 +17,3 @@ public:
     split-rules:
       filter:
       - "/usr/share/gnu-config/**"
-
-sandbox:
-  build-arch: '%{bootstrap_build_arch}'
