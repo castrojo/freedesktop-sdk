@@ -81,7 +81,7 @@ config:
     find "%{install-root}" -name "lib*.a" -exec rm {} ";"
 
   - |
-    %{delete_libtool_files}
+    %{delete-libtool-archives}
 
 public:
   bst:

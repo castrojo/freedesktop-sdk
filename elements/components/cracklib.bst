@@ -37,7 +37,7 @@ config:
     %{make-install}
 
   - |
-    %{delete_libtool_files}
+    %{delete-libtool-archives}
 
 public:
   bst:

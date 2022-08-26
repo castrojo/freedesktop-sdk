@@ -15,26 +15,9 @@ variables:
   conf-libtool-force-dlsearch: |
     lt_cv_sys_lib_dlsearch_path_spec="/usr/lib/%{gcc_triplet}"
 
-  remove_libtool_modules: "true"
-  remove_libtool_libraries: "true"
-  delete_libtool_files: |
-    find "%{install-root}" -name "*.la" -print0 | while read -d '' -r file; do
-    if grep '^shouldnotlink=yes$' "${file}" &>/dev/null; then
-      if %{remove_libtool_modules}; then
-        echo "Removing ${file}."
-        rm "${file}"
-      else
-        echo "Not removing ${file}."
-      fi
-    else
-      if %{remove_libtool_libraries}; then
-        echo "Removing ${file}."
-        rm "${file}"
-      else
-        echo "Not removing ${file}."
-      fi
-    fi
-    done
+  remove-libtool-modules: "true"
+  remove-libtool-libraries: "true"
+
   conf-global: >-
       %{conf-deterministic}
       %{conf-link-args}
@@ -71,4 +54,4 @@ config:
     %{make-install}
 
   - |
-    %{delete_libtool_files}
+    %{delete-libtool-archives}
