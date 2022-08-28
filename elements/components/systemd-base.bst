@@ -38,6 +38,9 @@ config:
       done
       shopt -u nullglob
 
+    - |
+      install -Dm644 -t '%{install-root}%{indep-libdir}/systemd/system-preset' 90-sysupdate.preset
+
 variables:
   efi: 'false'
   (?):
@@ -105,3 +108,8 @@ public:
 
 (@):
 - elements/include/systemd.yml
+
+sources:
+  (>):
+  - kind: local
+    path: files/systemd/90-sysupdate.preset
