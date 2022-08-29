@@ -26,6 +26,8 @@ sources:
 - kind: git_tag
   url: github:libsdl-org/SDL_image.git
   track: main
+  track-extra:
+  - release-2.6.x
   match:
   - release-*
-  ref: release-2.6.0-0-g7b3347c0d90d1f1e9cc4e06e145432697ca4e68f
+  ref: release-2.6.2-0-ga861543ab78f5d5e18e6af43964ce8df60cb30b3
