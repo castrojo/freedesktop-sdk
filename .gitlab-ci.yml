@@ -208,8 +208,6 @@ pylint:
     - pylint files/oci/oci_builder
   except:
     - master
-    - '18.08'
-    - '19.08'
     - '/^release\/.*/'
     - tags
   needs: []
@@ -335,8 +333,6 @@ license_checker:
       - ${CI_PROJECT_DIR}/mirror_problem_list.json
   except:
     - master
-    - '18.08'
-    - '19.08'
     - '/^release\/.*/'
     - tags
 
@@ -408,8 +404,6 @@ app_riscv64:
   - if: '$CI_PIPELINE_SOURCE == "schedule"'
     when: never
   - if: '$CI_COMMIT_BRANCH == "master"'
-  - if: '$CI_COMMIT_BRANCH == "18.08"'
-  - if: '$CI_COMMIT_BRANCH == "19.08"'
   - if: '$CI_COMMIT_BRANCH =~ /^release\/.*/'
 
 check_snap_x86_64:
@@ -431,8 +425,6 @@ check_snap_i686:
     paths:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
   except:
-    - '18.08'
-    - '19.08'
     - '/^release\/.*/'
     - tags
 
@@ -456,8 +448,6 @@ bootstrap_ppc64:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
   except:
     - master
-    - '18.08'
-    - '19.08'
     - '/^release\/.*/'
     - tags
     - schedules
@@ -507,8 +497,6 @@ minimal_systemd_vm_aarch64:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
   except:
     - master
-    - '18.08'
-    - '19.08'
     - '/^release\/.*/'
     - tags
     - schedules
@@ -544,8 +532,6 @@ prepare_publish:
   interruptible: false
   only:
     - master
-    - '18.08'
-    - '19.08'
     - '/^release\/.*/'
     - tags
 
@@ -570,8 +556,6 @@ finish_publish:
   only:
     - tags
     - master
-    - '18.08'
-    - '19.08'
     - '/^release\/.*/'
   except:
     - schedules
@@ -591,8 +575,6 @@ finish_publish_failed:
   only:
     - tags
     - master
-    - '18.08'
-    - '19.08'
     - '/^release\/.*/'
   except:
     - schedules
@@ -738,8 +720,6 @@ cve_report:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK != "default"'
     when: never
   - if: '$CI_COMMIT_BRANCH == "master"'
-  - if: '$CI_COMMIT_BRANCH == "18.08"'
-  - if: '$CI_COMMIT_BRANCH == "19.08"'
   - if: '$CI_COMMIT_BRANCH =~ /^release\/.*/'
   needs: []
 
@@ -753,8 +733,6 @@ markdown_manifest:
       - "${CI_PROJECT_DIR}/sdk-manifest/usr/"
   only:
     - master
-    - '18.08'
-    - '19.08'
     - '/^release\/.*/'
   except:
     - schedules
