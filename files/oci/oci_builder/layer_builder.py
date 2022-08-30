@@ -113,6 +113,7 @@ def create_layer(output, upper, lowers):
             path = os.path.join(root, file)
             rel = os.path.join(root_rel, file)
             tinfo = output.gettarinfo(name=path, arcname=rel)
+            output.inodes = {}
             tinfo.mode = stat.S_IMODE(tinfo.mode)
             if epoch is not None:
                 tinfo.mtime = int(epoch)
