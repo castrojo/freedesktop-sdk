@@ -612,6 +612,20 @@ config:
     # systemd-oom
     enable PSI
 
+    # Hardware monitors
+    case "%{arch}" in
+      x86_64|i686)
+        module SENSORS_K8TEMP
+        module SENSORS_K10TEMP
+        module SENSORS_FAM15H_POWER
+        module SENSORS_NCT6683
+        module SENSORS_NCT6775
+        module SENSORS_NCT7802
+        module SENSORS_NCT7904
+        module SENSORS_NCT7904
+      ;;
+    esac
+
   - |
     make -j1 olddefconfig
 
