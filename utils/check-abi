@@ -17,6 +17,7 @@
 
 
 import argparse
+import errno
 import os
 import shutil
 import subprocess
@@ -149,6 +150,24 @@ def get_libraries(tree):
     return libs
 
 
+def file_sha256(filename):
+    try:
+        checksum = os.getxattr(filename, "user.checksum.sha256")
+    except OSError as error:
+        if error.errno == errno.ENODATA:
+            return None
+    else:
+        return checksum
+
+
+def fast_file_check(first, second):
+    first_sha256 = file_sha256(first)
+    second_sha256 = file_sha256(second)
+    if first_sha256 is None or second_sha256 is None:
+        return False
+    return first_sha256 == second_sha256
+
+
 def compare_abi(old_library, old_debug_dir, old_include_dir, new_library, new_debug_dir, new_include_dir, forward_compatible):
     options = [
         '--drop-private-types'
@@ -204,6 +223,9 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible):
         new_library = os.path.join(new_checkout, new_relpath)
         new_debug_dir = os.path.join(new_checkout, 'usr', 'lib', 'debug')
         new_include_dir = os.path.join(new_checkout, 'usr', 'include')
+
+        if fast_file_check(old_library, new_library):
+            continue
 
         if filecmp.cmp(old_library, new_library, shallow=False):
             # Full file equality, ABI cannot have changed
