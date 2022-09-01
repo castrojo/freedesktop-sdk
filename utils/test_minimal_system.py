@@ -164,25 +164,23 @@ async def run_test(command, dialog):
     return success
 
 
-def fail_timeout(qemu_task):
-    sys.stderr.write(
-        f"Test failed as timeout of {FAILURE_TIMEOUT} seconds was reached.\n"
-    )
-    qemu_task.cancel()
-
-
 def main():
     args = argument_parser().parse_args()
 
     command = args.get_command(args)
 
-    loop = asyncio.get_event_loop()
-    qemu_task = loop.create_task(run_test(command, args.dialog))
-    loop.call_later(FAILURE_TIMEOUT, fail_timeout, qemu_task)
-    loop.run_until_complete(qemu_task)
-    loop.close()
+    task = asyncio.wait_for(run_test(command, args.dialog), FAILURE_TIMEOUT)
 
-    if qemu_task.result():
+    try:
+        result = asyncio.run(task)
+    except asyncio.exceptions.TimeoutError:
+        print(
+            f"Test failed as timeout of {FAILURE_TIMEOUT} seconds was reached.",
+            file=sys.stderr
+        )
+        return 1
+
+    if result:
         return 0
     return 1
 
