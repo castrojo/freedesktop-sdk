@@ -9,6 +9,8 @@ variables:
 public:
   cpe:
     version-match: '([0-9]*)_([0-9]*)'
+    patches:
+    - CVE-2022-38533
 
 sources:
 - kind: git_tag
@@ -19,3 +21,5 @@ sources:
   # Attempt to predict the next branchpoint.
   - binutils-2_40-branch
   ref: binutils-2_39-0-gb51c2fec1da205ea3e7354cbb3e253018d64873c
+- kind: patch
+  path: patches/binutils/PR29482-strip-heap-buffer-overflow.patch
