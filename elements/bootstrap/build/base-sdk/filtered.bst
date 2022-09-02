@@ -14,3 +14,9 @@ config:
   exclude:
     - filter
   include-orphans: True
+
+public:
+  bst:
+    integration-commands:
+    - |
+      mv /usr/etc /etc
