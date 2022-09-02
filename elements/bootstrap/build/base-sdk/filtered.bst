@@ -18,3 +18,12 @@ config:
   exclude:
     - filter
   include-orphans: True
+
+sandbox:
+  build-arch: '%{sandbox_arch}'
+
+public:
+  bst:
+    integration-commands:
+    - |
+      mv /usr/etc /etc
