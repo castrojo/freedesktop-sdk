@@ -7,5 +7,5 @@ config:
 
 sources:
 - kind: git_tag
-  url: gitlab:freedesktop-sdk/freedesktop-sdk.git
+  url: freedesktop-sdk-project:freedesktop-sdk.git
   # When creating release, release branch must be tracked to get a ref

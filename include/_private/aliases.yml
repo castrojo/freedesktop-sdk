@@ -8,6 +8,7 @@ fedora_rpms: https://src.fedoraproject.org/rpms/
 ffmpeg: https://git.ffmpeg.org/
 freedesktop_people: git://people.freedesktop.org/~wtay/
 freedesktop: https://gitlab.freedesktop.org/
+freedesktop-sdk-project: https://gitlab.com/freedesktop-sdk/
 ghostscript: https://git.ghostscript.com/
 github: https://github.com/
 gitlab: https://gitlab.com/
