@@ -2,11 +2,12 @@ kind: script
 
 build-depends:
 - vm/deploy-tools.bst
-- filename: vm/minimal-secure/filesystem.bst
+- filename: vm/minimal-secure/usr-image.bst
+  config:
+    location: '/usr-image'
+- filename: vm/minimal-secure/signed-boot.bst
   config:
     location: '/sysroot'
-- vm/minimal-secure/initial-scripts.bst
-- vm/prepare-image.bst
 
 environment:
   E2FSPROGS_FAKE_TIME: '%{source-date-epoch}'
@@ -16,31 +17,19 @@ variables:
   build-root: /genimage
   (?):
     - target_arch == "x86_64":
-        linux-root: 4F68BCE3-E8CD-4DB1-96E7-FBCAF984B709
-    - target_arch == "i686":
-        linux-root: 44479540-F297-41B2-9AF7-D131D5F0458A
-    - target_arch == "arm":
-        linux-root: 69DAD710-2CE4-4E3C-B16C-21A1D49ABED3
-    - target_arch == "aarch64":
-        linux-root: B921B045-1DF0-41C3-AF44-4C6F280D3FAE
-    - target_arch == "riscv64":
-        linux-root: 72EC70A6-CF74-40E6-BD49-4BDA08E8F224
+        usr-uuid: 8484680c-9521-48c6-9c11-b0720656f69e
+        usr-verity-uuid: 77ff5f63-e7b6-4633-acf4-1565b864c0e6
 
 config:
   commands:
-  - mkdir '%{build-root}'
-  - |
-    prepare-image.sh \
-       --sysroot /sysroot \
-       --seed "%{uuidnamespace}" \
-       --rootpasswd "root" > "%{build-root}/vars"
+  - mkdir -p '%{build-root}'
 
   - |
     efi_part_uuid="$(uuidgen -s --namespace "%{uuidnamespace}" --name partition-efi)"
-    root_part_uuid="$(uuidgen -s --namespace "%{uuidnamespace}" --name partition-root)"
+    usr_part_uuid="$(cat /usr-image/usr-root-hash.txt | sed -E 's/^([0-9a-f]{8})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{12}).*/\1-\2-\3-\4-\5/')"
+    usr_verity_part_uuid="$(cat /usr-image/usr-root-hash.txt | sed -E 's/.*([0-9a-f]{8})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{12})$/\1-\2-\3-\4-\5/')"
     disk_uuid="$(uuidgen -s --namespace "%{uuidnamespace}" --name disk)"
-    hash_seed="$(uuidgen -s --namespace "%{uuidnamespace}" --name hash-seed)"
-    . "%{build-root}/vars"
+    . /usr-image/vars.txt
     cat > "%{build-root}/genimage.cfg" <<EOF
     image efi.img {
         vfat {
@@ -48,16 +37,6 @@ config:
         }
         mountpoint = "/boot"
         size = 100M
-        temporary = true
-    }
-    image root.img {
-        ext4  {
-            label = "root"
-            extraargs = "-U ${uuid_root} -E hash_seed=${hash_seed},no_copy_xattrs"
-            use-mke2fs = true
-            fs-timestamp = "${SOURCE_DATE_EPOCH}"
-        }
-        size = 1G
         temporary = true
     }
     image disk.img {
@@ -71,10 +50,17 @@ config:
             partition-type-uuid = "U"
             partition-uuid = "${efi_part_uuid}"
         }
-        partition root {
-            image = "root.img"
-            partition-type-uuid = "%{linux-root}"
-            partition-uuid = "${root_part_uuid}"
+        partition usr {
+            image = "/usr-image/usr.img"
+            partition-type-uuid = "%{usr-uuid}"
+            partition-uuid = "${usr_part_uuid}"
+            size = "1G"
+        }
+        partition usr-verity {
+            partition-type-uuid = "%{usr-verity-uuid}"
+            partition-uuid = "${usr_verity_part_uuid}"
+            image = "/usr-image/usr-verity.img"
+            size = "10M"
         }
     }
     config {

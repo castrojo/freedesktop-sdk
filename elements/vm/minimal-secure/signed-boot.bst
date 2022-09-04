@@ -2,10 +2,15 @@ kind: manual
 
 build-depends:
 - vm/boot/efi-secure.bst
+- filename: vm/minimal-secure/usr-image.bst
+  config:
+    location: /usr-image
 - components/sbsigntools.bst
 - components/sign-file.bst
+- components/util-linux.bst
 
 variables:
+  uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
   (?):
   - target_arch == 'i686':
       efi-arch: ia32
@@ -22,12 +27,15 @@ config:
     cp -rT /boot "%{install-root}/boot"
 
   - |
-    mkdir -p "%{install-root}/usr/lib"
-    cp -rT /usr/lib/modules "%{install-root}/usr/lib/modules"
-
-  - |
     version="$(ls -1 /usr/lib/modules | head -n1)"
-    sbsign --key VENDOR.key --cert VENDOR.crt --output "%{install-root}/boot/EFI/Linux/linux-${version}.efi" "/boot/EFI/Linux/linux-${version}.efi"
+    usr_part_uuid="$(uuidgen -s --namespace "%{uuidnamespace}" --name partition-usr)"
+    objcopy -O binary -j .cmdline "/boot/EFI/Linux/linux-${version}.efi" cmdline.txt
+    echo -n "usrhash=$(cat /usr-image/usr-root-hash.txt) " >new-cmdline.txt
+    cat cmdline.txt >>new-cmdline.txt
+    objcopy --remove-section .cmdline "/boot/EFI/Linux/linux-${version}.efi" "linux-${version}.efi"
+    objcopy --add-section .cmdline=new-cmdline.txt --change-section-vma .cmdline=0x30000 "linux-${version}.efi"
+    sbsign --key VENDOR.key --cert VENDOR.crt  --output "%{install-root}/boot/EFI/Linux/linux-${version}.efi" "linux-${version}.efi"
+    objcopy -O binary -j .cmdline "linux-${version}.efi" modified-cmdline.txt
 
   - |
     sbsign --key VENDOR.key --cert VENDOR.crt --output "%{install-root}/boot/EFI/systemd/systemd-boot%{efi-arch}.efi" "/boot/EFI/systemd/systemd-boot%{efi-arch}.efi"

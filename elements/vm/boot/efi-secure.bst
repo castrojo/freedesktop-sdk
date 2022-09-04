@@ -34,11 +34,19 @@ config:
            --uefi \
            --no-machineid --kernel-image /boot/vmlinuz \
            --kver $(ls -1 /lib/modules | head -n1) \
-           --kernel-cmdline "rw console=tty0 console=ttyS0 quiet" \
-           --install 'fsck.ext4'
+           --kernel-cmdline "rw quiet mount.usrflags=ro" \
+           --install 'fsck.ext4' \
+           --install 'mkfs.ext4' \
+           --libdirs %{libdir} \
+           --libdirs %{indep-libdir} \
+           --add systemd-repart \
+           --add systemd-veritysetup \
+           --add crypt \
+           --add tpm2-tss
 
   - mkdir -p "%{install-root}/usr/lib/modules"
   - cp -rT /usr/lib/modules "%{install-root}/usr/lib/modules"
 
   - mkdir -p "%{install-root}/boot/EFI"
   - cp -rT /boot/EFI "%{install-root}/boot/EFI"
+  - mkdir -p "%{install-root}/boot/loader"

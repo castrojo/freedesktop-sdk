@@ -160,15 +160,14 @@ Then you can use `checkout/disk.img` QEMU with EDKII.
 
 ### EFI + secure boot
 
-Note that image does not encrypt or verify integrity of the disk. A
-real secure boot system should use TPM to do that.
+You will need TPM 2.0 to encrypt the root partition.
 
-To be build the image, you need.
+To be build the image, you need:
 
 ```
 ./utils/generate-boot-keys.sh
 bst build vm/minimal-secure/efi.bst
-bst checkout vm/minimal-secure/efi.bst checkout
+bst artifact checkout vm/minimal-secure/efi.bst --directory minimal-secure
 ```
 
 You will need to set the keys in the boot firmware (BIOS) to be able
@@ -180,6 +179,26 @@ to securely boot:
 
 `VENDOR.cer` which signs the kernel and the modules is embedded in
 shim and does not need to be installed.
+
+With OVMF boot firmware, to setup secure boot keys, enter the settings
+by pressing "ESC" during boot. Then go to "Device Manager". Then
+"Secure boot configuration". Finally in the "Secure boot mode", choose
+"Custom mode". Then you can set custom secure boot public keys. You will of
+course need the keys to be available on a vfat disk.
+
+In order to enable TPM 2.0 with QEMU, you need to run swtpm. For example:
+
+```
+swtpm socket --tpm2 --ctrl type=unixio,path=/some/path/to.socket
+```
+
+On QEMU's command line, add:
+
+```
+-chardev socket,id=chrtpm,path=/some/path/to.socket \
+-tpmdev emulator,id=tpm0,chardev=chrtpm \
+-device tpm-tis,tpmdev=tpm0
+```
 
 ### QEMU + 9p
 
