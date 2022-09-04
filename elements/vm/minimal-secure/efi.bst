@@ -2,7 +2,9 @@ kind: script
 
 build-depends:
 - vm/deploy-tools.bst
-- vm/minimal-secure/filesystem.bst
+- filename: vm/minimal-secure/filesystem.bst
+  config:
+    location: '/sysroot'
 - vm/minimal-secure/initial-scripts.bst
 - vm/prepare-image.bst
 
@@ -25,17 +27,8 @@ variables:
         linux-root: 72EC70A6-CF74-40E6-BD49-4BDA08E8F224
 
 config:
-  layout:
-  - element: ''
-    destination: '%{build-root}'
-  - element: 'vm/deploy-tools.bst'
-    destination: '/'
-  - element: 'vm/minimal-secure/filesystem.bst'
-    destination: '/sysroot'
-  - element: 'vm/minimal-secure/initial-scripts.bst'
-    destination: '/'
-
   commands:
+  - mkdir '%{build-root}'
   - |
     prepare-image.sh \
        --sysroot /sysroot \
@@ -60,7 +53,7 @@ config:
     image root.img {
         ext4  {
             label = "root"
-            extraargs = "-U ${uuid_root} -E hash_seed=${hash_seed}"
+            extraargs = "-U ${uuid_root} -E hash_seed=${hash_seed},no_copy_xattrs"
             use-mke2fs = true
             fs-timestamp = "${SOURCE_DATE_EPOCH}"
         }

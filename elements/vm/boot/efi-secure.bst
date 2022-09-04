@@ -16,22 +16,11 @@ variables:
       efi-arch: ia32
 
 config:
-
-  layout:
-  - element: ''
-    destination: '/tmp'
-  - element: ''
-    destination: '/var/tmp'
-  - element: ''
-    destination: '/boot'
-  - element: vm/boot/efi-secure/deps.bst
-    destination: '/'
-  - element: vm/boot/efi-secure/initial-scripts.bst
-    destination: '/'
-  - element: vm/prepare-image.bst
-    destination: '/'
-
   commands:
+  - mkdir -p /tmp
+  - mkdir -p /var/tmp
+  - mkdir -p /boot
+
   - |
     prepare-image.sh --sysroot / --rootpasswd root \
                      --seed "%{uuidnamespace}" >/tmp/vars
