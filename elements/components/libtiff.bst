@@ -31,6 +31,7 @@ public:
     - CVE-2022-2056
     - CVE-2022-2057
     - CVE-2022-2058
+    - CVE-2022-2953
     - CVE-2022-34526
     ignored:
     - CVE-2022-2867
@@ -48,3 +49,7 @@ sources:
   path: patches/libtiff/fix-the-FPE-in-tiffcrop-415-427-and-428.patch
 - kind: patch
   path: patches/libtiff/CVE-2022-34526.patch
+- kind: patch
+  path: patches/libtiff/According-to-Richard-Nolde-https-gitlab.com-libtiff-.patch
+- kind: patch
+  path: patches/libtiff/tiffcrop-S-option-Make-decision-simpler.patch
