@@ -9,4 +9,4 @@ build-depends:
 config:
   commands:
   - |
-    python3 %{bindir}/check-static-libraries.py /sysroot %{datadir}/static_libraries_allow_list
+    python3 /utils/check-static-libraries.py /sysroot /utils/static_libraries_allow_list
