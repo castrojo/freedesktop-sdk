@@ -110,7 +110,7 @@ def mirror_exists_test(source_dict):
     and tests whether the current source is mirrored there.
     Returns a string describing the problem, or 'None' if all is well.'''
 
-    mirror_url = source_dict['mirror_url']
+    mirror_url = source_dict['mirror_url'].lower()
     if mirror_url and mirror_url.endswith('.git'):
         mirror_url = mirror_url[:-4]
     if mirror_url not in glab_mirror_dict():
@@ -154,7 +154,7 @@ def get_repo_list_from_gitlab():
             'mirror-id':        project.id,
             'bmirror-type':     'git repo',
         }
-        output_dict[project.web_url] = project_dict
+        output_dict[project.web_url.lower()] = project_dict
     return output_dict
 
 def get_file_mirror_list_from_gitlab():
