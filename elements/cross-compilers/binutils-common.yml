@@ -39,3 +39,8 @@ config:
 
     - |
       rm "%{install-root}%{infodir}/dir"
+
+public:
+  bst:
+    overlap-whitelist:
+    - "%{sysconfdir}/gprofng.rc"
