@@ -16,6 +16,9 @@ variables:
   # Generic variable for invoking buildstream
   BST: bst --colors
 
+  # Make sure python bytecode doesn't mix up with sources
+  PYTHONPYCACHEPREFIX: "${XDG_CACHE_HOME}/python"
+
   GIT_SUBMODULE_STRATEGY: "recursive"
   BUILD_TASKS: 4
   BUILD_CPU_MULTIPLIER: 1
