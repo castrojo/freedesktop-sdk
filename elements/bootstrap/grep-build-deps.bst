@@ -13,7 +13,7 @@ depends:
 
 - filename: bootstrap/glibc.bst
   type: build
-- filename: bootstrap/pcre.bst
+- filename: bootstrap/pcre2.bst
   type: build
 
 variables:
@@ -30,5 +30,5 @@ config:
 
   - element: bootstrap/glibc.bst
     destination: "%{sysroot}"
-  - element: bootstrap/pcre.bst
+  - element: bootstrap/pcre2.bst
     destination: "%{sysroot}"
