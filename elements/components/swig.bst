@@ -7,6 +7,7 @@ build-depends:
 
 depends:
 - bootstrap-import.bst
+- components/pcre.bst
 
 sources:
 - kind: git_tag
