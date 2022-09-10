@@ -20,6 +20,7 @@ libdaemon: git://git.0pointer.de/
 netfilter: https://git.netfilter.org/
 nettle: https://git.lysator.liu.se/nettle/
 pagure: https://pagure.io/
+pcre: https://gitlab.com/freedesktop-sdk/mirrors/tarball-lfs-mirror/raw/master/tar_https/ftp.pcre.org/pub/pcre/
 pypi: https://files.pythonhosted.org/packages/
 repo_or_cz: https://repo.or.cz/
 samba: https://git.samba.org/
