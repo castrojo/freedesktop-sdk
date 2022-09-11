@@ -8,6 +8,7 @@ depends:
 - components/libflac.bst
 - components/libogg.bst
 - components/libvorbis.bst
+- components/opus.bst
 
 public:
   bst:
