@@ -1,15 +1,16 @@
 kind: meson
 description: Glib
 
+build-depends:
+- public-stacks/buildsystem-meson.bst
+- components/gtk-doc.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/libffi.bst
-- filename: components/util-linux.bst
-- filename: components/python3.bst
-- filename: public-stacks/buildsystem-meson.bst
-  type: build
-- filename: components/gtk-doc.bst
-  type: build
+- bootstrap-import.bst
+- components/libffi.bst
+- components/util-linux.bst
+- components/pcre.bst
+- components/python3.bst
 
 variables:
   meson-local: >-
