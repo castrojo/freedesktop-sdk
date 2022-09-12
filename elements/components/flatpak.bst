@@ -9,7 +9,7 @@ depends:
 - components/curl.bst
 - components/xorg-lib-xau.bst
 - components/ostree.bst
-- components/fuse.bst
+- components/fuse3.bst
 - components/json-glib.bst
 - components/appstream.bst
 - components/libseccomp.bst
