@@ -2,6 +2,11 @@ sources:
 - kind: git_tag
   url: github:flatpak/flatpak.git
   track: main
+  track-extra:
+  - flatpak-1.14.x
+  match:
+  - 1.[02468]*
+  - 1.1[02468]*
   ref: 1.14.0-0-g488038eed44c7edf334d1e28085975d96ce2bdcc
 - kind: patch
   path: patches/flatpak/revert-compat-arch.patch
