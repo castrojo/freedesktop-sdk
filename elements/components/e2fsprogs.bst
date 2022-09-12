@@ -6,12 +6,11 @@ build-depends:
 depends:
 - bootstrap-import.bst
 - components/util-linux.bst
-- components/fuse.bst
 
 variables:
   conf-local: >-
     --enable-elf-shlibs
-    --enable-fuse2fs
+    --disable-fuse2fs
     --disable-libblkid
     --disable-libuuid
     --disable-fsck
