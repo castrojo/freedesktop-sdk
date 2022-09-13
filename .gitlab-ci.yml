@@ -89,21 +89,23 @@ before_script:
       echo "$BB_CAS_PUSH_KEY" > /etc/ssl/CAS/server.key
 
       {
-        echo "projects:"
-        echo "  freedesktop-sdk:"
-        echo "    artifacts:"
-        echo "      servers:"
-        if [ -f /cache-certificate/server.crt ]; then
-          echo "      - url: https://local-cas-server:1102"
-          if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
-            echo "        push: true"
-          fi
-          echo "        auth:"
-          echo "          client-key: /etc/ssl/CAS/server.key"
-          echo "          client-cert: /etc/ssl/CAS/server.crt"
-          echo "          server-cert: /cache-certificate/server.crt"
-        fi
         if [ "${DISABLE_REMOTE_CACHE:+set}" != set ]; then
+
+          echo "projects:"
+          echo "  freedesktop-sdk:"
+          echo "    artifacts:"
+          echo "      servers:"
+
+          if [ -f /cache-certificate/server.crt ]; then
+            echo "      - url: https://local-cas-server:1102"
+            if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
+              echo "        push: true"
+            fi
+            echo "        auth:"
+            echo "          client-key: /etc/ssl/CAS/server.key"
+            echo "          client-cert: /etc/ssl/CAS/server.crt"
+            echo "          server-cert: /cache-certificate/server.crt"
+          fi
           echo "      - url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
           if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
             echo "        push: true"
@@ -111,20 +113,18 @@ before_script:
           echo "        auth:"
           echo "          client-key: /etc/ssl/CAS/server.key"
           echo "          client-cert: /etc/ssl/CAS/server.crt"
-        fi
-        echo "    source-caches:"
-        echo "      servers:"
-        if [ -f /cache-certificate/server.crt ]; then
-          echo "      - url: https://local-cas-server:1102"
-          if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
-            echo "        push: true"
+          echo "    source-caches:"
+          echo "      servers:"
+          if [ -f /cache-certificate/server.crt ]; then
+            echo "      - url: https://local-cas-server:1102"
+            if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
+              echo "        push: true"
+            fi
+            echo "        auth:"
+            echo "          client-key: /etc/ssl/CAS/server.key"
+            echo "          client-cert: /etc/ssl/CAS/server.crt"
+            echo "          server-cert: /cache-certificate/server.crt"
           fi
-          echo "        auth:"
-          echo "          client-key: /etc/ssl/CAS/server.key"
-          echo "          client-cert: /etc/ssl/CAS/server.crt"
-          echo "          server-cert: /cache-certificate/server.crt"
-        fi
-        if [ "${DISABLE_REMOTE_CACHE:+set}" != set ]; then
           echo "      - url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
           if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
             echo "        push: true"
@@ -218,6 +218,7 @@ pylint:
     - '19.08'
     - '/^release\/.*/'
     - tags
+    - schedules
   needs: []
 
 .check_update_elements:
@@ -389,6 +390,7 @@ license_checker:
     - '19.08'
     - '/^release\/.*/'
     - tags
+    - schedules
 
 .builder-x86_64:
   tags:
@@ -880,6 +882,9 @@ markdown_manifest:
   stage: reproducible
   script:
     - ./utils/test_reproducibility.py tests/reproducible-test.bst result_folder
+  needs: []
+  variables:
+    DISABLE_REMOTE_CACHE: "1"
   artifacts:
     when: always
     paths:

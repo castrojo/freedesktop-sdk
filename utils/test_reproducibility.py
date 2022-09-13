@@ -1,18 +1,4 @@
 #!/usr/bin/env python3
-
-"""This is a simple rewrite of the reproducibility test
-
-Missing from Buildstream:
-- Remove Downloadable Artifacts
-    Apparently buildstream 2 will support removing artifacts, but
-    buildstream 1.5+ still lacks this possibility.
-
-- Disable Artifacts Server
-    Currently we need to run buildstream without access to
-    internet via a LD_PRELOAD hack. We can't
-    expect that this will work everywhere.
-"""
-
 from typing import List
 
 import argparse
@@ -20,23 +6,13 @@ import subprocess
 import os
 import sys
 import tempfile
-import yaml
-
 from yattag import Doc, indent
-
-
-# pull and fetch have similar semantics, that are not really that
-# different to make clear that we are talking about artifacts or
-# sources, both just download something from the internet.
-# perhaps:
-# bst pull --type artifacts --deps all TARGET
-# bst pull --type sources --deps all TARGET
 
 
 class ElementInfo:
     """ Represents a line of parsed information from bst show """
 
-    def __init__(self, name, ref, status):
+    def __init__(self, name, ref=None, status=None):
         self.name = name  # the element.bst
         self.ref = ref  # the identification hash
         self.status = status  # cached or not cached
@@ -47,162 +23,38 @@ class BuildstreamConfiguration:
 
     def __init__(self):
         bst_binary_call = os.environ.get("BST", "bst")
-        found = False
-        config = None
-
         self.bst_call = bst_binary_call.split(" ")
-        self.bst_call_no_colors = [p for p in self.bst_call if p != "--colors"]
-
-        if "--config" in bst_binary_call:
-            config_index = self.bst_call.index("--config") + 1
-            config = self.bst_call[config_index]
-            found = True
-        elif " -c " in bst_binary_call:
-            config_index = self.bst_call.index("-c") + 1
-            config = self.bst_call[config_index]
-            found = True
-
-        xdg_config_home = os.environ.get(
-            "XDG_CONFIG_HOME", os.path.expanduser("~/.config")
-        )
-        if not found and os.path.exists(
-                os.path.join(xdg_config_home, "buildstream1.conf")
-        ):
-            config = os.path.join(xdg_config_home, "buildstream1.conf")
-            found = True
-
-        if not found and os.path.exists(
-                os.path.join(xdg_config_home, "buildstream.conf")
-        ):
-            config = os.path.join(xdg_config_home, "buildstream.conf")
-            found = True
-
-        if not found:
-            self._default_cache_folder()
-        else:
-            with open(config, "r", encoding="utf-8") as config_file:
-                parsed_config = yaml.load(config_file.read(), Loader=yaml.SafeLoader)
-                if "artifactdir" in parsed_config:
-                    self.cache_folder = os.path.join(
-                        parsed_config["artifactdir"], "cas/refs"
-                    )
-                else:
-                    self._default_cache_folder()
-
-    def _default_cache_folder(self):
-        bst_cache_folder = "buildstream/artifacts/cas/refs"
-        xdg_folder = os.environ.get("XDG_CACHE_HOME", os.path.expanduser("~/.cache"))
-        self.cache_folder = os.path.join(xdg_folder, bst_cache_folder)
 
 
-def bst_pull_artifacts(
-        bst_config: BuildstreamConfiguration, element_names: [str]
-) -> bool:
-    """ Runs bst pull for all the dependencies on the targets """
-    bst_call = bst_config.bst_call.copy()
-    bst_call.extend(["pull"])
-    bst_call.extend(element_names)
-
-    print("BST PULL RUNNING:", bst_call)
-    ret = subprocess.call(bst_call)
-
-    return ret == 0
-
-
-def bst_fetch_sources(
-        bst_config: BuildstreamConfiguration, element_names: [str]
-) -> bool:
-    """ Run bst fetch for all dependencies on the target """
-
-    bst_call = bst_config.bst_call.copy()
-    bst_call.extend(["fetch"])
-    bst_call.extend(element_names)
-
-    print("BST FETCH RUNNING:", bst_call)
-    ret = subprocess.call(bst_call)
-
-    return ret == 0
-
-
-def is_exe(fpath: bytes) -> bool:
-    return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
-
-
-def has_executable(program: str) -> bool:
-    fpath, _ = os.path.split(program)
-    if fpath:
-        if is_exe(program):
-            return True
-    else:
-        for path in os.environ["PATH"].split(os.pathsep):
-            exe_file = os.path.join(path, program)
-            if is_exe(exe_file):
-                return True
-
-    return False
-
-
-def bst_build_specific(
+def bst_build(
         bst_config: BuildstreamConfiguration,
-        element_name: str,
+        element_info: ElementInfo,
         remove_internet_access: bool,
+        dependency_kind: str
 ):
     """Builds a single element without network connection
     to make sure we are not downloading from a artifacts server."""
-    # FIXME: change this to bst build --no-cache target as soon as it's supported.
-    # do not hack around forbid-network.
-
     bst_call = bst_config.bst_call.copy()
-    bst_call.extend(["build", element_name])
+    bst_call.extend(["build", element_info.name])
+    bst_call.extend(["--deps", dependency_kind])
 
     if remove_internet_access:
-        # FIXME: Remove this line. it blocks access to the internet for this
-        # script, but the proper way to do this is to have buildstream to
-        # not allow artifact cache access for a specific element using a
-        # command line flag.
-
-        forbid_network_call = ["forbid-network"]
-        forbid_network_call.extend(bst_call)
-
-        print("BST BUILD RUNNING:", forbid_network_call)
-        subprocess.call(forbid_network_call)
-    else:
-        print("BST BUILD RUNNING:", bst_call)
-        subprocess.call(bst_call)
-
-
-def bst_remove_all_artifacts_from_list(
-        bst_config: BuildstreamConfiguration, element_list: List[ElementInfo]
-) -> None:
-    """Removes all build artifacts from the artifact list
-    making sure that we are in a clean build state"""
-    for original_element in element_list:
-        bst_remove_artifact_cache(
-            bst_config=bst_config,
-            element_name=original_element.name,
-            element_ref=original_element.ref,
-        )
+        bst_call.extend(["--ignore-project-artifact-remotes"])
+    print("BST BUILD RUNNING:", bst_call)
+    subprocess.run(bst_call, check=True)
 
 
 def bst_remove_artifact_cache(
-        bst_config: BuildstreamConfiguration, element_name: str, element_ref: str
+        bst_config: BuildstreamConfiguration,
+        element_info: ElementInfo,
+        dependency_kind: str
 ) -> bool:
     """ Remove a build artifact from the local cache """
-    # FIXME, discomment this when buildstream supports deleting artifacts.
-    # ret = subprocess.call(["bst", "artifact", "delete", target])
-    # or better, we can remove this call completely by using a patch to
-    # buildstream forbidding it to use the cache for a build.
-
-    for root, _, files in os.walk(bst_config.cache_folder):
-        for name in files:
-            if name == element_ref:
-                print("found cache, removing.")
-                fullpath = os.path.join(root, name)
-                os.remove(fullpath)
-                return True
-
-    print(f"No cache found for element {element_name} ref {element_ref}.")
-    return False
+    bst_call = bst_config.bst_call.copy()
+    bst_call.extend(["artifact", "delete"])
+    bst_call.append(element_info.name)
+    bst_call.extend(["--deps", dependency_kind])
+    subprocess.run(bst_call, check=True)
 
 
 def bst_checkout_files_to(
@@ -214,21 +66,20 @@ def bst_checkout_files_to(
     bst_call = bst_config.bst_call.copy()
     bst_call.extend(
         [
+            "artifact",
             "checkout",
+            "--hardlinks",
             "--deps",
             "none",
             "--no-integrate",
             element_name,
+            "--directory",
             output_folder,
         ]
     )
 
-    print("BST CHECKOUT RUNNING:", bst_call)
-    ret = subprocess.call(bst_call)
-
-    if ret != 0:
-        print("ERROR: Could not copy files to temporary folder, aborting.")
-        sys.exit(1)
+    print("BST CHECKOUT RUNNING:", bst_call, file=sys.stderr)
+    subprocess.run(bst_call, check=True)
 
 
 def bst_show_extract_result(output) -> List[ElementInfo]:
@@ -249,66 +100,33 @@ def bst_show_extract_result(output) -> List[ElementInfo]:
 # Returns a list of build elements, hash, and status
 # we use this to compare later on with a second build.
 def bst_show(
-        bst_config: BuildstreamConfiguration, targets: [str], dependency_kind: str
+    bst_config: BuildstreamConfiguration,
+    element_infos: List[ElementInfo],
+    dependency_kind: str,
 ) -> List[ElementInfo]:
     """Gather all of the results of the build, name and ref,
     so we can build all of them again to compare.
     dependency kind is"""
 
-    result = []
+    # Has to run with colors off, otherwise parsing output will break
+    bst_call = [x for x in bst_config.bst_call if x != "--colors"]
+    bst_call.extend(
+        [
+            "show",
+            "--deps",
+            dependency_kind,
+            "--format",
+            "%{name},%{full-key},%{state}",
+        ]
+    )
+    bst_call.extend(element_info.name for element_info in element_infos)
 
-    try:
-        # The bst show --deps build excludes the element itself,
-        # so we need to run once with --deps build and another time
-        # with --deps none
+    print("BST SHOW:", bst_call, file=sys.stderr)
 
-        bst_call = bst_config.bst_call_no_colors.copy()
-        bst_call.extend(
-            [
-                "show",
-                "--deps",
-                dependency_kind,
-                "--format",
-                "%{name},%{full-key},%{state}",
-            ]
-        )
-        bst_call.extend(targets)
-
-        print("BST SHOW:", bst_call)
-
-        output = subprocess.check_output(bst_call)
-        result = bst_show_extract_result(output)
-
-    except subprocess.CalledProcessError as exception:
-        print(exception)
-        sys.exit(1)
+    proc = subprocess.run(bst_call, check=True, capture_output=True)
+    result = bst_show_extract_result(proc.stdout)
 
     return result
-
-
-def bst_fetch_required_sources(
-        bst_config: BuildstreamConfiguration, element_name: str
-):
-    seen = set([element_name])
-    queue = [element_name]
-    required = [element_name]
-
-    while queue:
-        result = bst_show(bst_config, queue, 'build')
-        queue = []
-        for elt in result:
-            if elt.name in seen:
-                continue
-            seen.add(elt.name)
-            if elt.status == 'cached':
-                continue
-            queue.append(elt.name)
-            if elt.status == 'fetch needed':
-                required.append(elt.name)
-
-    bst_fetch_sources(bst_config=bst_config, element_names=required)
-
-    return required
 
 
 def is_reproducible(
@@ -336,72 +154,36 @@ def is_reproducible(
 
     print(f"DIFFOSCOPE for {element_name}: ", diffoscope_cmd)
 
-    result = subprocess.call(diffoscope_cmd)
+    proc = subprocess.run(diffoscope_cmd)
 
-    return result == 0
+    return proc.returncode == 0
 
 
-def handle_artifact_status(
-        bst_config: BuildstreamConfiguration, element_infos: List[ElementInfo]
-) -> bool:
-    """Not a good name, this function tries to remove the cache, redownload it
-    and then verify if the status equals cached, returning a boolean value.
+def restore_initial_state(
+        bst_config: BuildstreamConfiguration, element_info: ElementInfo
+):
     """
-    for build_dep in element_infos:
-        bst_remove_artifact_cache(
-            bst_config=bst_config,
-            element_name=build_dep.name,
-            element_ref=build_dep.ref,
-        )
+    We want to build as many elements against remote cached artifacts as possible
+    so we first wipe everything, then download what we can fallbacking to building
+    if necessary. We will also fetch sources for everything so that does not have
+    to be done later.
+    """
+    bst_remove_artifact_cache(bst_config=bst_config, element_info=element_info, dependency_kind="all")
 
-    element_names = [element.name for element in element_infos]
-    bst_pull_artifacts(bst_config=bst_config, element_names=element_names)
-
-    # A Comment from Valentin on the MR for this, but it's important
-    # as explanation on why is this here:
-
-    pull_result = bst_show(
-        bst_config=bst_config, targets=element_names, dependency_kind="none"
+    bst_build(
+        bst_config=bst_config,
+        element_info=element_info,
+        remove_internet_access=False,
+        dependency_kind="all",
     )
-
-    if len(pull_result) == 0:
-        return True
-
-    for result in pull_result:
-        if result.status != "cached":
-            return True
-
-    return False
 
 
 def is_single_project_reproducible(
         bst_config: BuildstreamConfiguration, element_info: ElementInfo, output_dir: str
 ) -> bool:
     """ verify if a single element is reproducible """
-    rebuild_fallback = False
 
-    build_deps = bst_show(
-        bst_config=bst_config, targets=[element_info.name], dependency_kind="build"
-    )
-
-    if handle_artifact_status(
-            bst_config=bst_config, element_infos=[*build_deps, element_info]
-    ):
-        rebuild_fallback = True
-
-    if rebuild_fallback:
-        print(
-            f"Warning: rebuilding element {element_info.name} because it was not in the remote cache."
-        )
-        bst_build_specific(
-            bst_config=bst_config,
-            element_name=element_info.name,
-            remove_internet_access=False,
-        )
-    else:
-        print("No need to rebuild, found in cache.")
-
-    with tempfile.TemporaryDirectory() as folder:
+    with tempfile.TemporaryDirectory(dir=".") as folder:
         # Checkout all files from the original build and store in a folder.
         print("Starting the rebuild to verify reproducibility.")
 
@@ -413,19 +195,15 @@ def is_single_project_reproducible(
 
         bst_remove_artifact_cache(
             bst_config=bst_config,
-            element_name=element_info.name,
-            element_ref=element_info.ref,
+            element_info=element_info,
+            dependency_kind="none",
         )
 
-        bst_fetch_required_sources(
+        bst_build(
             bst_config=bst_config,
-            element_name=element_info.name,
-        )
-
-        bst_build_specific(
-            bst_config=bst_config,
-            element_name=element_info.name,
+            element_info=element_info,
             remove_internet_access=True,
+            dependency_kind="none"
         )
         bst_checkout_files_to(
             bst_config=bst_config,
@@ -434,7 +212,7 @@ def is_single_project_reproducible(
         )
 
         # compare everything and store the result.
-        dirname = output_dir + f"/{element_info.name}"
+        dirname = f"{output_dir}/{element_info.name}"
 
         return is_reproducible(
             element_name=element_info.name,
@@ -446,27 +224,30 @@ def is_single_project_reproducible(
 
 
 def bst_check_reproducibility_v2(
-        bst_config: BuildstreamConfiguration, element: str, output_dir: str
+        bst_config: BuildstreamConfiguration, element_name: str, output_dir: str
 ) -> List[str]:
     """First checks if all the dependencies of element are reproducible, then
     checks if element is reproducible"""
+    element_info = ElementInfo(element_name)
+    restore_initial_state(bst_config, element_info)
 
-    runtime_deps = bst_show(
-        bst_config=bst_config, targets=[element], dependency_kind="run"
+    deps = bst_show(
+        bst_config=bst_config, element_infos=[element_info], dependency_kind="all"
     )
+
     results = {
         "non_reproducible": [],
         "reproducible" : []
     }
 
     # Try to build all dependencies.
-    for runtime_dep in runtime_deps:
+    for element_info in reversed(deps):
         if not is_single_project_reproducible(
-                bst_config=bst_config, element_info=runtime_dep, output_dir=output_dir
+                bst_config=bst_config, element_info=element_info, output_dir=output_dir
         ):
-            results["non_reproducible"].append(runtime_dep.name)
+            results["non_reproducible"].append(element_info.name)
         else:
-            results["reproducible"].append(runtime_dep.name)
+            results["reproducible"].append(element_info.name)
 
     return results
 
@@ -559,7 +340,7 @@ def main():
     bst_config = BuildstreamConfiguration()
 
     results = bst_check_reproducibility_v2(
-        bst_config=bst_config, element=element, output_dir=output_dir
+        bst_config=bst_config, element_name=element, output_dir=output_dir
     )
 
     if handle_results(results=results, output_dir=output_dir):
