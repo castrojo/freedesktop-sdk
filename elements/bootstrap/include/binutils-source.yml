@@ -13,6 +13,7 @@ public:
     - CVE-2022-38533
     ignored:
     - CVE-2022-38126
+    - CVE-2022-38127
 
 sources:
 - kind: git_tag
