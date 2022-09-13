@@ -28,6 +28,8 @@ public:
         - '%{libdir}/libturbojpeg.so'
   cpe:
     product: libjpeg-turbo
+    ignored:
+    - CVE-2020-35538
 
 sources:
 - kind: git_tag
