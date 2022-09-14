@@ -30,4 +30,6 @@ sources:
   track: main
   track-extra:
   - xdg-desktop-portal-1.14
-  ref: 1.15.0-0-g95b70566e05ef493539cdcbe2d9321a529858eb7
+  match:
+  - "*.*[02468].*"
+  ref: 1.14.6-0-gbd1eab9361832f320a83ea3b2a98c8894376fc22
