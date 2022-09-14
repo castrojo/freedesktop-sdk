@@ -9,7 +9,9 @@ depends:
 - bootstrap-import.bst
 - components/libffi.bst
 - components/util-linux.bst
+- components/pcre.bst
 - components/python3.bst
+
 
 variables:
   meson-local: >-
