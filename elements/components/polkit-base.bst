@@ -31,12 +31,6 @@ config:
       install -D -m 644 extra/sysusers.conf %{install-root}/$SYSUSERSDIR/polkit.conf
 
 public:
-  initial-script:
-    script: |
-      #!/bin/bash
-      sysroot="${1}"
-      chmod 4755 "${sysroot}%{indep-libdir}/polkit-1/polkit-agent-helper-1"
-      chmod 4755 "${sysroot}%{bindir}/pkexec"
   cpe:
     patches:
     - CVE-2021-4034
