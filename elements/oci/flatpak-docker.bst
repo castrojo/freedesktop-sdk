@@ -38,7 +38,6 @@ config:
         image: /parent
       layer: /layer
       comment: "Import flatpak"
-      created: $(date --date %{runtime-version-date} +"%Y-%m-%dT%H:%M:%SZ")
       tags:
       - freedesktopsdk/flatpak:latest
     EOF

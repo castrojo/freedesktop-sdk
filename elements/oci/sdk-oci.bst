@@ -39,7 +39,6 @@ config:
         image: /parent
       layer: /layer
       comment: "Import sdk layer from Freedesktop SDK"
-      created: $(date --date %{runtime-version-date} +"%Y-%m-%dT%H:%M:%SZ")
       index-annotations:
         org.opencontainers.image.ref.name: localhost/freedesktopsdk/sdk:latest
     EOF
