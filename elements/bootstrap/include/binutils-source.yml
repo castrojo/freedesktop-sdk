@@ -10,7 +10,11 @@ public:
   cpe:
     version-match: '([0-9]*)_([0-9]*)'
     patches:
+    - CVE-2022-38128
     - CVE-2022-38533
+    ignored:
+    - CVE-2022-38126
+    - CVE-2022-38127
 
 sources:
 - kind: git_tag
@@ -23,3 +27,9 @@ sources:
   ref: binutils-2_39-0-gb51c2fec1da205ea3e7354cbb3e253018d64873c
 - kind: patch
   path: patches/binutils/PR29482-strip-heap-buffer-overflow.patch
+- kind: patch
+  path: patches/binutils/miscellaneous-dwarf.c-tidies.patch
+- kind: patch
+  path: patches/binutils/binutils-dwarf.c-abbrev-caching.patch
+- kind: patch
+  path: patches/binutils/PR29370-infinite-loop-in-display_debug_abbrev.patch
