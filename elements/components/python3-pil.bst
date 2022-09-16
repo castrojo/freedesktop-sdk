@@ -11,5 +11,5 @@ sources:
 - kind: pypi
   name: Pillow
   ref:
-    sha256sum: 7502539939b53d7565f3d11d87c78e7ec900d3c72945d4ee0e2f250d598309a0
-    suffix: 43/6e/59853546226ee6200f9ba6e574d11604b60ad0754d2cbd1c8f3246b70418/Pillow-9.1.1.tar.gz
+    sha256sum: 75e636fd3e0fb872693f23ccb8a5ff2cd578801251f3a4f6854c6a5d437d3c04
+    suffix: 8c/92/2975b464d9926dc667020ed1abfa6276e68c3571dcb77e43347e15ee9eed/Pillow-9.2.0.tar.gz
