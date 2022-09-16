@@ -12,6 +12,7 @@ depends:
 variables:
   meson-local: >-
     -Ddocumentation=false
+    -Dc_args=-DXCURSORPATH='\"~/.icons:/app/share/icons:/usr/share/icons:/usr/share/pixmaps:/usr/share/runtime/share/icons:/run/host/user-share/icons:/run/host/share/icons\"'
 
 public:
   bst:
