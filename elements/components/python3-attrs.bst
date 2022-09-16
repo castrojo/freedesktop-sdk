@@ -11,5 +11,5 @@ sources:
 - kind: pypi
   name: attrs
   ref:
-    sha256sum: 626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd
-    suffix: d7/77/ebb15fc26d0f815839ecd897b919ed6d85c050feeb83e100e020df9153d2/attrs-21.4.0.tar.gz
+    sha256sum: 29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6
+    suffix: 1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz
