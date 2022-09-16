@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-from typing import List
+from typing import List, Optional
 
 import argparse
 import subprocess
 import os
 import sys
 import tempfile
+import multiprocessing
+
 from yattag import Doc, indent
 
 
@@ -30,11 +32,14 @@ def bst_build(
         bst_config: BuildstreamConfiguration,
         element_info: ElementInfo,
         remove_internet_access: bool,
-        dependency_kind: str
+        dependency_kind: str,
+        max_jobs: Optional[int]=None
 ):
     """Builds a single element without network connection
     to make sure we are not downloading from a artifacts server."""
     bst_call = bst_config.bst_call.copy()
+    if max_jobs:
+        bst_call.extend(["--max-jobs", str(max_jobs)])
     bst_call.extend(["build", element_info.name])
     bst_call.extend(["--deps", dependency_kind])
 
@@ -203,7 +208,8 @@ def is_single_project_reproducible(
             bst_config=bst_config,
             element_info=element_info,
             remove_internet_access=True,
-            dependency_kind="none"
+            dependency_kind="none",
+            max_jobs=multiprocessing.cpu_count()
         )
         bst_checkout_files_to(
             bst_config=bst_config,
