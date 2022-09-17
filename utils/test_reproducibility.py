@@ -45,7 +45,7 @@ def bst_build(
 
     if remove_internet_access:
         bst_call.extend(["--ignore-project-artifact-remotes"])
-    print("BST BUILD RUNNING:", bst_call)
+    print("BST BUILD RUNNING:", bst_call, file=sys.stderr)
     subprocess.run(bst_call, check=True)
 
 
@@ -157,7 +157,7 @@ def is_reproducible(
         folder_b,
     ]
 
-    print(f"DIFFOSCOPE for {element_name}: ", diffoscope_cmd)
+    print(f"DIFFOSCOPE for {element_name}: ", diffoscope_cmd, file=sys.stderr)
 
     proc = subprocess.run(diffoscope_cmd)
 
@@ -184,13 +184,16 @@ def restore_initial_state(
 
 
 def is_single_project_reproducible(
-        bst_config: BuildstreamConfiguration, element_info: ElementInfo, output_dir: str
+    bst_config: BuildstreamConfiguration,
+    element_info: ElementInfo,
+    description: str,
+    output_dir: str
 ) -> bool:
     """ verify if a single element is reproducible """
 
     with tempfile.TemporaryDirectory(dir=".") as folder:
         # Checkout all files from the original build and store in a folder.
-        print("Starting the rebuild to verify reproducibility.")
+        print(f"Starting the {description} to verify reproducibility.", file=sys.stderr)
 
         bst_checkout_files_to(
             bst_config=bst_config,
@@ -247,9 +250,13 @@ def bst_check_reproducibility_v2(
     }
 
     # Try to build all dependencies.
-    for element_info in reversed(deps):
+    for i, element_info in enumerate(reversed(deps)):
+        description = f"{i}/{len(deps)}  {element_info.name}"
         if not is_single_project_reproducible(
-                bst_config=bst_config, element_info=element_info, output_dir=output_dir
+                bst_config=bst_config,
+                element_info=element_info,
+                description=description,
+                output_dir=output_dir,
         ):
             results["non_reproducible"].append(element_info.name)
         else:
@@ -313,14 +320,14 @@ def handle_results(results, output_dir: str) -> bool:
 
     # Generate some overall stdout and report a successful exit status
     # only if everything was found to be reproducible
-    print("")
+    print("", file=sys.stderr)
     if len(results["non_reproducible"]) == 0:
-        print("Project is reproducible.")
+        print("Project is reproducible.", file=sys.stderr)
         return True
 
-    print("Project is not reproducible, please check the results")
-    print("in reproducibility_results.txt and for a more detailed")
-    print(f"output, see the folder {output_dir} specified in the command")
+    print("Project is not reproducible, please check the results", file=sys.stderr)
+    print("in reproducibility_results.txt and for a more detailed", file=sys.stderr)
+    print(f"output, see the folder {output_dir} specified in the command", file=sys.stderr)
 
     return False
 
@@ -328,7 +335,7 @@ def handle_results(results, output_dir: str) -> bool:
 def main():
     """ start of the application """
 
-    print("Checking reproducibility")
+    print("Checking reproducibility", file=sys.stderr)
     parser = argparse.ArgumentParser(
         description="Test a buildstream project for reproducibility"
     )
