@@ -17,4 +17,4 @@ sources:
   url: chromium:external/gyp
   track: master
   track-tags: false
-  ref: 9ecf45e37677743503342ee4c6a76eaee80e4a7f
+  ref: 9d09418933ea2f75cc416e5ce38d15f62acd5c9a
