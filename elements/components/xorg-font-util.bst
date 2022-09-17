@@ -11,4 +11,4 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/font/util.git
   track: master
-  ref: font-util-1.3.2-0-gd45011b8324fecebb4fc79e57491d341dd96e325
+  ref: font-util-1.3.3-0-g2ef6b22ad908c024b6c2fbde5c1de62123f82dc2
