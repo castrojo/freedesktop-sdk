@@ -12,5 +12,5 @@ sources:
 - kind: pypi
   name: poetry-core
   ref:
-    sha256sum: d145ae121cf79118a8901b60f2c951c4edcc16f55eb8aaefc156aa33aa921f07
-    suffix: ea/47/929cccb98445b627e3a42f29290b3f6dc6c21f3dc0ba7b3bf16215298f94/poetry-core-1.1.0.tar.gz
+    sha256sum: ceccec95487e46c63a41761fbac5211b809bca22658e25a049f4c7da96269f71
+    suffix: 27/ba/611a561ef300abdae81a576445334fb7a41e62c295b050338a4f54fa76d4/poetry-core-1.2.0.tar.gz
