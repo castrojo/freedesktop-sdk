@@ -24,7 +24,7 @@ variables:
         -DENABLE_NEON=NO
   - target_arch == "aarch64":
       aom_target: arm64
-  - target_arch == "ppc64le":
+  - target_arch in ("ppc64le", "ppc64"):
       aom_target: ppc
   - target_arch == "riscv64":
       aom_target: generic
