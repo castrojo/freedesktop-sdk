@@ -21,6 +21,9 @@ variables:
       vpxtarget: ppc64le-linux-gcc
   - target_arch == "riscv64":
       vpxtarget: generic-gnu
+  - target_arch == "ppc64":
+      vpxtarget: ppc64-linux-gcc
+
 
   conf-args: |
     --prefix="%{prefix}" \
