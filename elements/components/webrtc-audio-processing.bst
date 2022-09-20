@@ -29,3 +29,7 @@ sources:
   path: patches/webrtc-audio-processing/add-ppc-family-support.patch
 - kind: patch
   path: patches/webrtc-audio-processing/riscv_support.patch
+- kind: patch
+  path: patches/webrtc-audio-processing/add-be-le-conversion.patch
+- kind: patch
+  path: patches/webrtc-audio-processing/fix-endianness-read-write.patch
