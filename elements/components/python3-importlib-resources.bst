@@ -11,5 +11,5 @@ sources:
 - kind: pypi
   name: importlib-resources
   ref:
-    sha256sum: 568c9f16cb204f9decc8d6d24a572eeea27dacbb4cee9e6b03a8025736769751
-    suffix: a5/66/b844887f2225049abd75a0c54415d419e334b7a7e2a69c5a5c4968e30906/importlib_resources-5.8.0.tar.gz
+    sha256sum: 5481e97fb45af8dcf2f798952625591c58fe599d0735d86b10f54de086a61681
+    suffix: 38/b6/bc58f9261c70abb5fd670f9ad5d84445a402b4b473f308c5bf699cd379e0/importlib_resources-5.9.0.tar.gz
