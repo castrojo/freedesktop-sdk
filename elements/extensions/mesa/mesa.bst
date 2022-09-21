@@ -50,7 +50,7 @@ variables:
       gallium_drivers: asahi,etnaviv,freedreno,kmsro,lima,nouveau,panfrost,swrast,tegra,virgl,v3d,vc4,zink
       vulkan_drivers: freedreno,broadcom,panfrost,swrast
       enable_libunwind: 'false'
-  - target_arch == "ppc64le" or target_arch == "riscv64":
+  - target_arch in ("ppc64le", "ppc64", "riscv64"):
       gallium_drivers: nouveau,r600,r300,radeonsi,swrast,virgl
       vulkan_drivers: amd
       enable_libunwind: 'false'
