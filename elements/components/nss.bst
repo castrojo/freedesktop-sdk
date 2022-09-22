@@ -45,6 +45,8 @@ variables:
       gyp-arch: aarch64
   - target_arch == 'ppc64le':
       gyp-arch: ppc64le
+  - target_arch == 'ppc64':
+      gyp-arch: ppc64
   - target_arch == 'riscv64':
       gyp-arch: riscv64
 
