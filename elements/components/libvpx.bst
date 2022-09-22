@@ -22,7 +22,7 @@ variables:
   - target_arch == "riscv64":
       vpxtarget: generic-gnu
   - target_arch == "ppc64":
-      vpxtarget: ppc64-linux-gcc
+      vpxtarget: generic-gnu
 
 
   conf-args: |

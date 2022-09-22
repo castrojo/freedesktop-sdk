@@ -16,6 +16,9 @@ environment:
   GOARCH: "%{go-arch}"
   GOHOSTARCH: "%{go-arch}"
   CGO_ENABLED: '1'
+  (?):
+  - target_arch == "ppc64":
+      CGO_ENABLED: '0'
 
 config:
   build-commands:

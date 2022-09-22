@@ -27,7 +27,7 @@ variables:
   - target_arch == "i686":
       src-arch: x86
       kernel_arch: i386
-  - target_arch == "ppc64le":
+  - target_arch in ("ppc64", "ppc64le"):
       kernel_arch: powerpc
   - target_arch == "riscv64":
       kernel_arch: riscv
