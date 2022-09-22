@@ -1,5 +1,19 @@
 Freedesktop-SDK
 
+freedesktop-sdk-20.08.21:
+    * Update cracklib to v2.9.8-0
+    * Update gnupg to gnupg-2.2.38-0
+    * Update git to v2.37.3-0
+    * Update ninja to v1.11.1-0
+    * Update audit to v3.0.9-0
+    * Update python3-mako to rel_1_2_2-0
+    * Update xorg-lib-xau to libXau-1.0.10-0
+    * Update doxygen to Release_1_9_5-0
+    * Update libtasn1 to v4.19.0-0
+    * Update hunspell to v1.7.1-0
+    * Update jpeg to 2.0.8-esr-0
+    * Update xz to v5.2.6-0
+
 freedesktop-sdk-20.08.20:
     * Update tzdata to 2022c-0
     * Update python3-pygments to 2.13.0-0
