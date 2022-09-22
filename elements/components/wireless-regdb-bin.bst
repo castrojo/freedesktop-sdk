@@ -11,4 +11,4 @@ sources:
 - kind: git_tag
   url: kernel:linux/kernel/git/sforshee/wireless-regdb.git
   track: master
-  ref: master-2022-06-06-0-g68a8f2f89cc58989bf4c1ade4757b2d5b680127e
+  ref: master-2022-08-12-0-g9dc9c89375c996c4d1d1a8c0a76f9dd04e244077
