@@ -42,4 +42,4 @@ sources:
   - gnome-42
   match:
   - "*.*[02468].*"
-  ref: 1.72.0-0-gc1ce7d179cfce327162bd206cdf2808bd9bd0cc7
+  ref: 1.72.1-0-gc8aefdd9f606796037e36023d16e956450de3bf3
