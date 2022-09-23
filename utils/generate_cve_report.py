@@ -68,7 +68,11 @@ project_id = os.environ.get("CI_PROJECT_ID")
 token = os.environ.get("GITLAB_TOKEN")
 
 def get_entries(entry_char, entry_type, cveid):
-    resp = requests.get(f'{api}/projects/{project_id}/{entry_type}?search={cveid}', headers={'Authorization': f'Bearer {token}'})
+    resp = requests.get(
+        f'{api}/projects/{project_id}/{entry_type}?search={cveid}',
+        headers={'Authorization': f'Bearer {token}'},
+        timeout=30*60,
+    )
     if resp.ok:
         for entry in resp.json():
             iid = entry.get('iid')
