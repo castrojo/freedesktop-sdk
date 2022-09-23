@@ -74,6 +74,9 @@ before_script:
     scheduler:
       network-retries: 4
       on-error: continue
+    track:
+      # Because we want tracking to succeed even if origin disappears
+      source: all
     EOF
 
   # Create CAS directory for SSL keys
