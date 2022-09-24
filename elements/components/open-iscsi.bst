@@ -21,6 +21,12 @@ variables:
   make: make %{make-args}
   make-install: make %{make-args} -j1 install install_systemd install_udev_rules DESTDIR="%{install-root}"
 
+config:
+  install-commands:
+    (>):
+    - |
+      chmod 0644 '%{install-root}%{indep-libdir}/systemd/system'/*
+
 sources:
 - kind: git_tag
   url: github:open-iscsi/open-iscsi.git
