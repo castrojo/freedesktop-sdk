@@ -11,7 +11,6 @@ sources:
   track: master
   ref: v4.2-0-g697f7692c951173c1b732901e13f72bd3182d575
 
-config:
-  install-commands:
-    (>):
-    - ln -s %{prefix}/bin/mkfs.fat %{install-root}/%{prefix}/bin/mkdosfs
+variables:
+  conf-local: >-
+    --enable-compat-symlinks
