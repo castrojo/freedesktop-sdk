@@ -8,22 +8,23 @@ depends:
 
 variables:
   local_flags: -fPIC
-
-environment:
-  SYSCFLAGS: "%{target_flags}"
+  make-args: >-
+    PLAT=linux-readline
+    MYCFLAGS="${CFLAGS}"
+    INSTALL_TOP='%{install-root}%{prefix}'
+    INSTALL_LIB='%{install-root}%{libdir}'
+  make: make %{make-args}
+  make-install: make -j1 install %{make-args}
 
 config:
-  configure-commands:
-  - sed -ie "s|/usr/local|%{install-root}%{prefix}|" Makefile
-  - sed -ie "s|SYSCFLAGS=.*|SYSCFLAGS=\"$CFLAGS\"|" src/Makefile
   build-commands:
     (>):
-    - make pc > lua.pc
+    - make %{make-args} pc > lua.pc
     - cat lua.pc.in >> lua.pc
 
   install-commands:
     (>):
-    - install -Dm644 lua.pc %{install-root}%{libdir}/pkgconfig/lua.pc
+    - install -Dm644 -t '%{install-root}%{libdir}/pkgconfig' lua.pc
 
 sources:
 - kind: tar
