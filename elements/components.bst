@@ -154,7 +154,6 @@ depends:
 - components/iso-codes.bst
 - components/itstool.bst
 - components/iwd.bst
-- components/jack.bst
 - components/jansson.bst
 - components/jpeg.bst
 - components/jq.bst
