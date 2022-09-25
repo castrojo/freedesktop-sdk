@@ -30,4 +30,4 @@ sources:
 - kind: git_tag
   url: github:ximion/appstream.git
   track: master
-  ref: v0.15.4-0-ge1413598ec578dda89d586d48c52bb9584a07305
+  ref: v0.15.5-0-g41e94d6a2ceb322250d718fcdea7a5cb53bc6416
