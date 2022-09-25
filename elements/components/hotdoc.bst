@@ -24,7 +24,7 @@ runtime-depends:
 - components/python3-toposort.bst
 - components/python3-wheezy-template.bst
 - components/python3-networkx.bst
-- components/python3-cchardet.bst
+- components/python3-charset-normalizer.bst
 - components/python3-pkgconfig.bst
 
 environment:
@@ -45,3 +45,5 @@ sources:
   ref:
     sha256sum: 1123a659e2c94972c32813ec301191d333db24712a83f7e3d06dd58d47cf0098
     suffix: 18/0a/4eb673ca5e267f84bbdf7ed5ebfb381860b7a23af546aca7a644f63964c2/hotdoc-0.13.7.tar.gz
+- kind: patch
+  path: patches/hotdoc/charset-normalizer.patch

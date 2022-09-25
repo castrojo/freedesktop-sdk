@@ -320,7 +320,6 @@ depends:
 - components/python3-babel.bst
 - components/python3-cachecontrol.bst
 - components/python3-cachy.bst
-- components/python3-cchardet.bst
 - components/python3-certifi.bst
 - components/python3-chardet.bst
 - components/python3-cleo.bst
