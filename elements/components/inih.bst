@@ -14,4 +14,4 @@ sources:
 - kind: git_tag
   url: github:benhoyt/inih.git
   track: master
-  ref: r55-0-gf7f69c6cff2681d84bae371130b4a018cb2171e6
+  ref: r56-0-g5e1d9e2625842dddb3f9c086a50f22e4f45dfc2b
