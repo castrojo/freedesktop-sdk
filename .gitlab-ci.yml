@@ -895,7 +895,7 @@ publish_snap_aarch64:
       podman push ${full_name}:latest docker://docker.io/${full_name}:"${DOCKER_VERSION}"-"${ARCH}" \
       --digestfile digest.txt
       mkdir -p "docker-pushed-digests/${DOCKER_VERSION}"
-      digest=${full_name}@$(<digest.txt)
+      digest=$(<digest.txt)
       echo "${full_name}@${digest}" \
           >"docker-pushed-digests/${DOCKER_VERSION}/${name}-${ARCH}.txt"
     done
