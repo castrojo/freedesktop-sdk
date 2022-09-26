@@ -285,6 +285,7 @@ depends:
 - components/orc.bst
 - components/os-release.bst
 - components/ostree.bst
+- components/ovmf-maybe.bst
 - components/p11-kit.bst
 - components/pango.bst
 - components/parted.bst
