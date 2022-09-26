@@ -1,7 +1,7 @@
-kind: autotools
+kind: cmake
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-cmake.bst
 - components/libxslt.bst
 - components/docbook-xsl.bst
 
@@ -9,21 +9,10 @@ depends:
 - components/gnutls.bst
 - components/jpeg.bst
 
-variables:
-  # This build system has sha256 verification of output from autogen
-  # which breaks build-dir. It's not possible to redirect checksums
-  # to another directory
-  build-dir: ''
-
-config:
-  configure-commands:
-    (<):
-    - rm configure
-
 sources:
 - kind: git_tag
   url: github:qpdf/qpdf.git
   track: main
   exclude:
   - '*cmake*'
-  ref: release-qpdf-10.6.3-0-g09a36ad62bfa787642778b8076ae5b4ba4a64fcc
+  ref: v11.1.0-0-gda67a0aa043c2c8ad129fbc87b93afcdab7042a7
