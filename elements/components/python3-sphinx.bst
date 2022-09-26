@@ -2,6 +2,7 @@ kind: pip
 
 build-depends:
 - components/python3-pip.bst
+- components/python3-flit-core.bst
 
 depends:
 - components/python3.bst
@@ -37,5 +38,5 @@ sources:
 - kind: pypi
   name: sphinx
   ref:
-    sha256sum: ba3224a4e206e1fbdecf98a4fae4992ef9b24b85ebf7b584bb340156eaf08d89
-    suffix: 3a/30/ac07935542607c876f3fcee1c1ab043d253332567009994a1bf71d9b55cd/Sphinx-5.1.1.tar.gz
+    sha256sum: c009bb2e9ac5db487bcf53f015504005a330ff7c631bb6ab2604e0d65bae8b54
+    suffix: 7d/da/7622fe6a44aeb5ee49371cb0f2c6bf99e7e703ffa3e08dda2d8cf70c218c/Sphinx-5.2.1.tar.gz
