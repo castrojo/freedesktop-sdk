@@ -16,4 +16,4 @@ sources:
 - kind: git_tag
   url: github:hughsie/libxmlb.git
   track: main
-  ref: 0.3.9-0-gc308e39ccad6673e216f92d08b3782a4ffcb23ad
+  ref: 0.3.10-0-ga6cac6a715d57c393bbddee4d0381ad943341af9
