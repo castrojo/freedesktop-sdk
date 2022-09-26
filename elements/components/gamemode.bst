@@ -36,4 +36,4 @@ sources:
 - kind: git_tag
   url: github:FeralInteractive/gamemode.git
   track: master
-  ref: 1.6.1-0-gb11d2912e280acb87d9ad114d6c7cd8846c4ef02
+  ref: 1.7-0-g4dc99dff76218718763a6b07fc1900fa6d1dafd9
