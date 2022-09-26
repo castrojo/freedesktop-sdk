@@ -1,6 +1,7 @@
 kind: stack
 
 depends:
+- components/acpica-tools.bst
 - components/alsa-lib.bst
 - components/alsa-plugins.bst
 - components/aom.bst
