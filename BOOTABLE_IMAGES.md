@@ -165,19 +165,19 @@ You will need TPM 2.0 to encrypt the root partition.
 To be build the image, you need:
 
 ```
-./utils/generate-boot-keys.sh
+make generate-keys
 bst build vm/minimal-secure/efi.bst
 bst artifact checkout vm/minimal-secure/efi.bst --directory minimal-secure
 ```
 
 You will need to set the keys in the boot firmware (BIOS) to be able
 to securely boot:
- - `files/boot-keys/PK.cer` is the platform key.
- - `files/boot-keys/KEK.cer` is the key exchange key.
- - `files/boot-keys/DB.cer` is the key that signs shim. Needs to be
+ - `files/boot-keys/PK.crt` is the platform key.
+ - `files/boot-keys/KEK.crt` is the key exchange key.
+ - `files/boot-keys/DB.crt` is the key that signs shim. Needs to be
    registered in the authorized database.
 
-`VENDOR.cer` which signs the kernel and the modules is embedded in
+`VENDOR.crt` which signs the kernel and the modules is embedded in
 shim and does not need to be installed.
 
 With OVMF boot firmware, to setup secure boot keys, enter the settings

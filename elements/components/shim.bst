@@ -3,6 +3,7 @@ kind: make
 build-depends:
 - bootstrap-import.bst
 - components/git-minimal.bst
+- components/openssl.bst
 
 variables:
   (?):
@@ -24,6 +25,11 @@ variables:
   make: make %{make-args}
   make-install: make -j1 install %{make-args} DESTDIR='%{install-root}'
 
+config:
+  configure-commands:
+  - |
+    openssl x509 -inform PEM -outform DER -in "boot-keys/VENDOR.crt" -out "boot-keys/VENDOR.cer"
+
 sources:
 - kind: git_tag
   url: github:rhboot/shim.git
@@ -34,5 +40,5 @@ sources:
   path: gnu-efi
   ref: acc5371207f3041450e1d8ae5b24f6df3e82b152
 - kind: local
-  path: files/boot-keys/VENDOR.cer
+  path: files/boot-keys/VENDOR.crt
   directory: boot-keys

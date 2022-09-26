@@ -351,10 +351,21 @@ run-ostree-vm: $(CHECKOUT_ROOT)/ostree-vm-$(ARCH) efi_vars.fd
 	    $(QEMU_EFI_ARGS)					\
 	    -drive file=$</disk.img,format=raw,media=disk
 
+KEY_TYPES=PK KEK DB VENDOR
+ALL_CERTS=$(foreach KEY,$(KEY_TYPES),files/boot-keys/$(KEY).crt)
+ALL_KEYS=$(foreach KEY,$(KEY_TYPES),files/boot-keys/$(KEY).key)
+BOOT_KEYS=$(ALL_KEYS) $(ALL_CERTS)
+
+generate-keys: $(BOOT_KEYS)
+
+files/boot-keys/%.crt files/boot-keys/%.key:
+	[ -d files/boot-keys ] || mkdir -p files/boot-keys
+	openssl req -new -x509 -newkey rsa:2048 -subj "/CN=Freedesktop SDK $(basename $(notdir $@)) key/" -keyout "$(basename $@).key" -out "$(basename $@).crt" -days 3650 -nodes -sha256
+
 .PHONY: \
 	build check-dev-files clean clean-test clean-repo clean-runtime \
 	export test-apps manifest markdown-manifest check-rpath \
 	build-tar export-tar clean-vm build-vm run-vm export-snap \
 	export-oci export-docker bootstrap test-codecs \
 	track-mesa-git update-ostree ostree-serve run-ostree-vm \
-	test-runtime-inheritance
+	test-runtime-inheritance generate-keys
