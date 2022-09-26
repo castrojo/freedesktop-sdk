@@ -56,20 +56,20 @@ applications.
 
 We recommend you install releases from [Flathub](https://flathub.org).
 
-The current set of commands to run your application with 20.08 are:
+The current set of commands to run your application with 22.08 are:
 
 1.  Install the new runtimes:
 
     ```
     $ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    $ flatpak install flathub org.freedesktop.Sdk//20.08
-    $ flatpak install flathub org.freedesktop.Platform//20.08
+    $ flatpak install flathub org.freedesktop.Sdk//22.08
+    $ flatpak install flathub org.freedesktop.Platform//22.08
     ```
 
 2.  Set your app manifest:
 
     ```
-    "runtime-version": "20.08"
+    "runtime-version": "22.08"
     ```
 
 3. Build and run your flatpak app as usual:
