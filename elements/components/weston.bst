@@ -10,7 +10,6 @@ depends:
 - components/libunwind.bst
 - components/linux-pam.bst
 - components/cairo.bst
-- components/colord.bst
 - components/libdrm.bst
 - components/wayland.bst
 - components/systemd.bst
@@ -33,7 +32,7 @@ environment:
 variables:
   meson-local: >-
     -Dbackend-rdp=false
-    -Dcolor-management-colord=true
+    -Dlauncher-libseat=false
 
   meson-lto-flags: ""
 
@@ -41,4 +40,4 @@ sources:
 - kind: git_tag
   track: main
   url: freedesktop:wayland/weston.git
-  ref: 10.0.0-0-g4a03924604bc76374eab0536e86e838ce1246510
+  ref: 11.0.0-0-gd23a69272f544ee428ebbb597da09a82e084132c
