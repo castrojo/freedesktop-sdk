@@ -28,7 +28,7 @@ config:
        --sysroot /sysroot \
        --seed "%{uuidnamespace}" \
        --rootsource /dev/gpt-auto-root \
-        --efisource LABEL=EFI \
+       --efisource LABEL=EFI \
        --efipath /boot \
        --rootpasswd "root" >"%{install-root}/vars"
 
