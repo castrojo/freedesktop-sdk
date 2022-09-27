@@ -12,6 +12,7 @@ build-depends:
 variables:
   conf-local: >-
     --enable-pwquality
+    --disable-asciidoc
     --disable-ssh-token
     --with-tmpfilesdir="%{indep-libdir}/tmpfiles.d"
 
@@ -21,4 +22,4 @@ sources:
   track: master
   exclude:
   - '*rc*'
-  ref: v2.4.2-0-gff51d5a8fae6167444f756a7db80191155b00088
+  ref: v2.5.0-0-g75111d382ba95e5038db81dbf92e9244026718d8
