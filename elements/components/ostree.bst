@@ -15,6 +15,7 @@ depends:
 - components/systemd.bst
 - components/libarchive.bst
 - components/avahi.bst
+- components/gnupg.bst
 
 variables:
   conf-local: >-
