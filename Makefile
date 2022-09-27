@@ -282,7 +282,7 @@ files/vm/ostree-config/fdsdk.gpg: ostree-gpg
 	gpg --homedir=ostree-gpg --export --armor >"$@"
 
 LOCAL_ADDRESS=$(shell ip route get 1.1.1.1 | cut -d" " -f7)
-OSTREE_BRANCH=freedesktop-sdk-$(BRANCH)-$(ARCH)
+OSTREE_BRANCH=freedesktop-sdk/minimal/$(BRANCH)/$(ARCH)
 
 .PHONY: vulkan-stack-update
 vulkan-stack-update:

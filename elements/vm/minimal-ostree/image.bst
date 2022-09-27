@@ -103,8 +103,8 @@ sources:
 - kind: ostree_mirror
   gpg: files/vm/ostree-config/fdsdk.gpg
   path: ostree-repo
-  match: 'freedesktop-sdk-*'
+  match: 'freedesktop-sdk/minimal/*/*'
   directory: source-repo
   ref:
-  - ref: freedesktop-sdk-20.08beta-x86_64
-    checksum: 0a8eca3dfafae7cf0a1ea6485948f58152762110bd13dba36d22d9ce10d17ad4
+  - ref: freedesktop-sdk/minimal/23.08beta/x86_64
+    checksum: 68d5c1d26036392879c44b14543b65d425b4de33fdb223a49ae71d68512ab0d0
