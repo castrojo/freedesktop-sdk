@@ -350,18 +350,32 @@ clean-ostree-vm:
 KEY_TYPES=PK KEK DB VENDOR
 ALL_CERTS=$(foreach KEY,$(KEY_TYPES),files/boot-keys/$(KEY).crt)
 ALL_KEYS=$(foreach KEY,$(KEY_TYPES),files/boot-keys/$(KEY).key)
-BOOT_KEYS=$(ALL_KEYS) $(ALL_CERTS)
+BOOT_KEYS=$(ALL_KEYS) $(ALL_CERTS) files/boot-keys/extra-db/.keep files/boot-keys/extra-kek/.keep
 
 generate-keys: $(BOOT_KEYS)
+
+files/boot-keys/extra-db/.keep files/boot-keys/extra-kek/.keep:
+	[ -d $(dir $@) ] || mkdir -p $(dir $@)
+	touch $@
 
 files/boot-keys/%.crt files/boot-keys/%.key:
 	[ -d files/boot-keys ] || mkdir -p files/boot-keys
 	openssl req -new -x509 -newkey rsa:2048 -subj "/CN=Freedesktop SDK $(basename $(notdir $@)) key/" -keyout "$(basename $@).key" -out "$(basename $@).crt" -days 3650 -nodes -sha256
 
-.PHONY: \
-	build check-dev-files clean clean-test clean-repo clean-runtime \
-	export test-apps manifest markdown-manifest check-rpath \
-	build-tar export-tar clean-vm build-vm run-vm export-snap \
-	export-oci export-docker bootstrap test-codecs \
-	track-mesa-git update-ostree ostree-serve run-ostree-vm \
-	test-runtime-inheritance generate-keys clean-ostree-vm
+# This is optional
+download-microsoft-keys: files/boot-keys/extra-db/.keep files/boot-keys/extra-kek/.keep
+	curl https://www.microsoft.com/pkiops/certs/MicCorUEFCA2011_2011-06-27.crt | openssl x509 -inform der -outform pem >files/boot-keys/extra-kek/mic-kek.crt
+	echo 77fa9abd-0359-4d32-bd60-28f4e78f784b >files/boot-keys/extra-kek/mic-kek.owner
+	curl https://www.microsoft.com/pkiops/certs/MicCorUEFCA2011_2011-06-27.crt | openssl x509 -inform der -outform pem >files/boot-keys/extra-db/mic-other.crt
+	echo 77fa9abd-0359-4d32-bd60-28f4e78f784b >files/boot-keys/extra-db/mic-other.owner
+	curl https://www.microsoft.com/pkiops/certs/MicWinProPCA2011_2011-10-19.crt | openssl x509 -inform der -outform pem >files/boot-keys/extra-db/mic-win.crt
+	echo 77fa9abd-0359-4d32-bd60-28f4e78f784b >files/boot-keys/extra-db/mic-win.owner
+
+.PHONY:									\
+	build check-dev-files clean clean-test clean-repo clean-runtime	\
+	export test-apps manifest markdown-manifest check-rpath		\
+	build-tar export-tar clean-vm build-vm run-vm export-snap	\
+	export-oci export-docker bootstrap test-codecs			\
+	track-mesa-git update-ostree ostree-serve run-ostree-vm		\
+	test-runtime-inheritance generate-keys clean-ostree-vm		\
+	download-microsoft-keys
