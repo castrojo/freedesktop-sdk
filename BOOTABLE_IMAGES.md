@@ -246,14 +246,14 @@ final OSTree repository with history using `ostree commit
 `utils/update-repo.sh` provide an example of how manage an OSTree
 repository.
 
-To build a bootable image, once a repository is available locally
-at `ostree-repo`, just track and build `vm/minimal-ostree/image.bst`.
+The initial bootable image is built in `vm/minimal-ostree/image.bst`.
 
 The image contains eos-updater. To update, just run `eos-updater-ctl update`.
+Or you can use `ostree admin upgrade`.
 
 All this process is done automatically with:
 
-* `make ostree-server` to start a OSTree server.
+* `make ostree-serve` to start a OSTree server.
 * `make update-ostree` to create a new commit.
 * `make run-ostree-vm` to run the a virtual machine.
 

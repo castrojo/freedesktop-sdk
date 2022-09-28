@@ -1,8 +1,11 @@
-kind: manual
+kind: script
 
 build-depends:
 - components/ostree.bst
 - vm/deploy-tools.bst
+- filename: vm/minimal-ostree/repo.bst
+  config:
+    location: '/source-repo'
 
 variables:
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
@@ -27,12 +30,12 @@ environment:
   OSTREE_REPO: "%{sysroot}/ostree/repo"
 
 config:
-  build-commands:
+  commands:
   - mkdir -p "${OSTREE_REPO}"
   - ostree init --repo="${OSTREE_REPO}" --mode=bare
 
   - ostree config --group sysroot set bootloader none
-  - ostree pull-local "%{build-root}/source-repo" %{ostree-branch}
+  - ostree pull-local /source-repo/ostree/repo %{ostree-branch}
 
   - mkdir -p "%{sysroot}/boot"
 
@@ -98,13 +101,3 @@ config:
 
   - |
     install -Dm644 -t "%{install-root}" genimage/images/disk.img
-
-sources:
-- kind: ostree_mirror
-  gpg: files/vm/ostree-config/fdsdk.gpg
-  path: ostree-repo
-  match: 'freedesktop-sdk/minimal/*/*'
-  directory: source-repo
-  ref:
-  - ref: freedesktop-sdk/minimal/23.08beta/x86_64
-    checksum: 68d5c1d26036392879c44b14543b65d425b4de33fdb223a49ae71d68512ab0d0

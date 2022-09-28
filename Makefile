@@ -316,8 +316,7 @@ ostree-repo:
 ostree-serve: ostree-repo
 	python3 -m http.server 8000 --directory ostree-repo
 
-$(VM_CHECKOUT_ROOT)/ostree-vm/disk.img: files/vm/ostree-config/fdsdk.gpg ostree-config.yml ostree-repo
-	$(BST) source track vm/minimal-ostree/image.bst
+$(VM_CHECKOUT_ROOT)/ostree-vm/disk.img: files/vm/ostree-config/fdsdk.gpg ostree-config.yml
 	$(BST) build vm/minimal-ostree/image.bst
 	$(BST) artifact checkout vm/minimal-ostree/image.bst --directory $(dir $@)
 
