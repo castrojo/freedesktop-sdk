@@ -21,7 +21,7 @@ depends:
 - components/hosts.bst
 - components/bash-config.bst
 - components/bash-completion.bst
-- vm/minimal-secure/just-modules.bst
+- vm/minimal-secure/kernel-modules-only.bst
 - vm/minimal-secure/repart-config.bst
 - components/less.bst
 - components/audit.bst
