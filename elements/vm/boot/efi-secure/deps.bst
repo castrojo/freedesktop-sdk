@@ -17,3 +17,4 @@ depends:
 - vm/minimal-secure/repart-config.bst
 - components/tpm2-tss.bst
 - components/tpm2-tools.bst
+- components/efitools.bst

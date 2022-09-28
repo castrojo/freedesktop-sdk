@@ -44,6 +44,18 @@ config:
            --add crypt \
            --add tpm2-tss
 
+  - mkdir -p '%{install-root}/boot/loader/keys/auto'
+
+  - cp -r '%{datadir}/efitools/efi'/{PK,KEK,DB}.auth '%{install-root}/boot/loader/keys/auto'
+
+  - |
+    cat <<EOF >"%{install-root}/boot/loader/loader.conf"
+    timeout 3
+    editor yes
+    console-mode keep
+    secure-boot-enroll force
+    EOF
+
   - mkdir -p "%{install-root}/usr/lib/modules"
   - cp -rT /usr/lib/modules "%{install-root}/usr/lib/modules"
 
