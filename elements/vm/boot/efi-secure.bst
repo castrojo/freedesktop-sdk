@@ -34,7 +34,7 @@ config:
            --uefi \
            --no-machineid --kernel-image /boot/vmlinuz \
            --kver $(ls -1 /lib/modules | head -n1) \
-           --kernel-cmdline "rw quiet mount.usrflags=ro" \
+           --kernel-cmdline "rw mount.usrflags=ro console=ttyS0" \
            --install 'fsck.ext4' \
            --install 'mkfs.ext4' \
            --libdirs %{libdir} \
