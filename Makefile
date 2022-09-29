@@ -99,49 +99,48 @@ $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT):
 
 build-vm: clean-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_ROOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
 
-QEMU_COMMON_ARGS= \
-	-smp 4 \
-	-m 256 \
-	-nographic \
-	-kernel $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/vmlinuz \
-	-initrd $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/initramfs.gz \
+QEMU_COMMON_ARGS=										\
+	-m 2G											\
+	-smp 4											\
+	-object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0	\
+	-nographic
+
+QEMU_VIRTFS_ARGS=													\
+	-kernel $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/vmlinuz								\
+	-initrd $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/initramfs.gz							\
 	-virtfs local,id=virtfs,path=$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_ROOT),security_model=none,mount_tag=virtfs
 
-QEMU_X86_COMMON_ARGS= \
-	$(QEMU_COMMON_ARGS) \
-	-enable-kvm \
+QEMU_EFI_ARGS=									\
+	-drive if=pflash,format=raw,unit=0,file=$(OVMF_CODE),readonly=on	\
+	-drive if=pflash,format=raw,unit=1,file=$(OVMF_VARS)
+
+QEMU_NET_ARGS=						\
+	-netdev user,id=net1 -device e1000,netdev=net1
+
+QEMU_TPM_ARGS =									\
+	-chardev socket,id=chrtpm,path=$(abspath $(VM_CHECKOUT_ROOT)/tpm/sock)	\
+	-tpmdev emulator,id=tpm0,chardev=chrtpm					\
+	-device tpm-tis,tpmdev=tpm0
+
+ifeq ($(ARCH),x86_64)
+QEMU_COMMON_ARGS+=-M q35,accel=kvm
+QEMU_VIRTFS_ARGS+=												\
 	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap console=ttyS0'
-
-QEMU_ARM_COMMON_ARGS= \
-	$(QEMU_COMMON_ARGS) \
-	-machine type=virt \
-	-cpu max \
+else ifeq ($(ARCH),aarch64)
+QEMU_COMMON_ARGS+=				\
+	-machine type=virt			\
+	-cpu max
+QEMU_VIRTFS_ARGS+=																\
 	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap init=/usr/lib/systemd/systemd console=ttyAMA0'
-
-QEMU_AARCH64_ARGS= \
-	$(QEMU_ARM_COMMON_ARGS)
-
-QEMU_ARM_ARGS= \
-	$(QEMU_ARM_COMMON_ARGS) \
-	-machine highmem=off
-
-QEMU_PPC64LE_ARGS= \
-	$(QEMU_COMMON_ARGS) \
-	-machine pseries \
+else ifeq ($(ARCH),ppc64le)
+QEMU_COMMON_ARGS+=				\
+	-machine pseries
+QEMU_VIRTFS_ARGS+=																\
 	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap init=/usr/lib/systemd/systemd console=ttyS0'
+endif
 
 run-vm: $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_ROOT)
-ifeq ($(ARCH),x86_64)
-	unshare --map-root-user $(QEMU) $(QEMU_X86_COMMON_ARGS)
-else ifeq ($(ARCH),i686)
-	unshare --map-root-user $(QEMU) $(QEMU_X86_COMMON_ARGS)
-else ifeq ($(ARCH),aarch64)
-	unshare --map-root-user $(QEMU) $(QEMU_AARCH64_ARGS)
-else ifeq ($(ARCH),arm)
-	unshare --map-root-user $(QEMU) $(QEMU_ARM_ARGS)
-else ifeq ($(ARCH),ppc64le)
-	unshare --map-root-user $(QEMU) $(QEMU_PPC64LE_ARGS)
-endif
+	unshare --map-root-user $(QEMU) $(QEMU_COMMON_ARGS) $(QEMU_VIRTFS_ARGS)
 
 check-dev-files:
 	$(BST) build tests/check-dev-files.bst
@@ -317,39 +316,37 @@ ostree-repo:
 ostree-serve: ostree-repo
 	python3 -m http.server 8000 --directory ostree-repo
 
-$(CHECKOUT_ROOT)/ostree-vm-$(ARCH): files/vm/ostree-config/fdsdk.gpg ostree-config.yml ostree-repo
+$(VM_CHECKOUT_ROOT)/ostree-vm/disk.img: files/vm/ostree-config/fdsdk.gpg ostree-config.yml ostree-repo
 	$(BST) source track vm/minimal-ostree/image.bst
 	$(BST) build vm/minimal-ostree/image.bst
-	$(BST) artifact checkout vm/minimal-ostree/image.bst --directory "$@"
+	$(BST) artifact checkout vm/minimal-ostree/image.bst --directory $(dir $@)
 
-ifeq ($(ARCH),i686)
-OVMF_CODE=/usr/share/qemu/edk2-i386-code.fd
-OVMF_VARS=/usr/share/qemu/edk2-i386-vars.fd
-else ifeq ($(ARCH),x86_64)
-OVMF_CODE=/usr/share/qemu/edk2-x86_64-code.fd
-OVMF_VARS=/usr/share/qemu/edk2-i386-vars.fd
-else ifeq ($(ARCH),aarch64)
-OVMF_CODE=/usr/share/qemu/edk2-aarch64-code.fd
-OVMF_VARS=/usr/share/qemu/edk2-arm-vars.fd
-else ifeq ($(ARCH),arm)
-OVMF_CODE=/usr/share/qemu/edk2-arm-code.fd
-OVMF_VARS=/usr/share/qemu/edk2-arm-vars.fd
+OVMF_VARS=$(VM_CHECKOUT_ROOT)/efi_vars.fd
+ifeq ($(ARCH),aarch64)
+OVMF_VARS_TEMPLATE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/QEMU_VARS.fd
+OVMF_CODE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/QEMU_EFI.fd
+else
+OVMF_VARS_TEMPLATE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/OVMF_VARS.fd
+OVMF_CODE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/OVMF_CODE.fd
 endif
 
-efi_vars.fd: $(OVMF_VARS)
+$(OVMF_VARS_TEMPLATE) $(OVMF_CODE):
+	$(BST) build components/ovmf.bst
+	$(BST) artifact checkout components/ovmf.bst --directory $(VM_CHECKOUT_ROOT)/ovmf
+
+$(OVMF_VARS): $(OVMF_VARS_TEMPLATE)
 	cp "$<" "$@"
 
-QEMU_EFI_ARGS=								 \
-	-enable-kvm -m 2G						 \
-	-drive if=pflash,format=raw,unit=0,file=$(OVMF_CODE),readonly=on \
-	-drive if=pflash,format=raw,unit=1,file=efi_vars.fd		 \
-	-nographic							 \
-	-netdev user,id=net1 -device e1000,netdev=net1
-
-run-ostree-vm: $(CHECKOUT_ROOT)/ostree-vm-$(ARCH) efi_vars.fd
+run-ostree-vm: $(VM_CHECKOUT_ROOT)/ostree-vm/disk.img  $(OVMF_VARS) $(OVMF_CODE)
 	$(QEMU)							\
+	    $(QEMU_COMMON_ARGS)					\
 	    $(QEMU_EFI_ARGS)					\
-	    -drive file=$</disk.img,format=raw,media=disk
+	    $(QEMU_NET_ARGS)					\
+	    -drive file=$<,format=raw,media=disk
+
+clean-ostree-vm:
+	rm -rf $(VM_CHECKOUT_ROOT)/ostree-vm
+	rm -rf $(OVMF_VARS)
 
 KEY_TYPES=PK KEK DB VENDOR
 ALL_CERTS=$(foreach KEY,$(KEY_TYPES),files/boot-keys/$(KEY).crt)
@@ -368,4 +365,4 @@ files/boot-keys/%.crt files/boot-keys/%.key:
 	build-tar export-tar clean-vm build-vm run-vm export-snap \
 	export-oci export-docker bootstrap test-codecs \
 	track-mesa-git update-ostree ostree-serve run-ostree-vm \
-	test-runtime-inheritance generate-keys
+	test-runtime-inheritance generate-keys clean-ostree-vm

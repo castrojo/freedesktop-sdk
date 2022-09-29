@@ -71,6 +71,7 @@ config:
     image root.img {
         ext4  {
             label = "root"
+            extraargs = "-E no_copy_xattrs"
             use-mke2fs = true
         }
         size = 2G
