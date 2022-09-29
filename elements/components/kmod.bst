@@ -27,4 +27,4 @@ sources:
 - kind: git_tag
   url: kernel:utils/kernel/kmod/kmod.git
   track: master
-  ref: v29-0-gb6ecfc916a17eab8f93be5b09f4e4f845aabd3d1
+  ref: v30-0-g5d46434a63ae0160150a0efdde1914873697e273
