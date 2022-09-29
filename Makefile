@@ -114,8 +114,8 @@ QEMU_EFI_ARGS=									\
 	-drive if=pflash,format=raw,unit=0,file=$(OVMF_CODE),readonly=on	\
 	-drive if=pflash,format=raw,unit=1,file=$(OVMF_VARS)
 
-QEMU_NET_ARGS=						\
-	-netdev user,id=net1 -device e1000,netdev=net1
+QEMU_NET_ARGS=							\
+	-netdev user,id=net1 -device virtio-net,netdev=net1
 
 QEMU_TPM_ARGS =									\
 	-chardev socket,id=chrtpm,path=$(abspath $(VM_CHECKOUT_ROOT)/tpm/sock)	\
