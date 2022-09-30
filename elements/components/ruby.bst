@@ -17,6 +17,10 @@ variables:
     --enable-ipv6
     --with-compress-debug-sections=no
     --disable-rpath
+  ruby-arch: "%{arch}"
+  (?):
+  - target_arch in ("ppc64le", "ppc64"):
+      ruby-arch: "powerpc64"
 
 sources:
 - kind: tar
@@ -31,5 +35,5 @@ config:
     - |
       find .bundle -name extconf.rb -exec \
       sed -i \
-      -e '/create_makefile/i \$arch_hdrdir = "%{build-root}/%{build-dir}/.ext/include/%{target_arch}-linux"' \
+      -e '/create_makefile/i \$arch_hdrdir = "%{build-root}/%{build-dir}/.ext/include/%{ruby-arch}-linux"' \
       -e '/create_makefile/i \$DLDFLAGS << " -L%{build-root}/%{build-dir}"' {} \;
