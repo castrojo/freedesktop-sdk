@@ -350,18 +350,58 @@ clean-ostree-vm:
 KEY_TYPES=PK KEK DB VENDOR
 ALL_CERTS=$(foreach KEY,$(KEY_TYPES),files/boot-keys/$(KEY).crt)
 ALL_KEYS=$(foreach KEY,$(KEY_TYPES),files/boot-keys/$(KEY).key)
-BOOT_KEYS=$(ALL_KEYS) $(ALL_CERTS)
+BOOT_KEYS=$(ALL_KEYS) $(ALL_CERTS) files/boot-keys/extra-db/.keep files/boot-keys/extra-kek/.keep
 
 generate-keys: $(BOOT_KEYS)
+
+files/boot-keys/extra-db/.keep files/boot-keys/extra-kek/.keep:
+	[ -d $(dir $@) ] || mkdir -p $(dir $@)
+	touch $@
 
 files/boot-keys/%.crt files/boot-keys/%.key:
 	[ -d files/boot-keys ] || mkdir -p files/boot-keys
 	openssl req -new -x509 -newkey rsa:2048 -subj "/CN=Freedesktop SDK $(basename $(notdir $@)) key/" -keyout "$(basename $@).key" -out "$(basename $@).crt" -days 3650 -nodes -sha256
 
-.PHONY: \
-	build check-dev-files clean clean-test clean-repo clean-runtime \
-	export test-apps manifest markdown-manifest check-rpath \
-	build-tar export-tar clean-vm build-vm run-vm export-snap \
-	export-oci export-docker bootstrap test-codecs \
-	track-mesa-git update-ostree ostree-serve run-ostree-vm \
-	test-runtime-inheritance generate-keys clean-ostree-vm
+# This is optional
+download-microsoft-keys: files/boot-keys/extra-db/.keep files/boot-keys/extra-kek/.keep
+	curl https://www.microsoft.com/pkiops/certs/MicCorUEFCA2011_2011-06-27.crt | openssl x509 -inform der -outform pem >files/boot-keys/extra-kek/mic-kek.crt
+	echo 77fa9abd-0359-4d32-bd60-28f4e78f784b >files/boot-keys/extra-kek/mic-kek.owner
+	curl https://www.microsoft.com/pkiops/certs/MicCorUEFCA2011_2011-06-27.crt | openssl x509 -inform der -outform pem >files/boot-keys/extra-db/mic-other.crt
+	echo 77fa9abd-0359-4d32-bd60-28f4e78f784b >files/boot-keys/extra-db/mic-other.owner
+	curl https://www.microsoft.com/pkiops/certs/MicWinProPCA2011_2011-10-19.crt | openssl x509 -inform der -outform pem >files/boot-keys/extra-db/mic-win.crt
+	echo 77fa9abd-0359-4d32-bd60-28f4e78f784b >files/boot-keys/extra-db/mic-win.owner
+
+$(VM_CHECKOUT_ROOT)/secure-vm/disk.img: $(BOOT_KEYS)
+	$(BST) build vm/minimal-secure/efi.bst
+	$(BST) artifact checkout vm/minimal-secure/efi.bst --directory $(dir $@)
+	truncate --size=+2G $@
+
+run-secure-vm: $(VM_CHECKOUT_ROOT)/secure-vm/disk.img $(OVMF_VARS) $(OVMF_CODE)
+	mkdir -p $(VM_CHECKOUT_ROOT)/tpm/state
+	swtpm socket								\
+		--tpm2								\
+		--tpmstate dir=$(abspath $(VM_CHECKOUT_ROOT)/tpm/state)		\
+		--ctrl type=unixio,path=$(abspath $(VM_CHECKOUT_ROOT)/tpm/sock)	\
+		--log file=swtpm.log,level=20 &					\
+	sleep 1;								\
+	$(QEMU)									\
+	    $(QEMU_COMMON_ARGS)							\
+	    $(QEMU_EFI_ARGS)							\
+	    $(QEMU_NET_ARGS)							\
+	    $(QEMU_TPM_ARGS)							\
+	    -drive file=$<,format=raw,media=disk
+
+clean-secure-vm:
+	rm -rf $(VM_CHECKOUT_ROOT)/secure-vm
+	rm -rf $(OVMF_VARS)
+	rm -rf $(VM_CHECKOUT_ROOT)/tpm
+
+.PHONY:									\
+	build check-dev-files clean clean-test clean-repo clean-runtime	\
+	export test-apps manifest markdown-manifest check-rpath		\
+	build-tar export-tar clean-vm build-vm run-vm export-snap	\
+	export-oci export-docker bootstrap test-codecs			\
+	track-mesa-git update-ostree ostree-serve run-ostree-vm		\
+	test-runtime-inheritance generate-keys clean-ostree-vm		\
+	download-microsoft-keys						\
+	run-secure-vm clean-secure-vm clean-ostree-vm

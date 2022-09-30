@@ -160,45 +160,40 @@ Then you can use `checkout/disk.img` QEMU with EDKII.
 
 ### EFI + secure boot
 
-You will need TPM 2.0 to encrypt the root partition.
+You will need TPM 2.0 to encrypt the root partition. To run with QEMU,
+it means swtpm needs to be installed.
 
-To be build the image, you need:
-
-```
-make generate-keys
-bst build vm/minimal-secure/efi.bst
-bst artifact checkout vm/minimal-secure/efi.bst --directory minimal-secure
-```
-
-You will need to set the keys in the boot firmware (BIOS) to be able
-to securely boot:
- - `files/boot-keys/PK.crt` is the platform key.
- - `files/boot-keys/KEK.crt` is the key exchange key.
- - `files/boot-keys/DB.crt` is the key that signs shim. Needs to be
-   registered in the authorized database.
-
-`VENDOR.crt` which signs the kernel and the modules is embedded in
-shim and does not need to be installed.
-
-With OVMF boot firmware, to setup secure boot keys, enter the settings
-by pressing "ESC" during boot. Then go to "Device Manager". Then
-"Secure boot configuration". Finally in the "Secure boot mode", choose
-"Custom mode". Then you can set custom secure boot public keys. You will of
-course need the keys to be available on a vfat disk.
-
-In order to enable TPM 2.0 with QEMU, you need to run swtpm. For example:
+To be build the image and run the image, you can run:
 
 ```
-swtpm socket --tpm2 --ctrl type=unixio,path=/some/path/to.socket
+make run-secure-vm
 ```
 
-On QEMU's command line, add:
+#### Secure boot keys
 
+If a device is in a secure boot setup mode, the required keys will be
+enrolled automatically when booting the secure boot images.
+
+When building secure boot images, boot keys will be automatically
+generated. But it is possible to set your own keys.
+
+These are
+ - `files/boot-keys/PK.{crt,key}` for the platform key.
+ - `files/boot-keys/KEK.{crt,key}` for the key exchange key.
+ - `files/boot-keys/DB.{crt,key}` for the key signing shim.
+ - `files/boot-keys/VENDOR.{crt,key}` to sign kernels and modules.
+
+It is possible register extra KEK and DB certificates. Those have to be
+added to `files/boot-keys/extra-kek/` `files/boot-keys/extra-db/`
+with `.crt` extension in PEM format.
+
+To add the Microsoft certificates, you can run:
 ```
--chardev socket,id=chrtpm,path=/some/path/to.socket \
--tpmdev emulator,id=tpm0,chardev=chrtpm \
--device tpm-tis,tpmdev=tpm0
+make download-microsoft-keys
 ```
+
+This is useful if you intend to install other operating systems on the
+same machine without having to re-enroll the keys.
 
 ### QEMU + 9p
 

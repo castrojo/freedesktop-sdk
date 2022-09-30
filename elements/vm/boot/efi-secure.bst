@@ -34,7 +34,7 @@ config:
            --uefi \
            --no-machineid --kernel-image /boot/vmlinuz \
            --kver $(ls -1 /lib/modules | head -n1) \
-           --kernel-cmdline "rw quiet mount.usrflags=ro" \
+           --kernel-cmdline "rw mount.usrflags=ro console=ttyS0" \
            --install 'fsck.ext4' \
            --install 'mkfs.ext4' \
            --libdirs %{libdir} \
@@ -43,6 +43,18 @@ config:
            --add systemd-veritysetup \
            --add crypt \
            --add tpm2-tss
+
+  - mkdir -p '%{install-root}/boot/loader/keys/auto'
+
+  - cp -r '%{datadir}/efitools/efi'/{PK,KEK,DB}.auth '%{install-root}/boot/loader/keys/auto'
+
+  - |
+    cat <<EOF >"%{install-root}/boot/loader/loader.conf"
+    timeout 3
+    editor yes
+    console-mode keep
+    secure-boot-enroll force
+    EOF
 
   - mkdir -p "%{install-root}/usr/lib/modules"
   - cp -rT /usr/lib/modules "%{install-root}/usr/lib/modules"
