@@ -1,5 +1,103 @@
 Freedesktop-SDK
 
+freedesktop-sdk-21.08.16:
+  * Update openssl to OpenSSL_1_1_1q-0
+  * auto_updater: Fix running with bst1
+  * python3-markdown runtime depends on python3-importlib-metadata
+  * Add timeout to download of entries
+  * Switch to image based on freedesktop-sdk 22.08.2
+  * Update iso-codes to v4.11.0-0
+  * Update xorg-lib-xft to libXft-2.3.6-0
+  * Update python3-markdown to 3.4.1
+  * Update nano to v6.4-0
+  * Update kmod to v30-0
+  * Update python3-requests to 2.28.1
+  * Update ca-certificates to ca-certificates-2010_63-3_fc14-136
+  * Update python3-zipp to 3.8.1
+  * Update python3-virtualenv to 20.16.5
+  * Update cryptsetup-base to v2.5.0-0
+  * Update elements/include/git.yml to v2.37.3-0
+  * Ignore CVE-2010-4756 for glibc
+  * Update cmake to v3.24.2-0
+  * Update gamemode to 1.7-0
+  * Update doxygen to Release_1_9_5-0
+  * Update inih to r56-0
+  * Update tzdata to 2022c-0
+  * Update python3-tomlkit to 0.11.4
+  * Update audit to v3.0.9-0
+  * Update xorg-proto-xorgproto to xorgproto-2022.2-0
+  * Update dmidecode to dmidecode-3-4-0
+  * Update fuse3 to fuse-3.12.0-0
+  * Update pcsc-lite to 1.9.9-0
+  * Update elements/include/gnupg-source.yml to gnupg-2.2.39-0
+  * Update python3-pytz to 2022.2.1
+  * Update python3-filelock to 3.8.0
+  * Update wireless-regdb-bin to master-2022-08-12-0
+  * Update vala to 0.56.3-0
+  * Update python3-urllib3 to 1.26.12
+  * Update python3-pyelftools to 0.29
+  * Update python3-pygments to 2.13.0
+  * Update python3-importlib-resources to 5.9.0
+  * Update poppler to poppler-22.09.0-0
+  * Update xorg-lib-fontenc to libfontenc-1.1.6-0
+  * Update python3-mako to 1.2.2
+  * Update ninja to v1.11.1-0
+  * Remove elements/bootstrap/pcre-build-deps.bst
+  * Update xorg-font-util to font-util-1.3.3-0
+  * Update popt to popt-1.19-release-0
+  * Update crun to 1.6-0
+  * Update gyp to 9d09418
+  * Update python3-pil to 9.2.0
+  * Update python3-attrs to 22.1.0
+  * Update libevdev to libevdev-1.13.0-0
+  * Update xorg-lib-xau to libXau-1.0.10-0
+  * Update eos-metrics to Release_4.0.9-0
+  * Update python3-frozenlist to 1.3.1
+  * Extract pcre from bootstrap; It's now in components/pcre.bst
+  * Update grep to 3.8
+  * Update gnu-efi to 3.0.15-0
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-21.08.15-0
+  * Update python3-shellingham to 1.5.0
+  * Instead of creating symlink, create real /etc
+  * Update python3-setuptools-scm to 7.0.5
+  * CI: Upgrade to latest container
+  * .gitlab-ci.yml: Only check reproducibility in x86_64
+  * Update pypi sources to new format
+  * linter: Fix utils/update_local_cve_database.py
+  * linter: Fix plugins/elements/re_import.py
+  * linter: Fix plugins/elements/export.py
+  * Take into use plugins from bst-external
+  * Don't use deprecated distutils
+  * .pylintrc: no-space-check option has been removed in v2.6
+  * linter: Fix utils/mirror-management-scripts/create_mirrors_from_problem_list.py
+  * linter: Fix utils/mirror_managemnt/update_manifest_with_mirrors.py
+  * linter: Fix utils/mirror_managemnt/check_mirrors.py
+  * linter: Fix utils/mirror_managemnt/mirror_management.py
+  * linter: Fix utils/url_manifest.py
+  * linter: Fix utils/test_reproducibility.py
+  * linter: Fix utils/yaml_diff.py
+  * linter: Fix utils/get_remote_digest.py
+  * linter: Fix utils/test_minimal_system.py
+  * linter: Fix plugins/elements/collect_initial_scripts.py
+  * linter: Fix plugins/sources/ostree_mirror.py
+  * linter: Fix files/dictionaries/install_dicts.py
+  * linter: Fix files/linux-firmware/compress.py
+  * linter: Fix utils/generate_cve_report.py
+  * linter: Fix utils/check-static-libraries.py
+  * linter: Fix files/oci/oci/oci_builder
+  * linter: Fix utils/jsontomd.py
+  * linter: Fix utils/preresolve.py
+  * linter: Fix files/iana-config/generate.py
+  * .pylintrc: Disable R0801 (duplicate code)
+  * .gitlab-ci.yml: Update to container with buildstream 1.95.2
+  * libxml2: Ignore CVE-2016-3709
+  * opensbi: Update to 1.1
+  * Update to ostree 2022.5 for 21.08
+  * Update curl to curl-7_83_1-0
+  * utils/abidiff-suppressions.ini: Ignore experimental functions from 7.83.0 which are stubs
+  * Update wavpak to 5.5.0
+  * Move patches data to gstreamer
+
 freedesktop-sdk-21.08.15:
   * Backport CVE fixes for gstreamer-plugins-good 1.18
   * Fix CVE checker when finding CVE's with no score
