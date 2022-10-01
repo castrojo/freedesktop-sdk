@@ -19,9 +19,10 @@ config:
     CURRENT_REF=$(git describe --match mesa-*)
     TIMESTAMP=$(git log -1 --format="%at" ${CURRENT_REF})
     VERSION_DATE=$(date -d @"$TIMESTAMP" -Idate)
+    VERSION=$(echo ${CURRENT_REF} | sed 's/mesa-//')
     for app_id in %{app-id}
     do
-      m4 -D__VERSION__=${CURRENT_REF} -D__VERSION_DATE__=${VERSION_DATE} \
+      m4 -D__VERSION__=${VERSION} -D__VERSION_DATE__=${VERSION_DATE} \
       -D__APP_ID__=${app_id} \
       appdata.template > ${appdata_dir}/${app_id}.appdata.xml
       appstream-compose --basename ${app_id} \
