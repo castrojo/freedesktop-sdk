@@ -1,13 +1,16 @@
 kind: pip
 
+build-depends:
+- components/python3-pip.bst
+- components/python3-wheel.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/python3.bst
-- filename: components/python3-setuptools.bst
-- filename: components/python3-pip.bst
-  type: build
-- filename: components/python3-wheel.bst
-  type: build
+- bootstrap-import.bst
+- components/python3.bst
+- components/python3-setuptools.bst
+
+runtime-depends:
+- components/python3-importlib-metadata.bst
 
 sources:
 - kind: pypi
