@@ -12,6 +12,4 @@ sources:
 - kind: git_tag
   url: github:doxygen/doxygen.git
   track: master
-  ref: Release_1_9_4-0-g5d15657a55555e6181a7830a5c723af75e7577e2
-- kind: patch
-  path: patches/doxygen/gcc-12-support.patch
+  ref: Release_1_9_5-0-g2f6875a5ca481a69a6f32650c77a667f87d25e88
