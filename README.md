@@ -34,7 +34,7 @@ Our goals, some of which are already achieved:
 *   Improve maintainability, using a single metadata format instead of several
     different ones. We use [BuildStream](https://gitlab.com/BuildStream/buildstream)
     for this.
-*   Support multiple architectures out of the box. (ppc64le, armv7, aarch64, i386, and x86_64)
+*   Support multiple architectures out of the box. (ppc64le, armv7, aarch64, i386, x86_64 and RISC-V)
 *   Long term maintenance of the SDK, with improved automation to do so,
     including tests for ABI stability.
 *   Define formal release cycles.
@@ -121,7 +121,7 @@ on are own flatpak remote:
 
 As part of the runtime, there's ffmpeg which contains various common
 patent-free codecs. We also provide provide an `openh264` extension, which
-provides a royalty free H.264 codec. 
+provides a royalty free H.264 codec.
 
 If your application requires further codecs or openh264 is for some reason
 not functioning correctly for your consumers, it's also possible to declare
