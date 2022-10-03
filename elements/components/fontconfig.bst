@@ -41,3 +41,5 @@ sources:
   ref: 2.14.0-0-g911b19f19f1334d51c452756f9ce222c1101097b
 - kind: local
   path: files/fontconfig-flatpak.conf
+- kind: patch
+  path: patches/fontconfig/font-remapping.patch
