@@ -20,4 +20,4 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxau.git
   track: master
-  ref: libXau-1.0.9-0-gd9443b2c57b512cfb250b35707378654d86c7dea
+  ref: libXau-1.0.10-0-g4fbefa02d6c842401ff79065d364edd7087a12a6
