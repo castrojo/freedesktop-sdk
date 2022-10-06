@@ -335,7 +335,6 @@ depends:
 - components/python3-html5lib.bst
 - components/python3-idna.bst
 - components/python3-imagesize.bst
-- components/python3-intreehooks.bst
 - components/python3-jinja2.bst
 - components/python3-lxml.bst
 - components/python3-mako.bst
