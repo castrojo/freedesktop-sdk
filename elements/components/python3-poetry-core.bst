@@ -5,12 +5,10 @@ build-depends:
 
 depends:
 - components/python3.bst
-- components/python3-intreehooks.bst
-- components/python3-toml.bst
 
 sources:
 - kind: pypi
   name: poetry-core
   ref:
-    sha256sum: 951fc7c1f8d710a94cb49019ee3742125039fc659675912ea614ac2aa405b118
-    suffix: 51/be/c4dce945cf7de2dc38d94cf724525f2a97d83b18403eeeb87eecb715dada/poetry-core-1.0.8.tar.gz
+    sha256sum: f4e68f596ba7560d41f67c705e160a0ed1a061c564cc1f989a5829aa64ea6279
+    suffix: b1/a1/8f88872af29e6efd0ff5bf44a92d5882cd50fd8e106e6ebf655cdd0097f1/poetry-core-1.3.1.tar.gz
