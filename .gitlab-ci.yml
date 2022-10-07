@@ -211,6 +211,7 @@ check_update_elements:
         ;;
       esac
     - GITLAB_TOKEN=$FREEDESKTOP_API_KEY auto_updater --verbose
+      --bst1
       --base_branch "${CI_COMMIT_REF_NAME}"
       --nobuild
       --overwrite
