@@ -15,4 +15,4 @@ sources:
 - kind: git_tag
   url: github:mquinson/po4a.git
   track: master
-  ref: v0.67-0-g20b08eaae7a1fb5560375515e6eeb50508afc2cb
+  ref: v0.68-0-g0ab1670e50f0a72781e3d1de6ab9da0c2d71c646
