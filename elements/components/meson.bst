@@ -21,7 +21,7 @@ sources:
 - kind: pypi
   name: meson
   ref:
-    sha256sum: 3b51d451744c2bc71838524ec8d96cd4f8c4793d5b8d5d0d0a9c8a4f7c94cd6f
-    suffix: c5/03/fa2ec33f079e9b31bbd2154257cdfe51de3f085139e75aa945fd2ecdfe86/meson-0.63.0.tar.gz
+    sha256sum: 519c0932e1a8b208741f0fdce90aa5c0b528dd297cf337009bf63539846ac056
+    suffix: 45/3b/deb72eb6aa16a7ce46ce59d780445db5fe279557ca3a13f77f3c77686c77/meson-0.63.3.tar.gz
 - kind: patch
   path: patches/meson/meson-no-lib64.patch
