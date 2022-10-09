@@ -47,6 +47,7 @@ config:
 
   - |
     . ./config-utils.sh
+    rm -f expected-configs
 
     # Modify the kernel config for additional features
 
@@ -147,7 +148,7 @@ config:
     remove LEGACY_PTY_COUNT
 
     # Legacy hotplug confuses udev
-    value UEVENT_HELPER_PATH ""
+    value_str UEVENT_HELPER_PATH ""
 
     # Userspace firmware loading not supported
     remove FW_LOADER_USER_HELPER
@@ -203,9 +204,6 @@ config:
     enable DRM_VIRTIO_GPU
     module DRM_VMWGFX
 
-    # Required for systemd-nspawn
-    enable DEVPTS_MULTIPLE_INSTANCES
-
     # Sound with QEMU
     module SOUND
     module SND
@@ -223,6 +221,7 @@ config:
     # Some useful drivers when running as virtual machine
     module VIRTIO_BALLOON
     module VIRTIO_INPUT
+    module LIBNVDIMM
     enable VIRTIO_PMEM
     enable VIRTIO_NET
     enable VIRTIO_BLK
@@ -241,11 +240,17 @@ config:
     enable INPUT_TABLET
 
     # needed by spice-vdagent
+    module VSOCKETS
     module VIRTIO_VSOCKETS
     module INPUT_UINPUT
 
     # for virtualbox
-    module VBOXGUEST
+    case "%{arch}" in
+      i686|x86_64)
+        enable VIRT_DRIVERS
+        module VBOXGUEST
+      ;;
+    esac
 
     # For wireless networks
     enable WIRELESS
@@ -277,7 +282,11 @@ config:
     enable DRM_AMDGPU_SI
     enable DRM_AMDGPU_CIK
     enable DRM_AMD_DC
-    enable DRM_AMD_DC_DCN
+    case "%{arch}" in
+      x86_64|i686)
+        enable DRM_AMD_DC_DCN
+      ;;
+    esac
     enable DRM_AMD_DC_HDCP
     enable DRM_AMD_DC_SI
     enable DRM_RADEON_USERPTR
@@ -289,8 +298,6 @@ config:
       x86_64|i686)
         module DRM_I915
         module DRM_GMA500
-        module DRM_GMA600
-        module DRM_GMA3600
         ;;
       aarch64|arm)
         ;;
@@ -321,6 +328,7 @@ config:
     enable MEDIA_USB_SUPPORT
     enable MEDIA_CAMERA_SUPPORT
     module USB_VIDEO_CLASS
+    module USB_GSPCA
     module USB_GSPCA_BENQ
     module USB_GSPCA_CONEX
     module USB_GSPCA_CPIA1
@@ -408,6 +416,7 @@ config:
     if has ACPI && has I2C; then
       module I2C_HID_ACPI
     fi
+    enable HIDRAW
 
     # CPU support
     enable PINCTRL
@@ -471,9 +480,10 @@ config:
     for fs in XFS BTRFS EXFAT VFAT F2FS ISO9660 UDF NTFS3; do
       module "${fs}_FS"
     done
-    for fs in XFS BTRFS F2FS; do
+    for fs in BTRFS F2FS; do
       enable "${fs}_FS_POSIX_ACL"
     done
+    enable "XFS_POSIX_ACL"
     enable FS_ENCRYPTION
 
     # Needed for FAT filesystems
@@ -530,7 +540,7 @@ config:
     esac
 
     # Initramfs
-    enable BLK_DEVTMPFS
+    enable DEVTMPFS
     enable BLK_DEV_INITRD
         for comp in GZIP BZIP2 LZMA XZ LZO LZ4 ZSTD; do
       enable RD_${comp}
@@ -539,6 +549,11 @@ config:
 
     # Compressed firmware
     enable FW_LOADER_COMPRESS
+
+    # Joysticks
+    enable INPUT_JOYSTICK
+    # Joydev API
+    module INPUT_JOYDEV
 
     # Joysticks (Xbox)
     module JOYSTICK_XPAD
@@ -556,9 +571,6 @@ config:
 
     # Steam controller
     module HID_STEAM
-
-    # Joydev API
-    module INPUT_JOYDEV
 
     # Make sure to enable virtual terminals in DRM
     enable FB
@@ -628,6 +640,23 @@ config:
 
   - |
     make -j1 olddefconfig
+
+  - |
+    . ./config-utils.sh
+
+    missing_configs=0
+    for config in $(cat expected-configs); do
+      if ! has "${config}"; then
+        echo "Missing ${config}" 1>&2
+        missing_configs=1
+      fi
+    done
+    # Only fail for...
+    case "%{arch}" in
+      x86_64|i686|aarch64)
+        [ "${missing_configs}" = 0 ]
+      ;;
+    esac
 
   install-commands:
   - |
