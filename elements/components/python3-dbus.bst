@@ -1,17 +1,25 @@
-kind: pip
+kind: meson
 
 build-depends:
-- components/python3-pip.bst
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 
 depends:
 - components/python3.bst
 - components/libdbus.bst
 - components/glib.bst
 
+variables:
+  meson-local: >-
+    -Dtests=false
+
+config:
+  install-commands:
+    (>):
+    - python3 -m compileall -o 0 -o 1 -o 2 "%{install-root}"
+
 sources:
 - kind: pypi
   name: dbus-python
   ref:
-    sha256sum: 92bdd1e68b45596c833307a5ff4b217ee6929a1502f5341bae28fd120acf7260
-    suffix: b1/5c/ccfc167485806c1936f7d3ba97db6c448d0089c5746ba105b6eb22dba60e/dbus-python-1.2.18.tar.gz
+    sha256sum: ad67819308618b5069537be237f8e68ca1c7fcc95ee4a121fe6845b1418248f8
+    suffix: c1/d3/6be85a9c772d6ebba0cc3ab37390dd6620006dcced758667e0217fb13307/dbus-python-1.3.2.tar.gz
