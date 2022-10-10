@@ -10,6 +10,7 @@ runtime-depends:
 - components/util-linux.bst
 - components/systemd-manifest.bst
 - components/lz4.bst
+- components/zstd.bst
 
 config:
   include:
