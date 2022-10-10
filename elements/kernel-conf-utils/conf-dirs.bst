@@ -1,0 +1,20 @@
+kind: manual
+description: |
+    This extracts mapping for config items to kernel source
+    directories.
+
+build-depends:
+- bootstrap-import.bst
+
+config:
+  build-commands:
+  - |
+    find ./ \( -name Documentation -prune \) -o \( -name "Kconfig*" -exec grep -EH '^(menu)?config ' {} ";" \) | \
+        sed 's/:menuconfig /:config /;s,^[.]/\(.*\)/Kconfig[^:/]*:config \(.*\)$,\2:\1,' >configs.dir
+
+  install-commands:
+  - |
+    install -Dm644 -t '%{install-root}' configs.dir
+
+(@):
+- elements/include/linux.yml
