@@ -7,12 +7,15 @@ kind: meson
 build-depends:
 - bootstrap-import.bst
 - public-stacks/buildsystem-meson.bst
+- components/audit.bst
 - components/gperf.bst
 - components/m4.bst
 - components/libcap.bst
 - components/libgcrypt.bst
 - components/libgpg-error.bst
+- components/libseccomp.bst
 - components/lz4.bst
+- components/zstd.bst
 - components/util-linux-full.bst
 - components/linux-pam.bst
 - components/kmod.bst
@@ -22,6 +25,7 @@ build-depends:
 - components/cryptsetup-lvm2-stage1.bst
 - components/p11-kit.bst
 - components/libfido2.bst
+- components/libidn2.bst
 - components/openssl.bst
 - components/python3-jinja2.bst
 - components/apparmor.bst
@@ -50,8 +54,8 @@ variables:
     -Drootprefix=%{prefix}
     -Drootlibdir=%{libdir}
     -Dsysvinit-path=%{sysconfdir}/init.d
-    -Daudit=false
-    -Dseccomp=false
+    -Daudit=true
+    -Dseccomp=true
     -Dsystem-uid-max=999
     -Dsystem-gid-max=999
     -Dusers-gid=100
@@ -61,10 +65,12 @@ variables:
     -Defi=%{efi}
     -Dfirstboot=true
     -Dzlib=true
+    -Dzstd=true
     -Dbzip2=true
     -Dxz=true
     -Dlz4=true
     -Ddefault-dnssec=no
+    -Didn=true
     -Drepart=true
     -Dman=true
     -Dhtml=true

@@ -6,6 +6,7 @@ build-depends:
 runtime-depends:
 - components/systemd-libs.bst
 - components/systemd-hwdb.bst
+- components/audit.bst
 - components/libgpg-error.bst
 - components/linux-pam.bst
 - components/kmod.bst
@@ -14,6 +15,8 @@ runtime-depends:
 - components/tzdata.bst
 - components/shadow.bst
 - components/util-linux-full.bst
+- components/libidn2.bst
+- components/libseccomp.bst
 - components/kbd.bst
 - components/cryptsetup.bst
 - components/p11-kit.bst
