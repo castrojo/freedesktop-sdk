@@ -6,4 +6,4 @@ sources:
   - 21.x
   exclude:
   - '*rc*'
-  ref: v3.21.4-0-gc9869dc7803eb0a21d7e589c40ff4f9288cd34ae
+  ref: v3.21.6-0-g24487dd1045c7f3d64a21f38a3f0c06cc4cf2edb
