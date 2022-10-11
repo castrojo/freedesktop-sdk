@@ -41,10 +41,6 @@ sources:
 - kind: git_tag
   url: github:curl/curl.git
   track: master
-  ref: curl-7_84_0-0-g45ac4d019475df03562fe0ac54eb67e1d1de0ca7
+  ref: curl-7_85_0-0-g93d092867f0f2c78571983040ef75e078ee1a4c4
 - kind: patch
   path: patches/curl/remove-doc-timestamp.patch
-- kind: patch
-  path: patches/curl/sched_yield.patch
-- kind: patch
-  path: patches/curl/avoid-latomic.patch
