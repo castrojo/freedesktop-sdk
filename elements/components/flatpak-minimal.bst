@@ -10,7 +10,7 @@ depends:
 - components/ostree.bst
 - components/fuse3.bst
 - components/json-glib.bst
-- components/appstream.bst
+- components/appstream-minimal.bst
 - components/libseccomp.bst
 
 build-depends:
