@@ -9,7 +9,7 @@ build-depends:
 variables:
   linker-pattern: ld-linux*.so*.debug
   (?):
-  - target_arch == "ppc64":
+  - target_arch in ("ppc64", "ppc64le"):
       linker-pattern: ld64.so.*.debug
 
 public:
