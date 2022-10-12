@@ -7,7 +7,7 @@ sources:
   exclude:
   - '*rc*'
   - '*branchpoint*'
-  ref: mesa-22.1.4-0-gb6b790720cf3901056d84b0f7d9df95191c18524
+  ref: mesa-22.1.7-0-g7a3414c4bd1720057cb84fdd1c033e87bf9c996d
 - kind: local
   path: files/mesa/appdata.template
 - kind: patch
