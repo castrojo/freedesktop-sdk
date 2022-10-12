@@ -16,7 +16,6 @@ depends:
 - components/gobject-introspection.bst
 - components/gperf.bst
 - components/libyaml.bst
-- components/librsvg.bst
 - components/libxml2.bst
 - components/libxmlb.bst
 - components/pango.bst
@@ -25,6 +24,7 @@ variables:
   meson-local: >-
     -Dstemming=false
     -Dcompose=true
+    -Dsvg-support=false
 
 (@):
 - elements/include/appstream-source.yml
