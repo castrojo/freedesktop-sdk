@@ -40,4 +40,4 @@ sources:
 - kind: git_tag
   url: gnome:pango.git
   track: main
-  ref: 1.50.10-0-g8d4e58f15b6d608d1da7268371f7efde7b35e950
+  ref: 1.50.11-0-geabdbd54ee38fa658be574c4fa4574a05c755f16
