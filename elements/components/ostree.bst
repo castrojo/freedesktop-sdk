@@ -41,11 +41,11 @@ sources:
   - v*
   exclude:
   - v*.*.*
-  ref: v2022.5-0-g15740d042c9c5258a1c082b5e228cf6f115edbb0
+  ref: v2022.6-0-geee649d902266e8d79465d34a2bf2f236e11dbd6
 - kind: git_module
   path: libglnx
   url: gnome:libglnx.git
-  ref: c59eb271b5127309c73117bbc871dcfd9fd159a6
+  ref: 26375b5308360764bc6604f292192b88a59ad3ce
 - kind: git_module
   path: bsdiff
   url: github:mendsley/bsdiff.git
