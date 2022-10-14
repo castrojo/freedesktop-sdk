@@ -58,4 +58,4 @@ sources:
 - kind: git_tag
   url: github:shadow-maint/shadow.git
   track: master
-  ref: v4.11.1-0-geccf1c569c7ac3b9e3b535c91b6ed3c329e9ec8c
+  ref: 4.12.2-0-g238aa9294870a890039995fe326d0a65f2632f0b
