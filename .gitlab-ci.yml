@@ -313,8 +313,6 @@ license_checker:
   stage: flatpak
   script:
     - arch-test || true
-    - make url-manifest
-    - python3 utils/mirror-management-scripts/check_mirrors.py --alias_test --mirror_defined_test -m "release-url-manifest/url-manifest-no-mirrors.json" -M "include/_private/mirrors.yml" -i "utils/mirror-management-scripts/ignore_dict.json" --output_file "mirror_problem_list.json"
     - test "${ARCH}" != "i686" && make build
 
     - export FLATPAK_USER_DIR="${PWD}/tmp-flatpak"
