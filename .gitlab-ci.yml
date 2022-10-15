@@ -122,15 +122,35 @@ before_script:
           echo "        auth:"
           echo "          client-key: /etc/ssl/CAS/server.key"
           echo "          client-cert: /etc/ssl/CAS/server.crt"
-          echo "cache:"
-          echo "  storage-service:"
-          echo "    url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
-          echo "    auth:"
-          echo "      client-key: /etc/ssl/CAS/server.key"
-          echo "      client-cert: /etc/ssl/CAS/server.crt"
+          if [ -f /cache-certificate/server.crt ]; then
+            echo "    artifacts:"
+            echo "      servers:"
+            echo "      - url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
+            if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
+              echo "        push: true"
+            fi
+            echo "        auth:"
+            echo "          client-key: /etc/ssl/CAS/server.key"
+            echo "          client-cert: /etc/ssl/CAS/server.crt"
+            echo "cache:"
+            echo "  storage-service:"
+            echo "    url: https://local-cas-server:1102"
+            echo "    auth:"
+            echo "      client-key: /etc/ssl/CAS/server.key"
+            echo "      client-cert: /etc/ssl/CAS/server.crt"
+            echo "      server-cert: /cache-certificate/server.crt"
+          else
+            echo "cache:"
+            echo "  storage-service:"
+            echo "    url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
+            echo "    auth:"
+            echo "      client-key: /etc/ssl/CAS/server.key"
+            echo "      client-cert: /etc/ssl/CAS/server.crt"
+          fi
         fi
       } >> ~/.config/buildstream.conf
     fi
+    cat ~/.config/buildstream.conf
 
   # flat-manager tokens to upload the releases
   - |
