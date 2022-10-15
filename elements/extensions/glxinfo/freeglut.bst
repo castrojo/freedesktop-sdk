@@ -21,4 +21,4 @@ sources:
 - kind: git_tag
   url: github:FreeGLUTProject/freeglut.git
   track: master
-  ref: v3.2.2-0-ge3aa3d74f3c6a93b26fd66f81152d9c55506a6c6
+  ref: v3.4.0-0-g63c0e78d84ecbfcf8accd8bac04404427899053b
