@@ -122,15 +122,35 @@ before_script:
           echo "        auth:"
           echo "          client-key: /etc/ssl/CAS/server.key"
           echo "          client-cert: /etc/ssl/CAS/server.crt"
-          echo "cache:"
-          echo "  storage-service:"
-          echo "    url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
-          echo "    auth:"
-          echo "      client-key: /etc/ssl/CAS/server.key"
-          echo "      client-cert: /etc/ssl/CAS/server.crt"
+          if [ -f /cache-certificate/server.crt ]; then
+            echo "    artifacts:"
+            echo "      servers:"
+            echo "      - url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
+            if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
+              echo "        push: true"
+            fi
+            echo "        auth:"
+            echo "          client-key: /etc/ssl/CAS/server.key"
+            echo "          client-cert: /etc/ssl/CAS/server.crt"
+            echo "cache:"
+            echo "  storage-service:"
+            echo "    url: https://local-cas-server:1102"
+            echo "    auth:"
+            echo "      client-key: /etc/ssl/CAS/server.key"
+            echo "      client-cert: /etc/ssl/CAS/server.crt"
+            echo "      server-cert: /cache-certificate/server.crt"
+          else
+            echo "cache:"
+            echo "  storage-service:"
+            echo "    url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
+            echo "    auth:"
+            echo "      client-key: /etc/ssl/CAS/server.key"
+            echo "      client-cert: /etc/ssl/CAS/server.crt"
+          fi
         fi
       } >> ~/.config/buildstream.conf
     fi
+    cat ~/.config/buildstream.conf
 
   # flat-manager tokens to upload the releases
   - |
@@ -313,8 +333,6 @@ license_checker:
   stage: flatpak
   script:
     - arch-test || true
-    - make url-manifest
-    - python3 utils/mirror-management-scripts/check_mirrors.py --alias_test --mirror_defined_test -m "release-url-manifest/url-manifest-no-mirrors.json" -M "include/_private/mirrors.yml" -i "utils/mirror-management-scripts/ignore_dict.json" --output_file "mirror_problem_list.json"
     - test "${ARCH}" != "i686" && make build
 
     - export FLATPAK_USER_DIR="${PWD}/tmp-flatpak"
