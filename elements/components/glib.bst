@@ -9,7 +9,6 @@ depends:
 - bootstrap-import.bst
 - components/libffi.bst
 - components/util-linux.bst
-- components/pcre.bst
 - components/python3.bst
 
 variables:
@@ -54,7 +53,11 @@ sources:
   url: gnome:glib.git
   track: main
   track-extra:
-  - glib-2-72
+  - glib-2-74
   match:
   - 2.*[02468].*
-  ref: 2.72.3-0-gdce30492f6087a8e1e288f1706d41142b74ca1ff
+  ref: 2.74.0-0-g30bd57ecf8aa051de9848ba5a2b140f4810401ff
+- kind: git_module
+  path: subprojects/gvdb
+  url: gnome:gvdb.git
+  ref: 0854af0fdb6d527a8d1999835ac2c5059976c210
