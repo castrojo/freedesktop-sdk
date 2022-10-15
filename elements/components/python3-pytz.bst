@@ -10,5 +10,5 @@ sources:
 - kind: pypi
   name: pytz
   ref:
-    sha256sum: cea221417204f2d1a2aa03ddae3e867921971d0d76f14d87abb4414415bbdcf5
-    suffix: 24/0c/401283bb1499768e33ddd2e1a35817c775405c1f047a9dc088a29ce2ea5d/pytz-2022.2.1.tar.gz
+    sha256sum: 48ce799d83b6f8aab2020e369b627446696619e79645419610b9facd909b3174
+    suffix: 31/da/2d48d3499b59c7f3c5d5e1c79fcee5537c320c8ab7b7a0cd2db578bc34b3/pytz-2022.4.tar.gz
