@@ -49,7 +49,6 @@ sourceforge_download: https://downloads.sourceforge.net/
 sourceforge: https://sourceforge.net/
 sourceware_pub: https://sourceware.org/pub/
 #Generic aliases (because mirroring requires some sort of alias)
-tar_http: http://
 tar_https: https://
 #
 #
