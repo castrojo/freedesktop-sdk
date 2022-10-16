@@ -31,7 +31,6 @@ build-depends:
 - components/gyp.bst
 - components/pkg-config.bst
 - components/perl.bst
-- enable-shm.bst
 
 variables:
   (?):
