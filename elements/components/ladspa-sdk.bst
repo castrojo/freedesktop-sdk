@@ -1,7 +1,8 @@
 kind: make
 
 depends:
-- filename: bootstrap-import.bst
+- bootstrap-import.bst
+- components/sndfile.bst
 
 variables:
   install-conf: |
@@ -9,21 +10,13 @@ variables:
     INSTALL_INCLUDE_DIR=%{install-root}%{includedir} \
     INSTALL_BINARY_DIR=%{install-root}%{bindir}
 
+  command-subdir: src
+
   make: |
-    make PREFIX="%{prefix}" CFLAGS="-I. ${CFLAGS} ${LDFLAGS} -DDEFAULT_LADSPA_PATH=%{install-root}%{libdir}/ladspa"
-
-config:
-  build-commands:
-    - |
-      cd src
-      %{make} targets
-
-  install-commands:
-    - |
-      cd src
-      %{make-install} %{install-conf}
+    make %{make-args} CFLAGS="-I. ${CFLAGS} ${LDFLAGS} -DDEFAULT_LADSPA_PATH=%{install-root}%{libdir}/ladspa"
+  make-install: make -j1 %{make-install-args} %{install-conf}
 
 sources:
 - kind: tar
-  url: tar_http:www.ladspa.org/download/ladspa_sdk_1.15.tgz
-  ref: 4229959b09d20c88c8c86f4aa76427843011705df22d9c28b38359fd1829fded
+  url: tar_https:www.ladspa.org/download/ladspa_sdk_1.17.tgz
+  ref: 27d24f279e4b81bd17ecbdcc38e4c42991bb388826c0b200067ce0eb59d3da5b
