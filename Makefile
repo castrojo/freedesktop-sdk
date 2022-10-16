@@ -293,7 +293,7 @@ vulkan-stack-update:
 	extensions/vulkaninfo/vulkan-tools.bst \
 	components/spirv-headers.bst \
 	components/spirv-tools.bst; do \
-	sed -ie "s/- sdk-[1-9]\..*/- sdk-${SDK_VERSION}/" elements/$${name}; \
+	sed -i -e "s/- sdk-[1-9]\..*/- sdk-${SDK_VERSION}/" elements/$${name}; \
 	bst source track $${name}; \
 	done
 
