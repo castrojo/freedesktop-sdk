@@ -39,7 +39,7 @@ sources:
   - v*
   exclude:
   - v*.*.*
-  ref: v2022.5-0-g15740d042c9c5258a1c082b5e228cf6f115edbb0
+  ref: v2022.6-0-geee649d902266e8d79465d34a2bf2f236e11dbd6
   submodules:
     libglnx:
       checkout: true
