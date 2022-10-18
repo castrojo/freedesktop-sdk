@@ -1,13 +1,13 @@
 variables:
   # C/C++ compiler flags used everywhere (including bootstrapping)
   #
-  debug_flags: "-g"
-  common_flags: "-O2 %{debug_flags} -pipe"
+  common_flags: "-O2 -pipe"
 
   # Feature specific flags enabled in regular builds.
   #
   # To disable, these flags can be cleared on a per element basis
   #
+  debug_flags: "-g"
   target_flags_fortify_source: "-Wp,-D_FORTIFY_SOURCE=2"
   target_flags_glibcxx_assertions: "-Wp,-D_GLIBCXX_ASSERTIONS"
   target_flags_exceptions: "-fexceptions"
@@ -16,6 +16,7 @@ variables:
 
   # Default set of C/C++ compiler flags
   target_common_flags: >-
+    %{debug_flags}
     %{target_flags_fortify_source}
     %{target_flags_glibcxx_assertions}
     %{target_flags_exceptions}

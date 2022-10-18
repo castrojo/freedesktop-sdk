@@ -5,7 +5,9 @@
 variables:
   # C/C++ compiler flags used in bootstrapping
   #
-  build_common_flags: ""
+  build_debug_flags: "-g"
+  build_common_flags: >-
+    %{build_debug_flags}
 
   # Element specific C/C++ flags used in bootstrapping
   #
