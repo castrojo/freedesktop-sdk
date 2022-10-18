@@ -24,4 +24,4 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxtst.git
   track: master
-  ref: libXtst-1.2.3-0-g9f5621a410f18149d4c76b02daa7f1a98b4a2c16
+  ref: libXtst-1.2.4-0-g99b89c3bcb0ebb0b6dd86bfdc9d276715eaea889
