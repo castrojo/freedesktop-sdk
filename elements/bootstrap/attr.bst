@@ -30,7 +30,7 @@ config:
     - |
       mkdir tmp-build
       cd tmp-build
-      ../configure
+      ../configure %{conf-args}
       cd po
       make
       cd ../..
