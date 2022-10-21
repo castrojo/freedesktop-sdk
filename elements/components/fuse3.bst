@@ -26,11 +26,11 @@ public:
   cpe:
     vendor: fuse_project
     name: fuse
-      
+
 sources:
 - kind: git_tag
   url: github:libfuse/libfuse.git
   track: master
-  ref: fuse-3.11.0-0-ga56147d3cb269d64635408ab5588ad66eba43943
+  ref: fuse-3.12.0-0-g0c3fbe2ce24bdc79a2bbd8691f0f2cd9a383242b
 - kind: patch
   path: patches/fuse3/gcc-11.patch

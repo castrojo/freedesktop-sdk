@@ -25,9 +25,7 @@ sources:
 - kind: git_tag
   url: github:linux-audit/audit-userspace.git
   track: master
-  track-extra:
-  - '2.8_maintenance'
-  ref: v3.0.8-0-g54a62e78792fe583267cf80da717ee480b8f42bc
+  ref: v3.0.9-0-g81fa28e0e8b4be83ddba03de8b816a3df510c17e
 - kind: local
   path: files/audit/tmpfiles-audit.conf
   directory: freedesktop-sdk

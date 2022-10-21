@@ -19,4 +19,4 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libpciaccess.git
   track: master
-  ref: libpciaccess-0.16-0-gfbd1f0fe79ba25b72635f8e36a6c33d7e0ca19f6
+  ref: libpciaccess-0.17-0-g935f0b4d6983f77c4f35e6d492f9f2c2d1ed57f9

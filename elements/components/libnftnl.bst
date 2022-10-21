@@ -10,4 +10,4 @@ sources:
 - kind: git_tag
   url: netfilter:libnftnl
   track: master
-  ref: libnftnl-1.2.2-0-gf6575131e60ab10f131ea3ff36f69af2b6c3f614
+  ref: libnftnl-1.2.3-0-g817c8b66f1ea8c223b7513d4cd7bff525d8a0a9f

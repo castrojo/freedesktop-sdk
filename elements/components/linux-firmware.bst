@@ -17,6 +17,6 @@ sources:
 - kind: git_tag
   url: kernel:linux/kernel/git/firmware/linux-firmware.git
   track: main
-  ref: 20220708-0-gbe7798e0cf106bfa10c3e9bdffe5c15e6b0d7ae9
+  ref: 20221012-0-g8b07c1fb1d8de4259611a0cccaeda893d792cd91
 - kind: local
   path: files/linux-firmware/compress.py
