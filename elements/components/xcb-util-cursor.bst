@@ -27,7 +27,7 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxcb-cursor.git
   track: master
-  ref: 0.1.3-0-g95b9a8fd876fdbbc854cdf3d90317be3846c7417
+  ref: xcb-util-cursor-0.1.4-0-g3d7e713e85af18d7e52cafdc9d20a2715048dee7
   submodules:
     m4:
       url: freedesktop:xorg/util/xcb-util-m4.git
