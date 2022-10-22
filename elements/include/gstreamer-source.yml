@@ -6,6 +6,6 @@ sources:
   - '1.20'
   match:
   - 1.*[02468].*
-  ref: 1.20.3-0-gccf22e315cedf81e0075ab179ffb1b733da5206e
+  ref: 1.20.4-0-g642730bd67d3c23ac68bd328fbddd191a7a43f25
 - kind: patch_queue
   path: patches/gstreamer
