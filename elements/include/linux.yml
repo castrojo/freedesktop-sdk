@@ -6,7 +6,7 @@ sources:
   - linux-5.19.y
   exclude:
   - '*-rc*'
-  ref: v5.19.14-0-g30c780ac0f9fc09160790cf58f07ef3b92097ceb
+  ref: v5.19.16-0-gd235c2b1f470f012bda26844aabf26321b1c446a
 - kind: local
   path: files/linux/config-utils.sh
 - kind: patch_queue
