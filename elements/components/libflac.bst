@@ -24,7 +24,7 @@ sources:
   url: xiph:flac.git
   track: master
   track-extra:
-  - '1.3.x'
-  ref: 1.3.4-0-g1151c93e992bb8c7c6394e04aa880d711c531c7f
+  - '1.4.x'
+  ref: 1.4.1-0-gb6fbd6b3d97e2da4481bdbd25176f263fd6a5e75
   match:
   - '*.*.*'

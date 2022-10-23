@@ -37,7 +37,7 @@ sources:
   use-lfs: false
   track: main
   track-extra:
-  - maint/maint-64
+  - maint/maint-72
   exclude:
   - "release-*-rc"
   - "*-preview"
@@ -45,6 +45,6 @@ sources:
   - "*-beta"
   match:
   - "release-*"
-  ref: release-71-1-0-gc205e7ee49a7086a28b9c275fcfdac9ca3dc815d
+  ref: release-72-1-0-gff3514f257ea10afe7e710e9f946f68d256704b1
 - kind: patch
   path: patches/icu/icu-fix-shared-linking.patch

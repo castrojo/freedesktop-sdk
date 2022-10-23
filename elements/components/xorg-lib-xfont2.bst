@@ -13,4 +13,4 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxfont.git
   track: master
-  ref: libXfont2-2.0.5-0-g3a4f68284c5aeea77789af1fe395cac35efc8562
+  ref: libXfont2-2.0.6-0-gd54aaf2483df6a1f98fadc09004157e657b7f73e

@@ -23,4 +23,4 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxxf86vm.git
   track: master
-  ref: libXxf86vm-1.1.4-0-g92d18649e92566ccc3abeba244adabda249cce1b
+  ref: libXxf86vm-1.1.5-0-g7fe2d41f164d3015216c1079cc7fbce1eea90c98
