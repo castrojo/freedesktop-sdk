@@ -24,7 +24,7 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxcb-wm.git
   track: master
-  ref: 0.4.1-0-g24eb17df2e1245885e72c9d4bbb0a0f69f0700f2
+  ref: xcb-util-wm-0.4.2-0-g0c6681e465c9cc7b1fbb60778ba1eaa61ab01a14
   submodules:
     m4:
       url: freedesktop:xorg/util/xcb-util-m4.git
