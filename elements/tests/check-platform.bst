@@ -22,7 +22,6 @@ config:
   - components/docbook-xml.bst
   - components/docbook-xsl.bst
   - components/doxygen.bst
-  - components/ed.bst
   - components/flex.bst
   - components/gdb.bst
   - components/git.bst
