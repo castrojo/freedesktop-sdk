@@ -8,7 +8,6 @@ depends:
 - components/autoconf-archive.bst
 - components/autoconf.bst
 - components/automake.bst
-- components/bc.bst
 - components/bison.bst
 - components/ccache.bst
 - components/cmake.bst

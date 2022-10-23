@@ -7,6 +7,7 @@ config:
   forbidden:
   - components/apparmor.bst
   - components/avahi.bst
+  - components/bc.bst
   - components/bluez.bst
   - components/ccid.bst
   - components/dracut.bst
