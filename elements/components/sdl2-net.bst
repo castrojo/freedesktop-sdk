@@ -1,12 +1,11 @@
-kind: autotools
+kind: cmake
+
+build-depends:
+- public-stacks/buildsystem-cmake.bst
 
 depends:
-- filename: bootstrap-import.bst
-- filename: components/sdl2.bst
-
-variables:
-  conf-local: |
-    --disable-gui
+- bootstrap-import.bst
+- components/sdl2.bst
 
 public:
   bst:
@@ -14,9 +13,10 @@ public:
       devel:
         (>):
         - '%{libdir}/libSDL2_net.so'
+        - '%{libdir}/libSDL2_net-2.0.so'
 
 sources:
 - kind: git_tag
   url: github:libsdl-org/SDL_net.git
   track: main
-  ref: release-2.0.1-0-g6e513e390d18ad7950d9082863bfe33a0c62fd71
+  ref: release-2.2.0-0-g669e75b84632e2c6cc5c65974ec9e28052cb7a4e
