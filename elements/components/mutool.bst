@@ -9,7 +9,6 @@ depends:
 - components/harfbuzz.bst
 - components/jpeg.bst
 - components/openjpeg.bst
-#- components/lcms.bst
 
 variables:
   make-args: >-
@@ -21,6 +20,7 @@ variables:
     docdir="%{docdir}"
     build=release
     USE_SYSTEM_LIBS=yes
+    USE_SYSTEM_GUMBO=no
     USE_SYSTEM_JBIG2DEC=no
     USE_SYSTEM_LCMS2=no
 
@@ -36,7 +36,13 @@ sources:
 - kind: git_tag
   url: ghostscript:mupdf.git
   track: master
-  ref: 1.17.0-0-g96751b25462f83d6e16a9afaf8980b0c3f979c8b
+  track-extra:
+  - 1.20.x
+  # Attempt to predict the next branchpoint.
+  - 1.21.x
+  exclude:
+  - '*rc*'
+  ref: 1.20.3-0-g28a3ec101bfdda5fd49027549a35078895972195
   submodules:
     thirdparty/mujs:
       url: ghostscript:mujs.git
@@ -44,6 +50,12 @@ sources:
     thirdparty/jbig2dec:
       url: ghostscript:jbig2dec.git
       checkout: true
+    thirdparty/gumbo-parser:
+      url: ghostscript:thirdparty-gumbo-parser.git
+      checkout: true
     thirdparty/lcms2:
       url: ghostscript:thirdparty-lcms2.git
+      checkout: true
+    thirdparty/extract:
+      url: ghostscript:extract.git
       checkout: true
