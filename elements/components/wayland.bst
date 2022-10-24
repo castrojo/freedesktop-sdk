@@ -27,9 +27,6 @@ public:
 sources:
 - kind: git_tag
   url: freedesktop:wayland/wayland.git
-  track: main
-  exclude:
-  - '*.*.9*'
   ref: 1.20.0-0-g75c1a93e2067220fa06208f20f8f096bb463ec08
 - kind: patch
   path: patches/wayland/Add-XDG_DATA_DIRS-to-xcursor-search-path.patch
