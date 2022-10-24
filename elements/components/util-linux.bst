@@ -83,9 +83,7 @@ config:
 sources:
 - kind: git_tag
   url: kernel:utils/util-linux/util-linux.git
-  track: master
-  track-extra:
-  - stable/v2.37
+  track: stable/v2.37
   exclude:
   - v*-rc*
   ref: v2.37.4-0-g12f5423fc2ed08e1945fac95f3bdeb39bb915ea7
