@@ -65,7 +65,4 @@ public:
 sources:
 - kind: git_tag
   url: savannah:bash.git
-  track: master
-  track-tags: false
   ref: bash-5.1-18-g9439ce094c9aa7557a9d53ac7b412a23aa66e36b
-
