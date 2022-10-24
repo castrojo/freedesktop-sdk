@@ -23,9 +23,4 @@ public:
 sources:
 - kind: git_tag
   url: github:mm2/Little-CMS.git
-  track: master
-  match:
-  - lcms2.*
-  exclude:
-  - lcms2.*rc*
   ref: lcms2.12-0-g924a020d09bfe468c665467caf24aadeb41ff77c
