@@ -68,11 +68,6 @@ public:
 sources:
 - kind: git_tag
   url: freedesktop:pulseaudio/pulseaudio.git
-  track: master
-  #track-extra:
-  #- stable-13.x
-  exclude:
-  - v*.99.*
   ref: v15.0-0-g6329a2498eb038f8a9537888280a62b00a93f68e
 - kind: patch
   path: patches/pulseaudio/meson-disable-doxygen.patch
