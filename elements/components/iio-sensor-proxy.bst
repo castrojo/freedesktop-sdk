@@ -12,5 +12,4 @@ depends:
 sources:
 - kind: git_tag
   url: freedesktop:hadess/iio-sensor-proxy.git
-  track: master
   ref: 3.3-0-g83d963b3451928a757eece79aa5b280d90e37e12
