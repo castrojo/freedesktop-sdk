@@ -1,9 +1,7 @@
 sources:
 - kind: git_tag
   url: github:flatpak/flatpak.git
-  track: main
-  track-extra:
-  - flatpak-1.12.x
+  track: flatpak-1.12.x
   match:
   - 1.[02468]*
   - 1.1[02468]*
