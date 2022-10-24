@@ -1,23 +1,21 @@
 kind: meson
 
+build-depends:
+- public-stacks/buildsystem-meson.bst
+- components/gobject-introspection.bst
+- components/python3-docutils.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/shared-mime-info.bst
-- filename: components/gobject-introspection.bst
-  type: build
-- filename: components/libtiff.bst
-- filename: components/libpng.bst
-- filename: components/jpeg.bst
-- filename: components/gtk-doc.bst
-  type: build
-- filename: public-stacks/buildsystem-meson.bst
-  type: build
+- bootstrap-import.bst
+- components/jpeg.bst
+- components/libpng.bst
+- components/libtiff.bst
+- components/shared-mime-info.bst
 
 variables:
   meson-local: >
-    -Dx11=false
-    -Djasper=false
     -Dbuiltin_loaders=png,jpeg
+    -Dgtk_doc=false
     -Dinstalled_tests=false
 
 public:
@@ -40,4 +38,4 @@ sources:
   track: master
   match:
   - 2.*[02468].*
-  ref: 2.42.8-0-gbca00032ad68d0b0aa2c1f7558db931e52bd9cd2
+  ref: 2.42.10-0-g9ac257eb38f772fec4253e8051743029e75a2acd
