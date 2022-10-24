@@ -9,8 +9,9 @@ depends:
 
 variables:
   includedir: "%{prefix}/include/%{gcc_triplet}"
-  conf-local: |
-    --enable-maintainer-mode \
+  conf-local: >-
+    --enable-maintainer-mode
+    --enable-install-gpg-error-config
     --disable-doc
 
 public:
@@ -29,4 +30,4 @@ sources:
   track: master
   match:
   - libgpg-error-*
-  ref: libgpg-error-1.45-0-gdbac537e5e865fb6f3aa8596d213aa8c47a9dea1
+  ref: libgpg-error-1.46-0-gea031873aa9642831017937fd33e9009d514ee07
