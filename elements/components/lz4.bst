@@ -13,9 +13,6 @@ public:
 sources:
 - kind: git_tag
   url: github:lz4/lz4.git
-  track: dev
-  track-extra:
-  - release
   ref: v1.9.3-0-gd44371841a2f1728a3f36839fd4b7e872d0927d3
 
 config:
