@@ -18,5 +18,4 @@ public:
 sources:
 - kind: git_tag
   url: github:libsdl-org/SDL_net.git
-  track: main
   ref: release-2.0.1-0-g6e513e390d18ad7950d9082863bfe33a0c62fd71
