@@ -19,3 +19,5 @@ sources:
   ref:
     sha256sum: 7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983
     suffix: a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz
+- kind: patch
+  path: patches/python3-requests/Allow-charset-normalizer-2-and-4-6261.patch
