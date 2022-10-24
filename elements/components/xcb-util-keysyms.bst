@@ -23,7 +23,7 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxcb-keysyms.git
   track: master
-  ref: 0.4.0-0-g0e51ee5570a6a80bdf98770b975dfe8a57f4eeb1
+  ref: xcb-util-keysyms-0.4.1-0-g85e093f14b0ade2956e0a5d1c37cfde06d8b1ba6
   submodules:
     m4:
       url: freedesktop:xorg/util/xcb-util-m4.git
