@@ -38,8 +38,6 @@ sources:
   track: main
   exclude:
   - 2.*.9*
-  ref: 2.14.0-0-g911b19f19f1334d51c452756f9ce222c1101097b
+  ref: 2.14.1-0-gc45e09df1ef235d653d56aef05012f6a3cc57979
 - kind: local
   path: files/fontconfig-flatpak.conf
-- kind: patch
-  path: patches/fontconfig/font-remapping.patch
