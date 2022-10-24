@@ -22,9 +22,7 @@ public:
 sources:
 - kind: git_tag
   url: gnome:atk.git
-  track: master
-  track-extra:
-  - gnome-3-34
+  track: gnome-3-36
   match:
   - ATK_*_*[02468]_*
   ref: ATK_2_36_0-0-gdbe95f6170ae1f4bb76c755506b4e3dd3990d5aa
