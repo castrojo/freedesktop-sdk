@@ -55,4 +55,4 @@ sources:
   track: dbus-1.12
   match:
   - dbus-[0-9].*[02468].*[02468]
-  ref: dbus-1.12.22-0-g177ab044bc87cbc4ded75d21b900795a6fefef76
+  ref: dbus-1.12.24-0-g5ff925648e88ba29cef7d708bc2bbc5d6de5fc48
