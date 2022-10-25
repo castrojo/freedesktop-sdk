@@ -755,11 +755,6 @@ reproducible_x86_64:
     - .reproducible_template
     - .builder-x86_64
 
-reproducible_i686:
-  extends:
-    - .reproducible_template
-    - .builder-i686
-
 .snap_publish_template:
   stage: publish
   script:
