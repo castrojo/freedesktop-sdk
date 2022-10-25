@@ -21,6 +21,7 @@ depends:
 - components/wayland.bst
 - components/wayland-protocols.bst
 - components/xorg-lib-xcomposite.bst
+- components/xorg-lib-xcursor.bst
 - components/xorg-lib-xdamage.bst
 - components/xorg-lib-xinerama.bst
 - components/xorg-lib-xi.bst
