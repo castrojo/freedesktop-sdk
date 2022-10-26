@@ -1,10 +1,10 @@
 sources:
 - kind: git_tag
-  track: '3.10'
+  track: '3.11'
   exclude:
   - v*rc*
   url: github:python/cpython.git
-  ref: v3.10.8-0-gaaaf5174241496afca7ce4d4584570190ff972fe
+  ref: v3.11.0-0-gdeaf509e8fc6e0363bd6f26d52ad42f976ec42f2
 - kind: patch
   path: patches/python3/python3-multiarch-include.patch
 - kind: patch

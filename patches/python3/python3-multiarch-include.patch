@@ -1,60 +1,8 @@
-diff --git a/Include/Python.h b/Include/Python.h
-index dcd0a57ac1f..bff9be7db5b 100644
---- a/Include/Python.h
-+++ b/Include/Python.h
-@@ -5,7 +5,7 @@
- /* Include nearly all Python header files */
- 
- #include "patchlevel.h"
--#include "pyconfig.h"
-+#include <pyconfig.h>
- #include "pymacconfig.h"
- 
- #include <limits.h>
-diff --git a/Include/internal/pycore_atomic.h b/Include/internal/pycore_atomic.h
-index 1d5c5621677..4e6d601fa3a 100644
---- a/Include/internal/pycore_atomic.h
-+++ b/Include/internal/pycore_atomic.h
-@@ -9,7 +9,7 @@ extern "C" {
- #endif
- 
- #include "dynamic_annotations.h"   /* _Py_ANNOTATE_MEMORY_ORDER */
--#include "pyconfig.h"
-+#include <pyconfig.h>
- 
- #if defined(HAVE_STD_ATOMIC)
- #include <stdatomic.h>
-diff --git a/Include/pymath.h b/Include/pymath.h
-index 63ca972784e..aecaadc1ce8 100644
---- a/Include/pymath.h
-+++ b/Include/pymath.h
-@@ -1,7 +1,7 @@
- #ifndef Py_PYMATH_H
- #define Py_PYMATH_H
- 
--#include "pyconfig.h" /* include for defines */
-+#include <pyconfig.h> /* include for defines */
- 
- /**************************************************************************
- Symbols and macros to supply platform-independent interfaces to mathematical
-diff --git a/Include/pyport.h b/Include/pyport.h
-index 6505af46768..3fdcb966ab8 100644
---- a/Include/pyport.h
-+++ b/Include/pyport.h
-@@ -1,7 +1,7 @@
- #ifndef Py_PYPORT_H
- #define Py_PYPORT_H
- 
--#include "pyconfig.h" /* include for defines */
-+#include <pyconfig.h> /* include for defines */
- 
- #include <inttypes.h>
- 
 diff --git a/Lib/distutils/sysconfig.py b/Lib/distutils/sysconfig.py
-index 37feae5df72..825e6bdb699 100644
+index 03b85584190..8f4ba59c94c 100644
 --- a/Lib/distutils/sysconfig.py
 +++ b/Lib/distutils/sysconfig.py
-@@ -110,6 +110,8 @@ def get_python_inc(plat_specific=0, prefix=None):
+@@ -287,6 +287,8 @@ def get_python_inc(plat_specific=0, prefix=None):
                  incdir = os.path.join(get_config_var('srcdir'), 'Include')
                  return os.path.normpath(incdir)
          python_dir = 'python' + get_python_version() + build_flags
@@ -64,10 +12,10 @@ index 37feae5df72..825e6bdb699 100644
      elif os.name == "nt":
          if python_build:
 diff --git a/Lib/sysconfig.py b/Lib/sysconfig.py
-index bf04ac541e6..49ea7faf91b 100644
+index ebe37118274..ca19d433201 100644
 --- a/Lib/sysconfig.py
 +++ b/Lib/sysconfig.py
-@@ -27,7 +27,7 @@ _INSTALL_SCHEMES = {
+@@ -32,7 +32,7 @@
          'include':
              '{installed_base}/include/python{py_version_short}{abiflags}',
          'platinclude':
@@ -77,10 +25,10 @@ index bf04ac541e6..49ea7faf91b 100644
          'data': '{base}',
          },
 diff --git a/Makefile.pre.in b/Makefile.pre.in
-index 77f91e72b19..0545c93afd5 100644
+index 8fbcd7ac170..9cb164042e1 100644
 --- a/Makefile.pre.in
 +++ b/Makefile.pre.in
-@@ -142,7 +142,7 @@ BINDIR=		@bindir@
+@@ -146,7 +146,7 @@ BINDIR=		@bindir@
  LIBDIR=		@libdir@
  MANDIR=		@mandir@
  INCLUDEDIR=	@includedir@
@@ -89,7 +37,7 @@ index 77f91e72b19..0545c93afd5 100644
  PLATLIBDIR=	@PLATLIBDIR@
  SCRIPTDIR=	$(prefix)/$(PLATLIBDIR)
  ABIFLAGS=	@ABIFLAGS@
-@@ -1565,7 +1565,8 @@ libinstall:	build_all $(srcdir)/Modules/xxmodule.c
+@@ -2115,7 +2115,8 @@ libinstall:	all $(srcdir)/Modules/xxmodule.c
  python-config: $(srcdir)/Misc/python-config.in Misc/python-config.sh
  	@ # Substitution happens here, as the completely-expanded BINDIR
  	@ # is not available in configure
@@ -159,40 +107,40 @@ index 87e04decc2a..dcf267ac691 100644
 -Cflags: -I${includedir}/python@VERSION@@ABIFLAGS@
 +Cflags: -I@CONFINCLUDEDIR@/python@VERSION@@ABIFLAGS@ -I${includedir}/python@VERSION@@ABIFLAGS@
 \ No newline at end of file
-diff --git a/Modules/_decimal/libmpdec/mpdecimal.h b/Modules/_decimal/libmpdec/mpdecimal.h
-index 2815a8cde31..f2e905cd51b 100644
---- a/Modules/_decimal/libmpdec/mpdecimal.h
-+++ b/Modules/_decimal/libmpdec/mpdecimal.h
-@@ -31,7 +31,7 @@
+diff --git a/Modules/expat/expat_config.h b/Modules/expat/expat_config.h
+index 6671f7b689b..edc24d3a6ed 100644
+--- a/Modules/expat/expat_config.h
++++ b/Modules/expat/expat_config.h
+@@ -5,7 +5,7 @@
+ #ifndef EXPAT_CONFIG_H
+ #define EXPAT_CONFIG_H
  
- 
- #ifndef _MSC_VER
--  #include "pyconfig.h"
-+  #include <pyconfig.h>
- #endif
- 
- #ifdef __cplusplus
+-#include <pyconfig.h>
++#include "pyconfig.h"
+ #ifdef WORDS_BIGENDIAN
+ #define BYTEORDER 4321
+ #else
 diff --git a/configure b/configure
-index a7d2975f1f5..ba9effa817a 100755
+index 784f8d30609..a8a6d0914ff 100755
 --- a/configure
 +++ b/configure
-@@ -626,6 +626,7 @@ ac_subst_vars='LTLIBOBJS
- TEST_MODULES
+@@ -890,6 +890,7 @@ LINK_PYTHON_DEPS
  LIBRARY_DEPS
+ HOSTRUNNER
  STATIC_LIBPYTHON
 +CONFINCLUDEDIR
- OPENSSL_RPATH
- OPENSSL_LDFLAGS
- OPENSSL_LIBS
-@@ -860,6 +861,7 @@ with_ensurepip
+ GNULD
+ EXPORTSFROM
+ EXPORTSYMS
+@@ -1061,6 +1062,7 @@ with_ensurepip
  with_openssl
  with_openssl_rpath
  with_ssl_default_suites
 +with_conf_includedir
  with_builtin_hashlib_hashes
- with_experimental_isolated_subinterpreters
- with_static_libpython
-@@ -1620,6 +1622,8 @@ Optional Packages:
+ enable_test_modules
+ '
+@@ -1858,6 +1860,8 @@ Optional Packages:
                            leave OpenSSL's defaults untouched, STRING: use a
                            custom string, python and STRING also set TLS 1.2 as
                            minimum TLS version
@@ -201,7 +149,7 @@ index a7d2975f1f5..ba9effa817a 100755
    --with-builtin-hashlib-hashes=md5,sha1,sha256,sha512,sha3,blake2
                            builtin hash modules, md5, sha1, sha256, sha512,
                            sha3 (with shake), blake2
-@@ -1656,6 +1660,13 @@ _ACEOF
+@@ -1923,6 +1927,13 @@ _ACEOF
  ac_status=$?
  fi
  
@@ -216,12 +164,12 @@ index a7d2975f1f5..ba9effa817a 100755
    # If there are subdirs, report their specific --help.
    for ac_dir in : $ac_subdirs_all; do test "x$ac_dir" = x: && continue
 diff --git a/configure.ac b/configure.ac
-index d60f05251ab..c968d8cd0c8 100644
+index ab5e1de6fab..4ce850e8153 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -5796,6 +5796,13 @@ AC_MSG_RESULT($default_hashlib_hashes);
- AC_DEFINE_UNQUOTED(PY_BUILTIN_HASHLIB_HASHES, "$default_hashlib_hashes")
- ])
+@@ -7064,6 +7064,13 @@ PY_STDLIB_MOD([xxlimited_35], [test "$with_trace_refs" = "no"], [test "$ac_cv_fu
+ # substitute multiline block, must come after last PY_STDLIB_MOD()
+ AC_SUBST([MODULE_BLOCK])
  
 +AC_ARG_WITH(conf-includedir,
 +            AS_HELP_STRING([--with-conf-includedir=PATH],
@@ -232,6 +180,4 @@ index d60f05251ab..c968d8cd0c8 100644
 + 
  # generate output files
  AC_CONFIG_FILES(Makefile.pre Misc/python.pc Misc/python-embed.pc Misc/python-config.sh)
- AC_CONFIG_FILES([Modules/ld_so_aix], [chmod +x Modules/ld_so_aix])
--- 
-2.28.0
+ AC_CONFIG_FILES([Modules/Setup.bootstrap Modules/Setup.stdlib])
