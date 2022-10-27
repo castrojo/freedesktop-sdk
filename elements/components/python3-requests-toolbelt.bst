@@ -10,5 +10,5 @@ sources:
 - kind: pypi
   name: requests-toolbelt
   ref:
-    sha256sum: 968089d4584ad4ad7c171454f0a5c6dac23971e9472521ea3b6d49d610aa6fc0
-    suffix: 28/30/7bf7e5071081f761766d46820e52f4b16c8a08fef02d2eb4682ca7534310/requests-toolbelt-0.9.1.tar.gz
+    sha256sum: 62e09f7ff5ccbda92772a29f394a49c3ad6cb181d568b1337626b2abb628a63d
+    suffix: 0c/4c/07f01c6ac44f7784fa399137fbc8d0cdc1b5d35304e8c0f278ad82105b58/requests-toolbelt-0.10.1.tar.gz
