@@ -13,4 +13,4 @@ sources:
 - kind: git_tag
   url: github:swig/swig.git
   track: master
-  ref: rel-4.0.2-0-gefe5f181cf69975cf2fa1dcddefc29b93e4a6196
+  ref: v4.1.0-0-g1e99e4fe37c0f2334b6de1c6bc3fcd3188bc2c92
