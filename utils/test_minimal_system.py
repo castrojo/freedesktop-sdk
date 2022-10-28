@@ -29,7 +29,7 @@ import subprocess
 QEMU = 'qemu-system-x86_64'
 QEMU_EXTRA_ARGS = ['-m', '256']
 
-FAILURE_TIMEOUT = 300  # seconds
+FAILURE_TIMEOUT = 600  # seconds
 BUFFER_SIZE = 80  # how many characters to read at once
 
 DIALOGS = {
