@@ -113,6 +113,7 @@ QEMU_COMMON_ARGS= \
 	-nographic \
 	-kernel $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/vmlinuz \
 	-initrd $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/initramfs.gz \
+	-object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0	\
 	-virtfs local,id=virtfs,path=$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_ROOT),security_model=none,mount_tag=virtfs
 
 QEMU_X86_COMMON_ARGS= \
