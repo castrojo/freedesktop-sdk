@@ -37,4 +37,4 @@ sources:
   track: master
   match:
   - 2.*[02468].*
-  ref: 2.42.9-0-g9b74d8dced44955b778fa1eac4fd0d29d5809e9d
+  ref: 2.42.10-0-g9ac257eb38f772fec4253e8051743029e75a2acd
