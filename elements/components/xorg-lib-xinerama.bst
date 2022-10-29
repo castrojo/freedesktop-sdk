@@ -23,4 +23,4 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxinerama.git
   track: master
-  ref: libXinerama-1.1.4-0-gc3ab2361f13154921df2992f9eacc1ea1b3f946b
+  ref: libXinerama-1.1.5-0-g71dfee64feb84f907016940263b235a61c9e8960
