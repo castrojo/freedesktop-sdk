@@ -3,6 +3,3 @@
 if [ "${PS1-}" ] && [ -n "${BASH_VERSION}" ] && [ -f "${HOME}/.bashrc" ]; then
   . "$HOME/.bashrc"
 fi
-
-PATH="${HOME}/.local/bin:${PATH}"
-export PATH
