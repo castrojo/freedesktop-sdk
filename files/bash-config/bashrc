@@ -10,3 +10,5 @@ for i in /etc/profile.d/*.sh; do
   fi
 done
 unset i
+
+export PATH="${HOME}/.local/bin:${PATH}"
