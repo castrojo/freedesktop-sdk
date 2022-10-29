@@ -22,4 +22,4 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxrender.git
   track: master
-  ref: libXrender-0.9.10-0-g845716f8f14963d338e5a8d5d2424baafc90fb30
+  ref: libXrender-0.9.11-0-ge5e23272394c90731debd7e18dd167e8c25b5c15
