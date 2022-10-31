@@ -19,4 +19,4 @@ sources:
 - kind: git_tag
   url: github:ccache/ccache.git
   track: master
-  ref: v4.7.1-0-gd392de239bcad9a3d056cb92469163e3c64ae2f0
+  ref: v4.7.2-0-g98a04d7c881859910080619ba926eb74988c8c74
