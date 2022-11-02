@@ -1,5 +1,139 @@
 Freedesktop-SDK
 
+freedesktop-sdk-22.08.3:
+  * opensbi-u-boot.bst: Update to 1.1
+  * openssl: Bump to 3.0.7
+  * Update python3-pil to 9.3.0
+  * Update xcb-util-keysyms to xcb-util-keysyms-0.4.1-0
+  * Update git to v2.38.1-0
+  * Update xorg-lib-xrender to libXrender-0.9.11-0
+  * Update yelp-tools to 42.1-0
+  * Update tzdata to 2022f-0
+  * bash-config: Fix missing .local/bin in PATH
+  * Update polkit-base to 122-2
+  * Update python3-requests-toolbelt to 0.10.1
+  * Update python3-pytz to 2022.5
+  * Update ccache to v4.7.2-0
+  * components/systemd: enable more features
+  * Update expat to R_2_5_0-0
+  * Update gdk-pixbuf to 2.42.10-0
+  * Update man-pages to man-pages-6.01-0
+  * Update xorg-lib-xinerama to libXinerama-1.1.5-0
+  * Filter utils to avoid pulling in bytecode
+  * Backport hardware rng to 22.08
+  * Update python3-tomlkit to 0.11.6
+  * Update swig to v4.1.0-0
+  * Update xcb-util-wm to xcb-util-wm-0.4.2-0
+  * Restore flatpak to stable releases
+  * Update qpdf to v11.1.1-0
+  * Update xcb-util-image to xcb-util-image-0.4.1-0
+  * Update xwayland to xwayland-22.1.4-0
+  * Update libffi to v3.4.4-0
+  * Stop running reproducible i686
+  * ostree: Add missing runtime dependency to gnupg
+  * Update systemd to v251.7-0
+  * Update linux-firmware to 20221012-0
+  * Update gstreamer to 1.20.4-0
+  * components/rust: update to 1.64.0
+  * Update xcb-util-renderutil to xcb-util-renderutil-0.3.10-0
+  * Update xorg-data-xkeyboard-config to xkeyboard-config-2.37-0
+  * Update linux to v5.19.16-0
+  * Update python3-typing-extensions to 4.4.0
+  * Update python3-poetry-core to 1.3.2
+  * Update libwacom to libwacom-2.5.0-0
+  * Update rsync to v3.2.7-0
+  * Update polkit-base to 121-10
+  * Update spirv-llvm-translator to v14.0.0-73
+  * Update eos-metrics to Release_4.0.10-0
+  * Update xcb-util-cursor to xcb-util-cursor-0.1.4-0
+  * Update pixman to pixman-0.42.0-0
+  * Update wayland-protocols to 1.27-0
+  * Update python3-pip to 22.3
+  * Update eos-updater to Release_4.0.10-0
+  * Update dbus-base to dbus-1.14.4-0
+  * Update libical to v3.0.16-0
+  * Update python3-networkx to 2.8.7
+  * Update libxml2 to v2.10.3-0
+  * Update python3-pytz to 2022.4
+  * Update python3-sphinx to 5.3.0
+  * Update tzdata to 2022e-0
+  * Update python3-setuptools to 65.5.0
+  * Update foomatic-db to 2a3c4d1
+  * Update pipewire-base to 0.3.59-0
+  * Update poppler to poppler-22.10.0-0
+  * Update BuildStream to 1.6.8 and grpcio to 1.47.0
+  * Update ostree to v2022.6-0
+  * Update fwupd to 1.8.6-0
+  * Update btrfs-progs to v6.0-0
+  * Update man-pages to man-pages-6.00-0
+  * Update pango to 1.50.11-0
+  * Add pkgconfg file to bluez-libs
+  * Introduce appstream-minimal as dependency for flatpak-minimal
+  * Update python3-requests-toolbelt to 0.10.0
+  * Update go to go1.19.2-0
+  * components/linux.bst: Add a bunch of missing drivers
+  * components/linux.bst: Update to 5.19.x and fix broken configs
+  * components/linux.bst: Enable some common hardware monitors
+  * Update iproute2 to v6.0.0-0
+  * Update openssh to V_9_1_P1-0
+  * Update extra-cmake-modules to v5.99.0-0
+  * Update python3-setuptools to 65.4.1
+  * Update elements/extensions/vainfo/libva-utils to 2.16.0-0
+  * Update tpm2-tools to 5.3-0
+  * Update meson to 0.63.3
+  * Update python3-sphinx to 5.2.3
+  * Update elements/extensions/glxinfo/freeglut to v3.4.0-0
+  * auto_updater: Fix running with bst1
+  * Add fontconfig patch to fix font remapping
+  * Include flatpaks fontconfig configuration
+  * Remove prefix from Mesa version
+  * Update libgusb to 0.4.0-0
+  * Add timeout to download of entries
+  * Switch to image based on freedesktop-sdk 22.08.2
+  * Introduce ruby-arch into ruby.bst
+  * Update xorg-lib-xxf86vm to libXxf86vm-1.1.5-0
+  * Update foomatic-db to 1998345
+  * Update aom to v3.5.0-0
+  * Update python3-sphinx to 5.2.2
+  * Update foomatic-db to 492c7b2
+  * Update python3-tomlkit to 0.11.5
+  * Set XCURSORPATH for wayland cursor
+  * Update weston to 11.0.0-0
+  * Update dbus-base to dbus-1.14.2-0
+  * Update xorg-lib-xtst to libXtst-1.2.4-0
+  * Update python3-tenacity to 8.1.0
+  * Update python3-sphinx to 5.2.1
+  * Update python3-setuptools-rust to 1.5.2
+  * Update qpdf to v11.1.0-0
+  * Update python3-idna to 3.4
+  * Set target arch when building and checking out Docker image
+  * Update expat to R_2_4_9-0
+  * Update glib to 2.72.4-0
+  * Update gsettings-desktop-schemas to 43.0-0
+  * Update linux-firmware to 20220913-0
+  * Update python3-poetry-core to 1.2.0
+  * Update libcap to libcap-2.66-0
+  * Update python3-setuptools to 65.4.0
+  * Update libxmlb to 0.3.10-0
+  * Update btrfs-progs to v5.19.1-0
+  * Update python3-certifi to 2022.9.24
+  * lua: fix target and install paths
+  * Update protobuf to v3.21.6-0
+  * Update tzdata to 2022d-0
+  * Update cmake to v3.24.2-0
+  * Update libfido2 to 1.12.0-0
+  * Update python3-mako to 1.2.3
+  * Update gobject-introspection to 1.72.1-0
+  * Update libpng to v1.6.38-0
+  * Update python3-aiohttp to 3.8.3
+  * Update popt to popt-1.19-release-0
+  * Update pipewire-base to 0.3.58-0
+  * Update yelp-xsl to 42.1-0
+  * Update libffi to v3.4.3-0
+  * Update pango to 1.50.10-0
+  * Update harfbuzz to 5.2.0-0
+  * Always set G_SLICE=always-malloc
+
 freedesktop-sdk-22.08.2:
   * Update xdg-desktop-portal to 1.15.0-0
   * Update fuse3 to fuse-3.12.0-0
