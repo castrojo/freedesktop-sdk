@@ -23,7 +23,7 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxcb-render-util.git
   track: master
-  ref: 0.3.9-0-g0317caf63de532fd7a0493ed6afa871a67253747
+  ref: xcb-util-renderutil-0.3.10-0-g5293d8b6165f23b9f7a8bcc903da0e4d7a75984c
   submodules:
     m4:
       url: freedesktop:xorg/util/xcb-util-m4.git
