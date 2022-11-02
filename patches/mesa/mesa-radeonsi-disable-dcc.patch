@@ -1,0 +1,29 @@
+diff --git a/src/gallium/drivers/radeonsi/si_texture.c b/src/gallium/drivers/radeonsi/si_texture.c
+index 148fd51718b..c776f5788e9 100644
+--- a/src/gallium/drivers/radeonsi/si_texture.c
++++ b/src/gallium/drivers/radeonsi/si_texture.c
+@@ -216,9 +216,7 @@ static int si_init_surface(struct si_screen *sscreen, struct radeon_surf *surfac
+       /* Shared textures must always set up DCC. If it's not present, it will be disabled by
+        * si_get_opaque_metadata later.
+        */
+-      if (!is_imported &&
+-          (sscreen->debug_flags & DBG(NO_DCC) ||
+-           (ptex->bind & PIPE_BIND_SCANOUT && sscreen->debug_flags & DBG(NO_DISPLAY_DCC))))
++      if (!is_imported)
+          flags |= RADEON_SURF_DISABLE_DCC;
+ 
+       /* R9G9B9E5 isn't supported for rendering by older generations. */
+@@ -1319,11 +1317,11 @@ static void si_query_dmabuf_modifiers(struct pipe_screen *screen,
+ 
+    unsigned ac_mod_count = max;
+    ac_get_supported_modifiers(&sscreen->info, &(struct ac_modifier_options) {
+-         .dcc = !(sscreen->debug_flags & DBG(NO_DCC)),
++         .dcc = false,
+          /* Do not support DCC with retiling yet. This needs explicit
+           * resource flushes, but the app has no way to promise doing
+           * flushes with modifiers. */
+-         .dcc_retile = !(sscreen->debug_flags & DBG(NO_DCC)),
++         .dcc_retile = false,
+       }, format, &ac_mod_count,  max ? modifiers : NULL);
+    if (max && external_only) {
+       for (unsigned i = 0; i < ac_mod_count; ++i)

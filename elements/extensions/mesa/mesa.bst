@@ -184,3 +184,5 @@ sources:
   path: patches/mesa/mesa_libdrm_deps.patch
 - kind: patch
   path: patches/mesa/mesa-cle-build-fix.patch
+- kind: patch
+  path: patches/mesa/mesa-radeonsi-disable-dcc.patch
