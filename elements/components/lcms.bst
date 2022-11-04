@@ -30,4 +30,4 @@ sources:
   - lcms2.*
   exclude:
   - lcms2.*rc*
-  ref: lcms2.13.1-0-g233004ae26b238b2831ff60eea9e753b99d97906
+  ref: lcms2.14-0-ge88d9bcad79b7ebf6b97ebd634af31ed23c1b910
