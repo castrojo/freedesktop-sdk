@@ -1659,7 +1659,6 @@ config:
     module LEDS_TRIGGER_TRANSIENT
     case "%{arch}" in
       x86_64|i686)
-        module LEDS_CLEVO_MAIL
         module LEDS_APU
         module LEDS_INTEL_SS4200
       ;;

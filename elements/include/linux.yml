@@ -3,10 +3,10 @@ sources:
   url: kernel:linux/kernel/git/stable/linux.git
   track: master
   track-extra:
-  - linux-5.19.y
+  - linux-6.0.y
   exclude:
   - '*-rc*'
-  ref: v5.19.17-0-g2b525314c7b57eac29fe8b77a6589428e4a4f6dd
+  ref: v6.0.10-0-gdab0efee14dd1ca363ef5ceae36018b72fc52037
 - kind: local
   path: files/linux/config-utils.sh
 - kind: patch_queue
