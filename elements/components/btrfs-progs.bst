@@ -24,6 +24,4 @@ sources:
 - kind: git_tag
   url: kernel:linux/kernel/git/kdave/btrfs-progs.git
   track: master
-  ref: v5.18.1-0-g47b5cf867fc37411ef51eb5c09893a95f7f6c3b7
-- kind: patch
-  path: patches/btrfs-progs/btrfs-progs-use-linux-mount.h-instead-of-sys-mount.h.patch
+  ref: v6.0.1-0-g441d01556873385d55fd4940f50ee7ae1fcfb13d
