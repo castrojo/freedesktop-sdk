@@ -30,7 +30,4 @@ config:
 sources:
 - kind: git_tag
   url: github:libffi/libffi.git
-  track: master
-  exclude:
-  - v*-rc*
   ref: v3.3-0-g5dcb741f1544c5e18c9dbf96aeb8b61cc556a616

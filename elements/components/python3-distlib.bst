@@ -1,7 +1,7 @@
 kind: pip
 
 build-depends:
-- components/python3-pip.bst
+- public-stacks/buildsystem-python.bst
 
 depends:
 - components/python3.bst
@@ -10,5 +10,5 @@ sources:
 - kind: pypi
   name: distlib
   ref:
-    sha256sum: e4b58818180336dc9c529bfb9a0b58728ffc09ad92027a3f30b7cd91e3458579
-    suffix: 85/01/88529c93e41607f1a78c1e4b346b24c74ee43d2f41cfe33ecd2e20e0c7e3/distlib-0.3.4.zip
+    sha256sum: 14bad2d9b04d3a36127ac97f30b12a19268f211063d8f8ee4f47108896e11b46
+    suffix: 58/07/815476ae605bcc5f95c87a62b95e74a1bce0878bc7a3119bc2bf4178f175/distlib-0.3.6.tar.gz

@@ -58,5 +58,4 @@ config:
 sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxcb.git
-  track: master
   ref: libxcb-1.14-0-g4b40b44cb6d088b6ffa2fb5cf3ad8f12da588cef

@@ -11,4 +11,6 @@ sources:
 - kind: git_tag
   url: kernel:linux/kernel/git/jaegeuk/f2fs-tools.git
   track: master
-  ref: v1.14.0-0-gd41dcbdf46dc3841cd0a0507e6573e38cb6c55bb
+  ref: v1.15.0-0-g64f2596142800c215cb40a658ebd5793ed37c936
+- kind: patch
+  path: patches/f2fs-tools/android-config-filter.patch

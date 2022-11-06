@@ -10,7 +10,6 @@ depends:
 sources:
 - kind: git_tag
   url: github:OpenSC/libp11.git
-  track: master
   ref: libp11-0.4.11-0-g9ca6a71c890b5583c8af3b4900172626bca55e72
 
 variables:

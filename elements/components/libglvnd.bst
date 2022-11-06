@@ -15,6 +15,7 @@ variables:
     -DDEFAULT_EGL_VENDOR_CONFIG_DIRS=\"%{libdir}/GL/glvnd/egl_vendor.d\"
 
   conf-local: >-
+    CFLAGS="$CFLAGS -DUSE_X11"
     --enable-asm
     --enable-tls
     --disable-headers
@@ -47,4 +48,4 @@ sources:
 - kind: git_tag
   url: github:NVIDIA/libglvnd.git
   track: master
-  ref: v1.3.4-0-gdc084876b411366c3785b7584c216356169bb45e
+  ref: v1.5.0-0-gc7cdf0cc4395b57563294d1f340b6bb1b95366a0

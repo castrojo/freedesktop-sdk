@@ -12,11 +12,11 @@ depends:
 - filename: components/libsoup.bst
 
 variables:
-  meson-local: |
-    -D3g-source=false \
-    -Dcdma-source=false \
-    -Dmodem-gps-source=false \
-    -Dnmea-source=false \
+  meson-local: >-
+    -D3g-source=false
+    -Dcdma-source=false
+    -Dmodem-gps-source=false
+    -Dnmea-source=false
     -Ddemo-agent=false
 
 config:
@@ -39,7 +39,5 @@ public:
 sources:
 - kind: git_tag
   url: freedesktop:geoclue/geoclue.git
-  track: master
-  track-extra:
-  - 2.5.x
+  track: 2.5.x
   ref: 2.5.7-0-g3bb60dd600a8b247fd6049e7e5b1c73c2c5fc0e8

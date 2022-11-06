@@ -5,5 +5,4 @@ public:
 sources:
 - kind: git_tag
   url: github:file/file.git
-  track: master
   ref: FILE5_40-0-gf49fda6f52a9477d817dbd9c06afab02daf025f8

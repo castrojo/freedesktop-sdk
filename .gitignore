@@ -7,6 +7,9 @@ target/
 # Ignore caches
 __pycache__
 
+# Ignore virtual envs
+.venv/
+
 # Ignore local testing
 repo/
 runtimes/

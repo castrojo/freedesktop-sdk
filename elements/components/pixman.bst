@@ -23,4 +23,4 @@ sources:
 - kind: git_tag
   url: freedesktop:pixman/pixman.git
   track: master
-  ref: pixman-0.40.0-0-g244383bf9f3493c014985de46876e40fd5db43f3
+  ref: pixman-0.42.0-0-g8d6d7f44f44744ab43ca4f775b59c618b414033d

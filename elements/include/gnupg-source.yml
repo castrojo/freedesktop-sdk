@@ -2,8 +2,10 @@ sources:
 - kind: git_tag
   url: gnupg:gnupg.git
   track: STABLE-BRANCH-2-2
-  ref: gnupg-2.2.39-0-g7c2078a680dde2eaef30a8a6dc49de4540498736
+  ref: gnupg-2.2.40-0-g2e9f8a511dc01ef9ffc59c90f1cb5082e052da06
 - kind: patch
   path: patches/gnupg/gnupg-don-t-include-tests-with-tarred-data.patch
 - kind: patch
   path: patches/gnupg/remove-Werror-from-configure.ac.patch
+- kind: patch
+  path: patches/gnupg/dirmngr-Fix-build-with-no-LDAP-support.patch

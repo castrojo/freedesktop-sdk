@@ -38,5 +38,5 @@ public:
 sources:
 - kind: git_tag
   url: git_https:git.linuxtv.org/v4l-utils.git
-  track: master
+  track: stable-1.20
   ref: v4l-utils-1.20.0-0-g3b22ab02b960e4d1e90618e9fce9b7c8a80d814a

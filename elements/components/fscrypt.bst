@@ -23,7 +23,7 @@ sources:
 - kind: git_tag
   url: github:google/fscrypt.git
   track: master
-  ref: v0.2.9-0-g097234779e2ac5e904804802e14ec74e2028d168
+  ref: v0.3.3-0-gf28f2be05de938b1c2da7a88569bf6611250a9e2
 # You will have to manual again until we get a go plugin
 - kind: git_tag
   url: github:client9/misspell.git
@@ -65,10 +65,16 @@ sources:
   ref: 16217165b5de779cb6a5e4fc81fa9c1166fda457
 - kind: git_tag
   url: github:golang/sys.git
-  track: 63cb32ae39b28d6bb8e7e215c1fc39dd80dcdb02
+  track: f84b799fce68db3cb46a8f6f819c1e56377181df
   track-tags: false
   directory: vendor/golang.org/x/sys
-  ref: 63cb32ae39b28d6bb8e7e215c1fc39dd80dcdb02
+  ref: f84b799fce68db3cb46a8f6f819c1e56377181df
+- kind: git_tag
+  url: github:golang/term.git
+  track: f5beecf764ed751c785fa21705385df593b1852d
+  track-tags: false
+  directory: vendor/golang.org/x/term
+  ref: f5beecf764ed751c785fa21705385df593b1852d
 - kind: git_tag
   url: github:golang/tools.git
   track: 2077df36852e9a22c3b78f535833d3e54e9fcc8a

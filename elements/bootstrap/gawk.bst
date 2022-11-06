@@ -23,7 +23,9 @@ sources:
   url: savannah:gawk.git
   track: master
   track-extra:
-  - gawk-5.1-stable
+  - gawk-5.2-stable
   exclude:
   - '*-docs'
-  ref: gawk-5.1.1-0-g2b1fffef190f46f6c0da770bba2745f6574bebca
+  ref: gawk-5.2.0-0-g7eacf279a6ff4bff560ff49a8a2a9c531658096c
+- kind: patch
+  path: patches/gawk/fixes-for-linux-gen-insn-attr-x86.patch
