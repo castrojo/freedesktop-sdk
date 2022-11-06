@@ -30,6 +30,10 @@ config:
     usr_verity_part_uuid="$(cat /usr-image/usr-root-hash.txt | sed -E 's/.*([0-9a-f]{8})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{12})$/\1-\2-\3-\4-\5/')"
     disk_uuid="$(uuidgen -s --namespace "%{uuidnamespace}" --name disk)"
     . /usr-image/vars.txt
+    usr_img="$(readlink /usr-image/usr.squashfs)"
+    sdk_version="${usr_img##usr_}"
+    sdk_version="${sdk_version%.squashfs}"
+    sdk_version="${sdk_version%_*}"
     cat > "%{build-root}/genimage.cfg" <<EOF
     image efi.img {
         vfat {
@@ -50,16 +54,16 @@ config:
             partition-type-uuid = "U"
             partition-uuid = "${efi_part_uuid}"
         }
-        partition usr {
-            image = "/usr-image/usr.img"
+        partition fdsdk_usr_${sdk_version} {
+            image = "/usr-image/usr.squashfs"
             partition-type-uuid = "%{usr-uuid}"
             partition-uuid = "${usr_part_uuid}"
             size = "1G"
         }
-        partition usr-verity {
+        partition fdsdk_usr_verity_${sdk_version} {
             partition-type-uuid = "%{usr-verity-uuid}"
             partition-uuid = "${usr_verity_part_uuid}"
-            image = "/usr-image/usr-verity.img"
+            image = "/usr-image/usr.verity"
             size = "10M"
         }
     }

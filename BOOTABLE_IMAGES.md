@@ -195,6 +195,28 @@ make download-microsoft-keys
 This is useful if you intend to install other operating systems on the
 same machine without having to re-enroll the keys.
 
+##### Update
+
+Run a server with:
+```
+make secure-images-serve
+```
+
+Update the version in `secure-version.yml`. Or add a new git tag and
+regenerate `secure-version.yml` with `make update-secure-version`.
+
+Then build the update with:
+```
+make export-secure-images
+```
+
+Finally, on the VM, you can update with:
+```
+/usr/lib/systemd/systemd-sysupdate update
+```
+
+Then reboot the VM.
+
 ### QEMU + 9p
 
 This method does not use either an image file nor a bootloader. This

@@ -372,7 +372,7 @@ download-microsoft-keys: files/boot-keys/extra-db/.keep files/boot-keys/extra-ke
 	curl https://www.microsoft.com/pkiops/certs/MicWinProPCA2011_2011-10-19.crt | openssl x509 -inform der -outform pem >files/boot-keys/extra-db/mic-win.crt
 	echo 77fa9abd-0359-4d32-bd60-28f4e78f784b >files/boot-keys/extra-db/mic-win.owner
 
-$(VM_CHECKOUT_ROOT)/secure-vm/disk.img: $(BOOT_KEYS)
+$(VM_CHECKOUT_ROOT)/secure-vm/disk.img: $(BOOT_KEYS) secure-version.yml
 	$(BST) build vm/minimal-secure/efi.bst
 	$(BST) artifact checkout vm/minimal-secure/efi.bst --directory $(dir $@)
 	truncate --size=+2G $@
@@ -397,6 +397,32 @@ clean-secure-vm:
 	rm -rf $(OVMF_VARS)
 	rm -rf $(VM_CHECKOUT_ROOT)/tpm
 
+update-secure-version:
+	describe=$$(git describe --tags) &&			\
+	suffix=$${describe#freedesktop-sdk-} &&			\
+	version=$${suffix%-g*} &&				\
+	echo "sdk-version: $${version}" >secure-version.yml
+
+secure-version.yml:
+	$(MAKE) update-secure-version
+
+export-secure-images: secure-version.yml
+	$(BST) build vm/minimal-secure/export.bst
+	rm -rf secure-images.tmp
+	$(BST) artifact checkout vm/minimal-secure/export.bst --directory secure-images.tmp
+	[ -d secure-images ] || mkdir secure-images
+	cp secure-images.tmp/usr_*.squashfs.xz secure-images
+	cp secure-images.tmp/usr_*.verity.xz secure-images
+	cp secure-images.tmp/freedesktopsdk_*.efi.xz secure-images
+	(cd secure-images && sha256sum *.xz) >secure-images.tmp/SHA256SUMS
+	cp secure-images.tmp/SHA256SUMS secure-images/SHA256SUMS
+
+secure-images/SHA256SUMS:
+	$(MAKE) export-secure-images
+
+secure-images-serve: secure-images/SHA256SUMS
+	python3 -m http.server 8080 --directory secure-images
+
 .PHONY:									\
 	build check-dev-files clean clean-test clean-repo clean-runtime	\
 	export test-apps manifest markdown-manifest check-rpath		\
@@ -405,4 +431,5 @@ clean-secure-vm:
 	track-mesa-git update-ostree ostree-serve run-ostree-vm		\
 	test-runtime-inheritance generate-keys clean-ostree-vm		\
 	download-microsoft-keys						\
-	run-secure-vm clean-secure-vm clean-ostree-vm
+	run-secure-vm clean-secure-vm clean-ostree-vm			\
+	export-secure-images secure-images-serve update-secure-version

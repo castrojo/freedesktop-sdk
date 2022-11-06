@@ -23,6 +23,7 @@ runtime-depends:
 - components/libfido2.bst
 - components/openssl.bst
 - components/libapparmor.bst
+- components/curl.bst
 
 config:
   exclude:

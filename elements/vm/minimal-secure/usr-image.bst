@@ -10,6 +10,8 @@ build-depends:
     location: '/sysroot'
 
 variables:
+  (@):
+  - secure-version.yml
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
   salt: 5ceca5e1f86ae62403b27e66c5160717f1bb88405a1d1d0853241c27f3764843
 
@@ -24,6 +26,9 @@ config:
   - |
     mkdir -p /sysroot/usr/share/factory
     mv -T /sysroot/etc /sysroot/usr/share/factory/etc
+
+  - |
+    echo "IMAGE_VERSION=%{sdk-version}" >>/sysroot/usr/lib/os-release
 
   - |
     cat >/sysroot/usr/lib/tmpfiles.d/extra-etc.conf<<EOF
@@ -69,7 +74,17 @@ config:
     EOF
 
   - |
-    mksquashfs /sysroot/usr '%{install-root}/usr.img'
+    mksquashfs /sysroot/usr '%{install-root}/usr_%{sdk-version}.squashfs'
 
   - |
-    veritysetup format --salt="%{salt}" "%{install-root}/usr.img" "%{install-root}/usr-verity.img" | sed '/^Root hash:[[:space:]]*/{;s///;q;};d' >"%{install-root}/usr-root-hash.txt"
+    veritysetup format --salt="%{salt}" "%{install-root}/usr_%{sdk-version}.squashfs" "%{install-root}/usr_%{sdk-version}.verity" | sed '/^Root hash:[[:space:]]*/{;s///;q;};d' >"%{install-root}/usr-root-hash.txt"
+
+  - |
+    usr_part_uuid="$(cat "%{install-root}/usr-root-hash.txt" | sed -E 's/^([0-9a-f]{8})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{12}).*/\1\2\3\4\5/')"
+    mv "%{install-root}/usr_%{sdk-version}.squashfs" "%{install-root}/usr_%{sdk-version}_${usr_part_uuid}.squashfs"
+    ln -s "usr_%{sdk-version}_${usr_part_uuid}.squashfs" '%{install-root}/usr.squashfs'
+
+  - |
+    usr_verity_part_uuid="$(cat "%{install-root}/usr-root-hash.txt" | sed -E 's/.*([0-9a-f]{8})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{12})$/\1\2\3\4\5/')"
+    mv "%{install-root}/usr_%{sdk-version}.verity" "%{install-root}/usr_%{sdk-version}_${usr_verity_part_uuid}.verity"
+    ln -s "usr_%{sdk-version}_${usr_verity_part_uuid}.verity" '%{install-root}/usr.verity'

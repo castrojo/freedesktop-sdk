@@ -27,6 +27,11 @@ config:
     cp -rT /boot "%{install-root}/boot"
 
   - |
+    set -x
+    usr_img="$(readlink /usr-image/usr.squashfs)"
+    sdk_version="${usr_img##usr_}"
+    sdk_version="${sdk_version%.squashfs}"
+    sdk_version="${sdk_version%_*}"
     version="$(ls -1 /usr/lib/modules | head -n1)"
     usr_part_uuid="$(uuidgen -s --namespace "%{uuidnamespace}" --name partition-usr)"
     objcopy -O binary -j .cmdline "/boot/EFI/Linux/linux-${version}.efi" cmdline.txt
@@ -34,8 +39,8 @@ config:
     cat cmdline.txt >>new-cmdline.txt
     objcopy --remove-section .cmdline "/boot/EFI/Linux/linux-${version}.efi" "linux-${version}.efi"
     objcopy --add-section .cmdline=new-cmdline.txt --change-section-vma .cmdline=0x30000 "linux-${version}.efi"
-    sbsign --key VENDOR.key --cert VENDOR.crt  --output "%{install-root}/boot/EFI/Linux/linux-${version}.efi" "linux-${version}.efi"
-    objcopy -O binary -j .cmdline "linux-${version}.efi" modified-cmdline.txt
+    sbsign --key VENDOR.key --cert VENDOR.crt  --output "%{install-root}/boot/EFI/Linux/freedesktopsdk_${sdk_version}.efi" "linux-${version}.efi"
+    rm "%{install-root}/boot/EFI/Linux/linux-${version}.efi"
 
   - |
     sbsign --key VENDOR.key --cert VENDOR.crt --output "%{install-root}/boot/EFI/systemd/systemd-boot%{efi-arch}.efi" "/boot/EFI/systemd/systemd-boot%{efi-arch}.efi"

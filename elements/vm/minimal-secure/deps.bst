@@ -26,3 +26,5 @@ depends:
 - components/less.bst
 - components/audit.bst
 - components/nsswitch-config.bst
+- vm/minimal-secure/sysupdate-config.bst
+- vm/minimal-secure/enable-sysupdate.bst

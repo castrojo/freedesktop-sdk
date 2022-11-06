@@ -30,6 +30,7 @@ build-depends:
 - components/python3-jinja2.bst
 - components/apparmor.bst
 - components/tpm2-tss.bst
+- components/curl.bst
 
 config:
   install-commands:
