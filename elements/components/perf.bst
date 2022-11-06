@@ -8,6 +8,7 @@ build-depends:
 - components/gzip.bst
 - components/kmod.bst
 - components/python3.bst
+- components/python3-setuptools.bst
 
 depends:
 - components/libunwind.bst
