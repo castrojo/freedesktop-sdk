@@ -8,4 +8,3 @@ depends:
 - oci/layers/flatpak-stack.bst
 - vm/desktop/deps.bst
 - components.bst
-- abi/freedesktop-sdk.bst

@@ -221,6 +221,7 @@ check_update_elements:
       --gitlab_project="freedesktop-sdk/freedesktop-sdk"
       --max_merge_requests=4
       track-elements.bst
+      abi/freedesktop-sdk.bst
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "default"'
 
