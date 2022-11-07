@@ -22,6 +22,6 @@ sources:
   track: master
   track-extra:
   - eos4.0
-  ref: Release_4.0.10-0-g011ba4d52ef5dbf4bb2e68db8d1cab98a1a6aec7
+  ref: Release_4.0.11-0-ge58b55f4980accc75a86c2284b09019620de4c86
 - kind: patch
   path: patches/eos-updater/eos-updater-disable-tests.patch
