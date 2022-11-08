@@ -263,8 +263,8 @@ check_update_elements:
       --nobuild \
       --overwrite \
       --push \
-      --create_mr\ 
-      --shuffle-branches\ 
+      --create_mr \
+      --shuffle-branches \
       --gitlab_project="freedesktop-sdk/freedesktop-sdk" \
       --max_merge_requests=4 \
       $TRACK_ELEMENTS
