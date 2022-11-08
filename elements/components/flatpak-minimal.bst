@@ -6,7 +6,6 @@ depends:
 - components/gpgme.bst
 - components/libarchive.bst
 - components/curl.bst
-- components/xorg-lib-xau.bst
 - components/ostree.bst
 - components/fuse.bst
 - components/json-glib.bst
@@ -25,6 +24,7 @@ variables:
   conf-local: >-
     --disable-documentation
     --disable-system-helper
+    --disable-xauth
     --with-system-bubblewrap
     --with-curl
 
