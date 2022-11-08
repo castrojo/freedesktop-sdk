@@ -19,4 +19,4 @@ sources:
 - kind: git_tag
   url: github:hughsie/libgusb.git
   track: main
-  ref: 0.4.1-0-ge510a4126b7ab7f53848c2e44ff1e37fc59b932c
+  ref: 0.4.2-0-gdd5a500ed97be6d9ed2d033b8147b7878b86005a
