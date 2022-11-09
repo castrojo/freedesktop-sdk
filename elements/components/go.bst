@@ -69,4 +69,4 @@ sources:
   exclude:
   - '*rc*'
   - '*beta*'
-  ref: go1.19.2-0-g895664482c0ebe5cec4a6935615a1e9610bbf1e3
+  ref: go1.19.3-0-g5d5ed57b134b7a02259ff070864f753c9e601a18
