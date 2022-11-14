@@ -822,10 +822,10 @@ markdown_manifest:
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "reproducible"'
 
-reproducible_x86_64:
+reproducible_aarch64:
   extends:
     - .reproducible_template
-    - .builder-x86_64
+    - .builder-aarch64
 
 .snap_publish_template:
   stage: publish
