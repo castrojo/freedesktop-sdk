@@ -51,6 +51,8 @@ config:
     rm -rf %{install-root}%{indep-libdir}/python%{version_long}/*/test
   - |
     rm -rf %{install-root}%{indep-libdir}/python%{version_long}/*/tests
+  - |
+    rm -r %{install-root}/'%{indep-libdir}/python%{version_long}/config-%{version_long}-%{gcc_triplet}'
 
   - |
     find "%{install-root}" -name "lib*.a" -exec rm {} ";"
@@ -91,8 +93,6 @@ public:
         - '%{bindir}/python%{version_short}-config'
         - '%{bindir}/python%{version_long}-config'
         - '%{libdir}/libpython%{version_long}.so'
-        - '%{indep-libdir}/python%{version_long}/config-%{version_long}-%{gcc_triplet}'
-        - '%{indep-libdir}/python%{version_long}/config-%{version_long}-%{gcc_triplet}/**'
         - '%{indep-libdir}/python%{version_long}/lib2to3'
         - '%{indep-libdir}/python%{version_long}/lib2to3/**'
   cpe:
