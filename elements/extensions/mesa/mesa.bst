@@ -47,8 +47,8 @@ variables:
       vulkan_drivers: amd,intel,swrast,virtio-experimental
       enable_libunwind: 'true'
   - target_arch == "arm" or target_arch == "aarch64":
-      gallium_drivers: asahi,etnaviv,freedreno,kmsro,lima,nouveau,panfrost,swrast,tegra,virgl,v3d,vc4,zink
-      vulkan_drivers: freedreno,broadcom,panfrost,swrast
+      gallium_drivers: asahi,etnaviv,freedreno,kmsro,lima,nouveau,panfrost,swrast,tegra,virgl,v3d,vc4,zink,r600,r300,radeonsi
+      vulkan_drivers: freedreno,broadcom,panfrost,swrast,amd
       enable_libunwind: 'false'
   - target_arch in ("ppc64le", "ppc64", "riscv64"):
       gallium_drivers: nouveau,r600,r300,radeonsi,swrast,virgl
