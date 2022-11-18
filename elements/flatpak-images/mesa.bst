@@ -4,10 +4,8 @@ build-depends:
 - extensions/mesa/mesa.bst
 - extensions/mesa/mesa-metainfo.bst
 
-variables:
-  prefix: "/usr/lib/%{gcc_triplet}/GL/default"
-  lib: "lib"
-  debugdir: "/usr/lib/debug"
+(@):
+- elements/extensions/mesa/config.yml
 
 config:
   directory: "%{prefix}"
