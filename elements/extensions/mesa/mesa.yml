@@ -84,6 +84,7 @@ variables:
     -Dvulkan-icd-dir="%{libdir}/vulkan/icd.d"
     -Dxlib-lease=enabled
     -Dzstd=enabled
+    -Dvideo-codecs=%{video_codecs}
 
 config:
   install-commands:
