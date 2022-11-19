@@ -300,6 +300,7 @@ check_mirrors:
   artifacts:
     when: always
     paths:
+      - ${CI_PROJECT_DIR}/mirror_problem_list.json
       - ${CI_PROJECT_DIR}/unmirrored_sources_list.json
       - ${CI_PROJECT_DIR}/create_mirrors_from_problem_list.py
       - ${CI_PROJECT_DIR}/README-Create-mirrors-script.md
