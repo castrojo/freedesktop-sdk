@@ -21,6 +21,7 @@ depends:
 
 # Outputs
 - flatpak-release-repo-deps.bst
+- flatpak-release-repo-extra-deps.bst
 - oci/platform-oci.bst
 - oci/sdk-oci.bst
 - oci/flatpak-oci.bst

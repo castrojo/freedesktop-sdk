@@ -90,6 +90,7 @@ flatpak-images/cross-toolchains.bst
 flatpak-images/platform-vaapi.bst
 flatpak-release.bst
 flatpak-release-repo-deps.bst
+flatpak-release-repo-extra-deps.bst
 integration/split-docs.bst
 integration/split-locales.bst
 multiarch/multiarch-aarch64.bst
@@ -228,6 +229,7 @@ bootstrap/export-bootstrap.bst
 
 # flatpak-repo elements
 flatpak-release-repo.bst
+flatpak-release-repo-extra.bst
 
 # oci elements
 oci/bootstrap-oci.bst
