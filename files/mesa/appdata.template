@@ -3,7 +3,7 @@
   <id>__APP_ID__</id>
   <metadata_license>CC0</metadata_license>
   <project_license>MIT</project_license>
-  <name>Mesa</name>
+  <name>__VARIANT_NAME__</name>
   <summary>Mesa - The 3D Graphics Library</summary>
   <releases>
     <release version="__VERSION__" date="__VERSION_DATE__"/>
@@ -15,6 +15,7 @@
       graphics libraries from corresponding Freedesktop SDK runtime
       and its derivatives.
     </p>
+    __VARIANT_TEXT__
   </description>
   <url type="homepage">https://freedesktop-sdk.gitlab.io/</url>
 </component>

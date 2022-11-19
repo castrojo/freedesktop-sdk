@@ -25,6 +25,8 @@ config:
     for app_id in %{app-id}
     do
       m4 -D__VERSION__=${VERSION} -D__VERSION_DATE__=${VERSION_DATE} \
+      -D__VARIANT_NAME__='%{variant_name}' \
+      -D__VARIANT_TEXT__='%{variant_text}' \
       -D__APP_ID__=${app_id} \
       appdata.template > ${appdata_dir}/${app_id}.appdata.xml
       appstream-compose --basename ${app_id} \
