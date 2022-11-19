@@ -20,7 +20,7 @@ depends:
 - components/xdg-desktop-portal-base.bst
 
 # Outputs
-- flatpak-release-deps.bst
+- flatpak-release-repo-deps.bst
 - oci/platform-oci.bst
 - oci/sdk-oci.bst
 - oci/flatpak-oci.bst

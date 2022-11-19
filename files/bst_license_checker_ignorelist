@@ -88,7 +88,8 @@ extensions/rust/ldconfig.bst
 extensions/rust/rust-stage1.bst
 flatpak-images/cross-toolchains.bst
 flatpak-images/platform-vaapi.bst
-flatpak-release-deps.bst
+flatpak-release.bst
+flatpak-release-repo-deps.bst
 integration/split-docs.bst
 integration/split-locales.bst
 multiarch/multiarch-aarch64.bst
@@ -226,7 +227,7 @@ integration/sdk-integration.bst
 bootstrap/export-bootstrap.bst
 
 # flatpak-repo elements
-flatpak-release.bst
+flatpak-release-repo.bst
 
 # oci elements
 oci/bootstrap-oci.bst

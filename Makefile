@@ -67,11 +67,11 @@ export: clean-runtime
 	$(BST) build flatpak-release.bst
 
 	mkdir -p $(CHECKOUT_ROOT)
-	$(BST) artifact checkout  "flatpak-release.bst" --directory $(CHECKOUT_ROOT)
+	$(BST) artifact checkout flatpak-release-repo.bst --directory $(CHECKOUT_ROOT)/flatpak-release-repo.bst
 
 	test -e $(REPO) || ostree init --repo=$(REPO) --mode=archive
 
-	flatpak build-commit-from --src-repo=$(CHECKOUT_ROOT) $(REPO)
+	flatpak build-commit-from --src-repo=$(CHECKOUT_ROOT)/flatpak-release-repo.bst $(REPO)
 
 	rm -rf $(CHECKOUT_ROOT)
 
