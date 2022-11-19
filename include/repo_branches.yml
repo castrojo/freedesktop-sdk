@@ -2,5 +2,6 @@
 # is maintained here.
 #
 freedesktop-sdk-flatpak-branch: '22.08'
+freedesktop-sdk-flatpak-branch-extra: '22.08-extra'
 freedesktop-sdk-snap-branch: '2208'
 openh264-version: '2.2.0'
