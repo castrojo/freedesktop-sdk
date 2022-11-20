@@ -22,4 +22,4 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxft.git
   track: master
-  ref: libXft-2.3.6-0-g7d3bcd3b9ae3ffbfcd4f31c8f1db2254df90bc33
+  ref: libXft-2.3.7-0-g1463255cd4f537baabf8f2c65270e4924d4ed656
