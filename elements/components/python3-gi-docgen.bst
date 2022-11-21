@@ -18,5 +18,5 @@ sources:
 - kind: pypi
   name: gi-docgen
   ref:
-    sha256sum: f91d879ff28d7d5265cde84275ee510e32386bfeb7ec6203a647342aead55cec
-    suffix: 25/11/64ea759ba610d7442e8827306d1adba233ca69547d2a0e974f5ea74fa320/gi-docgen-2022.1.tar.gz
+    sha256sum: fc56df0c7d4ab9e5ed83f35b7483cb07d0bf91761e4f139eed363d7e42ffe0c0
+    suffix: 4d/0d/84d2a72a79ba7874b34680cac5b81019f17d58f2b53d88f341c710f1f3cf/gi-docgen-2022.2.tar.gz
