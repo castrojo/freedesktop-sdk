@@ -20,4 +20,4 @@ sources:
 - kind: git_tag
   url: github:fcitx/fcitx5-gtk.git
   track: master
-  ref: 5.0.19-0-g39eda60304c2b926177800ca4207dd152e640df6
+  ref: 5.0.20-0-gc1521d8dad4cd38bc4ff13edd3f616277be34620
