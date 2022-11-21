@@ -5,6 +5,7 @@ build-depends:
 - components/go.bst
 - components/go-md2man.bst
 - components/git-minimal.bst
+- components/python3.bst
 - components/standard-streams.bst
 
 depends:
@@ -37,7 +38,9 @@ sources:
   directory: src/github.com/containers/podman
   track: main
   track-extra:
-  - v4.2
+  - v4.3
+  # Attempt to predict the next branchpoint.
+  - v4.4
   exclude:
   - "*rc*"
-  ref: v4.2.1-0-g62b324ddf718411b1d4d0ba8117c632f7f984a38
+  ref: v4.3.1-0-g814b7b003cc630bf6ab188274706c383f9fb9915
