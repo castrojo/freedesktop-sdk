@@ -48,4 +48,4 @@ sources:
 - kind: git_tag
   url: github:NVIDIA/libglvnd.git
   track: master
-  ref: v1.5.0-0-gc7cdf0cc4395b57563294d1f340b6bb1b95366a0
+  ref: v1.6.0-0-gb05bbcdaeb9b700cf7877e6d66f8fc3ac952295b
