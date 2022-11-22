@@ -58,6 +58,9 @@ variables:
     -Defi_binary=%{efi_binary}
     -Dpolkit=enabled
 
+environment:
+  GZIP: "--no-name"
+
 sources:
 - kind: git_tag
   url: github:fwupd/fwupd.git
