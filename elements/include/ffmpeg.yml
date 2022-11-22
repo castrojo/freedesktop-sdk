@@ -176,5 +176,8 @@ config:
 sources:
 - kind: git_tag
   url: ffmpeg:ffmpeg.git
-  track: release/5.0
-  ref: n5.0.2-0-g2f428de9ebdcd0770de37d874871b25325aebd73
+  track: release/5.1
+  track-extra:
+  # Attempt to predict the next branchpoint.
+  - release/5.2
+  ref: n5.1.2-0-geacfcbae690f914a4b1b4ad06999f138540cc3d8
