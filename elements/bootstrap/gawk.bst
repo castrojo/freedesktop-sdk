@@ -26,4 +26,4 @@ sources:
   - gawk-5.1-stable
   exclude:
   - '*-docs'
-  ref: gawk-5.1.1-0-g2b1fffef190f46f6c0da770bba2745f6574bebca
+  ref: gawk-5.2.1-0-g297cf6bc67417e3747c081efb805b4bdcbe726eb
