@@ -67,7 +67,7 @@ export: clean-runtime
 	$(BST) build flatpak-release.bst
 
 	mkdir -p $(CHECKOUT_ROOT)
-	$(BST) artifact checkout --hardlinks "flatpak-release.bst" --directory $(CHECKOUT_ROOT)
+	$(BST) artifact checkout  "flatpak-release.bst" --directory $(CHECKOUT_ROOT)
 
 	test -e $(REPO) || ostree init --repo=$(REPO) --mode=archive
 
