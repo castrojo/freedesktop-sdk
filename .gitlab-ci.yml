@@ -523,6 +523,7 @@ desktop_efi_vm_image_x86_64:
   - app_x86_64
   variables:
     TYPE: desktop
+  when: manual # skip desktop image VM tests by default to avoid significant disk I/O
 
 prepare_publish:
   stage: prepare-publish
