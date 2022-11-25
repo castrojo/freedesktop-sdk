@@ -4,6 +4,7 @@ variables:
   optimize-debug: "true"
   compress-debug: "true"
   sourcedir: "%{debugdir}/source"
+  stripdir-suffix: "%{element-name}"
 
   toolchain-prefixes: >-
     /usr
@@ -24,8 +25,8 @@ variables:
       freedesktop-sdk-stripper \
         "${OPTS[@]}" \
         "%{build-root}" \
-        "%{sourcedir}/%{element-name}" \
-        "%{debugdir}/dwz/%{element-name}" \
+        "%{sourcedir}/%{stripdir-suffix}" \
+        "%{debugdir}/dwz/%{stripdir-suffix}" \
         "%{debugdir}" \
         "%{install-root}"
     fi
