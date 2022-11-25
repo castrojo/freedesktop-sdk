@@ -22,7 +22,7 @@ sources:
 - kind: git_tag
   url: gitlab:libpipeline/libpipeline.git
   track: main
-  ref: 1.5.6-0-gfc550d5728f7cdfb918ea3203e2b40146e64ba19
+  ref: 1.5.7-0-gc9662e67d575299df2b87bc70f0e4865f04a8f01
 - kind: git_tag
   url: savannah:gnulib.git
   # Track the exact commit from variable GNULIB_REVISION in bootstrap.conf
