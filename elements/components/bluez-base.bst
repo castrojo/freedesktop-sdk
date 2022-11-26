@@ -18,7 +18,7 @@ public:
       - '%{libdir}/libbluetooth*.so.*'
       - '%{libdir}/pkgconfig/bluez.pc'
       - '%{includedir}/bluetooth/**'
-      - '%{debugdir}/dwz/%{element-name}/*'
+      - '%{debugdir}/dwz/%{stripdir-suffix}/*'
       - '%{debugdir}%{libdir}/libbluetooth*.so*'
       - '%{sourcedir}/**'
 
