@@ -30,3 +30,8 @@ config:
       appstream-compose --basename ${app_id} \
       --prefix=%{install-root}%{prefix} --origin=flatpak ${app_id}
     done
+
+sources:
+  (>):
+  - kind: local
+    path: files/mesa/appdata.template
