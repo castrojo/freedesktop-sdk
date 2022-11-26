@@ -11,7 +11,7 @@ sources:
 - kind: git_tag
   url: github:iputils/iputils.git
   track: master
-  ref: 20211215-0-g1d1e7c43210d8af316a41cb2c53d612a4c16f34d
+  ref: 20221126-0-g5ffabc4190cab975c7332645259e286a032e183b
 
 variables:
   meson-local: >-
