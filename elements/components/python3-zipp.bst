@@ -11,5 +11,5 @@ sources:
 - kind: pypi
   name: zipp
   ref:
-    sha256sum: 7a7262fd930bd3e36c50b9a64897aec3fafff3dfdeec9623ae22b40e93f99bb8
-    suffix: 8d/d7/1bd1e0a5bc95a27a6f5c4ee8066ddfc5b69a9ec8d39ab11a41a804ec8f0d/zipp-3.10.0.tar.gz
+    sha256sum: a7a22e05929290a67401440b39690ae6563279bced5f314609d9d03798f56766
+    suffix: 8e/b3/8b16a007184714f71157b1a71bbe632c5d66dd43bc8152b3c799b13881e1/zipp-3.11.0.tar.gz
