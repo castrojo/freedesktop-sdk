@@ -427,7 +427,10 @@ bootstrap_ppc64:
   stage: vm
   script:
     - make build-vm
-    - utils/test_minimal_system.py --dialog "${DIALOG}" command 'make run-vm'
+    - |
+      if [ "${DIALOG+set}" = set ]; then
+        utils/test_minimal_system.py --dialog "${DIALOG}" command 'make run-vm'
+      fi
   artifacts:
     when: always
     paths:
@@ -464,6 +467,17 @@ minimal_systemd_vm_aarch64:
     - job: app_aarch64
       artifacts: false
   when: manual # skip aarch64 VM tests by default for now; the runner is too slow
+
+desktop_systemd_vm_x86_64:
+  extends:
+    - .vm_imageless_template
+    - .builder-x86_64
+  variables:
+    VM_ARTIFACT_BOOT: vm/boot/virt.bst
+    VM_ARTIFACT_FILESYSTEM: vm/desktop/virt.bst
+  needs:
+    - job: app_x86_64
+      artifacts: false
 
 .vm_efi_image_template:
   stage: vm
@@ -509,6 +523,7 @@ desktop_efi_vm_image_x86_64:
   - app_x86_64
   variables:
     TYPE: desktop
+  when: manual # skip desktop image VM tests by default to avoid significant disk I/O
 
 prepare_publish:
   stage: prepare-publish
