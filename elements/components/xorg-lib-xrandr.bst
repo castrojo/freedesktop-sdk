@@ -22,4 +22,4 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxrandr.git
   track: master
-  ref: libXrandr-1.5.2-0-g55dcda4518eda8ae03ef25ea29d3c994ad71eb0a
+  ref: libXrandr-1.5.3-0-g3387129532899eaeee3477a2d92fa662d7292a84
