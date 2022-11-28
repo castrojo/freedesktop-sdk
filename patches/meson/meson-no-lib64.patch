@@ -1,6 +1,7 @@
---- meson/mesonbuild/mesonlib/universal.py-old	2021-07-03 22:16:33.341748112 +0300
-+++ meson/mesonbuild/mesonlib/universal.py	2021-07-03 22:17:04.167878479 +0300
-@@ -850,21 +850,6 @@ def version_compare_condition_with_min(c
+diff -u mesonbuild/utils/universal.py-old mesonbuild/utils/universal.py
+--- mesonbuild/utils/universal.py-old	2022-11-28 18:06:51.336418617 +0200
++++ mesonbuild/utils/universal.py	2022-11-28 18:07:17.366418392 +0200
+@@ -958,21 +958,6 @@
  
  
  def default_libdir() -> str:

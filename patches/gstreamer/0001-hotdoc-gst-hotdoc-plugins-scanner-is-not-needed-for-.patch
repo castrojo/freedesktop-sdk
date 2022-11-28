@@ -1,0 +1,40 @@
+From 9042098245b4aca0f7a51bfedacc99a8a56dce53 Mon Sep 17 00:00:00 2001
+From: Xavier Claessens <xavier.claessens@collabora.com>
+Date: Mon, 7 Nov 2022 09:27:09 -0500
+Subject: [PATCH] hotdoc: gst-hotdoc-plugins-scanner is not needed for
+ libraries
+
+Meson >= 0.64.0 does not allow any more to add executables into
+hotdoc.generate_doc(..., dependencies: ...) and it should not be needed
+any way.
+
+Part-of: <https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/3352>
+---
+ subprojects/gstreamer/docs/meson.build | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/subprojects/gstreamer/docs/meson.build b/subprojects/gstreamer/docs/meson.build
+index 26331d7f3a..ac8524977c 100644
+--- a/subprojects/gstreamer/docs/meson.build
++++ b/subprojects/gstreamer/docs/meson.build
+@@ -121,7 +121,7 @@ libs_doc = [hotdoc.generate_doc('gstreamer',
+     gi_index: 'gst/gi-index.md',
+     gi_smart_index: true,
+     gi_c_source_roots: [join_paths(meson.current_source_dir(), '../gst/'), ],
+-    dependencies: [gst_dep, glib_dep, gobject_dep, gmodule_dep, hotdoc_plugin_scanner],
++    dependencies: [gst_dep, gmodule_dep],
+     extra_assets: [join_paths(meson.current_source_dir(), 'images')],
+ )]
+ 
+@@ -147,7 +147,7 @@ foreach lib: libs
+       gi_index: join_paths('libs/', name, 'index.md'),
+       gi_smart_index: true,
+       gi_order_generated_subpages: true,
+-      dependencies: deps + [hotdoc_plugin_scanner],
++      dependencies: deps,
+       install: false,
+   )]
+ endforeach
+-- 
+2.38.1
+
