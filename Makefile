@@ -50,8 +50,7 @@ build:
 	             components.bst \
 	             flatpak-release-repo.bst \
 	             public-stacks/buildsystems.bst \
-	             oci/layers/{bootstrap,debug,platform,sdk,flatpak}.bst \
-				 tests/reproducible-test.bst
+	             oci/layers/{bootstrap,debug,platform,sdk,flatpak}.bst
 
 
 build-tar:
