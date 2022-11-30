@@ -17,4 +17,4 @@ sources:
 - kind: git_tag
   url: pagure:newt.git
   track: master
-  ref: r0-52-22-0-g7d7e516c9f4fee6e0bea91ace73a45ce0965e436
+  ref: r0-52-23-0-g6e3a852c6becac7f2f231453682089577ad3de3d
