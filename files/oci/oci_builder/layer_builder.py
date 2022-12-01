@@ -18,19 +18,33 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import hashlib
 import os
 import stat
 import tarfile
+import errno
+
+PAX_HEADER_SHA256 = "SCHILY.xattr.user.checksum.sha256"
 
 
-def compare_files(file_a, file_b):
-    while True:
-        buf1 = file_a.read(16384)
-        buf2 = file_b.read(16384)
-        if buf1 != buf2:
-            return False
-        if not buf1:
-            return True
+def xattr_sha256(filename):
+    try:
+        checksum = os.getxattr(filename, "user.checksum.sha256")
+    except OSError as error:
+        if error.errno == errno.ENODATA:
+            # This is given if the xattr did not exist, we will fallback
+            # to calculating sha256 manually
+            return None
+        raise
+    else:
+        return checksum.decode()
+
+
+def file_sha256(file_handle):
+    sha256 = hashlib.sha256()
+    while chunk := file_handle.read(1024**2):
+        sha256.update(chunk)
+    return sha256.hexdigest()
 
 
 def analyze_lowers(lowers):
@@ -114,8 +128,16 @@ def create_layer(output, upper, lowers):
             rel = os.path.join(root_rel, file)
             tinfo = output.gettarinfo(name=path, arcname=rel)
             tinfo.mode = stat.S_IMODE(tinfo.mode)
+            if tinfo.type == tarfile.REGTYPE:
+                checksum = xattr_sha256(path)
+                if not checksum:
+                    with open(path, "rb") as file:
+                        checksum = file_sha256(file)
+                tinfo.pax_headers[PAX_HEADER_SHA256] = checksum
+
             if epoch is not None:
                 tinfo.mtime = int(epoch)
+
             if rel in lower_files:
                 tar_file = lower_files[rel]
                 lower_found = tar_file.getmember(rel)
@@ -128,14 +150,16 @@ def create_layer(output, upper, lowers):
 
                 if same_info:
                     if tinfo.type == tarfile.REGTYPE:
-                        with open(path, 'rb') as new_file:
-                            if compare_files(tar_file.extractfile(lower_found), new_file):
-                                # We already added file to inode cache so we clean it up
-                                output.inodes = {
-                                    inode: arcname for inode, arcname in output.inodes.items()
-                                    if arcname != tinfo.name
-                                }
-                                continue
+                        other_checksum = lower_found.pax_headers.get(PAX_HEADER_SHA256)
+                        if not other_checksum:
+                            other_checksum = file_sha256(tar_file.extractfile(other_checksum))
+                        if checksum == other_checksum:
+                            # We already added file to inode cache so we clean it up
+                            output.inodes = {
+                                inode: arcname for inode, arcname in output.inodes.items()
+                                if arcname != tinfo.name
+                            }
+                            continue
                     elif tinfo.type == tarfile.LNKTYPE:
                         # File is already in tarfile so we don't need to test anything
                         pass
