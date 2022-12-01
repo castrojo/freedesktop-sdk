@@ -5,7 +5,7 @@ depends:
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/flatpak.bst
+- components/flatpak-minimal.bst
 - components/fontconfig.bst
 - components/fuse3.bst
 - components/geoclue.bst
