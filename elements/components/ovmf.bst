@@ -15,43 +15,43 @@ environment-nocache:
 
 variables:
   build-args: >-
-      -n "${JOBS}"
-      --buildtarget=RELEASE
-      --tagname=GCC5
-      --platform='%{platform}'
-      %{arch-args}
-      %{opts}
+    -n "${JOBS}"
+    --buildtarget=RELEASE
+    --tagname=GCC5
+    --platform='%{platform}'
+    %{arch-args}
+    %{opts}
 
   opts: >-
-      -D TPM1_ENABLE
-      -D TPM2_ENABLE
-      -D TPM2_CONFIG_ENABLE
-      -D SECURE_BOOT_ENABLE
-      %{arch-opts}
+    -D TPM1_ENABLE
+    -D TPM2_ENABLE
+    -D TPM2_CONFIG_ENABLE
+    -D SECURE_BOOT_ENABLE
+    %{arch-opts}
 
   code: '%{build-dir}/FV/OVMF_CODE.fd'
   vars: '%{build-dir}/FV/OVMF_VARS.fd'
 
   (?):
-    - target_arch == "x86_64":
-        arch-args: >-
-            --arch=IA32
-            --arch=X64
-        arch-opts: >-
-            -D SMM_REQUIRE
-        platform: OvmfPkg/OvmfPkgIa32X64.dsc
-        build-dir: Build/Ovmf3264/RELEASE_GCC5
-        shell: '%{build-dir}/X64/Shell.efi'
+  - target_arch == "x86_64":
+      arch-args: >-
+        --arch=IA32
+        --arch=X64
+      arch-opts: >-
+        -D SMM_REQUIRE
+      platform: OvmfPkg/OvmfPkgIa32X64.dsc
+      build-dir: Build/Ovmf3264/RELEASE_GCC5
+      shell: '%{build-dir}/X64/Shell.efi'
 
-    - target_arch == "aarch64":
-        arch-args: >-
-            --arch=AARCH64
-        arch-opts: ''
-        platform: ArmVirtPkg/ArmVirtQemu.dsc
-        build-dir: Build/ArmVirtQemu-AARCH64/RELEASE_GCC5
-        code: '%{build-dir}/FV/QEMU_EFI.fd'
-        vars: '%{build-dir}/FV/QEMU_VARS.fd'
-        shell: '%{build-dir}/AARCH64/Shell.efi'
+  - target_arch == "aarch64":
+      arch-args: >-
+        --arch=AARCH64
+      arch-opts: ''
+      platform: ArmVirtPkg/ArmVirtQemu.dsc
+      build-dir: Build/ArmVirtQemu-AARCH64/RELEASE_GCC5
+      code: '%{build-dir}/FV/QEMU_EFI.fd'
+      vars: '%{build-dir}/FV/QEMU_VARS.fd'
+      shell: '%{build-dir}/AARCH64/Shell.efi'
 
 config:
   build-commands:
@@ -70,7 +70,7 @@ sources:
   track: master
   match:
   - edk2-stable*
-  ref: edk2-stable202208-0-gba0e0e4c6a174b71b18ccd6e47319cc45878893c
+  ref: edk2-stable202211-0-gfff6d81270b57ee786ea18ad74f43149b9f03494
 - kind: git_module
   path: CryptoPkg/Library/OpensslLib/openssl
   url: github:openssl/openssl.git
