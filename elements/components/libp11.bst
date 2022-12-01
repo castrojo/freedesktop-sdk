@@ -38,7 +38,7 @@ config:
 
       [pkcs11_section]
       engine_id = pkcs11
-      dynamic_path = %{libdir}/engines-1.1/libpkcs11.so
+      dynamic_path = %{libdir}/engines-3/libpkcs11.so
       MODULE_PATH = opensc-pkcs11.so
       init = 0
       EOF
