@@ -15,7 +15,7 @@ endif
 REPO=repo
 CHECKOUT_ROOT=runtimes
 VM_CHECKOUT_ROOT=checkout/$(ARCH)
-VM_ARTIFACT_ROOT?=vm/minimal/virt.bst
+VM_ARTIFACT_FILESYSTEM?=vm/minimal/virt.bst
 VM_ARTIFACT_BOOT?=vm/boot/virt.bst
 RUNTIME_VERSION?=master
 ifeq ($(RUNTIME_VERSION),master)
@@ -87,17 +87,17 @@ export-tar: build-tar
 	done
 
 clean-vm:
-	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_ROOT)
+	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
 	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
 
-$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_ROOT):
-	$(BST) build $(VM_ARTIFACT_ROOT)
-	$(BST) checkout --hardlinks $(VM_ARTIFACT_ROOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_ROOT)
+$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM):
+	$(BST) build $(VM_ARTIFACT_FILESYSTEM)
+	$(BST) checkout --hardlinks $(VM_ARTIFACT_FILESYSTEM) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT):
 	$(BST) build $(VM_ARTIFACT_BOOT)
 	$(BST) checkout --hardlinks $(VM_ARTIFACT_BOOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
 
-build-vm: clean-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_ROOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
+build-vm: clean-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
 
 QEMU_COMMON_ARGS= \
 	-smp 4 \
@@ -106,7 +106,7 @@ QEMU_COMMON_ARGS= \
 	-kernel $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/vmlinuz \
 	-initrd $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/initramfs.gz \
 	-object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0	\
-	-virtfs local,id=virtfs,path=$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_ROOT),security_model=none,mount_tag=virtfs
+	-virtfs local,id=virtfs,path=$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM),security_model=none,mount_tag=virtfs
 
 QEMU_X86_COMMON_ARGS= \
 	$(QEMU_COMMON_ARGS) \
@@ -131,7 +131,7 @@ QEMU_PPC64LE_ARGS= \
 	-machine pseries \
 	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap init=/usr/lib/systemd/systemd console=ttyS0'
 
-run-vm: $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_ROOT)
+run-vm: $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
 ifeq ($(ARCH),x86_64)
 	unshare --map-root-user $(QEMU) $(QEMU_X86_COMMON_ARGS)
 else ifeq ($(ARCH),i686)
