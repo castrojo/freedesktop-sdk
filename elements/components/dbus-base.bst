@@ -13,6 +13,7 @@ variables:
     runstatedir=/run
     --with-system-socket=/run/dbus/system_bus_socket
     --enable-user-session
+    --disable-libaudit
 
 config:
   install-commands:
