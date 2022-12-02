@@ -3,4 +3,5 @@ sources:
 - kind: git
   url: gitlab:BuildStream/bst-plugins-experimental.git
   track: master
-  ref: 56ba994fe606540019f48610a415650592b81742
+  ref-format: git-describe
+  ref: 1.93.8-49-g22ed665258ecceab36dbf239d6f041322135725d
