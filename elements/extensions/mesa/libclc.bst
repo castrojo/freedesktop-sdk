@@ -8,6 +8,7 @@ build-depends:
 - components/llvm.bst
 - components/spirv-tools.bst
 - components/spirv-llvm-translator.bst
+- components/python3.bst
 
 (@):
 - elements/include/llvm.yml

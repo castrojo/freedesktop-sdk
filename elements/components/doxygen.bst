@@ -7,6 +7,7 @@ build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/flex.bst
 - components/bison.bst
+- components/python3.bst
 
 sources:
 - kind: git_tag

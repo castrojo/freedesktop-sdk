@@ -3,6 +3,7 @@ kind: cmake
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/git-minimal.bst
+- components/python3.bst
 
 depends:
 - components/glslang.bst

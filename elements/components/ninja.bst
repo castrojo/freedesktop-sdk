@@ -1,17 +1,13 @@
-kind: manual
+kind: cmake
+
+build-depends:
+- components/cmake.bst
 
 depends:
-- filename: bootstrap-import.bst
-- filename: components/python3.bst
+- bootstrap-import.bst
 
-config:
-  build-commands:
-  - |
-    python3 ./configure.py --bootstrap
-
-  install-commands:
-  - |
-    install -D -m 0755 ninja %{install-root}%{bindir}/ninja
+variables:
+    generator: Unix Makefiles
 
 sources:
 - kind: git_tag
