@@ -488,6 +488,7 @@ check_snap_i686:
   except:
     - '/^release\/.*/'
     - tags
+    - schedules
 
 bootstrap_ppc64le:
   extends:
