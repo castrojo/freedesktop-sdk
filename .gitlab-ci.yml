@@ -538,9 +538,7 @@ minimal_efi_vm_image_x86_64:
   variables:
     TYPE: minimal
     DIALOG: root-login
-  needs:
-    - job: check_snap_x86_64
-      artifacts: false
+  needs: []
 
 desktop_efi_vm_image_x86_64:
   extends:
@@ -549,9 +547,7 @@ desktop_efi_vm_image_x86_64:
   allow_failure: true
   variables:
     TYPE: desktop
-  needs:
-    - job: check_snap_x86_64
-      artifacts: false
+  needs: []
   when: manual # skip desktop image VM tests by default to avoid significant disk I/O
 
 prepare_publish:
