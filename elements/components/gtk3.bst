@@ -1,7 +1,7 @@
-kind: autotools
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 - components/perl.bst
 - components/gtk-doc.bst
 - components/gobject-introspection.bst
@@ -25,18 +25,6 @@ depends:
 - components/xorg-lib-xdamage.bst
 - components/xorg-lib-xinerama.bst
 - components/xorg-lib-xi.bst
-
-variables:
-  conf-local: |
-    --enable-cups \
-    --enable-xkb \
-    --enable-xinerama \
-    --enable-xrandr \
-    --enable-xfixes \
-    --enable-xcomposite \
-    --enable-xdamage \
-    --enable-x11-backend \
-    --enable-wayland-backend
 
 public:
   bst:
