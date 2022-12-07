@@ -119,13 +119,13 @@ QEMU_COMMON_ARGS= \
 QEMU_X86_COMMON_ARGS= \
 	$(QEMU_COMMON_ARGS) \
 	-enable-kvm \
-	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap console=ttyS0'
+	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 console=ttyS0'
 
 QEMU_ARM_COMMON_ARGS= \
 	$(QEMU_COMMON_ARGS) \
 	-machine type=virt \
 	-cpu max \
-	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap init=/usr/lib/systemd/systemd console=ttyAMA0'
+	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 init=/usr/lib/systemd/systemd console=ttyAMA0'
 
 QEMU_AARCH64_ARGS= \
 	$(QEMU_ARM_COMMON_ARGS)
@@ -137,7 +137,7 @@ QEMU_ARM_ARGS= \
 QEMU_PPC64LE_ARGS= \
 	$(QEMU_COMMON_ARGS) \
 	-machine pseries \
-	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap init=/usr/lib/systemd/systemd console=ttyS0'
+	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 init=/usr/lib/systemd/systemd console=ttyS0'
 
 run-vm: $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
 ifeq ($(ARCH),x86_64)
