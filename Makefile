@@ -109,7 +109,7 @@ build-vm: clean-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM) $(VM_CHECKOUT_R
 
 QEMU_COMMON_ARGS= \
 	-smp 4 \
-	-m 256 \
+	-m 2G \
 	-nographic \
 	-kernel $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/vmlinuz \
 	-initrd $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/initramfs.gz \
