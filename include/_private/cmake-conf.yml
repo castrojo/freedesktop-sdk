@@ -1,7 +1,0 @@
-# Project-wide config of cmake elements
-
-variables:
-  generator: Ninja
-  cmake-global: |
-    -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON     \
-    -DCMAKE_INSTALL_LIBDIR:PATH="%{lib}"

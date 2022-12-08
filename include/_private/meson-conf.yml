@@ -11,9 +11,6 @@ variables:
     -Db_pie=true
     -Ddefault_library=shared
     %{meson-lto-flags}
-    
-  ninja: |
-    ninja -v -j ${NINJAJOBS} -C %{build-dir}
 
 environment:
   LTOJOBS: "%{max-jobs}"

@@ -36,7 +36,7 @@ variables:
     --enable-linker-build-id
     host_configargs='lt_cv_sys_lib_dlsearch_path_spec="/usr/lib/%{gcc_triplet}:%{libdir}"'
     target_configargs='lt_cv_sys_lib_dlsearch_path_spec="/usr/lib/%{cross_gcc_triplet}:%{libdir}"'
-    %{conf-extra}
+    %{conf-arch}
 
 config:
   install-commands:

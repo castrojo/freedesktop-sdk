@@ -23,7 +23,7 @@ variables:
   (?):
   - target_arch == 'ppc64le':
     # https://sourceware.org/bugzilla/show_bug.cgi?id=26360
-      conf-extra: --with-long-double-128
+      conf-arch: --with-long-double-128
   autogen: |
     autoreconf2.69 -fvi
     for conf in */configure.ac; do
@@ -65,7 +65,7 @@ variables:
     --with-isl \
     --enable-deterministic-archives \
     --enable-linker-build-id \
-    %{conf-extra}
+    %{conf-arch}
 
 config:
   install-commands:
