@@ -1,11 +1,10 @@
-kind: pip
+kind: pyproject
+
+build-depends:
+- public-stacks/buildsystem-python-setuptools.bst
 
 depends:
 - filename: components/python3.bst
-
-build-depends:
-- filename: bootstrap-import.bst
-- filename: components/python3-pip.bst
 
 sources:
 - kind: pypi

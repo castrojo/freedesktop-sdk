@@ -1,8 +1,7 @@
-kind: pip
+kind: pyproject
 
 build-depends:
-- components/python3-pip.bst
-- components/python3-poetry-core.bst
+- public-stacks/buildsystem-python-poetry.bst
 
 depends:
 - components/python3.bst

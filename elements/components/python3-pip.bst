@@ -1,21 +1,13 @@
-kind: manual
+kind: pyproject
 
 build-depends:
-- components/python3-installer.bst
+- public-stacks/buildsystem-python-setuptools.bst
 
 depends:
 - components/python3.bst
 - components/python3-setuptools.bst
 - components/python3-wheel.bst
 
-config:
-  build-commands:
-  - |
-    python3 setup.py bdist_wheel
-
-  install-commands:
-  - |
-    python3 -minstaller dist/*.whl --destdir %{install-root}
 
 sources:
 - kind: pypi

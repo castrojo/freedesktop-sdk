@@ -1,14 +1,11 @@
-kind: pip
-
-depends:
-- components/python3.bst
+kind: pyproject
 
 build-depends:
-- components/python3-pip.bst
+- public-stacks/buildsystem-python-setuptools.bst
 - components/cython.bst
-- components/python3-wheel.bst
 
 runtime-depends:
+- components/python3.bst
 - components/python3-async-timeout.bst
 - components/python3-attrs.bst
 - components/python3-chardet.bst

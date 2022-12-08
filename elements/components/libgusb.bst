@@ -2,6 +2,7 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- components/python3-setuptools.bst
 - components/gtk-doc.bst
 - components/gobject-introspection.bst
 

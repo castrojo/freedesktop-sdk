@@ -1,13 +1,10 @@
-kind: pip
-
-depends:
-- components/python3.bst
+kind: pyproject
 
 build-depends:
-- components/python3-pip.bst
-- components/python3-wheel.bst
+- public-stacks/buildsystem-python-setuptools.bst
 
 runtime-depends:
+- components/python3.bst
 - components/python3-idna.bst
 - components/python3-multidict.bst
 

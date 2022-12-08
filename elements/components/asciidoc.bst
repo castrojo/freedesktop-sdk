@@ -1,14 +1,13 @@
-kind: pip
+kind: pyproject
 
 build-depends:
-- components/python3-pip.bst
+- public-stacks/buildsystem-python-setuptools.bst
 
 runtime-depends:
 - components/docbook-xsl.bst
 - components/libxslt.bst
 
 depends:
-- bootstrap-import.bst
 - components/python3.bst
 
 sources:

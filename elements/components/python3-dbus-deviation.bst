@@ -1,7 +1,7 @@
-kind: pip
+kind: pyproject
 
 build-depends:
-- components/python3-pip.bst
+- public-stacks/buildsystem-python-setuptools.bst
 - components/python3-sphinx.bst
 - components/python3-setuptools-pep8.bst
 - components/python3-setuptools-git.bst

@@ -7,8 +7,11 @@ build-depends:
 
 depends:
 - components/python3.bst
+# Note that these are *also* build dependencies because we
+# use build from source root to build wheel of itself
 - components/python3-packaging.bst
 - components/python3-pep517.bst
+
 
 environment:
   PYTHONPATH: "%{build-root}/src"

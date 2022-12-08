@@ -1,8 +1,8 @@
-kind: pip
+kind: pyproject
 
 build-depends:
+- public-stacks/buildsystem-python-setuptools.bst
 - components/cython.bst
-- components/python3-pip.bst
 
 depends:
 - components/libxml2.bst

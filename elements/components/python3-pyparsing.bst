@@ -1,18 +1,10 @@
-kind: manual
+kind: pyproject
 
 build-depends:
-- components/python3-flit-core.bst
-- components/python3-installer.bst
+- public-stacks/buildsystem-python-flit.bst
 
 depends:
 - components/python3.bst
-
-config:
-  build-commands:
-  - python3 -mflit_core.wheel
-
-  install-commands:
-  - python3 -minstaller dist/*.whl --destdir %{install-root}
 
 sources:
 - kind: pypi

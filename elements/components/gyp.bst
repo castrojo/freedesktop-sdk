@@ -1,12 +1,10 @@
-kind: pip
+kind: pyproject
 
 build-depends:
-- public-stacks/buildsystem-python.bst
-
-depends:
-- components/python3.bst
+- public-stacks/buildsystem-python-setuptools.bst
 
 runtime-depends:
+- components/python3.bst
 - components/ninja.bst
 - components/python3-six.bst
 
