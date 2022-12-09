@@ -8,4 +8,4 @@ sources:
 - kind: git_tag
   url: github:Perl-Toolchain-Gang/Module-Build
   track: master
-  ref: 0.4231-0-g3d8f0f1b71357ada575c7437a988d1b78c60c917
+  ref: 0.4232-0-g0a3ed90724d09007a91d67118005805ecebdba38
