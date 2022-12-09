@@ -20,4 +20,4 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxshmfence.git
   track: master
-  ref: libxshmfence-1.3.1-0-g43749ba6a7631f5060ef85c93942ec32dfd39bf8
+  ref: libxshmfence-1.3.2-0-gedbb7d9e5f3912fe521f0cfe5ae416bb9ca83633
