@@ -32,4 +32,10 @@ libOSDependent.a
 libOGLCompiler.a
 # End glslang static libraries
 
+# Begin SDL2 static libraries
+# These are tiny shims from SDL2, removing them breaks SDL2 cmake rules for building against it
+libSDL2_test.a
+libSDL2main.a
+# End SDL2 static libraries
+
 # The script could potentially be extended to recognise globs, regular expressions, and/or partial directory paths. If you think this could be useful, please raise an issue on GitLab.
