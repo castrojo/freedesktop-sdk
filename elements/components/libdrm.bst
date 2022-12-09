@@ -56,4 +56,4 @@ sources:
 - kind: git_tag
   url: freedesktop:mesa/drm.git
   track: main
-  ref: libdrm-2.4.113-0-gfb5c0c301aa9b6d984ffee522775ca19ea7c7be6
+  ref: libdrm-2.4.114-0-gb9ca37b3134861048986b75896c0915cbf2e97f9
