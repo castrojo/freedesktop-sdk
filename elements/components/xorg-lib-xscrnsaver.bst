@@ -21,4 +21,4 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxscrnsaver.git
   track: master
-  ref: libXScrnSaver-1.2.3-0-g96fffcd9dcaf2ba37ec56aa798677de9ad58ae81
+  ref: libXScrnSaver-1.2.4-0-g34f3f72b88c0a0a10d618e9dfbc88474ae5ce880
