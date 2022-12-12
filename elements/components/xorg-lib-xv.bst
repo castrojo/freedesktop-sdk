@@ -23,4 +23,4 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxv.git
   track: master
-  ref: libXv-1.0.11-0-gef2a282876acc2316d338f8b66344ad5a2947057
+  ref: libXv-1.0.12-0-gd419928942dbf1897c9627475aa4a2828a81240f
