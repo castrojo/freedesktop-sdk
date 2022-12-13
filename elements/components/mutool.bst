@@ -42,7 +42,7 @@ sources:
   - 1.21.x
   exclude:
   - '*rc*'
-  ref: 1.21.0-0-g5dd4f6d59781a2577abc7a3684c7ad7430f22850
+  ref: 1.21.1-0-gf39eee48564274635e231e2ab652221cce2ec1bd
   submodules:
     thirdparty/mujs:
       url: ghostscript:mujs.git
