@@ -30,7 +30,7 @@ sources:
   url: github:flatpak/xdg-desktop-portal.git
   track: main
   track-extra:
-  - xdg-desktop-portal-1.15
-  ref: 1.15.0-0-g95b70566e05ef493539cdcbe2d9321a529858eb7
-- kind: patch
-  path: patches/xdg-desktop-portal/test-portals-Include-utils-even-if-libportal-is-unav.patch
+  - xdg-desktop-portal-1.16
+  # Attempt to predict the next branchpoint.
+  - xdg-desktop-portal-1.17
+  ref: 1.16.0-0-g88af6c8ca4106fcf70925355350a669848e9fd5a
