@@ -20,6 +20,8 @@ config:
 sources:
 - kind: pypi
   name: meson
+  exclude:
+  - '*rc'
   ref:
     sha256sum: 3a8e030c2334f782085f81627062cc6d4a6771edf31e055ffe374f9e6b089ab9
     suffix: b5/5b/e7b84f1107a9cd07df1436d474bb85b4d157f691ecc0c502124bb7f9275b/meson-0.64.1.tar.gz
