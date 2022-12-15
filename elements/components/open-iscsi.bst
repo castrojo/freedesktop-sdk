@@ -27,9 +27,6 @@ config:
     - |
       chmod 0644 '%{install-root}%{indep-libdir}/systemd/system'/*
 
-environment:
-  GZIP: "--no-name"
-
 sources:
 - kind: git_tag
   url: github:open-iscsi/open-iscsi.git
