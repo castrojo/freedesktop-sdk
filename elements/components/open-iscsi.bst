@@ -26,6 +26,8 @@ config:
     (>):
     - |
       chmod 0644 '%{install-root}%{indep-libdir}/systemd/system'/*
+    - |
+      rm %{install-root}%{sysconfdir}/iscsi/initiatorname.iscsi
 
 sources:
 - kind: git_tag
