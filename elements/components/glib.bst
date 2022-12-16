@@ -56,7 +56,7 @@ sources:
   - glib-2-74
   match:
   - 2.*[02468].*
-  ref: 2.74.1-0-g058491cb6f635ff6e0a57fcdd4107a40ca91c62a
+  ref: 2.74.3-0-ga8ad6347a404962c3b83aca1bf50610a76618c0f
 - kind: git_module
   path: subprojects/gvdb
   url: gnome:gvdb.git
