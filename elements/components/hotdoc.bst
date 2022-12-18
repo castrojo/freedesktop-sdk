@@ -42,7 +42,5 @@ sources:
 - kind: pypi
   name: hotdoc
   ref:
-    sha256sum: 1123a659e2c94972c32813ec301191d333db24712a83f7e3d06dd58d47cf0098
-    suffix: 18/0a/4eb673ca5e267f84bbdf7ed5ebfb381860b7a23af546aca7a644f63964c2/hotdoc-0.13.7.tar.gz
-- kind: patch
-  path: patches/hotdoc/charset-normalizer.patch
+    sha256sum: 35538b39225713932dae8f35708d0fae2e1c3c4b65ad4021e066577def44bd5c
+    suffix: 56/ad/c3c7fb2cae9baa369317600d66f41ecbf723867f3e19e5dd56aed09b7ed0/hotdoc-0.14.0.tar.gz
