@@ -1,7 +1,7 @@
-kind: autotools
+kind: cmake
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-cmake.bst
 
 depends:
 - bootstrap-import.bst
@@ -11,12 +11,18 @@ depends:
 - components/sdl2.bst
 - components/opusfile.bst
 
+variables:
+  cmake-local: >-
+    -DSDL2MIXER_MOD:BOOL=OFF
+    -DSDL2MIXER_MIDI:BOOL=OFF
+
 public:
   bst:
     split-rules:
       devel:
         (>):
         - '%{libdir}/libSDL2_mixer.so'
+        - '%{libdir}/libSDL2_mixer-*.so'
 
 sources:
 - kind: git_repo
