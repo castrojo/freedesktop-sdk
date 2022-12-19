@@ -1,17 +1,11 @@
-kind: autotools
+kind: cmake
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-cmake.bst
 
 depends:
-- bootstrap-import.bst
 - components/freetype.bst
 - components/sdl2.bst
-
-variables:
-  conf-local: >-
-    --disable-harfbuzz-builtin
-    --disable-freetype-builtin
 
 public:
   bst:
@@ -19,6 +13,7 @@ public:
       devel:
         (>):
         - '%{libdir}/libSDL2_ttf.so'
+        - '%{libdir}/libSDL2_ttf-*.so'
 
 sources:
 - kind: git_repo
