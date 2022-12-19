@@ -1,19 +1,18 @@
-kind: autotools
+kind: cmake
+
+build-depends:
+- public-stacks/buildsystem-cmake.bst
 
 depends:
-- filename: bootstrap-import.bst
-- filename: components/sdl2.bst
-- filename: components/jpeg.bst
-- filename: components/libpng.bst
-- filename: components/libtiff.bst
-- filename: components/libwebp.bst
+- components/sdl2.bst
+- components/jpeg.bst
+- components/libpng.bst
+- components/libtiff.bst
+- components/libwebp.bst
 
 variables:
-  conf-local: >-
-    --disable-jpg-shared
-    --disable-png-shared
-    --disable-tif-shared
-    --disable-webp-shared
+  cmake-local: >-
+    -DSDL2IMAGE_DEPS_SHARED:BOOL=OFF
 
 public:
   bst:
@@ -21,6 +20,7 @@ public:
       devel:
         (>):
         - '%{libdir}/libSDL2_image.so'
+        - '%{libdir}/libSDL2_image-*.so'
 
 sources:
 - kind: git_repo
