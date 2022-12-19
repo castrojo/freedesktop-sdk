@@ -41,4 +41,4 @@ sources:
 - kind: git_tag
   track: '10.0'
   url: freedesktop:wayland/weston.git
-  ref: 10.0.2-0-ga569bc2a300416344c51fa5f69e405cae41ce1fb
+  ref: 10.0.3-0-g6b539a7c78a66df117e233ccda86242e2cd4533d
