@@ -1,5 +1,284 @@
 Freedesktop-SDK
 
+freedesktop-sdk-21.08.17:
+  * Update xorg-lib-ice to libICE-1.1.1-0
+  * Update nano to v7.1-0
+  * Update xorg-app-xkbcomp to xkbcomp-1.4.6-0
+  * Update weston to 10.0.3-0
+  * Update python3-pytz to 2022.7
+  * Update python3-setuptools-scm to 7.1.0
+  * Update xorg-lib-xkbfile to libxkbfile-1.1.2-0
+  * Update python3-lxml to 4.9.2
+  * Update python3-certifi to 2022.12.7
+  * Update python3-packaging to 22.0
+  * Update elements/include/git.yml to v2.39.0-0
+  * Update strace to v6.1-0
+  * Update python3-poetry to 1.3.1
+  * Update python3-filelock to 3.8.2
+  * Update usbutils to v015-0
+  * Update xorg-lib-xdamage to libXdamage-1.1.6-0
+  * Update xorg-lib-fontenc to libfontenc-1.1.7-0
+  * Update mutool to 1.21.1-0
+  * Update xorg-lib-xv to libXv-1.0.12-0
+  * Update extra-cmake-modules to v5.101.0-0
+  * Update python3-yarl to 1.8.2
+  * Update xorg-lib-xscrnsaver to libXScrnSaver-1.2.4-0
+  * Update tzdata to 2022g-0
+  * Update xorg-lib-xau to libXau-1.0.11-0
+  * Update xorg-lib-xshmfence to libxshmfence-1.3.2-0
+  * Update python3-virtualenv to 20.17.1
+  * Update perl-build to 0.4232-0
+  * Makefile: Use 2G memory in VMs
+  * Update xorg-lib-xcomposite to libXcomposite-0.4.6-0
+  * Update python3-importlib-resources to 5.10.1
+  * vm: Set msize to 100MiB
+  * Update python3-multidict to 6.0.3
+  * Update cmake to v3.25.1-0
+  * Fix dependency on manual jobs
+  * Freeze hotdoc due to new requirements
+  * gtk3.bst: Build with Xcursor support
+  * Update poppler to poppler-22.12.0-0
+  * Update fuse-overlayfs to v1.10-0
+  * Makefile: Fix VM filesystem variable name
+  * Update elements/include/xz-source.yml to v5.2.9-0
+  * Update newt to r0-52-23-0
+  * Update crun to 1.7.2-0
+  * Update wayland-protocols to 1.31-0
+  * Update pycairo to 1.23.0
+  * Update python3-virtualenv to 20.17.0
+  * Update cryptsetup-base to v2.6.0-0
+  * Disable snap testing
+  * Update wavpack to 5.6.0-0
+  * Update flatpak-builder-base to 1.2.3-0
+  * Update python3-zipp to 3.11.0
+  * Update crun to 1.7.1-0
+  * Update iputils to 20221126-0
+  * Update python3-cleo to 2.0.1
+  * Update fcitx5 to 5.0.21-0
+  * Update btrfs-progs to v6.0.2-0
+  * Update python3-importlib-metadata to 5.1.0
+  * Enable Mesa AMD GPU support for aarch64
+  * .gitlab-ci.yml: Disable desktop image VM job by default
+  * vm/desktop: Add an imageless desktop VM
+  * abi/freedesktop-sdk.bst: Update after ABI skip
+  * include/strip.yml: Make the strip directory suffix configurable
+  * project.conf: Use a constant build-root
+  * Update gtk3 to 3.24.35-0
+  * Update ostree to v2022.7-0
+  * Update python3-urllib3 to 1.26.13
+  * Update libpng to v1.6.39-0
+  * Update newt to r0-52-22-0
+  * Update eos-metrics to Release_4.0.13-0
+  * Update python3-poetry-core to 1.4.0
+  * Update ccache to v4.7.4-0
+  * Update python3-cleo to 1.0.0
+  * Update wayland-protocols to 1.30-0
+  * Update libglvnd to v1.6.0-0
+  * Update fcitx5 to 5.0.20-0
+  * Update xorg-lib-xrandr to libXrandr-1.5.3-0
+  * Update xorg-lib-xpm to libXpm-3.5.14-0
+  * Update libinput to 1.22.0-0
+  * Update xorg-lib-xdmcp to libXdmcp-1.1.4-0
+  * Update pycairo to 1.22.0
+  * Update pwquality to libpwquality-1.4.5-0
+  * Update python3-charset-normalizer to 3.0.1
+  * Update cmake to v3.25.0-0
+  * Update xorg-lib-xft to libXft-2.3.7-0
+  * Update python3-mako to 1.2.4
+  * Update nano to v7.0-0
+  * Update extra-cmake-modules to v5.100.0-0
+  * Update wayland-protocols to 1.29-0
+  * Update ccid to 1.5.1-0
+  * Update python3-frozenlist to 1.3.3
+  * Update yelp-tools to 42.1-0
+  * Update elements/include/xz-source.yml to v5.2.8-0
+  * Update libnftnl to libnftnl-1.2.4-0
+  * Remove interruptible for reproducible
+  * Update python3-virtualenv to 20.16.7
+  * Update elements/include/flit-source.yml to 3.8.0
+  * Update elements/include/bluez.yml to 5.66-0
+  * Update bubblewrap to v0.7.0-0
+  * Update eos-metrics to Release_4.0.12-0
+  * Update shadow to 4.13-0
+  * Update poppler to poppler-22.11.0-0
+  * Update eos-metrics to Release_4.0.11-0
+  * Update python3-wheel to 0.38.4
+  * Update mutool to 1.21.0-0
+  * Update python3-aiosignal to 1.3.1
+  * Update pixman to pixman-0.42.2-0
+  * Update xorg-lib-xinerama to libXinerama-1.1.5-0
+  * Update iso-codes to v4.12.0-0
+  * Update to image built against freedesktop-sdk 22.08.3
+  * Update cmake to v3.24.3-0
+  * Update crun to 1.7-0
+  * Update python3-pytz to 2022.6
+  * Update conmon to v2.1.5-0
+  * Update btrfs-progs to v6.0.1-0
+  * Update elements/include/systemd.yml to v249.13-0
+  * Update python3-pip to 22.3.1
+  * atk: Track gnome-3-36 due to ABI break
+  * gnupg: Update to 2.2.40
+  * freetype: Freeze due to ABI break
+  * flatpak: Track flatpak-1.12.x as later releases require appstream
+  * intel-media-driver: Freeze as later releases require newer libva
+  * intel-gmmlib: Update to 22.3.0
+  * libxxf86vm: Update to 1.1.5
+  * libxi: Freeze due to ABI break
+  * libxcb: Freeze as >=1.15 requires newer xcbproto
+  * xcbproto: Freeze due to ABI break
+  * libpciaccess: Freeze due to ABI break
+  * xkeyboard-config: update to 2.37
+  * xdg-desktop-portal: Update to 1.14.6
+  * xcb-util-keysyms: Update to 0.4.1
+  * weston: Update to 10.0.2 and track 10.0 branch
+  * wayland: Freeze due to ABI break
+  * vim: Update to 9.0.0813
+  * valgrind: Update to 3.20.0
+  * v4l-utils: Track stable-1.20 due to ABI break
+  * util-linux: Track stable/v2.37 due to ABI break
+  * swig: Exclude beta tags
+  * sqlite: Track branch-3.36 due to ABI break
+  * shadow: Update to 4.12.2
+  * sdl2-net: Freeze as later releases require libSDL2_test.a
+  * sdl2-image: Freeze due to ABI break
+  * python3-zipp: Update to 3.10.0
+  * python3-sphinx: Update to 5.3.0
+  * python3-requests: Patch to support charset-normalizer 3
+  * python3-poetry: Update to 1.2.2
+  * python3-docutils: Update to 0.19
+  * python3-distlib: Update to 0.3.6
+  * python3-dbusmock: Update to 0.28.6
+  * python3-dbus: Update to 1.3.2
+  * python3-charset-normalizer: Update to 3.0.0
+  * python3-certifi: Update to 2022.9.24
+  * python3-aiohttp: Update to 3.8.3
+  * pulseaudio: Freeze due to ABI break
+  * poppler: Update to 22.10.0
+  * polkit: Freeze due to ABI break
+  * pixman: Update to 0.42.0
+  * pciutils: Freeze due to ABI break
+  * openssh: Update to V_9_1_P1
+  * openal: Freeze due to ABI break
+  * open-iscsi: Update to 2.1.8
+  * nettle: Track release-3.7-fixes due to ABI break
+  * mutool: Update to 1.20.3
+  * lz4: Freeze due to ABI break
+  * libwacom: Update to 2.5.0
+  * libva: Update to 2.13.0
+  * libtiff: Freeze due to ABI break
+  * libpng: Update to 1.6.38
+  * libp11: Freeze due to ABI break
+  * libnice: Freeze due to ABI break
+  * libnghttp2: Freeze due to ABI break
+  * libnftnl: Update to 1.2.3
+  * libical: Update to 3.0.16
+  * libgpg-error: Update to 1.46
+  * libglvnd: Update to 1.5.0
+  * libflac: Track 1.3.x due to ABI break
+  * libffi: Freeze due to ABI break
+  * libdrm: Freeze due to ABI break
+  * libbytesize: Update to 2.7
+  * lcms: Freeze due to ABI break
+  * iputils: Update to 20211215
+  * iptables: Update to 1.8.8
+  * iio-sensor-proxy: Freeze as >=3.4 requires newer glib
+  * gpgme: Freeze due to ABI break
+  * gobject-introspection: Freeze due to ABI break
+  * geoclue: Track 2.5.x due to ABI break
+  * genimage: Update to v16
+  * gdk-pixbuf: Update to 2.42.10
+  * gcab: Freeze due to ABI break
+  * fcitx: Update to 4.2.9.9
+  * e2fsprogs: Ignore release candidates
+  * dbus: Update to 1.12.24
+  * dav1d: Freeze due to ABI break
+  * bubblewrap: Update to 0.6.2
+  * btrfs: Update to 6.0
+  * at-spi2-core: Update to AT_SPI2_CORE_2_44_1 and track gnome-42
+  * appstream-glib: Track 0_7_X due to ABI break
+  * readline: Freeze at 8.1 due to ABI break
+  * file: Freeze for ABI break
+  * binutils: Do not match gdb tags
+  * gawk: Update to 5.2
+  * bash: Freeze at last commit before requiring readline 8.2
+  * docutils: Create symlink for utils without .py extension
+  * Update fscrypt to v0.3.3-0
+  * Fix incorrect include of android-config.h
+  * f2fs-tools: Update to 1.15.0
+  * Properly support CVSS v3
+  * Make the policy be to continue building after some element fails
+  * Ignore python venvs
+  * .gitlab-ci.yml: allow triggering pipelines from the pipelines page
+  * Update python3-babel to 2.11.0
+  * Update ccache to v4.7.3-0
+  * Update wayland-protocols to 1.28-0
+  * Update fcitx5 to 5.0.19-0
+  * Update elements/include/git.yml to v2.38.1-0
+  * Update tzdata to 2022f-0
+  * Update strace to v6.0-0
+  * Update openssl to OpenSSL_1_1_1s-0
+  * Update foomatic-db to 2a3c4d1
+  * Update xorg-lib-xext to libXext-1.3.5-0
+  * Update ccache to v4.7.2-0
+  * Update xcb-util-renderutil to xcb-util-renderutil-0.3.10-0
+  * Update xorg-lib-xfont2 to libXfont2-2.0.6-0
+  * Fix mesa/radeonsi surface corruption
+  * Update python3-tomlkit to 0.11.6
+  * Update python3-typing-extensions to 4.4.0
+  * Update python3-pytz to 2022.5
+  * Update conmon to v2.1.4-0
+  * Update python3-pil to 9.3.0
+  * Update python3-requests-toolbelt to 0.10.1
+  * Update python3-idna to 3.4
+  * Update extra-cmake-modules to v5.99.0-0
+  * Update python3-poetry-core to 1.3.2
+  * Update python3-virtualenv to 20.16.6
+  * Update xorg-lib-xkbfile to libxkbfile-1.1.1-0
+  * Update ccache to v4.7.1-0
+  * Update swig to v4.1.0-0
+  * Update hunspell to v1.7.1-0
+  * Filter utils to avoid pulling in bytecode
+  * Allow more time for 21.08 VM test
+  * Backport hardware rng to 21.08
+  * Downgrade python3-markdown to 3.3.7
+  * Update libblockdev to 2.28-1-0
+  * Update xorg-lib-xrender to libXrender-0.9.11-0
+  * Update xcb-util-image to xcb-util-image-0.4.1-0
+  * Update rsync to v3.2.7-0
+  * Update xorg-lib-xshmfence to libxshmfence-1.3.1-0
+  * Tie pkgconfig to 1.8.x in the off-change someone day maintenance release
+  * Update elements/include/bluez.yml to 5.65-0
+  * Update python3-importlib-resources to 5.10.0
+  * Update xcb-util-wm to xcb-util-wm-0.4.2-0
+  * Update python3-yarl to 1.8.1
+  * Update openssl to OpenSSL_1_1_1r-0
+  * Update man-pages to man-pages-6.01-0
+  * Update open-isns to v0.102-0
+  * Update xcb-util-cursor to xcb-util-cursor-0.1.4-0
+  * Update eos-metrics to Release_4.0.10-0
+  * Update elements/include/xz-source.yml to v5.2.7-0
+  * Update libksba to libksba-1.6.2-0
+  * Update python3-pip to 22.3
+  * Update wayland-protocols to 1.27-0
+  * Update xorg-lib-xtst to libXtst-1.2.4-0
+  * Update libtasn1 to v4.19.0-0
+  * Update ostree to v2022.6-0
+  * Update elements/include/ffmpeg.yml to n4.3.5-0
+  * Update libical to v3.0.15-0
+  * Update python3-importlib-metadata to 5.0.0
+  * Update elements/abi/freedesktop-sdk.bst to freedesktop-sdk-21.08.16-0
+  * Update yelp-xsl to 42.1-0
+  * Update python3-pytz to 2022.4
+  * Update python3-lxml to 4.9.1
+  * Update BuildStream to 1.6.8 and grpcio to 1.47.0
+  * Update python3-imagesize to 1.4.1
+  * Update cython to 0.29.32
+  * Update jpeg to 2.1.4-0
+  * Update po4a to v0.68-0
+  * Update python3-tenacity to 8.1.0
+  * Update python3-mako to 1.2.3
+  * Update cracklib to v2.9.8-0
+
 freedesktop-sdk-21.08.16:
   * Update openssl to OpenSSL_1_1_1q-0
   * auto_updater: Fix running with bst1
