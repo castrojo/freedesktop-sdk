@@ -34,11 +34,7 @@ config:
       find "%{install-root}" -name "lib*.a" -exec rm {} ";"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:KhronosGroup/Vulkan-ValidationLayers.git
+  track: sdk-*
   ref: sdk-1.3.236.0-0-ge2ea0836629a9229fa1650e33da8b78885e5de3f
-  track: master
-  track-extra:
-  - sdk-1.3.236
-  match:
-  - sdk-*

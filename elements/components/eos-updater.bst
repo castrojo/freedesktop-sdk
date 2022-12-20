@@ -17,11 +17,9 @@ depends:
 - components/ostree.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:endlessm/eos-updater.git
-  track: master
-  track-extra:
-  - eos4.0
+  track: Release_*
   ref: Release_4.0.14-0-gac2dd3856c04aef3c12f084fa61dc7b52814d5f3
 - kind: patch
   path: patches/eos-updater/eos-updater-disable-tests.patch

@@ -12,7 +12,7 @@ variables:
   make-install: make -j1 %{make-args} DESTDIR="%{install-root}" install
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: savannah:dmidecode.git
-  track: master
+  track: dmidecode-*
   ref: dmidecode-3-4-0-g7931f69f9367970f5920bf8239c77f6a5c1d57af

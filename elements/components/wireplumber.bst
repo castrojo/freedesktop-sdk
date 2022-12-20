@@ -23,12 +23,12 @@ variables:
     -Ddoc=disabled
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:pipewire/wireplumber.git
-  track: master
+  track: '*.*.*'
   ref: 0.4.13-0-g7cb1b8b92e96ebd1b7e632cda32715fed713d333
-- kind: git_tag
+- kind: git_repo
   url: github:skystrife/cpptoml.git
   directory: subprojects/cpptoml
-  track: master
+  track: v*
   ref: v0.1.1-0-gfededad7169e538ca47e11a9ee9251bc361a9a65

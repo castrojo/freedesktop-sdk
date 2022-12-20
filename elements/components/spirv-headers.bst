@@ -7,9 +7,7 @@ depends:
 - bootstrap-import.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:KhronosGroup/SPIRV-Headers.git
-  track: master
-  match:
-  - sdk-*
+  track: sdk-*
   ref: sdk-1.3.236.0-0-g1d31a100405cf8783ca7a31e31cdd727c9fc54c3

@@ -19,7 +19,7 @@ config:
     make -j1 %{make-args} install
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: sourceforge_git:gnu-efi/code.git
-  track: master
+  track: '*.*.*'
   ref: 3.0.15-0-g8b018e67212957de176292f95718df48f49a418b

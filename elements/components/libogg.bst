@@ -17,7 +17,7 @@ public:
         - '%{libdir}/libogg.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:xiph/ogg.git
-  track: master
+  track: v*
   ref: v1.3.5-0-ge1774cd77f471443541596e09078e78fdc342e4f

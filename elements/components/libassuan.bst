@@ -26,7 +26,7 @@ public:
         - '%{libdir}/libassuan.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnupg:libassuan.git
-  track: master
+  track: libassuan-*
   ref: libassuan-2.5.5-0-gf8cfb565ee461946901ae3bc573abc0023d821b5

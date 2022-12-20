@@ -18,7 +18,9 @@ variables:
   local_flags: -fcommon
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:FreeGLUTProject/freeglut.git
-  track: master
+  track: v*
+  exclude:
+  - v*rc*
   ref: v3.4.0-0-g63c0e78d84ecbfcf8accd8bac04404427899053b

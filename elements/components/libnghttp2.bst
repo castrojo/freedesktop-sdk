@@ -20,7 +20,7 @@ public:
         - '%{libdir}/libnghttp2.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:nghttp2/nghttp2.git
-  track: master
+  track: v*
   ref: v1.52.0-0-gbe0491294a63d891bd12b6b1b7e372a45a5d0ffe

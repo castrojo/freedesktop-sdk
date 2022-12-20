@@ -38,11 +38,9 @@ public:
         - '%{libdir}/libgeoclue-2.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:geoclue/geoclue.git
-  track: master
-  track-extra:
-  - 2.5.x
+  track: '*.*.*'
   ref: 2.6.0-0-g10998ca3215fb6d21b5a32fdf78bb5feffaf4c0f
 - kind: patch
   path: patches/geoclue/libsoup3.patch

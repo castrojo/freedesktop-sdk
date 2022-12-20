@@ -3,7 +3,7 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 
-depends: 
+depends:
 - bootstrap-import.bst
 
 variables:
@@ -20,10 +20,10 @@ public:
         (>):
         - "%{libdir}/libwebrtc_audio_processing.so"
 
-sources: 
-- kind: git_tag
+sources:
+- kind: git_repo
   url: freedesktop:pulseaudio/webrtc-audio-processing.git
-  track: master
+  track: v*
   ref: v0.3.1-0-ge882a5442ac22c93648e12837248d651d18b9247
 - kind: patch
   path: patches/webrtc-audio-processing/add-ppc-family-support.patch

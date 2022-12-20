@@ -14,7 +14,7 @@ variables:
   build-dir: ''
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: pagure:newt.git
-  track: master
+  track: r*
   ref: r0-52-23-0-g6e3a852c6becac7f2f231453682089577ad3de3d

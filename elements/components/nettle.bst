@@ -21,11 +21,9 @@ public:
         - '%{libdir}/libhogweed.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: nettle:nettle.git
-  track: master
-  track-extra:
-  - release-3.7-fixes
+  track: nettle_*
   exclude:
   - nettle_*rc*
   ref: nettle_3.8_release_20220602-0-gea4ea5e6904124b297ade0d1b182c5e530909765

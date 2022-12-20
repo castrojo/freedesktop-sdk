@@ -15,9 +15,7 @@ public:
     - PKGSYSTEM_ENABLE_FSYNC=0 update-mime-database "%{datadir}/mime"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xdg/shared-mime-info.git
-  track: master
-  track-extra:
-  - '2.2'
+  track: '*.*'
   ref: 2.2-0-g13695c7225c2f525a435e72739c33ac32bbfbbb9

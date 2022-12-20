@@ -24,8 +24,7 @@ public:
       flat-manager-client --help > /dev/null
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:flatpak/flat-manager.git
-  track: master
-  track-tags: true
+  track: '*.*.*'
   ref: 0.3.7-0-g5252cb3f691d82d74b3ef5eb0276e216f215e461

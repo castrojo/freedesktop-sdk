@@ -20,7 +20,7 @@ public:
         - '%{libdir}/libdav1d.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: git_https:code.videolan.org/videolan/dav1d.git
-  track: master
+  track: '*.*.*'
   ref: 1.1.0-0-g9593e625b75d498d1edea544da21ea764b98d507

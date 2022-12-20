@@ -13,9 +13,9 @@ variables:
     -DBUILD_QTHELP_DOCS:BOOL=OFF
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:KDE/extra-cmake-modules.git
-  track: master
+  track: v*
   exclude:
   - '*rc*'
   ref: v5.101.0-0-gf0ff8c0f7fbc2697a3ee87d2ab91c9844e020358

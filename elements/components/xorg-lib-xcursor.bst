@@ -25,7 +25,7 @@ public:
     product: libxcursor
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxcursor.git
-  track: master
+  track: libXcursor-*
   ref: libXcursor-1.2.1-0-g27adb16027fa99d83818a0ed9f6623cb03f0c574

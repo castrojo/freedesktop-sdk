@@ -10,7 +10,7 @@ variables:
   build-dir: ''
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:vim/vim.git
-  track: master
+  track: v*
   ref: v9.0.0809-0-g63c84731c1802bac36c1d1a82b3ef5960b35b089

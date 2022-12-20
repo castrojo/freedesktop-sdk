@@ -1,13 +1,10 @@
 sources:
-- kind: git_tag
-  track: release/15.x
-  track-extra:
-  # Attempt to predict the next branchpoint.
-  - release/16.x
+- kind: git_repo
+  url: github:llvm/llvm-project.git
+  track: llvmorg-*
   exclude:
   - llvmorg-*-rc*
   - llvmorg-*-init*
-  url: github:llvm/llvm-project.git
   ref: llvmorg-15.0.7-0-g8dfdcc7b7bf66834a761bd8de445840ef68e4d1a
 - kind: patch
   path: patches/llvm/llvm-no-rpath.patch

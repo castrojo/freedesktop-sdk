@@ -19,7 +19,7 @@ config:
       rm -r "%{install-root}%{datadir}/help"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:zenity.git
-  track: master
+  track: '*.*.*'
   ref: 3.44.0-0-g7bf8c8910d34bfb2b883b32118b93b68d44dd77b

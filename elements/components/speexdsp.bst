@@ -21,11 +21,9 @@ public:
         - '%{libdir}/libspeexdsp.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: xiph:speexdsp.git
-  track: master
-  match:
-  - SpeexDSP-*
+  track: SpeexDSP-*
   exclude:
   - SpeexDSP-*rc*
   - SpeexDSP-*beta*

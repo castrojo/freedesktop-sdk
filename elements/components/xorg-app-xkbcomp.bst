@@ -14,7 +14,7 @@ depends:
   type: build
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/app/xkbcomp.git
-  track: master
+  track: xkbcomp-*
   ref: xkbcomp-1.4.6-0-g7bac6a25bb44d39710f1b2b5fdad56d7f4c01c39

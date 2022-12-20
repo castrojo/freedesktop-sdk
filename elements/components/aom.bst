@@ -50,9 +50,9 @@ public:
         - "%{libdir}/libaom.so"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: git_https:aomedia.googlesource.com/aom.git
-  track: main
-  match:
-  - v*.*.*
+  track: v*.*.*
+  exclude:
+  - "*-rc*"
   ref: v3.6.0-0-g3c65175b1972da4a1992c1dae2365b48d13f9a8d

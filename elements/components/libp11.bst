@@ -8,9 +8,9 @@ depends:
 - components/openssl.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:OpenSC/libp11.git
-  track: master
+  track: libp11-*
   ref: libp11-0.4.12-0-g53d65dc48cf436694f7edcfc805414e608e8a2bf
 
 variables:

@@ -47,9 +47,7 @@ public:
     - CVE-2019-19906
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:cyrusimap/cyrus-sasl.git
-  track: master
-  track-extra:
-  - cyrus-sasl-2.1
+  track: cyrus-sasl-*
   ref: cyrus-sasl-2.1.28-0-g7a6b45b177070198fed0682bea5fa87c18abb084

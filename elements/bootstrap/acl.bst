@@ -44,7 +44,7 @@ config:
       sed -i 's/"PO-Revision-Date: .*[\]n"/"PO-Revision-Date: 2011-11-11 11:11+0000\\n"/' po/en@*.po
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: savannah:acl.git
-  track: master
+  track: v*
   ref: v2.3.1-0-g752c182706e2535fb4e482b25331177ebbddd2bb

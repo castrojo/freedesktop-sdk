@@ -40,11 +40,9 @@ public:
         - '%{libdir}/libhistory.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: savannah:readline.git
-  track: master
-  match:
-  - 'readline-*'
+  track: readline-*
   exclude:
   - '*-alpha*'
   - '*-beta*'

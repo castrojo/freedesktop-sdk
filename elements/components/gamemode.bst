@@ -34,9 +34,9 @@ public:
         - "%{libdir}/libINIReader.so"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:FeralInteractive/gamemode.git
-  track: master
+  track: '*.*'
   ref: 1.7-0-g4dc99dff76218718763a6b07fc1900fa6d1dafd9
 - kind: patch
   path: patches/gamemode/Fix-building-when-pidfd_open-is-available.patch

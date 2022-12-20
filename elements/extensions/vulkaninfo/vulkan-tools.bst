@@ -23,11 +23,7 @@ variables:
     -DBUILD_WSI_WAYLAND_SUPPORT=On
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:KhronosGroup/Vulkan-Tools.git
+  track: sdk-*
   ref: sdk-1.3.236.0-0-gce45337c51ed53e6f1b337aa746a5a96c5018f86
-  track: master
-  track-extra:
-  - sdk-1.3.236
-  match:
-  - sdk-*

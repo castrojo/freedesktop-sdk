@@ -24,7 +24,7 @@ config:
       done
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:utils/kernel/kmod/kmod.git
-  track: master
+  track: v*
   ref: v30-0-g5d46434a63ae0160150a0efdde1914873697e273

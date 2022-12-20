@@ -73,11 +73,7 @@ public:
         - '%{libdir}/libSDL2-2.0.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:libsdl-org/SDL.git
-  track: main
-  track-extra:
-  - release-2.26.x
+  track: release-*
   ref: release-2.26.3-0-gadf31f6ec0be0f9ba562889398f71172c7941023
-  match:
-  - release-*

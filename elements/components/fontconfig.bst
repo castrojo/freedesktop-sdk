@@ -33,9 +33,9 @@ public:
       fi
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:fontconfig/fontconfig.git
-  track: main
+  track: '*.*.*'
   exclude:
   - 2.*.9*
   ref: 2.14.1-0-gc45e09df1ef235d653d56aef05012f6a3cc57979

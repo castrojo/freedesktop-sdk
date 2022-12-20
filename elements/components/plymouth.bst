@@ -34,9 +34,9 @@ config:
       install -Dm644 freedesktop-sdk/freedesktop-sdk-40.png "%{install-root}%{datadir}/plymouth/themes/spinner/watermark.png"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:plymouth/plymouth.git
-  track: main
+  track: '*.*.*'
   ref: 22.02.122-0-g27764b2a2c2e21ad988cae01dc59d4bb78e5c1dc
 - kind: patch_queue
   path: patches/plymouth

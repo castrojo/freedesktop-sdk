@@ -19,7 +19,7 @@ public:
         - '%{libdir}/libopusurl.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: xiph:opusfile.git
-  track: master
+  track: v*
   ref: v0.12-0-ga55c164e9891a9326188b7d4d216ec9a88373739

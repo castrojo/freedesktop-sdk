@@ -16,11 +16,9 @@ variables:
   autogen: ./autogen.sh --no-po4a
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: tukaani:xz.git
-  track: master
-  track-extra:
-  - v5.2
+  track: v*
   exclude:
   - v*alpha
   - v*beta

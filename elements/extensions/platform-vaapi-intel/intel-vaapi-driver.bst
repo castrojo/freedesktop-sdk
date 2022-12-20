@@ -16,9 +16,7 @@ variables:
     -Ddriverdir="%{libdir}/dri/intel-vaapi-driver"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:intel/intel-vaapi-driver.git
-  track: master
-  track-extra:
-  - v2.4-branch
+  track: '*.*.*'
   ref: 2.4.1-0-g9a1f0c64174f970a26380d4957583c71372fbb7c

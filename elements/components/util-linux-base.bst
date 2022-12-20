@@ -73,9 +73,9 @@ config:
       rm -rf "%{install-root}%{prefix}/sbin"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:utils/util-linux/util-linux.git
-  track: master
+  track: v*
   exclude:
   - v*-rc*
   ref: v2.38-0-g1f5129b79ad232c79ecbac31998e96c20ff4c90c

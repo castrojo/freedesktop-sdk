@@ -49,13 +49,9 @@ public:
       fi
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:glib.git
-  track: main
-  track-extra:
-  - glib-2-74
-  match:
-  - 2.*[02468].*
+  track: 2.*[02468].*
   ref: 2.74.6-0-ga5dde6304670af590f25a2992104c0880003acf0
 - kind: git_module
   path: subprojects/gvdb

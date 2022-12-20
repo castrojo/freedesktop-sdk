@@ -39,9 +39,9 @@ config:
       mv "%{install-root}%{includedir}/gpgme.h" "%{install-root}%{includedir}/%{gcc_triplet}/"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnupg:gpgme.git
-  track: master
+  track: gpgme-*
   exclude:
   - "*-base"
   ref: gpgme-1.17.1-0-gee50a38823daaa16b151a549a7dafef34bbd1e81

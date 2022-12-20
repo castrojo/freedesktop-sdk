@@ -32,9 +32,9 @@ public:
         - '%{libdir}/libtasn1.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gitlab:gnutls/libtasn1.git
-  track: master
+  track: v*
   ref: v4.19.0-0-g2b7ee166f031bea63c5e7badcedc69f1cea69c89
 - kind: git_module
   path: gnulib

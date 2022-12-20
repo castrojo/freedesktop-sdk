@@ -1,9 +1,7 @@
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:linux/kernel/git/stable/linux.git
-  track: master
-  track-extra:
-  - linux-6.1.y
+  track: v*
   exclude:
   - '*-rc*'
   ref: v6.1.13-0-g1ac8758e027247774464c808447a9c2f1f97b637

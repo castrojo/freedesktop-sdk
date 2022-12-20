@@ -17,7 +17,7 @@ public:
         - '%{libdir}/libXpm.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxpm.git
-  track: master
+  track: libXpm-*
   ref: libXpm-3.5.14-0-g08bc174f28af028b6ebaa9edeccd3ff56c396e92

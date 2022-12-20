@@ -59,7 +59,7 @@ variables:
     -Dpolkit=enabled
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:fwupd/fwupd.git
-  track: main
+  track: '*.*.*'
   ref: 1.8.12-0-g9b7430107b68b0fb5f683e8ef1e9260296f494a8

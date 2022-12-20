@@ -17,7 +17,7 @@ public:
         - '%{libdir}/libxshmfence.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxshmfence.git
-  track: master
+  track: libxshmfence-*
   ref: libxshmfence-1.3.2-0-gedbb7d9e5f3912fe521f0cfe5ae416bb9ca83633

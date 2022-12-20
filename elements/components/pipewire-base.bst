@@ -121,9 +121,9 @@ public:
     product: pipewire
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:PipeWire/pipewire.git
-  track: master
+  track: '*.*.*'
   exclude:
   - '*.*.9*'
   ref: 0.3.66-0-g08b0ed65765a1033424a5c0d897a392a61f8a2a3

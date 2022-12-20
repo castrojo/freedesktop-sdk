@@ -35,12 +35,10 @@ config:
     ln -sr "%{install-root}%{bindir}"/perl[0-9]* "%{install-root}%{bindir}/perl"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:perl/perl5.git
-  track: blead
   # Tracking is expected to be changed to a maintenance branch post-release
-  match:
-  - v5.*[02468].*
+  track: v5.*[02468].*
   exclude:
   - v*-RC*
   ref: v5.36.0-0-gb3c502b607191da0e743a4fa34501a05442305b3

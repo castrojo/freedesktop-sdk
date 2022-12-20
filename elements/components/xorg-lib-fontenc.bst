@@ -11,7 +11,7 @@ depends:
   type: build
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libfontenc.git
-  track: master
+  track: libfontenc-*
   ref: libfontenc-1.1.7-0-g68300c3452592a9e7bf60b4edb008785c4c891c4

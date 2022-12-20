@@ -24,7 +24,7 @@ public:
         - '%{libdir}/libzstd.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:facebook/zstd.git
-  track: release
+  track: v*.*.*
   ref: v1.5.4-0-g945f27758c0fd67b636103a38dbf050266c6b90a

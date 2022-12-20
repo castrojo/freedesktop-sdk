@@ -20,11 +20,9 @@ variables:
     -Dzshcompletiondir=no
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:libinput/libinput.git
-  track: main
-  track-extra:
-  - 1.20-branch
+  track: '*.*.*'
   exclude:
   - "*.9??"
   ref: 1.22.0-0-gfc59e574e050c502c9a3adefacf97babf3d09c7a

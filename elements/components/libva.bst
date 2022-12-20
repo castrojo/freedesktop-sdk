@@ -30,10 +30,7 @@ public:
         - '%{libdir}/libva-wayland.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:intel/libva.git
-  track: v2.15-branch
-  track-extra:
-  # Attempt to predict the next branchpoint.
-  - v2.16-branch
+  track: '2.*.*'
   ref: 2.15.0-0-gb095d10bf355110352e75c22e581018a7ea7de5a

@@ -10,9 +10,7 @@ depends:
 - components/pycairo.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:pygobject.git
-  track: master
-  track-extra:
-  - pygobject-3-42
+  track: '*.*.*'
   ref: 3.42.2-0-gf9c363a0c2fea08b140dbb9c9f072cbeb0cf1f10

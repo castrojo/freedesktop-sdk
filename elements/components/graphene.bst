@@ -17,9 +17,7 @@ public:
         - '%{libdir}/graphene-1.0/include/*'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:ebassi/graphene.git
-  track: master
-  track-extra:
-  - graphene-1-10
+  track: "*.*.*"
   ref: 1.10.8-0-g4e2578450809c2099400cf85caf18eafcd7100aa

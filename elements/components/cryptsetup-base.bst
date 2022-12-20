@@ -17,9 +17,9 @@ variables:
     --with-tmpfilesdir="%{indep-libdir}/tmpfiles.d"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gitlab:cryptsetup/cryptsetup.git
-  track: master
+  track: v*
   exclude:
   - '*rc*'
   ref: v2.6.1-0-g4fc619853d39b56cc16a14108877a6802b001f3d

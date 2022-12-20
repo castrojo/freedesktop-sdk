@@ -33,14 +33,10 @@ variables:
   command-subdir: src/github.com/containers/podman
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:containers/podman.git
   directory: src/github.com/containers/podman
-  track: main
-  track-extra:
-  - v4.3
-  # Attempt to predict the next branchpoint.
-  - v4.4
+  track: v*
   exclude:
   - "*rc*"
   ref: v4.4.1-0-g34e8f3933242f2e566bbbbf343cf69b7d506c1cf

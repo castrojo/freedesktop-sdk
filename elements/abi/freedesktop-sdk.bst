@@ -6,6 +6,7 @@ config:
     target_arch: "%{target_arch}"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop-sdk-project:freedesktop-sdk.git
-  # When creating release, release branch must be tracked to get a ref
+  # Before declaring stable ABI, set tracking for this element to the tag
+  # pattern for the release (for example freedesktop-sdk-23.08.*)

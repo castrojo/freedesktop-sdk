@@ -19,13 +19,11 @@ config:
       sed -i '45d;46d;47d;48d;49d' configure.ac
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: savannah:gperf.git
-  track: master
+  track: v*
   ref: v3.1-0-g165bba235b2e3289967e505411500e08151f63e9
-- kind: git_tag
+- kind: git_repo
   url: savannah:gnulib.git
-  track: v0.1-2785-gc01635497d830f181a2607279135b3fff041b936
-  track-tags: false
   directory: gnulib
   ref: v0.1-2785-gc01635497d830f181a2607279135b3fff041b936

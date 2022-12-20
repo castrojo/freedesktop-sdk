@@ -48,7 +48,9 @@ public:
         - '%{libdir}/libvpx.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: chromium:webm/libvpx.git
-  track: main
+  track: v*
+  exclude:
+  - v*rc*
   ref: v1.13.0-0-gd6eb9696aa72473c1a11d34d928d35a3acc0c9a9

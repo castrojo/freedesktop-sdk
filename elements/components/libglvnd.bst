@@ -38,7 +38,7 @@ public:
         - '%{libdir}/libGLESv2.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:glvnd/libglvnd.git
-  track: master
+  track: v*
   ref: v1.6.0-0-gb05bbcdaeb9b700cf7877e6d66f8fc3ac952295b

@@ -27,13 +27,9 @@ public:
         - '%{libdir}/libvulkan.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:KhronosGroup/Vulkan-Loader.git
+  track: sdk-*
   ref: sdk-1.3.236.0-0-g1ee83a25c2c20e2efbfc0ac976c7a3ddb5fc291c
-  track: master
-  track-extra:
-  - sdk-1.3.236
-  match:
-  - sdk-*
 - kind: patch
   path: patches/vulkan/vulkan-libdir-path.patch

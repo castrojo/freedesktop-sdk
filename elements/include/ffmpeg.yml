@@ -179,12 +179,11 @@ config:
   - ./configure %{conf-local} %{conf-extra}
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: ffmpeg:ffmpeg.git
-  track: release/5.1
-  track-extra:
-  # Attempt to predict the next branchpoint.
-  - release/5.2
+  track: n*
+  exclude:
+  - '*-dev'
   ref: n5.1.2-0-geacfcbae690f914a4b1b4ad06999f138540cc3d8
 - kind: patch
   path: patches/ffmpeg/avcodec-smcenc-stop-accessing-out-of-bounds-frame.patch

@@ -20,13 +20,9 @@ public:
       (@): include/_private/exclude-systemd.yml
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:glib-networking.git
-  track: master
-  track-extra:
-  - glib-2-70
-  match:
-  - 2.*[02468].*
+  track: 2.*[02468].*
   exclude:
   - '*alpha*'
   - '*beta*'

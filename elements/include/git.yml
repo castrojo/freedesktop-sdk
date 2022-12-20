@@ -1,9 +1,7 @@
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:git/git.git
-  track: main
-  track-extra:
-  - maint
+  track: v*
   exclude:
   - v*-rc*
   ref: v2.39.2-0-gcbf04937d5b9fcf0a76c28f69e6294e9e3ecd7e6

@@ -17,7 +17,7 @@ public:
     vendor: opus-codec
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: xiph:opus.git
-  track: master
+  track: v*
   ref: v1.3.1-0-ge85ed7726db5d677c9c0677298ea0cb9c65bdd23

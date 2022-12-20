@@ -16,10 +16,7 @@ variables:
     -Dx11=true
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:intel/libva-utils.git
-  track: v2.16-branch
-  track-extra:
-  # Attempt to predict the next branchpoint.
-  - v2.17-branch
+  track: '*.*.*'
   ref: 2.17.1-0-g3a291be22cfe70e41bad8a376fa278efa651fdff

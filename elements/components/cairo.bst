@@ -38,15 +38,11 @@ public:
     - CVE-2018-19876
     - CVE-2020-35492
     - CVE-2019-6462
-    
+
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:cairo/cairo.git
-  track: master
-  track-extra:
-  - 1.16
-  match:
-  - 1.*[02468].*
+  track: 1.*[02468].*
   ref: 1.16.0-0-g3ad43122b21a3299dd729dc8462d6b8f7f01142d
 - kind: patch_queue
   path: patches/cairo

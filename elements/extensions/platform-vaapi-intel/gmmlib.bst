@@ -18,11 +18,9 @@ public:
         - "%{libdir}/dri/intel-vaapi-driver/lib/pkgconfig/*"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:intel/gmmlib.git
-  track: master
-  match:
-  - 'intel-gmmlib-*'
+  track: intel-gmmlib-*
   exclude:
   - 'intel-gmmlib-*.pre*'
   ref: intel-gmmlib-22.3.3-0-g26ffef5199abcec625651562eb319e983037297d

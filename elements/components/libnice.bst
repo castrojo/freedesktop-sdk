@@ -26,7 +26,7 @@ variables:
     -Dexamples=disabled
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:libnice/libnice.git
-  track: master
+  track: '*.*.*'
   ref: 0.1.21-0-g3d9cae16a5094aadb1651572644cb5786a8b4e2d

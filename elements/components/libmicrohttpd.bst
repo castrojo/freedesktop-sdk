@@ -14,9 +14,7 @@ config:
       rm "%{install-root}%{infodir}/dir"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: git_https:git.gnunet.org/libmicrohttpd.git
-  track: master
-  exclude:
-  - v0.9.71
+  track: v*
   ref: v0.9.75-0-g940041ad78b4fb8d0f04066046a65bbe3c390fd4

@@ -26,13 +26,10 @@ public:
         - "%{libdir}/dri/intel-vaapi-driver/lib/pkgconfig/*"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:intel/media-driver.git
-  track: master
-  track-extra:
-  - intel-media-22.5
-  match:
-  - 'intel-media-*'
+  track: intel-media-*
   exclude:
-  - 'intel-media-*.pre*'
+  - intel-media-*.pre*
+  - intel-media-600*
   ref: intel-media-23.1.0-0-g012af72d1fc55dfc89c29fc148dcfea939f2e9d9

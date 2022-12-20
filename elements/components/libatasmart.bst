@@ -8,7 +8,7 @@ depends:
 - bootstrap-import.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: git_https:git.0pointer.net/libatasmart.git
-  track: master
+  track: v*
   ref: v0.19-0-gde6258940960443038b4c1651dfda3620075e870

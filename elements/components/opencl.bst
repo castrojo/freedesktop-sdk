@@ -21,7 +21,7 @@ public:
         - '%{libdir}/libOpenCL.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:OCL-dev/ocl-icd.git
-  track: master
+  track: v*
   ref: v2.3.1-0-g1165deedb2ae741cd76e60986f7c2cb5023059d9

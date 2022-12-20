@@ -43,11 +43,9 @@ public:
         - '%{libdir}/libselinux.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:SELinuxProject/selinux.git
-  track: master
-  match:
-  - libselinux-*
+  track: libselinux-*
   exclude:
   - '*rc*'
   ref: libselinux-3.4-0-g0a8c177dacdc1df96ea11bb8aa75e16c4fa82285

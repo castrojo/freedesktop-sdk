@@ -14,9 +14,9 @@ config:
   - make DESTDIR="%{install-root}" FIRMWAREDIR="%{indep-libdir}/firmware" install
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:linux/kernel/git/firmware/linux-firmware.git
-  track: main
+  track: '[0-9]*'
   ref: 20230210-0-gbf4115c1aa2bee686ec675595271da50611684b5
 - kind: local
   path: files/linux-firmware/compress.py

@@ -26,9 +26,9 @@ public:
         - '%{libdir}/libwayland-server.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:wayland/wayland.git
-  track: main
+  track: '*.*.*'
   exclude:
   - '*.*.9*'
   ref: 1.21.0-0-g8135e856ebd79872f886466e9cee39affb7d9ee8

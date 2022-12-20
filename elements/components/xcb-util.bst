@@ -18,9 +18,9 @@ public:
         - '%{libdir}/libxcb-util.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxcb-util.git
-  track: master
+  track: xcb-util-*
   ref: xcb-util-0.4.1-0-g3a157762578a2e4253a7cb40d2854a3444d5a9df
 - kind: git_module
   path: m4

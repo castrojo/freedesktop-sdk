@@ -16,7 +16,7 @@ public:
         - '%{libdir}/libnl.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:thom311/libnl.git
-  track: main
+  track: libnl*
   ref: libnl3_7_0-0-g1bb416213c7038d0da9a6f5141c611f6dbcefedc

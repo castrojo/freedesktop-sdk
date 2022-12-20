@@ -3,7 +3,7 @@ public:
     version-match: '(\d+)_(\d+)'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:file/file.git
-  track: master
+  track: FILE*
   ref: FILE5_44-0-gb92eed41b1bc0739c5c5d70c444e0c574429321b
