@@ -13,4 +13,4 @@ sources:
   track: master
   exclude:
   - '*rc*'
-  ref: 5.3-0-g5b73b25bd632a0556b04787fb230cf7d1f13b04e
+  ref: 5.4-0-g137ab2a46004da03652ab410178670c25cfe090c
