@@ -867,7 +867,7 @@ publish_snap_aarch64:
     [ -n "${DOCKER_HUB_ADDRESS}" ]
 
   - |
-    DOCKER_IMAGES=(platform sdk debug flatpak toolbox)
+    DOCKER_IMAGES=(platform sdk debug flatpak)
     BST_ELEMENTS=$(printf 'oci/%q-docker.bst ' ${DOCKER_IMAGES[@]})
     
     ${BST} build ${BST_ELEMENTS[@]}
@@ -880,10 +880,12 @@ publish_snap_aarch64:
   - |
     set -eu
     for name in ${DOCKER_IMAGES[@]}; do
-      podman push freedesktopsdk/${name}:latest docker://docker.io/freedesktopsdk/${name}:"${DOCKER_VERSION}"-"${ARCH}"
+      full_name=freedesktopsdk/${name}
+      podman push ${full_name}:latest docker://docker.io/${full_name}:"${DOCKER_VERSION}"-"${ARCH}" \
+      --digestfile digest.txt
       mkdir -p "docker-pushed-digests/${DOCKER_VERSION}"
-      digest="$(python3 utils/get_remote_digest.py freedesktopsdk/${name} "${DOCKER_VERSION}"-"${ARCH}")"
-      echo "freedesktopsdk/${name}@${digest}" \
+      digest=$(<digest.txt)
+      echo "${full_name}@${digest}" \
           >"docker-pushed-digests/${DOCKER_VERSION}/${name}-${ARCH}.txt"
     done
 
