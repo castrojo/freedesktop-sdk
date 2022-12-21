@@ -1,5 +1,9 @@
 Freedesktop-SDK
 
+
+freedesktop-sdk-21.08.17.1:
+  * Fixes to Docker publishing
+
 freedesktop-sdk-21.08.17:
   * Update xorg-lib-ice to libICE-1.1.1-0
   * Update nano to v7.1-0
