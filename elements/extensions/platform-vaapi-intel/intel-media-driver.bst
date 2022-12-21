@@ -30,9 +30,9 @@ sources:
   url: github:intel/media-driver.git
   track: master
   track-extra:
-  - intel-media-22.3
+  - intel-media-22.5
   match:
   - 'intel-media-*'
   exclude:
   - 'intel-media-*.pre*'
-  ref: intel-media-22.5.1-0-ga12fef1e8aebc76fd745a7105f5896c792ff3d62
+  ref: intel-media-22.5.4-0-ge461c0558c87a327c5a133efbcb5295e85c7d7f5
