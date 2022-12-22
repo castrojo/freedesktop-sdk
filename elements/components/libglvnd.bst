@@ -1,23 +1,19 @@
-kind: autotools
+kind: meson
+
+build-depends:
+- public-stacks/buildsystem-meson.bst
 
 depends:
-- filename: bootstrap-import.bst
-- filename: components/xorg-lib-x11.bst
-- filename: components/xorg-lib-xext.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/python3.bst
-  type: build
+- components/xorg-lib-x11.bst
+- components/xorg-lib-xext.bst
 
 variables:
   local_flags: >-
     -UDEFAULT_EGL_VENDOR_CONFIG_DIRS
     -DDEFAULT_EGL_VENDOR_CONFIG_DIRS=\"%{libdir}/GL/glvnd/egl_vendor.d\"
 
-  conf-local: >-
-    --enable-asm
-    --enable-tls
-    --disable-headers
+  meson-local: >-
+    -Dheaders=false
 
 config:
   install-commands:
