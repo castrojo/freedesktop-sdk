@@ -21,22 +21,17 @@
 import sys
 import collections
 import os
-from datetime import datetime
 import yaml
 from .image_builder import build_images
 
 
-GlobalConf = collections.namedtuple('GlobalConf',
-                                    ['mode', 'gzip', 'output', 'created'])
+GlobalConf = collections.namedtuple('GlobalConf', ['mode', 'gzip', 'output'])
 
 
 def main():
     data = yaml.load(sys.stdin, Loader=yaml.CLoader)
     mode = data.get('mode', 'oci')
     enabled_gzip = data.get('gzip', mode == 'oci')
-    created = data.get('created',
-                       datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
-    )
 
-    global_conf = GlobalConf(mode, enabled_gzip, os.getcwd(), created)
+    global_conf = GlobalConf(mode, enabled_gzip, os.getcwd())
     build_images(global_conf, data.get('images', []), data.get('annotations'))
