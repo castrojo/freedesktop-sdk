@@ -23,8 +23,8 @@ sources:
   exclude:
   - '*rc'
   ref:
-    sha256sum: 3a8e030c2334f782085f81627062cc6d4a6771edf31e055ffe374f9e6b089ab9
-    suffix: b5/5b/e7b84f1107a9cd07df1436d474bb85b4d157f691ecc0c502124bb7f9275b/meson-0.64.1.tar.gz
+    sha256sum: aa50a4ba4557c25e7d48446abfde857957dcdf58385fffbe670ba0e8efacce05
+    suffix: 83/40/c0ea8d3072441403aa30d91b900051a961e0f6d58f702c0ec9ca812c8737/meson-1.0.0.tar.gz
 - kind: patch
   path: patches/meson/meson-no-lib64.patch
   strip-level: 0
