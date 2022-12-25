@@ -1671,7 +1671,7 @@ config:
         module CPU_FREQ_GOV_POWERSAVE
         enable CPU_FREQ_STAT
         module X86_AMD_FREQ_SENSITIVITY
-        module X86_AMD_PSTATE
+        enable X86_AMD_PSTATE
         module X86_P4_CLOCKMOD
         module X86_PCC_CPUFREQ
         module X86_POWERNOW_K8
