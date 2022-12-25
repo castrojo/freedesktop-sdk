@@ -19,5 +19,5 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxkbfile.git
   track: master
-  ref: libxkbfile-1.1.1-0-gf855ea9cf3aecc74c3b07da924ff2e36944e4be1
+  ref: libxkbfile-1.1.2-0-g3c0bca45d61982295ae0051fb874d57dc3d6f327
 
