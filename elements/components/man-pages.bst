@@ -20,4 +20,4 @@ sources:
   track: master
   exclude:
   - '*rc*'
-  ref: man-pages-6.01-0-gc11cb1ca844d088a7ecffaedd4bb1d5475b7829b
+  ref: man-pages-6.02-0-g99f8a08ff6b157d1749d63bc93dd424e100c08fa
