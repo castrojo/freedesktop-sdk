@@ -31,6 +31,6 @@ sources:
   - nasm-2.15.xx
   exclude:
   - nasm-*rc*
-  ref: nasm-2.15.05-0-g214f2d4c56925a280c480950bbf71389e2169e1a
+  ref: nasm-2.16.01-0-gd41598b3359d39c14e80f56bd8c3749f1d097932
 - kind: patch
   path: patches/nasm/nasm-disable-werror-attributes.patch
