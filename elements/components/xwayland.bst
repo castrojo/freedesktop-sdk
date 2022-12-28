@@ -37,4 +37,4 @@ sources:
   - xwayland-22.1
   match:
   - xwayland-*
-  ref: xwayland-22.1.6-0-g5437e5385b915fcc5edd680df86c32c0f870c695
+  ref: xwayland-22.1.7-0-gef2e1be3fbbfe9e89010dfe9c3ac4e50b7eec161
