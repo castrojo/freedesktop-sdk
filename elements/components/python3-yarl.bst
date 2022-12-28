@@ -18,5 +18,5 @@ sources:
 - kind: pypi
   name: yarl
   ref:
-    sha256sum: af887845b8c2e060eb5605ff72b6f2dd2aab7a761379373fd89d314f4752abbf
-    suffix: d6/04/255c68974ec47fa754564c4abba8f61f9ed68b869bbbb854198d6259c4f7/yarl-1.8.1.tar.gz
+    sha256sum: 49d43402c6e3013ad0978602bf6bf5328535c48d192304b91b97a3c6790b1562
+    suffix: c4/1e/1b204050c601d5cd82b45d5c8f439cb6f744a2ce0c0a6f83be0ddf0dc7b2/yarl-1.8.2.tar.gz
