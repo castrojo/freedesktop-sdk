@@ -6,6 +6,15 @@ build-depends:
 depends:
 - bootstrap-import.bst
 
+variables:
+  cmake-local: >-
+    -DBUILD_SHARED_LIBS:BOOL=ON
+
+config:
+  install-commands:
+    (>):
+    - find %{install-root} -name '*.o' -delete
+
 sources:
 - kind: git_tag
   url: github:PJK/libcbor.git
