@@ -14,9 +14,12 @@ depends:
 
 variables:
   meson-local: >-
-    -Detnaviv=true
-    -Dtegra=true
+    -Dtegra=enabled
+    -Dcairo-tests=disabled
+    -Dman-pages=disabled
+    -Dvalgrind=disabled
     -Dudev=false
+    -Dtests=false
     -Dlibdrm=false
 
 public:
@@ -30,6 +33,6 @@ sources:
 - kind: git_tag
   url: freedesktop:mesa/drm.git
   track: main
-  ref: libdrm-2.4.112-0-g60cf6bcef1390473419df14e3214da149dbd8f99
+  ref: libdrm-2.4.114-0-gb9ca37b3134861048986b75896c0915cbf2e97f9
 - kind: patch
   path: patches/libdrm/libdrm-disable-libdrm.patch
