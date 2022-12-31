@@ -30,7 +30,7 @@ variables:
     GL/internal/dri_interface.h
     EGL/egl.h
     EGL/eglext.h
-    EGL/eglextchromium.h
+    EGL/eglext_angle.h
     EGL/eglmesaext.h
     EGL/eglplatform.h
     d3dadapter/present.h
