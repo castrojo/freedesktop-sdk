@@ -21,4 +21,4 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxdamage.git
   track: master
-  ref: libXdamage-1.1.5-0-g977b04cd69738806e0b48fcf5c725763d065f06d
+  ref: libXdamage-1.1.6-0-g1f20df4fd7c132f55e924dc5ec3f270cd54704d0
