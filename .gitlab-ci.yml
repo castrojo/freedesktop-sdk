@@ -251,7 +251,7 @@ check_update_elements:
       --create_mr \
       --shuffle-branches \
       --gitlab_project="freedesktop-sdk/freedesktop-sdk" \
-      --max_merge_requests=4 \
+      --max_merge_requests=10 \
       $TRACK_ELEMENTS
   interruptible: false
   rules:
