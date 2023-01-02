@@ -9,6 +9,7 @@ devel:
   - "%{datadir}/pkgconfig/**"
   - "%{datadir}/aclocal"
   - "%{datadir}/aclocal/**"
+  - "%{datadir}/cmake/**"
   - "%{prefix}/lib/cmake"
   - "%{prefix}/lib/cmake/**"
   - "%{libdir}/cmake"
