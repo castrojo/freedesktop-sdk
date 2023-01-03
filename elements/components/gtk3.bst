@@ -1,7 +1,7 @@
-kind: autotools
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 - components/perl.bst
 - components/gtk-doc.bst
 - components/gobject-introspection.bst
@@ -25,18 +25,6 @@ depends:
 - components/xorg-lib-xdamage.bst
 - components/xorg-lib-xinerama.bst
 - components/xorg-lib-xi.bst
-
-variables:
-  conf-local: |
-    --enable-cups \
-    --enable-xkb \
-    --enable-xinerama \
-    --enable-xrandr \
-    --enable-xfixes \
-    --enable-xcomposite \
-    --enable-xdamage \
-    --enable-x11-backend \
-    --enable-wayland-backend
 
 public:
   bst:
@@ -65,4 +53,4 @@ sources:
 - kind: git_tag
   url: gnome:gtk.git
   track: gtk-3-24
-  ref: 3.24.35-0-g14cf55f98ddd71ad3f91487eda1c7f14d67de119
+  ref: 3.24.36-0-g35516a5e866cd77390eb71d72d5b67f45dc4302c
