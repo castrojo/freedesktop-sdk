@@ -34,4 +34,4 @@ sources:
 - kind: git_tag
   url: freedesktop:poppler/poppler.git
   track: master
-  ref: poppler-22.12.0-0-gdf568263c51950ceed6f1fb42f80e99a2614c275
+  ref: poppler-23.01.0-0-g4259ff0c2067d302f97d87221a442eec8e88d45c
