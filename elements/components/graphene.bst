@@ -1,0 +1,25 @@
+kind: meson
+
+build-depends:
+- public-stacks/buildsystem-meson.bst
+
+depends:
+- bootstrap-import.bst
+- components/glib.bst
+- components/gobject-introspection.bst
+
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libgraphene-1.0.so'
+        - '%{libdir}/graphene-1.0/include/*'
+
+sources:
+- kind: git_tag
+  url: github:ebassi/graphene.git
+  track: master
+  track-extra:
+  - graphene-1-10
+  ref: 1.10.8-0-g4e2578450809c2099400cf85caf18eafcd7100aa
