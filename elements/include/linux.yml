@@ -6,7 +6,7 @@ sources:
   - linux-6.0.y
   exclude:
   - '*-rc*'
-  ref: v6.0.15-0-g0106d88e2d2781a962e99c11d1ab336b0d7e893f
+  ref: v6.0.16-0-g29e1bc6a55debd187afb6ec2e49beb7e57102b0a
 - kind: local
   path: files/linux/config-utils.sh
 - kind: patch_queue
