@@ -22,9 +22,9 @@ config:
 sources:
 - kind: git_tag
   # This needs to be in sync with LLVM version
-  track: llvm_release_140
+  track: llvm_release_150
   track-tags: false
   url: github:KhronosGroup/SPIRV-LLVM-Translator.git
-  ref: v14.0.0-83-g3c0ee8a63323aba1a8006e432847a894218de213
+  ref: v15.0.0-10-g78ad93b9952cb78889b86e9aa390d013c49dca0b
   match:
   - v*

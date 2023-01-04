@@ -1,15 +1,13 @@
 sources:
 - kind: git_tag
-  track: release/14.x
+  track: release/15.x
+  track-extra:
+  # Attempt to predict the next branchpoint.
+  - release/16.x
   exclude:
   - llvmorg-*-rc*
   - llvmorg-*-init*
   url: github:llvm/llvm-project.git
-  ref: llvmorg-14.0.6-0-gf28c006a5895fc0e329fe15fead81e37457cb1d1
+  ref: llvmorg-15.0.6-0-g088f33605d8a61ff519c580a71b1dd57d16a03f8
 - kind: patch
   path: patches/llvm/llvm-no-rpath.patch
-- kind: patch
-  # https://sources.debian.org/data/main/l/llvm-toolchain-14/1%3A14.0.0-2/debian/patches/risc/clang-riscv64-multiarch.diff
-  path: patches/llvm/clang-riscv64-multiarch.diff
-- kind: patch
-  path: patches/llvm/sanitizer-Remove-include-linux-fs.h-to-resolve-fscon.patch
