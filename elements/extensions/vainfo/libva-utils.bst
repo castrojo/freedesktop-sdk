@@ -22,4 +22,4 @@ sources:
   track-extra:
   # Attempt to predict the next branchpoint.
   - v2.17-branch
-  ref: 2.16.0-0-gcdf39e1e3da85a91ef53438c3b6a97e77dda96aa
+  ref: 2.17.0-0-g42c02a6a37b1bfce91a7f15c898750f2ee9e3d6a
