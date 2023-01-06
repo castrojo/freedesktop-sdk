@@ -11,12 +11,11 @@ runtime-depends:
 - components/python3-markdown.bst
 - components/python3-markupsafe.bst
 - components/python3-pygments.bst
-- components/python3-toml.bst
 - components/python3-typogrify.bst
 
 sources:
 - kind: pypi
   name: gi-docgen
   ref:
-    sha256sum: fc56df0c7d4ab9e5ed83f35b7483cb07d0bf91761e4f139eed363d7e42ffe0c0
-    suffix: 4d/0d/84d2a72a79ba7874b34680cac5b81019f17d58f2b53d88f341c710f1f3cf/gi-docgen-2022.2.tar.gz
+    sha256sum: 88adeda9cbf882569479701eada009afa5d94fa29d728653ec388c32035f7fa3
+    suffix: 29/72/a319bce143e5d10677bc89b66e750c1511ec005c7a8bb098b415cc68ac68/gi-docgen-2023.1.tar.gz

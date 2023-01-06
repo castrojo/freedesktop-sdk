@@ -352,7 +352,6 @@ depends:
 - components/python3-poetry-core.bst
 - components/python3-pyexpect.bst
 - components/python3-pygments.bst
-- components/python3-toml.bst
 - components/python3-pytz.bst
 - components/python3-pyyaml.bst
 - components/python3-requests-toolbelt.bst
