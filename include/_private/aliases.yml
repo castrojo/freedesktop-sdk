@@ -5,6 +5,7 @@
 chromium: https://chromium.googlesource.com/
 debian_salsa: https://salsa.debian.org/
 fedora_rpms: https://src.fedoraproject.org/rpms/
+flathub: https://dl.flathub.org/
 ffmpeg: https://git.ffmpeg.org/
 freedesktop_people: git://people.freedesktop.org/~wtay/
 freedesktop: https://gitlab.freedesktop.org/

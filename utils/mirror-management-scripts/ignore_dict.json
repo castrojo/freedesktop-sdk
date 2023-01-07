@@ -16,7 +16,8 @@
     ],
     "ignore source_urls": [
       "https://cache.sdk.freedesktop.org/releases/",
-      "https://releases.freedesktop-sdk.io/releases/"
+      "https://releases.freedesktop-sdk.io/releases/",
+      "https://dl.flathub.org/repo/"
     ]
   },
   "mirror_exists_test": {
@@ -24,7 +25,8 @@
     ],
     "ignore source_urls": [
       "https://cache.sdk.freedesktop.org/releases/",
-      "https://releases.freedesktop-sdk.io/releases/"
+      "https://releases.freedesktop-sdk.io/releases/",
+      "https://dl.flathub.org/repo/"
     ]
   },
   "mirror_commit_exists_test": {
