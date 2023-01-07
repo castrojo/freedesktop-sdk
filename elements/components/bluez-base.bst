@@ -15,7 +15,7 @@ public:
   bst:
     split-rules:
       bluez-libs:
-      - '%{libdir}/libbluetooth*.so.*'
+      - '%{libdir}/libbluetooth*.so*'
       - '%{libdir}/pkgconfig/bluez.pc'
       - '%{includedir}/bluetooth/**'
       - '%{debugdir}/dwz/%{stripdir-suffix}/*'
