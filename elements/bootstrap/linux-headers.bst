@@ -3,9 +3,10 @@ description: GNU linux headers stage 1
 
 build-depends:
 - bootstrap/build/base-sdk.bst
+- bootstrap/build/rsync.bst
 
 (@):
-- elements/bootstrap/include/common.yml
+- elements/bootstrap/include/target.yml
 - elements/include/linux.yml
 
 variables:

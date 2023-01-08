@@ -3,10 +3,11 @@ description: Import the base freedesktop SDK
 
 sources:
 - kind: ostree
-  url: freedesktop-sdk:releases/
-  gpg-key: keys/freedesktop-sdk.gpg
-  track: runtime/org.freedesktop.Sdk.PreBootstrap/aarch64/20.08
-  ref: 6d92bc830560f4871445e07f06a2d76d48c7f70e1f07b00aa9061f8e420cfb8b
+  url: flathub:repo/
+  gpg-key: keys/flathub.gpg
+  # track: runtime/org.freedesktop.Sdk/aarch64/20.08
+  # Due to subsummaries get ref manually through flatpak remote-ls -c flathub <ref>
+  ref: aee8ea4206e423793761f4055ec5a51fe9da8faf22923e8f6c2ad07cde7cf7f6
 
 config:
   source: files
