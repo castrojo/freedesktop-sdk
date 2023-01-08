@@ -3,24 +3,27 @@ description: libdrm
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- components/python3-docutils.bst
 
 depends:
 - bootstrap-import.bst
 - components/xorg-lib-pciaccess.bst
 
 variables:
-  meson-local: |
-    -Dintel=false \
-    -Dradeon=false \
-    -Damdgpu=false \
-    -Dnouveau=false \
-    -Dvmwgfx=false \
-    -Domap=false \
-    -Dexynos=false \
-    -Dfreedreno=false \
-    -Dtegra=false \
-    -Dvc4=false \
-    -Detnaviv=false \
+  meson-local: >-
+    -Dintel=disabled
+    -Dradeon=disabled
+    -Damdgpu=disabled
+    -Dnouveau=disabled
+    -Dvmwgfx=disabled
+    -Domap=disabled
+    -Dexynos=disabled
+    -Dfreedreno=disabled
+    -Dtegra=disabled
+    -Dvc4=disabled
+    -Detnaviv=disabled
+    -Dcairo-tests=disabled
+    -Dvalgrind=disabled
     -Dudev=false
 
 config:
@@ -53,4 +56,4 @@ sources:
 - kind: git_tag
   url: freedesktop:mesa/drm.git
   track: main
-  ref: libdrm-2.4.112-0-g60cf6bcef1390473419df14e3214da149dbd8f99
+  ref: libdrm-2.4.114-0-gb9ca37b3134861048986b75896c0915cbf2e97f9
