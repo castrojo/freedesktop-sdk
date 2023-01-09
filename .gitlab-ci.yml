@@ -599,6 +599,8 @@ prepare_publish:
       - publish_build.txt
   except:
     - schedules
+  when: delayed
+  start_in: 10 seconds
   interruptible: false
   only:
     - master
