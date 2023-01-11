@@ -10,5 +10,5 @@ sources:
 - kind: pypi
   name: pathspec
   ref:
-    sha256sum: 7ace6161b621d31e7902eb6b5ae148d12cfd23f4a249b9ffb6b9fee12084323d
-    suffix: 24/9f/a9ae1e6efa11992dba2c4727d94602bd2f6ee5f0dedc29ee2d5d572c20f7/pathspec-0.10.1.tar.gz
+    sha256sum: 56200de4077d9d0791465aa9095a01d421861e405b5096955051deefd697d6f6
+    suffix: 32/1a/6baf904503c3e943cae9605c9c88a43b964dea5b59785cf956091b341b08/pathspec-0.10.3.tar.gz
