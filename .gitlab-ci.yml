@@ -600,7 +600,7 @@ prepare_publish:
   except:
     - schedules
   when: delayed
-  start_in: 10 seconds
+  start_in: 1 minute
   interruptible: false
   only:
     - master
