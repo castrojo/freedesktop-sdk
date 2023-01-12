@@ -15,8 +15,23 @@ public:
         (>):
         - '%{libdir}/libseccomp.so'
 
-sources:
-- kind: git_repo
-  url: github:seccomp/libseccomp.git
-  track: v*
-  ref: v2.5.4-0-gf33f95014b36f97b42f0c2290e96d5c31647ed10
+# FIXME: loongarch-specific source is not needed when 2.6.0 is released
+(?):
+- target_arch != "loongarch64":
+    sources:
+    - kind: git_repo
+      url: github:seccomp/libseccomp.git
+      track: v*
+      ref: v2.5.4-0-gf33f95014b36f97b42f0c2290e96d5c31647ed10
+- target_arch == "loongarch64":
+    config:
+      configure-commands:
+        (<):
+        - |
+          sed -i 's/0\.0\.0/2.6.0/' configure.ac
+
+    sources:
+    - kind: git_repo
+      url: github:seccomp/libseccomp.git
+      track: main
+      ref: v2.2.0-496-gf1c3196d9b95de22dde8f23c5befcbeabef5711c
