@@ -14,7 +14,7 @@ variables:
       openssl-target: linux-generic32
   - target_arch == "arm":
       openssl-target: linux-generic32
-  - target_arch == "riscv64":
+  - (target_arch == "riscv64" or target_arch == "loongarch64"):
       openssl-target: linux-generic64
   - target_arch in ["x86_64", "aarch64", "ppc64le"]:
       arch-conf: enable-ec_nistp_64_gcc_128
