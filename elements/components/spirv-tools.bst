@@ -39,4 +39,4 @@ sources:
   - sdk-1.2.198
   match:
   - sdk-*
-  ref: sdk-1.2.198-0-g21e3f681e2004590c7865bc8c0195a4ab8e66c88
+  ref: sdk-1.2.198.0-0-g21e3f681e2004590c7865bc8c0195a4ab8e66c88
