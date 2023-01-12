@@ -24,7 +24,7 @@ variables:
   (?):
   - (target_arch == "x86_64" or target_arch == "i686"):
       local_flags: -mshstk
-  - target_arch != "riscv64":
+  - (target_arch != "riscv64" and target_arch != "loongarch64"):
       arch_options: "--enable-jit"
 
   conf-local: >-
