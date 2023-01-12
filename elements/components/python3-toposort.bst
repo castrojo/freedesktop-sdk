@@ -10,5 +10,5 @@ sources:
 - kind: pypi
   name: toposort
   ref:
-    sha256sum: ddc2182c42912a440511bd7ff5d3e6a1cabc3accbc674a3258c8c41cbfbb2125
-    suffix: b2/be/67bec9a73041616dd359f06e997d56c9c99d252460a3f035411d97c96c48/toposort-1.7.tar.gz
+    sha256sum: f41a34490d44934b533a7bdaff979ee8a47203fd2d8a746db83f2d5ab12458b9
+    suffix: 8d/c3/44e51b42160145e4ebeb7d86ab93bd933fa9498f94e183ef8a47c6de8b2f/toposort-1.9.tar.gz
