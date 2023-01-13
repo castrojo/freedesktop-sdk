@@ -11,6 +11,8 @@ variables:
   meson-local: >-
     -Denable_tests=false
     -Dxxhash_muxer=disabled
+  # Disable LTO due to https://webkit.org/b/250477
+  meson-lto-flags:
 
 public:
   bst:
