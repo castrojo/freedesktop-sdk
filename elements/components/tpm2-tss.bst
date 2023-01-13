@@ -12,6 +12,10 @@ depends:
 - components/curl.bst
 - components/openssl.bst
 
+variables:
+  conf-local: >-
+    --runstatedir=/run
+
 sources:
 - kind: git_tag
   url: github:tpm2-software/tpm2-tss.git
