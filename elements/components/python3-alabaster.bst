@@ -10,5 +10,5 @@ sources:
 - kind: pypi
   name: alabaster
   ref:
-    sha256sum: a661d72d58e6ea8a57f7a86e37d86716863ee5e92788398526d58b26a4e4dc02
-    suffix: cc/b4/ed8dcb0d67d5cfb7f83c4d5463a7614cb1d078ad7ae890c9143edebbf072/alabaster-0.7.12.tar.gz
+    sha256sum: a27a4a084d5e690e16e01e03ad2b2e552c61a65469419b907243193de1a84ae2
+    suffix: 94/71/a8ee96d1fd95ca04a0d2e2d9c4081dac4c2d2b12f7ddb899c8cb9bfd1532/alabaster-0.7.13.tar.gz
