@@ -7,5 +7,3 @@ sources:
   exclude:
   - '*rc*'
   ref: v252.4-0-g4b48117716f84751dc6c8ee16c94de9858eaef4f
-- kind: patch
-  path: patches/systemd/relax-fsroot-check.patch

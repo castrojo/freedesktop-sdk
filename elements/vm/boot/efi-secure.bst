@@ -26,7 +26,7 @@ config:
                      --seed "%{uuidnamespace}" >/tmp/vars
 
   - dbus-uuidgen >/etc/machine-id
-  - SYSTEMD_RELAX_ESP_CHECKS=1 bootctl --path='/boot' --no-variables install
+  - SYSTEMD_ESP_PATH=/boot bootctl --no-variables install
   - rm /etc/machine-id
 
   - |
