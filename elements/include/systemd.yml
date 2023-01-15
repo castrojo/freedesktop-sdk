@@ -3,10 +3,9 @@ sources:
   url: github:systemd/systemd-stable.git
   track: main
   track-extra:
-  - v251-stable
+  - v252-stable
   exclude:
   - '*rc*'
-  ref: v251.10-0-gefca5283dc791a07171f80eef84e14fdb58fad57
-# remove the following patch when updating systemd
+  ref: v252.4-0-g4b48117716f84751dc6c8ee16c94de9858eaef4f
 - kind: patch
-  path: patches/systemd/relax-boot-device-check-btrfs.patch
+  path: patches/systemd/relax-fsroot-check.patch
