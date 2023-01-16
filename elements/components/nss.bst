@@ -147,7 +147,7 @@ sources:
   - NSS_3_79_3_BRANCH
   match:
   - 'NSS_*_RTM'
-  ref: NSS_3_79_2_RTM-0-g20a7442b21aebbd22cca5af7d337984824e27f8e
+  ref: NSS_3_79_3_RTM-0-g83428367e8c6b48e57bf56845347dd3b636f5cdc
   directory: nss
 - kind: patch
   path: patches/nss/pkg-config-libdir.patch
