@@ -18,6 +18,7 @@ devel:
   - "%{libdir}/*.a"
   - "%{datadir}/gir-1.0"
   - "%{datadir}/gir-1.0/**"
+  - "%{prefix}/src/**"
 
 debug:
   - "%{debugdir}/**"
