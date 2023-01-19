@@ -78,6 +78,6 @@ sources:
   track: main
   track-extra:
   - release-2.26.x
-  ref: release-2.26.1-0-gf17058b562c8a1090c0c996b42982721ace90903
+  ref: release-2.26.2-0-gf070c83a6059c604cbd098680ddaee391b0a7341
   match:
   - release-*
