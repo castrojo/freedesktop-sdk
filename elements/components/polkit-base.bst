@@ -52,7 +52,7 @@ sources:
   url: freedesktop:polkit/polkit.git
   track: master
   track-tags: false
-  ref: 122-5-gfe52ce856c56f3264843f0dbff67f3a124c68ded
+  ref: 122-6-g7550b683c0fe514d4cb8a173f4ee5b2410c7c3cd
 - kind: local
   path: files/polkit/sysusers.conf
   directory: extra
