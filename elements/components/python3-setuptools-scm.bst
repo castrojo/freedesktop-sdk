@@ -10,9 +10,6 @@ depends:
 - components/python3-typing-extensions.bst
 - components/python3-packaging.bst
 
-runtime-depends:
-- components/python3-tomli.bst
-
 sources:
 - kind: pypi
   name: setuptools_scm
