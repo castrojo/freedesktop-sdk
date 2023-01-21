@@ -539,6 +539,16 @@ check_snap_i686:
     - tags
     - schedules
 
+bootstrap_loongarch64:
+  extends:
+    - .bootstrap_template
+    # We're short on x86_64 runners.
+    - .builder-aarch64
+  allow_failure: true
+  when: manual
+  variables:
+    ARCH: loongarch64
+
 bootstrap_ppc64:
   extends:
     - .bootstrap_template
