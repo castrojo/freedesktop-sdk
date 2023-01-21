@@ -1,13 +1,13 @@
 kind: script
 
 build-depends:
-- test/check-abi-deps.bst
+- tests/check-abi-deps.bst
 - filename: abi/desktop-abi-image.bst
   config:
-    layout: /new-image
+    location: /new-image
 - filename: abi/reference-abi-image.bst
   config:
-    layout: /old-image
+    location: /old-image
 
 config:
   commands:
