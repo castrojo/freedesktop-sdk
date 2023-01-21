@@ -56,9 +56,7 @@ sources:
   - glib-2-74
   match:
   - 2.*[02468].*
-  ref: 2.74.4-0-ge35768fe299d6389f8f5eef15593762389d2c07d
-- kind: patch
-  path: patches/glib/errno.patch
+  ref: 2.74.5-0-g39a71aff372ed491a24ca84409d9f93bc7c5d6d4
 - kind: git_module
   path: subprojects/gvdb
   url: gnome:gvdb.git
