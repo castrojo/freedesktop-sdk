@@ -2,21 +2,13 @@ kind: import
 description: Import the base freedesktop SDK
 
 (@):
-- elements/bootstrap/include/build.yml
+- elements/bootstrap/include/base-sdk.yml
+- elements/bootstrap/base-sdk/binary-seed-integration.yml
+- elements/bootstrap/base-sdk/binary-seed-split-rules.yml
 
 sources:
-- kind: ostree
-  url: freedesktop-sdk:releases/
-  gpg-key: keys/freedesktop-sdk.gpg
-  track: runtime/org.freedesktop.Sdk.PreBootstrap/x86_64/21.08
-  ref: 0ecba7699760ffc05c8920849856a20ebb3305da9f1f0377ddb9ca5600be710b
-
-config:
-  source: files
-  target: usr
-
-public:
-  bst:
-    split-rules:
-      filter:
-      - "/usr/share/gnu-config/**"
+- kind: docker
+  (@):
+  - elements/bootstrap/base-sdk/binary-seed-source.yml
+  architecture: "amd64"
+  ref: fb95f93705d3251731e7a9a883cfaa44ef66ab6a2dd46890b5e26452c1b7d7bc

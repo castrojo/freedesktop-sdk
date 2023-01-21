@@ -1,0 +1,5 @@
+public:
+  bst:
+    split-rules:
+      filter:
+      - "%{datadir}/gnu-config/**"

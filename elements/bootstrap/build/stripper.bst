@@ -1,15 +1,13 @@
 kind: manual
 
-depends:
-- filename: bootstrap/base-sdk/binary-seed.bst
-  type: build
-- filename: bootstrap/gnu-config.bst
-  type: build
+build-depends:
+- bootstrap/base-sdk/binary-seed.bst
+- bootstrap/gnu-config.bst
 
-- filename: bootstrap/build/debugedit-build.bst
-  type: runtime
-- filename: bootstrap/build/dwz-build.bst
-  type: runtime
+runtime-depends:
+- bootstrap/base-sdk/xz.bst
+- bootstrap/build/debugedit-build.bst
+- bootstrap/build/dwz-build.bst
 
 (@):
 - elements/bootstrap/include/build.yml

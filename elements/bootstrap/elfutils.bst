@@ -1,6 +1,9 @@
 kind: autotools
 
 build-depends:
+- bootstrap/base-sdk/automake.bst
+- bootstrap/base-sdk/gettext.bst
+- bootstrap/base-sdk/pkg-config.bst
 - bootstrap/gnu-config.bst
 - bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst

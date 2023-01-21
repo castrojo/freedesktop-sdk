@@ -1,5 +1,8 @@
 kind: autotools
 
+build-depends:
+- bootstrap/base-sdk/automake.bst
+
 depends:
 - bootstrap/base-sdk/binary-seed.bst
 

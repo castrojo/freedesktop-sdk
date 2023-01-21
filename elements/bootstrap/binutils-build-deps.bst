@@ -4,9 +4,15 @@ kind: script
 - elements/bootstrap/include/common.yml
 
 build-depends:
-- bootstrap/gnu-config.bst
+- bootstrap/base-sdk/automake.bst
+- bootstrap/base-sdk/bison.bst
+- bootstrap/base-sdk/flex.bst
+- bootstrap/base-sdk/pkg-config.bst
+- bootstrap/base-sdk/gettext.bst
+- bootstrap/base-sdk/texinfo.bst
 - bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
+- bootstrap/gnu-config.bst
 - filename:
   - bootstrap/glibc.bst
   - bootstrap/zlib.bst

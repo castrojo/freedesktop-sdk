@@ -2,10 +2,11 @@ kind: autotools
 description: GNU coreutils
 
 build-depends:
-- bootstrap/gnu-config.bst
+- bootstrap/base-sdk/texinfo.bst
 - bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
 - bootstrap/build/coreutils-manpages.bst
+- bootstrap/gnu-config.bst
 - filename:
   - bootstrap/acl.bst
   - bootstrap/libselinux.bst

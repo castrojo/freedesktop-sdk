@@ -1,9 +1,10 @@
 kind: autotools
 
 build-depends:
-- bootstrap/gnu-config.bst
+- bootstrap/base-sdk/texinfo.bst
 - bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
+- bootstrap/gnu-config.bst
 - filename: bootstrap/glibc.bst
   config:
     location: "%{sysroot}"

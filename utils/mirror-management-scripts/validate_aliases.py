@@ -6,7 +6,7 @@ from ruamel.yaml import YAML
 
 parser = argparse.ArgumentParser()
 
-EXCEPTIONS = {'freedesktop-sdk-project', 'pcre', 'freedesktop-sdk'}
+EXCEPTIONS = {'freedesktop-sdk-project', 'pcre', 'freedesktop-sdk', 'gitlab_registry'}
 
 
 def yaml_argument(filename):

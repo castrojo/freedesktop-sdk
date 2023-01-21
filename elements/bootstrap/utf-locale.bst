@@ -3,11 +3,9 @@ kind: manual
 (@):
 - elements/bootstrap/include/common.yml
 
-depends:
-- filename: bootstrap/base-sdk/binary-seed.bst
-  type: build
-- filename: bootstrap/build/glibc-stage1.bst
-  type: build
+build-depends:
+- bootstrap/base-sdk/binary-seed.bst
+- bootstrap/build/glibc-stage1.bst
 
 config:
   build-commands:

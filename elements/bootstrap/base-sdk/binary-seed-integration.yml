@@ -1,0 +1,9 @@
+public:
+  bst:
+    integration-commands:
+    - |
+      ldconfig
+
+    - |
+      mkdir -p "%{indep-libdir}/locale"
+      localedef --no-archive -i en_US -f UTF-8 en_US.UTF-8

@@ -2,7 +2,6 @@ kind: manual
 description: GNU linux headers stage 1
 
 build-depends:
-- bootstrap/base-sdk/binary-seed.bst
 - bootstrap/build/rsync.bst
 
 (@):

@@ -1,7 +1,7 @@
 kind: autotools
 
 build-depends:
-- bootstrap/base-sdk/binary-seed.bst
+- bootstrap/base-sdk/bison.bst
 - bootstrap/build/python3.bst
 - bootstrap/gnu-config.bst
 
@@ -22,6 +22,3 @@ config:
     (>):
     - |
       rm -r "%{install-root}%{libexecdir}/getconf"
-
-    - |
-      rm "%{install-root}%{infodir}/dir"
