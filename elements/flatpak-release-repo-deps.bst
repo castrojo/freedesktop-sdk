@@ -19,7 +19,6 @@ depends:
 - flatpak-images/vulkaninfo.bst
 - flatpak-images/vainfo.bst
 - flatpak-images/vainfo-debug.bst
-- flatpak-images/pre-bootstrap.bst
 - flatpak-images/mesa.bst
 
 (?):
