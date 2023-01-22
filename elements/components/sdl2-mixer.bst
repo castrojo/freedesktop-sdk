@@ -22,6 +22,8 @@ sources:
 - kind: git_tag
   url: github:libsdl-org/SDL_mixer.git
   track: main
+  track-extra:
+  - release-2.6.x
   match:
   - 'release*'
-  ref: release-2.6.0-0-g738611693dc324001cc00f5b800e3d18fb42cb4e
+  ref: release-2.6.2-0-g75f318100d220e236c4fcc5a3d0c9ba33d064f3f
