@@ -6,7 +6,7 @@ description: ffmpeg shipped in the ffmpeg-full extension, has more codecs enable
 - elements/extensions/ffmpeg-full/config.yml
 
 variables:
-  extra-aud-enc: wmav1,wmav2
+  extra-aud-enc: adpcm_g722,wmav1,wmav2
   extra-aud-dec: ape,dca,eac3,mlp,tak,truehd,wmav1,wmav2,wmapro
   extra-vid-enc: h263,h263p,h264,ljpeg,mpeg4,wmv1,wmv2
   extra-vid-dec: |
