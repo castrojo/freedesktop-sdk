@@ -15,4 +15,4 @@ sources:
 - kind: git_tag
   url: github:linuxwacom/libwacom.git
   track: master
-  ref: libwacom-2.5.0-0-gc6c1b26ad149a88b22ff790dae377fcc935b7e08
+  ref: libwacom-2.6.0-0-gcb36c462763a321454d5c08fe974a3d7dec4ed1a
