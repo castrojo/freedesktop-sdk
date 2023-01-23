@@ -8,6 +8,7 @@ build-depends:
 depends:
 - bootstrap-import.bst
 - components/orc.bst
+- components/graphene.bst
 - components/gstreamer.bst
 - components/pango.bst
 - components/xorg-lib-xv.bst
@@ -37,7 +38,6 @@ variables:
     -Dintrospection=enabled
     -Dpackage-origin="freedesktop-sdk"
     -Dcdparanoia=disabled
-    -Dgl-graphene=disabled
     -Dlibvisual=disabled
     -Dtremor=disabled
     -Dexamples=disabled
