@@ -38,6 +38,10 @@ environment:
   # compile.h has hardcoded timestamp, let's seed it
   KBUILD_BUILD_TIMESTAMP: 'Thu Nov 10 15:00:00 UTC 2011'
   KBUILD_BUILD_USER: 'tomjon'
+  MAXJOBS: "%{max-jobs}"
+
+environment-nocache:
+- MAXJOBS
 
 config:
   configure-commands:
@@ -1787,6 +1791,10 @@ config:
     install -Dm644 System.map '%{install-root}%{bootdir}/System.map'
     install -Dm644 .config '%{install-root}%{bootdir}/config'
     make -j1 INSTALL_MOD_PATH='%{install-root}%{prefix}' modules_install
+
+  - |
+    release=$(make -s kernelrelease)
+    find "%{install-root}%{indep-libdir}/modules/${release}" -type f -name '*.ko' | xargs -P $MAXJOBS -n 2 -r xz;
 
   - |
     release=$(make -s kernelrelease)
