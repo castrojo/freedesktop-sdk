@@ -39,7 +39,7 @@ config:
 
   - |
     . /tmp/vars
-    dracut -v --reproducible --fstab \
+    dracut -v --xz --reproducible --fstab \
            --no-machineid \
            --kver $(ls -1 /lib/modules | head -n1) \
            --kernel-cmdline "root=UUID=${uuid_root} rw console=tty0 console=ttyS0 quiet" \

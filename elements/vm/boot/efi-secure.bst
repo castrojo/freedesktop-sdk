@@ -30,7 +30,7 @@ config:
   - rm /etc/machine-id
 
   - |
-    dracut -v --reproducible --fstab \
+    dracut -v --xz --reproducible --fstab \
            --uefi \
            --no-machineid --kernel-image /boot/vmlinuz \
            --kver $(ls -1 /lib/modules | head -n1) \
