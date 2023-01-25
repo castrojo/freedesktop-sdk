@@ -30,7 +30,7 @@ config:
 
   - |
     . /tmp/vars
-    dracut -v --fstab \
+    dracut -v --reproducible --fstab \
            --no-machineid --kernel-image /boot/vmlinuz \
            --kver $(ls -1 /lib/modules | head -n1) \
            --kernel-cmdline "rw quiet splash" \

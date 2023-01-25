@@ -23,7 +23,7 @@ config:
                      >/tmp/vars
 
   - |
-    dracut -v --fstab \
+    dracut -v --reproducible --fstab \
            --no-machineid \
            --kver $(ls -1 /lib/modules | head -n1) \
            --add "virtfs" \

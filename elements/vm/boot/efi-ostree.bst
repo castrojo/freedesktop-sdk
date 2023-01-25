@@ -33,7 +33,7 @@ config:
     . /tmp/vars
     version="$(ls -1 /lib/modules | head -n1)"
     mkdir -p "%{install-root}/usr/lib/modules/${version}"
-    dracut -v --fstab \
+    dracut -v --reproducible --fstab \
            --no-machineid \
            --kver "${version}" \
            --add ostree \
