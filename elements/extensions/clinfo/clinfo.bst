@@ -18,4 +18,4 @@ sources:
 - kind: git_tag
   url: github:Oblomov/clinfo.git
   track: master
-  ref: 3.0.21.02.21-0-gd34bc1a3bdc148e2e1fe64998398e1a0552ab04c
+  ref: 3.0.23.01.25-0-g748c3930a9b9cb826e631d77439e2cb8f84f5bcf
