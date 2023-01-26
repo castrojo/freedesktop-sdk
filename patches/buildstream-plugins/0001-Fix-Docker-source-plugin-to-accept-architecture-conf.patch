@@ -1,0 +1,26 @@
+From d8f4bafa43cee7458430c6db63ba026ced6f5e18 Mon Sep 17 00:00:00 2001
+From: Seppo Yli-Olli <seppo.yliolli@gmail.com>
+Date: Mon, 16 Jan 2023 11:03:08 +0200
+Subject: [PATCH 1/4] Fix Docker source plugin to accept architecture config
+ key
+
+---
+ src/buildstream_plugins/sources/docker.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/buildstream_plugins/sources/docker.py b/src/buildstream_plugins/sources/docker.py
+index 01da163..76700ba 100644
+--- a/src/buildstream_plugins/sources/docker.py
++++ b/src/buildstream_plugins/sources/docker.py
+@@ -349,7 +349,7 @@ class DockerSource(Source):
+     def configure(self, node):
+         # url is deprecated, but accept it as a valid key so that we can raise
+         # a nicer warning.
+-        node.validate_keys(["registry-url", "image", "ref", "track", "url"] + Source.COMMON_CONFIG_KEYS)
++        node.validate_keys(Source.COMMON_CONFIG_KEYS + ["architecture", "registry-url", "image", "ref", "track", "url"])
+ 
+         if "url" in node:
+             raise SourceError(
+-- 
+2.39.0
+

@@ -1,0 +1,34 @@
+From 4b0a1fac086915e3e68912ba09c4630af247d382 Mon Sep 17 00:00:00 2001
+From: Seppo Yli-Olli <seppo.yliolli@gmail.com>
+Date: Tue, 17 Jan 2023 10:29:07 +0200
+Subject: [PATCH 3/4] Don't fail if manifest has multiple images
+
+---
+ src/buildstream_plugins/sources/docker.py | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
+
+diff --git a/src/buildstream_plugins/sources/docker.py b/src/buildstream_plugins/sources/docker.py
+index b6693f9..a86bc8e 100644
+--- a/src/buildstream_plugins/sources/docker.py
++++ b/src/buildstream_plugins/sources/docker.py
+@@ -269,12 +269,11 @@ class DockerRegistryV2Client:
+                         architecture=architecture,
+                         os_=os_,
+                     )
+-                else:
+-                    raise DockerManifestError(
+-                        "No images found for architecture {}, OS {}".format(architecture, os_),
+-                        manifest=response.text,
+-                    )
+-        elif manifest["mediaType"] == "application/vnd.docker.distribution.manifest.v2+json":
++            raise DockerManifestError(
++                "No images found for architecture {}, OS {}".format(architecture, os_),
++                manifest=response.text,
++            )
++        if manifest["mediaType"] == "application/vnd.docker.distribution.manifest.v2+json":
+             return response.text, our_digest
+         else:
+             raise DockerManifestError(
+-- 
+2.39.0
+
