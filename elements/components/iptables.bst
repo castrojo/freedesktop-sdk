@@ -11,6 +11,4 @@ sources:
 - kind: git_tag
   url: netfilter:iptables
   track: master
-  ref: v1.8.8-0-gfa0ccdbdbec467ee6a562d5de38eaaefa1016ad7
-- kind: patch
-  path: patches/iptables/build-Fix-error-during-out-of-tree-build.patch
+  ref: v1.8.9-0-g11407d91a1bece630e0e1f2063ce726e4045827d
