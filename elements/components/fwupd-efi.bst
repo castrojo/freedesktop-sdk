@@ -10,4 +10,4 @@ sources:
 - kind: git_tag
   url: github:fwupd/fwupd-efi.git
   track: main
-  ref: 1.3-0-g36ce593f58e391cca43fd388824496ff98d83480
+  ref: 1.4-0-geb79ba8d3c35549f023a9d5fd2fe4c1c70c084d2
