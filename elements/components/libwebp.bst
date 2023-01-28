@@ -30,9 +30,10 @@ public:
         - '%{libdir}/libwebpdemux.so'
         - '%{libdir}/libwebpmux.so'
         - '%{libdir}/libwebp.so'
+        - '%{libdir}/libsharpyuv.so'
 
 sources:
 - kind: git_tag
   url: chromium:webm/libwebp.git
   track: main
-  ref: v1.2.4-0-g0d1f12546bd803099a60c070517a552483f3790e
+  ref: v1.3.0-0-gb557776962a3dcc985d83bd4ed94e1e2e50d0fa2
