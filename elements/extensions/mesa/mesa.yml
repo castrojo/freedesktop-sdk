@@ -53,6 +53,7 @@ variables:
 
   optimize-debug: "false"
 
+  meson-lto-flags: ''
   meson-local: >-
     -Db_ndebug=true
     -Ddri3=enabled
