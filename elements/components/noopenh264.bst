@@ -49,5 +49,3 @@ sources:
   ref: Version_2.3.0+really2.2.0-1-g0fe1bf94c621e92e8f2bcf64a26966904e49c1b3
   exclude:
   - Release*
-- kind: patch_queue
-  path: patches/noopenh264
