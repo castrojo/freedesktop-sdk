@@ -10,5 +10,5 @@ sources:
 - kind: pypi
   name: charset-normalizer
   ref:
-    sha256sum: 575e708016ff3a5e3681541cb9d79312c416835686d054a23accb873b254f413
-    suffix: 93/1d/d9392056df6670ae2a29fcb04cfa5cee9f6fbde7311a1bb511d4115e9b7a/charset-normalizer-2.1.0.tar.gz
+    sha256sum: ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f
+    suffix: 96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz
