@@ -10,7 +10,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "54042f93997bf554284b46e8887e3f2893ad055b"
+  DOCKER_IMAGE_ID: "4fe3ce7cd0e7c9d8f96e1db648136450ba6c2a8f"
   SCHEDULE_TASK: default
 
   # Generic variable for invoking buildstream
