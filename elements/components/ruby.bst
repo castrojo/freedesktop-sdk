@@ -7,6 +7,7 @@ depends:
 - bootstrap-import.bst
 - components/libffi.bst
 - components/gdbm.bst
+- components/libyaml.bst
 - components/openssl.bst
 
 # Set '--with-compress-debug-sections=no' because of
@@ -20,5 +21,5 @@ variables:
 
 sources:
 - kind: tar
-  url: tar_https:cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.3.tar.xz
-  ref: 4ee161939826bcdfdafa757cf8e293a7f14e357f62be7144f040335cc8c7371a
+  url: tar_https:cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.0.tar.xz
+  ref: d2f4577306e6dd932259693233141e5c3ec13622c95b75996541b8d5b68b28b4
