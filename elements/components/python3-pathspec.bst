@@ -1,7 +1,7 @@
 kind: pyproject
 
 build-depends:
-- public-stacks/buildsystem-python-setuptools.bst
+- public-stacks/buildsystem-python-flit.bst
 
 depends:
 - components/python3.bst
@@ -10,5 +10,5 @@ sources:
 - kind: pypi
   name: pathspec
   ref:
-    sha256sum: 56200de4077d9d0791465aa9095a01d421861e405b5096955051deefd697d6f6
-    suffix: 32/1a/6baf904503c3e943cae9605c9c88a43b964dea5b59785cf956091b341b08/pathspec-0.10.3.tar.gz
+    sha256sum: 64d338d4e0914e91c1792321e6907b5a593f1ab1851de7fc269557a21b30ebbc
+    suffix: f4/8e/f91cffb32740b251cff04cad1e7cdd2c710582c735a01f56307316c148f2/pathspec-0.11.0.tar.gz
