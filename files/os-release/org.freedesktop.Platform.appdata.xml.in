@@ -4,7 +4,7 @@
   <metadata_license>CC0</metadata_license>
   <project_license>MIT</project_license>
   <name>Freedesktop Platform</name>
-  <summary>Shared libraries</summary>
+  <summary>Runtime platform for applications</summary>
   <releases>
     <release version="__RUNTIME_VERSION__" date="__RUNTIME_VERSION_DATE__"/>
   </releases>
