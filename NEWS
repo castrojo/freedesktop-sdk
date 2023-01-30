@@ -1,5 +1,54 @@
 Freedesktop-SDK
 
+freedesktop-sdk-21.08.18:
+  * Update pygobject to 3.42.2
+  * Update systemd to v249.15
+  * Update python3-poetry-core to 1.5.0
+  * Update eos-metrics to Release_5.0.0
+  * Update python3-zipp to 3.12.0
+  * Update iptables to v1.8.9
+  * Update clinfo to 3.0.23.01.25
+  * Update btrfs-progs to v6.1.3
+  * Update libwacom to libwacom-2.6.0
+  * Update ca-certificates to 2010_63-3_fc14-138
+  * Update cmake to v3.25.2
+  * Update nano to v7.2
+  * Update python3-markupsafe to 2.1.2
+  * Update git to v2.39.1
+  * Update python3-requests to 2.28.2
+  * Update python3-pytz to 2022.7.1
+  * Update fuse3 to fuse-3.13.0
+  * Update python3-alabaster to 0.7.13
+  * libabigail: Update to 2.2
+  * Update python3-urllib3 to 1.26.14
+  * Update spirv-tools to sdk-1.2.198.0
+  * Update python3-dbusmock to 0.28.7
+  * Update python3-poetry to 1.3.2
+  * Update python3-sphinx to 6.1.3
+  * Update gmmlib to 22.3.3
+  * Update python3-packaging to 23.0
+  * Use org.freedesktop.Sdk from Flathub as binary seed
+  * Add rsync into bootstrap
+  * Update cython to 0.29.33
+  * Update libgcrypt to 1.8.10
+  * Update python3-shellingham to 1.5.0.post1
+  * Update frei0r to v2.2.0
+  * Update python3-importlib-metadata to 6.0.0
+  * Update python3-pil to 9.4.0
+  * Update poppler to 23.01.0
+  * Update po4a to v0.69
+  * Fix asyncio deprecation warning running image
+  * Update libcbor to v0.10.1
+  * Revert libva back to 2.12.0 and freeze
+  * Update python3-importlib-resources to 5.10.2
+  * Update doxygen to 1.9.6
+  * Update python3-multidict to 6.0.4
+  * Update man-pages to 6.02
+  * Revert "Make created by default be real timestamp and allow override"
+  * Update elements/abi/freedesktop-sdk.bst to freedesktop-sdk-21.08.17.1
+  * Update python3-attrs to 22.2.0
+  * Update xorg-lib-sm to 1.2.4
+  * Update libksba to 1.6.3
 
 freedesktop-sdk-21.08.17.1:
   * Fixes to Docker publishing
