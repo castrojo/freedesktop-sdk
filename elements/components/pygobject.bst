@@ -24,4 +24,4 @@ sources:
   track: master
   track-extra:
   - pygobject-3-40
-  ref: 3.43.1-0-g3c10d970270cd3ed645e8bc11a00273df00cb496
+  ref: 3.42.0-0-gd612f3cc675a1838bc5a18061df040ab6405fd31
