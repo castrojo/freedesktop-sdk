@@ -22,4 +22,4 @@ sources:
 - kind: git_tag
   url: gnome:zenity.git
   track: master
-  ref: 3.43.0-0-g01e6d92f23f49414ba8ec4c5b3daf49222c1e31d
+  ref: 3.44.0-0-g7bf8c8910d34bfb2b883b32118b93b68d44dd77b
