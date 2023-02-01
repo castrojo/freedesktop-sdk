@@ -10,4 +10,4 @@ sources:
 - kind: git_tag
   url: github:PJK/libcbor.git
   track: master
-  ref: v0.10.1-0-g5c1bb892c94b6ae2ef99e3c6673d5e0857242f38
+  ref: v0.10.2-0-gefa6c0886bae46bdaef9b679f61f4b9d8bc296ae
