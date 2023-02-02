@@ -2,7 +2,7 @@ kind: autotools
 description: GNU ncurses stage 1
 
 depends:
-- filename: bootstrap/base-sdk/base-sdk.bst
+- filename: bootstrap/base-sdk/binary-seed.bst
   type: build
 - filename: bootstrap/gnu-config.bst
   type: build
