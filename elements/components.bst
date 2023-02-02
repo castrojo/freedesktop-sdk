@@ -342,7 +342,6 @@ depends:
 - components/python3-markupsafe.bst
 - components/python3-multidict.bst
 - components/python3-networkx.bst
-- components/python3-nose.bst
 - components/python3-packaging.bst
 - components/python3-pathlib2.bst
 - components/python3-pep8.bst
