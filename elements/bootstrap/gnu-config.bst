@@ -5,7 +5,7 @@ description: GNU config scripts
 - elements/bootstrap/include/common.yml
 
 build-depends:
-- bootstrap/build/base-sdk.bst
+- bootstrap/base-sdk/base-sdk.bst
 
 variables:
   lib: lib

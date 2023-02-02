@@ -1,7 +1,7 @@
 kind: script
 
 build-depends:
-- bootstrap/build/base-sdk.bst
+- bootstrap/base-sdk/base-sdk.bst
 
 
 (@):
