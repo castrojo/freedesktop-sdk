@@ -6,4 +6,4 @@ sources:
   - v252-stable
   exclude:
   - '*rc*'
-  ref: v252.4-0-g4b48117716f84751dc6c8ee16c94de9858eaef4f
+  ref: v252.5-0-g61f5710d0bfd8f522af6f8eef399a851509946e2
