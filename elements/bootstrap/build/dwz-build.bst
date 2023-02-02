@@ -5,7 +5,7 @@ kind: manual
 - elements/bootstrap/include/dwz-source.yml
 
 build-depends:
-- bootstrap/base-sdk/base-sdk.bst
+- bootstrap/base-sdk/binary-seed.bst
 - bootstrap/gnu-config.bst
 
 variables:

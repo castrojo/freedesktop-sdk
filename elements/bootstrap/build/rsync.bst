@@ -1,7 +1,7 @@
 kind: autotools
 
 depends:
-- bootstrap/base-sdk/base-sdk.bst
+- bootstrap/base-sdk/binary-seed.bst
 
 (@):
 - elements/bootstrap/include/build.yml

@@ -1,7 +1,7 @@
 kind: autotools
 
 build-depends:
-- bootstrap/base-sdk/base-sdk.bst
+- bootstrap/base-sdk/binary-seed.bst
 - bootstrap/gnu-config.bst
 
 depends:
