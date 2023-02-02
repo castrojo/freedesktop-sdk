@@ -20,7 +20,7 @@ sources:
   - 3.2.x
   exclude:
   - '*rc*'
-  ref: 3.2.0-0-ge237e4d33cbf280292a480edd8ad061dcd3a37a2
+  ref: 3.2.2-0-gf2303275a3b4529b2480de5de2baf087f62e7df8
 - kind: patch
   path: patches/tpm2-tss/conditionally-check-for-user-group-manipulation-commands.patch
 - kind: patch
