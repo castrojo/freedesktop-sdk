@@ -29,7 +29,7 @@ vm/minimal/filesystem.bst
 vm/minimal-ostree/filesystem.bst
 
 # filter elements
-bootstrap/build/base-sdk/filtered.bst
+bootstrap/base-sdk/filtered.bst
 components/avahi.bst
 components/avahi-gobject.bst
 components/avahi-ui.bst
@@ -55,27 +55,27 @@ cross-compilers/standard-libs-arm.bst
 cross-compilers/standard-libs-i686.bst
 
 # junctions and junctioned elements
-cross-compilers/freedesktop-sdk-aaarch64.bst:bootstrap/build/base-sdk.bst
+cross-compilers/freedesktop-sdk-aaarch64.bst:bootstrap/base-sdk/base-sdk.bst
 cross-compilers/freedesktop-sdk-aaarch64.bst:bootstrap/build/debug-utils.bst
 cross-compilers/freedesktop-sdk-aaarch64.bst:bootstrap/build/tools-lib-path.bst
 cross-compilers/freedesktop-sdk-aaarch64.bst:bootstrap/glibc-build-deps.bst
-cross-compilers/freedesktop-sdk-aarm.bst:bootstrap/build/base-sdk.bst
+cross-compilers/freedesktop-sdk-aarm.bst:bootstrap/base-sdk/base-sdk.bst
 cross-compilers/freedesktop-sdk-aarm.bst:bootstrap/build/debug-utils.bst
 cross-compilers/freedesktop-sdk-aarm.bst:bootstrap/build/tools-lib-path.bst
 cross-compilers/freedesktop-sdk-aarm.bst:bootstrap/glibc-build-deps.bst
-cross-compilers/freedesktop-sdk-ai686.bst:bootstrap/build/base-sdk.bst
+cross-compilers/freedesktop-sdk-ai686.bst:bootstrap/base-sdk/base-sdk.bst
 cross-compilers/freedesktop-sdk-ai686.bst:bootstrap/build/debug-utils.bst
 cross-compilers/freedesktop-sdk-ai686.bst:bootstrap/build/tools-lib-path.bst
 cross-compilers/freedesktop-sdk-ai686.bst:bootstrap/glibc-build-deps.bst
-cross-compilers/freedesktop-sdk-arm.bst:bootstrap/build/base-sdk.bst
-cross-compilers/freedesktop-sdk-arm.bst:bootstrap/build/base-sdk/image-aarch64.bst
+cross-compilers/freedesktop-sdk-arm.bst:bootstrap/base-sdk/base-sdk.bst
+cross-compilers/freedesktop-sdk-arm.bst:bootstrap/base-sdk/image-aarch64.bst
 cross-compilers/freedesktop-sdk-arm.bst:bootstrap/build/debug-utils.bst
 cross-compilers/freedesktop-sdk-arm.bst:bootstrap/glibc-build-deps.bst
 
 # stack elements
 bootstrap-import.bst
 bootstrap/bootstrap.bst
-bootstrap/build/base-sdk.bst
+bootstrap/base-sdk/base-sdk.bst
 bootstrap/build/debug-utils.bst
 bootstrap/build/tools-lib-path.bst
 components.bst

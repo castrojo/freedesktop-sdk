@@ -4,7 +4,7 @@ kind: manual
 - elements/bootstrap/include/common.yml
 
 depends:
-- filename: bootstrap/build/base-sdk.bst
+- filename: bootstrap/base-sdk/base-sdk.bst
   type: build
 - filename: bootstrap/build/glibc-stage1.bst
   type: build

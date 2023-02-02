@@ -2,7 +2,7 @@ kind: autotools
 description: GNU Binutils Stage 1
 
 depends:
-- filename: bootstrap/build/base-sdk.bst
+- filename: bootstrap/base-sdk/base-sdk.bst
 - filename: bootstrap/gnu-config.bst
   type: build
 
