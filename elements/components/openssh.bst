@@ -40,4 +40,4 @@ sources:
 - kind: git_tag
   url: github:openssh/openssh-portable.git
   track: master
-  ref: V_9_1_P1-0-g0ffb46f2ee2ffcc4daf45ee679e484da8fcf338c
+  ref: V_9_2_P1-0-g6dfb65de949cdd0a5d198edee9a118f265924f33
