@@ -17,7 +17,7 @@ sources:
 - kind: git_tag
   url: debian_salsa:rousseau/ccid.git
   track: master
-  ref: 1.5.1-0-g64a1780ac6b9947223a7d65c363556f2aed8d4c9
+  ref: 1.5.2-0-g9a7ad431a184771fdb7228da922c89daf5d55acb
 - kind: git_module
   path: PCSC-contrib
   url: debian_salsa:rousseau/PCSC-contrib.git
