@@ -18,11 +18,15 @@ variables:
   # https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/jobs/110741993
   # FIXME: what happens when we make it depend on gcc.bst? Does it it fix it?
   target_flags_exceptions: ''
+  gold-option: "--enable-gold"
+  (?):
+  - target_arch == "loongarch64":
+      gold-option: "--disable-gold"
   conf-local: >-
     CFLAGS="${CFLAGS}"
     --disable-werror
     --with-lib-path="%{libdir}:%{indep-libdir}"
-    --enable-gold
+    %{gold-option}
     --enable-ld=default
     --enable-shared
     --enable-plugins
