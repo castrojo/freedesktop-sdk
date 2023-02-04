@@ -35,17 +35,17 @@ variables:
     %{local_build_flags}
 
   (?):
-  - target_arch == "i686":
+  - bootstrap_build_arch == "i686":
       build_arch_flags: "%{build_i686_flags}"
-  - target_arch == "arm":
+  - bootstrap_build_arch == "arm":
       build_arch_flags: "%{build_arm_flags}"
-  - target_arch == "x86_64":
+  - bootstrap_build_arch == "x86_64":
       build_arch_flags: "%{build_x86_64_flags}"
-  - target_arch == "aarch64":
+  - bootstrap_build_arch == "aarch64":
       build_arch_flags: "%{build_aarch64_flags}"
-  - target_arch == "ppc64le":
+  - bootstrap_build_arch == "ppc64le":
       build_arch_flags: "%{build_powerpc64le_flags}"
-  - target_arch == "ppc64":
+  - bootstrap_build_arch == "ppc64":
       build_arch_flags: "%{build_powerpc64_flags}"
-  - target_arch == "riscv64":
+  - bootstrap_build_arch == "riscv64":
       build_arch_flags: "%{build_riscv64_flags}"
