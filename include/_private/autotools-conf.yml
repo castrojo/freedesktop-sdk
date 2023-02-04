@@ -13,7 +13,7 @@ variables:
   conf-build: |
     --build=%{build-triplet}
   conf-libtool-force-dlsearch: |
-    lt_cv_sys_lib_dlsearch_path_spec="/usr/lib/%{gcc_triplet}"
+    lt_cv_sys_lib_dlsearch_path_spec="%{libtool_dlsearch_path}"
 
   remove_libtool_modules: "true"
   remove_libtool_libraries: "true"
