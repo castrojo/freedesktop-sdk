@@ -27,4 +27,4 @@ sources:
 - kind: git_tag
   url: github:kcat/openal-soft.git
   track: master
-  ref: makemhr-0-g0c75ab9967e84b9fd016b2eb6152494908cdf704
+  ref: 1.23.0-0-g70c14cd560db819f180073052f4c2bfae5cf3c31
