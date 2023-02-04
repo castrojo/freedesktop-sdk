@@ -1,6 +1,9 @@
 kind: import
 description: Import the base freedesktop SDK
 
+(@):
+- elements/bootstrap/include/build.yml
+
 sources:
 - kind: ostree
   url: flathub:repo/
