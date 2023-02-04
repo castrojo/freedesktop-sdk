@@ -9,6 +9,7 @@ variables:
     /usr
     %{prefix}
 
+  bootstrapper-gcc-triplet: "%{bootstrap_build_arch}-linux-gnu"
   bootstrapper-triplet: "%{bootstrap_build_arch}-bootstrapper-linux-gnu"
 
 environment:

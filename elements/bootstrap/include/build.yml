@@ -4,6 +4,7 @@
 variables:
   build-triplet: '%{bootstrapper-triplet}'
   host-triplet: '%{bootstrapper-triplet}'
+  libtool_dlsearch_path: '%{tools}/lib:/usr/lib/%{bootstrapper-gcc-triplet}'
   prefix: '%{tools}'
   lib: lib
 
