@@ -1,7 +1,7 @@
 sources:
 - kind: tar
-  url: ftp_gnu_org:gcc/gcc-12.2.0/gcc-12.2.0.tar.xz
-  ref: e549cf9cf3594a00e27b6589d4322d70e0720cdd213f39beb4181e06926230ff
+  url: tar_https:gcc.gnu.org/pub/gcc/snapshots/13-20230409/gcc-13-20230409.tar.xz
+  ref: 0c0df33d8f0ecfa6c7619b112696f6b0d09f48e56c4673eff350f5a1c648e966
 - kind: tar
   url: ftp_gnu_org:gmp/gmp-6.2.1.tar.xz
   directory: gmp

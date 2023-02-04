@@ -7,6 +7,7 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/texinfo.bst
 - components/autoconf2.69.bst
+- components/flex.bst
 
 depends:
 - cross-compilers/binutils-arm.bst

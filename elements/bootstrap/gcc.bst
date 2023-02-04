@@ -8,6 +8,7 @@ build-depends:
 - bootstrap/base-sdk/gettext.bst
 - bootstrap/base-sdk/tar.bst
 - bootstrap/base-sdk/texinfo.bst
+- bootstrap/base-sdk/flex.bst
 - bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
 - bootstrap/build/python3.bst
@@ -183,6 +184,7 @@ public:
         - '%{multiarch_libdir}/liblsan.a'
         - '%{multiarch_libdir}/libquadmath.a'
         - '%{multiarch_libdir}/libsupc++.a'
+        - '%{multiarch_libdir}/libstdc++exp.a'
         - '%{multiarch_libdir}/libtsan.a'
         - '%{multiarch_libdir}/libubsan.a'
         - '%{multiarch_libdir}/libobjc.a'

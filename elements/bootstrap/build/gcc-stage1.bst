@@ -7,6 +7,7 @@ build-depends:
 - bootstrap/base-sdk/libtool.bst
 - bootstrap/base-sdk/gettext.bst
 - bootstrap/base-sdk/tar.bst
+- bootstrap/base-sdk/flex.bst
 - bootstrap/build/python3.bst
 - bootstrap/gnu-config.bst
 
