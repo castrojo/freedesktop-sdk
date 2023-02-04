@@ -1,6 +1,7 @@
 # Definition of variables related to machine architecture
 host-triplet: "%{triplet}"
 build-triplet: "%{triplet}"
+libtool_dlsearch_path: "/usr/lib/%{gcc_triplet}"
 snap_arch: "%{arch}"
 go-arch: "%{arch}"
 
