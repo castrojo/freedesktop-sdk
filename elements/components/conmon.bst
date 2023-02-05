@@ -2,7 +2,7 @@ kind: make
 
 build-depends:
 - components/pkg-config.bst
-- components/git.bst
+- components/git-minimal.bst
 - components/go.bst
 - components/go-md2man.bst
 - components/systemd.bst
