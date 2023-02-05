@@ -38,5 +38,5 @@ sources:
 - kind: git_tag
   url: savannah:config.git
   track: master
+  track-tags: False
   ref: 191bcb948f7191c36eefe634336f5fc5c0c4c2be
-  # No tags exist, track HEAD of the branch
