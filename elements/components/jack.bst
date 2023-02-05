@@ -2,7 +2,6 @@ kind: manual
 
 depends:
 - bootstrap-import.bst
-- components/sndfile.bst
 - components/alsa-lib.bst
 
 build-depends:
@@ -28,8 +27,6 @@ variables:
     --alsa=yes
     --firewire=no
     --iio=no
-    --sndfile=yes
-    --readline=yes
     --enable-pkg-config-dbus-service-dir
 
 config:
