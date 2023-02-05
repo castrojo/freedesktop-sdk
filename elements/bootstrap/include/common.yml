@@ -9,12 +9,8 @@ variables:
     /usr
     %{prefix}
 
-  (?):
-  - bootstrap_build_arch == target_arch:
-      # Force cross-compilation since we use a sysroot
-      bootstrapper-triplet: "%{bootstrap_build_arch}-bootstrapper-linux-gnu"
-  - bootstrap_build_arch != target_arch:
-      bootstrapper-triplet: "%{bootstrap_build_arch}-unknown-linux-gnu"
+  bootstrapper-gcc-triplet: "%{bootstrap_build_arch}-linux-gnu"
+  bootstrapper-triplet: "%{bootstrap_build_arch}-bootstrapper-linux-gnu"
 
 environment:
   PATH: "%{tools}/bin:/bin"
