@@ -26,4 +26,4 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libx11.git
   track: master
-  ref: libX11-1.8.3-0-g48487c4b9028e9eec5371742f51e1d64c2e17296
+  ref: libX11-1.8.4-0-gfc5ec8edda1efdf5d66db4e76796e3c407527b3b
