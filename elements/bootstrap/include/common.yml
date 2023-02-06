@@ -2,6 +2,7 @@
 - elements/bootstrap/include/flags.yml
 
 variables:
+  bootstrapper-gcc-triplet: "%{bootstrap_build_arch}-linux-gnu"
   bootstrapper-triplet: "%{bootstrap_build_arch}-unknown-linux-gnu"
   sysroot: /cross-installation
   tools: /cross

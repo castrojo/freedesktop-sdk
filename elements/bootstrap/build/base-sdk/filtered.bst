@@ -1,5 +1,8 @@
 kind: filter
 
+(@):
+- elements/bootstrap/include/build.yml
+
 (?):
 - bootstrap_build_arch == "x86_64":
     build-depends:
