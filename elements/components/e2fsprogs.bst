@@ -61,6 +61,6 @@ sources:
 - kind: git_tag
   url: kernel:fs/ext2/e2fsprogs.git
   track: master
-  ref: v1.46.5-0-g704b18b9ed66f87e070260787973fe85a470ec1d
+  ref: v1.47.0-0-g25ad8a431331b4d1d444a70b6079456cc612ac40
 - kind: patch
   path: patches/e2fsprogs/reproducible.patch
