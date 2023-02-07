@@ -166,7 +166,7 @@ markdown-manifest: manifest
 url-manifest:
 	python3 utils/url_manifest.py release-url-manifest/url-manifest-no-mirrors.json \
 	  flatpak-release-repo.bst components.bst \
-	  components/rust-stage1-x86-64.bst components/rust-stage1-i686.bst components/rust-stage1-aarch64.bst \
+	  components/rust-stage1-x86_64.bst components/rust-stage1-i686.bst components/rust-stage1-aarch64.bst \
 	  components/rust-stage1-armv7.bst components/rust-stage1-powerpc64le.bst \
 	  oci/layers/flatpak.bst oci/layers/debug.bst oci/layers/platform.bst oci/layers/sdk.bst
 
