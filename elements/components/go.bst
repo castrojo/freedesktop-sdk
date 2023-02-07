@@ -29,7 +29,7 @@ config:
     install -Dm755 -t "%{install-root}%{libdir}/go/bin" bin/*
 
     mkdir -p "%{install-root}%{libdir}/go/pkg"
-    for i in pkg/include pkg/linux_* pkg/tool; do
+    for i in pkg/include pkg/tool; do
       cp -r "${i}" "%{install-root}%{libdir}/go/pkg/"
     done
 
@@ -60,13 +60,13 @@ public:
 sources:
 - kind: git_tag
   url: github:golang/go.git
-  track: release-branch.go1.19
+  track: release-branch.go1.20
   track-extra:
   # Attempt to predict the next branchpoint.
-  - release-branch.go1.20
+  - release-branch.go1.21
   match:
   - 'go*'
   exclude:
   - '*rc*'
   - '*beta*'
-  ref: go1.19.5-0-g1e9ff255a130200fcc4ec5e911d28181fce947d5
+  ref: go1.20-0-gde4748c47c67392a57f250714509f590f68ad395
