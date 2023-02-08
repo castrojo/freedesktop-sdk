@@ -60,6 +60,6 @@ sources:
   track: master
   exclude:
   - '*rc*'
-  ref: v1.46.6-0-g20523ce9c451ada3b3439de8abb3f1f48228dbb8
+  ref: v1.47.0-0-g25ad8a431331b4d1d444a70b6079456cc612ac40
 - kind: patch
   path: patches/e2fsprogs/reproducible.patch
