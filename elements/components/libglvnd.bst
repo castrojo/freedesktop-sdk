@@ -39,6 +39,6 @@ public:
 
 sources:
 - kind: git_tag
-  url: github:NVIDIA/libglvnd.git
+  url: freedesktop:glvnd/libglvnd.git
   track: master
   ref: v1.6.0-0-gb05bbcdaeb9b700cf7877e6d66f8fc3ac952295b
