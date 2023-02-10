@@ -6,7 +6,7 @@ depends:
 - components/gpgme.bst
 - components/libarchive.bst
 - components/curl.bst
-- components/ostree.bst
+- components/ostree-minimal.bst
 - components/fuse3.bst
 - components/json-glib.bst
 - components/appstream-minimal.bst
