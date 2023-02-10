@@ -1,7 +1,5 @@
 kind: junction
 sources:
-- kind: git
-  url: gitlab:BuildStream/bst-plugins-experimental.git
-  track: master
-  ref-format: git-describe
-  ref: 1.95.5-0-g86c5451ec7b6d11c4d5ead45ac13b11889a3d20e
+- kind: tar
+  url: gitlab:BuildStream/bst-plugins-experimental/-/archive/1.95.5/bst-plugins-experimental-1.95.5.tar.gz
+  ref: d206efd21bedf76ba4baf51a1b32fab8197ba87294e3034a19478d1aaaffd996
