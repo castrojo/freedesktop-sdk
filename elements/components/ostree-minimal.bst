@@ -12,18 +12,13 @@ depends:
 - components/gpgme.bst
 - components/e2fsprogs.bst
 - components/fuse3.bst
-- components/systemd.bst
 - components/libarchive.bst
-- components/avahi.bst
 - components/gnupg.bst
 
 variables:
   conf-local: >-
     --with-dracut
-    --with-libsystemd
-    --with-systemd
     --with-libarchive
-    --with-avahi
     --with-curl
     --without-soup
 
