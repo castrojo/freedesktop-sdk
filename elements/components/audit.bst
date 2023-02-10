@@ -27,7 +27,7 @@ sources:
   track: master
   track-extra:
   - '2.8_maintenance'
-  ref: v3.0.9-0-g81fa28e0e8b4be83ddba03de8b816a3df510c17e
+  ref: v3.1-0-g81c813fc4ebb11bf1eca8b8bdb5b253dff31e68e
 - kind: local
   path: files/audit/tmpfiles-audit.conf
   directory: freedesktop-sdk
