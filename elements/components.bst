@@ -80,6 +80,7 @@ depends:
 - components/ffmpeg.bst
 - components/fftw.bst
 - components/flat-manager-client.bst
+- components/flat-manager-client-minimal.bst
 - components/flatpak-builder.bst
 - components/flatpak-xdg-utils.bst
 - components/flatpak.bst
