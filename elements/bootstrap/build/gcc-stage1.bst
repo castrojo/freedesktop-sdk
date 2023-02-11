@@ -20,10 +20,12 @@ environment:
   PYTHON: python3
 
 variables:
+  conf-arch-extra: ""
   (?):
-  - target_arch == 'ppc64le':
-    # https://sourceware.org/bugzilla/show_bug.cgi?id=26360
-      conf-extra: --with-long-double-128
+  - target_arch == "ppc64le":
+      # https://sourceware.org/bugzilla/show_bug.cgi?id=26360
+      conf-arch-extra: --with-long-double-128
+
   autogen: |
     autoreconf2.69 -fvi
     for conf in */configure.ac; do
@@ -40,32 +42,33 @@ variables:
       (cd "${dir}" && autoreconf2.69 "${args[@]}" -fvi)
     done
 
-  conf-local: |
-    --target=%{triplet} \
-    --with-newlib \
-    --enable-multiarch \
-    --with-sysroot=%{sysroot} \
-    --without-headers \
-    --disable-bootstrap \
-    --disable-nls \
-    --disable-shared \
-    --disable-threads \
-    --disable-libstdcxx \
-    --disable-decimal-float \
-    --disable-libatomic \
-    --disable-libgomp \
-    --disable-libmpx \
-    --disable-libquadmath \
-    --disable-libssp \
-    --disable-libvtv \
-    --disable-multilib \
-    --enable-default-pie \
-    --enable-default-ssp \
-    --enable-languages=c,c++ \
-    --with-isl \
-    --enable-deterministic-archives \
-    --enable-linker-build-id \
+  conf-local: >-
+    --target=%{triplet}
+    --with-newlib
+    --enable-multiarch
+    --with-sysroot=%{sysroot}
+    --without-headers
+    --disable-bootstrap
+    --disable-nls
+    --disable-shared
+    --disable-threads
+    --disable-libstdcxx
+    --disable-decimal-float
+    --disable-libatomic
+    --disable-libgomp
+    --disable-libmpx
+    --disable-libquadmath
+    --disable-libssp
+    --disable-libvtv
+    --disable-multilib
+    --enable-default-pie
+    --enable-default-ssp
+    --enable-languages=c,c++
+    --with-isl
+    --enable-deterministic-archives
+    --enable-linker-build-id
     %{conf-extra}
+    %{conf-arch-extra}
 
 config:
   install-commands:
