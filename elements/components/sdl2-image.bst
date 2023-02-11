@@ -30,4 +30,4 @@ sources:
   - release-2.6.x
   match:
   - release-*
-  ref: release-2.6.2-0-ga861543ab78f5d5e18e6af43964ce8df60cb30b3
+  ref: release-2.6.3-0-gd3c6d5963dbe438bcae0e2b6f3d7cfea23d02829
