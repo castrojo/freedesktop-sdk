@@ -8,9 +8,7 @@ depends:
 - components/xorg-lib-xext.bst
 
 variables:
-  local_flags: >-
-    -UDEFAULT_EGL_VENDOR_CONFIG_DIRS
-    -DDEFAULT_EGL_VENDOR_CONFIG_DIRS=\"%{libdir}/GL/glvnd/egl_vendor.d\"
+  datadir: "%{libdir}/GL"
 
   meson-local: >-
     -Dheaders=false
