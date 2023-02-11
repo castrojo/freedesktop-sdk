@@ -1,10 +1,11 @@
 kind: autotools
 description: Multi-format archive and compression library
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
+- bootstrap-import.bst
 
 public:
   bst:
@@ -17,6 +18,6 @@ sources:
 - kind: git_tag
   url: github:libarchive/libarchive.git
   track: master
-  ref: v3.6.1-0-g6c3301111caa75c76e1b2acb1afb2d71341932ef
+  ref: v3.6.2-0-gba80276ccc3c941c4918ec6e2460059f0c525c43
 - kind: patch_queue
   path: patches/libarchive
