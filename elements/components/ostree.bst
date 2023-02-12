@@ -11,7 +11,7 @@ depends:
 - components/glib.bst
 - components/gpgme.bst
 - components/e2fsprogs.bst
-- components/fuse.bst
+- components/fuse3.bst
 - components/systemd.bst
 - components/libarchive.bst
 - components/avahi.bst

@@ -7,7 +7,7 @@ depends:
 - components/libarchive.bst
 - components/curl.bst
 - components/ostree.bst
-- components/fuse.bst
+- components/fuse3.bst
 - components/json-glib.bst
 - components/appstream-minimal.bst
 - components/libseccomp.bst
