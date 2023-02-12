@@ -15,4 +15,4 @@ sources:
 - kind: git_repo
   url: github:hughsie/libgusb.git
   track: '*.*.*'
-  ref: 0.3.10-0-g332d5b987ffecb824426e88518e05547faf2b520
+  ref: 0.4.5-0-gcfe6865211bc241fe5e10b999bc0e27e7bddcb84
