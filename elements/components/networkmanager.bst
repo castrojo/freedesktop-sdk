@@ -36,8 +36,8 @@ sources:
   url: freedesktop:NetworkManager/NetworkManager.git
   track: master
   track-extra:
-  - nm-1-40
+  - nm-1-42
   exclude:
   - "*-dev*"
   - "*-rc*"
-  ref: 1.40.12-0-g4a41ba460e45ca872af97fb2bb23c71a563399a9
+  ref: 1.42.0-0-g119ed52038f8b6e8cebb92314acf6e6bb5813fb0
