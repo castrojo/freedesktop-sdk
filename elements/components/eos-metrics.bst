@@ -19,7 +19,7 @@ sources:
   url: github:endlessm/eos-metrics.git
   track: master
   track-extra:
-  - eos4.0
+  - eos5.0
   exclude:
-  - Release_3.*
+  - Release_4.*
   ref: Release_5.0.0-0-g893939f7be0996b3244dfcdf08aadc5accac8801
