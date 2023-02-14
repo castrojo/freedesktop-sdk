@@ -20,6 +20,7 @@ variables:
   PYTHONPYCACHEPREFIX: "${XDG_CACHE_HOME}/python"
 
   GIT_SUBMODULE_STRATEGY: "recursive"
+  BUILD_TASKS: 4
 
 default:
   image: "${DOCKER_REGISTRY}/bst2:${DOCKER_IMAGE_ID}"
@@ -70,8 +71,9 @@ before_script:
       error-lines: 80
     # Force higher parallelity
     build:
-      max-jobs: $(( $(nproc) / 4 ))
+      max-jobs: $(( $(nproc) / ${BUILD_TASKS} ))
     scheduler:
+      builders: ${BUILD_TASKS}
       network-retries: 4
       on-error: continue
     track:
@@ -353,37 +355,42 @@ license_checker:
     - x86_64
   variables:
     ARCH: x86_64
+    BUILD_TASKS: 4
 
 .builder-i686:
   tags:
     - x86_64
   variables:
     ARCH: i686
+    BUILD_TASKS: 4
 
 .builder-aarch64:
   tags:
     - aarch64
   variables:
     ARCH: aarch64
+    BUILD_TASKS: 4
 
 .builder-riscv64:
   tags:
     - riscv
   variables:
     ARCH: riscv64
+    BUILD_TASKS: 4
 
 .builder-ppc64le:
   tags:
   - x86_64
   variables:
     ARCH: ppc64le
+    BUILD_TASKS: 4
 
 .builder-ppc64:
   tags:
   - x86_64
   variables:
     ARCH: ppc64
-
+    BUILD_TASKS: 4
 
 app_x86_64:
   extends:
