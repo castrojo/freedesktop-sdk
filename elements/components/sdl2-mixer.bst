@@ -26,4 +26,4 @@ sources:
   - release-2.6.x
   match:
   - 'release*'
-  ref: release-2.6.2-0-g75f318100d220e236c4fcc5a3d0c9ba33d064f3f
+  ref: release-2.6.3-0-g6103316427a8479e5027e41ab9948bebfc1c3c19
