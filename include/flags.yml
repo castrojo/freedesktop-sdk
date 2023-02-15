@@ -73,6 +73,30 @@ variables:
     %{target_arch_flags}
     %{local_flags}
 
+  #
+  # Rust flags, much like the cflags
+  #
+
+  # Element specific Rust flags
+  #
+  rust_local_flags: ""
+
+  # Architecture specific Rust flags
+  #
+  rust_target_x86_64_flags: >-
+    -Cforce-frame-pointers=yes
+  rust_target_i686_flags: ""
+  rust_target_aarch64_flags: >-
+    -Cforce-frame-pointers=yes
+  rust_target_arm_flags: ""
+  rust_target_ppc64le_flags: ""
+  rust_target_ppc64_flags: ""
+  rust_target_riscv64_flags: ""
+
+  rust_target_flags: >-
+    %{rust_target_arch_flags}
+    %{rust_local_flags}
+
   #####################################################
   #                    Linker flags                   #
   #####################################################
@@ -89,18 +113,25 @@ variables:
   (?):
   - target_arch == "i686":
       target_arch_flags: "%{target_i686_flags}"
+      rust_target_arch_flags: "%{rust_target_i686_flags}"
   - target_arch == "arm":
       target_arch_flags: "%{target_arm_flags}"
+      rust_target_arch_flags: "%{rust_target_arm_flags}"
   - target_arch == "x86_64":
       target_arch_flags: "%{target_x86_64_flags}"
+      rust_target_arch_flags: "%{rust_target_x86_64_flags}"
   - target_arch == "aarch64":
       target_arch_flags: "%{target_aarch64_flags}"
+      rust_target_arch_flags: "%{rust_target_aarch64_flags}"
   - target_arch == "ppc64le":
       target_arch_flags: "%{target_ppc64le_flags}"
+      rust_target_arch_flags: "%{rust_target_ppc64le_flags}"
   - target_arch == "ppc64":
       target_arch_flags: "%{target_ppc64_flags}"
+      rust_target_arch_flags: "%{rust_target_ppc64_flags}"
   - target_arch == "riscv64":
       target_arch_flags: "%{target_riscv64_flags}"
+      rust_target_arch_flags: "%{rust_target_riscv64_flags}"
 
 environment:
   CFLAGS:  "%{target_flags}"

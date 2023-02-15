@@ -28,6 +28,7 @@ public:
         - '%{libdir}/librsvg-2.so'
 
 environment:
+  (@): include/_private/rustflags.yml
   PATH: /usr/bin:/usr/lib/sdk/rust/bin
 
 sources:

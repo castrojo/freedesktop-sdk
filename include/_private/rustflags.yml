@@ -1,0 +1,1 @@
+RUSTFLAGS:  "%{rust_target_flags}"
