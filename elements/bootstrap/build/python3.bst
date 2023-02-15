@@ -4,7 +4,7 @@ build-depends:
 - bootstrap/gnu-config.bst
 
 depends:
-- bootstrap/build/base-sdk.bst
+- bootstrap/base-sdk/binary-seed.bst
 
 (@):
 - elements/bootstrap/include/build.yml

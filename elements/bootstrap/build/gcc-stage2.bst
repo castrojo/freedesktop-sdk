@@ -2,6 +2,11 @@ kind: autotools
 description: GNU gcc Stage 2
 
 build-depends:
+- bootstrap/base-sdk/autoconf2.69.bst
+- bootstrap/base-sdk/automake.bst
+- bootstrap/base-sdk/libtool.bst
+- bootstrap/base-sdk/gettext.bst
+- bootstrap/base-sdk/tar.bst
 - bootstrap/build/binutils-stage1.bst
 - bootstrap/build/python3.bst
 - bootstrap/gnu-config.bst
@@ -43,7 +48,8 @@ variables:
       echo "autoreconf: ${dir}"
       (cd "${dir}" && autoreconf2.69 "${args[@]}" -fvi)
     done
-
+  make-args: >-
+    MAKEINFO=true
 
   conf-local: >-
     --target=%{triplet}
@@ -88,9 +94,6 @@ config:
           ;;
         esac
       done
-
-    - |
-      rm "%{install-root}%{infodir}/dir"
 
   # strip-binaries fails when cross compiling because artifact
   # contains 2 architectures.

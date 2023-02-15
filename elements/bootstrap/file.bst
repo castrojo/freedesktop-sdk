@@ -1,6 +1,8 @@
 kind: autotools
 
 build-depends:
+- bootstrap/base-sdk/automake.bst
+- bootstrap/base-sdk/libtool.bst
 - bootstrap/gnu-config.bst
 - bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst

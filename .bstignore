@@ -1,5 +1,2 @@
-bootstrap/build/base-sdk/image-aarch64.bst
-bootstrap/build/base-sdk/image-ppc64le.bst
-bootstrap/build/base-sdk/image-x86_64.bst
 components/vim.bst # Hopeless, there's closer to ten updates a day
 components/spirv-headers.bst # We track commits. Updates are manual only
