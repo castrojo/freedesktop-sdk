@@ -41,6 +41,7 @@ public:
     - CVE-2022-3627
     - CVE-2022-3570
     - CVE-2022-3598
+    - CVE-2022-3599
     ignored:
     - CVE-2022-2867
     - CVE-2022-2868
@@ -67,3 +68,5 @@ sources:
   path: patches/libtiff/tiffcrop-subroutines-require-a-larger-buffer.patch
 - kind: patch
   path: patches/libtiff/tiffcrop-subroutines-require-a-larger-buffer-change-buffersize-to-size_t.patch
+- kind: patch
+  path: patches/libtiff/Revised-handling-of-TIFFTAG_INKNAMES-and-related-TIFFTAG_NUMBEROFINKS-value.patch
