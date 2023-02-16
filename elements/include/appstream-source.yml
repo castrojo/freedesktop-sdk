@@ -2,4 +2,4 @@ sources:
 - kind: git_tag
   url: github:ximion/appstream.git
   track: master
-  ref: v0.15.6-0-g7d6bcb74e1fc70697d595b0fe5c6d437bc468ad5
+  ref: v0.16.1-0-g859c2a2658e13b2d689ad9bbdeaf6ff6fbba8abd
