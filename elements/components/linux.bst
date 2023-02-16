@@ -39,6 +39,8 @@ environment:
   KBUILD_BUILD_TIMESTAMP: 'Thu Nov 10 15:00:00 UTC 2011'
   KBUILD_BUILD_USER: 'tomjon'
   MAXJOBS: "%{max-jobs}"
+  # temporarily omit GCC 13 new warnings
+  KCFLAGS: "-Wno-error=array-bounds -Wno-error=enum-int-mismatch"
 
 environment-nocache:
 - MAXJOBS
