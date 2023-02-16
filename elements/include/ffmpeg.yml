@@ -170,6 +170,8 @@ public:
     ignored:
     - CVE-2021-38291
     - CVE-2022-1475
+    - CVE-2022-3109
+    - CVE-2022-3341
 
 # ffmpeg is not using autotools, but a configure and Makefile files
 config:
