@@ -11,5 +11,5 @@ sources:
 - kind: pypi
   name: shellingham
   ref:
-    sha256sum: 41bc81fa8d74afb04338e0398f9732ee2217407ade778ae1e2709bde89d85c45
-    suffix: 1b/b5/8a4ebd9108ab4f78e697a901969f3c3bf27afddf734a4b8a2e7dd7d440e3/shellingham-1.5.1.tar.gz
+    sha256sum: 823bc5fb5c34d60f285b624e7264f4dda254bc803a3774a147bf99c0e3004a28
+    suffix: 1f/13/fab0a3f512478bc387b66c51557ee715ede8e9811c77ce952f9b9a4d8ac1/shellingham-1.5.0.post1.tar.gz
