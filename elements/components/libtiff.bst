@@ -36,6 +36,9 @@ public:
     - CVE-2022-2521
     - CVE-2022-2953
     - CVE-2022-34526
+    - CVE-2022-3597
+    - CVE-2022-3626
+    - CVE-2022-3627
     ignored:
     - CVE-2022-2867
     - CVE-2022-2868
@@ -56,3 +59,5 @@ sources:
   path: patches/libtiff/According-to-Richard-Nolde-https-gitlab.com-libtiff-.patch
 - kind: patch
   path: patches/libtiff/tiffcrop-S-option-Make-decision-simpler.patch
+- kind: patch
+  path: patches/libtiff/tiffcrop-disable-incompatibility-of-Z-X-Y-z-options.patch
