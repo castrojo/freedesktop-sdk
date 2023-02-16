@@ -23,4 +23,4 @@ sources:
 - kind: git_tag
   url: git_https:code.videolan.org/videolan/dav1d.git
   track: master
-  ref: 1.0.0-0-g99172b11470776177939c3d2bc366fe8d904eab7
+  ref: 1.1.0-0-g9593e625b75d498d1edea544da21ea764b98d507
