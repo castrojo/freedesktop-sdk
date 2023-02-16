@@ -166,6 +166,7 @@ public:
   cpe:
     patches:
     - CVE-2022-3965
+    - CVE-2022-3964
     ignored:
     - CVE-2021-38291
     - CVE-2022-1475
@@ -185,3 +186,5 @@ sources:
   ref: n5.1.2-0-geacfcbae690f914a4b1b4ad06999f138540cc3d8
 - kind: patch
   path: patches/ffmpeg/avcodec-smcenc-stop-accessing-out-of-bounds-frame.patch
+- kind: patch
+  path: patches/ffmpeg/avcodec-rpzaenc-stop-accessing-out-of-bounds-frame.patch
