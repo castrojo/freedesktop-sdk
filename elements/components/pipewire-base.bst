@@ -117,3 +117,5 @@ sources:
   ref: 0.3.59-0-gf54a72fd9a67eeb8d1502d6d75979dbddb00fdf2
 - kind: patch
   path: patches/pipewire/remove-useless-rpaths.patch
+- kind: patch
+  path: patches/pipewire/handle-null-io.patch
