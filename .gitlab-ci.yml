@@ -460,6 +460,7 @@ minimal_systemd_vm_x86_64:
   needs:
     - job: app_x86_64
       artifacts: false
+  when: manual # skip x86_64 VM tests by default; the runner is too slow
 
 minimal_systemd_vm_aarch64:
   extends:
@@ -483,6 +484,7 @@ desktop_systemd_vm_x86_64:
   needs:
     - job: app_x86_64
       artifacts: false
+  when: manual # skip x86_64 VM tests by default; the runner is too slow
 
 desktop_systemd_vm_aarch64:
   extends:
@@ -524,6 +526,7 @@ minimal_efi_vm_image_x86_64:
   variables:
     VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
     DIALOG: root-login
+  when: manual # skip x86_64 VM tests by default; the runner is too slow
 
 minimal_efi_vm_image_aarch64:
   extends:
