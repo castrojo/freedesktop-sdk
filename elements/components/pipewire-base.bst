@@ -45,6 +45,7 @@ variables:
     -Dlv2=disabled
     -Dlibjack-path=%{libdir}
     -Djack-devel=true
+    -Dlibmysofa=disabled
     -Dudevrulesdir=$(pkg-config --variable=udevdir udev)/rules.d
     -Dsession-managers=[]
 
@@ -125,6 +126,4 @@ sources:
   track: master
   exclude:
   - '*.*.9*'
-  ref: 0.3.59-0-gf54a72fd9a67eeb8d1502d6d75979dbddb00fdf2
-- kind: patch
-  path: patches/pipewire/handle-null-io.patch
+  ref: 0.3.66-0-g08b0ed65765a1033424a5c0d897a392a61f8a2a3
