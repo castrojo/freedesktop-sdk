@@ -470,7 +470,6 @@ minimal_systemd_vm_aarch64:
   needs:
     - job: app_aarch64
       artifacts: false
-  when: manual # skip aarch64 VM tests by default for now; the runner is too slow
 
 desktop_systemd_vm_x86_64:
   extends:
