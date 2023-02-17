@@ -62,6 +62,11 @@ config:
 
   install-commands:
   - |
+    if [ "%{target_arch}" = "aarch64" ]; then
+       truncate --size=64M '%{code}' '%{vars}'
+    fi
+
+  - |
     install -Dm644 -t "%{install-root}%{datadir}/ovmf" '%{code}' '%{vars}' '%{shell}'
 
 sources:
