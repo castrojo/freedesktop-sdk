@@ -485,6 +485,17 @@ desktop_systemd_vm_x86_64:
     - job: app_x86_64
       artifacts: false
 
+desktop_systemd_vm_aarch64:
+  extends:
+    - .vm_imageless_template
+    - .builder-aarch64
+  variables:
+    VM_ARTIFACT_BOOT: vm/boot/virt.bst
+    VM_ARTIFACT_FILESYSTEM: vm/desktop/virt.bst
+  needs:
+    - job: app_aarch64
+      artifacts: false
+
 .vm_efi_image_template:
   stage: vm
   script:
@@ -515,6 +526,16 @@ minimal_efi_vm_image_x86_64:
     VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
     DIALOG: root-login
 
+minimal_efi_vm_image_aarch64:
+  extends:
+    - .vm_efi_image_template
+    - .builder-aarch64
+  needs:
+  - app_aarch64
+  variables:
+    VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
+    DIALOG: root-login
+
 desktop_efi_vm_image_x86_64:
   extends:
     - .vm_efi_image_template
@@ -523,6 +544,16 @@ desktop_efi_vm_image_x86_64:
   - app_x86_64
   variables:
     VM_ARTIFACT_IMAGE: vm/desktop/efi.bst
+  when: manual # skip desktop image VM tests by default to avoid significant disk I/O
+
+desktop_efi_vm_image_aarch64:
+  extends:
+    - .vm_efi_image_template
+    - .builder-aarch64
+  needs:
+  - app_aarch64
+  variables:
+    VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
   when: manual # skip desktop image VM tests by default to avoid significant disk I/O
 
 prepare_publish:
