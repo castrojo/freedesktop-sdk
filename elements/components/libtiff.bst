@@ -36,6 +36,14 @@ public:
     - CVE-2022-2521
     - CVE-2022-2953
     - CVE-2022-34526
+    - CVE-2022-3597
+    - CVE-2022-3626
+    - CVE-2022-3627
+    - CVE-2022-3570
+    - CVE-2022-3598
+    - CVE-2022-3599
+    - CVE-2022-3970
+    - CVE-2022-48281
     ignored:
     - CVE-2022-2867
     - CVE-2022-2868
@@ -56,3 +64,15 @@ sources:
   path: patches/libtiff/According-to-Richard-Nolde-https-gitlab.com-libtiff-.patch
 - kind: patch
   path: patches/libtiff/tiffcrop-S-option-Make-decision-simpler.patch
+- kind: patch
+  path: patches/libtiff/tiffcrop-disable-incompatibility-of-Z-X-Y-z-options.patch
+- kind: patch
+  path: patches/libtiff/tiffcrop-subroutines-require-a-larger-buffer.patch
+- kind: patch
+  path: patches/libtiff/tiffcrop-subroutines-require-a-larger-buffer-change-buffersize-to-size_t.patch
+- kind: patch
+  path: patches/libtiff/Revised-handling-of-TIFFTAG_INKNAMES-and-related-TIFFTAG_NUMBEROFINKS-value.patch
+- kind: patch
+  path: patches/libtiff/TIFFReadRGBATileExt-fix-unsigned-integer-overflow-on-strips-tiles-2-GB.patch
+- kind: patch
+  path: patches/libtiff/tiffcrop-Correct-simple-copy-paste-error.patch

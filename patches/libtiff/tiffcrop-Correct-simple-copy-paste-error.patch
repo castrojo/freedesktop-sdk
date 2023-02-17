@@ -1,0 +1,26 @@
+From 546fe4323de33e7d972263e5e2f5e3c38b2d9586 Mon Sep 17 00:00:00 2001
+From: Su_Laus <sulau@freenet.de>
+Date: Fri, 13 Jan 2023 22:17:17 +0100
+Subject: [PATCH] tiffcrop: Correct simple copy paste error.
+
+Closes #488
+---
+ tools/tiffcrop.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/tiffcrop.c b/tools/tiffcrop.c
+index deab5feb..f77189d0 100644
+--- a/tools/tiffcrop.c
++++ b/tools/tiffcrop.c
+@@ -7741,7 +7741,7 @@ processCropSelections(struct image_data *image, struct crop_mask *crop,
+         crop_buff = (unsigned char *)limitMalloc(cropsize + NUM_BUFF_OVERSIZE_BYTES);
+       else
+         {
+-        prev_cropsize = seg_buffs[0].size;
++        prev_cropsize = seg_buffs[1].size;
+         if (prev_cropsize < cropsize)
+           {
+           next_buff = _TIFFrealloc(crop_buff, cropsize + NUM_BUFF_OVERSIZE_BYTES);
+-- 
+2.39.1
+
