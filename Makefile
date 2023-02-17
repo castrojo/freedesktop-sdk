@@ -110,47 +110,51 @@ build-vm:
 QEMU_COMMON_ARGS= \
 	-smp 4 \
 	-m 2G \
-	-nographic \
+	-object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 \
+	-nographic
+
+QEMU_VIRTFS_ARGS= \
 	-kernel $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/vmlinuz \
 	-initrd $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/initramfs.gz \
-	-object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0	\
 	-virtfs local,id=virtfs,path=$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM),security_model=none,mount_tag=virtfs
 
-QEMU_X86_COMMON_ARGS= \
-	$(QEMU_COMMON_ARGS) \
-	-enable-kvm \
-	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 console=ttyS0'
+QEMU_EFI_ARGS= \
+        -drive if=pflash,format=raw,unit=0,file=$(OVMF_CODE),readonly=on \
+        -drive if=pflash,format=raw,unit=1,file=efi_vars.fd
 
-QEMU_ARM_COMMON_ARGS= \
-	$(QEMU_COMMON_ARGS) \
+QEMU_NET_ARGS= \
+        -netdev user,id=net1 -device virtio-net,netdev=net1
+
+ifeq ($(ARCH),x86_64)
+QEMU_COMMON_ARGS+=-enable-kvm \
+QEMU_VIRTFS_ARGS+= \
+	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 console=ttyS0'
+else ifeq ($(ARCH),i686)
+QEMU_COMMON_ARGS+=-enable-kvm \
+QEMU_VIRTFS_ARGS+= \
+	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 console=ttyS0'
+else ifeq ($(ARCH),aarch64)
+QEMU_COMMON_ARGS+=  \
+	-machine type=virt \
+	-cpu max
+QEMU_VIRTFS_ARGS+= \
+	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 init=/usr/lib/systemd/systemd console=ttyAMA0'
+else ifeq ($(ARCH),arm)
+QEMU_COMMON_ARGS+=  \
 	-machine type=virt \
 	-cpu max \
-	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 init=/usr/lib/systemd/systemd console=ttyAMA0'
-
-QEMU_AARCH64_ARGS= \
-	$(QEMU_ARM_COMMON_ARGS)
-
-QEMU_ARM_ARGS= \
-	$(QEMU_ARM_COMMON_ARGS) \
 	-machine highmem=off
-
-QEMU_PPC64LE_ARGS= \
-	$(QEMU_COMMON_ARGS) \
-	-machine pseries \
+QEMU_VIRTFS_ARGS+= \
+	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 init=/usr/lib/systemd/systemd console=ttyAMA0'
+else ifeq ($(ARCH),ppc64le)
+QEMU_COMMON_ARGS+= \
+	-machine pseries
+QEMU_VIRTFS_ARGS+= \
 	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 init=/usr/lib/systemd/systemd console=ttyS0'
+endif
 
 run-vm: build-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
-ifeq ($(ARCH),x86_64)
-	unshare --map-root-user $(QEMU) $(QEMU_X86_COMMON_ARGS)
-else ifeq ($(ARCH),i686)
-	unshare --map-root-user $(QEMU) $(QEMU_X86_COMMON_ARGS)
-else ifeq ($(ARCH),aarch64)
-	unshare --map-root-user $(QEMU) $(QEMU_AARCH64_ARGS)
-else ifeq ($(ARCH),arm)
-	unshare --map-root-user $(QEMU) $(QEMU_ARM_ARGS)
-else ifeq ($(ARCH),ppc64le)
-	unshare --map-root-user $(QEMU) $(QEMU_PPC64LE_ARGS)
-endif
+	unshare --map-root-user $(QEMU) $(QEMU_COMMON_ARGS) $(QEMU_VIRTFS_ARGS)
 
 check-dev-files:
 	$(BST) build tests/check-dev-files.bst
@@ -349,16 +353,11 @@ endif
 efi_vars.fd: $(OVMF_VARS)
 	cp "$<" "$@"
 
-QEMU_EFI_ARGS=								 \
-	-enable-kvm -m 2G						 \
-	-drive if=pflash,format=raw,unit=0,file=$(OVMF_CODE),readonly=on \
-	-drive if=pflash,format=raw,unit=1,file=efi_vars.fd		 \
-	-nographic							 \
-	-netdev user,id=net1 -device e1000,netdev=net1
-
 run-ostree-vm: $(CHECKOUT_ROOT)/ostree-vm-$(ARCH) efi_vars.fd
 	$(QEMU)							\
+	    $(QEMU_COMMON_ARGS)                                 \
 	    $(QEMU_EFI_ARGS)					\
+	    $(QEMU_NET_ARGS)                                    \
 	    -drive file=$</disk.img,format=raw,media=disk
 
 .PHONY: \
