@@ -296,6 +296,22 @@ vulkan-stack-update:
 	bst source track $${name}; \
 	done
 
+OVMF_VARS=$(VM_CHECKOUT_ROOT)/efi_vars.fd
+ifeq ($(ARCH),aarch64)
+OVMF_VARS_TEMPLATE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/QEMU_VARS.fd
+OVMF_CODE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/QEMU_EFI.fd
+else
+OVMF_VARS_TEMPLATE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/OVMF_VARS.fd
+OVMF_CODE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/OVMF_CODE.fd
+endif
+
+$(OVMF_VARS_TEMPLATE) $(OVMF_CODE):
+	$(BST) build components/ovmf.bst
+	$(BST) artifact checkout components/ovmf.bst --directory $(VM_CHECKOUT_ROOT)/ovmf
+
+$(OVMF_VARS): $(OVMF_VARS_TEMPLATE)
+	cp "$<" "$@"
+
 ostree-config.yml:
 	echo 'ostree-remote-url: "http://$(LOCAL_ADDRESS):8000/"' >"$@.tmp"
 	echo 'ostree-branch: "$(OSTREE_BRANCH)"' >>"$@.tmp"
@@ -318,22 +334,6 @@ ostree-serve: ostree-repo
 $(VM_CHECKOUT_ROOT)/ostree-vm/disk.img: files/vm/ostree-config/fdsdk.gpg ostree-config.yml
 	$(BST) build vm/minimal-ostree/image.bst
 	$(BST) artifact checkout vm/minimal-ostree/image.bst --directory $(dir $@)
-
-OVMF_VARS=$(VM_CHECKOUT_ROOT)/efi_vars.fd
-ifeq ($(ARCH),aarch64)
-OVMF_VARS_TEMPLATE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/QEMU_VARS.fd
-OVMF_CODE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/QEMU_EFI.fd
-else
-OVMF_VARS_TEMPLATE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/OVMF_VARS.fd
-OVMF_CODE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/OVMF_CODE.fd
-endif
-
-$(OVMF_VARS_TEMPLATE) $(OVMF_CODE):
-	$(BST) build components/ovmf.bst
-	$(BST) artifact checkout components/ovmf.bst --directory $(VM_CHECKOUT_ROOT)/ovmf
-
-$(OVMF_VARS): $(OVMF_VARS_TEMPLATE)
-	cp "$<" "$@"
 
 run-ostree-vm: $(VM_CHECKOUT_ROOT)/ostree-vm/disk.img  $(OVMF_VARS) $(OVMF_CODE)
 	$(QEMU)							\
