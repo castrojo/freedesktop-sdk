@@ -17,6 +17,7 @@ CHECKOUT_ROOT=runtimes
 VM_CHECKOUT_ROOT=checkout/$(ARCH)
 VM_ARTIFACT_FILESYSTEM?=vm/minimal/virt.bst
 VM_ARTIFACT_BOOT?=vm/boot/virt.bst
+VM_ARTIFACT_IMAGE?=vm/minimal/efi.bst
 RUNTIME_VERSION?=master
 ifeq ($(RUNTIME_VERSION),master)
 TARGET_BRANCH=master
@@ -223,7 +224,7 @@ clean-test:
 	rm -rf .flatpak-builder/
 	rm -rf runtime/
 
-clean: clean-repo clean-runtime clean-test clean-vm
+clean: clean-repo clean-runtime clean-test clean-vm clean-efi-vm
 
 export-snap:
 	bst --colors $(ARCH_OPTS) build "snap-images/images.bst"
@@ -296,6 +297,38 @@ vulkan-stack-update:
 	bst source track $${name}; \
 	done
 
+OVMF_VARS=$(VM_CHECKOUT_ROOT)/efi_vars.fd
+ifeq ($(ARCH),aarch64)
+OVMF_VARS_TEMPLATE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/QEMU_VARS.fd
+OVMF_CODE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/QEMU_EFI.fd
+else
+OVMF_VARS_TEMPLATE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/OVMF_VARS.fd
+OVMF_CODE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/OVMF_CODE.fd
+endif
+
+$(OVMF_VARS_TEMPLATE) $(OVMF_CODE):
+	$(BST) build components/ovmf.bst
+	$(BST) artifact checkout components/ovmf.bst --directory $(VM_CHECKOUT_ROOT)/ovmf
+
+$(OVMF_VARS): $(OVMF_VARS_TEMPLATE)
+	cp "$<" "$@"
+
+$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img:
+	$(BST) artifact checkout $(VM_ARTIFACT_IMAGE) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
+
+clean-efi-vm:
+	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
+	rm -rf $(OVMF_VARS)
+
+build-efi-vm:
+	$(BST) build $(VM_ARTIFACT_IMAGE)
+
+run-efi-vm: build-efi-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img $(OVMF_VARS) $(OVMF_CODE)
+	$(QEMU)							\
+	    $(QEMU_COMMON_ARGS)					\
+	    $(QEMU_EFI_ARGS)					\
+	    -drive file=$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img,format=raw,media=disk
+
 ostree-config.yml:
 	echo 'ostree-remote-url: "http://$(LOCAL_ADDRESS):8000/"' >"$@.tmp"
 	echo 'ostree-branch: "$(OSTREE_BRANCH)"' >>"$@.tmp"
@@ -318,22 +351,6 @@ ostree-serve: ostree-repo
 $(VM_CHECKOUT_ROOT)/ostree-vm/disk.img: files/vm/ostree-config/fdsdk.gpg ostree-config.yml
 	$(BST) build vm/minimal-ostree/image.bst
 	$(BST) artifact checkout vm/minimal-ostree/image.bst --directory $(dir $@)
-
-OVMF_VARS=$(VM_CHECKOUT_ROOT)/efi_vars.fd
-ifeq ($(ARCH),aarch64)
-OVMF_VARS_TEMPLATE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/QEMU_VARS.fd
-OVMF_CODE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/QEMU_EFI.fd
-else
-OVMF_VARS_TEMPLATE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/OVMF_VARS.fd
-OVMF_CODE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/OVMF_CODE.fd
-endif
-
-$(OVMF_VARS_TEMPLATE) $(OVMF_CODE):
-	$(BST) build components/ovmf.bst
-	$(BST) artifact checkout components/ovmf.bst --directory $(VM_CHECKOUT_ROOT)/ovmf
-
-$(OVMF_VARS): $(OVMF_VARS_TEMPLATE)
-	cp "$<" "$@"
 
 run-ostree-vm: $(VM_CHECKOUT_ROOT)/ostree-vm/disk.img  $(OVMF_VARS) $(OVMF_CODE)
 	$(QEMU)							\
@@ -426,7 +443,9 @@ secure-images-serve: secure-images/SHA256SUMS
 	export test-apps manifest markdown-manifest check-rpath		\
 	build-tar export-tar clean-vm build-vm run-vm export-snap	\
 	export-oci export-docker bootstrap test-codecs			\
-	track-mesa-git update-ostree ostree-serve run-ostree-vm		\
+	track-mesa-git							\
+	clean-efi-vm build-efi-vm run-efi-vm				\
+	update-ostree ostree-serve run-ostree-vm			\
 	test-runtime-inheritance generate-keys clean-ostree-vm		\
 	download-microsoft-keys						\
 	run-secure-vm clean-secure-vm clean-ostree-vm			\

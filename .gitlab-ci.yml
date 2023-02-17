@@ -528,6 +528,7 @@ minimal_systemd_vm_x86_64:
   needs:
     - job: app_x86_64
       artifacts: false
+  when: manual # skip x86_64 VM tests by default; the runner is too slow
 
 minimal_systemd_vm_aarch64:
   extends:
@@ -540,7 +541,6 @@ minimal_systemd_vm_aarch64:
   needs:
     - job: app_aarch64
       artifacts: false
-  when: manual # skip aarch64 VM tests by default for now; the runner is too slow
 
 desktop_systemd_vm_x86_64:
   extends:
@@ -552,20 +552,26 @@ desktop_systemd_vm_x86_64:
   needs:
     - job: app_x86_64
       artifacts: false
+  when: manual # skip x86_64 VM tests by default; the runner is too slow
+
+desktop_systemd_vm_aarch64:
+  extends:
+    - .vm_imageless_template
+    - .builder-aarch64
+  variables:
+    VM_ARTIFACT_BOOT: vm/boot/virt.bst
+    VM_ARTIFACT_FILESYSTEM: vm/desktop/virt.bst
+  needs:
+    - job: app_aarch64
+      artifacts: false
 
 .vm_efi_image_template:
   stage: vm
   script:
-    - ${BST} -o target_arch "${ARCH}" build vm/"${TYPE}"/efi.bst
+    - make build-efi-vm
     - |
       if [ "${DIALOG+set}" = set ]; then
-        ${BST} -o target_arch "${ARCH}" artifact checkout vm/"${TYPE}"/efi.bst --directory ./vm
-        EFI_CODE="-drive if=pflash,format=raw,unit=0,file=/usr/share/qemu/edk2-x86_64-code.fd,readonly=on"
-        cp /usr/share/qemu/edk2-i386-vars.fd .
-        EFI_VARS="-drive if=pflash,format=raw,unit=1,file=${PWD}/edk2-i386-vars.fd"
-        DISK="-drive file=vm/disk.img,format=raw,media=disk"
-        QEMU="qemu-system-${ARCH} -enable-kvm -m 2G -nographic ${EFI_CODE} ${EFI_VARS} ${DISK}"
-        utils/test_minimal_system.py --dialog "${DIALOG}" command "${QEMU}"
+        utils/test_minimal_system.py --dialog "${DIALOG}" command 'make run-efi-vm'
       fi
   artifacts:
     when: always
@@ -584,7 +590,18 @@ minimal_efi_vm_image_x86_64:
   needs:
   - app_x86_64
   variables:
-    TYPE: minimal
+    VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
+    DIALOG: root-login
+  when: manual # skip x86_64 VM tests by default; the runner is too slow
+
+minimal_efi_vm_image_aarch64:
+  extends:
+    - .vm_efi_image_template
+    - .builder-aarch64
+  needs:
+  - app_aarch64
+  variables:
+    VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
     DIALOG: root-login
 
 desktop_efi_vm_image_x86_64:
@@ -594,7 +611,17 @@ desktop_efi_vm_image_x86_64:
   needs:
   - app_x86_64
   variables:
-    TYPE: desktop
+    VM_ARTIFACT_IMAGE: vm/desktop/efi.bst
+  when: manual # skip desktop image VM tests by default to avoid significant disk I/O
+
+desktop_efi_vm_image_aarch64:
+  extends:
+    - .vm_efi_image_template
+    - .builder-aarch64
+  needs:
+  - app_aarch64
+  variables:
+    VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
   when: manual # skip desktop image VM tests by default to avoid significant disk I/O
 
 prepare_publish:
