@@ -303,6 +303,23 @@ vulkan-stack-update:
 	bst track $${name}; \
 	done
 
+ifeq ($(ARCH),i686)
+OVMF_CODE=/usr/share/qemu/edk2-i386-code.fd
+OVMF_VARS=/usr/share/qemu/edk2-i386-vars.fd
+else ifeq ($(ARCH),x86_64)
+OVMF_CODE=/usr/share/qemu/edk2-x86_64-code.fd
+OVMF_VARS=/usr/share/qemu/edk2-i386-vars.fd
+else ifeq ($(ARCH),aarch64)
+OVMF_CODE=/usr/share/qemu/edk2-aarch64-code.fd
+OVMF_VARS=/usr/share/qemu/edk2-arm-vars.fd
+else ifeq ($(ARCH),arm)
+OVMF_CODE=/usr/share/qemu/edk2-arm-code.fd
+OVMF_VARS=/usr/share/qemu/edk2-arm-vars.fd
+endif
+
+efi_vars.fd: $(OVMF_VARS)
+	cp "$<" "$@"
+
 ostree-config.yml:
 	echo 'ostree-remote-url: "http://$(LOCAL_ADDRESS):8000/"' >"$@.tmp"
 	echo 'ostree-branch: "$(OSTREE_BRANCH)"' >>"$@.tmp"
@@ -326,23 +343,6 @@ $(CHECKOUT_ROOT)/ostree-vm-$(ARCH): files/vm/ostree-config/fdsdk.gpg ostree-conf
 	$(BST) track vm/minimal-ostree/image.bst
 	$(BST) build vm/minimal-ostree/image.bst
 	$(BST) checkout vm/minimal-ostree/image.bst "$@"
-
-ifeq ($(ARCH),i686)
-OVMF_CODE=/usr/share/qemu/edk2-i386-code.fd
-OVMF_VARS=/usr/share/qemu/edk2-i386-vars.fd
-else ifeq ($(ARCH),x86_64)
-OVMF_CODE=/usr/share/qemu/edk2-x86_64-code.fd
-OVMF_VARS=/usr/share/qemu/edk2-i386-vars.fd
-else ifeq ($(ARCH),aarch64)
-OVMF_CODE=/usr/share/qemu/edk2-aarch64-code.fd
-OVMF_VARS=/usr/share/qemu/edk2-arm-vars.fd
-else ifeq ($(ARCH),arm)
-OVMF_CODE=/usr/share/qemu/edk2-arm-code.fd
-OVMF_VARS=/usr/share/qemu/edk2-arm-vars.fd
-endif
-
-efi_vars.fd: $(OVMF_VARS)
-	cp "$<" "$@"
 
 run-ostree-vm: $(CHECKOUT_ROOT)/ostree-vm-$(ARCH) efi_vars.fd
 	$(QEMU)							\
