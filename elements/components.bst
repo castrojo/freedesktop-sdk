@@ -290,6 +290,7 @@ depends:
 - components/pango.bst
 - components/parted.bst
 - components/patch.bst
+- components/patchelf.bst
 - components/pciutils.bst
 - components/pcsc-lite.bst
 - components/perf.bst

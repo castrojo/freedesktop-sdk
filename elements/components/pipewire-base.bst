@@ -15,6 +15,7 @@ build-depends:
 - components/gstreamer-plugins-base.bst
 - components/gtk-doc.bst
 - components/libusb.bst
+- components/patchelf.bst
 - components/python3-docutils.bst
 - components/rtkit.bst
 - components/sbc.bst
@@ -46,6 +47,16 @@ variables:
     -Djack-devel=true
     -Dudevrulesdir=$(pkg-config --variable=udevdir udev)/rules.d
     -Dsession-managers=[]
+
+config:
+  install-commands:
+    (>):
+    - |
+      for module in '%{install-root}%{libdir}'/pipewire-0.3/*.so; do
+        if objdump -x "${module}" | grep -qv 'NEEDED *libpipewire-module-'; then
+          patchelf --remove-rpath "${module}"
+        fi
+      done
 
 public:
   bst:
@@ -115,7 +126,5 @@ sources:
   exclude:
   - '*.*.9*'
   ref: 0.3.59-0-gf54a72fd9a67eeb8d1502d6d75979dbddb00fdf2
-- kind: patch
-  path: patches/pipewire/remove-useless-rpaths.patch
 - kind: patch
   path: patches/pipewire/handle-null-io.patch
