@@ -92,13 +92,13 @@ clean-vm:
 	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
 
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM):
-	$(BST) build $(VM_ARTIFACT_FILESYSTEM)
 	$(BST) checkout --hardlinks $(VM_ARTIFACT_FILESYSTEM) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
+
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT):
-	$(BST) build $(VM_ARTIFACT_BOOT)
 	$(BST) checkout --hardlinks $(VM_ARTIFACT_BOOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
 
-build-vm: clean-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
+build-vm:
+	$(BST) build $(VM_ARTIFACT_FILESYSTEM) $(VM_ARTIFACT_BOOT)
 
 QEMU_COMMON_ARGS= \
 	-smp 4 \
@@ -146,7 +146,7 @@ QEMU_VIRTFS_ARGS+= \
 	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap init=/usr/lib/systemd/systemd console=ttyS0'
 endif
 
-run-vm: $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
+run-vm: build-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
 	unshare --map-root-user $(QEMU) $(QEMU_COMMON_ARGS) $(QEMU_VIRTFS_ARGS)
 
 check-dev-files:
