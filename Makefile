@@ -17,6 +17,7 @@ CHECKOUT_ROOT=runtimes
 VM_CHECKOUT_ROOT=checkout/$(ARCH)
 VM_ARTIFACT_FILESYSTEM?=vm/minimal/virt.bst
 VM_ARTIFACT_BOOT?=vm/boot/virt.bst
+VM_ARTIFACT_IMAGE?=vm/minimal/efi.bst
 IMPORT_BOOTSTRAP?=false
 RUNTIME_VERSION?=21.08
 ifeq ($(RUNTIME_VERSION),master)
@@ -110,47 +111,51 @@ build-vm:
 QEMU_COMMON_ARGS= \
 	-smp 4 \
 	-m 2G \
-	-nographic \
+	-object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 \
+	-nographic
+
+QEMU_VIRTFS_ARGS= \
 	-kernel $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/vmlinuz \
 	-initrd $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/initramfs.gz \
-	-object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0	\
 	-virtfs local,id=virtfs,path=$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM),security_model=none,mount_tag=virtfs
 
-QEMU_X86_COMMON_ARGS= \
-	$(QEMU_COMMON_ARGS) \
-	-enable-kvm \
-	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 console=ttyS0'
+QEMU_EFI_ARGS= \
+        -drive if=pflash,format=raw,unit=0,file=$(OVMF_CODE),readonly=on \
+        -drive if=pflash,format=raw,unit=1,file=efi_vars.fd
 
-QEMU_ARM_COMMON_ARGS= \
-	$(QEMU_COMMON_ARGS) \
+QEMU_NET_ARGS= \
+        -netdev user,id=net1 -device virtio-net,netdev=net1
+
+ifeq ($(ARCH),x86_64)
+QEMU_COMMON_ARGS+=-enable-kvm \
+QEMU_VIRTFS_ARGS+= \
+	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 console=ttyS0'
+else ifeq ($(ARCH),i686)
+QEMU_COMMON_ARGS+=-enable-kvm \
+QEMU_VIRTFS_ARGS+= \
+	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 console=ttyS0'
+else ifeq ($(ARCH),aarch64)
+QEMU_COMMON_ARGS+=  \
+	-machine type=virt \
+	-cpu max
+QEMU_VIRTFS_ARGS+= \
+	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 init=/usr/lib/systemd/systemd console=ttyAMA0'
+else ifeq ($(ARCH),arm)
+QEMU_COMMON_ARGS+=  \
 	-machine type=virt \
 	-cpu max \
-	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 init=/usr/lib/systemd/systemd console=ttyAMA0'
-
-QEMU_AARCH64_ARGS= \
-	$(QEMU_ARM_COMMON_ARGS)
-
-QEMU_ARM_ARGS= \
-	$(QEMU_ARM_COMMON_ARGS) \
 	-machine highmem=off
-
-QEMU_PPC64LE_ARGS= \
-	$(QEMU_COMMON_ARGS) \
-	-machine pseries \
+QEMU_VIRTFS_ARGS+= \
+	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 init=/usr/lib/systemd/systemd console=ttyAMA0'
+else ifeq ($(ARCH),ppc64le)
+QEMU_COMMON_ARGS+= \
+	-machine pseries
+QEMU_VIRTFS_ARGS+= \
 	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 init=/usr/lib/systemd/systemd console=ttyS0'
+endif
 
 run-vm: build-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
-ifeq ($(ARCH),x86_64)
-	unshare --map-root-user $(QEMU) $(QEMU_X86_COMMON_ARGS)
-else ifeq ($(ARCH),i686)
-	unshare --map-root-user $(QEMU) $(QEMU_X86_COMMON_ARGS)
-else ifeq ($(ARCH),aarch64)
-	unshare --map-root-user $(QEMU) $(QEMU_AARCH64_ARGS)
-else ifeq ($(ARCH),arm)
-	unshare --map-root-user $(QEMU) $(QEMU_ARM_ARGS)
-else ifeq ($(ARCH),ppc64le)
-	unshare --map-root-user $(QEMU) $(QEMU_PPC64LE_ARGS)
-endif
+	unshare --map-root-user $(QEMU) $(QEMU_COMMON_ARGS) $(QEMU_VIRTFS_ARGS)
 
 check-dev-files:
 	$(BST) build tests/check-dev-files.bst
@@ -235,7 +240,7 @@ clean-test:
 	rm -rf .flatpak-builder/
 	rm -rf runtime/
 
-clean: clean-repo clean-runtime clean-test clean-vm
+clean: clean-repo clean-runtime clean-test clean-vm clean-efi-vm
 
 export-snap:
 	bst --colors $(ARCH_OPTS) build "snap-images/images.bst"
@@ -308,6 +313,39 @@ vulkan-stack-update:
 	bst track $${name}; \
 	done
 
+ifeq ($(ARCH),i686)
+OVMF_CODE=/usr/share/qemu/edk2-i386-code.fd
+OVMF_VARS=/usr/share/qemu/edk2-i386-vars.fd
+else ifeq ($(ARCH),x86_64)
+OVMF_CODE=/usr/share/qemu/edk2-x86_64-code.fd
+OVMF_VARS=/usr/share/qemu/edk2-i386-vars.fd
+else ifeq ($(ARCH),aarch64)
+OVMF_CODE=/usr/share/qemu/edk2-aarch64-code.fd
+OVMF_VARS=/usr/share/qemu/edk2-arm-vars.fd
+else ifeq ($(ARCH),arm)
+OVMF_CODE=/usr/share/qemu/edk2-arm-code.fd
+OVMF_VARS=/usr/share/qemu/edk2-arm-vars.fd
+endif
+
+efi_vars.fd: $(OVMF_VARS)
+	cp "$<" "$@"
+
+$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img:
+	$(BST) checkout $(VM_ARTIFACT_IMAGE) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
+
+clean-efi-vm:
+	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
+	rm -rf $(OVMF_VARS)
+
+build-efi-vm:
+	$(BST) build $(VM_ARTIFACT_IMAGE)
+
+run-efi-vm: build-efi-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img efi_vars.fd $(OVMF_CODE)
+	$(QEMU)							\
+	    $(QEMU_COMMON_ARGS)                                 \
+	    $(QEMU_EFI_ARGS)					\
+	    -drive file=$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img,format=raw,media=disk
+
 ostree-config.yml:
 	echo 'ostree-remote-url: "http://$(LOCAL_ADDRESS):8000/"' >"$@.tmp"
 	echo 'ostree-branch: "$(OSTREE_BRANCH)"' >>"$@.tmp"
@@ -332,33 +370,11 @@ $(CHECKOUT_ROOT)/ostree-vm-$(ARCH): files/vm/ostree-config/fdsdk.gpg ostree-conf
 	$(BST) build vm/minimal-ostree/image.bst
 	$(BST) checkout vm/minimal-ostree/image.bst "$@"
 
-ifeq ($(ARCH),i686)
-OVMF_CODE=/usr/share/qemu/edk2-i386-code.fd
-OVMF_VARS=/usr/share/qemu/edk2-i386-vars.fd
-else ifeq ($(ARCH),x86_64)
-OVMF_CODE=/usr/share/qemu/edk2-x86_64-code.fd
-OVMF_VARS=/usr/share/qemu/edk2-i386-vars.fd
-else ifeq ($(ARCH),aarch64)
-OVMF_CODE=/usr/share/qemu/edk2-aarch64-code.fd
-OVMF_VARS=/usr/share/qemu/edk2-arm-vars.fd
-else ifeq ($(ARCH),arm)
-OVMF_CODE=/usr/share/qemu/edk2-arm-code.fd
-OVMF_VARS=/usr/share/qemu/edk2-arm-vars.fd
-endif
-
-efi_vars.fd: $(OVMF_VARS)
-	cp "$<" "$@"
-
-QEMU_EFI_ARGS=								 \
-	-enable-kvm -m 2G						 \
-	-drive if=pflash,format=raw,unit=0,file=$(OVMF_CODE),readonly=on \
-	-drive if=pflash,format=raw,unit=1,file=efi_vars.fd		 \
-	-nographic							 \
-	-netdev user,id=net1 -device e1000,netdev=net1
-
 run-ostree-vm: $(CHECKOUT_ROOT)/ostree-vm-$(ARCH) efi_vars.fd
 	$(QEMU)							\
+	    $(QEMU_COMMON_ARGS)                                 \
 	    $(QEMU_EFI_ARGS)					\
+	    $(QEMU_NET_ARGS)                                    \
 	    -drive file=$</disk.img,format=raw,media=disk
 
 .PHONY: \
@@ -366,5 +382,7 @@ run-ostree-vm: $(CHECKOUT_ROOT)/ostree-vm-$(ARCH) efi_vars.fd
 	export test-apps manifest markdown-manifest check-rpath \
 	build-tar export-tar clean-vm build-vm run-vm export-snap \
 	export-oci export-docker bootstrap test-codecs \
-	track-mesa-git update-ostree ostree-serve run-ostree-vm \
+	track-mesa-git \
+	clean-efi-vm build-efi-vm run-efi-vm \
+	update-ostree ostree-serve run-ostree-vm \
 	test-runtime-inheritance
