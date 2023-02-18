@@ -26,6 +26,9 @@ public:
         (>):
         - '%{libdir}/libtiff.so'
         - '%{libdir}/libtiffxx.so'
+  cpe:
+    patches:
+    - CVE-2022-48281
 
 sources:
 - kind: git_tag
@@ -34,3 +37,5 @@ sources:
   exclude:
   - '*rc*'
   ref: v4.5.0-0-g38eb7b00cb5767770017fb91743a960ffd96d774
+- kind: patch
+  path: patches/libtiff/tiffcrop-Correct-simple-copy-paste-error.patch
