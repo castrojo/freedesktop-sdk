@@ -15,6 +15,7 @@ build-depends:
 - components/gstreamer-plugins-base.bst
 - components/gtk-doc.bst
 - components/libusb.bst
+- components/libmysofa.bst
 - components/patchelf.bst
 - components/python3-docutils.bst
 - components/rtkit.bst
@@ -125,4 +126,4 @@ sources:
   track: master
   exclude:
   - '*.*.9*'
-  ref: 0.3.56-0-gf274e53d25ee8f483ac6fce9e516bb1830abe88b
+  ref: 0.3.66-0-g08b0ed65765a1033424a5c0d897a392a61f8a2a3

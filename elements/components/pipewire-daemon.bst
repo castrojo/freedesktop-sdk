@@ -9,6 +9,7 @@ runtime-depends:
 - components/sbc.bst
 - components/bluez.bst
 - components/bluez-libs.bst
+- components/libmysofa.bst
 - components/rtkit.bst
 - components/webrtc-audio-processing.bst
 - components/wireplumber.bst

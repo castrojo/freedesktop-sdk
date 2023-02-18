@@ -44,6 +44,7 @@ depends:
 - components/cracklib.bst
 - components/crun.bst
 - components/cryptsetup.bst
+- components/cunit.bst
 - components/cups-base.bst
 - components/cups-daemon-only.bst
 - components/cups-daemon.bst
@@ -200,6 +201,7 @@ depends:
 - components/libjcat.bst
 - components/libksba.bst
 - components/libmnl.bst
+- components/libmysofa.bst
 - components/libndp.bst
 - components/libnftnl.bst
 - components/libnice.bst
