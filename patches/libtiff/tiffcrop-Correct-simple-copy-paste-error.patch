@@ -17,7 +17,7 @@ index deab5feb..f77189d0 100644
        else
          {
 -        prev_cropsize = seg_buffs[0].size;
-+        prev_cropsize = seg_buffs[1].size;
++        prev_cropsize = seg_buffs[i].size;
          if (prev_cropsize < cropsize)
            {
            next_buff = _TIFFrealloc(crop_buff, cropsize + NUM_BUFF_OVERSIZE_BYTES);
