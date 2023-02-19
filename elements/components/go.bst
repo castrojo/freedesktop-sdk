@@ -69,6 +69,6 @@ sources:
   exclude:
   - '*rc*'
   - '*beta*'
-  ref: go1.20-0-gde4748c47c67392a57f250714509f590f68ad395
+  ref: go1.20.1-0-g202a1a57064127c3f19d96df57b9f9586145e21c
 - kind: patch
   path: patches/go/revert-internal-poll-drop-redundant-ENOSYS-in-CopyFileRange.patch
