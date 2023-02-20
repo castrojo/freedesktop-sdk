@@ -1,8 +1,8 @@
 sources:
 - kind: git_tag
   url: sourceware:glibc.git
-  track: release/2.36/master
+  track: release/2.37/master
   track-tags: false
-  ref: glibc-2.36-84-g93967a2a7bbdcedb73e0b246713580c7c84d001e
+  ref: glibc-2.37-6-gd8e1a7590d375159fb5aac07ad8111ab4699e994
 - kind: patch_queue
   path: patches/glibc
