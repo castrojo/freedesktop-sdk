@@ -134,13 +134,14 @@ async def await_line(stream, marker):
 async def run_test(command, dialog):
     dialog = DIALOGS[dialog]
 
-    logging.debug("Starting process: {}", command)
-    process = await asyncio.create_subprocess_exec(
-        *command, stdin=asyncio.subprocess.PIPE, stdout=asyncio.subprocess.PIPE,
-        start_new_session=True)
-
     success = False
+
     try:
+        logging.debug("Starting process: {}", command)
+        process = await asyncio.create_subprocess_exec(
+            *command, stdin=asyncio.subprocess.PIPE, stdout=asyncio.subprocess.PIPE,
+            start_new_session=True)
+
         while dialog:
             prompt = await await_line(process.stdout, dialog.pop(0))
 
@@ -150,17 +151,15 @@ async def run_test(command, dialog):
 
         print("Test successful")
         success = True
-    except asyncio.CancelledError:
-        # Move straight to killing the process group
-        pass
     finally:
         try:
             os.killpg(os.getpgid(process.pid), signal.SIGKILL)
         except ProcessLookupError:
             pass
 
-    await process.communicate()
-    await process.wait()
+        await process.communicate()
+        await process.wait()
+
     return success
 
 
