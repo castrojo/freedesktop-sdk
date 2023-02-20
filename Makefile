@@ -334,7 +334,7 @@ efi_vars.fd: $(OVMF_VARS)
 	cp "$<" "$@"
 
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img:
-	$(BST) checkout $(VM_ARTIFACT_IMAGE) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
+	$(BST) checkout --hardlinks $(VM_ARTIFACT_IMAGE) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
 
 clean-efi-vm:
 	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
