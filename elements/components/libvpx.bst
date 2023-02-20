@@ -51,4 +51,4 @@ sources:
 - kind: git_tag
   url: chromium:webm/libvpx.git
   track: main
-  ref: v1.12.0-0-g03265cd42b3783532de72f2ded5436652e6f5ce3
+  ref: v1.13.0-0-gd6eb9696aa72473c1a11d34d928d35a3acc0c9a9
