@@ -10,9 +10,11 @@ depends:
 - components/orc.bst
 - components/graphene.bst
 - components/gstreamer.bst
+- components/jpeg.bst
 - components/pango.bst
 - components/xorg-lib-xv.bst
 - components/libogg.bst
+- components/libpng.bst
 - components/libtheora.bst
 - components/libvorbis.bst
 - components/opus.bst
@@ -35,6 +37,9 @@ variables:
   meson-local: >-
     -Dgl_api=%{gl-api}
     -Dgl_platform=egl,glx
+    -Dgl-graphene=enabled
+    -Dgl-png=enabled
+    -Dgl-jpeg=enabled
     -Dintrospection=enabled
     -Dpackage-origin="freedesktop-sdk"
     -Dcdparanoia=disabled
