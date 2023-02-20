@@ -119,15 +119,18 @@ QEMU_NET_ARGS= \
         -netdev user,id=net1 -device virtio-net,netdev=net1
 
 ifeq ($(ARCH),x86_64)
-QEMU_COMMON_ARGS+=-enable-kvm \
+QEMU_COMMON_ARGS+= \
+	-enable-kvm
 QEMU_VIRTFS_ARGS+= \
 	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap console=ttyS0'
 else ifeq ($(ARCH),i686)
-QEMU_COMMON_ARGS+=-enable-kvm \
+QEMU_COMMON_ARGS+= \
+	-enable-kvm
 QEMU_VIRTFS_ARGS+= \
 	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap console=ttyS0'
 else ifeq ($(ARCH),aarch64)
-QEMU_COMMON_ARGS+=  \
+QEMU_COMMON_ARGS+= \
+	-enable-kvm \
 	-machine type=virt \
 	-cpu max
 QEMU_VIRTFS_ARGS+= \
