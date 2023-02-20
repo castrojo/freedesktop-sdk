@@ -173,7 +173,7 @@ def main():
 
     try:
         result = asyncio.run(task)
-    except asyncio.exceptions.TimeoutError:
+    except asyncio.TimeoutError:
         print(
             f"Test failed as timeout of {FAILURE_TIMEOUT} seconds was reached.",
             file=sys.stderr
