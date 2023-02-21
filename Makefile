@@ -123,12 +123,13 @@ QEMU_TPM_ARGS =									\
 	-device tpm-tis,tpmdev=tpm0
 
 ifeq ($(ARCH),x86_64)
-QEMU_COMMON_ARGS+=-M q35,accel=kvm
+QEMU_COMMON_ARGS+=				\
+	-M q35,accel=kvm
 QEMU_VIRTFS_ARGS+=												\
 	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap console=ttyS0'
 else ifeq ($(ARCH),aarch64)
 QEMU_COMMON_ARGS+=				\
-	-machine type=virt			\
+	-machine type=virt,accel=kvm		\
 	-cpu max
 QEMU_VIRTFS_ARGS+=																\
 	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap init=/usr/lib/systemd/systemd console=ttyAMA0'
@@ -314,7 +315,7 @@ $(OVMF_VARS): $(OVMF_VARS_TEMPLATE)
 	cp "$<" "$@"
 
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img:
-	$(BST) artifact checkout $(VM_ARTIFACT_IMAGE) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
+	$(BST) artifact checkout --hardlinks $(VM_ARTIFACT_IMAGE) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
 
 clean-efi-vm:
 	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
