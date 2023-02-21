@@ -422,8 +422,6 @@ app_ppc64le:
   extends:
     - .flatpak_template
     - .builder-ppc64le
-  allow_failure: true
-  when: manual
   needs: []
 
 app_ppc64:
