@@ -54,3 +54,5 @@ sources:
   url: gnome:gtk.git
   track: gtk-3-24
   ref: 3.24.36-0-g35516a5e866cd77390eb71d72d5b67f45dc4302c
+- kind: patch
+  path: patches/gtk3/glthread.patch
