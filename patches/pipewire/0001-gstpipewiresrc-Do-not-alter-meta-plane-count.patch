@@ -1,0 +1,30 @@
+From 0b4a280dfe79fff07a375108fe8a0daf8dd41947 Mon Sep 17 00:00:00 2001
+From: Robert Mader <robert.mader@collabora.com>
+Date: Mon, 20 Feb 2023 22:25:05 +0100
+Subject: [PATCH] gstpipewiresrc: Do not alter meta plane count
+
+Shared memory buffers may contain multiple planes.
+Thus we need to keep the meta plane number as derived from the format.
+
+Closes https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/3045
+---
+ src/gst/gstpipewiresrc.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/src/gst/gstpipewiresrc.c b/src/gst/gstpipewiresrc.c
+index a73ca00ed..cd7acb3f2 100644
+--- a/src/gst/gstpipewiresrc.c
++++ b/src/gst/gstpipewiresrc.c
+@@ -626,8 +626,7 @@ static GstBuffer *dequeue_buffer(GstPipeWireSrc *pwsrc)
+                              info->offset,
+                              info->stride);
+ 
+-    meta->n_planes = MIN(meta->n_planes, b->buffer->n_datas);
+-    for (i = 0; i < meta->n_planes; i++) {
++    for (i = 0; i < MIN (b->buffer->n_datas, GST_VIDEO_MAX_PLANES); i++) {
+       struct spa_data *d = &b->buffer->datas[i];
+       meta->offset[i] = video_size;
+       meta->stride[i] = d->chunk->stride;
+-- 
+2.39.2
+
