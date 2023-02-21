@@ -424,8 +424,7 @@ app_ppc64le:
     - .builder-ppc64le
   allow_failure: true
   when: manual
-  needs:
-  - bootstrap_ppc64le
+  needs: []
 
 app_ppc64:
   extends:
@@ -480,15 +479,6 @@ check_snap_i686:
     - '/^release\/.*/'
     - tags
     - schedules
-
-bootstrap_ppc64le:
-  extends:
-    - .bootstrap_template
-    - .builder-x86_64
-  allow_failure: true
-  when: manual
-  variables:
-    ARCH: ppc64le
 
 bootstrap_ppc64:
   extends:
