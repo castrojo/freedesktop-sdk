@@ -127,15 +127,18 @@ QEMU_NET_ARGS= \
         -netdev user,id=net1 -device virtio-net,netdev=net1
 
 ifeq ($(ARCH),x86_64)
-QEMU_COMMON_ARGS+=-enable-kvm \
+QEMU_COMMON_ARGS+= \
+	-enable-kvm
 QEMU_VIRTFS_ARGS+= \
 	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 console=ttyS0'
 else ifeq ($(ARCH),i686)
-QEMU_COMMON_ARGS+=-enable-kvm \
+QEMU_COMMON_ARGS+= \
+	-enable-kvm
 QEMU_VIRTFS_ARGS+= \
 	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap,msize=104857600 console=ttyS0'
 else ifeq ($(ARCH),aarch64)
-QEMU_COMMON_ARGS+=  \
+QEMU_COMMON_ARGS+= \
+	-enable-kvm \
 	-machine type=virt \
 	-cpu max
 QEMU_VIRTFS_ARGS+= \
@@ -331,7 +334,7 @@ efi_vars.fd: $(OVMF_VARS)
 	cp "$<" "$@"
 
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img:
-	$(BST) checkout $(VM_ARTIFACT_IMAGE) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
+	$(BST) checkout --hardlinks $(VM_ARTIFACT_IMAGE) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
 
 clean-efi-vm:
 	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
