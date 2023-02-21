@@ -380,7 +380,7 @@ license_checker:
 
 .builder-ppc64le:
   tags:
-  - x86_64
+  - ppc64le
   variables:
     ARCH: ppc64le
     BUILD_TASKS: 2
