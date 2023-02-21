@@ -9,7 +9,12 @@ variables:
     /usr
     %{prefix}
 
-  bootstrapper-gcc-triplet: "%{bootstrap_build_arch}-linux-gnu"
+  bootstrap_build_gcc_arch: "%{bootstrap_build_arch}"
+  (?):
+  - bootstrap_build_arch == "ppc64le":
+      bootstrap_build_gcc_arch: "powerpc64le"
+
+  bootstrapper-gcc-triplet: "%{bootstrap_build_gcc_arch}-linux-gnu"
   bootstrapper-triplet: "%{bootstrap_build_arch}-bootstrapper-linux-gnu"
 
 environment:
