@@ -1,0 +1,13 @@
+(@):
+- elements/cross-compilers/cross.yml
+
+variables:
+  prefix: '/usr/lib/sdk/toolchain-%{cross_gcc_arch}'
+  lib: "lib/%{cross_host_gcc_triplet}"
+
+  host-triplet: "%{cross_host_triplet}"
+
+environment:
+  CFLAGS:  "%{cross_host_flags}"
+  CXXFLAGS: "%{cross_host_flags}"
+  LDFLAGS:  "%{ldflags_defaults}"

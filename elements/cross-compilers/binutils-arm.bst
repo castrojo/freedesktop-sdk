@@ -1,16 +1,19 @@
 kind: autotools
 
-depends:
-- filename: bootstrap-import.bst
-  type: build
-- filename: components/texinfo.bst
-  type: build
-- filename: components/bison.bst
-  type: build
-- filename: components/flex.bst
-  type: build
+build-depends:
+- cross-compilers/build/gcc-cross-host.bst
+- components/texinfo.bst
+- components/bison.bst
+- components/flex.bst
+- filename:
+  - cross-compilers/glibc-host.bst
+  - cross-compilers/zlib-host.bst
+  - cross-compilers/elfutils-host.bst
+  config:
+    location: "%{sysroot}"
 
 (@):
 - elements/cross-compilers/arm-vars.yml
+- elements/cross-compilers/target.yml
 - elements/bootstrap/include/binutils-source.yml
 - elements/cross-compilers/binutils-common.yml

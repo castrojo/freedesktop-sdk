@@ -1,7 +1,11 @@
+(@):
+- elements/bootstrap/include/gcc-source.yml
+
 environment:
-  CFLAGS_FOR_BUILD:  "%{target_flags}"
-  CXXFLAGS_FOR_BUILD: "%{target_flags}"
-  LDFLAGS_FOR_BUILD:  "%{ldflags_defaults}"
+  CFLAGS_FOR_TARGET:  "%{cross_flags}"
+  CXXFLAGS_FOR_TARGET: "%{cross_flags}"
+  LDFLAGS_FOR_TARGET:  "%{ldflags_defaults}"
+  PYTHON: python3
 
 variables:
   conf-link-args: |
@@ -22,25 +26,24 @@ variables:
       echo "autoreconf: ${dir}"
       (cd "${dir}" && autoreconf2.69 "${args[@]}" -fvi)
     done
+  make-args: >-
+    MAKEINFO=true
 
   conf-local: >-
-    --target="%{cross_triplet}"
-    --with-build-sysroot="%{sysroot}"
+    --target=%{cross_triplet}
     --enable-multiarch
     --disable-multilib
     --disable-bootstrap
     --disable-nls
-    --enable-languages=c,c++,fortran
+    --with-sysroot=%{sysroot}
+    --enable-languages=c,c++,fortran,objc,obj-c++
     --enable-default-pie
     --enable-default-ssp
+    --with-isl
     --disable-libssp
-    --enable-cet
-    --disable-libstdcxx-filesystem-ts
-    --without-isl
     --enable-deterministic-archives
     --enable-linker-build-id
-    host_configargs='lt_cv_sys_lib_dlsearch_path_spec="%{sysroot}/lib/%{cross_host_gcc_triplet}"'
-    target_configargs='lt_cv_sys_lib_dlsearch_path_spec="/usr/lib/%{cross_gcc_triplet}:%{libdir}"'
+    --disable-libstdcxx-filesystem-ts
     %{conf-arch}
 
 config:
@@ -55,7 +58,21 @@ config:
       ln -s "%{cross_triplet}-gcc-$(cat gcc/BASE-VER)" "%{install-root}%{bindir}/%{cross_triplet}-gcc"
 
     - |
-      rm -f "%{install-root}%{bindir}/%{cross_triplet}-%{cross_triplet}-"*
+      for f in "%{install-root}%{bindir}/"*; do
+        base="$(basename "${f}")"
+        case "${base}" in
+          %{cross_triplet}-*)
+            continue
+          ;;
+          *)
+            if [ -f "%{install-root}%{bindir}/%{cross_triplet}-${base}" ]; then
+              rm "${f}"
+              ln -s "%{cross_triplet}-${base}" "${f}"
+            fi
+          ;;
+        esac
+      done
 
-    - |
-      rm "%{install-root}%{infodir}/dir"
+  # strip-binaries fails when cross compiling because artifact
+  # contains 2 architectures.
+  strip-commands: []

@@ -1,0 +1,6 @@
+variables:
+  cross_flags: >-
+    %{common_flags}
+    %{target_common_flags}
+    %{cross_arch_flags}
+    %{local_flags}

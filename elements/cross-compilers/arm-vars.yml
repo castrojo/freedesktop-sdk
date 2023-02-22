@@ -1,7 +1,12 @@
-(@):
-- elements/cross-compilers/common-vars.yml
-
 variables:
   cross_gcc_arch: "arm"
   cross_arch: "arm"
   cross_abi: "gnueabihf"
+
+  cross_arch_flags: "%{target_arm_flags}"
+
+  conf-arch: >-
+    --with-mode=thumb
+    --with-fpu=vfpv3-d16
+    --with-arch=armv7-a
+    --with-float=hard

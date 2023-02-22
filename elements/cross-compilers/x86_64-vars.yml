@@ -1,0 +1,9 @@
+variables:
+  cross_gcc_arch: "x86_64"
+  cross_arch: "x86_64"
+  cross_abi: "gnu"
+
+  cross_arch_flags: "%{target_x86_64_flags}"
+
+  conf-arch: >-
+    --with-tune=generic

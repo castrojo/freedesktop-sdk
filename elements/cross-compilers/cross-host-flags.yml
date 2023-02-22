@@ -1,0 +1,22 @@
+variables:
+  cross_host_flags: >-
+    %{common_flags}
+    %{target_common_flags}
+    %{cross_host_arch_flags}
+    %{local_flags}
+
+  (?):
+  - cross_host_arch == "i686":
+      cross_host_arch_flags: "%{target_i686_flags}"
+  - cross_host_arch == "arm":
+      cross_host_arch_flags: "%{target_arm_flags}"
+  - cross_host_arch == "x86_64":
+      cross_host_arch_flags: "%{target_x86_64_flags}"
+  - cross_host_arch == "aarch64":
+      cross_host_arch_flags: "%{target_aarch64_flags}"
+  - cross_host_arch == "ppc64le":
+      cross_host_arch_flags: "%{target_ppc64le_flags}"
+  - cross_host_arch == "ppc64":
+      cross_host_arch_flags: "%{target_ppc64_flags}"
+  - cross_host_arch == "riscv64":
+      cross_host_arch_flags: "%{target_riscv64_flags}"

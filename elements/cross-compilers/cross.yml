@@ -1,0 +1,18 @@
+(@):
+- elements/cross-compilers/common-vars.yml
+- elements/cross-compilers/cross-flags.yml
+
+variables:
+  cross-tools: "/cross-%{cross_arch}"
+
+  toolchain-prefixes: >-
+    %{cross-host-tools}
+    %{cross-tools}
+    /usr
+    %{prefix}
+
+  cross_gcc_triplet: "%{cross_gcc_arch}-linux-%{cross_abi}"
+  cross_triplet: "%{cross_arch}-unknown-linux-%{cross_abi}"
+
+environment:
+  PATH: "%{cross-host-tools}/bin:%{cross-tools}/bin:/bin"

@@ -1,26 +1,26 @@
-environment:
-  CFLAGS_FOR_BUILD:  "%{target_flags}"
-  CXXFLAGS_FOR_BUILD: "%{target_flags}"
-  LDFLAGS_FOR_BUILD:  "%{ldflags_defaults}"
+build-depends:
+- components/bison.bst
+- components/flex.bst
+
+depends:
+- bootstrap-import.bst
+
+(@):
+- elements/bootstrap/include/binutils-source.yml
 
 variables:
   conf-local: >-
     --target=%{cross_triplet}
+    --with-sysroot=%{sysroot}
     --disable-nls
+    --disable-gprofng
     --disable-multilib
     --disable-werror
-    --enable-gold
-    --enable-ld=default
-    --enable-plugins
-    --disable-gdb
-    --disable-sim
-    --disable-readline
-    --disable-libdecnumber
-    --enable-relro=yes
-    --enable-lto
-    --with-lib-path="/usr/lib/%{cross_gcc_triplet}"
+    %{disable-source}
+    --with-lib-path="%{sysroot}/usr/lib/%{cross_gcc_triplet}:%{sysroot}/usr/lib:/usr/lib/%{cross_gcc_triplet}:/usr/lib"
     --with-system-zlib
-    --with-build-sysroot="%{sysroot}"
+  make-args: >-
+    MAKEINFO=true
 
 config:
   install-commands:
@@ -41,11 +41,3 @@ config:
           fi
         done
       done
-
-    - |
-      rm "%{install-root}%{infodir}/dir"
-
-public:
-  bst:
-    overlap-whitelist:
-    - "%{sysconfdir}/gprofng.rc"

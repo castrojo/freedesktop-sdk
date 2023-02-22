@@ -1,0 +1,31 @@
+variables:
+  # Definition of variables related to host machine architecture
+  cross_host_gcc_triplet: "%{cross_host_gcc_arch}-linux-%{cross_host_abi}"
+  cross_host_triplet: "%{cross_host_arch}-unknown-linux-%{cross_host_abi}"
+  cross_host_gcc_arch: "%{cross_host_arch}"
+  cross_host_flatpak_arch: "%{cross_host_arch}"
+  cross_host_abi: "gnu"
+
+  (?):
+  - cross_host_arch == "x86_64":
+      cross_host_arch: "x86_64"
+  - cross_host_arch == "i686":
+      cross_host_arch: "i686"
+      cross_host_gcc_arch: "i386"
+      cross_host_flatpak_arch: "i386"
+  - cross_host_arch == "aarch64":
+      cross_host_arch: "aarch64"
+  - cross_host_arch == "arm":
+      cross_host_arch: "arm"
+      cross_host_abi: "gnueabihf"
+  - cross_host_arch == "ppc64le":
+      cross_host_arch: "powerpc64le"
+      cross_host_gcc_arch: "powerpc64le"
+      cross_host_flatpak_arch: "ppc64le"
+  - cross_host_arch == "ppc64":
+      cross_host_arch: "powerpc64"
+      cross_host_gcc_arch: "powerpc64"
+      cross_host_flatpak_arch: "ppc64"
+  - cross_host_arch == "riscv64":
+      cross_host_arch: "riscv64"
+      cross_host_gcc_arch: "riscv64"

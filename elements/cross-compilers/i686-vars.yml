@@ -1,7 +1,11 @@
-(@):
-- elements/cross-compilers/common-vars.yml
-
 variables:
   cross_gcc_arch: "i386"
   cross_arch: "i686"
   cross_abi: "gnu"
+
+  cross_arch_flags: "%{target_i686_flags}"
+
+  conf-arch: >-
+    --with-cpu=pentium4
+    --with-tune=generic
+    --with-fpmath=sse

@@ -1,0 +1,9 @@
+(@):
+- elements/cross-compilers/cross.yml
+
+variables:
+  build-triplet: '%{bootstrapper-triplet}'
+  host-triplet: '%{bootstrapper-triplet}'
+  libtool_dlsearch_path: "%{cross-tools}/lib:/usr/lib/%{bootstrapper-gcc-triplet}"
+  prefix: "%{cross-tools}"
+  lib: lib

@@ -1,6 +1,18 @@
+(@):
+- elements/cross-compilers/cross-host-arch.yml
+- elements/cross-compilers/cross-host-flags.yml
+
 variables:
-  prefix: '/usr/lib/sdk/toolchain-%{cross_gcc_arch}'
-  debugdir: /usr/lib/debug
-  cross_gcc_triplet: "%{cross_gcc_arch}-linux-%{cross_abi}"
-  cross_triplet: "%{cross_arch}-unknown-linux-%{cross_abi}"
-  tools: '%{prefix}'
+  sysroot: /cross-installation
+  cross-host-tools: "/cross-%{cross_host_arch}"
+
+  toolchain-prefixes: >-
+    %{cross-host-tools}
+    /usr
+    %{prefix}
+
+  bootstrapper-gcc-triplet: "%{gcc_arch}-linux-gnu"
+  bootstrapper-triplet: "%{arch}-bootstrapper-linux-gnu"
+
+environment:
+  PATH: "%{cross-host-tools}/bin:/bin"

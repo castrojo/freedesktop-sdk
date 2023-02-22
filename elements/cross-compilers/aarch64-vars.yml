@@ -1,7 +1,8 @@
-(@):
-- elements/cross-compilers/common-vars.yml
-
 variables:
   cross_gcc_arch: "aarch64"
   cross_arch: "aarch64"
   cross_abi: "gnu"
+
+  cross_arch_flags: "%{target_aarch64_flags}"
+
+  conf-arch: ""

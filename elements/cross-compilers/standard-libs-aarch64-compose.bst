@@ -1,8 +1,7 @@
 kind: compose
-depends:
-- filename: bootstrap/glibc.bst
-  junction: cross-compilers/freedesktop-sdk-aarch64.bst
-  type: build
+
+build-depends:
+- cross-compilers/glibc-aarch64.bst
 
 public:
   bst:
