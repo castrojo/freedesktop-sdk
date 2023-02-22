@@ -22,7 +22,7 @@ depends:
 - flatpak-images/mesa.bst
 
 (?):
-- target_arch == "x86_64":
+- target_arch == "aarch64" and cross_host_arch == "x86_64":
     depends:
       (>):
       - flatpak-images/toolchain-aarch64.bst
