@@ -2,7 +2,7 @@ kind: junction
 
 config:
   options:
-    bootstrap_build_arch: "%{arch}"
+    bootstrap_build_arch: "%{target_arch}"
     target_arch: "aarch64"
 
 sources:
