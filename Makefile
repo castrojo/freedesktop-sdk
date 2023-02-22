@@ -2,6 +2,7 @@ SHELL=/bin/bash
 BRANCH=23.08beta
 ARCH?=$(shell uname -m | sed "s/^i.86$$/i686/")
 BOOTSTRAP_ARCH?=$(shell uname -m | sed "s/^i.86$$/i686/")
+CROSS_HOST_ARCH?=$(shell uname -m | sed "s/^i.86$$/i686/")
 ifeq ($(ARCH),i686)
 FLATPAK_ARCH=i386
 QEMU_ARCH=i386
@@ -26,7 +27,7 @@ TARGET_BRANCH=release/$(RUNTIME_VERSION)
 endif
 
 SNAP_GRADE?=devel
-ARCH_OPTS=-o bootstrap_build_arch $(BOOTSTRAP_ARCH) -o target_arch $(ARCH) -o snap_grade $(SNAP_GRADE)
+ARCH_OPTS=-o bootstrap_build_arch $(BOOTSTRAP_ARCH) -o target_arch $(ARCH) -o cross_host_arch ${CROSS_HOST_ARCH} -o snap_grade $(SNAP_GRADE)
 TARBALLS=            \
 	sdk          \
 	platform
