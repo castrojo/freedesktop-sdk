@@ -10,5 +10,5 @@ sources:
 - kind: docker
   (@):
   - elements/bootstrap/base-sdk/binary-seed-source.yml
-  architecture: "arm64"
-  ref: 6eef20457141b1544fea4426432fea018bece8fb01e14008e869e920a1124c48
+  architecture: "ppc64le"
+  ref: b47152bcb89c9ff9354d96c39ae0847cdf9cb2b4bda0456c64e0858bddcf0b80
