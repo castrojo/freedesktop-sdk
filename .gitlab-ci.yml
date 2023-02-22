@@ -16,6 +16,9 @@ variables:
   # Generic variable for invoking buildstream
   BST: bst --colors
 
+  # Build x86_64 cross-compilers
+  CROSS_HOST_ARCH: x86_64
+
   # Make sure python bytecode doesn't mix up with sources
   PYTHONPYCACHEPREFIX: "${XDG_CACHE_HOME}/python"
 
