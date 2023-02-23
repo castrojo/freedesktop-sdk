@@ -29,4 +29,4 @@ sources:
   url: github:flatpak/flat-manager.git
   track: master
   track-tags: true
-  ref: 0.3.7-0-g5252cb3f691d82d74b3ef5eb0276e216f215e461
+  ref: 0.4.0-0-g2262372773437c2ae11756e3e652ef4cf15f5890
