@@ -27,4 +27,4 @@ sources:
 - kind: git_tag
   url: github:facebook/zstd.git
   track: release
-  ref: v1.5.2-0-ge47e674cd09583ff0503f0f6defd6d23d8b718d3
+  ref: v1.5.4-0-g945f27758c0fd67b636103a38dbf050266c6b90a
