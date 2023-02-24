@@ -676,7 +676,7 @@ finish_publish_failed:
           ;;
       esac
 
-    - flatpak build-update-repo --generate-static-deltas --prune repo
+    - flatpak build-update-repo --prune repo
     - flat-manager-client push "$(cat publish_build.txt)" repo
 
   artifacts:
