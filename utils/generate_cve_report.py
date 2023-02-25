@@ -98,6 +98,26 @@ def get_issues_and_mrs(cveid):
     for entry_name, url in get_entries('#', 'issues', cveid):
         yield entry_name, url
 
+def check_version_range(version, cpe_match):
+    vulnerable = True
+    version_object = comparable(version)
+    if "versionStartIncluding" in cpe_match:
+        start = comparable(cpe_match["versionStartIncluding"])
+        if version_object < start:
+            vulnerable = False
+    elif "versionStartExcluding" in cpe_match:
+        start = comparable(cpe_match["versionStartExcluding"])
+        if version_object <= start:
+            vulnerable = False
+    if "versionEndIncluding" in cpe_match:
+        end = comparable(cpe_match["versionEndIncluding"])
+        if version_object > end:
+            vulnerable = False
+    elif "versionEndExcluding" in cpe_match:
+        end = comparable(cpe_match["versionEndExcluding"])
+        if version_object >= end:
+            vulnerable = False
+    return vulnerable
 
 def extract_vulnerabilities(filename):
     print(f"Processing {filename}")
@@ -118,24 +138,13 @@ def extract_vulnerabilities(filename):
             elif module["version"] == version:
                 vulnerable = True
             elif version == "*":
-                version_object = comparable(module["version"])
                 vulnerable = True
-                if "versionStartIncluding" in cpe_match:
-                    start = comparable(cpe_match["versionStartIncluding"])
-                    if version_object < start:
-                        vulnerable = False
-                elif "versionStartExcluding" in cpe_match:
-                    start = comparable(cpe_match["versionStartExcluding"])
-                    if version_object <= start:
-                        vulnerable = False
-                if "versionEndIncluding" in cpe_match:
-                    end = comparable(cpe_match["versionEndIncluding"])
-                    if version_object > end:
-                        vulnerable = False
-                elif "versionEndExcluding" in cpe_match:
-                    end = comparable(cpe_match["versionEndExcluding"])
-                    if version_object >= end:
-                        vulnerable = False
+                version = module["version"]
+                try:
+                    vulnerable = check_version_range(version, cpe_match)
+                except TypeError as exc:
+                    raise SystemExit(f"{module} comparison against"
+                                     f"{cpe_match} ({cve_id})") from exc
             else:
                 vulnerable = False
 
