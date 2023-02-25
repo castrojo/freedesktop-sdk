@@ -1,5 +1,109 @@
 Freedesktop-SDK
 
+freedesktop-sdk-22.08.8:
+  * Add patch for glthread support into gtk3
+  * Hotfix pipewire
+  * Update cryptsetup-base to v2.6.1-0
+  * Update audit to v3.1-0
+  * Makefile: Use --hardlinks for VM image checkout
+  * Makefile: Enable KVM by default for aarch64 VMs
+  * utils/test_minimal_system.py: Don't catch asyncio.CancelledError
+  * utils/test_minimal_system.py: Use asyncio.TimeoutError
+  * Update python3-aiohttp to 3.8.4
+  * mesa: Update to 22.3.5
+  * Bump ABI after new PipeWire
+  * [abi skip] Allow addition of new PipeWire modules
+  * Update pipewire-base to 0.3.66-0
+  * pipewire: Remove patch and fix binaries with a script instead
+  * Update spirv-llvm-translator to v15.0.0-15
+  * Update go to go1.20.1-0
+  * Update networkmanager to 1.40.14-0
+  * Update ostree to v2023.1-0
+  * Update man-pages to man-pages-6.03-0
+  * Update linux-firmware to 20230210-0
+  * Update python3-tenacity to 8.2.1
+  * Update wireless-regdb-bin to master-2023-02-13-0
+  * Update elements/extensions/mesa/libdrm to libdrm-2.4.115-0
+  * Update libnghttp2 to v1.52.0-0
+  * Update eos-updater to Release_4.0.14-0
+  * Update eos-metrics to Release_5.0.0-0
+  * Update python3-pip to 23.0.1
+  * Update tpm2-tools to 5.5-0
+  * Update xorg-util-macros to util-macros-1.20.0-0
+  * Makefile: Do not checkout for the build-vm target
+  * .gitlab-ci.yml: Skip x86_64 VM tests by default
+  * .gitlab-ci.yml: Enable imageless aarch64 VM job by default
+  * .gitlab-ci.yml: Add aarch64 VM image jobs
+  * .gitlab-ci.yml: Use Makefile to build and run EFI VM
+  * Makefile: Add support for running simple EFI VMs
+  * Makefile: Move OVMF targets above the OSTree VM targets
+  * Makefile: Align architecture handling to master
+  * vm/minimal/efi.bst: Increase EFI image size
+  * patches/libtiff: Fix typo in patch backport
+  * Switch reproducible to aarch64
+  * libtiff: Add patch for CVE-2022-48281
+  * libtiff: Add patch for CVE-2022-3970
+  * libtiff: Add patch for CVE-2022-3599
+  * libtiff: Add patches for CVE-2022-3570 and CVE-2022-3598
+  * libtiff: Add patch for CVE-2022-3597, CVE-2022-3626 and CVE-2022-3627
+  * Fix asyncio deprecation warning running image
+  * Backport fix for null io
+  * Update python3-setuptools to 67.3.2
+  * .gitlab-ci.yml: Reduce build task concurreny for x86_64 and emulated arches
+  * .gitlab-ci.yml: Build tasks should be able to utilize all CPU cores
+  * Update intel-media-driver to intel-media-23.1.1-0
+  * Update xwayland to xwayland-22.1.8-0
+  * Update polkit-base to 122-10
+  * Update e2fsprogs to v1.47.0-0
+  * Switch flatpak stack to fuse3 to reduce delta with master
+  * Bump ABI image after ABI skips
+  * Update openssl to openssl-3.0.8-0
+  * Update libarchive to v3.6.2-0
+  * Update sdl2-image to release-2.6.3-0
+  * Update vala to 0.56.4-0
+  * Update libdrm to libdrm-2.4.115-0
+  * Update aom to v3.6.0-0
+  * Update dbus-base to dbus-1.14.6-0
+  * Drop xorg-lib-xau from flatpak-minimal dependencies
+  * bootstrap/build/gcc-stage1.bst: Avoid overriding conf-arch
+  * components/go.bst: Revert commit that breaks copy_file_range fallback
+  * Update python3-tenacity to 8.2.0
+  * Update flatpak to 1.14.2-0
+  * Update libgusb to 0.4.5-0
+  * Update eos-metrics to Release_4.0.14-0
+  * Update conmon to v2.1.6-0
+  * Update python3-setuptools to 67.2.0
+  * Update polkit-base to 122-9
+  * Update go to go1.20-0
+  * Update e2fsprogs to v1.46.6-0
+  * jack: Drop sndfile and readline flags
+  * Update jack to v1.9.22-0
+  * bootstrap/gnu-config.bst: Fix tracking
+  * bootstrap/gnu-config.bst: Make cache key agnostic to target_arch
+  * elements/bootstrap/build/base-sdk: Include bootstrap/include/build.yml
+  * bootstrap/include/build.yml: Set libtool_dlsearch_path
+  * bootstrap/include/common.yml: Always set the "bootstrapper" vendor
+  * Update libcap to libcap-2.67-0
+  * Update xorg-data-xkeyboard-config to xkeyboard-config-2.38-0
+  * include/_private/autotools-conf.yml: Do not hardcode libtool's dlsearch path
+  * bootstrap/include/flags.yml: Set build_arch_flags according to build architecture
+  * Update python3-setuptools to 67.1.0
+  * Update tpm2-pkcs11 to 1.9.0-0
+  * Update fuse3 to fuse-3.13.1-0
+  * Update polkit-base to 122-8
+  * Update openssh to V_9_2_P1-0
+  * Update glibc to glibc-2.35-231
+  * Update iwd to 2.3-0
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-22.08.7-0
+  * Update poppler to poppler-23.02.0-0
+  * Update libcbor to v0.10.2-0
+  * Update ccid to 1.5.2-0
+  * Update python3-sphinxcontrib-htmlhelp to 2.0.1
+  * Update crun to 1.8-0
+  * Update python3-pip to 23.0
+  * Update libgusb to 0.4.4-0
+  * Update python3-setuptools to 67.0.0
+
 freedesktop-sdk-22.08.7:
   * Update NSS tracking
   * Update nss to 3.79.3
