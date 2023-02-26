@@ -21,7 +21,7 @@ variables:
     -Dintrospection=enabled
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:libgudev.git
-  track: master
+  track: '[0-9]*'
   ref: 237-0-gdff7a794e55d6ad7a10e8edacd73aa047593e74c

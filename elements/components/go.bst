@@ -61,14 +61,9 @@ public:
         - "%{libdir}/go/src"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:golang/go.git
-  track: release-branch.go1.20
-  track-extra:
-  # Attempt to predict the next branchpoint.
-  - release-branch.go1.21
-  match:
-  - 'go*'
+  track: 'go*'
   exclude:
   - '*rc*'
   - '*beta*'

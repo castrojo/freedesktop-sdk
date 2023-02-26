@@ -10,7 +10,7 @@ depends:
   type: build
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxfont.git
-  track: master
+  track: libXfont2-*
   ref: libXfont2-2.0.6-0-gd54aaf2483df6a1f98fadc09004157e657b7f73e

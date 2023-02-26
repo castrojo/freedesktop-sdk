@@ -26,7 +26,7 @@ public:
         - '%{libdir}/libjson-glib-1.0.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:json-glib.git
-  track: master
+  track: '*.*.*'
   ref: 1.6.6-0-g3cf2b53667a73376c852e08dcadd197a5f8325b9

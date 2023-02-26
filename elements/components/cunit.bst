@@ -7,7 +7,7 @@ depends:
 - bootstrap-import.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gitlab:cunity/cunit.git
   track: master
 

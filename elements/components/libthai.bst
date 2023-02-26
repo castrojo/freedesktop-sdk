@@ -16,7 +16,7 @@ public:
         - '%{libdir}/libthai.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:tlwg/libthai.git
-  track: master
+  track: v*
   ref: v0.1.29-0-g618e442c340cff089f29743d35392a6aba21a9fb

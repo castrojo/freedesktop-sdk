@@ -28,7 +28,7 @@ public:
     - CVE-2022-29824
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:libxslt.git
-  track: master
+  track: v*
   ref: v1.1.35-0-g50af4e65da712ceb59f98a7feeeab2ddc3324ab9

@@ -19,11 +19,7 @@ public:
         - '%{libdir}/libSDL2_mixer.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:libsdl-org/SDL_mixer.git
-  track: main
-  track-extra:
-  - release-2.6.x
-  match:
-  - 'release*'
+  track: release-*
   ref: release-2.6.3-0-g6103316427a8479e5027e41ab9948bebfc1c3c19

@@ -23,9 +23,7 @@ variables:
     -Wno-error
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:storaged-project/libblockdev.git
-  track: master
-  track-extra:
-  - 2.x-branch
+  track: '*.*'
   ref: 2.28-1-0-g1412dc51c8f76bf8d9a6008228737db4a9a26d69

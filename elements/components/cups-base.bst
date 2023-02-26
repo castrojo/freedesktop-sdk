@@ -48,9 +48,9 @@ public:
       - '%{libdir}/lib*.so.*'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:OpenPrinting/cups.git
-  track: master
+  track: v*
   exclude:
   - "*a*"
   - "*b*"

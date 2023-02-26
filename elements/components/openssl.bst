@@ -60,7 +60,9 @@ public:
     vendor: 'openssl'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:openssl/openssl.git
-  track: openssl-3.0
+  track: openssl-3.*
+  exclude:
+  - openssl*alpha*
   ref: openssl-3.0.8-0-g31157bc0b46e04227b8468d3e6915e4d0332777c

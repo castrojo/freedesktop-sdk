@@ -28,10 +28,10 @@ config:
     install -Dm755 -t "%{install-root}%{libexecdir}/cni" bin/*
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:containernetworking/plugins.git
   directory: src/github.com/containernetworking/plugins
-  track: main
+  track: v*
   exclude:
   - "*rc*"
   ref: v1.2.0-0-gc4d24e80d64393d2c632a825a3486d1c2c0248ec

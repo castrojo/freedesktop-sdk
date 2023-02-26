@@ -16,7 +16,7 @@ public:
         - '%{libdir}/libseccomp.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:seccomp/libseccomp.git
-  track: release-2.5
+  track: v*
   ref: v2.5.4-0-gf33f95014b36f97b42f0c2290e96d5c31647ed10

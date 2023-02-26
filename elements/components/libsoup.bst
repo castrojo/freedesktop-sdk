@@ -34,10 +34,7 @@ public:
         - '%{libdir}/libsoup-gnome-3.0.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:libsoup.git
-  track: master
-  match:
-  - 3.[0-9][02468].*
-  - 3.[02468].*
+  track: 3.[02468].*
   ref: 3.0.6-0-g5211c27a4c77c9bae511721cf20f0abac554d8b4

@@ -34,13 +34,9 @@ config:
   - install -Dm755 -t "%{install-root}%{bindir}" build/release/mutool
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: ghostscript:mupdf.git
-  track: master
-  track-extra:
-  - 1.19.x
-  # 1.19.1 is a loose tag, unassociated with the stable branch.
-  - 1.19.1
+  track: '*.*.*'
   exclude:
   - '*-*'
   ref: 1.19.1-0-g652c9ddb1deea87e65c75b06561efae8c1579a57

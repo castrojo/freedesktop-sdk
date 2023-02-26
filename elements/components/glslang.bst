@@ -26,9 +26,7 @@ public:
         - '%{libdir}/libglslang.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:KhronosGroup/glslang.git
-  track: master
-  match:
-  - sdk-*
+  track: sdk-*
   ref: sdk-1.3.216.0-0-gadbf0d3106b26daa237b10b9bf72b1af7c31092d

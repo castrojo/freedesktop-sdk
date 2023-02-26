@@ -39,9 +39,7 @@ public:
     - CVE-2007-2768
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:openssh/openssh-portable.git
-  track: master
-  track-extra:
-  - V_8_3
+  track: V_*
   ref: V_9_2_P1-0-g6dfb65de949cdd0a5d198edee9a118f265924f33

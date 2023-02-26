@@ -17,10 +17,9 @@ variables:
     CPPFLAGS="-DOPENSSL_API_COMPAT=0x10100000L"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:linux/kernel/git/jejb/sbsigntools.git
   track: v0.9.4
-  track-tags: true
   ref: v0.9.4-0-gd52f7bbb73401aab8a1d59e8d0d686ad9641035e
 - kind: git_module
   path: lib/ccan.git

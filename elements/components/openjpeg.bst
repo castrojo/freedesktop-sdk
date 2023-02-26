@@ -27,7 +27,7 @@ public:
     - CVE-2016-9675
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:uclouvain/openjpeg.git
-  track: master
+  track: v2.*.*
   ref: v2.5.0-0-ga5891555eb49ed7cc26b2901ea680acda136d811

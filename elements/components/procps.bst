@@ -21,9 +21,9 @@ public:
         - '%{libdir}/libprocps.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gitlab:procps-ng/procps.git
-  track: master
+  track: v*
   exclude:
   - '*rc*'
   ref: v3.3.17-0-g19a508ea121c0c4ac6d0224575a036de745eaaf8

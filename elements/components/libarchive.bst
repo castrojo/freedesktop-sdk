@@ -15,9 +15,9 @@ public:
         - '%{libdir}/libarchive.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:libarchive/libarchive.git
-  track: master
+  track: v*
   ref: v3.6.2-0-gba80276ccc3c941c4918ec6e2460059f0c525c43
 - kind: patch_queue
   path: patches/libarchive

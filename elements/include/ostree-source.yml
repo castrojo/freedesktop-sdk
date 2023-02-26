@@ -1,9 +1,7 @@
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:ostreedev/ostree.git
-  track: main
-  match:
-  - v*
+  track: v*
   exclude:
   - v*.*.*
   ref: v2023.1-0-gcd100df4137619d8a8bcdfd7dfba6cff1e790e0a

@@ -38,7 +38,7 @@ config:
     install -Dm644 -t '%{install-root}' redhat/configs/fedora-config
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gitlab:cki-project/kernel-ark.git
   track: os-build
   ref: kernel-6.1.0-0.rc0.2bca25eaeba6.2-0-ge5960dc4be8c0bd9f37ddbf3fa7099600d7167a1

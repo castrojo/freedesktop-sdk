@@ -38,9 +38,9 @@ public:
     version-match: '(\d+)_(\d+)_(\d+)'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:curl/curl.git
-  track: master
+  track: curl-*
   ref: curl-7_87_0-0-gc12fb3ddaf48e709a7a4deaa55ec485e4df163ee
 - kind: patch
   path: patches/curl/remove-doc-timestamp.patch

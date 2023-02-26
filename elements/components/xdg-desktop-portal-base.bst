@@ -26,11 +26,7 @@ public:
       - "%{datadir}/dbus-1/interfaces/org.freedesktop.portal*"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:flatpak/xdg-desktop-portal.git
-  track: main
-  track-extra:
-  - xdg-desktop-portal-1.16
-  # Attempt to predict the next branchpoint.
-  - xdg-desktop-portal-1.17
+  track: '*.*.*'
   ref: 1.16.0-0-g88af6c8ca4106fcf70925355350a669848e9fd5a

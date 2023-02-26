@@ -73,7 +73,7 @@ config:
       install -Dm644 -t '%{install-root}%{datadir}/efitools/efi' {PK,KEK,DB}.auth
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:linux/kernel/git/jejb/efitools.git
   track: master
   ref: v1.9.2-0-g392836a46ce3c92b55dc88a1aebbcfdfc5dcddce

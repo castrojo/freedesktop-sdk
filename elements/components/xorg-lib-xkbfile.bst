@@ -16,8 +16,7 @@ public:
         - '%{libdir}/libxkbfile.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxkbfile.git
-  track: master
+  track: libxkbfile-*
   ref: libxkbfile-1.1.2-0-g3c0bca45d61982295ae0051fb874d57dc3d6f327
-

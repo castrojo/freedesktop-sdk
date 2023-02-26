@@ -180,10 +180,9 @@ public:
     - update-ca-trust
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: fedora_rpms:ca-certificates.git
   track: rawhide
-  track-tags: false
   ref: ca-certificates-2010_63-3_fc14-138-gbaa0ace3026efe0ce02933aad157d8320649ab9c
 - kind: patch
   path: patches/ca-certificates/directory-hash-writable.patch

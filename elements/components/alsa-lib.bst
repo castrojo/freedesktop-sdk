@@ -52,11 +52,9 @@ public:
         - '%{libdir}/libatopology.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:alsa-project/alsa-lib.git
-  track: v1.2.5.1
-  track-extra:
-  - master
+  track: v*.*.*
   ref: v1.2.8-0-g9447e57d7c1602a861635487ca56c452f3472965
 - kind: patch
   path: patches/alsa-lib/sysconfig-ostree.patch

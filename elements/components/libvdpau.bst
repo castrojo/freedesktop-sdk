@@ -17,7 +17,7 @@ public:
         - '%{libdir}/vdpau/libvdpau_*.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:vdpau/libvdpau.git
-  track: master
+  track: '*.*'
   ref: 1.5-0-g79f1506a3307d3275b0fdfb2e110c173f68e6f78

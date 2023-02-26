@@ -23,7 +23,7 @@ variables:
     -Dvapi=true
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:hughsie/colord.git
-  track: main
+  track: '*.*.*'
   ref: 1.4.6-0-g43c19fd019da5f69d2ebc00a9908b1dd83129485

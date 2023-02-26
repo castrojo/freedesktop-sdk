@@ -11,11 +11,9 @@ public:
         - '%{libdir}/liblz4.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:lz4/lz4.git
-  track: dev
-  track-extra:
-  - release
+  track: v*
   ref: v1.9.4-0-g5ff839680134437dbf4678f3d0c7b371d84f4964
 
 config:

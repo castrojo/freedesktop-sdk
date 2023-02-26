@@ -1,14 +1,14 @@
 kind: autotools
 description: X.org lib xdamage
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/xorg-util-macros.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/xorg-lib-xfixes.bst
-- filename: components/xorg-lib-x11.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/xorg-util-macros.bst
-  type: build
+- bootstrap-import.bst
+- components/xorg-lib-xfixes.bst
+- components/xorg-lib-x11.bst
 
 public:
   bst:
@@ -18,7 +18,7 @@ public:
         - '%{libdir}/libXdamage.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxdamage.git
-  track: master
+  track: libXdamage-*
   ref: libXdamage-1.1.6-0-g1f20df4fd7c132f55e924dc5ec3f270cd54704d0

@@ -27,7 +27,7 @@ public:
         - '%{libdir}/libharfbuzz.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:harfbuzz/harfbuzz.git
-  track: main
+  track: '*.*.*'
   ref: 6.0.0-0-gafcae83a064843d71d47624bc162e121cc56c08b

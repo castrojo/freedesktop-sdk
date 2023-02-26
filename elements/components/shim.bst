@@ -31,7 +31,7 @@ config:
     openssl x509 -inform PEM -outform DER -in "boot-keys/VENDOR.crt" -out "boot-keys/VENDOR.cer"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:rhboot/shim.git
   track: main
   ref: 15.5-0-gf2c598bb2218da966872ba3e0c6e7e830dca6ef0

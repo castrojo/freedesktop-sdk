@@ -22,7 +22,7 @@ public:
         - '%{libdir}/libgcrypt.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnupg:libgcrypt.git
-  track: LIBGCRYPT-1.10-BRANCH
+  track: libgcrypt-*
   ref: libgcrypt-1.10.1-0-gae0e567820c37f9640440b3cff77d7c185aa6742

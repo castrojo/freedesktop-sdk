@@ -19,7 +19,7 @@ public:
         - '%{libdir}/libsamplerate.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:libsndfile/libsamplerate.git
-  track: master
+  track: '*.*.*'
   ref: 0.2.2-0-gc96f5e3de9c4488f4e6c97f59f5245f22fda22f7

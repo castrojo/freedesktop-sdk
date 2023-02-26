@@ -33,7 +33,7 @@ public:
         - '%{libdir}/libsharpyuv.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: chromium:webm/libwebp.git
-  track: main
+  track: v*
   ref: v1.3.0-0-gb557776962a3dcc985d83bd4ed94e1e2e50d0fa2

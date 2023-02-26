@@ -33,9 +33,9 @@ public:
     version-match: '(\d+)_(\d+)_(\d+)'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: repo_or_cz:valgrind.git
-  track: master
+  track: VALGRIND_*
   ref: VALGRIND_3_20_0-0-g5147d671e4cb053ccc5d015cf1322692cc31f20a
 - kind: patch
   path: patches/valgrind/valgrind-arm-hot_cpu.patch

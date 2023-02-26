@@ -14,7 +14,7 @@ public:
         - '%{libdir}/libxcvt.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxcvt.git
-  track: master
+  track: libxcvt-*
   ref: libxcvt-0.1.2-0-gd9ca87eea9eecddaccc3a77227bcb3acf84e89df

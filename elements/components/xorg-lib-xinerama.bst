@@ -20,7 +20,7 @@ public:
     product: libxinerama
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxinerama.git
-  track: master
+  track: libXinerama-*
   ref: libXinerama-1.1.5-0-g71dfee64feb84f907016940263b235a61c9e8960

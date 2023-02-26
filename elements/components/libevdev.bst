@@ -14,9 +14,9 @@ variables:
     -Ddocumentation=enabled
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:libevdev/libevdev.git
-  track: master
+  track: libevdev-*
   exclude:
   - 'libevdev-*.*.9*'
   ref: libevdev-1.13.0-0-gff4276398c9474f04bb1b8cb9f27e6163c5e040e

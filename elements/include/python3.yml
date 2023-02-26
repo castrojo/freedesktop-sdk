@@ -1,7 +1,9 @@
 sources:
-- kind: git_tag
-  track: '3.11'
+- kind: git_repo
+  track: v*
   exclude:
+  - v*a*
+  - v*b*
   - v*rc*
   url: github:python/cpython.git
   ref: v3.11.2-0-g878ead1ac1651965126322c1b3d124faf5484dc6

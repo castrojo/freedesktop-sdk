@@ -8,7 +8,7 @@ depends:
   type: build
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/font/util.git
-  track: master
+  track: font-util-*
   ref: font-util-1.3.3-0-g2ef6b22ad908c024b6c2fbde5c1de62123f82dc2

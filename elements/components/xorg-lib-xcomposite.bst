@@ -18,7 +18,7 @@ public:
         - '%{libdir}/libXcomposite.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxcomposite.git
-  track: master
+  track: libXcomposite-*
   ref: libXcomposite-0.4.6-0-gcecff847395deb553b6331f31776f9cbfc809add

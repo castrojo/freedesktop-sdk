@@ -40,11 +40,9 @@ public:
         - '%{libdir}/libsepol.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:SELinuxProject/selinux.git
-  track: master
-  match:
-  - libsepol-*
+  track: libsepol-*
   exclude:
   - '*rc*'
   ref: libsepol-3.4-0-g0a8c177dacdc1df96ea11bb8aa75e16c4fa82285

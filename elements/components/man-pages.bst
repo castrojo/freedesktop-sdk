@@ -15,9 +15,9 @@ config:
     rm "%{install-root}%{mandir}/man5/passwd.5"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:docs/man-pages/man-pages.git
-  track: master
+  track: man-pages-*
   exclude:
   - '*rc*'
   ref: man-pages-6.03-0-gba828191e3c24266c68caba823324b617fd3028a

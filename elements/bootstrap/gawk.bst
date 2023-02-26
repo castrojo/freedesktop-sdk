@@ -25,11 +25,9 @@ config:
       rm "%{install-root}%{infodir}/dir"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: savannah:gawk.git
-  track: master
-  track-extra:
-  - gawk-5.1-stable
+  track: gawk-*
   exclude:
   - '*-docs'
   ref: gawk-5.2.1-0-g297cf6bc67417e3747c081efb805b4bdcbe726eb

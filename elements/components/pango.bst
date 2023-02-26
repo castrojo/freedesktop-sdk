@@ -37,7 +37,7 @@ variables:
     -Dinstall-tests=false
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:pango.git
-  track: main
+  track: '*.*.*'
   ref: 1.50.13-0-g5e912b951efe4976adaf328a561f2a26ec794095

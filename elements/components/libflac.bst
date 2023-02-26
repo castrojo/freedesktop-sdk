@@ -20,11 +20,7 @@ public:
         - '%{libdir}/libFLAC++.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: xiph:flac.git
-  track: master
-  track-extra:
-  - '1.4.x'
+  track: '*.*.*'
   ref: 1.4.1-0-gb6fbd6b3d97e2da4481bdbd25176f263fd6a5e75
-  match:
-  - '*.*.*'

@@ -8,9 +8,9 @@ depends:
   type: build
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:yelp-xsl.git
-  track: master
+  track: '*.*'
   exclude:
   - '*rc*'
   - '*beta*'

@@ -9,7 +9,7 @@ depends:
 - bootstrap-import.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:acpica/acpica.git
   track: master
   ref: R03_31_22-0-gada5b805eaa7480930082af9bc3d689c6f181329

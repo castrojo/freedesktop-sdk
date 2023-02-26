@@ -16,7 +16,7 @@ depends:
 - components/zstd.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:ccache/ccache.git
-  track: master
+  track: v*
   ref: v4.7.4-0-g1527040bc2a278b9d3d51badb732ecf5841d8bb5

@@ -27,9 +27,9 @@ config:
       find "%{install-root}" -name "lib*.a" -exec rm {} ";"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: savannah:bison.git
-  track: master
+  track: v*
   ref: v3.8.2-0-g9beba1919cad5dd08b0cac277c27896808719e4b
 - kind: git_module
   path: gnulib

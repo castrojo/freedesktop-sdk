@@ -32,7 +32,7 @@ config:
       install -Dm644 -t "%{install-root}${systemdsystemunitdir}" utils/cups-browsed.service
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:OpenPrinting/cups-filters.git
-  track: master
+  track: release-*
   ref: release-1-27-5-0-geae766df3267608844fa7809ece38a3922b3e070

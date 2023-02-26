@@ -27,7 +27,7 @@ config:
     ../expat/%{configure}
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:libexpat/libexpat.git
-  track: master
+  track: R_*
   ref: R_2_5_0-0-g654d2de0da85662fcc7644a7acd7c2dd2cfb21f0

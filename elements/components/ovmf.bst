@@ -70,11 +70,9 @@ config:
     install -Dm644 -t "%{install-root}%{datadir}/ovmf" '%{code}' '%{vars}' '%{shell}'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:tianocore/edk2.git
-  track: master
-  match:
-  - edk2-stable*
+  track: edk2-stable*
   ref: edk2-stable202211-0-gfff6d81270b57ee786ea18ad74f43149b9f03494
 - kind: git_module
   path: CryptoPkg/Library/OpensslLib/openssl

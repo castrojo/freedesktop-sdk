@@ -27,11 +27,9 @@ public:
     - CVE-2016-3709
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:libxml2.git
-  track: master
-  track-extra:
-  - 2.9
+  track: v*
   ref: v2.10.0-0-gae383bdb74523ddaf831d7db0690173c25e483b3
 - kind: patch
   path: patches/libxml2/libxml2-python-in-nodeWrap-deal-with-name-is-None-case.patch

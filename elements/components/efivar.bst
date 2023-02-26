@@ -19,9 +19,9 @@ variables:
   make-install: make -j1 DESTDIR='%{install-root}' %{make-args} install
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:rhboot/efivar.git
-  track: main
+  track: '[0-9]*'
   ref: 38-0-g1753149d4176ebfb2b135ac0aaf79340bf0e7a93
 - kind: patch_queue
   path: patches/efivar

@@ -1,9 +1,7 @@
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:systemd/systemd-stable.git
-  track: main
-  track-extra:
-  - v252-stable
+  track: v*
   exclude:
   - '*rc*'
   ref: v252.6-0-ge91a3042747398475b83ba00915f768e578bb9ff

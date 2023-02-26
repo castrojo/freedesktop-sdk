@@ -11,7 +11,7 @@ variables:
     -Ddistro_install=true
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:benhoyt/inih.git
-  track: master
+  track: r*
   ref: r56-0-g5e1d9e2625842dddb3f9c086a50f22e4f45dfc2b

@@ -31,11 +31,9 @@ environment:
   PATH: /usr/bin:/usr/lib/sdk/rust/bin
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:librsvg.git
-  track: main
-  track-extra:
-  - librsvg-2.48
+  track: '*.*.*'
   exclude:
   - '*.*[13579].*'
   ref: 2.54.4-0-g6539eef7be69c3f7089489c9a8f39d085e677bad

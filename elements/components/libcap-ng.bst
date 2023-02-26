@@ -14,7 +14,7 @@ public:
         - '%{libdir}/libcap-ng.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:stevegrubb/libcap-ng.git
-  track: master
+  track: v*
   ref: v0.8.3-0-g03b8572843b36bf071776a311c61f8d1dcfc4d53

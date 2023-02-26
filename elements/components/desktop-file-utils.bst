@@ -13,7 +13,7 @@ public:
       update-desktop-database
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xdg/desktop-file-utils.git
-  track: master
+  track: '*.*'
   ref: 0.26-0-g54cec012921e52eb66b6ee1a1f40f2e9c9849f7c

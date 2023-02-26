@@ -22,14 +22,9 @@ variables:
     --with-system-debugedit
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:flatpak/flatpak-builder.git
-  track: main
-  track-extra:
-  - flatpak-builder-1.2.x
-  match:
-  - 1.[02468]*
-  - 1.1[02468]*
+  track: 1.[02468]*
   ref: 1.2.3-0-gd7dbc51267e83242a9fe0d5a7b5304db0ac72f4f
 - kind: git_module
   path: subprojects/libglnx

@@ -20,9 +20,9 @@ public:
         - '%{libdir}/libxcb-render-util.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxcb-render-util.git
-  track: master
+  track: xcb-util-renderutil-*
   ref: xcb-util-renderutil-0.3.10-0-g5293d8b6165f23b9f7a8bcc903da0e4d7a75984c
 - kind: git_module
   path: m4

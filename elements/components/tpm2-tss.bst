@@ -18,11 +18,9 @@ variables:
     --runstatedir=/run
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:tpm2-software/tpm2-tss.git
-  track: master
-  track-extra:
-  - 3.2.x
+  track: '*.*.*'
   exclude:
   - '*rc*'
   ref: 4.0.1-0-g8b404ee7e5886c71aa53accb4ad38823724f7b13

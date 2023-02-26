@@ -19,7 +19,7 @@ public:
     product: libxfixes
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxfixes.git
-  track: master
+  track: libXfixes-*
   ref: libXfixes-6.0.0-0-g6fe3bd64dd82f704ed91478acb4c99ab5c00be16

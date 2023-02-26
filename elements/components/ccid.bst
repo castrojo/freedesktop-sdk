@@ -14,9 +14,9 @@ variables:
     LEXLIB=""
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: debian_salsa:rousseau/ccid.git
-  track: master
+  track: '*.*.*'
   ref: 1.5.2-0-g9a7ad431a184771fdb7228da922c89daf5d55acb
 - kind: git_module
   path: PCSC-contrib

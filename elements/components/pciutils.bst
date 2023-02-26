@@ -44,7 +44,7 @@ public:
         - '%{libdir}/libpci.so'
 
 sources:
-- kind: git_tag
-  track: master
+- kind: git_repo
+  track: v*
   url: kernel:utils/pciutils/pciutils.git
   ref: v3.9.0-0-g5abf19113f5fa88817d6f6e3f190c40205c46b8d

@@ -10,7 +10,7 @@ build-depends:
 - components/python3.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:doxygen/doxygen.git
-  track: master
+  track: Release_*
   ref: Release_1_9_6-0-g4586b5cfaa3d46d51f6a51882951d15644c49edf

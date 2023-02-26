@@ -25,9 +25,9 @@ config:
       EOF
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:google/shaderc.git
-  track: main
+  track: v*
   ref: v2022.2-0-g551f106dc64a1cacb298cc2f05613d142b53302f
 - kind: patch
   path: patches/shaderc/what-a-mess.patch

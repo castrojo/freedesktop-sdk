@@ -11,7 +11,7 @@ depends:
   type: build
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/proto/xcbproto.git
-  track: master
+  track: xcb-proto-*
   ref: xcb-proto-1.15.2-0-ged461f379b6cde5bea7bc99d253c270b37298401

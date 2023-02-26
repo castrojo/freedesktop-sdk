@@ -11,7 +11,7 @@ depends:
 - components/polkit.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:hadess/iio-sensor-proxy.git
-  track: master
+  track: '*.*'
   ref: 3.4-0-gcd6d5e653ef33f6e824e2f7f2ee61e330d4932ac

@@ -17,15 +17,9 @@ public:
     - CVE-2022-38127
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: sourceware:binutils-gdb.git
-  track: master
-  match:
-  - binutils-*
-  track-extra:
-  - binutils-2_39-branch
-  # Attempt to predict the next branchpoint.
-  - binutils-2_40-branch
+  track: binutils-*
   ref: binutils-2_39-0-gb51c2fec1da205ea3e7354cbb3e253018d64873c
 - kind: patch
   path: patches/binutils/PR29482-strip-heap-buffer-overflow.patch

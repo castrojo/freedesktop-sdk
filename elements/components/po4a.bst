@@ -12,7 +12,7 @@ depends:
 - components/perl.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:mquinson/po4a.git
-  track: master
+  track: v*
   ref: v0.69-0-g1925f62d0a26c4aa0621ca0cd419f7e84ecae676

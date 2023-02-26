@@ -31,9 +31,9 @@ public:
     - CVE-2022-48281
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gitlab:libtiff/libtiff.git
-  track: master
+  track: v*
   exclude:
   - '*rc*'
   ref: v4.5.0-0-g38eb7b00cb5767770017fb91743a960ffd96d774
