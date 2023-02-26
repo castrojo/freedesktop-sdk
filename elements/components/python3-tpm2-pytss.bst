@@ -16,8 +16,11 @@ depends:
 - components/python3-asn1crypto.bst
 
 sources:
-- kind: pypi
-  name: tpm2-pytss
-  ref:
-    sha256sum: 5b5b4b1456fdc1aeef3d2c3970beaa078c8f7f2648c97a69bcf60c5a2f95c897
-    suffix: 0f/e7/1680ec28f41196fb8adc0a2b2dc1e16d383b25446402dc83d158f3191d8b/tpm2-pytss-2.1.0.tar.gz
+- kind: git_repo
+  url: github:tpm2-software/tpm2-pytss.git
+  track: '*.*.*'
+  exclude:
+  - '*a*'
+  - '*b*'
+  - '*rc*'
+  ref: 2.1.0-0-g9f27d0c0bdd42574b158c0372213e259fad80798
