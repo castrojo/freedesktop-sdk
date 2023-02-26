@@ -29,7 +29,9 @@ def maybe_int(component):
         return component
 
 
-def comparable(version):
+def comparable(version, commit_quirk=False):
+    if commit_quirk:
+        version = version.split("-")[0]
     return [maybe_int(component) for component in version.split(".")]
 
 
@@ -100,21 +102,24 @@ def get_issues_and_mrs(cveid):
 
 def check_version_range(version, cpe_match):
     vulnerable = True
+    commit_quirk = False
+    if "gnu:binutils" in cpe_match["cpe23Uri"]:
+        commit_quirk = True
     version_object = comparable(version)
     if "versionStartIncluding" in cpe_match:
-        start = comparable(cpe_match["versionStartIncluding"])
+        start = comparable(cpe_match["versionStartIncluding"], commit_quirk=commit_quirk)
         if version_object < start:
             vulnerable = False
     elif "versionStartExcluding" in cpe_match:
-        start = comparable(cpe_match["versionStartExcluding"])
+        start = comparable(cpe_match["versionStartExcluding"], commit_quirk=commit_quirk)
         if version_object <= start:
             vulnerable = False
     if "versionEndIncluding" in cpe_match:
-        end = comparable(cpe_match["versionEndIncluding"])
+        end = comparable(cpe_match["versionEndIncluding"], commit_quirk=commit_quirk)
         if version_object > end:
             vulnerable = False
     elif "versionEndExcluding" in cpe_match:
-        end = comparable(cpe_match["versionEndExcluding"])
+        end = comparable(cpe_match["versionEndExcluding"], commit_quirk=commit_quirk)
         if version_object >= end:
             vulnerable = False
     return vulnerable
