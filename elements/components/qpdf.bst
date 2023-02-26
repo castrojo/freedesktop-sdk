@@ -26,4 +26,4 @@ sources:
   track: release-qpdf-*
   exclude:
   - '*cmake*'
-  ref: release-qpdf-10.6.3-0-g09a36ad62bfa787642778b8076ae5b4ba4a64fcc
+  ref: v11.3.0-0-g57dcf6d99dc4b464b0c6004f05cd2fe2d129f655
