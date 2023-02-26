@@ -10,6 +10,9 @@ public:
         (>):
         - '%{libdir}/liblz4.so'
 
+  cpe:
+    vendor: lz4_project
+
 sources:
 - kind: git_repo
   url: github:lz4/lz4.git
