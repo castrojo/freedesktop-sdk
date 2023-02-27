@@ -24,4 +24,4 @@ sources:
 - kind: git_repo
   url: github:libsdl-org/SDL_ttf.git
   track: release-*
-  ref: release-2.20.0-0-gf5e4828ffc9d3a84f00011fede4446aecb4a685f
+  ref: release-2.20.2-0-g89d1692fd8fe91a679bb943d377bfbd709b52c23
