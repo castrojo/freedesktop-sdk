@@ -25,6 +25,8 @@ variables:
     --enable-linker-build-id
     --disable-libstdcxx-filesystem-ts
     --enable-cet
+  conf-link-args: |
+    --enable-shared
 
 config:
   install-commands:
