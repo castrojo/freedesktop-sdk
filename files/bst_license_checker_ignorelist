@@ -10,6 +10,7 @@ vm/mesa-default.bst
 
 # compose elements
 abi/desktop-abi-image.bst
+bootstrap/base-sdk/binary-seed.bst
 cross-compilers/standard-libs-aarch64-compose.bst
 cross-compilers/standard-libs-arm-compose.bst
 cross-compilers/standard-libs-i686-compose.bst
@@ -29,7 +30,6 @@ vm/minimal/filesystem.bst
 vm/minimal-ostree/filesystem.bst
 
 # filter elements
-bootstrap/base-sdk/filtered.bst
 components/avahi.bst
 components/avahi-gobject.bst
 components/avahi-ui.bst
@@ -75,7 +75,6 @@ cross-compilers/freedesktop-sdk-arm.bst:bootstrap/glibc-build-deps.bst
 # stack elements
 bootstrap-import.bst
 bootstrap/bootstrap.bst
-bootstrap/base-sdk/binary-seed.bst
 bootstrap/build/debug-utils.bst
 bootstrap/build/tools-lib-path.bst
 components.bst

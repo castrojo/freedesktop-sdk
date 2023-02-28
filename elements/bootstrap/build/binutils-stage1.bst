@@ -1,10 +1,14 @@
 kind: autotools
 description: GNU Binutils Stage 1
 
+build-depends:
+- bootstrap/base-sdk/automake.bst
+- bootstrap/base-sdk/bison.bst
+- bootstrap/base-sdk/flex.bst
+- bootstrap/gnu-config.bst
+
 depends:
-- filename: bootstrap/base-sdk/binary-seed.bst
-- filename: bootstrap/gnu-config.bst
-  type: build
+- bootstrap/base-sdk/binary-seed.bst
 
 (@):
 - elements/bootstrap/include/build.yml
@@ -20,6 +24,8 @@ variables:
     %{disable-source}
     --with-lib-path="%{sysroot}/usr/lib/%{gcc_triplet}:%{sysroot}/usr/lib:/usr/lib/%{gcc_triplet}:/usr/lib"
     --with-system-zlib
+  make-args: >-
+    MAKEINFO=true
 
 config:
   install-commands:
@@ -40,6 +46,3 @@ config:
           fi
         done
       done
-
-    - |
-      rm "%{install-root}%{infodir}/dir"

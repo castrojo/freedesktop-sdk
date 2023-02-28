@@ -3,18 +3,16 @@ kind: script
 (@):
 - elements/bootstrap/include/common.yml
 
-depends:
-- filename: bootstrap/gnu-config.bst
-  type: build
-- filename: bootstrap/build/gcc-stage2.bst
-  type: build
-- filename: bootstrap/build/debug-utils.bst
-  type: build
+build-depends:
+- bootstrap/base-sdk/automake.bst
+- bootstrap/base-sdk/gettext.bst
+- bootstrap/base-sdk/pkg-config.bst
+- bootstrap/gnu-config.bst
+- bootstrap/build/debug-utils.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/bzip2.bst
+- bootstrap/zlib.bst
 
-- filename: bootstrap/zlib.bst
-  type: build
-- filename: bootstrap/bzip2.bst
-  type: build
 
 variables:
   install-root: "/"
@@ -23,12 +21,18 @@ config:
   layout:
   - element: bootstrap/gnu-config.bst
     destination: "/"
-  - element: bootstrap/build/gcc-stage2.bst
+  - element: bootstrap/base-sdk/automake.bst
+    destination: "/"
+  - element: bootstrap/base-sdk/gettext.bst
+    destination: "/"
+  - element: bootstrap/base-sdk/pkg-config.bst
     destination: "/"
   - element: bootstrap/build/debug-utils.bst
     destination: "/"
+  - element: bootstrap/build/gcc-stage2.bst
+    destination: "/"
 
-  - element: bootstrap/zlib.bst
-    destination: "%{sysroot}"
   - element: bootstrap/bzip2.bst
+    destination: "%{sysroot}"
+  - element: bootstrap/zlib.bst
     destination: "%{sysroot}"

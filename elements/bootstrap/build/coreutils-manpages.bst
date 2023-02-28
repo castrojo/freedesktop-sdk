@@ -5,9 +5,8 @@ description: GNU coreutils
 - elements/bootstrap/include/build.yml
 - elements/bootstrap/include/coreutils-source.yml
 
-depends:
-- filename: bootstrap/base-sdk/binary-seed.bst
-  type: build
+build-depends:
+- bootstrap/base-sdk/binary-seed.bst
 
 environment:
   FORCE_UNSAFE_CONFIGURE: 1

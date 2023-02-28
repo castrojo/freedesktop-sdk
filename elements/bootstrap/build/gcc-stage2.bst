@@ -1,12 +1,11 @@
 kind: autotools
 description: GNU gcc Stage 2
 
-depends:
-- filename: bootstrap/build/gcc-stage-2-build-deps.bst
-  type: build
+build-depends:
+- bootstrap/build/gcc-stage-2-build-deps.bst
 
-- filename: bootstrap/build/binutils-stage1.bst
-  type: runtime
+runtime-depends:
+- bootstrap/build/binutils-stage1.bst
 
 (@):
 - elements/bootstrap/include/gcc-arch-opts.yml
@@ -38,7 +37,8 @@ variables:
       echo "autoreconf: ${dir}"
       (cd "${dir}" && autoreconf2.69 "${args[@]}" -fvi)
     done
-
+  make-args: >-
+    MAKEINFO=true
 
   conf-local: >-
     --target=%{triplet}
@@ -83,9 +83,6 @@ config:
           ;;
         esac
       done
-
-    - |
-      rm "%{install-root}%{infodir}/dir"
 
   # strip-binaries fails when cross compiling because artifact
   # contains 2 architectures.

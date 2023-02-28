@@ -4,9 +4,10 @@ kind: script
 - elements/bootstrap/include/common.yml
 
 build-depends:
-- bootstrap/gnu-config.bst
+- bootstrap/base-sdk/flex.bst
 - bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
+- bootstrap/gnu-config.bst
 - bootstrap/pcre2.bst
 
 variables:
@@ -15,6 +16,8 @@ variables:
 config:
   layout:
   - element: bootstrap/gnu-config.bst
+    destination: "/"
+  - element: bootstrap/base-sdk/flex.bst
     destination: "/"
   - element: bootstrap/build/gcc-stage2.bst
     destination: "/"

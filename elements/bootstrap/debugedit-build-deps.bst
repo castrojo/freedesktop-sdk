@@ -3,20 +3,12 @@ kind: script
 (@):
 - elements/bootstrap/include/common.yml
 
-depends:
-- filename: bootstrap/gnu-config.bst
-  type: build
-- filename: bootstrap/build/gcc-stage2.bst
-  type: build
-- filename: bootstrap/build/debug-utils.bst
-  type: build
-
-- filename: bootstrap/bzip2.bst
-  type: build
-- filename: bootstrap/elfutils.bst
-  type: build
-- filename: bootstrap/file.bst
-  type: build
+build-depends:
+- bootstrap/base-sdk/pkg-config.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
+- bootstrap/gnu-config.bst
+- bootstrap/elfutils.bst
 
 variables:
   install-root: "/"
@@ -24,6 +16,8 @@ variables:
 config:
   layout:
   - element: bootstrap/gnu-config.bst
+    destination: "/"
+  - element: bootstrap/base-sdk/pkg-config.bst
     destination: "/"
   - element: bootstrap/build/gcc-stage2.bst
     destination: "/"

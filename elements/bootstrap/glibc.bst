@@ -1,13 +1,12 @@
 kind: autotools
 description: GNU C Library
 
-depends:
-- filename: bootstrap/glibc-build-deps.bst
-  type: build
-- filename: bootstrap/symlinks.bst
-  type: runtime
-- filename: bootstrap/linux-headers.bst
-  type: runtime
+build-depends:
+- bootstrap/glibc-build-deps.bst
+
+runtime-depends:
+- bootstrap/symlinks.bst
+- bootstrap/linux-headers.bst
 
 config:
   configure-commands:

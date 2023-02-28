@@ -1,10 +1,9 @@
 kind: autotools
 
-depends:
-- filename: bootstrap/base-sdk/binary-seed.bst
-  type: build
-- filename: bootstrap/gnu-config.bst
-  type: build
+build-depends:
+- bootstrap/base-sdk/automake.bst
+- bootstrap/base-sdk/libtool.bst
+- bootstrap/gnu-config.bst
 
 (@):
 - elements/bootstrap/include/build.yml
