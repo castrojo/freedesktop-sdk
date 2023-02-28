@@ -42,7 +42,9 @@ config:
     (>):
     - |
       rm "%{install-root}%{infodir}/dir"
+      # remove overlapped files with binutils
       rm -f "%{install-root}%{infodir}/bfd.info"
+      rm -f "%{install-root}%{infodir}/sframe-spec.info"
       rm -f "%{install-root}%{datadir}"/locale/*/LC_MESSAGES/bfd.mo
       rm -f "%{install-root}%{datadir}"/locale/*/LC_MESSAGES/opcodes.mo
 
@@ -50,5 +52,5 @@ sources:
 - kind: git_repo
   url: sourceware:binutils-gdb.git
   track: gdb-*.*
-  ref: gdb-12.1-release-0-ge53a8e8685685c97588f8319d993ea6cd5635e47
+  ref: gdb-13.1-release-0-g4f3e26ac6ee31f7bc4b04abd8bdb944e7f1fc5d2
 
