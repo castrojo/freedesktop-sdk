@@ -11,5 +11,5 @@ sources:
 - kind: pypi
   name: xdg
   ref:
-    sha256sum: aa619f26ccec6088b2a6018721d4ee86e602099b24644a90a8d3308a25acd06c
-    suffix: 33/fe/67bc1f8ee2782bca3cdc63558a64f843bb9f88e15793475350809fbd8e01/xdg-5.1.1.tar.gz
+    sha256sum: 24278094f2d45e846d1eb28a2ebb92d7b67fc0cab5249ee3ce88c95f649a1c92
+    suffix: 2a/b9/0e6e6f19fb75cf5e1758f4f33c1256738f718966700cffc0fde2f966218b/xdg-6.0.0.tar.gz
