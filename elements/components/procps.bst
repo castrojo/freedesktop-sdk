@@ -18,7 +18,7 @@ public:
     split-rules:
       devel:
         (>):
-        - '%{libdir}/libprocps.so'
+        - '%{libdir}/libproc2.so'
 
 sources:
 - kind: git_repo
