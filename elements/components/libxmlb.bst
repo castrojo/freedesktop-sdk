@@ -7,6 +7,7 @@ build-depends:
 
 depends:
 - components/glib.bst
+- components/zstd.bst
 
 variables:
   meson-local: >-
