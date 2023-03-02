@@ -1,3 +1,7 @@
+variables:
+  # Uses generated header cmds.h into source directory
+  build-dir: ''
+
 sources:
 - kind: git_repo
   url: sourceware:lvm2.git
