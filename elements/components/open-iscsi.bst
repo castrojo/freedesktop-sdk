@@ -33,6 +33,6 @@ sources:
 - kind: git_repo
   url: github:open-iscsi/open-iscsi.git
   track: '*.*.*'
-  ref: 2.1.7-0-g7b53fcc502da8617110fd64d675b476772c28a6f
+  ref: 2.1.8-0-gcc4224fc021d40020de3133410586534c5732664
 - kind: patch
   path: patches/open-iscsi/no-werror.patch
