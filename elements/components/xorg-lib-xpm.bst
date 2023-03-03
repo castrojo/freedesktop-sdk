@@ -20,4 +20,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libxpm.git
   track: libXpm-*
-  ref: libXpm-3.5.14-0-g08bc174f28af028b6ebaa9edeccd3ff56c396e92
+  ref: libXpm-3.5.15-0-gddd8339e262cbb7b25993599299ad40e0c95ccf6
