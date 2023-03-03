@@ -87,10 +87,11 @@ variables:
   conf-local: >-
     --prefix="%{ffmpeg-prefix}"
     --libdir="%{ffmpeg-libdir}"
+    --optflags="${CFLAGS}"
+    --extra-ldflags="${LDFLAGS}"
     --disable-debug
     --disable-doc
     --disable-static
-    --enable-optimizations
     --enable-shared
     --disable-everything
     --enable-ffplay
