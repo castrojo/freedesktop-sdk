@@ -43,7 +43,7 @@ variables:
     pcm_u8,tta,libvorbis,wavpack,%{extra-aud-enc}
 
   audio-decoders: |
-    adpcm_g722,alac,flac,g723_1,g729,libfdk_aac,libopus,libspeex,\
+    ac3,adpcm_g722,alac,flac,g723_1,g729,libfdk_aac,libopus,libspeex,\
     mp2,mp3,m4a,pcm_alaw,pcm_mulaw,pcm_f16le,pcm_f24le,pcm_f32be,\
     pcm_f32le,pcm_f64be,pcm_f64le,pcm_s16be,pcm_s16be_planar,pcm_s24be,\
     pcm_s16le,pcm_s16le_planar,pcm_s24le,pcm_s24le_planar,pcm_s32le,\
