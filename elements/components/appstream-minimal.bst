@@ -25,6 +25,7 @@ variables:
     -Dstemming=false
     -Dcompose=true
     -Dsvg-support=false
+    -Dsystemd=false
 
 (@):
 - elements/include/appstream-source.yml

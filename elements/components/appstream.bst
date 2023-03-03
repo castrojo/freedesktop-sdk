@@ -20,6 +20,7 @@ depends:
 - components/libxml2.bst
 - components/libxmlb.bst
 - components/pango.bst
+- components/systemd-libs.bst
 
 variables:
   meson-local: >-
