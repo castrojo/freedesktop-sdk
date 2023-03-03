@@ -11,6 +11,7 @@ depends:
 - components/ghostscript.bst
 - components/jpeg.bst
 - components/lcms.bst
+- components/libexif.bst
 - components/libpng.bst
 - components/libtiff.bst
 - components/mutool.bst
@@ -23,6 +24,8 @@ variables:
   build-dir: ''
   conf-local: >-
     --without-rcdir
+  # https://github.com/OpenPrinting/cups-filters/issues/512
+  local_flags: "-std=c++17"
 
 config:
   install-commands:
@@ -34,5 +37,5 @@ config:
 sources:
 - kind: git_repo
   url: github:OpenPrinting/cups-filters.git
-  track: release-*
-  ref: release-1-27-5-0-geae766df3267608844fa7809ece38a3922b3e070
+  track: '*.*.*'
+  ref: 1.28.17-0-gdeceb54f7c6935683732de936364eb82c0d32dbb
