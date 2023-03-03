@@ -15,7 +15,4 @@ variables:
   extra-hwaccels: |
     h263_vaapi,h264_vaapi,h264_vdpau,hevc_vaapi,hevc_vdpau,mpeg1_vdpau,mpeg2_vaapi,\
     mpeg2_vdpau,mpeg4_vaapi,mpeg4_vdpau,vc1_vaapi,vc1_vdpau
-  extra-parsers: hevc,h263,h264,dca
-  extra-muxers: asf,avi,h263,h264,hevc,mp4
-  extra-demuxers: ape,asf,avi,h263,h264,hevc,m4v,mjpeg_2000,mp4,wav,xwma
 

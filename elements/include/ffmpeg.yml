@@ -65,27 +65,6 @@ variables:
   hwaccels: |
     av1_vaapi,av1_vdpau,mjpeg_vaapi,vp8_vaapi,vp9_vaapi,vp9_vdpau,%{extra-hwaccels}
 
-  muxers: |
-    ac3,ass,flac,g722,gif,matroska,mp3,mpegvideo,rtp,ogg,opus,\
-    pcm_s16be,pcm_s16le,wav,webm,%{extra-muxers}
-
-  demuxers: |
-    aac,ac3,ass,flac,g722,gif,image_jpeg_pipe,image_png_pipe,\
-    image_webp_pipe,matroska,mjpeg,mov,mp3,mpegvideo,ogg,pcm_mulaw,\
-    pcm_alaw,pcm_s16be,pcm_s16le,rtp,wav,%{extra-demuxers}
-
-  parsers: |
-    aac,ac3,flac,mjpeg,mpegaudio,mpeg4video,opus,vp3,vp8,vp9,vorbis,%{extra-parsers}
-
-  filters: |
-    crop,scale,overlay,amix,amerge,aresample,format,aformat,fps,transpose,pad,%{extra-filters}
-
-  indevs: |
-    v4l2,xcbgrab,%{extra-indevs}
-
-  protocols: |
-    crypto,file,pipe,rtp,srtp,rtsp,tcp,udp,unix,%{extra-protocols}
-
   conf-local: >-
     --prefix="%{ffmpeg-prefix}"
     --libdir="%{ffmpeg-libdir}"
@@ -128,12 +107,12 @@ variables:
     --enable-encoder=%{image-formats}
     --enable-decoder=%{image-formats}
     --enable-hwaccel=%{hwaccels}
-    --enable-parser=%{parsers}
-    --enable-muxer=%{muxers}
-    --enable-demuxer=%{demuxers}
-    --enable-filter=%{filters}
-    --enable-indev=%{indevs}
-    --enable-protocol=%{protocols}
+    --enable-parsers
+    --enable-muxers
+    --enable-demuxers
+    --enable-filters
+    --enable-indevs
+    --enable-protocols
     --arch="%{ffmpeg-arch}"
 
   conf-extra: ''
@@ -144,12 +123,6 @@ variables:
   extra-vid-dec: ''
   extra-image-formats: ''
   extra-hwaccels: ''
-  extra-muxers: ''
-  extra-demuxers: ''
-  extra-parsers: ''
-  extra-filters: ''
-  extra-indevs: ''
-  extra-protocols: ''
 
 public:
   bst:
