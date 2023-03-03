@@ -12,5 +12,5 @@ depends:
 sources:
 - kind: git_repo
   url: gnome:pygobject.git
-  track: '*.*.*'
+  track: '*.*[02468].*'
   ref: 3.42.2-0-gf9c363a0c2fea08b140dbb9c9f072cbeb0cf1f10
