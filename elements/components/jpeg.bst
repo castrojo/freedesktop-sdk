@@ -28,11 +28,11 @@ public:
         - '%{libdir}/libturbojpeg.so'
   cpe:
     product: libjpeg-turbo
-    ignored:
-    - CVE-2020-35538
 
 sources:
 - kind: git_repo
   url: github:libjpeg-turbo/libjpeg-turbo.git
   track: '*.*.*'
-  ref: 2.1.4-0-g8162eddf041e0be26f5c671bb6528723c55fed9d
+  exclude:
+  - '*.*.9*'
+  ref: 2.1.5.1-0-g8ecba3647edb6dd940463fedf38ca33a8e2a73d1
