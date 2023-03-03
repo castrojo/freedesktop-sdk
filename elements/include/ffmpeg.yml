@@ -28,6 +28,8 @@ depends:
 - components/xorg-lib-xcb.bst
 
 variables:
+  optimize-debug: "false"
+
   ffmpeg-prefix: '%{prefix}'
   ffmpeg-libdir: '%{libdir}'
   ffmpeg-arch: '%{arch}'
@@ -89,7 +91,7 @@ variables:
     --libdir="%{ffmpeg-libdir}"
     --optflags="${CFLAGS}"
     --extra-ldflags="${LDFLAGS}"
-    --disable-debug
+    --disable-stripping
     --disable-doc
     --disable-static
     --enable-shared
