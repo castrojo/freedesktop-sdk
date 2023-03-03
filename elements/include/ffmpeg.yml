@@ -63,7 +63,7 @@ variables:
     bmp,gif,jpegls,png,tiff,webp,%{extra-image-formats}
 
   hwaccels: |
-    vp8_vaapi,mjpeg_vaapi,%{extra-hwaccels}
+    av1_vaapi,av1_vdpau,mjpeg_vaapi,vp8_vaapi,vp9_vaapi,vp9_vdpau,%{extra-hwaccels}
 
   muxers: |
     ac3,ass,flac,g722,gif,matroska,mp3,mpegvideo,rtp,ogg,opus,\
