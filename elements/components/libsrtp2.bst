@@ -22,4 +22,4 @@ sources:
 - kind: git_repo
   url: github:cisco/libsrtp.git
   track: v*.*.*
-  ref: v2.4.2-0-g90d05bf8980d16e4ac3f16c19b77e296c4bc207b
+  ref: v2.5.0-0-ga566a9cfcd619e8327784aa7cff4a1276dc1e895
