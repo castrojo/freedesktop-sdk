@@ -55,4 +55,4 @@ sources:
 - kind: git_tag
   url: github:cracklib/cracklib.git
   track: master
-  ref: v2.9.8-0-gd9e8f9f47718539aeba80f90f4e072549926dc9c
+  ref: v2.9.9-0-g49204628f8b742c720b5fcf15565961a2e3d444a
