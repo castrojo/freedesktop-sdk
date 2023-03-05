@@ -24,6 +24,8 @@ sources:
   track: '*.*.*'
   exclude:
   - "*-pre*"
+  # legacy weird tags
+  - "2.*"
   ref: 1.5.7-0-gc9662e67d575299df2b87bc70f0e4865f04a8f01
 - kind: git_repo
   url: savannah:gnulib.git
