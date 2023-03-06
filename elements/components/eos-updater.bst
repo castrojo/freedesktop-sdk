@@ -20,6 +20,6 @@ sources:
 - kind: git_repo
   url: github:endlessm/eos-updater.git
   track: Release_*
-  ref: Release_4.0.14-0-gac2dd3856c04aef3c12f084fa61dc7b52814d5f3
+  ref: Release_5.0.1-0-g56883cf594d5ee3c5a790fe389fdcb35297c03ef
 - kind: patch
   path: patches/eos-updater/eos-updater-disable-tests.patch
