@@ -3,16 +3,15 @@ kind: script
 (@):
 - elements/bootstrap/include/common.yml
 
-depends:
-- filename: bootstrap/gnu-config.bst
-  type: build
-- filename: bootstrap/build/gcc-stage2.bst
-  type: build
-- filename: bootstrap/build/debug-utils.bst
-  type: build
-
-- filename: bootstrap/glibc.bst
-  type: build
+build-depends:
+- bootstrap/base-sdk/automake.bst
+- bootstrap/base-sdk/pkg-config.bst
+- bootstrap/base-sdk/gettext.bst
+- bootstrap/base-sdk/texinfo.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
+- bootstrap/gnu-config.bst
+- bootstrap/glibc.bst
 
 variables:
   install-root: "/"
@@ -20,6 +19,14 @@ variables:
 config:
   layout:
   - element: bootstrap/gnu-config.bst
+    destination: "/"
+  - element: bootstrap/base-sdk/automake.bst
+    destination: "/"
+  - element: bootstrap/base-sdk/gettext.bst
+    destination: "/"
+  - element: bootstrap/base-sdk/pkg-config.bst
+    destination: "/"
+  - element: bootstrap/base-sdk/texinfo.bst
     destination: "/"
   - element: bootstrap/build/gcc-stage2.bst
     destination: "/"

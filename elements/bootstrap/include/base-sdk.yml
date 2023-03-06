@@ -1,0 +1,6 @@
+(@):
+- elements/bootstrap/include/build.yml
+
+variables:
+  prefix: /usr
+  lib: "lib/%{bootstrapper-gcc-triplet}"

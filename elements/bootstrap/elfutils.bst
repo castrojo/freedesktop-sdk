@@ -1,12 +1,11 @@
 kind: autotools
 
-depends:
-- filename: bootstrap/elfutils-build-deps.bst
-  type: build
-- filename: bootstrap/zlib.bst
-  type: runtime
-- filename: bootstrap/bzip2.bst
-  type: runtime
+build-depends:
+- bootstrap/elfutils-build-deps.bst
+
+runtime-depends:
+- bootstrap/bzip2.bst
+- bootstrap/zlib.bst
 
 (@):
 - elements/bootstrap/include/target.yml

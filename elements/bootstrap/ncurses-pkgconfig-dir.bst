@@ -1,8 +1,7 @@
 kind: script
 
 build-depends:
-- bootstrap/build/base-sdk.bst
-
+- bootstrap/base-sdk/binary-seed.bst
 
 (@):
 - elements/bootstrap/include/target.yml

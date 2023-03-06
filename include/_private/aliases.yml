@@ -55,3 +55,6 @@ tar_https: https://
 #
 #Cargo Alias
 crates: https://static.crates.io/
+
+# OCI registries
+gitlab_registry: https://registry.gitlab.com/

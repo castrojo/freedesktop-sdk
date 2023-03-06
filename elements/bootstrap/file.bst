@@ -1,10 +1,10 @@
 kind: autotools
 
-depends:
-- filename: bootstrap/file-build-deps.bst
-  type: build
-- filename: bootstrap/zlib.bst
-  type: runtime
+build-depends:
+- bootstrap/file-build-deps.bst
+
+runtime-depends:
+- bootstrap/zlib.bst
 
 (@):
 - elements/bootstrap/include/target.yml

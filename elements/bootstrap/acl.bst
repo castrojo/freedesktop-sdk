@@ -1,10 +1,10 @@
 kind: autotools
 
-depends:
-- filename: bootstrap/acl-build-deps.bst
-  type: build
-- filename: bootstrap/attr.bst
-  type: runtime
+build-depends:
+- bootstrap/acl-build-deps.bst
+
+runtime-depends:
+- bootstrap/attr.bst
 
 public:
   bst:

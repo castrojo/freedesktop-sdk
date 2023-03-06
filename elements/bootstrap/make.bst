@@ -1,11 +1,11 @@
 kind: autotools
 description: GNU make
 
-depends:
-- filename: bootstrap/make-build-deps.bst
-  type: build
-- filename: bootstrap/glibc.bst
-  type: runtime
+build-depends:
+- bootstrap/make-build-deps.bst
+
+runtime-depends:
+- bootstrap/glibc.bst
 
 (@): elements/bootstrap/include/target.yml
 

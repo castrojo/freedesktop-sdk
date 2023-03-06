@@ -42,6 +42,7 @@ variables:
       %{conf-host}
       %{conf-libtool-force-dlsearch}
   conf-cmd: configure
+  make-args: ""
 
 config:
   configure-commands:
@@ -61,14 +62,14 @@ config:
     if [ -n "%{build-dir}" ]; then
       cd %{build-dir}
     fi
-    %{make}
+    %{make} %{make-args}
 
   install-commands:
   - |
     if [ -n "%{build-dir}" ]; then
       cd %{build-dir}
     fi
-    %{make-install}
+    %{make-install} %{make-args}
 
   - |
     %{delete_libtool_files}

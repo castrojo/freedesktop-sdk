@@ -1,13 +1,12 @@
 kind: autotools
 description: GNU grep
 
-depends:
-- filename: bootstrap/grep-build-deps.bst
-  type: build
-- filename: bootstrap/glibc.bst
-  type: runtime
-- filename: bootstrap/pcre2.bst
-  type: runtime
+build-depends:
+- bootstrap/grep-build-deps.bst
+
+runtime-depends:
+- bootstrap/glibc.bst
+- bootstrap/pcre2.bst
 
 (@): elements/bootstrap/include/target.yml
 

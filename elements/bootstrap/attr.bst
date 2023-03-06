@@ -1,10 +1,10 @@
 kind: autotools
 
-depends:
-- filename: bootstrap/attr-build-deps.bst
-  type: build
-- filename: bootstrap/glibc.bst
-  type: runtime
+build-depends:
+- bootstrap/attr-build-deps.bst
+
+runtime-depends:
+- bootstrap/glibc.bst
 
 public:
   bst:

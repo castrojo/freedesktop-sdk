@@ -1,11 +1,11 @@
 kind: autotools
 description: GNU awk
 
-depends:
-- filename: bootstrap/gawk-build-deps.bst
-  type: build
-- filename: bootstrap/glibc.bst
-  type: runtime
+build-depends:
+- bootstrap/gawk-build-deps.bst
+
+runtime-depends:
+- bootstrap/glibc.bst
 
 (@): elements/bootstrap/include/target.yml
 
