@@ -12,6 +12,8 @@ depends:
   type: build
 - filename: public-stacks/buildsystem-meson.bst
   type: build
+- filename: components/python3-docutils.bst
+  type: build
 
 variables:
   meson-local: >
@@ -36,4 +38,6 @@ sources:
 - kind: git_repo
   url: gnome:gdk-pixbuf.git
   track: 2.*[02468].*
-  ref: 2.42.8-0-gbca00032ad68d0b0aa2c1f7558db931e52bd9cd2
+  exclude:
+  - '2.9*'
+  ref: 2.42.10-0-g9ac257eb38f772fec4253e8051743029e75a2acd
