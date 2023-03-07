@@ -22,6 +22,7 @@ variables:
   build_powerpc64le_flags: ""
   build_powerpc64_flags: ""
   build_riscv64_flags: ""
+  build_loongarch64_flags: ""
 
   # The final composition of `build_flags` includes `build_arch_flags`
   # which can be one of the preset arch specific definitions above
@@ -49,3 +50,5 @@ variables:
       build_arch_flags: "%{build_powerpc64_flags}"
   - bootstrap_build_arch == "riscv64":
       build_arch_flags: "%{build_riscv64_flags}"
+  - target_arch == "loongarch64":
+      build_arch_flags: "%{build_loongarch64_flags}"

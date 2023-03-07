@@ -25,6 +25,11 @@
 #include <type_traits>
 #include <cstring>
 
+// defined since glibc 2.36
+#if !defined(EM_LOONGARCH)
+#define EM_LOONGARCH 258
+#endif
+
 known_arch get_arch(Elf32_Ehdr const* header) {
   auto endian = get_endianness(header);
   switch (header->e_machine) {
@@ -43,6 +48,8 @@ known_arch get_arch(Elf32_Ehdr const* header) {
       return known_arch::ppc64;
     else
       return known_arch::ppc64le;
+  case EM_LOONGARCH:
+    return known_arch::loongarch64;
   }
   return known_arch::unknown;
 }

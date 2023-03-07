@@ -25,3 +25,5 @@ go-arch: "%{arch}"
     go-arch: "ppc64"
 - target_arch == "riscv64":
     go-arch: "riscv64"
+- target_arch == "loongarch64":
+    go-arch: "loong64"

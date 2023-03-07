@@ -61,6 +61,7 @@ variables:
   target_riscv64_flags: >-
     -fasynchronous-unwind-tables
     -fstack-clash-protection
+  target_loongarch64_flags: ""
 
   # The final composition of `target_flags` includes `target_arch_flags`
   # which can be one of the preset arch specific definitions above
@@ -92,6 +93,7 @@ variables:
   rust_target_ppc64le_flags: ""
   rust_target_ppc64_flags: ""
   rust_target_riscv64_flags: ""
+  rust_target_loongarch64_flags: ""
 
   rust_target_flags: >-
     %{rust_target_arch_flags}
@@ -132,6 +134,9 @@ variables:
   - target_arch == "riscv64":
       target_arch_flags: "%{target_riscv64_flags}"
       rust_target_arch_flags: "%{rust_target_riscv64_flags}"
+  - target_arch == "loongarch64":
+      target_arch_flags: "%{target_loongarch64_flags}"
+      rust_target_arch_flags: "%{rust_target_loongarch64_flags}"
 
 environment:
   CFLAGS:  "%{target_flags}"

@@ -14,6 +14,10 @@ variables:
         --with-cpu=pentium4
         --with-tune=generic
         --with-fpmath=sse
+  - target_arch == "loongarch64":
+      conf-arch: >-
+        --with-arch=loongarch64
+        --with-tune=loongarch64
   - target_arch == "ppc64le":
       conf-arch: >-
         --with-cpu=power8

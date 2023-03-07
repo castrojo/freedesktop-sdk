@@ -33,6 +33,8 @@ variables:
   - target_arch == "riscv64":
       kernel_arch: riscv
       image-name: arch/riscv/boot/Image
+  - target_arch == "loongarch64":
+      kernel_arch: loongarch
 
 environment:
   ARCH: '%{kernel_arch}'

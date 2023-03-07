@@ -35,3 +35,7 @@ variables:
       arch: "riscv64"
       gcc_arch: "riscv64"
       linux-root: 72EC70A6-CF74-40E6-BD49-4BDA08E8F224
+  - target_arch == "loongarch64":
+      arch: "loongarch64"
+      gcc_arch: "loongarch64"
+      linux-root: 77055800-792c-4f94-b39a-98c91b762bb6

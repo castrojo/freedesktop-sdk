@@ -48,6 +48,9 @@ std::string get_triplet(known_arch arch) {
   case known_arch::riscv64:
     triplet = "riscv64-unknown-linux-gnu";
     break ;
+  case known_arch::loongarch64:
+    triplet = "loongarch64-unknown-linux-gnu";
+    break ;
   case known_arch::unknown:
     throw std::runtime_error("Unknown toolchain");
   }
