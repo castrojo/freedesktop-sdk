@@ -39,6 +39,7 @@ variables:
     -Ddv=disabled
     -Ddv1394=disabled
     -Dqt5=disabled
+    -Dqt6=disabled
     -Dshout2=disabled
     -Dtaglib=disabled
     -Dtwolame=disabled

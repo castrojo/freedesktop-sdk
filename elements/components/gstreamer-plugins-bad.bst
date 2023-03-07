@@ -71,6 +71,7 @@ public:
         - '%{libdir}/libgstbasecamerabinsrc-1.0.so'
         - '%{libdir}/libgstcodecparsers-1.0.so'
         - '%{libdir}/libgstcodecs-1.0.so'
+        - '%{libdir}/libgstcuda-1.0.so'
         - '%{libdir}/libgstinsertbin-1.0.so'
         - '%{libdir}/libgstisoff-1.0.so'
         - '%{libdir}/libgstmpegts-1.0.so'
@@ -84,6 +85,7 @@ public:
         - '%{libdir}/libgstvulkan-1.0.so'
         - '%{libdir}/libgstwayland-1.0.so'
         - '%{libdir}/libgstwebrtc-1.0.so'
+        - '%{libdir}/libgstwebrtcnice-1.0.so'
 
 (@):
 - elements/include/gstreamer-source.yml

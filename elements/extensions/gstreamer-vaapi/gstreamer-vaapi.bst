@@ -19,12 +19,12 @@ variables:
   command-subdir: subprojects/gstreamer-vaapi
 
   meson-local: >-
-    -Dwith_drm=yes
-    -Dwith_encoders=yes
-    -Dwith_egl=yes
-    -Dwith_glx=yes
-    -Dwith_wayland=yes
-    -Dwith_x11=yes
+    -Ddrm=enabled
+    -Dencoders=enabled
+    -Degl=enabled
+    -Dglx=enabled
+    -Dwayland=enabled
+    -Dx11=enabled
     -Ddoc=disabled
     -Dtests=disabled
     -Dexamples=disabled

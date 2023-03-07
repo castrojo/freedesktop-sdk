@@ -18,7 +18,6 @@ variables:
     -Ddvdlpcmdec=enabled
     -Ddvdsub=enabled
     -Drealmedia=enabled
-    -Dxingmux=enabled
     -Dorc=enabled
     -Dpackage-origin="freedesktop-sdk"
 
