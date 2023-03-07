@@ -65,4 +65,5 @@ sources:
   track: openssl-3.*
   exclude:
   - openssl*alpha*
+  - openssl*beta*
   ref: openssl-3.0.8-0-g31157bc0b46e04227b8468d3e6915e4d0332777c
