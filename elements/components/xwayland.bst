@@ -33,4 +33,6 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/xserver.git
   track: xwayland-*
+  exclude:
+  - '*.99.*'
   ref: xwayland-22.1.8-0-g92c35190d0b7a4cba445796b557cec5b6aead60c
