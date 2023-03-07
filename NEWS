@@ -1,5 +1,38 @@
 Freedesktop-SDK
 
+freedesktop-sdk-22.08.9:
+  * Add back ppc64le testing
+  * Update to image that supports ppc64le
+  * bootstrap/include/common.yml: Support ppc64le GCC triplet
+  * Add flat-manager-client-minimal.bst
+  * Add ostree-minimal.bst for flatpak-minimal.bst
+  * Properly support ppc64le with native binary seed
+  * Bump ABI image after ABI skip
+  * [abi skip] For glibc changes
+  * Backport make-args
+  * flatpak-images: Remove pre-bootstrap.bst
+  * Switch to same commit of binary seed as master
+  * bootstrap: Use freedesktop-sdk-binary-seed for bootstrap
+  * Require Docker plugin from bst-external
+  * bootstrap: Rename base-sdk to binary-seed.bst
+  * bootstrap: Move base-sdk out of the build directory
+  * Fix vendor for lz4
+  * Classify gnu:binutils commit quirk
+  * Give better context if we fail to compare with version range
+  * components/flat-manager-client: and update to 0.4.1 tag
+  * Update elements/include/git.yml to v2.39.2-0
+  * Update eos-metrics to Release_5.0.1-0
+  * Update python3-setuptools to 67.4.0
+  * Update gmmlib to intel-gmmlib-22.3.4-0
+  * Update python3-cryptography to 39.0.1
+  * Update xorg-font-util to font-util-1.4.0-0
+  * Update python3-typing-extensions to 4.5.0
+  * Update zstd to v1.5.4-0
+  * Update libjcat to 0.1.13-0
+  * Update pango to 1.50.13-0
+  * Update python3-poetry-core to 1.5.1
+  * Update systemd to v251.12-0
+
 freedesktop-sdk-22.08.8:
   * Add patch for glthread support into gtk3
   * Hotfix pipewire
