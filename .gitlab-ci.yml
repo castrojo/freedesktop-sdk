@@ -10,7 +10,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "344e12a7cefa2bf06bf0427eac281ff66d1270bf"
+  DOCKER_IMAGE_ID: "7373a93c1ff08607dd3aaa5f54acf9233215b41b"
   SCHEDULE_TASK: default
 
   # Generic variable for invoking buildstream
@@ -341,6 +341,13 @@ license_checker:
     ARCH: aarch64
     BUILD_TASKS: 4
 
+.builder-ppc64le:
+  tags:
+  - ppc64le
+  variables:
+    ARCH: ppc64le
+    BUILD_TASKS: 2
+
 .builder-riscv64:
   tags:
     - riscv
@@ -364,6 +371,13 @@ app_aarch64:
   extends:
     - .flatpak_template
     - .builder-aarch64
+  needs: []
+
+
+app_ppc64le:
+  extends:
+    - .flatpak_template
+    - .builder-ppc64le
   needs: []
 
 app_riscv64:

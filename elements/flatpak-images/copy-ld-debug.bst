@@ -6,6 +6,12 @@ description: |
 build-depends:
 - bootstrap-import.bst
 
+variables:
+  linker-pattern: ld-linux*.so*.debug
+  (?):
+  - target_arch in ("ppc64", "ppc64le"):
+      linker-pattern: ld64.so.*.debug
+
 public:
   bst:
     split-rules:
@@ -14,7 +20,7 @@ public:
 config:
   commands:
   - |
-    for path in '%{debugdir}%{libdir}'/ld-linux*.so*.debug; do
+    for path in '%{debugdir}%{libdir}'/%{linker-pattern}; do
       install -D -t "%{install-root}$(dirname "${path}")" "${path}"
     done
   - install -D -t '%{install-root}%{debugdir}/dwz/bootstrap/glibc.bst/' '%{debugdir}/dwz/bootstrap/glibc.bst'/*
