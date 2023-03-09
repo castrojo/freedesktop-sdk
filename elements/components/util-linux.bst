@@ -72,6 +72,10 @@ public:
 
       - '%{libdir}/libfdisk.so*'
 
+  cpe:
+    ignored:
+    - CVE-2001-1494
+
 config:
   install-commands:
     (>):
