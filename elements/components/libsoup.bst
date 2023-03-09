@@ -5,6 +5,7 @@ build-depends:
 - components/cmake.bst
 - components/gobject-introspection.bst
 - components/python3.bst
+- components/python3-gi-docgen.bst
 
 depends:
 - bootstrap-import.bst
@@ -22,7 +23,6 @@ variables:
     -Dntlm=disabled
     -Dsysprof=disabled
     -Dautobahn=disabled
-    -Dhttp2_tests=disabled
     -Dpkcs11_tests=disabled
 
 public:
