@@ -17,6 +17,7 @@ depends:
 runtime-depends:
 - components/python3-appdirs.bst
 - components/python3-dbus-deviation.bst
+- components/python3-feedgen.bst
 - components/python3-lxml.bst
 - components/python3-pyyaml.bst
 - components/python3-schema.bst
@@ -39,6 +40,7 @@ public:
       EOF
 
 sources:
+# Building with source from github requires npm
 - kind: pypi
   name: hotdoc
   ref:

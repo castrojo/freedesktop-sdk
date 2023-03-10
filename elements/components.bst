@@ -330,11 +330,13 @@ depends:
 - components/python3-cleo.bst
 - components/python3-clikit.bst
 - components/python3-contextlib2.bst
+- components/python3-dateutil.bst
 - components/python3-dbus-deviation.bst
 - components/python3-dbus.bst
 - components/python3-dbusmock.bst
 - components/python3-distlib.bst
 - components/python3-docutils.bst
+- components/python3-feedgen.bst
 - components/python3-filelock.bst
 - components/python3-html5lib.bst
 - components/python3-idna.bst
