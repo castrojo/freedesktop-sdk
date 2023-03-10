@@ -12,4 +12,4 @@ sources:
 - kind: git_repo
   url: github:swig/swig.git
   track: v*
-  ref: v4.1.0-0-g1e99e4fe37c0f2334b6de1c6bc3fcd3188bc2c92
+  ref: v4.1.1-0-g77323a0f07562b7d90d36181697a72a909b9519a
