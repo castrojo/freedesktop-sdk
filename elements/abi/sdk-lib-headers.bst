@@ -1,6 +1,6 @@
 kind: manual
 
-description: Extract the library headers from the desktop Sdk.
+description: Extract the library headers from the Sdk.
 
 depends:
 - filename: sdk-image.bst
