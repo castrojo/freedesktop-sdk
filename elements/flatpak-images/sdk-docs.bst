@@ -2,6 +2,9 @@ kind: flatpak_image
 
 config:
   directory: '%{datadir}/runtime/docs'
+  exclude:
+  - debug
+  - locale
 
   metadata:
     Runtime:
