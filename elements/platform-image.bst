@@ -20,6 +20,8 @@ public:
       - '%{datadir}/runtime/docs/**'
       locale:
       - '%{datadir}/runtime/locale/**'
+      source:
+      - '%{sourcedir}/**'
 
 build-depends:
 - platform.bst
