@@ -1,12 +1,10 @@
-kind: manual
+kind: filter
 
 description: Extract the library headers from the Sdk.
 
-depends:
-- filename: sdk-image.bst
-  type: build
+build-depends:
+- sdk-image.bst
 
 config:
-  install-commands:
-  - mkdir -p %{install-root}%{includedir}
-  - cp -a %{includedir}/* %{install-root}%{includedir}
+  include:
+  - headers
