@@ -1,5 +1,5 @@
 # manual elements with no sources:
-abi/desktop-lib-headers.bst
+abi/sdk-lib-headers.bst
 bootstrap/utf-locale.bst
 integration/app-debug-link.bst
 integration/compat-gl-dir.bst
@@ -9,7 +9,7 @@ integration/mtab.bst
 vm/mesa-default.bst
 
 # compose elements
-abi/desktop-abi-image.bst
+abi/abi-image.bst
 cross-compilers/standard-libs-aarch64-compose.bst
 cross-compilers/standard-libs-arm-compose.bst
 cross-compilers/standard-libs-i686-compose.bst
