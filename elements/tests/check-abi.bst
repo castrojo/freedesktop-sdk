@@ -2,7 +2,7 @@ kind: script
 
 build-depends:
 - tests/check-abi-deps.bst
-- filename: abi/desktop-abi-image.bst
+- filename: abi/abi-image.bst
   config:
     location: /new-image
 - filename: abi/reference-abi-image.bst
