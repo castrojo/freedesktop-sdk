@@ -4,4 +4,4 @@ description: Composes the platform image with the library headers, to check its 
 
 build-depends:
 - platform-image.bst
-- abi/desktop-lib-headers.bst
+- abi/sdk-lib-headers.bst
