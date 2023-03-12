@@ -5,3 +5,10 @@ description: Composes the platform image with the library headers, to check its 
 build-depends:
 - platform-image.bst
 - abi/sdk-lib-headers.bst
+
+config:
+  exclude:
+  - docs
+  - locale
+  - source
+  include-orphans: True
