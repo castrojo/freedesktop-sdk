@@ -11,6 +11,8 @@ public:
       - '%{datadir}/runtime/docs/**'
       locale:
       - '%{datadir}/runtime/locale/**'
+      headers:
+      - '%{includedir}/**'
 
 config:
   exclude:
