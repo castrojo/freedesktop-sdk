@@ -12,12 +12,6 @@ variables:
   conf-local: >-
     --with-templatedir="%{sysconfdir}/fonts/conf.avail"
 
-config:
-  install-commands:
-    (>):
-    - |
-      install -m 0644 -p -T fontconfig-flatpak.conf %{install-root}%{sysconfdir}/fonts/conf.d/50-flatpak.conf
-
 public:
   bst:
     split-rules:
@@ -39,5 +33,3 @@ sources:
   exclude:
   - 2.*.9*
   ref: 2.14.1-0-gc45e09df1ef235d653d56aef05012f6a3cc57979
-- kind: local
-  path: files/fontconfig-flatpak.conf

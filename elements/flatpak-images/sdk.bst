@@ -137,6 +137,7 @@ config:
 
 build-depends:
 - sdk-image.bst
+- components/fontconfig-flatpak-config.bst
 - components/os-release.bst
 - integration/sdk-integration.bst
 - integration/app-debug-link.bst
