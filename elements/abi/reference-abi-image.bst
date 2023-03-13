@@ -5,4 +5,4 @@ description: >-
   need a stack as a workaround
 
 depends:
-- abi/freedesktop-sdk.bst:abi/desktop-abi-image.bst
+- abi/freedesktop-sdk.bst:abi/abi-image.bst
