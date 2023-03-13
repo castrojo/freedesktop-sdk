@@ -4,6 +4,8 @@ config:
   directory: '%{libdir}'
   exclude:
   - debug
+  - docs
+  - locale
 
   metadata:
     Runtime:
