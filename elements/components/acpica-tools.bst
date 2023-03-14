@@ -8,10 +8,12 @@ build-depends:
 depends:
 - bootstrap-import.bst
 
+environment:
+  NOWERROR: "TRUE"
+
 sources:
 - kind: git_repo
   url: github:acpica/acpica.git
-  track: master
-  ref: R03_31_22-0-gada5b805eaa7480930082af9bc3d689c6f181329
-- kind: patch
-  path: patches/acpica-tools/werror.patch
+  # Tags are in "RMM_DD_YY" format. git_repo failed to track.
+  track: R10_20_22
+  ref: R10_20_22-0-g28fc163aa29e208678d901d98bb9030b775521b3
