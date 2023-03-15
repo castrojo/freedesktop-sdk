@@ -15,8 +15,7 @@ environment:
   PYTHONPATH: "%{build-root}/src"
 
 sources:
-- kind: pypi
-  name: build
-  ref:
-    sha256sum: d5b71264afdb5951d6704482aac78de887c80691c52b88a9ad195983ca2c9269
-    suffix: de/1c/fb62f81952f0e74c3fbf411261d1adbdd2d615c89a24b42d0fe44eb4bcf3/build-0.10.0.tar.gz
+- kind: git_repo
+  url: github:pypa/build.git
+  track: '*.*.*'
+  ref: 0.10.0-0-gcd06da25481b9a610f846fa60cb67b5a5fa9a051
