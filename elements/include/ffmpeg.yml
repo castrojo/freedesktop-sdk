@@ -164,15 +164,6 @@ public:
         - '%{libdir}/libswresample.so'
         - '%{datadir}/ffmpeg/examples'
         - '%{datadir}/ffmpeg/examples/**'
-  cpe:
-    patches:
-    - CVE-2022-3965
-    - CVE-2022-3964
-    ignored:
-    - CVE-2021-38291
-    - CVE-2022-1475
-    - CVE-2022-3109
-    - CVE-2022-3341
 
 # ffmpeg is not using autotools, but a configure and Makefile files
 config:
@@ -185,8 +176,4 @@ sources:
   track: n*
   exclude:
   - '*-dev'
-  ref: n5.1.2-0-geacfcbae690f914a4b1b4ad06999f138540cc3d8
-- kind: patch
-  path: patches/ffmpeg/avcodec-smcenc-stop-accessing-out-of-bounds-frame.patch
-- kind: patch
-  path: patches/ffmpeg/avcodec-rpzaenc-stop-accessing-out-of-bounds-frame.patch
+  ref: n6.0-0-gea3d24bbe3c58b171e55fe2151fc7ffaca3ab3d2
