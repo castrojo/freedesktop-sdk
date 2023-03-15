@@ -15,8 +15,7 @@ config:
     python3 -mflit_core.wheel
 
 sources:
-- kind: pypi
-  name: installer
-  ref:
-    sha256sum: f3bd36cd261b440a88a1190b1becca0578fee90b4b62decc796932fdd5ae8839
-    suffix: c9/ab/a9141dc175ec7b620fffe7e0295251a7b6a0ffb4325d64aeb128dff8c698/installer-0.6.0.tar.gz
+- kind: git_repo
+  url: github:pypa/installer.git
+  track: '*.*.*'
+  ref: 0.6.0-0-ge9c3b3b052d39c3030c0f792ed4e0311b7468329
