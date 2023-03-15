@@ -13,8 +13,7 @@ config:
     python3 -mflit_core.wheel
 
 sources:
-- kind: pypi
-  name: packaging
-  ref:
-    sha256sum: b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97
-    suffix: 47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz
+- kind: git_repo
+  url: github:pypa/packaging.git
+  track: '*.*'
+  ref: 23.0-0-ge3f218269c0f2fd2aff228b310d7f474a3ffd487
