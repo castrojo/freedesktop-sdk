@@ -2,6 +2,7 @@ kind: manual
 
 build-depends:
 - components/python3-installer.bst
+- components/python3-flit-core.bst
 
 depends:
 - components/python3.bst
@@ -13,7 +14,7 @@ environment:
 config:
   build-commands:
   - |
-    python3 setup.py bdist_wheel
+    python -m flit_core.wheel
 
   install-commands:
   - |
@@ -23,5 +24,5 @@ sources:
 - kind: pypi
   name: wheel
   ref:
-    sha256sum: 965f5259b566725405b05e7cf774052044b1ed30119b5d586b2703aafe8719ac
-    suffix: a2/b8/6a06ff0f13a00fc3c3e7d222a995526cbca26c1ad107691b6b1badbbabf1/wheel-0.38.4.tar.gz
+    sha256sum: cd1196f3faee2b31968d626e1731c94f99cbdb67cf5a46e4f5656cbee7738873
+    suffix: fc/ef/0335f7217dd1e8096a9e8383e1d472aa14717878ffe07c4772e68b6e8735/wheel-0.40.0.tar.gz
