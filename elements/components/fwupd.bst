@@ -62,4 +62,4 @@ sources:
 - kind: git_tag
   url: github:fwupd/fwupd.git
   track: main
-  ref: 1.8.10-0-g44137021f26f69d04d5ae250adc06a52d0412bcf
+  ref: 1.8.12-0-g9b7430107b68b0fb5f683e8ef1e9260296f494a8
