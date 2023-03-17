@@ -11,10 +11,6 @@ depends:
 runtime-depends:
 - components/ca-certificates.bst
 
-# --with-ca-fallback only works with OpenSSL and GnuTLS backends
-# so only those can be selected. We pick GnuTLS due to licensing
-# reasons
-
 variables:
   conf-local: >-
     --without-ca-bundle
