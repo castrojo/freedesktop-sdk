@@ -5,7 +5,7 @@ sources:
   match:
   - 1.[02468]*
   - 1.1[02468]*
-  ref: 1.12.7-0-g9a6b71b62662f761046b868b798dcef9224739db
+  ref: 1.12.8-0-gc87d8b25c60e38e42e997786a6ed4d2376c8bcd8
 - kind: git_module
   path: subprojects/libglnx
   url: gnome:libglnx.git
