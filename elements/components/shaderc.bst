@@ -18,6 +18,10 @@ config:
   configure-commands:
     (<):
     - |
+      # Disable git versioning
+      sed -i -e '/build-version/d' glslc/CMakeLists.txt
+
+      # Manually create build-version.inc as we disabled git versioning
       cat <<EOF >glslc/src/build-version.inc
       "shaderc $(git describe | sed 's/^v//')"
       "spriv-tools $(spirv-cfg --version | sed '/^SPIRV-Tools v\([^ ]*\) .*$/{;s//\1/;q;};d')"
