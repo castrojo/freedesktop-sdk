@@ -12,7 +12,4 @@ variables:
   extra-vid-dec: |
     cinepak,flv,hevc,h263,h264,indeo2,indeo3,indeo4,indeo5,jpeg2000,mpeg2video,\
     mpeg4,msmpeg4,msmpeg4v1,msmpeg4v2,msmpeg4v3,vp6,vp6a,vp6f,wmv1,wmv2,wmv3,wmv3image,qdmc,qdm2,
-  extra-hwaccels: |
-    h263_vaapi,h264_vaapi,h264_vdpau,hevc_vaapi,hevc_vdpau,mpeg1_vdpau,mpeg2_vaapi,\
-    mpeg2_vdpau,mpeg4_vaapi,mpeg4_vdpau,vc1_vaapi,vc1_vdpau
 

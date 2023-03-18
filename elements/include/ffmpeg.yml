@@ -62,9 +62,6 @@ variables:
   image-formats: |
     bmp,gif,jpegls,png,tiff,webp,%{extra-image-formats}
 
-  hwaccels: |
-    av1_vaapi,av1_vdpau,mjpeg_vaapi,vp8_vaapi,vp9_vaapi,vp9_vdpau,%{extra-hwaccels}
-
   conf-local: >-
     --prefix="%{ffmpeg-prefix}"
     --libdir="%{ffmpeg-libdir}"
@@ -73,10 +70,9 @@ variables:
     --disable-stripping
     --disable-doc
     --disable-static
+    --disable-encoders
+    --disable-decoders
     --enable-shared
-    --disable-everything
-    --enable-ffplay
-    --enable-ffprobe
     --enable-gnutls
     --enable-libaom
     --enable-libdav1d
@@ -106,13 +102,6 @@ variables:
     --enable-decoder=%{video-decoders}
     --enable-encoder=%{image-formats}
     --enable-decoder=%{image-formats}
-    --enable-hwaccel=%{hwaccels}
-    --enable-parsers
-    --enable-muxers
-    --enable-demuxers
-    --enable-filters
-    --enable-indevs
-    --enable-protocols
     --arch="%{ffmpeg-arch}"
 
   conf-extra: ''
