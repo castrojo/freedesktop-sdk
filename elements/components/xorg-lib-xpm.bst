@@ -9,6 +9,10 @@ depends:
 - filename: components/xorg-util-macros.bst
   type: build
 
+variables:
+  conf-local: >-
+    --disable-open-zfile
+
 public:
   bst:
     split-rules:
