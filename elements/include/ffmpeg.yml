@@ -8,10 +8,12 @@ depends:
 - components/dav1d.bst
 - components/fontconfig.bst
 - components/freetype.bst
+- components/fribidi.bst
 - components/libfdk-aac.bst
 - components/lame.bst
 - components/libva.bst
 - components/libvdpau.bst
+- components/librsvg.bst
 - components/mpg123.bst
 - components/openal.bst
 - components/libpulse.bst
@@ -19,12 +21,17 @@ depends:
 - components/aom.bst
 - components/gnutls.bst
 - components/speex.bst
+- components/ladspa-sdk.bst
+- components/lcms.bst
 - components/libtheora.bst
+- components/libgcrypt.bst
 - components/libvorbis.bst
 - components/libvpx.bst
 - components/opus.bst
+- components/openjpeg.bst
 - components/vulkan-icd-loader.bst
 - components/v4l-utils.bst
+- components/libwebp.bst
 - components/xorg-lib-xcb.bst
 
 variables:
@@ -74,19 +81,27 @@ variables:
     --disable-decoders
     --enable-shared
     --enable-gnutls
+    --enable-gcrypt
+    --enable-ladspa
+    --enable-lcms2
     --enable-libaom
     --enable-libdav1d
     --enable-libfdk-aac
     --enable-libmp3lame
     --enable-libfontconfig
     --enable-libfreetype
+    --enable-libfribidi
+    --enable-libdrm
     --enable-libopus
     --enable-libpulse
     --enable-libspeex
     --enable-libtheora
     --enable-libvorbis
     --enable-libvpx
+    --enable-librsvg
     --enable-libwebp
+    --enable-libxml2
+    --enable-libopenjpeg
     --enable-openal
     --enable-opengl
     --enable-sdl2
@@ -96,6 +111,7 @@ variables:
     --enable-libxcb
     --enable-vdpau
     --enable-vaapi
+    --enable-pthreads
     --enable-encoder=%{audio-encoders}
     --enable-encoder=%{video-encoders}
     --enable-decoder=%{audio-decoders}
