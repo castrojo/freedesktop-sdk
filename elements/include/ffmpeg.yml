@@ -44,31 +44,6 @@ variables:
   - target_arch == "i686":
       ffmpeg-arch: x86
 
-  audio-encoders: |
-    ac3,alac,flac,libfdk_aac,g723_1,mp2,libmp3lame,libopus,libspeex,pcm_alaw,pcm_mulaw,\
-    pcm_f32le,pcm_s16be,pcm_s24be,pcm_s16le,pcm_s24le,pcm_s32le,\
-    pcm_u8,tta,libvorbis,wavpack,%{extra-aud-enc}
-
-  audio-decoders: |
-    ac3,adpcm_g722,alac,flac,g723_1,g729,libfdk_aac,libopus,libspeex,\
-    mp2,mp3,m4a,pcm_alaw,pcm_mulaw,pcm_f16le,pcm_f24le,pcm_f32be,\
-    pcm_f32le,pcm_f64be,pcm_f64le,pcm_s16be,pcm_s16be_planar,pcm_s24be,\
-    pcm_s16le,pcm_s16le_planar,pcm_s24le,pcm_s24le_planar,pcm_s32le,\
-    pcm_s32le_planar,pcm_s64be,pcm_s64le,pcm_s8,pcm_s8_planar,\
-    pcm_u8,pcm_u24be,pcm_u24le,pcm_u32be,pcm_u32le,tta,vorbis,wavpack,\
-    %{extra-aud-dec}
-
-  video-encoders: |
-    ass,ffv1,libaom_av1,libvpx_vp8,libvpx_vp9,mjpeg_vaapi,rawvideo,\
-    theora,vp8_vaapi,%{extra-vid-enc}
-
-  video-decoders: |
-    ass,ffv1,mjpeg,mjpegb,libaom_av1,libdav1d,libvpx_vp8,libvpx_vp9,\
-    rawvideo,theora,vp8,vp9,%{extra-vid-dec}
-
-  image-formats: |
-    bmp,gif,jpegls,png,tiff,webp,%{extra-image-formats}
-
   conf-local: >-
     --prefix="%{ffmpeg-prefix}"
     --libdir="%{ffmpeg-libdir}"
@@ -111,22 +86,9 @@ variables:
     --enable-vdpau
     --enable-vaapi
     --enable-pthreads
-    --enable-encoder=%{audio-encoders}
-    --enable-encoder=%{video-encoders}
-    --enable-decoder=%{audio-decoders}
-    --enable-decoder=%{video-decoders}
-    --enable-encoder=%{image-formats}
-    --enable-decoder=%{image-formats}
     --arch="%{ffmpeg-arch}"
 
   conf-extra: ''
-
-  extra-aud-enc: ''
-  extra-aud-dec: ''
-  extra-vid-enc: ''
-  extra-vid-dec: ''
-  extra-image-formats: ''
-  extra-hwaccels: ''
 
 public:
   bst:
