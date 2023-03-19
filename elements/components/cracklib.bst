@@ -55,4 +55,4 @@ sources:
 - kind: git_repo
   url: github:cracklib/cracklib.git
   track: v*
-  ref: v2.9.8-0-gd9e8f9f47718539aeba80f90f4e072549926dc9c
+  ref: v2.9.10-0-ge74c539344d024709ee76e2920b0af7f9a5c5556
