@@ -131,15 +131,7 @@ def create_layer(output, upper, lowers):
                     if tinfo.type == tarfile.REGTYPE:
                         with open(path, 'rb') as new_file:
                             if compare_files(tar_file.extractfile(lower_found), new_file):
-                                # We already added file to inode cache so we clean it up
-                                output.inodes = {
-                                    inode: arcname for inode, arcname in output.inodes.items()
-                                    if arcname != tinfo.name
-                                }
                                 continue
-                    elif tinfo.type == tarfile.LNKTYPE:
-                        # File is already in tarfile so we don't need to test anything
-                        pass
                     elif tinfo.type == tarfile.SYMTYPE:
                         if tinfo.linkname == os.readlink(path):
                             continue
