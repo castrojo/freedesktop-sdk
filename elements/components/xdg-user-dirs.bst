@@ -1,25 +1,16 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
+- bootstrap-import.bst
 
 variables:
   conf-link-args: ''
-  conf-local: |
+  conf-local: >-
     --disable-documentation
-
-config:
-  build-commands:
-  - |
-    cd "%{build-dir}"
-    %{make} SUBDIRS=po
-
-  install-commands:
-  - |
-    cd "%{build-dir}"
-    %{make-install} SUBDIRS=po
+  make-args: SUBDIRS=po
 
 sources:
 - kind: git_repo
