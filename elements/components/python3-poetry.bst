@@ -31,5 +31,5 @@ sources:
 - kind: pypi
   name: poetry
   ref:
-    sha256sum: 151ad741e163a329c8b13ea602dde979b7616fc350cfcff74b604e93263934a8
-    suffix: ea/4e/575bbb915054e2875acba262568d19bc60f53b3e997a3e067dea5f21a35d/poetry-1.4.0.tar.gz
+    sha256sum: 9a0c9f5f862678d475ac2fd2451ea612facd02efb054bb758763893f7d85053e
+    suffix: 10/7d/8014383fafeb34f0e8791b2c4a36781460f0deada75baaa2a925fbe3a2c3/poetry-1.4.1.tar.gz
