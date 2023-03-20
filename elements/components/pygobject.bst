@@ -23,7 +23,7 @@ sources:
   url: gnome:pygobject.git
   track: master
   track-extra:
-  - pygobject-3-42
+  - pygobject-3-44
   match:
   - "*.*[02468].*"
-  ref: 3.42.2-0-gf9c363a0c2fea08b140dbb9c9f072cbeb0cf1f10
+  ref: 3.44.0-0-g894f8b1dd3246bad6edb75aa86f61f6d83531a33
