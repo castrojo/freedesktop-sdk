@@ -3,6 +3,7 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/po4a.bst
+- components/doxygen.bst
 
 depends:
 - bootstrap-import.bst
@@ -11,6 +12,7 @@ config:
   build-commands: []
   install-commands:
   - |
+    make -C %{build-dir} install-data-local DESTDIR="%{install-root}"
     for makefile in $(find "%{build-dir}" -name Makefile); do
       dir="$(dirname "${makefile}")"
       if grep install-data-hook: "${makefile}"; then

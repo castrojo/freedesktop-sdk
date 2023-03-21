@@ -5,4 +5,4 @@ sources:
   exclude:
   - v*alpha
   - v*beta
-  ref: v5.4.1-0-g18b845e69752c975dfeda418ec00eda22605c2ee
+  ref: v5.4.2-0-g6ca8046ecbc7a1c81ee08f544bfd1414819fb2e8
