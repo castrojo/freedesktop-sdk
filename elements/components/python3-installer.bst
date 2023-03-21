@@ -22,5 +22,5 @@ sources:
 - kind: pypi
   name: installer
   ref:
-    sha256sum: f3bd36cd261b440a88a1190b1becca0578fee90b4b62decc796932fdd5ae8839
-    suffix: c9/ab/a9141dc175ec7b620fffe7e0295251a7b6a0ffb4325d64aeb128dff8c698/installer-0.6.0.tar.gz
+    sha256sum: a26d3e3116289bb08216e0d0f7d925fcef0b0194eedfa0c944bcaaa106c4b631
+    suffix: 05/18/ceeb4e3ab3aa54495775775b38ae42b10a92f42ce42dfa44da684289b8c8/installer-0.7.0.tar.gz
