@@ -11,6 +11,7 @@ depends:
 
 (@):
 - elements/bootstrap/include/base-sdk.yml
+- elements/include/pkg-config-source.yml
 
 config:
   install-commands:
@@ -18,9 +19,3 @@ config:
     - |
       ln -s pkgconf "%{install-root}%{bindir}/pkg-config"
       ln -s pkgconf.1 "%{install-root}%{mandir}/man1/pkg-config.1"
-
-sources:
-- kind: git_tag
-  url: github:pkgconf/pkgconf.git
-  track: master
-  ref: pkgconf-1.8.0-0-gcef30268e1a3f79efd607c26abcf556aa314c9c4
