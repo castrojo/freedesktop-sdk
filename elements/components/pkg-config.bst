@@ -1,14 +1,13 @@
 kind: autotools
 description: pkg-config
 
+build-depends:
+- components/autoconf.bst
+- components/automake.bst
+- components/libtool.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/autoconf.bst
-  type: build
-- filename: components/automake.bst
-  type: build
-- filename: components/libtool.bst
-  type: build
+- bootstrap-import.bst
 
 config:
   install-commands:
@@ -24,8 +23,5 @@ public:
         (>):
         - '%{libdir}/libpkgconf.so'
 
-sources:
-- kind: git_repo
-  url: github:pkgconf/pkgconf.git
-  track: pkgconf-*
-  ref: pkgconf-1.9.4-0-g873e51aaae96bbb016bc7e89fbab61e422c15bad
+(@):
+- elements/include/pkg-config-source.yml
