@@ -126,6 +126,4 @@ sources:
   track: master
   exclude:
   - '*.*.9*'
-  ref: 0.3.66-0-g08b0ed65765a1033424a5c0d897a392a61f8a2a3
-- kind: patch
-  path: patches/pipewire/0001-gstpipewiresrc-Do-not-alter-meta-plane-count.patch
+  ref: 0.3.67-0-g26623ff8cb3c9ba774537379a1835c5efb0d5159
