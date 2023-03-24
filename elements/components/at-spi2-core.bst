@@ -4,6 +4,7 @@ build-depends:
 - components/gtk-doc.bst
 - public-stacks/buildsystem-meson.bst
 - components/dbus.bst
+- components/gobject-introspection.bst
 
 depends:
 - bootstrap-import.bst
@@ -12,13 +13,15 @@ depends:
 
 variables:
   meson-local: >-
-    -Dx11=no
+    -Dx11=disabled
 
 public:
   bst:
     split-rules:
       devel:
         (>):
+        - '%{libdir}/libatk-1.0.so'
+        - '%{libdir}/libatk-bridge-2.0.so'
         - '%{libdir}/libatspi.so'
       (@): include/_private/exclude-systemd.yml
 
@@ -30,4 +33,4 @@ sources:
 - kind: git_repo
   url: gnome:at-spi2-core.git
   track: AT_SPI2_CORE_2_*[02468]_*
-  ref: AT_SPI2_CORE_2_44_1-0-g9a1f0aec0b7dc55360310b6d02c2b7798511268f
+  ref: AT_SPI2_CORE_2_48_0-0-gd963aff7f6977e50517fb2ffe8b31f1db142107d

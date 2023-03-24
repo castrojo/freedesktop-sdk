@@ -86,9 +86,7 @@ depends:
 - components/alsa-lib.bst
 - components/alsa-plugins.bst
 - components/aspell.bst
-- components/at-spi2-atk.bst
 - components/at-spi2-core.bst
-- components/atk.bst
 - components/cairo.bst
 - components/cups.bst
 - components/libdbus.bst

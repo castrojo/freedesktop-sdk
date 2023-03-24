@@ -8,8 +8,7 @@ build-depends:
 
 depends:
 - bootstrap-import.bst
-- components/atk.bst
-- components/at-spi2-atk.bst
+- components/at-spi2-core.bst
 - components/cairo.bst
 - components/cups.bst
 - components/gdk-pixbuf.bst

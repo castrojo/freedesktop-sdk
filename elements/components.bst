@@ -10,9 +10,7 @@ depends:
 - components/asciidoc.bst
 - components/asciidoctor.bst
 - components/aspell.bst
-- components/at-spi2-atk.bst
 - components/at-spi2-core.bst
-- components/atk.bst
 - components/audit.bst
 - components/autoconf-archive.bst
 - components/autoconf.bst
