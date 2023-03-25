@@ -61,6 +61,4 @@ config:
 sources:
   (>):
   - kind: patch
-    path: patches/mesa/mesa-disable-gbm-backends.patch
-  - kind: patch
     path: patches/mesa/mesa-gbm-force-libdrm-dep.patch
