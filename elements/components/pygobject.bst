@@ -26,4 +26,4 @@ sources:
   - pygobject-3-44
   match:
   - "*.*[02468].*"
-  ref: 3.44.0-0-g894f8b1dd3246bad6edb75aa86f61f6d83531a33
+  ref: 3.44.1-0-g1a2544c898ca2aafcab0c9e472be22657f310cf3
