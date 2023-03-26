@@ -199,7 +199,6 @@ config:
     # For UEFI systems
     enable EFIVAR_FS
     enable EFI_PARTITION
-    enable EFI_GENERIC_STUB_INITRD_CMDLINE_LOADER
 
     # RT group scheduling (effectively) makes RT scheduling unavailable for userspace
     remove RT_GROUP_SCHED
@@ -621,7 +620,6 @@ config:
     case "%{arch}" in
       i686|x86_64)
         module DRM_VMWGFX
-        enable DRM_VMWGFX_FBCON
       ;;
     esac
     if has HYPERV; then
@@ -1745,6 +1743,7 @@ config:
         module ACPI_WMI
         module ACER_WMI
         enable X86_PLATFORM_DRIVERS_DELL
+        enable X86_PLATFORM_DRIVERS_HP
         module ALIENWARE_WMI
         module ASUS_NB_WMI
         module ASUS_WMI
