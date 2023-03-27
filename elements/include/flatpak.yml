@@ -1,23 +1,14 @@
 sources:
 - kind: git_repo
   url: github:flatpak/flatpak.git
-  track: 1.1[02468]*
-  ref: 1.14.3-0-gccafd8c1c81df267c4ef304d8e06d770e3909093
-- kind: patch
-  path: patches/flatpak/revert-compat-arch.patch
+  track: 1.*
+  # track: 1.1[02468]*
+  # We track development versions until 1.16
+  ref: 1.15.4-0-ge936e3100d406c50ba49f3ad6a0ecae455345ec0
 - kind: git_module
   path: subprojects/libglnx
   url: gnome:libglnx.git
-  ref: c59eb271b5127309c73117bbc871dcfd9fd159a6
-# While we use system bwrap, we need the submodule still
-- kind: git_module
-  path: subprojects/bubblewrap
-  url: github:projectatomic/bubblewrap.git
-  ref: c54bbc6d7b78e7a45016efe0c4ac8af9d209aa20
-- kind: git_module
-  path: subprojects/dbus-proxy
-  url: github:flatpak/xdg-dbus-proxy.git
-  ref: 6bfe8c32ab23f8c1d80af7a70b3d318a79a17652
+  ref: 4e44fd9c174e4196a86fb6d954722feaff612c88
 - kind: git_module
   path: subprojects/variant-schema-compiler
   url: git_https:gitlab.gnome.org/alexl/variant-schema-compiler.git
