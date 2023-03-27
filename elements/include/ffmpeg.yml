@@ -91,7 +91,6 @@ variables:
     --enable-libfontconfig
     --enable-libfreetype
     --enable-libfribidi
-    --enable-libdrm
     --enable-libopus
     --enable-libpulse
     --enable-libspeex
