@@ -8,10 +8,12 @@ depends:
 - components/dav1d.bst
 - components/fontconfig.bst
 - components/freetype.bst
+- components/fribidi.bst
 - components/libfdk-aac.bst
 - components/lame.bst
 - components/libva.bst
 - components/libvdpau.bst
+- components/librsvg.bst
 - components/mpg123.bst
 - components/openal.bst
 - components/libpulse.bst
@@ -19,15 +21,22 @@ depends:
 - components/aom.bst
 - components/gnutls.bst
 - components/speex.bst
+- components/ladspa-sdk.bst
+- components/lcms.bst
 - components/libtheora.bst
+- components/libgcrypt.bst
 - components/libvorbis.bst
 - components/libvpx.bst
 - components/opus.bst
+- components/openjpeg.bst
 - components/vulkan-icd-loader.bst
 - components/v4l-utils.bst
+- components/libwebp.bst
 - components/xorg-lib-xcb.bst
 
 variables:
+  optimize-debug: "false"
+
   ffmpeg-prefix: '%{prefix}'
   ffmpeg-libdir: '%{libdir}'
   ffmpeg-arch: '%{arch}'
@@ -41,7 +50,7 @@ variables:
     pcm_u8,tta,libvorbis,wavpack,%{extra-aud-enc}
 
   audio-decoders: |
-    adpcm_g722,alac,flac,g723_1,g729,libfdk_aac,libopus,libspeex,\
+    ac3,adpcm_g722,alac,flac,g723_1,g729,libfdk_aac,libopus,libspeex,\
     mp2,mp3,m4a,pcm_alaw,pcm_mulaw,pcm_f16le,pcm_f24le,pcm_f32be,\
     pcm_f32le,pcm_f64be,pcm_f64le,pcm_s16be,pcm_s16be_planar,pcm_s24be,\
     pcm_s16le,pcm_s16le_planar,pcm_s24le,pcm_s24le_planar,pcm_s32le,\
@@ -60,56 +69,39 @@ variables:
   image-formats: |
     bmp,gif,jpegls,png,tiff,webp,%{extra-image-formats}
 
-  hwaccels: |
-    vp8_vaapi,mjpeg_vaapi,%{extra-hwaccels}
-
-  muxers: |
-    ac3,ass,flac,g722,gif,matroska,mp3,mpegvideo,rtp,ogg,opus,\
-    pcm_s16be,pcm_s16le,wav,webm,%{extra-muxers}
-
-  demuxers: |
-    aac,ac3,ass,flac,g722,gif,image_jpeg_pipe,image_png_pipe,\
-    image_webp_pipe,matroska,mjpeg,mov,mp3,mpegvideo,ogg,pcm_mulaw,\
-    pcm_alaw,pcm_s16be,pcm_s16le,rtp,wav,%{extra-demuxers}
-
-  parsers: |
-    aac,ac3,flac,mjpeg,mpegaudio,mpeg4video,opus,vp3,vp8,vp9,vorbis,%{extra-parsers}
-
-  filters: |
-    crop,scale,overlay,amix,amerge,aresample,format,aformat,fps,transpose,pad,%{extra-filters}
-
-  indevs: |
-    v4l2,xcbgrab,%{extra-indevs}
-
-  protocols: |
-    crypto,file,pipe,rtp,srtp,rtsp,tcp,udp,unix,%{extra-protocols}
-
   conf-local: >-
     --prefix="%{ffmpeg-prefix}"
     --libdir="%{ffmpeg-libdir}"
     --optflags="${CFLAGS}"
     --extra-ldflags="${LDFLAGS}"
-    --disable-debug
+    --disable-stripping
     --disable-doc
     --disable-static
+    --disable-encoders
+    --disable-decoders
     --enable-shared
-    --disable-everything
-    --enable-ffplay
-    --enable-ffprobe
     --enable-gnutls
+    --enable-gcrypt
+    --enable-ladspa
+    --enable-lcms2
     --enable-libaom
     --enable-libdav1d
     --enable-libfdk-aac
     --enable-libmp3lame
     --enable-libfontconfig
     --enable-libfreetype
+    --enable-libfribidi
+    --enable-libdrm
     --enable-libopus
     --enable-libpulse
     --enable-libspeex
     --enable-libtheora
     --enable-libvorbis
     --enable-libvpx
+    --enable-librsvg
     --enable-libwebp
+    --enable-libxml2
+    --enable-libopenjpeg
     --enable-openal
     --enable-opengl
     --enable-sdl2
@@ -119,19 +111,13 @@ variables:
     --enable-libxcb
     --enable-vdpau
     --enable-vaapi
+    --enable-pthreads
     --enable-encoder=%{audio-encoders}
     --enable-encoder=%{video-encoders}
     --enable-decoder=%{audio-decoders}
     --enable-decoder=%{video-decoders}
     --enable-encoder=%{image-formats}
     --enable-decoder=%{image-formats}
-    --enable-hwaccel=%{hwaccels}
-    --enable-parser=%{parsers}
-    --enable-muxer=%{muxers}
-    --enable-demuxer=%{demuxers}
-    --enable-filter=%{filters}
-    --enable-indev=%{indevs}
-    --enable-protocol=%{protocols}
     --arch="%{ffmpeg-arch}"
 
   conf-extra: ''
@@ -142,12 +128,6 @@ variables:
   extra-vid-dec: ''
   extra-image-formats: ''
   extra-hwaccels: ''
-  extra-muxers: ''
-  extra-demuxers: ''
-  extra-parsers: ''
-  extra-filters: ''
-  extra-indevs: ''
-  extra-protocols: ''
 
 public:
   bst:
