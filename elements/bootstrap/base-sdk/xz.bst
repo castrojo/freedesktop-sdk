@@ -20,7 +20,7 @@ sources:
   url: tukaani:xz.git
   track: master
   track-extra:
-  - v5.2
+  - v5.4
   exclude:
   - v*alpha
   - v*beta
