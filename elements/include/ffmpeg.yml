@@ -28,6 +28,8 @@ depends:
 - components/xorg-lib-xcb.bst
 
 variables:
+  optimize-debug: "false"
+
   ffmpeg-prefix: '%{prefix}'
   ffmpeg-libdir: '%{libdir}'
   ffmpeg-arch: '%{arch}'
@@ -87,10 +89,11 @@ variables:
   conf-local: >-
     --prefix="%{ffmpeg-prefix}"
     --libdir="%{ffmpeg-libdir}"
-    --disable-debug
+    --optflags="${CFLAGS}"
+    --extra-ldflags="${LDFLAGS}"
+    --disable-stripping
     --disable-doc
     --disable-static
-    --enable-optimizations
     --enable-shared
     --disable-everything
     --enable-ffplay
@@ -118,6 +121,7 @@ variables:
     --enable-libxcb
     --enable-vdpau
     --enable-vaapi
+    --enable-pthreads
     --enable-encoder=%{audio-encoders}
     --enable-encoder=%{video-encoders}
     --enable-decoder=%{audio-decoders}
