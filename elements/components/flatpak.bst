@@ -1,4 +1,13 @@
-kind: autotools
+kind: meson
+
+build-depends:
+- public-stacks/buildsystem-meson.bst
+- components/bison.bst
+- components/docbook-xsl.bst
+- components/gettext.bst
+- components/gobject-introspection.bst
+- components/libxslt.bst
+- components/python3-pyparsing.bst
 
 depends:
 - bootstrap-import.bst
@@ -14,21 +23,20 @@ depends:
 - components/appstream.bst
 - components/libseccomp.bst
 - components/polkit.bst
+- components/xdg-dbus-proxy.bst
 
-build-depends:
-- components/python3-pyparsing.bst
-- public-stacks/buildsystem-autotools.bst
-- components/git-minimal.bst
-- components/bison.bst
-- components/gettext.bst
-- components/gobject-introspection.bst
-- components/bison.bst
 
 variables:
-  conf-local: >-
-    --disable-documentation
-    --with-system-bubblewrap
-    --with-curl
+  meson-local: >-
+    -Dgtkdoc=disabled
+    -Dsystem_bubblewrap=bwrap
+    -Dhttp_backend=curl
+    -Ddconf=disabled
+    -Dmalcontent=disabled
+    -Dselinux_module=disabled
+    -Ddocbook_docs=disabled
+    -Dtests=false
+    -Dsystem_dbus_proxy=xdg-dbus-proxy
 
 (@):
 - elements/include/flatpak.yml
