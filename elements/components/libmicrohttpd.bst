@@ -17,4 +17,4 @@ sources:
 - kind: git_repo
   url: git_https:git.gnunet.org/libmicrohttpd.git
   track: v*
-  ref: v0.9.75-0-g940041ad78b4fb8d0f04066046a65bbe3c390fd4
+  ref: v0.9.76-0-g4a51f653a223613c3962bf7f0916adcf4146ddc4
