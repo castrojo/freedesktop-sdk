@@ -78,7 +78,7 @@ variables:
     aac,ac3,flac,mjpeg,mpegaudio,mpeg4video,opus,vp3,vp8,vp9,vorbis,%{extra-parsers}
 
   filters: |
-    crop,scale,overlay,amix,amerge,aresample,format,aformat,fps,transpose,pad,%{extra-filters}
+    atempo,crop,scale,overlay,amix,amerge,aresample,format,aformat,fps,transpose,pad,%{extra-filters}
 
   indevs: |
     v4l2,xcbgrab,%{extra-indevs}
