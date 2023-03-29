@@ -1,0 +1,176 @@
+From 030759b74f5b3ce7fab6d17bbda6377444e82841 Mon Sep 17 00:00:00 2001
+From: Akira TAGOH <akira@tagoh.org>
+Date: Mon, 28 Nov 2022 17:40:43 +0900
+Subject: [PATCH 1/2] Add --with-default-sub-pixel-rendering option
+
+To make a choice of 10-sub-pixel-*.conf configurable.
+
+Fixes https://gitlab.freedesktop.org/fontconfig/fontconfig/-/issues/337
+---
+ ...-sub-pixel.conf => 10-sub-pixel-none.conf} |  0
+ conf.d/Makefile.am                            | 12 +++----
+ conf.d/meson.build                            |  5 +--
+ configure.ac                                  | 31 +++++++++++++++----
+ meson_options.txt                             |  3 ++
+ 5 files changed, 37 insertions(+), 14 deletions(-)
+ rename conf.d/{10-no-sub-pixel.conf => 10-sub-pixel-none.conf} (100%)
+
+diff --git a/conf.d/10-no-sub-pixel.conf b/conf.d/10-sub-pixel-none.conf
+similarity index 100%
+rename from conf.d/10-no-sub-pixel.conf
+rename to conf.d/10-sub-pixel-none.conf
+diff --git a/conf.d/Makefile.am b/conf.d/Makefile.am
+index aefa7834..fc26ef36 100644
+--- a/conf.d/Makefile.am
++++ b/conf.d/Makefile.am
+@@ -33,7 +33,7 @@ CONF_LINKS = \
+ 	10-hinting-$(PREFERRED_HINTING).conf	\
+ 	10-scale-bitmap-fonts.conf \
+ 	10-yes-antialias.conf	\
+-	10-sub-pixel-rgb.conf		\
++	10-sub-pixel-$(PREFERRED_SUB_PIXEL_RENDERING).conf	\
+ 	11-lcdfilter-default.conf \
+ 	20-unhint-small-vera.conf \
+ 	30-metric-aliases.conf \
+@@ -68,9 +68,9 @@ template_DATA =				\
+ 	10-hinting-none.conf		\
+ 	10-hinting-slight.conf		\
+ 	10-no-antialias.conf		\
+-	10-no-sub-pixel.conf		\
+ 	10-scale-bitmap-fonts.conf	\
+ 	10-sub-pixel-bgr.conf		\
++	10-sub-pixel-none.conf		\
+ 	10-sub-pixel-rgb.conf		\
+ 	10-sub-pixel-vbgr.conf		\
+ 	10-sub-pixel-vrgb.conf		\
+diff --git a/conf.d/meson.build b/conf.d/meson.build
+index f8f1c9c7..cc4e16c4 100644
+--- a/conf.d/meson.build
++++ b/conf.d/meson.build
+@@ -7,9 +7,9 @@ conf_files = [
+   '10-hinting-none.conf',
+   '10-hinting-slight.conf',
+   '10-no-antialias.conf',
+-  '10-no-sub-pixel.conf',
+   '10-scale-bitmap-fonts.conf',
+   '10-sub-pixel-bgr.conf',
++  '10-sub-pixel-none.conf',
+   '10-sub-pixel-rgb.conf',
+   '10-sub-pixel-vbgr.conf',
+   '10-sub-pixel-vrgb.conf',
+@@ -41,12 +41,13 @@ conf_files = [
+ ]
+ 
+ preferred_hinting = get_option('default-hinting')
++preferred_sub_pixel_rendering = get_option('default-sub-pixel-rendering')
+ 
+ conf_links = [
+   '10-hinting-@0@.conf'.format(preferred_hinting),
+   '10-scale-bitmap-fonts.conf',
++  '10-sub-pixel-@0@.conf'.format(preferred_sub_pixel_rendering),
+   '10-yes-antialias.conf',
+-  '10-sub-pixel-rgb.conf',
+   '11-lcdfilter-default.conf',
+   '20-unhint-small-vera.conf',
+   '30-metric-aliases.conf',
+diff --git a/configure.ac b/configure.ac
+index 60871dc9..b3e98a6f 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -455,6 +455,25 @@ AM_CONDITIONAL(ENABLE_JSONC, test "x$use_jsonc" = "xyes")
+ AC_SUBST(JSONC_CFLAGS)
+ AC_SUBST(JSONC_LIBS)
+ 
++#
++# Set default sub-pixel rendering
++#
++
++AC_ARG_WITH(default-sub-pixel-rendering,
++    [AC_HELP_STRING([--with-default-sub-pixel-rendering=NAME],
++            [Enable your preferred sub-pixel rendering configuration (none/bgr/rgb/vbgr/vrgb) [default=none]])],
++    preferred_sub_pixel_rendering="$withval", preferred_sub_pixel_rendering=none)
++
++case "$preferred_sub_pixel_rendering" in
++none|bgr|rgb|vbgr|vrgb)
++    PREFERRED_SUB_PIXEL_RENDERING="$preferred_sub_pixel_rendering"
++    AC_SUBST(PREFERRED_SUB_PIXEL_RENDERING)
++    ;;
++*)
++    AC_MSG_ERROR([Invalid sub-pixel rendering. please choose one of none, bgr, rgb, vbgr, or vrgb])
++    ;;
++esac
++
+ #
+ # Set default hinting
+ #
+@@ -562,7 +581,7 @@ case "$FC_ADD_FONTS" in
+ "")
+ 	;;
+ *)
+-	FC_FONTPATH=`echo $FC_ADD_FONTS | 
++	FC_FONTPATH=`echo $FC_ADD_FONTS |
+ 			sed -e 's/^/<dir>/' -e 's/$/<\/dir>/' -e 's/,/<\/dir> <dir>/g'`
+ 	;;
+ esac
+diff --git a/meson_options.txt b/meson_options.txt
+index 1a95241f..43c8764c 100644
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -18,6 +18,9 @@ option('cache-build', type : 'feature', value : 'enabled',
+ option('default-hinting', type: 'combo', choices: ['none', 'slight', 'medium', 'full'], value: 'slight',
+   description: 'Preferred hinting configuration')
+ 
++option('default-sub-pixel-rendering', type: 'combo', choices: ['none', 'bgr', 'rgb', 'vbgr', 'vrgb'], value: 'none',
++  description: 'Preferred sub-pixel rendering configuration')
++
+ option('default-fonts-dirs', type: 'array', value: ['yes'],
+   description: 'Use fonts from DIR1,DIR2,... when config is busted (set to "yes" for generic system-specific defaults)')
+ 
+-- 
+GitLab
+
+
+From 6663fe457dd3edd9dca8430603ffbec1905be4d4 Mon Sep 17 00:00:00 2001
+From: Akira TAGOH <akira@tagoh.org>
+Date: Mon, 28 Nov 2022 17:54:19 +0900
+Subject: [PATCH 2/2] Update po-conf/POTFILES.in
+
+---
+ po-conf/POTFILES.in | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/po-conf/POTFILES.in b/po-conf/POTFILES.in
+index f4846ac2..ad7de5c4 100644
+--- a/po-conf/POTFILES.in
++++ b/po-conf/POTFILES.in
+@@ -1,15 +1,18 @@
++conf.d/09-autohint-if-no-hinting.conf
+ conf.d/10-autohint.conf
+ conf.d/10-hinting-full.conf
+ conf.d/10-hinting-medium.conf
+ conf.d/10-hinting-none.conf
+ conf.d/10-hinting-slight.conf
+-conf.d/10-no-sub-pixel.conf
++conf.d/10-no-antialias.conf
+ conf.d/10-scale-bitmap-fonts.conf
+ conf.d/10-sub-pixel-bgr.conf
++conf.d/10-sub-pixel-none.conf
+ conf.d/10-sub-pixel-rgb.conf
+ conf.d/10-sub-pixel-vbgr.conf
+ conf.d/10-sub-pixel-vrgb.conf
+ conf.d/10-unhinted.conf
++conf.d/10-yes-antialias.conf
+ conf.d/11-lcdfilter-default.conf
+ conf.d/11-lcdfilter-legacy.conf
+ conf.d/11-lcdfilter-light.conf
+@@ -19,6 +22,7 @@ conf.d/30-metric-aliases.conf
+ conf.d/40-nonlatin.conf
+ conf.d/45-generic.conf
+ conf.d/45-latin.conf
++conf.d/48-spacing.conf
+ conf.d/49-sansserif.conf
+ conf.d/50-user.conf
+ conf.d/51-local.conf
+-- 
+GitLab
+
