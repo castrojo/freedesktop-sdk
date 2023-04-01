@@ -13,5 +13,5 @@ sources:
 - kind: pypi
   name: markdown
   ref:
-    sha256sum: e104be388c28462b4e83bd0ddfc68eff6022305cc4b5ab14caf8d235fae132b9
-    suffix: 66/bf/a7c9e8cc23c105633b74e3280c2b06d13273da0df389e59395188d440017/Markdown-3.4.2.tar.gz
+    sha256sum: 8bf101198e004dc93e84a12a7395e31aac6a9c9942848ae1d99b9d72cf9b3520
+    suffix: 9d/80/cc67bfb7deb973d5ae662ee6454d2dafaa8f7c106feafd0d1572666ebde5/Markdown-3.4.3.tar.gz
