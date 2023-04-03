@@ -181,4 +181,4 @@ sources:
 - kind: git_tag
   url: ffmpeg:ffmpeg.git
   track: release/5.0
-  ref: n5.0.2-0-g2f428de9ebdcd0770de37d874871b25325aebd73
+  ref: n5.0.3-0-g0e15444aceca0e78f99f3d67758eb79d11b86599
