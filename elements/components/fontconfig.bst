@@ -17,6 +17,7 @@ config:
     (>):
     - |
       install -m 0644 -p -T fontconfig-flatpak.conf %{install-root}%{sysconfdir}/fonts/conf.d/50-flatpak.conf
+      install -m 0644 -p -T fontconfig-flatpak-fontpath.conf %{install-root}%{sysconfdir}/fonts/conf.d/05-flatpak-fontpath.conf
 
 public:
   bst:
@@ -39,7 +40,9 @@ sources:
   exclude:
   - 2.*.9*
   ref: 2.14.1-0-gc45e09df1ef235d653d56aef05012f6a3cc57979
-- kind: local
-  path: files/fontconfig-flatpak.conf
 - kind: patch
   path: patches/fontconfig/mr-244.patch
+- kind: local
+  path: files/fontconfig-flatpak.conf
+- kind: local
+  path: files/fontconfig-flatpak-fontpath.conf
