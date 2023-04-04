@@ -25,6 +25,6 @@ sources:
   track: llvm_release_150
   track-tags: false
   url: github:KhronosGroup/SPIRV-LLVM-Translator.git
-  ref: v15.0.0-17-g068260b61669d7b3e50ce82b19737be548e0762f
+  ref: v15.0.0-28-g4a513bfd07f7dd56d1271d90136233ffc70610ba
   match:
   - v*
