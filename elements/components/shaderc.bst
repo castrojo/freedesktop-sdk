@@ -28,6 +28,6 @@ sources:
 - kind: git_repo
   url: github:google/shaderc.git
   track: v*
-  ref: v2022.2-0-g551f106dc64a1cacb298cc2f05613d142b53302f
+  ref: v2023.3-0-gabe358c71dd63580ecb96b8225d286af45b6edd1
 - kind: patch
   path: patches/shaderc/what-a-mess.patch
