@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:KhronosGroup/SPIRV-Headers.git
   track: sdk-*
-  ref: sdk-1.3.239.0-0-gd13b52222c39a7e9a401b44646f0ca3a640fbd47
+  ref: sdk-1.3.243.0-0-g1feaf4414eb2b353764d01d88f8aa4bcc67b60db

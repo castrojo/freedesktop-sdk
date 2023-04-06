@@ -36,4 +36,4 @@ sources:
 - kind: git_repo
   url: github:KhronosGroup/SPIRV-Tools.git
   track: sdk-*
-  ref: sdk-1.3.239.0-0-g63de608daeb7e91fbea6d7477a50debe7cac57ce
+  ref: sdk-1.3.243.0-0-g44d72a9b36702f093dd20815561a56778b2d181e

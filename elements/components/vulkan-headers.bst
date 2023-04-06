@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-Headers.git
   track: sdk-*
-  ref: sdk-1.3.239.0-0-g2bb0a23104ceffd9a28d5b7401f2cee7dae35bb8
+  ref: sdk-1.3.243.0-0-g65ad768d8603671fc1085fe115019e72a595ced8

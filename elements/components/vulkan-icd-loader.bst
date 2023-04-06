@@ -30,6 +30,6 @@ sources:
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-Loader.git
   track: sdk-*
-  ref: sdk-1.3.239.0-0-gfa421a02686e7f01c8e4af24650fa04374df8338
+  ref: sdk-1.3.243.0-0-g22407d7804f111fbc0e31fa0db592d658e19ae8b
 - kind: patch
   path: patches/vulkan/vulkan-libdir-path.patch
