@@ -1,0 +1,66 @@
+From 32b978f3c40c4de70b2b6ce387bbb39ddf4d1381 Mon Sep 17 00:00:00 2001
+From: liushuyu <liushuyu011@gmail.com>
+Date: Wed, 22 Feb 2023 16:36:30 -0700
+Subject: [PATCH] compiler/rustc_session: fix sysroot detection logic ...
+
+... on systems where /usr/lib contains a multi-arch structure
+---
+ compiler/rustc_session/src/filesearch.rs | 30 +++++++++++++++++++++++-
+ 1 file changed, 29 insertions(+), 1 deletion(-)
+
+diff --git a/compiler/rustc_session/src/filesearch.rs b/compiler/rustc_session/src/filesearch.rs
+index 1b66773be6f..eac57ed95b8 100644
+--- a/compiler/rustc_session/src/filesearch.rs
++++ b/compiler/rustc_session/src/filesearch.rs
+@@ -165,6 +165,22 @@ fn canonicalize(path: PathBuf) -> PathBuf {
+         fix_windows_verbatim_for_gcc(&path)
+     }
+ 
++    // Use env::current_exe() to get the path of the executable following
++    // symlinks/canonicalizing components.
++    #[cfg(target_os = "linux")]
++    fn default_from_current_exe() -> Result<PathBuf, std::io::Error> {
++        match env::current_exe() {
++            Ok(exe) => {
++                let mut p = canonicalize(exe);
++                p.pop();
++                p.pop();
++
++                Ok(p)
++            }
++            Err(e) => Err(e),
++        }
++    }
++
+     fn default_from_rustc_driver_dll() -> Result<PathBuf, String> {
+         let dll = current_dll_path().and_then(|s| Ok(canonicalize(s)))?;
+ 
+@@ -194,6 +210,18 @@ fn default_from_rustc_driver_dll() -> Result<PathBuf, String> {
+         }
+     }
+ 
++    // Select a default path based on the platform this Rust binary is currently running on
++    fn default_from_current_platform() -> Result<PathBuf, String> {
++        #[cfg(target_os = "linux")]
++        {
++            if let Ok(p) = default_from_current_exe() {
++                return Ok(p);
++            }
++        }
++
++        default_from_rustc_driver_dll()
++    }
++
+     // Use env::args().next() to get the path of the executable without
+     // following symlinks/canonicalizing any component. This makes the rustc
+     // binary able to locate Rust libraries in systems using content-addressable
+@@ -224,5 +252,5 @@ fn from_env_args_next() -> Option<PathBuf> {
+         }
+     }
+ 
+-    Ok(from_env_args_next().unwrap_or(default_from_rustc_driver_dll()?))
++    Ok(from_env_args_next().unwrap_or(default_from_current_platform()?))
+ }
+-- 
+2.39.2
+

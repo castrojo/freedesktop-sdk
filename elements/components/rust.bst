@@ -76,7 +76,7 @@ config:
     prefix = "%{prefix}"
     sysconfdir = "%{sysconfdir}"
     bindir = "%{bindir}"
-    libdir = "%{libdir}"
+    libdir = "%{indep-libdir}"
     datadir = "%{datadir}"
     mandir = "%{mandir}"
     docdir = "%{datadir}/doc/rust"
@@ -106,10 +106,14 @@ config:
     DESTDIR="%{install-root}" python3 x.py install
 
   - |
-    rustlibdir="%{install-root}%{libdir}/rustlib/%{host-triplet}/lib"
+    mkdir -p %{install-root}%{libdir}
+    mv -v %{install-root}%{indep-libdir}/lib*so* %{install-root}%{libdir}
+
+  - |
+    rustlibdir="%{install-root}%{indep-libdir}/rustlib/%{host-triplet}/lib"
     for lib in "${rustlibdir}/"lib*.so; do
       libname=$(basename "${lib}")
-      runtimelib="%{install-root}%{libdir}/${lib}"
+      runtimelib="%{install-root}%{libdir}/${libname}"
       if [ -f "${runtimelib}" ]; then
         rm "${lib}"
         ln -s "$(realpath "${runtimelib}" --relative-to="${rustlibdir}")" "${lib}"
@@ -122,10 +126,14 @@ public:
       devel:
         (>):
         - '%{bindir}/*'
-        - '%{libdir}/rustlib'
-        - '%{libdir}/rustlib/**'
+        - '%{indep-libdir}/rustlib'
+        - '%{indep-libdir}/rustlib/**'
 
 sources:
 - kind: tar
-  url: tar_https:static.rust-lang.org/dist/rustc-1.66.1-src.tar.xz
-  ref: 07ac4e6c93e0d8ecfaf3b86c4c78bbbde3f5be675f0334e7fb343cb4a0b81ebe
+  url: tar_https:static.rust-lang.org/dist/rustc-1.68.2-src.tar.xz
+  ref: ce1a115f6aafa912b4622906a92b626354973afa9288e2c7750df4dcf3390fc0
+- kind: patch
+  # https://git.launchpad.net/ubuntu/+source/rustc/plain/debian/patches/ubuntu-fix-sysroot-detection.patch?h=applied/ubuntu/lunar-devel&id=7cc6b62b69c95351eaec5c89088853aeec52d39d
+  # https://github.com/rust-lang/rust/issues/109994
+  path: patches/rust/ubuntu-fix-sysroot-detection.patch
