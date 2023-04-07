@@ -5,6 +5,7 @@ build-depends:
 - components/perl.bst
 - components/gtk-doc.bst
 - components/gobject-introspection.bst
+- components/wayland-protocols.bst
 
 depends:
 - bootstrap-import.bst
@@ -18,7 +19,6 @@ depends:
 - components/libxkbcommon.bst
 - components/pango.bst
 - components/wayland.bst
-- components/wayland-protocols.bst
 - components/xorg-lib-xcomposite.bst
 - components/xorg-lib-xcursor.bst
 - components/xorg-lib-xdamage.bst
