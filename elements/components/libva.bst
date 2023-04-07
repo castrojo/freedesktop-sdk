@@ -32,8 +32,8 @@ public:
 sources:
 - kind: git_tag
   url: github:intel/libva.git
-  track: v2.15-branch
+  track: v2.18-branch
   track-extra:
   # Attempt to predict the next branchpoint.
-  - v2.16-branch
-  ref: 2.15.0-0-gb095d10bf355110352e75c22e581018a7ea7de5a
+  - v2.19-branch
+  ref: 2.18.0-0-gb06ccb323cd68bc5ce3fa9861c831766d6355d88
