@@ -5,12 +5,12 @@ build-depends:
 - components/glslang.bst
 - components/spirv-headers.bst
 - components/spirv-tools.bst
+- components/vulkan-headers.bst
 - components/vulkan-utility-libraries.bst
 
 depends:
 - bootstrap-import.bst
 - components/wayland.bst
-- components/vulkan-headers.bst
 - components/xorg-lib-x11.bst
 - components/xorg-lib-xcb.bst
 - components/xorg-lib-xrandr.bst
