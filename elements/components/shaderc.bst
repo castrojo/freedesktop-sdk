@@ -18,6 +18,10 @@ config:
   configure-commands:
     (<):
     - |
+      # Disable git versioning
+      sed -i -e '/build-version/d' glslc/CMakeLists.txt
+
+      # Manually create build-version.inc as we disabled git versioning
       cat <<EOF >glslc/src/build-version.inc
       "shaderc $(git describe | sed 's/^v//')"
       "spriv-tools $(spirv-cfg --version | sed '/^SPIRV-Tools v\([^ ]*\) .*$/{;s//\1/;q;};d')"
@@ -28,6 +32,6 @@ sources:
 - kind: git_repo
   url: github:google/shaderc.git
   track: v*
-  ref: v2022.2-0-g551f106dc64a1cacb298cc2f05613d142b53302f
+  ref: v2023.3-0-gabe358c71dd63580ecb96b8225d286af45b6edd1
 - kind: patch
   path: patches/shaderc/what-a-mess.patch

@@ -25,8 +25,16 @@ public:
         - '%{libdir}/libglslang-default-resource-limits.so'
         - '%{libdir}/libglslang.so'
 
+      static-blocklist:
+        (>):
+        - "%{libdir}/*.a"
+
 sources:
 - kind: git_repo
   url: github:KhronosGroup/glslang.git
   track: sdk-*
-  ref: sdk-1.3.216.0-0-gadbf0d3106b26daa237b10b9bf72b1af7c31092d
+  ref: sdk-1.3.243.0-0-g14e5a04e70057972eef8a40df422e30a3b70e4b5
+- kind: patch
+  # Install several static libraries that shaderc needs
+  # https://gitweb.gentoo.org/repo/gentoo.git/tree/dev-util/glslang/files/glslang-1.3.236-Install-static-libs.patch
+  path: patches/glslang/glslang-1.3.236-Install-static-libs.patch
