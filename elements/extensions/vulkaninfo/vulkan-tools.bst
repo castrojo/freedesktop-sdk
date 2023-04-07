@@ -6,9 +6,11 @@ kind: cmake
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
+- extensions/vulkaninfo/volk.bst
 - components/glslang.bst
 - components/python3.bst
-- extensions/vulkaninfo/volk.bst
+- components/vulkan-headers.bst
+- components/wayland-protocols.bst
 
 depends:
 - bootstrap-import.bst
@@ -16,7 +18,6 @@ depends:
 - components/xorg-lib-x11.bst
 - components/xorg-lib-xrandr.bst
 - components/wayland.bst
-- components/wayland-protocols.bst
 
 variables:
   cmake-local: |
