@@ -23,6 +23,7 @@ depends:
 - components/libdrm.bst
 - components/libva.bst
 - components/opencl.bst
+- components/xorg-lib-x11.bst
 - components/xorg-lib-xfixes.bst
 - components/xorg-lib-xrandr.bst
 - components/xorg-lib-xshmfence.bst
