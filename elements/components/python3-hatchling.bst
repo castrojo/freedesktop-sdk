@@ -10,6 +10,7 @@ depends:
 - components/python3-editables.bst
 - components/python3-pathspec.bst
 - components/python3-pluggy.bst
+- components/python3-trove-classifiers.bst
 
 variables:
   command-subdir: backend
