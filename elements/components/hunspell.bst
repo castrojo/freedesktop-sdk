@@ -25,4 +25,4 @@ sources:
 - kind: git_tag
   url: github:hunspell/hunspell.git
   track: master
-  ref: v1.7.1-0-g1180421f50f211984211e968eb6801ffd3390b8f
+  ref: v1.7.2-0-g2969be996acad84b91ab3875b1816636fe61a40e
