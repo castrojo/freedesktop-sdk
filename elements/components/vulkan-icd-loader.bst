@@ -2,13 +2,13 @@ kind: cmake
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
-
-depends:
-- bootstrap-import.bst
 - components/vulkan-headers.bst
 - components/xorg-lib-x11.bst
 - components/xorg-lib-xrandr.bst
 - components/wayland.bst
+
+depends:
+- bootstrap-import.bst
 
 variables:
   local_flags: -DEXTRASYSCONFDIR=\"%{vulkan-extra-dir}\"
