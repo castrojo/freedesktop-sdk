@@ -26,6 +26,7 @@ depends:
 - components/svt-av1.bst
 - components/liblc3.bst
 - components/wildmidi.bst
+- components/xorg-lib-x11.bst
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
