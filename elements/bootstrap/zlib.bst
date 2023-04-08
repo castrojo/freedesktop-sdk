@@ -38,6 +38,4 @@ sources:
 - kind: git_tag
   url: github:madler/zlib.git
   track: master
-  ref: v1.2.12-0-g21767c654d31d2dccdde4330529775c6c5fd5389
-- kind: patch_queue
-  path: patches/zlib
+  ref: v1.2.13-0-g04f42ceca40f73e2978b50e93806c2a18c1281fc

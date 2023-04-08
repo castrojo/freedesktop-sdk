@@ -36,13 +36,6 @@ public:
 sources:
 - kind: git_tag
   url: savannah:readline.git
-  track: master
-  match:
-  - 'readline-*'
-  exclude:
-  - '*-alpha*'
-  - '*-beta*'
-  - '*-rc*'
   ref: readline-8.1-0-gcf3c762ecfff5b2f445647a0f1543693984a5540
 - kind: patch
   path: patches/readline/readline-disable-rpath.patch

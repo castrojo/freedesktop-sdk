@@ -42,7 +42,5 @@ sources:
   url: freedesktop:geoclue/geoclue.git
   track: master
   track-extra:
-  - 2.5.x
-  ref: 2.6.0-0-g10998ca3215fb6d21b5a32fdf78bb5feffaf4c0f
-- kind: patch
-  path: patches/geoclue/libsoup3.patch
+  - 2.7.x
+  ref: 2.7.0-0-gbbfb6289dedb88cb8155d9f6868787d5432e1f90
