@@ -4,6 +4,7 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/gobject-introspection.bst
 - components/hotdoc.bst
+- components/wayland-protocols.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -24,6 +25,7 @@ depends:
 - components/mesa-headers.bst
 - components/iso-codes.bst
 - components/alsa-lib.bst
+- components/wayland.bst
 
 variables:
   command-subdir: subprojects/gst-plugins-base
