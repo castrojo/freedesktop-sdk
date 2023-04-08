@@ -23,7 +23,6 @@ depends:
 - components/mesa-headers.bst
 - components/iso-codes.bst
 - components/alsa-lib.bst
-- components/sdl2.bst
 
 variables:
   command-subdir: subprojects/gst-plugins-base
