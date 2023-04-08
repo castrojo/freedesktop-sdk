@@ -11,4 +11,4 @@ sources:
 - kind: git_repo
   url: github:storaged-project/libbytesize.git
   track: '*.*'
-  ref: 2.7-0-g0f47dde41f92f00b12160387659501edefd05b38
+  ref: 2.8-0-g12b8e6bff611eecb0343ee8a765151e7d9d3547b
