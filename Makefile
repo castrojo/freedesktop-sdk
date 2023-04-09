@@ -61,7 +61,12 @@ bootstrap:
 	$(BST) build bootstrap/bootstrap.bst
 
 check-abi:
-	$(BST) build tests/check-abi.bst
+	$(BST) build tests/check-abi.bst; \
+	exit_code="$$?"; \
+	if [ "$${CI}" = "true" ]; then \
+		mv $${XDG_CACHE_HOME}/buildstream/build/tests-check-abi-*/root/libabigail-tars .; \
+	fi; \
+	exit $${exit_code}
 
 export: clean-runtime
 	$(BST) build flatpak-release-repo.bst

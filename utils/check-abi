@@ -26,15 +26,20 @@ import re
 import shutil
 import subprocess
 import sys
+import tarfile
 
 from contextlib import contextmanager
 from fnmatch import fnmatch
 
 
+ABORT_EXIT_CODE = -6
+
+
 class AbiCheckResult:
-    def __init__(self, abi_was_broken, details):
+    def __init__(self, abi_was_broken, details, aborted):
         self.abi_was_broken = abi_was_broken
         self.details = details
+        self.aborted = aborted
 
 
 def get_parser():
@@ -54,6 +59,17 @@ def get_parser():
 
     parser.add_argument(
         '--forward-compatible', type=int, default=0)
+
+    parser.add_argument(
+        '--archive-on-abort',
+        action='store_true',
+        help='create a tarball of the binaries that cause abidiff to abort'
+    )
+    parser.add_argument(
+        '--archive-directory-parent',
+        default=os.path.abspath(os.curdir),
+        help='parent directory in which the archive directory is created'
+    )
 
     return parser
 
@@ -185,11 +201,12 @@ def compare_abi(old_library, old_debug_dir, old_include_dir, new_library, new_de
             old_library, new_library,
         ] + options, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, encoding='utf-8')
     out = result.stdout.strip()
+    aborted = result.returncode == ABORT_EXIT_CODE
 
-    return AbiCheckResult(bool(result.returncode), out)
+    return AbiCheckResult(bool(result.returncode), out, aborted)
 
 
-def compare_tree_abis(old_checkout, new_checkout, forward_compatible):
+def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on_abort, archive_directory):
     print(format_title('Comparing ABIs', level=1), end='\n\n', flush=True)
     success = True
 
@@ -250,6 +267,14 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible):
             print(f'{title}\n\n{result.details}\n', file=sys.stderr, flush=True)
             success = False
 
+            if result.aborted and archive_on_abort:
+                tar_file = os.path.join(archive_directory, f'{os.path.basename(old_library)}.tar.xz')
+                with tarfile.open(tar_file, 'w:xz') as tar:
+                    tar.add(old_library)
+                    tar.add(new_library)
+                    tar.add(os.path.join(old_debug_dir, os.path.relpath(old_library, old_checkout)) + '.debug')
+                    tar.add(os.path.join(new_debug_dir, os.path.relpath(new_library, new_checkout)) + '.debug')
+
         elif result.details:
             title = format_title(f'Ignored ABI Changes: {lib_key}', level=2)
             print(f'{title}\n\n{result.details}\n', flush=True)
@@ -267,9 +292,14 @@ if __name__ == '__main__':
     if args.suppressions:
         os.environ['LIBABIGAIL_DEFAULT_USER_SUPPRESSION_FILE'] = args.suppressions
 
+    archive_directory = os.path.join(args.archive_directory_parent, 'libabigail-tars')
+    if args.archive_on_abort:
+        print(f'Creating archive directory {archive_directory}')
+        os.makedirs(archive_directory)
+
     old_sdk = args.old
     new_sdk = args.new
-    abi_compatible = compare_tree_abis(old_sdk, new_sdk, forward_compatible)
+    abi_compatible = compare_tree_abis(old_sdk, new_sdk, forward_compatible, args.archive_on_abort, archive_directory)
 
     if abi_compatible:
         print(format_title(f'Hurray! {args.old} and {args.new} are ABI-compatible!', level=2), flush=True)
