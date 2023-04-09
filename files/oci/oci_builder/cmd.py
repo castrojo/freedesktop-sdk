@@ -31,7 +31,7 @@ GlobalConf = collections.namedtuple('GlobalConf', ['mode', 'gzip', 'output'])
 def main():
     data = yaml.load(sys.stdin, Loader=yaml.CLoader)
     mode = data.get('mode', 'oci')
-    enabled_gzip = data.get('gzip', mode == 'oci')
+    enabled_gzip = data.get('gzip', True)
 
     global_conf = GlobalConf(mode, enabled_gzip, os.getcwd())
     build_images(global_conf, data.get('images', []), data.get('annotations'))
