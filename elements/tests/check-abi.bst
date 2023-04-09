@@ -12,4 +12,4 @@ build-depends:
 
 config:
   commands:
-  - /utils/check-abi --new /new-image --old /old-image --archive-on-abort --forward-compatible 1 --suppressions /utils/abidiff-suppressions.ini
+  - /utils/check-abi --new /new-image --old /old-image --archive-on-abort --forward-compatible --suppressions /utils/abidiff-suppressions.ini
