@@ -9,7 +9,7 @@ build-depends:
 
 config:
   commands:
-  - /utils/check-abi --new /new-image --old /old-image --forward-compatible 1 --suppressions /utils/abidiff-suppressions.ini
+  - /utils/check-abi --new /new-image --old /old-image --archive-on-abort --forward-compatible 1 --suppressions /utils/abidiff-suppressions.ini
 
   layout:
   - element: abi/abi-image.bst
