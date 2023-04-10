@@ -33,10 +33,11 @@ ABORT_EXIT_CODE = -6
 
 
 class AbiCheckResult:
-    def __init__(self, abi_was_broken, details, aborted):
+    def __init__(self, abi_was_broken, details, aborted, command):
         self.abi_was_broken = abi_was_broken
         self.details = details
         self.aborted = aborted
+        self.command = command
 
 
 def get_parser():
@@ -173,16 +174,17 @@ def compare_abi(old_library, old_debug_dir, old_include_dir, new_library, new_de
         # This is confusing. abidiff complains of added symbols only
         # if this option is not passed.
         options.append('--no-added-syms')
-    result = subprocess.run([
-            'abidiff',
-            '--headers-dir1', old_include_dir, '--headers-dir2', new_include_dir,
-            '--debug-info-dir1', old_debug_dir, '--debug-info-dir2', new_debug_dir,
-            old_library, new_library,
-        ] + options, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, encoding='utf-8')
+    cmd = [
+        'abidiff',
+        '--headers-dir1', old_include_dir, '--headers-dir2', new_include_dir,
+        '--debug-info-dir1', old_debug_dir, '--debug-info-dir2', new_debug_dir,
+        old_library, new_library,
+    ] + options
+    result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, encoding='utf-8')
     out = result.stdout.strip()
     aborted = result.returncode == ABORT_EXIT_CODE
 
-    return AbiCheckResult(bool(result.returncode), out, aborted)
+    return AbiCheckResult(bool(result.returncode), out, aborted, cmd)
 
 
 def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on_abort, archive_directory):
@@ -234,6 +236,7 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
             success = False
 
             if result.aborted and archive_on_abort:
+                print(f"abidiff aborted, command was:\n{' '.join(result.command)}", file=sys.stderr)
                 tar_file = os.path.join(archive_directory, f'{os.path.basename(old_library)}.tar.xz')
                 with tarfile.open(tar_file, 'w:xz') as tar:
                     tar.add(old_library)
