@@ -18,20 +18,23 @@
 
 import argparse
 import os
-import shutil
 import subprocess
 import sys
-import re
+import tarfile
 import filecmp
 
-from contextlib import contextmanager
 from fnmatch import fnmatch
 
 
+ABORT_EXIT_CODE = -6
+
+
 class AbiCheckResult:
-    def __init__(self, abi_was_broken, details):
+    def __init__(self, abi_was_broken, details, aborted, command):
         self.abi_was_broken = abi_was_broken
         self.details = details
+        self.aborted = aborted
+        self.command = command
 
 
 def get_parser():
@@ -50,7 +53,18 @@ def get_parser():
         '--suppressions', metavar='PATH', help='specify a suppression file')
 
     parser.add_argument(
-        '--forward-compatible', type=int, default=0)
+        '--forward-compatible', action='store_true')
+
+    parser.add_argument(
+        '--archive-on-abort',
+        action='store_true',
+        help='create a tarball of the binaries that cause abidiff to abort'
+    )
+    parser.add_argument(
+        '--archive-directory-parent',
+        default=os.path.abspath(os.curdir),
+        help='parent directory in which the archive directory is created'
+    )
 
     return parser
 
@@ -101,6 +115,8 @@ def get_soname(path):
         if 'SONAME' in line:
             return line.split()[-1]
 
+    return None
+
 
 def get_library_key(path):
     soname = get_soname(path)
@@ -117,7 +133,7 @@ def get_libraries(tree):
 
     libdir = os.path.join(tree, 'usr', 'lib')
 
-    for dirpath, dirnames, filenames in os.walk(libdir):
+    for dirpath, _, filenames in os.walk(libdir):
         for filename in sorted(filenames):
             if not fnmatch(filename, 'lib*.so*') or fnmatch(filename, '*.debug'):
                 continue
@@ -141,7 +157,7 @@ def get_libraries(tree):
             if lib_key in libs:
                 if not filecmp.cmp(os.path.join(tree, libs[lib_key]),
                                    realpath):
-                    raise Exception(f'{libs[lib_key]} and {rel_path} libraries have the same SONAME but not the same content.')
+                    raise RuntimeError(f'{libs[lib_key]} and {rel_path} libraries have the same SONAME but not the same content.')
 
             else:
                 libs[lib_key] = rel_path
@@ -157,18 +173,20 @@ def compare_abi(old_library, old_debug_dir, old_include_dir, new_library, new_de
         # This is confusing. abidiff complains of added symbols only
         # if this option is not passed.
         options.append('--no-added-syms')
-    result = subprocess.run([
-            'abidiff',
-            '--headers-dir1', old_include_dir, '--headers-dir2', new_include_dir,
-            '--debug-info-dir1', old_debug_dir, '--debug-info-dir2', new_debug_dir,
-            old_library, new_library,
-        ] + options, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, encoding='utf-8')
+    cmd = [
+        'abidiff',
+        '--headers-dir1', old_include_dir, '--headers-dir2', new_include_dir,
+        '--debug-info-dir1', old_debug_dir, '--debug-info-dir2', new_debug_dir,
+        old_library, new_library,
+    ] + options
+    result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, encoding='utf-8')
     out = result.stdout.strip()
+    aborted = result.returncode == ABORT_EXIT_CODE
 
-    return AbiCheckResult(bool(result.returncode), out)
+    return AbiCheckResult(bool(result.returncode), out, aborted, cmd)
 
 
-def compare_tree_abis(old_checkout, new_checkout, forward_compatible):
+def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on_abort, archive_directory):
     print(format_title('Comparing ABIs', level=1), end='\n\n', flush=True)
     success = True
 
@@ -216,6 +234,15 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible):
             print(f'{title}\n\n{result.details}\n', file=sys.stderr, flush=True)
             success = False
 
+            if result.aborted and archive_on_abort:
+                print(f"abidiff aborted, command was:\n{' '.join(result.command)}", file=sys.stderr)
+                tar_file = os.path.join(archive_directory, f'{os.path.basename(old_library)}.tar.xz')
+                with tarfile.open(tar_file, 'w:xz') as tar:
+                    tar.add(old_library)
+                    tar.add(new_library)
+                    tar.add(os.path.join(old_debug_dir, os.path.relpath(old_library, old_checkout)) + '.debug')
+                    tar.add(os.path.join(new_debug_dir, os.path.relpath(new_library, new_checkout)) + '.debug')
+
         elif result.details:
             title = format_title(f'Ignored ABI Changes: {lib_key}', level=2)
             print(f'{title}\n\n{result.details}\n', flush=True)
@@ -228,14 +255,15 @@ if __name__ == '__main__':
 
     args = get_parser().parse_args()
 
-    forward_compatible = args.forward_compatible
-
     if args.suppressions:
         os.environ['LIBABIGAIL_DEFAULT_USER_SUPPRESSION_FILE'] = args.suppressions
 
-    old_sdk = args.old
-    new_sdk = args.new
-    abi_compatible = compare_tree_abis(old_sdk, new_sdk, forward_compatible)
+    archive_directory = os.path.join(args.archive_directory_parent, 'libabigail-tars')
+    if args.archive_on_abort:
+        print(f'Creating archive directory {archive_directory}')
+        os.makedirs(archive_directory)
+
+    abi_compatible = compare_tree_abis(args.old, args.new, args.forward_compatible, args.archive_on_abort, archive_directory)
 
     if abi_compatible:
         print(format_title(f'Hurray! {args.old} and {args.new} are ABI-compatible!', level=2), flush=True)
