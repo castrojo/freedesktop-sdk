@@ -1,5 +1,152 @@
 Freedesktop-SDK
 
+freedesktop-sdk-22.08.10:
+  * pylint: Remove no longer supported config option 'no-space-check'
+  * check-abi: General code tidy
+  * check-abi: Log abidiff command on abort
+  * check-abi: Add option to archive binaries that break abidiff
+  * Update xorg-lib-xfixes to libXfixes-6.0.1-0
+  * Update spirv-llvm-translator to v15.0.0-29
+  * Update networkmanager to 1.40.18-0
+  * Update vala to 0.56.6-0
+  * include/mesa.yml: Update to mesa-23.0.2
+  * extensions/mesa: Update to mesa-23.0.2
+  * abi: Bump after ABI skip
+  * Update eos-metrics to Release_5.0.2-0
+  * Update poppler to poppler-23.04.0-0
+  * xz: Update to 5.2.11
+  * intel-media-driver: Update to 23.1.5
+  * libpciaccess: Freeze due to ABI break
+  * vim: Update to 9.0.1441
+  * v4l-utils: Track stable-1.22 due to ABI break
+  * python3-dbusmock: Update to 0.28.7
+  * pango: Update to 1.50.14
+  * orc: Freeze due to ABI break
+  * libxkbcommon: Update to 1.5.0
+  * libvpx: Freeze due to ABI break
+  * libva: Update to 2.18.0
+  * libpsl: Update to 0.21.2
+  * libnice: Update to 0.1.21
+  * iptables: Update to 1.8.9
+  * hunspell: Update to 1.7.2
+  * go: Update to 1.20.3
+  * geoclue: Update to 2.7.0
+  * conmon: Update to 2.1.7
+  * zlib: Update to v1.2.13
+  * dav1d: Freeze due to ABI break
+  * readline: Freeze at 8.1 due to ABI break
+  * file: Freeze for ABI break
+  * dwz: Freeze due to new xxhash dependency
+  * binutils: Do not match gdb tags
+  * bash: Freeze at last commit before requiring readline 8.2
+  * Update python3-cryptography to 40.0.1
+  * Update libgcrypt to libgcrypt-1.10.2-0
+  * Update polkit-base to 122-23
+  * Update linux-firmware to 20230404-0
+  * Update libgpg-error to libgpg-error-1.47-0
+  * Update cmake to v3.26.3-0
+  * Update gmmlib to intel-gmmlib-22.3.5-0
+  * Update iwd to 2.4-0
+  * Fix xz tracking
+  * Update gsettings-desktop-schemas to 44.0-0
+  * Update fwupd to 1.8.13-0
+  * Update networkmanager to 1.40.16-0
+  * Update zstd to v1.5.5-0
+  * Update man-pages to man-pages-6.04-0
+  * Update spirv-llvm-translator to v15.0.0-28
+  * Update cython to 0.29.34
+  * Update libinput to 1.23.0-0
+  * Update polkit-base to 122-21
+  * Update python3-charset-normalizer to 3.1.0
+  * Update xwayland to xwayland-22.1.9-0
+  * Update perl-build to 0.42_33-0
+  * Update ffmpeg to n5.0.3-0
+  * Update systemd to v251.14-0
+  * Update dmidecode to dmidecode-3-5-0
+  * Update linux-firmware to 20230310-0
+  * Update spirv-llvm-translator to v15.0.0-17
+  * Update python3-pil to 9.5.0
+  * Update python3-markdown to 3.4.3
+  * Update python3-setuptools to 67.6.1
+  * Redefine font directories to generate caches with different ID
+  * Update foomatic-db to d883a21
+  * Update crun to 1.8.3-0
+  * Update python3-tomlkit to 0.11.7
+  * Update pinentry-ncurses to pinentry-1.2.1-0
+  * Update python3-pytz to 2023.3
+  * ffmpeg: Enable atempo filter
+  * Update fuse3 to fuse-3.14.1-0
+  * Update pygobject to 3.44.0-0
+  * Update libcap to libcap-2.68-0
+  * Add patch to fix fontconfig subpixel antialiasing
+  * ffmpeg: do not disable debuginfo and don't strip the binary during build
+  * Revert "Drop ffmpeg-full for i686"
+  * ffmpeg: Specify the flags to build and link
+  * Update libbytesize to 2.8-0
+  * Update wireplumber to 0.4.14-0
+  * Update python3-tenacity to 8.2.2
+  * Update btrfs-progs to v6.2.2-0
+  * Update polkit-base to 122-20
+  * include/mesa.yml: Update to mesa-23.0.1
+  * extensions/mesa: Update to mesa-23.0.1
+  * Update ostree to v2023.2-0
+  * Update tzdata to 2023b-0
+  * Update fuse-overlayfs to v1.11-0
+  * Update python3-markdown to 3.4.2
+  * Update pipewire-base to 0.3.67-0
+  * Update ccache to v4.8-0
+  * Update openssh to V_9_3_P1-0
+  * Update python3-poetry-core to 1.5.2
+  * Update gpgme to gpgme-1.19.0-0
+  * Update pkg-config to 1.9.4 and unify sources
+  * Update crun to 1.8.2-0
+  * Update python3-urllib3 to 1.26.15
+  * Update btrfs-progs to v6.2.1-0
+  * Update gnupg to gnupg-2.2.41-0
+  * Update python3-installer to 0.7.0
+  * Update librsvg to 2.56.0-0
+  * Update fcitx5 to 5.0.23-0
+  * Remove redundant code now we prevent hardlinks completely
+  * oci: Do not allow hard links in the images
+  * Update crun to 1.8.1-0
+  * Update cmake to v3.26.0-0
+  * Update flatpak to 1.14.4-0
+  * Update poppler to poppler-23.03.0-0
+  * Update sudo to SUDO_1_9_13p3-0
+  * Update fwupd to 1.8.12-0
+  * Update xz to v5.4.0-0
+  * Update iproute2 to v6.2.0-0
+  * Update libsepol to libsepol-3.5-0
+  * Update libnftnl to libnftnl-1.2.5-0
+  * Update git to v2.40.0-0
+  * Update spirv-llvm-translator to v15.0.0-16
+  * Update strace to v6.2-0
+  * Update fuse3 to fuse-3.14.0-0
+  * Update mesa to mesa-22.3.7-0
+  * Update gtk3 to 3.24.37-0
+  * Update python3-babel to 2.12.1
+  * Update nss to NSS_3_79_4_RTM-0
+  * Update ABI image
+  * Update libfido2 to 1.13.0-0
+  * flatpak-images/{sdk,platform}-*.bst: Avoid staging unnecessary files
+  * abi/abi-image.bst: Exclude docs, locale and source files
+  * abi/sdk-lib-headers.bst: Switch to a filter element
+  * abi: Rename elements for correctness
+  * Update python3-toposort to 1.10
+  * Update python3-pyexpect to 1.0.22
+  * Update flatpak to 1.14.3-0
+  * Update gyp to c6d8b9f
+  * Update python3-setuptools to 67.6.0
+  * Update sdl2-mixer to release-2.6.3-0
+  * Update gnu-config to 63acb96
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-22.08.9-0
+  * Update cmake to v3.25.3-0
+  * Update bubblewrap to v0.8.0-0
+  * Update gstreamer to 1.20.6-0
+  * Update python3-xdg to 6.0.0
+  * Update intel-media-driver to intel-media-23.1.2-0
+  * Update iso-codes to v4.13.0-0
+
 freedesktop-sdk-22.08.9:
   * Add back ppc64le testing
   * Update to image that supports ppc64le
