@@ -20,4 +20,4 @@ sources:
 - kind: git_repo
   url: github:sudo-project/sudo.git
   track: SUDO_*
-  ref: SUDO_1_9_13p1-0-g05cab83b1f5d0ff0ed60fee5ea4871c90392f5ec
+  ref: SUDO_1_9_13p3-0-g4e0de8d55325d103b9ab0e9f88aeb320ce64d6d6
