@@ -12,5 +12,5 @@ sources:
 - kind: pypi
   name: importlib-metadata
   ref:
-    sha256sum: 9127aad2f49d7203e7112098c12b92e4fd1061ccd18548cdfdc49171a8c073cc
-    suffix: 3f/24/69442c79335591a2dfe3c9b796ae79348c49bc50c8f2886063d1b0e1e5f3/importlib_metadata-6.2.0.tar.gz
+    sha256sum: 5a66966b39ff1c14ef5b2d60c1d842b0141fefff0f4cc6365b4bc9446c652807
+    suffix: 4b/fd/ea3ca048abb8534a847c3e5f59f6701a4eb1fd124556b14edeb506ec8986/importlib_metadata-6.2.1.tar.gz
