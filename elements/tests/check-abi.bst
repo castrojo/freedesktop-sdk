@@ -2,7 +2,7 @@ kind: script
 
 build-depends:
 - components/libabigail.bst
-- components/python3.bst
+- components/python3-pyelftools.bst
 - abi/abi-image.bst
 - tests/utils.bst
 - abi/reference-abi-image.bst
@@ -18,7 +18,7 @@ config:
     destination: /old-image
   - element: components/libabigail.bst
     destination: /
-  - element: components/python3.bst
+  - element: components/python3-pyelftools.bst
     destination: /
   - element: tests/utils.bst
     destination: /utils
