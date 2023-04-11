@@ -37,6 +37,6 @@ sources:
 - kind: git_repo
   url: github:curl/curl.git
   track: curl-*
-  ref: curl-7_88_1-0-g046209e561b7e9b5aab1aef7daebf29ee6e6e8c7
+  ref: curl-8_0_1-0-gb16d1fa8ee567b52c09a0f89940b07d8491b881d
 - kind: patch
   path: patches/curl/remove-doc-timestamp.patch
