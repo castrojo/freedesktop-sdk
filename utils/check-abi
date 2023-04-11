@@ -17,13 +17,14 @@
 
 
 import argparse
+import filecmp
+from fnmatch import fnmatch
 import os
 import subprocess
 import sys
 import tarfile
-import filecmp
 
-from fnmatch import fnmatch
+from elftools.elf.elffile import ELFFile
 
 
 ABORT_EXIT_CODE = -6
@@ -186,6 +187,12 @@ def compare_abi(old_library, old_debug_dir, old_include_dir, new_library, new_de
     return AbiCheckResult(bool(result.returncode), out, aborted, cmd)
 
 
+def get_debugaltlink(debug_file):
+    with ELFFile.load_from_path(debug_file) as elffile:
+        altlink = elffile.get_section_by_name('.gnu_debugaltlink')
+        return altlink.data().split(b'\x00')[0].decode('latin-1')
+
+
 def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on_abort, archive_directory):
     print(format_title('Comparing ABIs', level=1), end='\n\n', flush=True)
     success = True
@@ -236,12 +243,16 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
 
             if result.aborted and archive_on_abort:
                 print(f"abidiff aborted, command was:\n{' '.join(result.command)}", file=sys.stderr)
+                old_debug_file = os.path.join(old_debug_dir, os.path.relpath(old_library, old_checkout)) + '.debug'
+                new_debug_file = os.path.join(new_debug_dir, os.path.relpath(new_library, new_checkout)) + '.debug'
                 tar_file = os.path.join(archive_directory, f'{os.path.basename(old_library)}.tar.xz')
                 with tarfile.open(tar_file, 'w:xz') as tar:
                     tar.add(old_library)
                     tar.add(new_library)
-                    tar.add(os.path.join(old_debug_dir, os.path.relpath(old_library, old_checkout)) + '.debug')
-                    tar.add(os.path.join(new_debug_dir, os.path.relpath(new_library, new_checkout)) + '.debug')
+                    tar.add(old_debug_file)
+                    tar.add(new_debug_file)
+                    tar.add(os.path.join(old_checkout, get_debugaltlink(old_debug_file).lstrip('/')))
+                    tar.add(os.path.join(new_checkout, get_debugaltlink(new_debug_file).lstrip('/')))
 
         elif result.details:
             title = format_title(f'Ignored ABI Changes: {lib_key}', level=2)
