@@ -12,7 +12,6 @@ build-depends:
 variables:
   conf-local: >-
     --without-included-zlib
-    --disable-xxhash
     --disable-zstd
     --disable-simd
     --disable-md2man
