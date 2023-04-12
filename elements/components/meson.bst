@@ -10,8 +10,8 @@ sources:
   url: github:mesonbuild/meson.git
   track: '*.*.*'
   exclude:
-  - '*rc'
-  ref: 1.0.1-0-gf341097c7e7914c250133bd58feb4985d1fbdcd6
+  - '*rc*'
+  ref: 1.1.0-0-gae163a3f3e0ccdcbea97c8ad0e78f087925646b9
 - kind: patch
   path: patches/meson/meson-no-lib64.patch
   strip-level: 0
