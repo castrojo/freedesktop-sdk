@@ -1,0 +1,5 @@
+sources:
+- kind: git_repo
+  url: github:Cyan4973/xxHash.git
+  track: v*
+  ref: v0.8.1-0-g35b0373c697b5f160d3db26b1cbb45a0d5ba788c

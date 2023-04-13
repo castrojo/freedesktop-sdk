@@ -11,12 +11,16 @@ build-depends:
 - filename: bootstrap/glibc.bst
   config:
     location: "%{sysroot}"
+- filename: bootstrap/xxhash.bst
+  config:
+    location: "%{sysroot}"
 - filename: bootstrap/elfutils.bst
   config:
     location: "%{sysroot}"
 
 runtime-depends:
 - bootstrap/glibc.bst
+- bootstrap/xxhash.bst
 - bootstrap/elfutils.bst
 
 variables:
