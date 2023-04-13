@@ -38,7 +38,7 @@ sources:
   track: master
   track-extra:
   - '2.10'
-  ref: v2.10.3-0-gf507d167f1755b7eaea09fb1a44d29aab828b6d1
+  ref: v2.10.4-0-g223cb03a5d27b1b2393b266a8657443d046139d6
 - kind: patch
   path: patches/libxml2/libxml2-python-in-nodeWrap-deal-with-name-is-None-case.patch
 - kind: patch
