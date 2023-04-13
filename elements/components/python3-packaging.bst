@@ -14,5 +14,5 @@ sources:
 - kind: pypi
   name: packaging
   ref:
-    sha256sum: b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97
-    suffix: 47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz
+    sha256sum: a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f
+    suffix: b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz
