@@ -2,7 +2,8 @@ kind: pip
 
 build-depends:
 - public-stacks/buildsystem-python.bst
-- components/python3-setuptools-scm.bst
+- components/python3-hatchling.bst
+- components/python3-hatch-vcs.bst
 
 depends:
 - components/python3.bst
@@ -11,5 +12,5 @@ sources:
 - kind: pypi
   name: filelock
   ref:
-    sha256sum: 7565f628ea56bfcd8e54e42bdc55da899c85c1abfe1b5bcfd147e9188cebb3b2
-    suffix: d8/73/292d9ea2370840a163e6dd2d2816a571244e9335e2f6ad957bf0527c492f/filelock-3.8.2.tar.gz
+    sha256sum: 3618c0da67adcc0506b015fd11ef7faf1b493f0b40d87728e19986b536890c37
+    suffix: e6/3d/c80975c1028f54e4f0fe6f727d9271362b749321144ea833216b18bfda93/filelock-3.11.0.tar.gz
