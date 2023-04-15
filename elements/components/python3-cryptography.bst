@@ -14,8 +14,8 @@ sources:
 - kind: pypi
   name: cryptography
   ref:
-    sha256sum: 2803f2f8b1e95f614419926c7e6f55d828afc614ca5ed61543877ae668cc3472
-    suffix: 15/d9/c679e9eda76bfc0d60c9d7a4084ca52d0631d9f24ef04f818012f6d1282e/cryptography-40.0.1.tar.gz
+    sha256sum: c33c0d32b8594fa647d2e01dbccc303478e16fdd7cf98652d5b3ed11aa5e5c99
+    suffix: f7/80/04cc7637238b78f8e7354900817135c5a23cf66dfb3f3a216c6d630d6833/cryptography-40.0.2.tar.gz
 - kind: cargo
   url: crates:crates
   cargo-lock: src/rust/Cargo.lock
@@ -120,14 +120,14 @@ sources:
     version: 1.14.0
     sha: 2f7254b99e31cad77da24b08ebf628882739a608578bb1bcdfc1f9c21260d7c0
   - name: openssl
-    version: 0.10.48
-    sha: 518915b97df115dd36109bfa429a48b8f737bd05508cf9588977b599648926d2
+    version: 0.10.50
+    sha: 7e30d8bc91859781f0a943411186324d580f2bbeb71b452fe91ae344806af3f1
   - name: openssl-macros
     version: 0.1.0
     sha: b501e44f11665960c7e7fcf062c7d96a14ade4aa98116c004b2e37b5be7d736c
   - name: openssl-sys
-    version: 0.9.83
-    sha: 666416d899cf077260dac8698d60a60b435a46d57e82acb1be3d0dad87284e5b
+    version: 0.9.85
+    sha: 0d3d193fb1488ad46ffe3aaabc912cc931d02ee8518fe2959aea8ef52718b0c0
   - name: ouroboros
     version: 0.15.6
     sha: e1358bd1558bd2a083fed428ffeda486fbfb323e698cdda7794259d592ca72db
