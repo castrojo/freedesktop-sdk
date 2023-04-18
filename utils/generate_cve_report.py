@@ -18,6 +18,7 @@ import sys
 import gzip
 import glob
 import os
+import html
 
 from libversion import Version
 import requests
@@ -181,7 +182,7 @@ if __name__ == "__main__":
 
         for ID, name, version, summary, scorev2, scorev3 in entries:
             issues_mrs = ", ".join(f"[{id}]({link})" for id, link in get_issues_and_mrs(ID)) or "None"
-            out.write(f"|[{ID}](https://nvd.nist.gov/vuln/detail/{ID})|{name}|{version}|{summary}|{format_score(scorev3)}|{format_score(scorev2)}|{issues_mrs}|\n")
+            out.write(f"|[{ID}](https://nvd.nist.gov/vuln/detail/{ID})|{name}|{version}|{html.escape(summary)}|{format_score(scorev3)}|{format_score(scorev2)}|{issues_mrs}|\n")
 
         out.write('<!-- Markdeep: -->'
                   '<style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>'
