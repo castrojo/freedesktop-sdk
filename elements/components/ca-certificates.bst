@@ -169,7 +169,7 @@ config:
     %{install-root}%{pkidir}/tls/cert.pem
     ln -s %{catrustdir}/extracted/pem/tls-ca-bundle.pem \
     %{install-root}%{pkidir}/tls/certs/%{classic_tls_bundle}
-    ln -s %{}/extracted/openssl/%{openssl_format_trust_bundle} \
+    ln -s %{catrustdir}/extracted/openssl/%{openssl_format_trust_bundle} \
     %{install-root}%{pkidir}/tls/certs/%{openssl_format_trust_bundle}
     ln -s %{catrustdir}/extracted/%{java_bundle} \
     %{install-root}%{pkidir}/%{java_bundle}
