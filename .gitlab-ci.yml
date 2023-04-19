@@ -923,7 +923,7 @@ publish_snap_aarch64:
     [ -n "${DOCKER_HUB_ADDRESS}" ]
 
   - |
-    DOCKER_IMAGES=(platform sdk debug flatpak)
+    DOCKER_IMAGES=(platform sdk debug flatpak toolbox)
     BST_ELEMENTS=$(printf 'oci/%q-docker.bst ' ${DOCKER_IMAGES[@]})
     
     ${BST} -o target_arch ${ARCH} build ${BST_ELEMENTS[@]}
