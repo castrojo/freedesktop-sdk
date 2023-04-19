@@ -6,6 +6,8 @@ sources:
 - kind: local
   path: utils/check-abi
 - kind: local
+  path: utils/check-abi-suppressions.json
+- kind: local
   path: utils/check-static-libraries.py
 - kind: local
   path: utils/find-rpath.py

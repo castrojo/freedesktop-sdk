@@ -19,7 +19,10 @@
 import argparse
 import filecmp
 from fnmatch import fnmatch
+import json
 import os
+import pathlib
+import re
 import subprocess
 import sys
 import tarfile
@@ -202,7 +205,17 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
 
     all_keys = set(new_libs.keys()) | set(old_libs.keys())
 
+    suppression_file_path = pathlib.Path(__file__).parent.resolve() / 'check-abi-suppressions.json'
+    with open(suppression_file_path, 'r') as filehandle:
+        suppression_rules = json.load(filehandle)
+    suppression_regex = '|'.join(suppression_rules)
+    suppression_regex_obj = re.compile(suppression_regex)
+
     for lib_key in all_keys:
+        if (suppression_regex_obj.match(lib_key)):
+            print(f'Skipping file {lib_key}', file=sys.stderr, flush=True)
+            continue
+
         try:
             old_relpath = old_libs[lib_key]
 
