@@ -24,4 +24,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libxt.git
   track: libXt-*
-  ref: libXt-1.2.1-0-gedd70bdfbbd16247e3d9564ca51d864f82626eb7
+  ref: libXt-1.3.0-0-g64fca6a2d7cf4fee28ca2277ca6a8b7b32aee66e
