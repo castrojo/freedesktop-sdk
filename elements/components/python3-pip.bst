@@ -21,5 +21,5 @@ sources:
 - kind: pypi
   name: pip
   ref:
-    sha256sum: 408539897ee535dbfb83a153f7bc4d620f990d8bd44a52a986efc0b4d330d34a
-    suffix: da/bf/1bdbe62f5fbde085351693e3a8e387a59f8220932b911b1719fe65efa2d7/pip-23.1.tar.gz
+    sha256sum: c95b53d309f903f33dfe5fd37e502a5c3a05ee3454d518e45df522a4f091b728
+    suffix: 43/7d/1f52f99a7f2eae870483b2c2a3064511487de87911bce146df8a154fbe81/pip-23.1.1.tar.gz
