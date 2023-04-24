@@ -2,9 +2,16 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
+- components/git-minimal.bst
 
 depends:
 - components/python3.bst
+
+config:
+  build-commands:
+    (<):
+    - |
+      echo "Version: $(git describe --tags)" > PKG-INFO
 
 sources:
 - kind: git_repo
