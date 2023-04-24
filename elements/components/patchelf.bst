@@ -10,4 +10,4 @@ sources:
 - kind: git_tag
   url: github:NixOS/patchelf.git
   track: master
-  ref: 0.17.2-0-g5908e16cd562bcb1909be4de0409c4912a8afc52
+  ref: 0.18.0-0-g99c24238981b7b1084313aca8f5c493bb46f302c
