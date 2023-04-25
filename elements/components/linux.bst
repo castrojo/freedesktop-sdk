@@ -1175,6 +1175,7 @@ config:
         module KVM
         ;;
     esac
+    module VHOST_VSOCK
 
     # Useful filesystems
     for fs in XFS BTRFS EXFAT VFAT F2FS ISO9660 UDF NTFS3; do
