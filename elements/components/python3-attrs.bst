@@ -1,14 +1,15 @@
 kind: pyproject
 
 build-depends:
-- public-stacks/buildsystem-python-setuptools.bst
+- public-stacks/buildsystem-python-hatchling.bst
+- components/python3-hatch-vcs.bst
+- components/python3-hatch-fancy-pypi-readme.bst
 
 depends:
 - components/python3.bst
 
 sources:
-- kind: pypi
-  name: attrs
-  ref:
-    sha256sum: c9227bfc2f01993c03f68db37d1d15c9690188323c067c641f1a35ca58185f99
-    suffix: 21/31/3f468da74c7de4fcf9b25591e682856389b3400b4b62f201e65f15ea3e07/attrs-22.2.0.tar.gz
+- kind: git_repo
+  url: github:python-attrs/attrs.git
+  track: '*.*.*'
+  ref: 23.1.0-0-g1e2f6f9cac5cc60f0adab051c14adf09ffe39155
