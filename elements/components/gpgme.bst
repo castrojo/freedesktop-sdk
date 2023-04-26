@@ -41,7 +41,4 @@ config:
 sources:
 - kind: git_tag
   url: gnupg:gpgme.git
-  track: master
-  exclude:
-  - "*-base"
   ref: gpgme-1.19.0-0-g96a30fdf30626a7cefd9c9e620a60817ef44fde2
