@@ -4,7 +4,7 @@ sources:
   exclude:
   - v*rc*
   url: github:python/cpython.git
-  ref: v3.10.6-0-g9c7b4bd1646f2170247f88cf59936740d9c4c004
+  ref: v3.10.11-0-g7d4cc5aa854fdea4d01a5b9c59e37c6e62f1103d
 - kind: patch
   path: patches/python3/python3-multiarch-include.patch
 - kind: patch
