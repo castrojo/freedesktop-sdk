@@ -323,7 +323,7 @@ struct script {
 
     if (compress) {
       if (0 != run(std::vector<std::string>{"eu-elfcompress", debugfile})) {
-	throw std::runtime_error("eu-elfcompress failed");
+        throw std::runtime_error("eu-elfcompress failed");
       }
     }
 

@@ -13,13 +13,13 @@ while IFS= read -r -d '' file; do
     dirname="$(dirname "${file}")"
     basedir="$(basename "${dirname}")"
     if [ "${basedir}" = engines-3 ]; then
-	continue
+        continue
     fi
     if [ "${basedir}" = sasl2 ]; then
-	continue
+        continue
     fi
     if [ "${basedir}" = vdpau ]; then
-	continue
+        continue
     fi
     basename="$(basename "${file}")"
     soname="$(objdump -p "${file}" | sed "/ *SONAME */{;s///;q;};d")"
@@ -38,8 +38,8 @@ done
 # The rest scan for miscellaneous development files spread all over the runtime
 
 find "$1" \
-	-not \( -path "${1}/usr/lib/debug" -prune \) \
-	-not \( -path "${1}/usr/share/runtime/docs/doc" -prune \) \
+        -not \( -path "${1}/usr/lib/debug" -prune \) \
+        -not \( -path "${1}/usr/share/runtime/docs/doc" -prune \) \
         \( -path "${1}/usr/bin/*-config" \
            -o -path "${1}/usr/include/*" \
            -o -name "*.h" \
@@ -47,4 +47,4 @@ find "$1" \
            -o -name "*.o" \
            -o -name "*.c" \
            -o -name "*.spec" \
-	   -o -name "*.cmake" \)
+           -o -name "*.cmake" \)

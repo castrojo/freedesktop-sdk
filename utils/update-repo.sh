@@ -13,49 +13,49 @@ EOF
 
 while [ $# -gt 0 ]; do
     case "$1" in
-	--gpg-*=*)
-	    gpg_opts+=("$1")
-	    ;;
-	--gpg-*)
-	    gpg_opts+=("$1" "$2")
-	    shift
-	    ;;
-	--collection-id=*)
-	    collection_id="${1#--collection-id=}"
-	    ;;
-	--collection-id)
-	    collection_id="${2}"
-	    shift
-	    ;;
-	--help)
-	    help
-	    exit 0
-	    ;;
-	--)
-	    main_opts+=("$@")
-	    shift $(($#-1))
-	    ;;
-	--*)
-	    echo "Unknown option '$1'" 1>&2
-	    exit 1
-	    ;;
-	-*)
-	    for ((i=1;i < ${#1};++i)); do
-		case "${1:i}" in
-		    h)
-			help
-			exit 0
-			;;
-		    *)
-			echo "Unknown option '${1:i}'" 1>&2
-			exit 1
-			;;
-		esac
-	    done
-	    ;;
-	*)
-	    main_opts+=("$1")
-	    ;;
+        --gpg-*=*)
+            gpg_opts+=("$1")
+            ;;
+        --gpg-*)
+            gpg_opts+=("$1" "$2")
+            shift
+            ;;
+        --collection-id=*)
+            collection_id="${1#--collection-id=}"
+            ;;
+        --collection-id)
+            collection_id="${2}"
+            shift
+            ;;
+        --help)
+            help
+            exit 0
+            ;;
+        --)
+            main_opts+=("$@")
+            shift $(($#-1))
+            ;;
+        --*)
+            echo "Unknown option '$1'" 1>&2
+            exit 1
+            ;;
+        -*)
+            for ((i=1;i < ${#1};++i)); do
+                case "${1:i}" in
+                    h)
+                        help
+                        exit 0
+                        ;;
+                    *)
+                        echo "Unknown option '${1:i}'" 1>&2
+                        exit 1
+                        ;;
+                esac
+            done
+            ;;
+        *)
+            main_opts+=("$1")
+            ;;
     esac
     shift
 done

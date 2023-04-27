@@ -33,37 +33,37 @@ while [ $# -gt 0 ]; do
             uuidnamespace="$1"
             shift
             ;;
-	--efisource)
-	    efi_source="$1"
-	    shift
-	    ;;
-	--efipath)
-	    efipath="$1"
-	    shift
-	    ;;
-	--efifstype)
-	    efifstype="$1"
-	    shift
-	    ;;
-	--efifsopts)
-	    efifsopts="$1"
-	    shift
-	    ;;
-	--noboot)
-	    noboot="1"
-	    ;;
-	--rootsource)
-	    root_source="$1"
-	    shift
-	    ;;
-	--rootfstype)
-	    rootfstype="$1"
-	    shift
-	    ;;
-	--rootfsopts)
-	    rootfsopts="$1"
-	    shift
-	    ;;
+        --efisource)
+            efi_source="$1"
+            shift
+            ;;
+        --efipath)
+            efipath="$1"
+            shift
+            ;;
+        --efifstype)
+            efifstype="$1"
+            shift
+            ;;
+        --efifsopts)
+            efifsopts="$1"
+            shift
+            ;;
+        --noboot)
+            noboot="1"
+            ;;
+        --rootsource)
+            root_source="$1"
+            shift
+            ;;
+        --rootfstype)
+            rootfstype="$1"
+            shift
+            ;;
+        --rootfsopts)
+            rootfsopts="$1"
+            shift
+            ;;
     esac
 done
 
