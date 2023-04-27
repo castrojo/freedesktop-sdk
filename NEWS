@@ -1,5 +1,18 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08beta.1:
+
+  * freedesktop-sdk is now "bootstrappable"
+    This means freedesktop-sdk doesnt depend on previous freedesktop-sdk versions
+    to build, but it uses instead freedesktop-sdk-binary-seed for its bootstrap
+    to depend on the minimal binary seed possible.
+    See https://bootstrappable.org/ for more info
+  * ppc64le is again a supported architecture
+  * Update all the components to the latest version available, check specific
+    versions at https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/wikis/Release-Contents#contents
+  * freedesktop-sdk project has been ported to buildstream 2
+  * A lot of other small fixes and improvements
+
 freedesktop-sdk-22.08rc.1:
   * python3: Bump tp 3.10.6
   * linux: Bump to 5.18.16
