@@ -10,12 +10,12 @@ depends:
 - bootstrap-import.bst
 - components/brotli.bst
 - components/ca-certificates.bst
-- components/gnutls.bst
 - components/gpgme.bst
 - components/libidn2.bst
 - components/libnghttp2.bst
 - components/libpsl.bst
 - components/lzip.bst
+- components/openssl.bst
 - components/zstd.bst
 
 variables:
@@ -23,6 +23,7 @@ variables:
     ./bootstrap --skip-po --no-git --gnulib-srcdir=%{build-root}/gnulib
   conf-local: >-
     --disable-rpath
+    --with-ssl=openssl
 
 config:
   install-commands:
