@@ -13,10 +13,14 @@ build-depends:
 - filename: bootstrap/bzip2.bst
   config:
     location: "%{sysroot}"
+- filename: bootstrap/xz.bst
+  config:
+    location: "%{sysroot}"
 
 runtime-depends:
 - bootstrap/zlib.bst
 - bootstrap/bzip2.bst
+- bootstrap/xz.bst
 
 (@):
 - elements/bootstrap/include/target.yml
@@ -26,7 +30,6 @@ variables:
   autogen: autoreconf -fvi
   conf-local: >-
     utrace_cv_CC_m32=none
-    --without-lzma
     --disable-debuginfod
     --enable-libdebuginfod=dummy
 
