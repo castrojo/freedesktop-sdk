@@ -25,3 +25,4 @@ public:
         (>):
         - '%{libdir}/libpipewire-*.so'
         - '%{libdir}/libjack*.so'
+        - '%{bindir}/pw-config'
