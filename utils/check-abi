@@ -311,6 +311,8 @@ if __name__ == '__main__':
 
     if abi_compatible:
         print(format_title(f'Hurray! {args.old} and {args.new} are ABI-compatible!', level=2), flush=True)
+    else:
+        print(format_title(f'{args.old} and {args.new} are ABI-incompatible!', level=2), file=sys.stderr, flush=True)
 
     returncode = 0 if abi_compatible else 1
     sys.exit(returncode)
