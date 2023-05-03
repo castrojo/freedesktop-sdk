@@ -51,7 +51,7 @@ sources:
 - kind: git_repo
   url: freedesktop:polkit/polkit.git
   track: master
-  ref: 122-23-g7b3c9c85980f2f6a521aac97089c99647b4cf4ce
+  ref: 122-28-g4c6d183b0565185f4f7f9bea9f234326d7ea17d7
 - kind: local
   path: files/polkit/sysusers.conf
   directory: extra
