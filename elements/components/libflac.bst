@@ -23,4 +23,4 @@ sources:
 - kind: git_repo
   url: xiph:flac.git
   track: '*.*.*'
-  ref: 1.4.1-0-gb6fbd6b3d97e2da4481bdbd25176f263fd6a5e75
+  ref: 1.4.2-0-gb32e5cbf9818ca23dd22aaa75522042c16ea7d17
