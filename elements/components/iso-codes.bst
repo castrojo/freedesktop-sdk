@@ -11,4 +11,4 @@ sources:
 - kind: git_repo
   url: debian_salsa:iso-codes-team/iso-codes.git
   track: v*
-  ref: v4.13.0-0-gab6b01d5b56af7da9f0d2d1619a3cf84e43ed76a
+  ref: v4.15.0-0-g69ba16daef3c5c5e3c18f2d919e25296a4b946be
