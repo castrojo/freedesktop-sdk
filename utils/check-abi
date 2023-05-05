@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python3 -u
 
 # Copyright (c) 2018 - Mathieu Bridon <bochecha@daitauha.fr>
 #
@@ -197,7 +197,7 @@ def get_debugaltlink(debug_file):
 
 
 def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on_abort, archive_directory):
-    print(format_title('Comparing ABIs', level=1), end='\n\n', flush=True)
+    print(format_title('Comparing ABIs', level=1), end='\n\n')
     success = True
 
     old_libs = get_libraries(old_checkout)
@@ -213,7 +213,7 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
 
     for lib_key in all_keys:
         if suppression_regex_obj.match(lib_key):
-            print(f'Skipping file {lib_key}', file=sys.stderr, flush=True)
+            print(f'Skipping file {lib_key}', file=sys.stderr)
             continue
 
         try:
@@ -222,7 +222,7 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
         except KeyError:
             if forward_compatible:
                 title = format_title(f'ABI Break: {lib_key}', level=2)
-                print(f'{title}\n\nLibrary was added in {new_checkout}\n', file=sys.stderr, flush=True)
+                print(f'{title}\n\nLibrary was added in {new_checkout}\n', file=sys.stderr)
                 success = False
             continue
 
@@ -231,7 +231,7 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
 
         except KeyError:
             title = format_title(f'ABI Break: {lib_key}', level=2)
-            print(f'{title}\n\nLibrary does not exist any more in {new_checkout}\n', file=sys.stderr, flush=True)
+            print(f'{title}\n\nLibrary does not exist any more in {new_checkout}\n', file=sys.stderr)
             success = False
             continue
 
@@ -251,7 +251,7 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
 
         if result.abi_was_broken:
             title = format_title(f'ABI Break: {lib_key}', level=2)
-            print(f'{title}\n\n{result.details}\n', file=sys.stderr, flush=True)
+            print(f'{title}\n\n{result.details}\n', file=sys.stderr)
             success = False
 
             if result.aborted and archive_on_abort:
@@ -269,7 +269,7 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
 
         elif result.details:
             title = format_title(f'Ignored ABI Changes: {lib_key}', level=2)
-            print(f'{title}\n\n{result.details}\n', flush=True)
+            print(f'{title}\n\n{result.details}\n')
 
     return success
 
@@ -290,9 +290,9 @@ if __name__ == '__main__':
     abi_compatible = compare_tree_abis(args.old, args.new, args.forward_compatible, args.archive_on_abort, archive_directory)
 
     if abi_compatible:
-        print(format_title(f'Hurray! {args.old} and {args.new} are ABI-compatible!', level=2), flush=True)
+        print(format_title(f'Hurray! {args.old} and {args.new} are ABI-compatible!', level=2))
     else:
-        print(format_title(f'{args.old} and {args.new} are ABI-incompatible!', level=2), file=sys.stderr, flush=True)
+        print(format_title(f'{args.old} and {args.new} are ABI-incompatible!', level=2), file=sys.stderr)
 
     returncode = 0 if abi_compatible else 1
     sys.exit(returncode)
