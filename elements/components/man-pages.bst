@@ -20,6 +20,5 @@ sources:
   track: man-pages-*
   exclude:
   - '*rc*'
-  - '*b*'
-  - '*a*'
-  ref: man-pages-6.03-0-gba828191e3c24266c68caba823324b617fd3028a
+  - '*-a*'
+  ref: man-pages-6.04.01-0-gdb38ce13125c79800340ecdbdd7b1cbede322029
