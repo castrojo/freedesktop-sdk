@@ -2,4 +2,4 @@ sources:
 - kind: git_repo
   url: github:ximion/appstream.git
   track: v*
-  ref: v0.16.1-0-g859c2a2658e13b2d689ad9bbdeaf6ff6fbba8abd
+  ref: v0.16.2-0-g1ee6af91310f9deb47f3863a7a7ffb22c46bcce6
