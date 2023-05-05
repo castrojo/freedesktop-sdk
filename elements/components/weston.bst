@@ -40,6 +40,6 @@ sources:
 - kind: git_repo
   track: '*.*.*'
   exclude:
-  - '*.*.9[0123456789]'
+  - '*.*.9[0-9]'
   url: freedesktop:wayland/weston.git
   ref: 11.0.1-0-g783b144f2e1beff5848e6c76ab765c3ed32d5b77
