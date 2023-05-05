@@ -22,4 +22,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libxfixes.git
   track: libXfixes-*
-  ref: libXfixes-6.0.0-0-g6fe3bd64dd82f704ed91478acb4c99ab5c00be16
+  ref: libXfixes-6.0.1-0-gc1cab28e27dd1c5a81394965248b57e490ccf2ca
