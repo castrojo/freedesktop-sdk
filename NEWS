@@ -1,7 +1,53 @@
 Freedesktop-SDK
 
-freedesktop-sdk-23.08beta.1:
+freedesktop-sdk-23.08beta.2:
+  * Replace tabs with 8 spaces where appropriate
+  * Update spirv-llvm-translator to v16.0.0-3
+  * Simplify exlude pattern
+  * Exclude weston pre-releases
+  * Update vala to 0.56.7-0
+  * Update appstream to v0.16.2-0
+  * Update iso-codes to v4.15.0-0
+  * Update poppler to poppler-23.05.0-0
+  * Update xorg-lib-xfixes to libXfixes-6.0.1-0
+  * Update podman to v4.5.0-0
+  * Update dav1d to 1.2.0-0
+  * Update mesa to mesa-23.0.3-0
+  * Add pw-config to devel
+  * Update pipewire-base to 0.3.70-0
+  * man-pages: update to 6.04.01 and fix tracking
+  * Fix tracking for python3-cffi
+  * Update fscrypt to v0.3.4-0
+  * Update python3-virtualenv to 20.23.0-0
+  * Update python3-pytz to 2023.3
+  * Update libflac to 1.4.2-0
+  * Update python3-markdown to 3.4.3
+  * Add more exclude patterns to man-pages
+  * Update tzdata to 2023c-0
+  * Update python3-installer to 0.7.0-0
+  * Update libgcrypt to libgcrypt-1.10.2-0
+  * Update glibc to glibc-2.37-17
+  * Update systemd to v253.4-0
+  * Update polkit-base to 122-28
+  * Update python3-cryptography to 40.0.2-0
+  * Update elements/include/git.yml to v2.40.1-0
+  * Update btrfs-progs to v6.3-0
+  * Update perl to v5.36.1-0
+  * Fix invalid symlink target path
+  * Build wget2 against OpenSSL
+  * Update python3-trove-classifiers to 2023.4.29-0
+  * Update extra-cmake-modules to v5.105.0-0
+  * Update python3-pip to 23.1.2
+  * Update harfbuzz to 7.2.0-0
+  * Update mutool to 1.22.0-0
+  * Update python3-requests to 2.29.0
+  * Update python3-dbusmock to 0.29.0
+  * Update python3-pyasn1 to 0.5.0
+  * elfutils: Enable lzma
+  * gcc: update to 13.1.0
+  * Update gettext to 0.21.1
 
+freedesktop-sdk-23.08beta.1:
   * freedesktop-sdk is now "bootstrappable"
     This means freedesktop-sdk doesnt depend on previous freedesktop-sdk versions
     to build, but it uses instead freedesktop-sdk-binary-seed for its bootstrap
