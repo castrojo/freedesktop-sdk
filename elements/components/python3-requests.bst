@@ -15,5 +15,5 @@ sources:
 - kind: pypi
   name: requests
   ref:
-    sha256sum: f2e34a75f4749019bb0e3effb66683630e4ffeaf75819fb51bebef1bf5aef059
-    suffix: 4c/d2/70fc708727b62d55bc24e43cc85f073039023212d482553d853c44e57bdb/requests-2.29.0.tar.gz
+    sha256sum: 239d7d4458afcb28a692cdd298d87542235f4ca8d36d03a15bfc128a6559a2f4
+    suffix: e0/69/122171604bcef06825fa1c05bd9e9b1d43bc9feb8c6c0717c42c92cc6f3c/requests-2.30.0.tar.gz
