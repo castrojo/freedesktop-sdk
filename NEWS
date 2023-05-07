@@ -1,5 +1,8 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08beta.3:
+  * flatpak: Revert upstream patch regarding summaries (#13021)
+
 freedesktop-sdk-23.08beta.2:
   * Replace tabs with 8 spaces where appropriate
   * Update spirv-llvm-translator to v16.0.0-3
