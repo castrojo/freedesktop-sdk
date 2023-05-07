@@ -5,6 +5,7 @@ build-depends:
 
 runtime-depends:
 - bootstrap/bzip2.bst
+- bootstrap/xz.bst
 - bootstrap/zlib.bst
 
 (@):
@@ -15,7 +16,6 @@ variables:
   autogen: autoreconf -fvi
   conf-local: >-
     utrace_cv_CC_m32=none
-    --without-lzma
     --disable-debuginfod
     --enable-libdebuginfod=dummy
 

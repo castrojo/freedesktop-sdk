@@ -11,6 +11,7 @@ build-depends:
 - bootstrap/build/debug-utils.bst
 - bootstrap/build/gcc-stage2.bst
 - bootstrap/bzip2.bst
+- bootstrap/xz.bst
 - bootstrap/zlib.bst
 
 
@@ -33,6 +34,8 @@ config:
     destination: "/"
 
   - element: bootstrap/bzip2.bst
+    destination: "%{sysroot}"
+  - element: bootstrap/xz.bst
     destination: "%{sysroot}"
   - element: bootstrap/zlib.bst
     destination: "%{sysroot}"
