@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python3 -u
 
 # Copyright (c) 2018 - Mathieu Bridon <bochecha@daitauha.fr>
 #
@@ -30,14 +30,15 @@ import tarfile
 from elftools.elf.elffile import ELFFile
 
 
-ABORT_EXIT_CODE = -6
+ABRT_EXIT_CODE = -6
+SEGV_EXIT_CODE = -11
 
 
 class AbiCheckResult:
-    def __init__(self, abi_was_broken, details, aborted, command):
+    def __init__(self, abi_was_broken, details, core_dumped, command):
         self.abi_was_broken = abi_was_broken
         self.details = details
-        self.aborted = aborted
+        self.core_dumped = core_dumped
         self.command = command
 
 
@@ -60,9 +61,9 @@ def get_parser():
         '--forward-compatible', action='store_true')
 
     parser.add_argument(
-        '--archive-on-abort',
+        '--archive-on-core',
         action='store_true',
-        help='create a tarball of the binaries that cause abidiff to abort'
+        help='create a tarball of the binaries that cause abidiff to core dump'
     )
     parser.add_argument(
         '--archive-directory-parent',
@@ -185,9 +186,9 @@ def compare_abi(old_library, old_debug_dir, old_include_dir, new_library, new_de
     ] + options
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, encoding='utf-8')
     out = result.stdout.strip()
-    aborted = result.returncode == ABORT_EXIT_CODE
+    core_dumped = result.returncode in (ABRT_EXIT_CODE, SEGV_EXIT_CODE)
 
-    return AbiCheckResult(bool(result.returncode), out, aborted, cmd)
+    return AbiCheckResult(bool(result.returncode), out, core_dumped, cmd)
 
 
 def get_debugaltlink(debug_file):
@@ -196,8 +197,8 @@ def get_debugaltlink(debug_file):
         return altlink.data().split(b'\x00')[0].decode('latin-1')
 
 
-def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on_abort, archive_directory):
-    print(format_title('Comparing ABIs', level=1), end='\n\n', flush=True)
+def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on_core, archive_directory):
+    print(format_title('Comparing ABIs', level=1), end='\n\n')
     success = True
 
     old_libs = get_libraries(old_checkout)
@@ -206,14 +207,14 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
     all_keys = set(new_libs.keys()) | set(old_libs.keys())
 
     suppression_file_path = pathlib.Path(__file__).parent.resolve() / 'check-abi-suppressions.json'
-    with open(suppression_file_path, 'r') as filehandle:
+    with open(suppression_file_path, 'r', encoding='utf-8') as filehandle:
         suppression_rules = json.load(filehandle)
     suppression_regex = '|'.join(suppression_rules)
     suppression_regex_obj = re.compile(suppression_regex)
 
     for lib_key in all_keys:
-        if (suppression_regex_obj.match(lib_key)):
-            print(f'Skipping file {lib_key}', file=sys.stderr, flush=True)
+        if suppression_regex_obj.match(lib_key):
+            print(f'Skipping file {lib_key}', file=sys.stderr)
             continue
 
         try:
@@ -222,7 +223,7 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
         except KeyError:
             if forward_compatible:
                 title = format_title(f'ABI Break: {lib_key}', level=2)
-                print(f'{title}\n\nLibrary was added in {new_checkout}\n', file=sys.stderr, flush=True)
+                print(f'{title}\n\nLibrary was added in {new_checkout}\n', file=sys.stderr)
                 success = False
             continue
 
@@ -231,7 +232,7 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
 
         except KeyError:
             title = format_title(f'ABI Break: {lib_key}', level=2)
-            print(f'{title}\n\nLibrary does not exist any more in {new_checkout}\n', file=sys.stderr, flush=True)
+            print(f'{title}\n\nLibrary does not exist any more in {new_checkout}\n', file=sys.stderr)
             success = False
             continue
 
@@ -251,11 +252,11 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
 
         if result.abi_was_broken:
             title = format_title(f'ABI Break: {lib_key}', level=2)
-            print(f'{title}\n\n{result.details}\n', file=sys.stderr, flush=True)
+            print(f'{title}\n\n{result.details}\n', file=sys.stderr)
             success = False
 
-            if result.aborted and archive_on_abort:
-                print(f"abidiff aborted, command was:\n{' '.join(result.command)}", file=sys.stderr)
+            if result.core_dumped and archive_on_core:
+                print(f"abidiff core dumped, command was:\n{' '.join(result.command)}", file=sys.stderr)
                 old_debug_file = os.path.join(old_debug_dir, os.path.relpath(old_library, old_checkout)) + '.debug'
                 new_debug_file = os.path.join(new_debug_dir, os.path.relpath(new_library, new_checkout)) + '.debug'
                 tar_file = os.path.join(archive_directory, f'{os.path.basename(old_library)}.tar.xz')
@@ -269,7 +270,7 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
 
         elif result.details:
             title = format_title(f'Ignored ABI Changes: {lib_key}', level=2)
-            print(f'{title}\n\n{result.details}\n', flush=True)
+            print(f'{title}\n\n{result.details}\n')
 
     return success
 
@@ -283,14 +284,16 @@ if __name__ == '__main__':
         os.environ['LIBABIGAIL_DEFAULT_USER_SUPPRESSION_FILE'] = args.suppressions
 
     archive_directory = os.path.join(args.archive_directory_parent, 'libabigail-tars')
-    if args.archive_on_abort:
+    if args.archive_on_core:
         print(f'Creating archive directory {archive_directory}')
         os.makedirs(archive_directory)
 
-    abi_compatible = compare_tree_abis(args.old, args.new, args.forward_compatible, args.archive_on_abort, archive_directory)
+    abi_compatible = compare_tree_abis(args.old, args.new, args.forward_compatible, args.archive_on_core, archive_directory)
 
     if abi_compatible:
-        print(format_title(f'Hurray! {args.old} and {args.new} are ABI-compatible!', level=2), flush=True)
+        print(format_title(f'Hurray! {args.old} and {args.new} are ABI-compatible!', level=2))
+    else:
+        print(format_title(f'{args.old} and {args.new} are ABI-incompatible!', level=2), file=sys.stderr)
 
     returncode = 0 if abi_compatible else 1
     sys.exit(returncode)
