@@ -7,6 +7,9 @@ depends:
 - bootstrap-import.bst
 - components/libxml2.bst
 
+variables:
+  local_flags: "-O0"
+
 sources:
 - kind: git_tag
   url: sourceware:libabigail.git
