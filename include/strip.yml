@@ -3,7 +3,8 @@
 variables:
   optimize-debug: "true"
   compress-debug: "true"
-  sourcedir: "%{debugdir}/source"
+  debugdatadir: "%{debugdir}"
+  sourcedir: "%{debugdatadir}/source"
   stripdir-suffix: "%{element-name}"
 
   toolchain-prefixes: >-
@@ -26,7 +27,7 @@ variables:
         "${OPTS[@]}" \
         "%{build-root}" \
         "%{sourcedir}/%{stripdir-suffix}" \
-        "%{debugdir}/dwz/%{stripdir-suffix}" \
+        "%{debugdatadir}/dwz/%{stripdir-suffix}" \
         "%{debugdir}" \
         "%{install-root}"
     fi
