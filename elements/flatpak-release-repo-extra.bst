@@ -20,8 +20,12 @@ config:
       copy-refs:
       - src: runtime/org.freedesktop.Platform.GL.default/%{flatpak_arch}/%{branch}
         dest: runtime/org.freedesktop.Platform.GL32.default/x86_64/%{branch}
+      - src: runtime/org.freedesktop.Platform.GL.Debug.default/%{flatpak_arch}/%{branch}
+        dest: runtime/org.freedesktop.Platform.GL32.Debug.default/x86_64/%{branch}
 
   - target_arch == 'arm':
       copy-refs:
       - src: runtime/org.freedesktop.Platform.GL.default/%{flatpak_arch}/%{branch}
         dest: runtime/org.freedesktop.Platform.GL32.default/aarch64/%{branch}
+      - src: runtime/org.freedesktop.Platform.GL.Debug.default/%{flatpak_arch}/%{branch}
+        dest: runtime/org.freedesktop.Platform.GL32.Debug.default/aarch64/%{branch}
