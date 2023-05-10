@@ -24,7 +24,7 @@ runtime-depends:
 - components/python3-toposort.bst
 - components/python3-wheezy-template.bst
 - components/python3-networkx.bst
-- components/python3-charset-normalizer.bst
+- components/python3-faust-cchardet.bst
 - components/python3-pkgconfig.bst
 
 environment:
