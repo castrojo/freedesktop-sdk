@@ -26,6 +26,6 @@ sources:
   - gawk-5.2-stable
   exclude:
   - '*-docs'
-  ref: gawk-5.2.0-0-g7eacf279a6ff4bff560ff49a8a2a9c531658096c
+  ref: gawk-5.2.2-0-gb285b6b6a05e92af5c8814d5a475195a5c0ea81e
 - kind: patch
   path: patches/gawk/fixes-for-linux-gen-insn-attr-x86.patch
