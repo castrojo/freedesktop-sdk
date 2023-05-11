@@ -23,4 +23,4 @@ sources:
 - kind: git_tag
   url: github:nghttp2/nghttp2.git
   track: master
-  ref: v1.52.0-0-gbe0491294a63d891bd12b6b1b7e372a45a5d0ffe
+  ref: v1.53.0-0-ged2ccce0e844a128891cfc334afd371371fae639
