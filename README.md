@@ -92,6 +92,7 @@ Additionally we provide the following extensions to our platform:
 * org.freedesktop.Platform.Compat.${architecture}
 * org.freedesktop.Platform.Compat.${architecture}.Debug
 * org.freedesktop.Platform.GL{,32}.default
+* org.freedesktop.Platform.GL{,32}.Debug.default
 
 And the following extensions to the SDK:
 * org.freedesktop.Sdk.Locale
