@@ -14,4 +14,5 @@ sources:
 - kind: git_tag
   url: sourceware:libabigail.git
   track: master
-  ref: libabigail-2.3-0-gcdf3f8e2370b9c393b9fec097a8ef2dde2d45101
+  track-tags: false
+  ref: libabigail-2.3-4-g676d8a8149a63d5d77b31ad6f6dc7f44500dbed0
