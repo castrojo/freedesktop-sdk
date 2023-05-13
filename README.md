@@ -89,17 +89,18 @@ Additionally we provide the following extensions to our platform:
 * org.freedesktop.Platform.Locale
 * org.freedesktop.Platform.VAAPI.Intel{,.i386} (Intel only)
 * org.freedesktop.Platform.ffmpeg-full
-* org.freedesktop.Platform.Compat.{architecture}
-* org.freedesktop.Platform.Compat.{architecture}.debug
+* org.freedesktop.Platform.Compat.${architecture}
+* org.freedesktop.Platform.Compat.${architecture}.Debug
 * org.freedesktop.Platform.GL{,32}.default
-* org.freedesktop.Platform.GL{,32}.mesa-git
+* org.freedesktop.Platform.GL{,32}.Debug.default
 
 And the following extensions to the SDK:
 * org.freedesktop.Sdk.Locale
 * org.freedesktop.Sdk.Docs
 * org.freedesktop.Sdk.Debug
-* org.freedesktop.Sdk.Extension.rust-stable
-* org.freedesktop.Sdk.Extension.toolchain-{architecture}
+* org.freedesktop.Sdk.Compat.${architecture}
+* org.freedesktop.Sdk.Compat.${architecture}.Debug
+* org.freedesktop.Sdk.Extension.toolchain-${architecture}
 
 We also provide following flatpak applications useful for testing GPU:
 * org.freedesktop.Platform.ClInfo
