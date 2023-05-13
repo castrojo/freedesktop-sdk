@@ -1,5 +1,8 @@
 kind: flatpak_image
 
+(@):
+- elements/flatpak-images/include/platform-vars.yml
+
 config:
   directory: '%{prefix}'
   exclude:
@@ -30,8 +33,19 @@ config:
       no-autodownload: "true"
       autodelete: "false"
       add-ld-path: "lib"
-      merge-dirs: "vulkan/icd.d;glvnd/egl_vendor.d;egl/egl_external_platform.d;OpenCL/vendors;lib/dri;lib/d3d;vulkan/explicit_layer.d;vulkan/implicit_layer.d"
+      merge-dirs: "%{gl_merge_dirs}"
       download-if: "active-gl-driver"
+      enable-if: "active-gl-driver"
+      autoprune-unless: active-gl-driver
+
+    Extension org.freedesktop.Platform.GL.Debug:
+      # 1.4 is for Nvidia drivers
+      versions: "%{branch};%{branch-extra};1.4"
+      version: "1.4"
+      directory: "lib/debug%{libdir}/GL"
+      subdirectories: "true"
+      no-autodownload: "true"
+      merge-dirs: "%{gl_merge_dirs}"
       enable-if: "active-gl-driver"
       autoprune-unless: active-gl-driver
 

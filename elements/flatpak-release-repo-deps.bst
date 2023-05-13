@@ -21,6 +21,7 @@ depends:
 - flatpak-images/vainfo.bst
 - flatpak-images/vainfo-debug.bst
 - flatpak-images/mesa.bst
+- flatpak-images/mesa-debug.bst
 
 (?):
 - target_arch == "x86_64":
