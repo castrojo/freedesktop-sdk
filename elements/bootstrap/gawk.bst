@@ -30,4 +30,4 @@ sources:
   track: gawk-*
   exclude:
   - '*-docs'
-  ref: gawk-5.2.1-0-g297cf6bc67417e3747c081efb805b4bdcbe726eb
+  ref: gawk-5.2.2-0-gb285b6b6a05e92af5c8814d5a475195a5c0ea81e
