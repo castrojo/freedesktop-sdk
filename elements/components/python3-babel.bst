@@ -13,5 +13,5 @@ sources:
 - kind: pypi
   name: babel
   ref:
-    sha256sum: 5ef4b3226b0180dedded4229651c8b0e1a3a6a2837d45a073272f313e4cf97f6
-    suffix: ff/80/45b42203ecc32c8de281f52e3ec81cb5e4ef16127e9e8543089d8b1649fb/Babel-2.11.0.tar.gz
+    sha256sum: cc2d99999cd01d44420ae725a21c9e3711b3aadc7976d6147f622d8581963455
+    suffix: ba/42/54426ba5d7aeebde9f4aaba9884596eb2fe02b413ad77d62ef0b0422e205/Babel-2.12.1.tar.gz
