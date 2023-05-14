@@ -17,7 +17,7 @@ variables:
   build-dir: ''
   autogen: autoreconf -fvi
   conf-local: |
-    --with-cursorpath=~/.icons:/app/share/icons:%{datadir}/icons:%{datadir}/pixmaps:%{datadir}/runtime/share/icons:/run/host/user-share/icons:/run/host/share/icons
+    --with-cursorpath=%{cursorpath}
 
 public:
   bst:
@@ -35,3 +35,6 @@ sources:
   path: m4
   url: freedesktop:xorg/util/xcb-util-m4.git
   ref: c617eee22ae5c285e79e81ec39ce96862fd3262f
+
+(@):
+- elements/include/cursorpath.yml
