@@ -2,5 +2,5 @@ sources:
 - kind: pypi
   name: flit
   ref:
-    sha256sum: d0f2a8f4bd45dc794befbf5839ecc0fd3830d65a57bd52b5997542fac5d5e937
-    suffix: 28/c6/c399f38dab6d3a2518a50d334d038083483a787f663743d713f1d245bde3/flit-3.8.0.tar.gz
+    sha256sum: d75edf5eb324da20d53570a6a6f87f51e606eee8384925cd66a90611140844c7
+    suffix: b1/a6/e9227cbb501aee4fa4a52517d3868214036a7b085d96bd1e4bbfc67ad6c6/flit-3.9.0.tar.gz
