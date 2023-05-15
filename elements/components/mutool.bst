@@ -39,7 +39,7 @@ sources:
   track: '*.*.*'
   exclude:
   - '*-*'
-  ref: 1.22.0-0-g5ee06fb614568e466b5fba4284d9001e66b2c13f
+  ref: 1.22.1-0-gce71400f0a21476b43b001f50cf2da17d9161035
 - kind: git_module
   path: thirdparty/mujs
   url: ghostscript:mujs.git
@@ -47,7 +47,7 @@ sources:
 - kind: git_module
   path: thirdparty/jbig2dec
   url: ghostscript:jbig2dec.git
-  ref: ade8a556af40d67e0762809d5136db8f3b4b3d09
+  ref: a5b9b7cd7b9ed349964eb89883c4b22c410b3398
 - kind: git_module
   path: thirdparty/gumbo-parser
   url: ghostscript:thirdparty-gumbo-parser.git
