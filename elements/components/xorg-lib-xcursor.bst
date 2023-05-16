@@ -13,7 +13,7 @@ depends:
 
 variables:
   conf-local: |
-    --with-cursorpath=~/.icons:/app/share/icons:%{datadir}/icons:%{datadir}/pixmaps:%{datadir}/runtime/share/icons:/run/host/user-share/icons:/run/host/share/icons
+    --with-cursorpath=%{cursorpath}
 
 public:
   bst:
@@ -29,3 +29,6 @@ sources:
   url: freedesktop:xorg/lib/libxcursor.git
   track: master
   ref: libXcursor-1.2.1-0-g27adb16027fa99d83818a0ed9f6623cb03f0c574
+
+(@):
+- elements/include/cursorpath.yml

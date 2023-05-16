@@ -12,7 +12,7 @@ depends:
 variables:
   meson-local: >-
     -Ddocumentation=false
-    -Dc_args=-DXCURSORPATH='\"~/.icons:/app/share/icons:/usr/share/icons:/usr/share/pixmaps:/usr/share/runtime/share/icons:/run/host/user-share/icons:/run/host/share/icons\"'
+    -Dc_args=-DXCURSORPATH='\"%{cursorpath}\"'
 
 public:
   bst:
@@ -32,3 +32,6 @@ sources:
   exclude:
   - '*.*.9*'
   ref: 1.21.0-0-g8135e856ebd79872f886466e9cee39affb7d9ee8
+
+(@):
+- elements/include/cursorpath.yml

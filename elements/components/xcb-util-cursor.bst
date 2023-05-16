@@ -16,6 +16,8 @@ variables:
   # with build-dir
   build-dir: ''
   autogen: autoreconf -fvi
+  conf-local: |
+    --with-cursorpath=%{cursorpath}
 
 public:
   bst:
@@ -33,3 +35,6 @@ sources:
   path: m4
   url: freedesktop:xorg/util/xcb-util-m4.git
   ref: c617eee22ae5c285e79e81ec39ce96862fd3262f
+
+(@):
+- elements/include/cursorpath.yml
