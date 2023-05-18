@@ -55,4 +55,4 @@ sources:
   track: v*.*.*
   exclude:
   - "*-rc*"
-  ref: v3.6.0-0-g3c65175b1972da4a1992c1dae2365b48d13f9a8d
+  ref: v3.6.1-0-g7ade96172b95adc91a5d85bf80c90989cd543ee8
