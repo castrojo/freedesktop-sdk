@@ -10,4 +10,4 @@ sources:
 - kind: git_tag
   url: github:dyne/frei0r.git
   track: master
-  ref: v2.2.0-0-g6cb9759e901f1c5b0ce843ca9d5bd2031df039f3
+  ref: v2.3.0-0-g2c45f1f09398d6242f166eb05b156021594bc3e5
