@@ -212,7 +212,7 @@ def is_single_project_reproducible(
             element_info=element_info,
             remove_internet_access=True,
             dependency_kind="none",
-            max_jobs=multiprocessing.cpu_count()
+            max_jobs=min(multiprocessing.cpu_count(), 20)
         )
         bst_checkout_files_to(
             bst_config=bst_config,
