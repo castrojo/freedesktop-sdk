@@ -7,18 +7,9 @@ build-depends:
 
 variables:
   sysroot: "/sysroot"
+  board: sifive_unmatched
 
 config:
-  layout:
-  - element: ''
-    destination: '/sysroot'
-  - element: vm/deploy-tools.bst
-    destination: '/'
-  - element: components/u-boot-unmatched.bst
-    destination: '/'
-  - element: components/linux.bst
-    destination: '/'
-
   commands:
   - mkdir -p "%{sysroot}/boot/dtb"
 
@@ -26,15 +17,13 @@ config:
     cp "/boot/dtbs/sifive/hifive-unmatched-a00.dtb" "%{sysroot}/boot/dtb/hifive-unmatched-a00.dtb"
 
   - mkdir -p '%{install-root}/input'
-  - cp /usr/share/u-boot/sifive_hifive_unmatched_fu740/u-boot-spl.bin '%{install-root}/input'
-  - cp /usr/share/u-boot/sifive_hifive_unmatched_fu740/u-boot.itb '%{install-root}/input'
+  - cp /usr/share/u-boot/%{board}/u-boot-spl.bin '%{install-root}/input'
+  - cp /usr/share/u-boot/%{board}/u-boot.itb '%{install-root}/input'
 
   - |
     cat > %{install-root}/genimage.cfg <<EOF
     image dtb.img {
-        vfat {
-            extraargs = "-F32"
-        }
+        vfat {}
         mountpoint = "/boot"
         size = 10M
     }
