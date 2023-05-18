@@ -1,23 +1,12 @@
-diff --git a/configs/sifive_hifive_unmatched_fu740_defconfig b/configs/sifive_hifive_unmatched_fu740_defconfig
-index fac1d7b894..d39763bdc0 100644
---- a/configs/sifive_hifive_unmatched_fu740_defconfig
-+++ b/configs/sifive_hifive_unmatched_fu740_defconfig
-@@ -56,3 +56,4 @@ CONFIG_DM_PWM=y
- CONFIG_PWM_SIFIVE=y
- CONFIG_CMD_PWM=y
- CONFIG_BOARD_EARLY_INIT_F=y
-+CONFIG_USE_PREBOOT=y
-diff --git a/include/configs/sifive-hifive-unmatched-fu740.h b/include/configs/sifive-hifive-unmatched-fu740.h
-index 7a1bdb877b..9f8ac9be58 100644
---- a/include/configs/sifive-hifive-unmatched-fu740.h
-+++ b/include/configs/sifive-hifive-unmatched-fu740.h
-@@ -93,7 +93,8 @@
- 
- #define CONFIG_PREBOOT \
- 	"setenv fdt_addr ${fdtcontroladdr};" \
--	"fdt addr ${fdtcontroladdr};"
-+	"fdt addr ${fdtcontroladdr};" \
-+	"load mmc 0:3 ${fdt_addr_r} /dtb/hifive-unmatched-a00.dtb;"
- #endif /* CONFIG_SPL_BUILD */
- 
- #endif /* __SIFIVE_HIFIVE_UNMATCHED_FU740_H */
+diff -ur u-boot-unmatched.old/configs/sifive_unmatched_defconfig u-boot-unmatched/configs/sifive_unmatched_defconfig
+--- u-boot-unmatched.old/configs/sifive_unmatched_defconfig	2023-05-15 10:18:10.055528989 +0200
++++ u-boot-unmatched/configs/sifive_unmatched_defconfig	2023-05-15 10:18:59.331178295 +0200
+@@ -25,7 +25,7 @@
+ CONFIG_SPL_LOAD_FIT_ADDRESS=0x84000000
+ CONFIG_DISTRO_DEFAULTS=y
+ CONFIG_USE_PREBOOT=y
+-CONFIG_PREBOOT="setenv fdt_addr ${fdtcontroladdr};fdt addr ${fdtcontroladdr};"
++CONFIG_PREBOOT="setenv fdt_addr ${fdtcontroladdr};fdt addr ${fdtcontroladdr};load mmc 0:3 ${fdt_addr_r} /dtb/hifive-unmatched-a00.dtb;"
+ CONFIG_DEFAULT_FDT_FILE="sifive/hifive-unmatched-a00.dtb"
+ CONFIG_DISPLAY_CPUINFO=y
+ CONFIG_DISPLAY_BOARDINFO=y
