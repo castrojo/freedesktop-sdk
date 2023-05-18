@@ -216,6 +216,7 @@ config:
     # Required by snapd
     enable SQUASHFS_XZ
     enable SQUASHFS_LZO
+    enable SQUASHFS_XATTR
 
     # Some useful drivers when running as virtual machine
     module VIRTIO_BALLOON
@@ -1582,6 +1583,20 @@ config:
 
     # Network
     module BRIDGE
+    enable NETFILTER
+    enable IP_NF_IPTABLES
+    enable IP_NF_FILTER
+    enable IP_NF_TARGET_REJECT
+    module IP_NF_TARGET_MASQUERADE
+    enable IP_NF_MANGLE
+    enable NF_CONNTRACK
+    enable NF_NAT
+    module IP_NF_NAT
+    enable IP6_NF_IPTABLES
+    enable IP6_NF_MATCH_IPV6HEADER
+    enable IP6_NF_FILTER
+    enable IP6_NF_TARGET_REJECT
+    enable IP6_NF_MANGLE
     module IP_NF_RAW
     module IP6_NF_RAW
     module IP6_NF_NAT
@@ -1596,6 +1611,7 @@ config:
     # Security modules
     enable SECURITY_SELINUX
     enable SECURITY_APPARMOR
+    enable AUDIT
 
     # SPI
     if has HAS_IOMEM; then
