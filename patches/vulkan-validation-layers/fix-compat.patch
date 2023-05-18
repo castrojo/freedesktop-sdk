@@ -1,0 +1,13 @@
+diff --git a/layers/external/vma/vk_mem_alloc.h b/layers/external/vma/vk_mem_alloc.h
+index b47bd730c..cada31aa3 100644
+--- a/layers/external/vma/vk_mem_alloc.h
++++ b/layers/external/vma/vk_mem_alloc.h
+@@ -2854,6 +2854,8 @@ static void vma_aligned_free(void* VMA_NULLABLE ptr)
+ 
+ // Define this macro to 1 to enable functions: vmaBuildStatsString, vmaFreeStatsString.
+ #if VMA_STATS_STRING_ENABLED
++    #include <cstdio>
++
+     static inline void VmaUint32ToStr(char* VMA_NOT_NULL outStr, size_t strLen, uint32_t num)
+     {
+         snprintf(outStr, strLen, "%u", static_cast<unsigned int>(num));
