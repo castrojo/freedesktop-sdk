@@ -537,6 +537,7 @@ depends:
 - components/strace.bst
 - components/sudo.bst
 - components/supported-locales.bst
+- components/svt-av1.bst
 - components/swig.bst
 - components/systemd-base.bst
 - components/systemd-hwdb.bst
