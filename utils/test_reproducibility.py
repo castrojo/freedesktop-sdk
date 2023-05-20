@@ -31,7 +31,7 @@ class BuildstreamConfiguration:
 def bst_build(
         bst_config: BuildstreamConfiguration,
         element_info: ElementInfo,
-        remove_internet_access: bool,
+        disallow_artifact_pull: bool,
         dependency_kind: str,
         max_jobs: Optional[int]=None
 ):
@@ -43,7 +43,7 @@ def bst_build(
     bst_call.extend(["build", element_info.name])
     bst_call.extend(["--deps", dependency_kind])
 
-    if remove_internet_access:
+    if disallow_artifact_pull:
         bst_call.extend(["--ignore-project-artifact-remotes"])
     print("BST BUILD RUNNING:", bst_call, file=sys.stderr)
     subprocess.run(bst_call, check=True)
@@ -192,7 +192,7 @@ def restore_initial_state(
     bst_build(
         bst_config=bst_config,
         element_info=element_info,
-        remove_internet_access=False,
+        disallow_artifact_pull=False,
         dependency_kind="all",
     )
 
@@ -224,7 +224,7 @@ def is_single_project_reproducible(
         bst_build(
             bst_config=bst_config,
             element_info=element_info,
-            remove_internet_access=True,
+            disallow_artifact_pull=True,
             dependency_kind="none",
             max_jobs=min(multiprocessing.cpu_count(), 20)
         )
