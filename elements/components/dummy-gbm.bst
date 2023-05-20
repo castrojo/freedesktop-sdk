@@ -32,7 +32,7 @@ variables:
     -Dgallium-drivers=""
     -Dplatforms=""
     -Dtools=""
-    -Dgbm=true
+    -Dgbm=enabled
     -Dosmesa=false
     -Dselinux=false
 
