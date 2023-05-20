@@ -49,6 +49,18 @@ def bst_build(
     subprocess.run(bst_call, check=True)
 
 
+def bst_fetch_all(
+        bst_config: BuildstreamConfiguration,
+        element_info: ElementInfo
+):
+    bst_call = bst_config.bst_call.copy()
+    bst_call.extend(["source", "fetch", element_info.name])
+    bst_call.extend(["--deps", "all"])
+
+    print("BST FETCH RUNNING:", bst_call, file=sys.stderr)
+    subprocess.run(bst_call, check=True)
+
+
 def bst_remove_artifact_cache(
         bst_config: BuildstreamConfiguration,
         element_info: ElementInfo,
@@ -174,6 +186,8 @@ def restore_initial_state(
     to be done later.
     """
     bst_remove_artifact_cache(bst_config=bst_config, element_info=element_info, dependency_kind="all")
+
+    bst_fetch_all(bst_config=bst_config, element_info=element_info)
 
     bst_build(
         bst_config=bst_config,
