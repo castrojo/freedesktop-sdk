@@ -30,10 +30,6 @@ sources:
 - kind: git_repo
   url: gnome:libxml2.git
   track: v*
-  ref: v2.10.3-0-gf507d167f1755b7eaea09fb1a44d29aab828b6d1
+  ref: v2.11.4-0-g2e9f7860a9cb8be29eca90b7409ef0278d30ef10
 - kind: patch
   path: patches/libxml2/libxml2-python-in-nodeWrap-deal-with-name-is-None-case.patch
-- kind: patch
-  path: patches/libxml2/libxml2-python3-unicode-errors.patch
-- kind: patch
-  path: patches/libxml2/Migrate-away-from-deprecated-API.patch
