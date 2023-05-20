@@ -32,16 +32,9 @@ variables:
     -Dgallium-drivers=""
     -Dplatforms=""
     -Dtools=""
-    -Ddri3=false
-    -Degl=false
     -Dgbm=true
-    -Dgles1=false
-    -Dgles2=false
-    -Dlmsensors=false
     -Dosmesa=false
     -Dselinux=false
-    -Dshared-glapi=false
-    -Dvalgrind=false
 
 public:
   bst:
