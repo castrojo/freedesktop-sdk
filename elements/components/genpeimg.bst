@@ -13,4 +13,4 @@ sources:
 - kind: git_repo
   url: sourceforge_git:mingw-w64/mingw-w64.git
   track: v*
-  ref: v10.0.0-0-gaa08f56da559016f10336dddca85d59f9bdc9e02
+  ref: v11.0.1-0-gc3e587c067a00a561899d49d3e63a659e38802ec
