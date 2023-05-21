@@ -47,4 +47,4 @@ sources:
 - kind: git_repo
   track: v*
   url: kernel:utils/pciutils/pciutils.git
-  ref: v3.9.0-0-g5abf19113f5fa88817d6f6e3f190c40205c46b8d
+  ref: v3.10.0-0-g21407521fb62a65e39051561e16e4ce1a74362c1
