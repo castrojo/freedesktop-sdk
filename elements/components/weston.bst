@@ -33,6 +33,7 @@ environment:
 variables:
   meson-local: >-
     -Dbackend-rdp=false
+    -Dbackend-vnc=false
     -Dlauncher-libseat=true
 
   meson-lto-flags: ""
