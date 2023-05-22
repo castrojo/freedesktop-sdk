@@ -20,6 +20,7 @@ depends:
 - components/dummy-gbm.bst
 - components/libwebp.bst
 - components/libva.bst
+- components/libseat.bst
 - components/lcms.bst
 - components/gstreamer.bst
 - components/gstreamer-plugins-base.bst
@@ -32,7 +33,7 @@ environment:
 variables:
   meson-local: >-
     -Dbackend-rdp=false
-    -Dlauncher-libseat=false
+    -Dlauncher-libseat=true
 
   meson-lto-flags: ""
 
