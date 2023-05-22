@@ -5,6 +5,6 @@ sources:
   exclude:
   - llvmorg-*-rc*
   - llvmorg-*-init*
-  ref: llvmorg-16.0.3-0-gda3cd333bea572fb10470f610a27f22bcb84b08c
+  ref: llvmorg-16.0.4-0-gae42196bc493ffe877a7e3dff8be32035dea4d07
 - kind: patch
   path: patches/llvm/llvm-no-rpath.patch
