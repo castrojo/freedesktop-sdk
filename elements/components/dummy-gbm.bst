@@ -26,24 +26,15 @@ environment:
 
 variables:
   meson-local: >-
+    -Dauto_features=disabled
     -Db_ndebug=true
     -Dvulkan-drivers=""
-    -Ddri-drivers=""
     -Dgallium-drivers=""
     -Dplatforms=""
     -Dtools=""
-    -Ddri3=false
-    -Degl=false
-    -Dgbm=true
-    -Dgles1=false
-    -Dgles2=false
-    -Dglx=disabled
-    -Dlmsensors=false
-    -Dmicrosoft-clc=disabled
+    -Dgbm=enabled
     -Dosmesa=false
     -Dselinux=false
-    -Dshared-glapi=false
-    -Dvalgrind=false
 
 public:
   bst:
