@@ -8,3 +8,5 @@ sources:
   ref: mesa-23.1.1-0-gfa55e3c0262f3e2899db90d81001971b6f11b389
 - kind: patch
   path: patches/mesa/mesa_libdrm_deps.patch
+- kind: patch
+  path: patches/mesa/meson-add-feature-option-for-use-of-system-Clang-headers.patch
