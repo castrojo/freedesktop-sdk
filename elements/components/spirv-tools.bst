@@ -12,9 +12,8 @@ variables:
   cmake-local: >-
     -DCMAKE_SKIP_RPATH:BOOL=yes
     -DSPIRV_WERROR=Off
-    -DSPIRV-Headers_SOURCE_DIR=/usr
-    -DBUILD_SHARED_LIBS:BOOL=ON
-    -DSPIRV_TOOLS_BUILD_STATIC:BOOL=NO
+    -DSPIRV-Headers_SOURCE_DIR="%{prefix}"
+    -DSPIRV_TOOLS_BUILD_STATIC:BOOL=ON
 
   optimize-debug: "false"
 
@@ -37,3 +36,5 @@ sources:
   url: github:KhronosGroup/SPIRV-Tools.git
   track: sdk-*
   ref: sdk-1.3.246.1-0-g44d72a9b36702f093dd20815561a56778b2d181e
+- kind: patch
+  path: patches/spirv-tools/Remove-libSPIRV-Tools-shared.so.patch
