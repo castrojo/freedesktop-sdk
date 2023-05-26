@@ -23,4 +23,4 @@ sources:
   url: gnome:vala.git
   # Note for updates: Stable minor versions are even.
   track: "*.*[02468].*"
-  ref: 0.56.7-0-g0b562610d85a2a5d56d489757c2c499d3e652b8c
+  ref: 0.56.8-0-gebfff07a8191060ba5512c5a2a329ee45f187f70
