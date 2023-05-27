@@ -11,5 +11,5 @@ sources:
 - kind: pypi
   name: trove-classifiers
   ref:
-    sha256sum: 0c7669400ea1ce940eeb5af069d1d0fcb7de1caa796ca2df4a326247aba8e8c6
-    suffix: 4b/d1/8b03fea03e24628678a9808c49269256484597a0f2b9c5c52d83519e2521/trove-classifiers-2023.5.22.tar.gz
+    sha256sum: fd5a1546283be941f47540a135bdeae8fb261380a6a204d9c18012f2a1b0ceae
+    suffix: 4a/ed/789b86a020378341936d0edc570130451915cee92db440bb513cd5b712a1/trove-classifiers-2023.5.24.tar.gz
