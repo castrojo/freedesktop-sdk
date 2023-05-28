@@ -10,6 +10,8 @@ build-depends:
 
 depends:
 - components/libdrm.bst
+- components/libdecor.bst
+- components/libxkbcommon.bst
 - extensions/glxinfo/freeglut.bst
 - extensions/glxinfo/glu.bst
 

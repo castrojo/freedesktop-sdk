@@ -1,9 +1,11 @@
 kind: cmake
 
+build-depends:
+- public-stacks/buildsystem-cmake.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: public-stacks/buildsystem-cmake.bst
-  type: build
+- bootstrap-import.bst
+- components/libdecor.bst
 
 variables:
   cmake-local: |
