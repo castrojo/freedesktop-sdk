@@ -99,8 +99,8 @@ also making it easier to regex/automate the parsing of the version by other
 tools.
 
 We also have CI to automatically track the latest tags of git repos, but this
-requires use of the `git_tag` plugin rather than `git`. If adding a new git
-source please use `git_tag` rather than `git`.
+requires use of the `git_repo` plugin rather than `git`. If adding a new git
+source please use `git_repo` rather than `git`.
 
 
 ## Request developer access to the freedesktop-sdk repo

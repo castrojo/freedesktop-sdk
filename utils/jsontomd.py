@@ -27,7 +27,7 @@ with open(
             md_file.write('## {obj["nam"]} \n')
         if 'sources' in obj:
             for source in obj['sources']:
-                if source['type'] == 'archive' or source['type'] == 'git' or source['type'] == 'git_tag':
+                if source['type'] in ('archive', 'git', 'git_repo'):
                     md_file.write('  - {source["url"]} \n')
                 if 'sha256' in source:
                     md_file.write('  - {source["sha256"]} \n')

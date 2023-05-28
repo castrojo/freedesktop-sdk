@@ -128,7 +128,7 @@ def mirror_commit_exists_test(source_dict):
     if source_dict['mirror_url']:
         # There's no point running this test if there's no mirror url defined
         # There's a different test designed to catch those errors
-        if source_dict['kind'] in ['git', 'git_tag']:
+        if source_dict['kind'] in ['git', 'git_repo']:
             if not test_commit_exists(source_dict['mirror_url'], source_dict['ref']):
                 return "Commit doesn't seem to exist in mirror repository"
     return None
