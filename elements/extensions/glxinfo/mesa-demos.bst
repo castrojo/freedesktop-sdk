@@ -17,6 +17,7 @@ variables:
   meson-local: >-
     -Dgles1=disabled
     -Dosmesa=disabled
+    -Dvulkan=disabled
 
 sources:
 - kind: git_repo
