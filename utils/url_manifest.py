@@ -74,11 +74,11 @@ def get_source_locations(sources):
                     'raw_url': raw_cargo_url + rest_of_url,
                     'source_url': base_cargo_url + rest_of_url,
                 })
-        if source_kind in ['git', 'git_tag', 'git_module', 'ostree', 'tar', 'zip', 'remote', 'pypi']:
+        if source_kind in ['git', 'git_repo', 'git_module', 'ostree', 'tar', 'zip', 'remote', 'pypi']:
             #skip over sources that don't have source URLs, like patch sources
             if source_kind in ['tar', 'zip', 'remote', 'ostree', 'pypi']:
                 source_url = source.url
-            if source_kind in ['git', 'git_tag', 'git_module']:
+            if source_kind in ['git', 'git_repo', 'git_module']:
                 source_url = source.translate_url(
                     source.original_url,
                     alias_override=None,
@@ -104,7 +104,7 @@ def get_source_locations(sources):
             }
             if source_kind == 'ostree':
                 source_dict['ref'] = source.ref
-            if source_kind in ['git', 'git_tag', 'git_module']:
+            if source_kind in ['git', 'git_repo', 'git_module']:
                 source_dict['ref'] = source.mirror.ref
                 m = re.match(r'(?P<tag>.*)-[0-9]+-g(?P<ref>.*)', source.mirror.ref)
                 if m:
