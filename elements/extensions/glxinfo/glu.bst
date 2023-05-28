@@ -2,11 +2,12 @@ kind: autotools
 
 (@): elements/extensions/include/app.yml
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/mesa-headers.bst
+
 depends:
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/mesa-headers.bst
-  type: build
+- components/xorg-lib-xi.bst
 
 sources:
 - kind: git_repo
