@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
+"""TODO"""
 
 import argparse
+from contextlib import contextmanager
 import os.path
 import subprocess
 import sys
+from tempfile import TemporaryDirectory
 
-from dulwich import porcelain
-from dulwich.client import get_transport_and_path
-from dulwich.repo import Repo
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 def parse_args():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("-r", "--remote", default="origin")
     parser.add_argument("stable_version", help="E.g. '22.08'") # perhaps just have this be 22.08, 21.08
     # TODO: regex check \d\d.\d\d for above?
@@ -20,14 +22,26 @@ def parse_args():
     return parser.parse_args()
 
 
-def wanted_refs(refs):
-    pass
+def run_git(cmd, **kwargs):
+    return subprocess.run(["git", *cmd], check=True)
+
+
+@contextmanager
+def git_workdir(release_branch):
+    with TemporaryDirectory() as tmpdir:
+    try:
+        run_git(["worktree", "add", tmpdir, release_branch], cwd=SCRIPT_DIR)
+        yield tmpdir
+    finally:
+        subprocess.run(["git", "worktree", "prune"], cwd=SCRIPT_DIR)
 
 
 def main():
     args = parse_args()
 
-    with Repo.discover(os.path.dirname(os.path.abspath(__file__))) as repo:
+    news_branch = "news/fdsdk-22.08."
+
+    with git_workdir(args. as git_dir:
         _, url = porcelain.get_remote_repo(repo, args.remote)
         client, path = get_transport_and_path(url)
         def wants(refs):
