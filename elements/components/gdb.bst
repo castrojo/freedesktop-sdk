@@ -52,5 +52,5 @@ sources:
 - kind: git_repo
   url: sourceware:binutils-gdb.git
   track: gdb-*.*
-  ref: gdb-13.1-release-0-g4f3e26ac6ee31f7bc4b04abd8bdb944e7f1fc5d2
+  ref: gdb-13.2-release-0-g662243de0e14a4945555a480dca33c0e677976eb
 
