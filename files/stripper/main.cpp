@@ -163,12 +163,16 @@ struct script {
       auto const& arch = std::get<0>(value);
       auto binaries = std::get<1>(value);
       std::sort(std::begin(binaries), std::end(binaries));
+      std::transform(std::begin(binaries), std::end(binaries),
+                     std::begin(binaries),
+                     [&](auto &binary) { return get_debugfile(binary); });
+
       auto do_optimize =
         [&, arch, binaries] {
           auto debug = dwzdir / get_triplet(arch);
           auto realpath = install_root / relative(debug, "/");
           create_directories(realpath.parent_path());
-          std::vector<std::string> cmd{"dwz", "-m", realpath, "-M", debug};
+          std::vector<std::string> cmd{"dwz", "-rm", realpath};
           cmd.insert(std::end(cmd), std::begin(binaries), std::end(binaries));
           auto status = run(cmd);
           if (status != 0) {
@@ -422,13 +426,13 @@ struct script {
 
     auto source_copy_res = pool->post([this] { copy_source(); });
 
+    if (!strip())
+      return false;
+
     if (optimize) {
       if (!run_opt())
         return false;
     }
-
-    if (!strip())
-      return false;
 
     if (!compress_and_debuglink())
       return false;
