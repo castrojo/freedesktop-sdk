@@ -290,16 +290,14 @@ struct script {
     chmod(binary.c_str(), (unsigned)st.permissions());
   }
 
-  void strip_and_compress_file(std::filesystem::path const& toolchain,
-                               std::filesystem::path const& binary)
-  {
+  void strip_file(std::filesystem::path const& toolchain,
+                  std::filesystem::path const& binary) {
     auto debugfile = get_debugfile(binary);
 
     create_directories(debugfile.parent_path());
 
     if (0 != run(std::vector<std::string>{(toolchain / "objcopy").string(),
-                                            "--only-keep-debug", "--compress-debug-sections",
-                                            binary, debugfile})) {
+                                          "--only-keep-debug", binary, debugfile})) {
       throw std::runtime_error("objcopy failed");
     }
 
@@ -316,19 +314,6 @@ struct script {
                                             "--remove-section=.gnu_debugaltlink",
                                             binary})) {
       throw std::runtime_error("strip failed");
-    }
-
-    if (compress) {
-      if (0 != run(std::vector<std::string>{"eu-elfcompress", debugfile})) {
-	throw std::runtime_error("eu-elfcompress failed");
-      }
-    }
-
-    if (0 != run(std::vector<std::string>{(toolchain / "objcopy").string(),
-                                            "--add-gnu-debuglink",
-                                            debugfile,
-                                            binary})) {
-      throw std::runtime_error("objcopy failed");
     }
 
     chmod(binary.c_str(), (unsigned)st.permissions());
@@ -351,7 +336,7 @@ struct script {
         auto task =
           [this, toolchain, binary] {
             create_minidebug(toolchain, binary);
-            strip_and_compress_file(toolchain, binary);
+            strip_file(toolchain, binary);
           };
         final_tasks.push_back(std::make_tuple(binary, pool->post(std::move(task))));
       }
@@ -362,6 +347,55 @@ struct script {
       try {
         std::get<1>(t).get();
       } catch (std::exception const& e) {
+        has_error = true;
+        std::cerr << std::get<0>(t) << ": " << e.what() << '\n';
+      }
+    }
+    if (has_error)
+      return false;
+
+    return true;
+  }
+
+  bool compress_and_debuglink() {
+    std::vector<std::tuple<std::filesystem::path, std::future<void>>> results;
+    for (auto &value : by_arch) {
+      auto &arch = std::get<0>(value);
+      auto &binaries = std::get<1>(value);
+      std::filesystem::path toolchain = get_toolchain(toolchain_prefixes, arch);
+
+      for (auto &binary : binaries) {
+        auto do_compress = [&, toolchain, binary] {
+          auto debugfile = get_debugfile(binary);
+
+          if (run(std::vector<std::string>{(toolchain / "objcopy").string(),
+                                           "--compress-debug-sections",
+                                           debugfile})) {
+            throw std::runtime_error("objcopy failed");
+          }
+
+          if (compress) {
+            if (run(std::vector<std::string>{"eu-elfcompress", debugfile})) {
+              throw std::runtime_error("eu-elfcompress failed");
+            }
+          }
+
+          if (run(std::vector<std::string>{(toolchain / "objcopy").string(),
+                                           "--add-gnu-debuglink", debugfile,
+                                           binary})) {
+            throw std::runtime_error("objcopy failed");
+          }
+        };
+        results.push_back(
+            std::make_tuple(binary, pool->post(std::move(do_compress))));
+      }
+    }
+
+    bool has_error = false;
+    for (auto &t : results) {
+      try {
+        std::get<1>(t).get();
+      } catch (std::exception const &e) {
         has_error = true;
         std::cerr << std::get<0>(t) << ": " << e.what() << '\n';
       }
@@ -403,6 +437,9 @@ struct script {
     }
 
     if (!strip())
+      return false;
+
+    if (!compress_and_debuglink())
       return false;
 
     source_copy_res.get();
