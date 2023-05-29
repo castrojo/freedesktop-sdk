@@ -28,6 +28,7 @@ variables:
     -DSDL_WAYLAND:BOOL=ON
     -DSDL_WAYLAND_SHARED:BOOL=OFF
     -DSDL_RPATH:BOOL=OFF
+    -DSDL_WAYLAND_LIBDECOR=ON
 
 config:
   install-commands:
