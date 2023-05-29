@@ -95,7 +95,7 @@ public:
         - '%{sourcedir}'
         - '%{debugdir}%{bindir}'
         - '%{debugdir}%{bindir}/**'
-        - '%{debugdir}%{libdir}/lib*.so.debug'
+        - '%{debugdir}%{libdir}/lib*.so*.debug'
         - '%{debugdir}%{libdir}/audit'
         - '%{debugdir}%{libdir}/audit/**'
         - '%{debugdir}%{libdir}/gconv'
