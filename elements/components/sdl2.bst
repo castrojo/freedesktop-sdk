@@ -9,6 +9,7 @@ depends:
 - bootstrap-import.bst
 - components/libsamplerate.bst
 - components/libdbus.bst
+- components/libdecor.bst
 - components/libpulse.bst
 - components/libxkbcommon.bst
 - components/mesa-headers.bst

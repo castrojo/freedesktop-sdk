@@ -5,7 +5,6 @@ build-depends:
 
 depends:
 - bootstrap-import.bst
-- components/libdecor.bst
 
 variables:
   cmake-local: |
