@@ -235,6 +235,7 @@ depends:
 - components/libflac.bst
 - components/libgamemode.bst
 - components/libgcrypt.bst
+- components/libglib-testing.bst
 - components/libglvnd.bst
 - components/libgpg-error.bst
 - components/libgsystemservice.bst
@@ -309,6 +310,7 @@ depends:
 - components/lzip.bst
 - components/lzo.bst
 - components/m4.bst
+- components/malcontent.bst
 - components/man-db.bst
 - components/man-pages.bst
 - components/mandoc.bst

@@ -27,7 +27,7 @@ depends:
 - components/polkit.bst
 - components/systemd-libs.bst
 - components/xdg-dbus-proxy.bst
-
+- components/malcontent.bst
 
 variables:
   meson-local: >-
@@ -35,7 +35,6 @@ variables:
     -Dsystem_bubblewrap=bwrap
     -Dhttp_backend=curl
     -Ddconf=disabled
-    -Dmalcontent=disabled
     -Dselinux_module=disabled
     -Dtests=false
     -Dsystem_dbus_proxy=xdg-dbus-proxy
