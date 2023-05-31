@@ -402,6 +402,7 @@ depends:
 - components/slang.bst
 - components/slirp4netns.bst
 - components/sndfile.bst
+- components/sof-firmware.bst
 - components/speex.bst
 - components/speexdsp.bst
 - components/spirv-headers.bst

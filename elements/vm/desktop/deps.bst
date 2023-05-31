@@ -59,3 +59,4 @@ depends:
 - components/apparmor.bst
 - components/tpm2-tools.bst
 - components/tpm2-pkcs11.bst
+- components/sof-firmware.bst
