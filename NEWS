@@ -1,5 +1,130 @@
 Freedesktop-SDK
 
+freedesktop-sdk-22.08.12:
+  * Port mesa-git-extension patch to freedesktop-sdk
+  * Update elements/extensions/mesa/mesa-sources.yml to mesa-23.1.1-0
+  * abi: Bump after ABI skip
+  * sqlite: Update to 3.39.4
+  * sqlite: Track 3.39 branch due to ABI break
+  * Build lzma support to elfutils
+  * python3: Update to 3.10.11
+  * Update python3-typing-extensions to 4.6.2
+  * Update iwd to 2.5-0
+  * Update elements/include/mesa.yml to mesa-23.1.1-0
+  * Remove debug from sysroot in ABI checker
+  * Update python3-trove-classifiers to 2023.5.24
+  * Update cython to 0.29.35
+  * Update vala to 0.56.8-0
+  * extensions/mesa: Update to mesa-23.1.0
+  * extensions/mesa: Remove use of deprecated "false"/"true"
+  * components/dummy-gbm.bst: Remove use of deprecated "true"
+  * components/dummy-gbm.bst: Remove use of deprecated "false"
+  * Update elements/include/mesa.yml to mesa-23.1.0-0
+  * Update python3-typing-extensions to 4.6.0
+  * Update python3-trove-classifiers to 2023.5.22
+  * Update python3-requests to 2.31.0
+  * Update python3-setuptools to 67.8.0
+  * Sync to same image level as master
+  * Update crun to 1.8.5-0
+  * Remove unnecessary integration command
+  * Update ccache to v4.8.1-0
+  * Update cmake to v3.26.4-0
+  * Update libwacom to libwacom-2.7.0-0
+  * Update frei0r to v2.3.0-0
+  * Update elements/bootstrap/gawk to gawk-5.2.2-0
+  * Update elements/include/flit-source.yml to 3.9.0
+  * Update linux-firmware to 20230515-0
+  * Update python3-poetry-core to 1.6.0
+  * Update libcap to libcap-2.69-0
+  * Centralize `cursorpath` definition
+  * xorg-lib-xcursor: set cursor path
+  * Update fwupd to 1.9.1-0
+  * README.md: Document Mesa .Debug extension
+  * README.md: Update and fix extension documentation
+  * flatpak-release-repo{,-extra}.bst: Add Mesa .Debug extensions
+  * flatpak-images: Add .Debug extensions for Mesa
+  * extensions/mesa/config.yml: Place debug data in the same prefix as debuginfo files
+  * include/strip.yml: Add "debugdatadir" variable
+  * flatpak-images/{platform,sdk}.bst: Add the org.freedesktop.Platform.GL.Debug extension point
+  * flatpak-images/{platform,sdk}.bst: Make the GL "merge-dir" a variable
+  * Update python3-sphinx to 7.0.1
+  * Update aom to v3.6.1-0
+  * Update python3-hatchling to 1.17.0
+  * Update libabigail to libabigail-2.3-4-g676d8a8149a63d5d77b31ad6f6dc7f44500dbed0
+  * Update python3-hatchling to 1.16.1
+  * Update fuse-overlayfs to v1.12-0
+  * Update libnghttp2 to v1.53.0-0
+  * Update spirv-llvm-translator to v15.0.0-46
+  * Update eos-metrics to Release_5.0.4-0
+  * Update cni to v1.3.0-0
+  * Update python3-hatchling to 1.15.0
+  * Update python3-certifi to 2023.5.7
+  * Update strace to v6.3-0
+  * check-abi: Also generate tarballs on seg fault
+  * libabigail: Disable compiler optimisations
+  * libabigail: Update to 2.3
+  * check-abi: Run with output streams unbuffered
+  * ci: Add pylint check for check-abi script
+  * check-abi: Appease pylint
+  * check-abi: Add message when ABI is incompatible
+  * Update valgrind to VALGRIND_3_21_0-0
+  * Update libevdev to libevdev-1.13.1-0
+  * Update python3-requests to 2.30.0
+  * Update genpeimg to v11.0.0-0
+  * Update wireless-regdb-bin to master-2023-05-03-0
+  * Update python3-trove-classifiers to 2023.5.2
+  * Update elements/include/pkg-config-source.yml to pkgconf-1.9.5-0
+  * Suppress internal functions that were made private
+  * Update libsoup to 3.0.8 and freeze to 3.0.x
+  * Update elements/extensions/platform-vaapi-intel/intel-media-driver to intel-media-23.2.1-0
+  * Update spirv-llvm-translator to v15.0.0-30
+  * Update xorg-lib-xi to libXi-1.8.1-0
+  * Update poppler to poppler-23.05.0-0
+  * Update elements/include/systemd.yml to v251.16-0
+  * Update python3-pip to 23.1.2
+  * Update eos-metrics to Release_5.0.3-0
+  * Update go to go1.20.4-0
+  * Update python3-requests-toolbelt to 1.0.0
+  * Update python3-setuptools-rust to 1.6.0
+  * Update iproute2 to v6.3.0-0
+  * Update python3-sphinx to 7.0.0
+  * Update python3-trove-classifiers to 2023.4.29
+  * Update audit to v3.1.1-0
+  * Update perl-build to 0.4234-0
+  * Update python3-tomlkit to 0.11.8
+  * Update btrfs-progs to v6.3-0
+  * Update python3-yarl to 1.9.2
+  * Update perl-pod-parser to 1.66
+  * Update iso-codes to v4.15.0-0
+  * Globally ensure OMP will not have unbound amount of threads
+  * Update python3-trove-classifiers to 2023.4.25
+  * Update python3-requests to 2.29.0
+  * Update elements/include/git.yml to v2.40.1-0
+  * Update python3-hatchling to 1.14.1
+  * Update python3-sphinx to 6.2.1
+  * Update polkit-base to 122-28
+  * gpgme: Freeze due to ABI break
+  * Revert "Update gpgme to gpgme-1.20.0-0"
+  * libabigail: Track master and update to latest
+  * Update python3-setuptools to 67.7.2
+  * Update python3-yarl to 1.9.1
+  * Update python3-sphinx to 6.2.0
+  * Update python3-pip to 23.1.1
+  * Update patchelf to 0.18.0-0
+  * Update python3-setuptools to 67.7.1
+  * Update python3-trove-classifiers to 2023.4.22
+  * Revert "Remove toolbox publishing"
+  * Update python3-trove-classifiers to 2023.4.20
+  * Update gpgme to gpgme-1.20.0-0
+  * Update elements/extensions/platform-vaapi-intel/intel-media-driver to intel-media-23.2.0-0
+  * Update python3-dbusmock to 0.29.0
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-22.08.11-0
+  * Update elements/include/mesa.yml to mesa-23.0.3-0
+  * Update elements/extensions/mesa/mesa-sources.yml to mesa-23.0.3-0
+  * Update opus to v1.4-0
+  * Update python3-pyasn1-modules to 0.3.0
+  * Update python3-pyasn1 to 0.5.0  
+
 freedesktop-sdk-22.08.11:
   * gtk3: Don't crash without xdg_activation_v1
   * Build i915g with Mesa
