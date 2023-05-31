@@ -37,6 +37,4 @@ sources:
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-ValidationLayers.git
   track: sdk-*
-  ref: sdk-1.3.246.1-0-ga29678429f1703bc6d4b20cd1b33b35ec3a83575
-- kind: patch
-  path: patches/vulkan-validation-layers/fix-compat.patch
+  ref: sdk-1.3.250.0-0-g1541e00a63cd125f15d231d5a8059ebe66503b25

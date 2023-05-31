@@ -3,8 +3,9 @@ kind: cmake
 (@): elements/extensions/include/app.yml
 
 build-depends:
-- components/glslang.bst
 - public-stacks/buildsystem-cmake.bst
+- components/glslang.bst
+- components/python3.bst
 
 depends:
 - bootstrap-import.bst
@@ -26,4 +27,4 @@ sources:
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-Tools.git
   track: sdk-*
-  ref: sdk-1.3.246.1-0-g4e17c284d67de468d62ec79fb0b4a3eff76447ea
+  ref: sdk-1.3.250.0-0-g695887a994ef9cc00a7aa3f9c00b31a56ea79534
