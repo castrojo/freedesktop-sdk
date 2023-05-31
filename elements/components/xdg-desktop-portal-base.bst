@@ -11,11 +11,12 @@ build-depends:
 - components/geoclue.bst
 - components/glib.bst
 - components/pipewire.bst
+- components/docbook-xsl.bst
+- components/xmlto.bst
 
 variables:
   meson-local: >-
     -Dlibportal=disabled
-    -Ddocbook-docs=disabled
 
 public:
   bst:
