@@ -390,6 +390,7 @@ depends:
 - components/rsync.bst
 - components/rtkit.bst
 - components/ruby.bst
+- components/rust-bindgen.bst
 - components/sbc.bst
 - components/sdl2-image.bst
 - components/sdl2-mixer.bst

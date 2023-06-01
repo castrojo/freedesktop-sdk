@@ -10,14 +10,15 @@ build-depends:
 
 variables:
   cmake-local: >-
+    -DBUILD_SHARED_LIBS=ON
+    -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+    -DCMAKE_SKIP_RPATH=ON
     -DLLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR="%{prefix}"
 
 config:
-  build-commands:
-  - '%{make} llvm-spirv'
-
   install-commands:
-  - install -Dm755 -t "%{install-root}%{bindir}/" _builddir/tools/llvm-spirv/llvm-spirv
+    (>):
+    - install -Dm755 -t "%{install-root}%{bindir}" "%{build-dir}/tools/llvm-spirv/llvm-spirv"
 
 sources:
 - kind: git_repo

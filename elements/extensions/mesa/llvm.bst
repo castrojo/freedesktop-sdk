@@ -2,12 +2,14 @@ kind: manual
 
 build-depends:
 - components/llvm.bst
+- components/spirv-llvm-translator.bst
 - bootstrap-import.bst
 
 variables:
   libraries: >-
     libLLVM.so
     libclang-cpp.so
+    libLLVMSPIRVLib.so
 
 config:
   install-commands:
