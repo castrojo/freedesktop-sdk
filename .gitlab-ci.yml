@@ -298,6 +298,9 @@ license_checker:
     - export FLATPAK_USER_DIR="${PWD}/tmp-flatpak"
     - make test-apps
 
+    - flatpak build-update-repo repo
+    - ostree fsck --repo=repo
+
     - git checkout -- snap-version.yml
     - |
       ABI_SKIP=$(git log -n 1 | grep -E "\[abi skip\]|\[skip abi\]" || true)
