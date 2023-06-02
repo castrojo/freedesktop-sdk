@@ -1,19 +1,22 @@
-kind: cmake
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-cmake.bst
+- public-stacks/buildsystem-meson.bst
+- components/gobject-introspection.bst
+- components/python3-gi-docgen.bst
 
 depends:
 - bootstrap-import.bst
+- components/glib.bst
 
 variables:
-  cmake-local: |
-    -DINCLUDE_INSTALL_DIR:PATH=%{includedir} \
-    -DLIB_INSTALL_DIR:PATH=%{libdir} \
-    -DBUILD_SHARED_LIBS:BOOL=ON \
-    -DMODULE_INSTALL_DIR=%{libdir}/libproxy/0.4.11/modules \
-    -DWITH_PERL=OFF \
-    -DWITH_GNOME3=OFF
+  meson-local: >-
+    -Dconfig-gnome=false
+    -Dcurl=false
+    -Dpacrunner-duktape=false
+    -Dtests=false
+    -Dvapi=false
+
 
 public:
   bst:
@@ -21,8 +24,6 @@ public:
       devel:
         (>):
         - '%{libdir}/libproxy.so'
-        - '%{datadir}/cmake'
-        - '%{datadir}/cmake/**'
 
 sources:
 - kind: git_repo
