@@ -102,3 +102,19 @@ sources:
   path: RedfishPkg/Library/JsonLib/jansson
   url: github:akheron/jansson.git
   ref: e9ebfa7e77a6bee77df44e096b100e7131044059
+- kind: git_module
+  path: UnitTestFrameworkPkg/Library/GoogleTestLib/googletest
+  url: github:google/googletest.git
+  ref: 86add13493e5c881d7e4ba77fb91c1f57752b3a4
+- kind: git_module
+  path: UnitTestFrameworkPkg/Library/SubhookLib/subhook
+  url: github:Zeex/subhook.git
+  ref: 83d4e1ebef3588fae48b69a7352cc21801cb70bc
+- kind: git_module
+  path: MdePkg/Library/BaseFdtLib/libfdt
+  url: github:devicetree-org/pylibfdt.git
+  ref: cfff805481bdea27f900c32698171286542b8d3c
+- kind: git_module
+  path: MdePkg/Library/MipiSysTLib/mipisyst
+  url: github:MIPI-Alliance/public-mipi-sys-t.git
+  ref: 370b5944c046bab043dd8b133727b2135af7747a
