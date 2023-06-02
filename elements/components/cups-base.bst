@@ -54,6 +54,7 @@ sources:
   exclude:
   - "*a*"
   - "*b*"
+  - "*rc*"
   ref: v2.4.2-0-g12ff481989924fc82ffdf1b8699753a486a33547
 - kind: local
   path: files/cups/tmpfiles.conf
