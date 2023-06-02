@@ -32,7 +32,7 @@ public:
     # KDE images should provide qt, GNOME images should provide gnome3.
     # So we enable ncurses only if no other pinentry is already enabled.
     - |
-      [ -x "%{bindir}/pinentry" ] || ln -s pinentry-ncurses "%{bindir}/pinentry"
+      [ -x "%{bindir}/pinentry" ] || ln -s pinentry-curses "%{bindir}/pinentry"
 
 sources:
 - kind: git_repo
