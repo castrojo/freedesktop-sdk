@@ -59,6 +59,7 @@ variables:
     -DLLVM_TARGETS_TO_BUILD="%{targets}"
     -DCMAKE_C_FLAGS_RELWITHDEBINFO="-DNDEBUG"
     -DCMAKE_CXX_FLAGS_RELWITHDEBINFO="-DNDEBUG"
+    -DCMAKE_SKIP_RPATH:BOOL=ON
 
 config:
   install-commands:
