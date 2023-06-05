@@ -1638,6 +1638,7 @@ config:
     enable INTEGRITY_PLATFORM_KEYRING
     enable INTEGRITY_SIGNATURE
     enable INTEGRITY_ASYMMETRIC_KEYS
+    enable SECURITY_LOCKDOWN_LSM
 
     # systemd-oom
     enable PSI
