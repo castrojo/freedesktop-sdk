@@ -160,6 +160,12 @@ struct script {
     return !has_error;
   }
 
+  std::filesystem::path get_debugfile(std::filesystem::path const &binary) {
+    auto realpath = relative(binary, install_root);
+    auto debugfile = install_root / relative(debugdir, "/") / realpath;
+    return debugfile.replace_filename(debugfile.filename().string() + ".debug");
+  }
+
   bool run_opt() {
     std::vector<std::future<void> > opt_results;
     for (auto const& value : by_arch) {
@@ -287,9 +293,7 @@ struct script {
   void strip_and_compress_file(std::filesystem::path const& toolchain,
                                std::filesystem::path const& binary)
   {
-    auto realpath = relative(binary, install_root);
-    auto debugfile = install_root / relative(debugdir, "/") / realpath;
-    debugfile.replace_filename(debugfile.filename().string() + ".debug");
+    auto debugfile = get_debugfile(binary);
 
     create_directories(debugfile.parent_path());
 
