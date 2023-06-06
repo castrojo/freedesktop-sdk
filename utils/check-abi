@@ -192,9 +192,10 @@ def compare_abi(old_library, old_debug_dir, old_include_dir, new_library, new_de
 
 
 def get_debugaltlink(debug_file):
+    dirname = os.path.dirname(debug_file)
     with ELFFile.load_from_path(debug_file) as elffile:
         altlink = elffile.get_section_by_name('.gnu_debugaltlink')
-        return altlink.data().split(b'\x00')[0].decode('latin-1')
+        return os.path.join(dirname, altlink.data().split(b'\x00')[0].decode('latin-1'))
 
 
 def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on_core, archive_directory):
@@ -265,8 +266,11 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
                     tar.add(new_library)
                     tar.add(old_debug_file)
                     tar.add(new_debug_file)
-                    tar.add(os.path.join(old_checkout, get_debugaltlink(old_debug_file).lstrip('/')))
-                    tar.add(os.path.join(new_checkout, get_debugaltlink(new_debug_file).lstrip('/')))
+                    altlink = get_debugaltlink(old_debug_file)
+                    prefix = os.path.commonpath((altlink, old_checkout))
+                    rel_path = os.path.relpath(altlink, prefix)
+                    tar.add(os.path.join(old_checkout, rel_path))
+                    tar.add(os.path.join(new_checkout, rel_path))
 
         elif result.details:
             title = format_title(f'Ignored ABI Changes: {lib_key}', level=2)
