@@ -1619,11 +1619,11 @@ config:
     fi
 
     # TPM
-    module TCG_TPM
-    module TCG_CRB
-    module TCG_TIS
+    enable TCG_TPM
+    enable TCG_CRB
+    enable TCG_TIS
     if has SPI; then
-      module TCG_TIS_SPI
+      enable TCG_TIS_SPI
     fi
 
     # BPF
