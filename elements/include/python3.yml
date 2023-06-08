@@ -6,7 +6,7 @@ sources:
   - v*b*
   - v*rc*
   url: github:python/cpython.git
-  ref: v3.11.3-0-gf3909b8bc83675b7ab093dbc558e677558d8e718
+  ref: v3.11.4-0-gd2340ef25721b6a72d45d4508c672c4be38c67d3
 - kind: patch
   path: patches/python3/python3-multiarch-include.patch
 - kind: patch
