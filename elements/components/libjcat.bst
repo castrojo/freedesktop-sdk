@@ -22,4 +22,4 @@ sources:
 - kind: git_repo
   url: github:hughsie/libjcat.git
   track: '*.*.*'
-  ref: 0.1.13-0-gf089d7ff9081bb6f211cdd712cddd159f8f63199
+  ref: 0.1.14-0-gd9cf9ebc4237252a82f88d9e99bea0c4b398c08a
