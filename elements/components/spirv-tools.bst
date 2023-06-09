@@ -34,9 +34,7 @@ public:
 sources:
 - kind: git_tag
   url: github:KhronosGroup/SPIRV-Tools.git
-  track: master
-  track-extra:
-  - sdk-1.2.198
+  track: sdk-1.2.198
   match:
   - sdk-*
   ref: sdk-1.2.198.0-0-g21e3f681e2004590c7865bc8c0195a4ab8e66c88
