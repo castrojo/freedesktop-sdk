@@ -215,6 +215,19 @@ def get_debugaltlink(debug_file):
         return os.path.join(dirname, altlink.data().split(b'\x00')[0].decode('latin-1'))
 
 
+def create_binary_archive(archive_directory, old_debug_dir, old_library, old_checkout, new_debug_dir, new_library, new_checkout):
+    old_debug_file = os.path.join(old_debug_dir, os.path.relpath(old_library, old_checkout)) + '.debug'
+    new_debug_file = os.path.join(new_debug_dir, os.path.relpath(new_library, new_checkout)) + '.debug'
+    altlink = get_debugaltlink(old_debug_file)
+    prefix = os.path.commonpath((altlink, old_checkout))
+    rel_path = os.path.relpath(altlink, prefix)
+    tar_file = os.path.join(archive_directory, f'{os.path.basename(old_library)}.tar.xz')
+    with tarfile.open(tar_file, 'w:xz') as tar:
+        for _file in (old_library, old_debug_file, os.path.join(old_checkout, rel_path),
+                      new_library, new_debug_file, os.path.join(new_checkout, rel_path)):
+            tar.add(_file)
+
+
 def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on_core, archive_directory):
     print(format_title('Comparing ABIs', level=1), end='\n\n')
     success = True
@@ -278,19 +291,7 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
 
             if result.core_dumped and archive_on_core:
                 print(f"abidiff core dumped, command was:\n{' '.join(result.command)}", file=sys.stderr)
-                old_debug_file = os.path.join(old_debug_dir, os.path.relpath(old_library, old_checkout)) + '.debug'
-                new_debug_file = os.path.join(new_debug_dir, os.path.relpath(new_library, new_checkout)) + '.debug'
-                tar_file = os.path.join(archive_directory, f'{os.path.basename(old_library)}.tar.xz')
-                with tarfile.open(tar_file, 'w:xz') as tar:
-                    tar.add(old_library)
-                    tar.add(new_library)
-                    tar.add(old_debug_file)
-                    tar.add(new_debug_file)
-                    altlink = get_debugaltlink(old_debug_file)
-                    prefix = os.path.commonpath((altlink, old_checkout))
-                    rel_path = os.path.relpath(altlink, prefix)
-                    tar.add(os.path.join(old_checkout, rel_path))
-                    tar.add(os.path.join(new_checkout, rel_path))
+                create_binary_archive(archive_directory, old_debug_dir, old_library, old_checkout, new_debug_dir, new_library, new_checkout)
 
         elif result.details:
             title = format_title(f'Ignored ABI Changes: {lib_key}', level=2)
