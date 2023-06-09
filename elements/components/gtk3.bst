@@ -53,6 +53,4 @@ sources:
 - kind: git_tag
   url: gnome:gtk.git
   track: gtk-3-24
-  ref: 3.24.37-0-g013b629a2e5420cc01647f859226eb1a37ebe661
-- kind: patch
-  path: patches/gtk3/wayland-Don-t-crash-without-xdg_activation_v1.patch
+  ref: 3.24.38-0-g3e6fd55ee00d4209ce2f2af292829e4d6f674adc
