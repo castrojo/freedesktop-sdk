@@ -228,6 +228,16 @@ def create_binary_archive(archive_directory, old_debug_dir, old_library, old_che
             tar.add(_file)
 
 
+def create_header_archive(archive_directory, old_include_dir, new_include_dir):
+    header_tar = os.path.join(archive_directory, 'headers.tar.xz')
+    if os.path.exists(header_tar):
+        return
+
+    with tarfile.open(header_tar, 'w:xz') as tar:
+        tar.add(old_include_dir)
+        tar.add(new_include_dir)
+
+
 def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on_core, archive_directory):
     print(format_title('Comparing ABIs', level=1), end='\n\n')
     success = True
@@ -292,6 +302,7 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
             if result.core_dumped and archive_on_core:
                 print(f"abidiff core dumped, command was:\n{' '.join(result.command)}", file=sys.stderr)
                 create_binary_archive(archive_directory, old_debug_dir, old_library, old_checkout, new_debug_dir, new_library, new_checkout)
+                create_header_archive(archive_directory, old_include_dir, new_include_dir)
 
         elif result.details:
             title = format_title(f'Ignored ABI Changes: {lib_key}', level=2)
