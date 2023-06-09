@@ -62,5 +62,6 @@ public:
 sources:
 - kind: git_tag
   url: gnome:gtk.git
-  track: gtk-3-24
+  # Tracking is disabled because gtk3 switched to Meson and
+  # Meson in 21.08 is too old
   ref: 3.24.35-0-g14cf55f98ddd71ad3f91487eda1c7f14d67de119
