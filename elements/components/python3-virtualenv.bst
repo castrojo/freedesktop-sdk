@@ -2,7 +2,8 @@ kind: pip
 
 build-depends:
 - public-stacks/buildsystem-python.bst
-- components/python3-setuptools-scm.bst
+- components/python3-hatchling.bst
+- components/python3-hatch-vcs.bst
 
 depends:
 - components/python3.bst
@@ -18,5 +19,5 @@ sources:
 - kind: pypi
   name: virtualenv
   ref:
-    sha256sum: f8b927684efc6f1cc206c9db297a570ab9ad0e51c16fa9e45487d36d1905c058
-    suffix: 7b/19/65f13cff26c8cc11fdfcb0499cd8f13388dd7b35a79a376755f152b42d86/virtualenv-20.17.1.tar.gz
+    sha256sum: 278753c47aaef1a0f14e6db8a4c5e1e040e90aea654d0fc1dc7e0d8a42616cc3
+    suffix: 12/c5/9e9c1dca8838e1eca43b23e5d8a34a6ad5065f15d702ee703c91b7e64b79/virtualenv-20.22.0.tar.gz
