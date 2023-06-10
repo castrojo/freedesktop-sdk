@@ -16,4 +16,4 @@ sources:
 - kind: git_tag
   url: debian_salsa:rousseau/PCSC.git
   track: master
-  ref: 1.9.9-0-g15c16c7796607b1c8a2ce253d3f536918ab26b4a
+  ref: 2.0.0-0-g549922c1355fdd1e85eb0a952fefda7bb96e286a
