@@ -18,6 +18,10 @@ config:
     - rm -r "%{install-root}/etc/init.d"
 
 public:
+  bst:
+    integration-commands:
+    - |
+      [ -f "%{bindir}/fusermount" ] || ln -s fusermount3 "%{bindir}/fusermount"
   initial-script:
     script: |
       #!/bin/bash
