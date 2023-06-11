@@ -1,4 +1,4 @@
-kind: autotools
+kind: make
 
 (@): elements/extensions/include/app.yml
 
@@ -13,17 +13,6 @@ variables:
     CFLAGS.EXTRA="${CFLAGS} -fPIC"
     LDFLAGS.EXTRA="${LDFLAGS}"
     STRIP=""
-
-config:
-  configure-commands: []
-
-  build-commands:
-  - |
-    make %{make-args}
-
-  install-commands:
-  - |
-    make -j1 install %{make-args}
 
 sources:
 - kind: tar
