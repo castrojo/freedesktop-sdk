@@ -68,6 +68,9 @@ check-abi:
 	fi; \
 	exit $${exit_code}
 
+check-debuginfo:
+	$(BST) build tests/test-debug-crc.bst
+
 export: clean-runtime
 	$(BST) build flatpak-release-repo.bst
 
