@@ -254,7 +254,9 @@ struct script {
 
     named_tmp_file debugdata;
     if (0 != run(std::vector<std::string>{(toolchain / "objcopy").string(),
-                                          "--only-keep-debug", binary, debugdata.get_path()})) {
+                                          "--only-keep-debug",
+                                          "--decompress-debug-sections", binary,
+                                          debugdata.get_path()})) {
       throw std::runtime_error("objcopy failed");
     }
 
