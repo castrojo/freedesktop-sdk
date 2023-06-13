@@ -314,17 +314,17 @@ struct script {
       throw std::runtime_error("strip failed");
     }
 
+    if (compress) {
+      if (0 != run(std::vector<std::string>{"eu-elfcompress", debugfile})) {
+        throw std::runtime_error("eu-elfcompress failed");
+      }
+    }
+
     if (0 != run(std::vector<std::string>{(toolchain / "objcopy").string(),
                                             "--add-gnu-debuglink",
                                             debugfile,
                                             binary})) {
       throw std::runtime_error("objcopy failed");
-    }
-
-    if (compress) {
-      if (0 != run(std::vector<std::string>{"eu-elfcompress", debugfile})) {
-        throw std::runtime_error("eu-elfcompress failed");
-      }
     }
 
     chmod(binary.c_str(), (unsigned)st.permissions());
