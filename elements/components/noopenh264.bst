@@ -28,9 +28,6 @@ config:
     - |
       rm %{install-root}%{extlibdir}/libopenh264.a
 
-    - |
-      ln -srL %{install-root}%{libdir}/libopenh264.so %{install-root}%{libdir}/libopenh264.so.5 
-
 public:
   bst:
     split-rules:
