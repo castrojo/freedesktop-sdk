@@ -229,6 +229,9 @@ check_update_elements:
       --max_merge_requests=4
       track-elements.bst
       abi/freedesktop-sdk.bst
+  tags:
+    - x86_64
+    - aarch64
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "default"'
 
