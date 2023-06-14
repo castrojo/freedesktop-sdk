@@ -1828,7 +1828,7 @@ config:
       scripts
       include
     )
-    if [ "$(scripts/config -s STACK_VALIDATION)" = y ]; then
+    if [ "$(scripts/config -s OBJTOOL)" = y ]; then
       to_copy+=(tools/objtool/objtool)
     fi
     for file in "${to_copy[@]}"
