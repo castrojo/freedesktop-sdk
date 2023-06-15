@@ -17,7 +17,7 @@ config:
       mv "%{install-root}%{extlibdir}/pkgconfig/" "%{install-root}%{libdir}"
 
     - |
-      cp -P %{install-root}%{extlibdir}/libopenh264.so* %{install-root}%{libdir}
+      ln -srL %{install-root}%{extlibdir}/libopenh264.so* %{install-root}%{libdir}
 
     - |
       rm %{install-root}%{extlibdir}/libopenh264.a
