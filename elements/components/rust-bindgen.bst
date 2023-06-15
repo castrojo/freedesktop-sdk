@@ -23,7 +23,7 @@ sources:
 - kind: git_repo
   track: v*
   url: github:rust-lang/rust-bindgen.git
-  ref: v0.65.1-0-g7d243056d335fdc4537f7bca73c06d01aae24ddc
+  ref: v0.66.0-0-g264075a6362f951e90240a976428f0225652d27c
 - kind: cargo
   url: crates:crates
   ref:
@@ -36,6 +36,9 @@ sources:
   - name: bitflags
     version: 1.3.2
     sha: bef38d45163c2f1dde094a7dfd33ccf595c92905c8f8f4fdc18d06fb1037718a
+  - name: bitflags
+    version: 2.2.1
+    sha: 24a6904aef64d73cf10ab17ebace7befb918b82164785cb89907993be7f83813
   - name: block
     version: 0.1.6
     sha: 0d8c1fef690941d3e7788d328517591fecc684c084084702d6ff1641e993699a
@@ -54,6 +57,9 @@ sources:
   - name: clap
     version: 4.1.4
     sha: f13b9c79b5d1dd500d20ef541215a6423c75829ef43117e1b4d17fd8af0b5d76
+  - name: clap_complete
+    version: 4.2.0
+    sha: 01c22dcfb410883764b29953103d9ef7bb8fe21b3fa1158bc99986c2067294bd
   - name: clap_derive
     version: 4.1.0
     sha: 684a277d672e91966334af371f1a7b5833f9aa00b07c84e92fbce95e00208ce8
