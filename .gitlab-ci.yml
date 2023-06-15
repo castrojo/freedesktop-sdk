@@ -199,6 +199,8 @@ pylint:
   needs: []
 
 check_update_elements:
+  extends:
+    - .builder-aarch64
   stage: update
   variables:
     GIT_SUBMODULE_STRATEGY: none
@@ -229,9 +231,6 @@ check_update_elements:
       --max_merge_requests=4
       track-elements.bst
       abi/freedesktop-sdk.bst
-  tags:
-    - x86_64
-    - aarch64
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "default"'
 
@@ -773,6 +772,8 @@ publish_aarch64_tar:
   when: manual
 
 cve_report:
+  extends:
+    - .builder-aarch64
   stage: finish-publish
   cache:
     key: cve
@@ -801,6 +802,8 @@ cve_report:
   needs: []
 
 markdown_manifest:
+  extends:
+    - .builder-aarch64
   stage: finish-publish
   script:
     - make markdown-manifest
