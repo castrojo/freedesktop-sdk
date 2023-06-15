@@ -36,6 +36,4 @@ sources:
   track: v*
   exclude:
   - '*rc*'
-  ref: v4.5.0-0-g38eb7b00cb5767770017fb91743a960ffd96d774
-- kind: patch
-  path: patches/libtiff/tiffcrop-Correct-simple-copy-paste-error.patch
+  ref: v4.5.1-0-g4f34a374b2e2cba3c8055ab77458c5730c073aff
