@@ -2,6 +2,7 @@ kind: autotools
 
 depends:
 - bootstrap-import.bst
+- components/openssl.bst
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
@@ -10,9 +11,10 @@ build-depends:
 - components/libxslt.bst
 
 variables:
-  conf-local: |
-    --with-xz \
-    --with-zlib \
+  conf-local: >-
+    --with-xz
+    --with-zlib
+    --with-openssl
     --enable-tools
 
 config:
