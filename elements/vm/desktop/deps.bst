@@ -42,7 +42,7 @@ depends:
 - components/open-iscsi.bst
 - components/usbutils.bst
 - components/cups-daemon.bst
-- components/gnupg-systemd.bst
+- components/gnupg.bst
 - components/polkit.bst
 - components/dmidecode.bst
 - components/fwupd.bst

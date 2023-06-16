@@ -115,7 +115,6 @@ depends:
 - components/gmp.bst
 - components/gnu-efi-maybe.bst
 - components/gnu-free-fonts.bst
-- components/gnupg-systemd.bst
 - components/gnupg.bst
 - components/gnutls.bst
 - components/go.bst
