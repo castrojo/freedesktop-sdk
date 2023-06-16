@@ -5,6 +5,7 @@ depends:
 - components/os-release.bst
 - components/sudo.bst
 - components/shadow.bst
+- components/util-linux-full.bst
 
 public:
   bst:
