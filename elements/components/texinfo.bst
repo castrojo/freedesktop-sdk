@@ -25,9 +25,5 @@ public:
         esac
       done
 
-sources:
-- kind: tar
-  url: ftp_gnu_org:texinfo/texinfo-6.8.tar.xz
-  ref: 8eb753ed28bca21f8f56c1a180362aed789229bd62fff58bf8368e9beb59fec4
-- kind: patch
-  path: patches/texinfo/texinfo-6.8-undo-gnulib-nonnul.patch
+(@):
+- elements/include/texinfo-source.yml
