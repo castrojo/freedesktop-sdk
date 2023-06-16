@@ -159,6 +159,7 @@ depends:
 - components/jq.bst
 - components/json-c.bst
 - components/json-glib.bst
+- components/keyutils.bst
 - components/kbd.bst
 - components/kmod.bst
 - components/ladspa-sdk.bst

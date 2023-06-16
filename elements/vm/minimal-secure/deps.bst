@@ -28,3 +28,4 @@ depends:
 - components/nsswitch-config.bst
 - vm/minimal-secure/sysupdate-config.bst
 - vm/minimal-secure/enable-sysupdate.bst
+- components/keytils.bst
