@@ -18,5 +18,5 @@ public:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:libtool/libtool-2.4.6.tar.xz
-  ref: 7c87a8c2c8c0fc9cd5019e402bed4292462d00a718a7cd5f11218153bf28b26f
+  url: ftp_gnu_org:libtool/libtool-2.4.7.tar.xz
+  ref: 4f7f217f057ce655ff22559ad221a0fd8ef84ad1fc5fcb6990cecc333aa1635d
