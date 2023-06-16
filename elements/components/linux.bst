@@ -11,6 +11,7 @@ build-depends:
 - components/bc.bst
 - components/gzip.bst
 - components/rsync.bst
+- components/linux-module-cert.bst
 
 variables:
   bootdir: /boot
@@ -1635,10 +1636,45 @@ config:
 
     # Secure boot
     enable SYSTEM_BLACKLIST_KEYRING
+    enable SYSTEM_TRUSTED_KEYRING
     enable INTEGRITY_PLATFORM_KEYRING
     enable INTEGRITY_SIGNATURE
     enable INTEGRITY_ASYMMETRIC_KEYS
-    enable SECURITY_LOCKDOWN_LSM
+    enable SECONDARY_TRUSTED_KEYRING
+    if has EFI; then
+      enable INTEGRITY_MACHINE_KEYRING
+      enable LOAD_UEFI_KEYS
+    fi
+    enable IMA
+    enable IMA_APPRAISE
+    enable IMA_SECURE_AND_OR_TRUSTED_BOOT
+    enable IMA_ARCH_POLICY
+
+    # Module signing
+    # /keys/linux-module-cert.crt is provided by downstream
+    if [ -f /keys/linux-module-cert.crt ]; then
+      enable MODULE_SIG
+      value_str SYSTEM_TRUSTED_KEYS /keys/linux-module-cert.crt
+      # Building with MODULE_SIG_KEY is not reproducible
+      value_str MODULE_SIG_KEY ""
+      # We sign modules separately
+      remove MODULE_SIG_ALL
+      # Instead we use lsm=lockdown on command line
+      remove MODULE_SIG_FORCE
+
+      # sha512 signing only
+      remove MODULE_SIG_SHA1
+      remove MODULE_SIG_SHA224
+      remove MODULE_SIG_SHA256
+      remove MODULE_SIG_SHA384
+      enable MODULE_SIG_SHA512
+      value_str MODULE_SIG_HASH="sha512"
+
+      enable SECURITY_LOCKDOWN_LSM
+      enable SECURITY_LOCKDOWN_LSM_EARLY
+    else
+      remove MODULE_SIG
+    fi
 
     # systemd-oom
     enable PSI

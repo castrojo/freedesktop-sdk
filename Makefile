@@ -372,16 +372,19 @@ clean-ostree-vm:
 	rm -rf $(VM_CHECKOUT_ROOT)/ostree-vm
 	rm -rf $(OVMF_VARS)
 
-KEY_TYPES=PK KEK DB VENDOR
+KEY_TYPES=PK KEK DB VENDOR linux-module-cert
 ALL_CERTS=$(foreach KEY,$(KEY_TYPES),files/boot-keys/$(KEY).crt)
 ALL_KEYS=$(foreach KEY,$(KEY_TYPES),files/boot-keys/$(KEY).key)
-BOOT_KEYS=$(ALL_KEYS) $(ALL_CERTS) files/boot-keys/extra-db/.keep files/boot-keys/extra-kek/.keep
+BOOT_KEYS=$(ALL_KEYS) $(ALL_CERTS) files/boot-keys/extra-db/.keep files/boot-keys/extra-kek/.keep files/boot-keys/modules/linux-module-cert.crt
 
 generate-keys: $(BOOT_KEYS)
 
 files/boot-keys/extra-db/.keep files/boot-keys/extra-kek/.keep:
 	[ -d $(dir $@) ] || mkdir -p $(dir $@)
 	touch $@
+
+files/boot-keys/modules/linux-module-cert.crt: files/boot-keys/linux-module-cert.crt
+	cp $< $@
 
 files/boot-keys/%.crt files/boot-keys/%.key:
 	[ -d files/boot-keys ] || mkdir -p files/boot-keys
