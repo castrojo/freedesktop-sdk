@@ -31,5 +31,5 @@ config:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:make/make-4.3.tar.lz
-  ref: de1a441c4edf952521db30bfca80baae86a0ff1acd0a00402999344f04c45e82
+  url: ftp_gnu_org:make/make-4.4.1.tar.lz
+  ref: 8814ba072182b605d156d7589c19a43b89fc58ea479b9355146160946f8cf6e9
