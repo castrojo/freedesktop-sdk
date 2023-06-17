@@ -31,5 +31,5 @@ config:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:grep/grep-3.9.tar.xz
-  ref: abcd11409ee23d4caf35feb422e53bbac867014cfeed313bb5f488aca170b599
+  url: ftp_gnu_org:grep/grep-3.11.tar.xz
+  ref: 1db2aedde89d0dea42b16d9528f894c8d15dae4e190b59aecc78f5a951276eab
