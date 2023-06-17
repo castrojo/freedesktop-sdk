@@ -29,6 +29,6 @@ sources:
   track-extra:
   # 2.1.8 is a loose tag, unassociated with the master branch.
   - 2.1.8
-  ref: 2.1.8-0-gcc4224fc021d40020de3133410586534c5732664
+  ref: 2.1.9-0-g678c3e9232b2b7177b7131071910da14f065e037
 - kind: patch
   path: patches/open-iscsi/no-werror.patch
