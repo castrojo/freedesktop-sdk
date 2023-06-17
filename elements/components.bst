@@ -250,7 +250,6 @@ depends:
 - components/lzo.bst
 - components/m4.bst
 - components/man-db.bst
-- components/man-pages-posix.bst
 - components/man-pages.bst
 - components/mdadm.bst
 - components/mesa-headers.bst

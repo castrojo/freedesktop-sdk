@@ -25,7 +25,6 @@ depends:
 - components/libpipeline.bst
 - components/m4.bst
 - components/man-db.bst
-- components/man-pages-posix.bst
 - components/man-pages.bst
 - components/meson.bst
 - components/nasm.bst

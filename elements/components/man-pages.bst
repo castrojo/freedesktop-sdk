@@ -2,7 +2,6 @@ kind: manual
 
 depends:
 - filename: bootstrap-import.bst
-- filename: components/man-pages-posix.bst
 
 config:
   install-commands:
