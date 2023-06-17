@@ -1,10 +1,4 @@
 sources:
 - kind: tar
-  url: sourceware_pub:elfutils/0.188/elfutils-0.188.tar.bz2
-  ref: fb8b0e8d0802005b9a309c60c1d8de32dd2951b56f0c3a3cb56d21ce01595dff
-- kind: patch
-  # backport d2bf497b12fbd49b4996ccf0744303ffd67735b1 to fix build with new cURL
-  path: patches/elfutils/0001-PR29926-debuginfod-Fix-usage-of-deprecated-CURLINFO_.patch
-- kind: patch
-  # backport 6560fb26a62ef135a804357ef4f15a47de3e49b3 to fix build with new cURL
-  path: patches/elfutils/0002-debuginfod-client-Use-CURLOPT_PROTOCOLS_STR-for-libc.patch
+  url: sourceware_pub:elfutils/0.189/elfutils-0.189.tar.bz2
+  ref: 39bd8f1a338e2b7cd4abc3ff11a0eddc6e690f69578a57478d8179b4148708c8
