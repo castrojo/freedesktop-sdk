@@ -6,5 +6,5 @@ depends:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:help2man/help2man-1.49.2.tar.xz
-  ref: 9e2e0e213a7e0a36244eed6204d902b6504602a578b6ecd15268b1454deadd36
+  url: ftp_gnu_org:help2man/help2man-1.49.3.tar.xz
+  ref: 4d7e4fdef2eca6afe07a2682151cea78781e0a4e8f9622142d9f70c083a2fd4f
