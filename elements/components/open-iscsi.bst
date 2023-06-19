@@ -1,7 +1,8 @@
-kind: make
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
+- components/perl.bst
 - components/systemd.bst
 
 depends:
@@ -10,22 +11,12 @@ depends:
 - components/systemd-libs.bst
 
 variables:
-  make-args: >-
-    prefix="%{prefix}"
-    exec_prefix="%{prefix}"
-    mandir="%{mandir}"
-    etcdir="%{sysconfdir}"
-    SBINDIR="%{sbindir}"
-    LIB_DIR="%{libdir}"
-
-  make: make %{make-args}
-  make-install: make %{make-args} -j1 install install_systemd install_udev_rules DESTDIR="%{install-root}"
+  meson-local: >-
+    -Discsi_sbindir="%{sbindir}"
 
 config:
   install-commands:
     (>):
-    - |
-      chmod 0644 '%{install-root}%{indep-libdir}/systemd/system'/*
     - |
       rm %{install-root}%{sysconfdir}/iscsi/initiatorname.iscsi
 
@@ -34,5 +25,3 @@ sources:
   url: github:open-iscsi/open-iscsi.git
   track: '*.*.*'
   ref: 2.1.9-0-g678c3e9232b2b7177b7131071910da14f065e037
-- kind: patch
-  path: patches/open-iscsi/no-werror.patch
