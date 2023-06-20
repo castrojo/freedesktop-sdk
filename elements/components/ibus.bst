@@ -8,25 +8,27 @@ build-depends:
 - components/systemd.bst
 
 depends:
-- filename: components/gtk3.bst
+- components/gtk3.bst
 
 variables:
-  conf-local: |
-    --disable-xim \
-    --disable-dconf \
-    --disable-memconf \
-    --disable-schemas-compile \
-    --disable-gtk2 \
-    --disable-setup \
-    --disable-ui \
-    --disable-engine \
-    --disable-python-library \
-    --disable-emoji-dict \
-    --disable-appindicator \
-    --disable-glibtest \
-    --disable-tests \
-    --disable-unicode-dict \
+  conf-local: >-
+    --disable-xim
+    --disable-dconf
+    --disable-memconf
+    --disable-schemas-compile
+    --disable-gtk2
+    --disable-setup
+    --disable-ui
+    --disable-engine
+    --disable-python-library
+    --disable-emoji-dict
+    --disable-appindicator
+    --disable-glibtest
+    --disable-tests
+    --disable-unicode-dict
     --disable-python2
+    --disable-libnotify
+    --disable-vala
 
 config:
   install-commands:
@@ -51,5 +53,5 @@ public:
 
 sources:
 - kind: tar
-  url: github_files:ibus/ibus/releases/download/1.5.26/ibus-1.5.26.tar.gz
-  ref: 5c2fd118e7bfd4e9a42c3a20e6175a263426c90b6256f94989ed3d0384f4c9fc
+  url: github_files:ibus/ibus/releases/download/1.5.28/ibus-1.5.28.tar.gz
+  ref: 6c9ff3a7576c3d61264f386030f47ee467eb7298c8104367002986e008765667
