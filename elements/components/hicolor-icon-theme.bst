@@ -1,9 +1,16 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
-- filename: bootstrap-import.bst
+- bootstrap-import.bst
+
+variables:
+  autogen: ./autogen.sh --no-configure
 
 sources:
-- kind: tar
-  url: tar_https:icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.17.tar.xz
-  ref: 317484352271d18cbbcfac3868eab798d67fff1b8402e740baa6ff41d588a9d8
+- kind: git_repo
+  url: freedesktop:xdg/default-icon-theme.git
+  track: '[0-9]*.*'
+  ref: 0.17-0-gf522d9d0bb08c395ccc1a140bf693a9e239ef61e
