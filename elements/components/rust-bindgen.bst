@@ -23,7 +23,7 @@ sources:
 - kind: git_repo
   track: v*
   url: github:rust-lang/rust-bindgen.git
-  ref: v0.66.0-0-g264075a6362f951e90240a976428f0225652d27c
+  ref: v0.66.1-0-g38a779c61734c134429dfb99da3499173a848c17
 - kind: cargo
   url: crates:crates
   ref:
