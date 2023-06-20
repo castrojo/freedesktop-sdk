@@ -11,5 +11,5 @@ sources:
 - kind: pypi
   name: pycairo
   ref:
-    sha256sum: 9b61ac818723adc04367301317eb2e814a83522f07bbd1f409af0dada463c44c
-    suffix: 69/ca/9e9fa2e8be0876a9bbf046a1be7ee33e61d4fdfbd1fd25c76c1bdfddf8c4/pycairo-1.23.0.tar.gz
+    sha256sum: 1444d52f1bb4cc79a4a0c0fe2ccec4bd78ff885ab01ebe1c0f637d8392bcafb6
+    suffix: a2/dd/bc2c9ee9485308a29c18b1241329e677917af25c60b127857f0fb23d0c6e/pycairo-1.24.0.tar.gz
