@@ -1,0 +1,4 @@
+sources:
+- kind: tar
+  url: ftp_gnu_org:gettext/gettext-0.22.tar.lz
+  ref: 24e2669b23abf26f9afdbbc3055edeb33879fb36454de80e8e4aadb3dbbe0b96
