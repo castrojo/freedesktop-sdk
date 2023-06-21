@@ -6,11 +6,13 @@ build-depends:
 depends:
 - components/icu.bst
 - components/inih.bst
+- components/liburcu.bst
 - components/util-linux.bst
 
 variables:
   # This build system does not generate required files under build-dir
   build-dir: ''
+  autogen: make configure
   make-args: >-
     PKG_ROOT_SBIN_DIR='%{sbindir}'
     PKG_ROOT_LIB_DIR='%{libdir}'
@@ -26,6 +28,7 @@ public:
         - '%{libdir}/libhandle.so'
 
 sources:
-- kind: tar
-  url: tar_https:mirrors.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.13.0.tar.xz
-  ref: 4e142d4babe086adf9016d8c606c805829da08e46389a4433f40346204f90cdb
+- kind: git_repo
+  url: kernel:fs/xfs/xfsprogs-dev.git
+  track: v*.*.*
+  ref: v6.3.0-0-gf499ee5cf0aa520ed7489249e2e465587ae19c59

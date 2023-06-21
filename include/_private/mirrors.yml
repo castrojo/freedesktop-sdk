@@ -36,6 +36,8 @@ mirrors:
     - https://gitlab.com/freedesktop-sdk/mirrors/kennylevinsen/
     libdaemon:
     - https://gitlab.com/freedesktop-sdk/mirrors/libdaemon/
+    liburcu:
+    - https://gitlab.com/freedesktop-sdk/mirrors/liburcu/
     netfilter:
     - https://gitlab.com/freedesktop-sdk/mirrors/netfilter/
     nettle:
