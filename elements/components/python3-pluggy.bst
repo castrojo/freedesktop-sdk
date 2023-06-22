@@ -11,5 +11,5 @@ sources:
 - kind: pypi
   name: pluggy
   ref:
-    sha256sum: 4224373bacce55f955a878bf9cfa763c1e360858e330072059e10bad68531159
-    suffix: a1/16/db2d7de3474b6e37cbb9c008965ee63835bba517e22cdb8c35b5116b5ce1/pluggy-1.0.0.tar.gz
+    sha256sum: d12f0c4b579b15f5e054301bb226ee85eeeba08ffec228092f8defbaa3a4c4b3
+    suffix: 8a/42/8f2833655a29c4e9cb52ee8a2be04ceac61bcff4a680fb338cbd3d1e322d/pluggy-1.2.0.tar.gz
