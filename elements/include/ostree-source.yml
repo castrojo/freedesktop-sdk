@@ -4,7 +4,7 @@ sources:
   track: v*
   exclude:
   - v*.*.*
-  ref: v2023.3-0-gbf3495dbbfb36cd8507ddac0533fddbc24e5a1aa
+  ref: v2023.4-0-g0c35149c7e06245bc4fb8b4e210cb3bfcb3c7726
 - kind: git_module
   path: libglnx
   url: gnome:libglnx.git
@@ -13,5 +13,9 @@ sources:
   path: bsdiff
   url: github:mendsley/bsdiff.git
   ref: b817e9491cf7b8699c8462ef9e2657ca4ccd7667
+- kind: git_module
+  path: composefs
+  url: github:containers/composefs.git
+  ref: c9188cd1f80374d0785e90d2e4d31749b9f91395
 - kind: patch_queue
   path: patches/ostree
