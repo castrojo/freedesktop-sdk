@@ -37,4 +37,4 @@ sources:
   url: savannah:config.git
   track: master
   track-tags: False
-  ref: 63acb96f92473ceb5e21d873d7c0aee266b3d6d3
+  ref: 4ad4bb7c30aca1e705448ba8d51a210bbd47bb52
