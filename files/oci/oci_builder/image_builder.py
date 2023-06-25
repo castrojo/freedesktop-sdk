@@ -65,7 +65,7 @@ def extract_docker_image_info(path, index, global_conf, os_value, legacy_parent)
                         shutil.copyfileobj(origblob, gzstream)
                 layer_descs.append(targz_blob.descriptor)
                 layer_files.append(targz_blob.filename)
-                legacy_parent = tar_blob.legacy_id
+                legacy_parent = targz_blob.legacy_id
             else:
                 legacy_config = {
                     'os': os_value
