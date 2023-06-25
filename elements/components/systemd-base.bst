@@ -31,6 +31,9 @@ build-depends:
 - components/apparmor.bst
 - components/tpm2-tss.bst
 - components/curl.bst
+- components/libqrencode.bst
+- components/iptables.bst
+- components/libxkbcommon.bst
 
 config:
   install-commands:
@@ -86,6 +89,10 @@ variables:
     -Dsbat-distro-summary="Freedesktop SDK"
     -Dsbat-distro-url=https://gitlab.com/freedesktop-sdk/freedesktop-sdk/
     -Dversion-tag="$(git describe --abbrev=7 | sed "s/^v//")"
+    -Dqrencode=true
+    -Dxkbcommon=true
+    -Dlibidn2=true
+    -Dlibiptc=true
 
 public:
   cpe:

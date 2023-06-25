@@ -25,6 +25,9 @@ runtime-depends:
 - components/libapparmor.bst
 - components/tpm2-tss.bst
 - components/curl.bst
+- components/libqrencode.bst
+- components/iptables.bst
+- components/libxkbcommon.bst
 
 config:
   exclude:
