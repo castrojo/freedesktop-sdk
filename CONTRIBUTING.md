@@ -136,15 +136,7 @@ blocking the MR or if any assistance is needed, if there is no response or it is
 longer required, then the MR will be *closed*.
 
 ## Testing locally
-If you want to test your changes locally then you will need to first install [BuildStream](https://buildstream.build). The installation instructions can be found [here](https://buildstream.build/install.html). Note that we use the latest stable version of BuildStream, so ensure you use this version too (otherwise you may not hit our cache server, and have to build everything from scratch). At time of writing, we use BuildStream 1.6.0. The Makefile can be used to produce freedesktop-sdk as both a flatpak repo and tarballs, using the commands outlined in the table below.
-
-We also use some plugins from the [bst-external](https://gitlab.com/BuildStream/bst-external) repository. To install these run the following commands:
-```
-git clone https://gitlab.com/BuildStream/bst-external.git
-pip3 install --user -e ./bst-external
-```
-Again, we use the latest stable version of bst-external, which is usually the
-latest release.
+If you want to test your changes locally then you will need to first install [BuildStream](https://buildstream.build). The installation instructions can be found [here](https://buildstream.build/install.html). Note that we use the latest stable version of BuildStream, so ensure you use this version too (otherwise you may not hit our cache server, and have to build everything from scratch). At time of writing, we use BuildStream 2. The Makefile can be used to produce freedesktop-sdk as both a flatpak repo and tarballs, using the commands outlined in the table below.
 
 After making your changes you can use the Makefile to test. Ensure you are in the root `freedesktop-sdk/` directory, where the Makefile is located. You can use the Makefile to:
 
