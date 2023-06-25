@@ -1,5 +1,71 @@
 Freedesktop-SDK
 
+freedesktop-sdk-22.08.13:
+  * Update libpng to v1.6.40-0
+  * Update mesa to mesa-23.1.3-0
+  * Update iwd to 2.6-0
+  * Update spirv-llvm-translator to v15.0.0-49
+  * Update polkit-base to 122-31
+  * stripper: Ensure debug sections are first decompressed prior to optimising
+  * stripper: Set .gnu_debugaltlink sections relative to debug files
+  * stripper: Separate debug file compression
+  * stripper: Split out function to get debug file path
+  * Update python3-setuptools to 68.0.0
+  * Update libksba to libksba-1.6.4-0
+  * Update pycairo to 1.24.0
+  * Update python3-pyparsing to 3.1.0
+  * Update xorg-proto-xorgproto to xorgproto-2023.2-0
+  * Update python3-virtualenv to 20.23.1
+  * Update open-iscsi to 2.1.9-0
+  * noopenh264: Create symlinks to lib rather than copying
+  * Update ccache to v4.8.2-0
+  * stripper: Try to compress before setting debuglink
+  * Verify debuginfo files
+  * Update python3-filelock to 3.12.2
+  * Update fwupd to 1.9.2-0
+  * Update kbd to v2.6.0-0
+  * Update python3-hatchling to 1.18.0
+  * Update xorg-data-xkeyboard-config to xkeyboard-config-2.39-0
+  * Update python3-wheel to 0.40.0
+  * Update python3-filelock to 3.12.1
+  * Update python3-virtualenv to 20.23.0
+  * Freeze webrtc-audio-processing due to API changes
+  * Update tzdata to 2023c-0
+  * Update python3-virtualenv to 20.22.0
+  * check-abi: Create a separate archive for header files
+  * check-abi: Split archive creation into its own function
+  * Update python3-cachecontrol to 0.13.1
+  * Update python3-urllib3 to 2.0.3
+  * Update fuse3 to fuse-3.15.0-0
+  * Update pcsc-lite to 2.0.0-0
+  * Update gtk3 to 3.24.38-0
+  * Update libgusb to 0.4.6-0
+  * Update libjcat to 0.1.14-0
+  * Update python3-poetry-core to 1.6.1
+  * Make a better job at constructing normalized paths
+  * Update libnghttp2 to v1.54.0-0
+  * Update go to go1.20.5-0
+  * Update python3 to v3.10.12-0
+  * Update xorg-proto-xorgproto to xorgproto-2023.1-0
+  * Update dbus-base to dbus-1.14.8-0
+  * Update spirv-llvm-translator to v15.0.0-47
+  * Update nettle to 3.8.1
+  * Update git to v2.41.0-0
+  * Update python3-cachecontrol to 0.13.0
+  * Update python3-markupsafe to 2.1.3
+  * Update python3-hatchling to 1.17.1
+  * Update python3-typing-extensions to 4.6.3
+  * Update opencl to v2.3.2-0
+  * Update xorg-lib-xtrans to xtrans-1.5.0-0
+  * Update systemd to v251.17-0
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-22.08.12.1-0
+  * Update python3-cryptography to 41.0.1
+  * Update cups-base to v2.4.3-0
+
+freedesktop-sdk-22.08.12.1:
+  * Run the repo preparation steps also in MR and run ostree fsck
+  * Remove prune from flatpak build-update-repo
+
 freedesktop-sdk-22.08.12:
   * Port mesa-git-extension patch to freedesktop-sdk
   * Update elements/extensions/mesa/mesa-sources.yml to mesa-23.1.1-0
