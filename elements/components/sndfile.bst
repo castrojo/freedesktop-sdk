@@ -25,5 +25,5 @@ variables:
 
 sources:
 - kind: tar
-  url: github_files:libsndfile/libsndfile/releases/download/1.1.0/libsndfile-1.1.0.tar.xz
-  ref: 0f98e101c0f7c850a71225fb5feaf33b106227b3d331333ddc9bacee190bcf41
+  url: github_files:libsndfile/libsndfile/releases/download/1.2.0/libsndfile-1.2.0.tar.xz
+  ref: 0e30e7072f83dc84863e2e55f299175c7e04a5902ae79cfb99d4249ee8f6d60a
