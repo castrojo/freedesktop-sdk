@@ -26,5 +26,5 @@ config:
 
 sources:
 - kind: tar
-  url: sourceforge_download:tcl/tcl8.6.10-src.tar.gz
-  ref: 5196dbf6638e3df8d5c87b5815c8c2b758496eb6f0e41446596c9a4e638d87ed
+  url: sourceforge_download:tcl/tcl8.6.13-src.tar.gz
+  ref: 43a1fae7412f61ff11de2cfd05d28cfc3a73762f354a417c62370a54e2caf066
