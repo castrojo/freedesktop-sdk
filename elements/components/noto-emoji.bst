@@ -11,5 +11,5 @@ config:
 
 sources:
 - kind: tar
-  url: github:googlefonts/noto-emoji/archive/refs/tags/v2.034.tar.gz
-  ref: a5af92ba8e297e447562d7bdb11453fa40be6d88655e4a647976f0c9be4245ab
+  url: github:googlefonts/noto-emoji/archive/refs/tags/v2.038.tar.gz
+  ref: 47d8b39733a1e82efced7dee96e30cb31d205b150dc3ca44d59abbb22d027195
