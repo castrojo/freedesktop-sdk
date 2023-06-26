@@ -117,7 +117,7 @@ struct script {
   }
 
   bool classify() {
-    std::vector<std::tuple<std::filesystem::path, std::future<std::unique_ptr<result_t> > > > results;
+    std::vector<std::filesystem::path> paths;
 
     constexpr auto exec =
       std::filesystem::perms::owner_exec
@@ -134,11 +134,16 @@ struct script {
             || (name.rfind(".so") != std::string::npos)
             || ((name.length() >= 5) && (name.compare(name.length()-5, 5, ".cmxs") == 0))
             || ((name.length() >= 5) && (name.compare(name.length()-5, 5, ".node") == 0))) {
-          results.push_back
-            (std::make_tuple
-             (p, pool->post([&, p] { return preprocess_file(p); })));
+          paths.push_back(p);
         }
       }
+    }
+
+    std::vector<std::tuple<std::filesystem::path, std::future<std::unique_ptr<result_t> > > > results;
+    for (auto& p : paths) {
+      results.push_back
+        (std::make_tuple
+         (p, pool->post([&, p] { return preprocess_file(p); })));
     }
 
     bool has_error = false;
