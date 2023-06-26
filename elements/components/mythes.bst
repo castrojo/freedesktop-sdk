@@ -14,6 +14,7 @@ public:
         - '%{libdir}/libmythes-1.2.so'
 
 sources:
-- kind: tar
-  url: sourceforge_download:hunspell/mythes-1.2.4.tar.gz
-  ref: 1e81f395d8c851c3e4e75b568e20fa2fa549354e75ab397f9de4b0e0790a305f
+- kind: git_repo
+  url: github:hunspell/mythes.git
+  track: v*
+  ref: v1.2.5-0-g289a66571116dcc68346864de7492a55752e26ec
