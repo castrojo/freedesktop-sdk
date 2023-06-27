@@ -515,7 +515,6 @@ config:
     module ICE
     module IGBVF
     module IGC
-    module IXGB
     module IXGBE
     enable IXGBE_HWMON
     module IXGBEVF
@@ -600,10 +599,9 @@ config:
     enable DRM_AMD_DC
     case "%{arch}" in
       x86_64|i686)
-        enable DRM_AMD_DC_DCN
+        enable DRM_AMD_DC_FP
       ;;
     esac
-    enable DRM_AMD_DC_HDCP
     enable DRM_AMD_DC_SI
     enable DRM_RADEON_USERPTR
     enable DRM_AMDGPU_USERPTR
@@ -1234,6 +1232,7 @@ config:
     # MFD
     case "%{arch}" in
       x86_64|i686)
+        enable PMIC_OPREGION
         enable INTEL_SOC_PMIC
         module INTEL_SOC_PMIC_BXTWC
         module INTEL_SOC_PMIC_CHTDC_TI
@@ -1705,7 +1704,6 @@ config:
     module LEDS_TRIGGER_CAMERA
     module LEDS_TRIGGER_DEFAULT_ON
     enable LEDS_TRIGGER_DISK
-    module LEDS_TRIGGER_GPIO
     module LEDS_TRIGGER_HEARTBEAT
     module LEDS_TRIGGER_NETDEV
     module LEDS_TRIGGER_ONESHOT
@@ -1811,7 +1809,6 @@ config:
         module INTEL_WMI_THUNDERBOLT
         module MSI_WMI
         module NVIDIA_WMI_EC_BACKLIGHT
-        module PEAQ_WMI
         module SENSORS_ASUS_WMI
         module SURFACE3_WMI
         module X86_ANDROID_TABLETS
