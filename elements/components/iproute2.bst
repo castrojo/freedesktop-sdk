@@ -19,4 +19,4 @@ sources:
 - kind: git_tag
   url: kernel:network/iproute2/iproute2.git
   track: main
-  ref: v6.3.0-0-g1be3fcf0abb77063c87aa9504add3178fa20adde
+  ref: v6.4.0-0-g43388c729de3124d30ccd39e1e616ed30a1e2477
