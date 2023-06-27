@@ -48,6 +48,7 @@ variables:
     -Djack-devel=true
     -Dudevrulesdir=$(pkg-config --variable=udevdir udev)/rules.d
     -Dsession-managers=[]
+    -Dlibffado=disabled
 
 config:
   install-commands:
@@ -126,4 +127,4 @@ sources:
   track: '*.*.*'
   exclude:
   - '*.*.9*'
-  ref: 0.3.71-0-gbd225b14bbda1a6e2dc7a52780eaf728920e0ff2
+  ref: 0.3.72-0-g4cc22d60d2280fb3c771e6a246e79c90819fd485
