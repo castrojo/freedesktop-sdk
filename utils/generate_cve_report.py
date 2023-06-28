@@ -20,20 +20,8 @@ import glob
 import os
 import html
 
+from libversion import Version
 import requests
-
-
-def maybe_int(component):
-    try:
-        return int(component)
-    except ValueError:
-        return component
-
-
-def comparable(version, commit_quirk=False):
-    if commit_quirk:
-        version = version.split("-")[0]
-    return [maybe_int(component) for component in version.split(".")]
 
 
 LOOKUP_TABLE = {}
@@ -103,24 +91,21 @@ def get_issues_and_mrs(cveid):
 
 def check_version_range(version, cpe_match):
     vulnerable = True
-    commit_quirk = False
-    if "gnu:binutils" in cpe_match["cpe23Uri"]:
-        commit_quirk = True
-    version_object = comparable(version)
+    version_object = Version(version)
     if "versionStartIncluding" in cpe_match:
-        start = comparable(cpe_match["versionStartIncluding"], commit_quirk=commit_quirk)
+        start = Version(cpe_match["versionStartIncluding"])
         if version_object < start:
             vulnerable = False
     elif "versionStartExcluding" in cpe_match:
-        start = comparable(cpe_match["versionStartExcluding"], commit_quirk=commit_quirk)
+        start = Version(cpe_match["versionStartExcluding"])
         if version_object <= start:
             vulnerable = False
     if "versionEndIncluding" in cpe_match:
-        end = comparable(cpe_match["versionEndIncluding"], commit_quirk=commit_quirk)
+        end = Version(cpe_match["versionEndIncluding"])
         if version_object > end:
             vulnerable = False
     elif "versionEndExcluding" in cpe_match:
-        end = comparable(cpe_match["versionEndExcluding"], commit_quirk=commit_quirk)
+        end = Version(cpe_match["versionEndExcluding"])
         if version_object >= end:
             vulnerable = False
     return vulnerable
