@@ -20,4 +20,4 @@ sources:
 - kind: git_repo
   url: github:storaged-project/udisks.git
   track: udisks-*
-  ref: udisks-2.9.4-0-g001c486e6d099ed33e2de4f5c73c03e3ee180f81
+  ref: udisks-2.10.0-0-ga1a99ef84f96151f60f3254b767286ee26064846
