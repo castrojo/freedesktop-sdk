@@ -7,12 +7,14 @@ build-depends:
 - components/bc.bst
 - components/gzip.bst
 - components/kmod.bst
+- components/pkg-config.bst
 - components/python3.bst
 - components/python3-setuptools.bst
 
 depends:
 - components/libunwind.bst
 - components/libcap.bst
+- components/libtraceevent.bst
 - components/perl.bst
 - components/slang.bst
 
