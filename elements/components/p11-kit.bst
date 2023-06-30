@@ -25,4 +25,4 @@ sources:
 - kind: git_repo
   url: github:p11-glue/p11-kit.git
   track: '*.*.*'
-  ref: 0.24.1-0-gdd0590d4e583f107e3e9fafe9ed754149da335d0
+  ref: 0.25.0-0-ga8cce8bd8065bbf80bd47219f85f0cd9cf27dd0c
