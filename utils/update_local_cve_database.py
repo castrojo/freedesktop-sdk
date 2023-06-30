@@ -45,7 +45,7 @@ def update_year(session, year):
                 pass
     elif response.status_code == 304:
         response.close()
-        print("Cached nvdce-1.1-{year}.json.gz")
+        print(f"Cached nvdce-1.1-{year}.json.gz")
     else:
         etag = response.headers["ETag"]
         assert etag is not None
