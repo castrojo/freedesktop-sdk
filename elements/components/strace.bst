@@ -9,6 +9,11 @@ depends:
 variables:
   conf-local: --enable-mpers=check
 
+public:
+  cpe:
+    ignored:
+    - CVE-2000-0006
+
 sources:
 - kind: git_tag
   url: github:strace/strace.git

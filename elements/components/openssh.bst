@@ -35,6 +35,8 @@ public:
     vendor: 'openbsd'
     # We ignore the patch version because this is set in a different component in CPE
     version-match: '(\d+)_(\d+)'
+    ignored:
+    - CVE-2007-2768
 
 sources:
 - kind: git_tag

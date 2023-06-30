@@ -10,6 +10,10 @@ variables:
     CFLAGS="$CFLAGS" \
     LDFLAGS="$LDFLAGS"
 
+public:
+  cpe:
+    vendor: gnu
+
 config:
   install-commands:
     (>):
