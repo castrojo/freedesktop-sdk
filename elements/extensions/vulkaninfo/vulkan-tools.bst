@@ -27,4 +27,4 @@ sources:
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-Tools.git
   track: sdk-*
-  ref: sdk-1.3.250.0-0-g695887a994ef9cc00a7aa3f9c00b31a56ea79534
+  ref: sdk-1.3.250.1-0-g695887a994ef9cc00a7aa3f9c00b31a56ea79534
