@@ -5,8 +5,10 @@ build-depends:
 
 depends:
 - components/cryptsetup.bst
+- components/e2fsprogs.bst
 - components/kmod.bst
 - components/libbytesize.bst
+- components/libnvme.bst
 - components/libyaml.bst
 - components/lvm2.bst
 - components/mdadm.bst

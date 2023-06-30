@@ -204,6 +204,7 @@ depends:
 - components/libnftnl.bst
 - components/libnice.bst
 - components/libnl.bst
+- components/libnvme.bst
 - components/libogg.bst
 - components/libpaper.bst
 - components/libpipeline.bst
