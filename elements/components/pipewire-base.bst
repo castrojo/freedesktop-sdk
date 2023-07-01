@@ -54,7 +54,7 @@ config:
     (>):
     - |
       for module in '%{install-root}%{libdir}'/pipewire-0.3/*.so; do
-        if objdump -x "${module}" | grep -qv 'NEEDED *libpipewire-module-'; then
+        if ! objdump -x "${module}" | grep -q 'NEEDED *libpipewire-module-'; then
           patchelf --remove-rpath "${module}"
         fi
       done
