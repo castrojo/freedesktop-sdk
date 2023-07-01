@@ -80,6 +80,7 @@ public:
       - '%{libdir}/pipewire-0.3/libpipewire-module-protocol-pulse.so'
       - '%{libdir}/pipewire-0.3/libpipewire-module-protocol-simple.so'
       - '%{libdir}/pipewire-0.3/libpipewire-module-pulse-tunnel.so'
+      - '%{libdir}/pipewire-0.3/libpipewire-module-raop-discover.so'
       - '%{libdir}/pipewire-0.3/libpipewire-module-spa-device.so'
       - '%{libdir}/pipewire-0.3/libpipewire-module-spa-node-factory.so'
       - '%{libdir}/pipewire-0.3/libpipewire-module-spa-node.so'
