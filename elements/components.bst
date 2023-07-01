@@ -344,9 +344,16 @@ depends:
 - components/pcsc-lite.bst
 - components/perf.bst
 - components/perl-build.bst
+- components/perl-module-build.bst
+- components/perl-module-install.bst
+- components/perl-module-scandeps.bst
 - components/perl-pod-parser.bst
+- components/perl-sasl.bst
 - components/perl-slurp.bst
+- components/perl-ssl.bst
+- components/perl-ssleay.bst
 - components/perl-xml-parser.bst
+- components/perl-yaml-tiny.bst
 - components/perl.bst
 - components/pinentry-ncurses.bst
 - components/pipewire-base.bst
