@@ -33,6 +33,12 @@ variables:
   make-install: make -j1 install install-man DESTDIR='%{install-root}'
 
 config:
+  configure-commands:
+    (<):
+    - |
+      VN="$(git describe)"
+      echo "${VN#v}" >version
+
   install-commands:
     (>):
     - |
