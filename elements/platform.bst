@@ -200,5 +200,4 @@ depends:
 - components/xorg-lib-xxf86vm.bst
 - components/zenity.bst
 - integration/mtab.bst
-- components/vulkan-validation-layers.bst
 - components/zstd.bst
