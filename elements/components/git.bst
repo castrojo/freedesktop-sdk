@@ -21,6 +21,8 @@ depends:
 
 runtime-depends:
 - components/ca-certificates.bst
+- components/perl-ssl.bst
+- components/perl-sasl.bst
 
 environment:
   INSTALL_SYMLINKS: '1'
