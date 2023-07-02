@@ -28,7 +28,6 @@ depends:
 - components/genpeimg.bst
 - components/pango.bst
 - components/polkit.bst
-- components/protobuf-c.bst
 - components/pycairo.bst
 - components/python3-pil.bst
 - components/libsmbios-maybe.bst
