@@ -1,10 +1,14 @@
-kind: autotools
+kind: cmake
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-cmake.bst
 
 depends:
 - bootstrap-import.bst
+
+variables:
+  cmake-local: >-
+    -Dprotobuf_BUILD_TESTS:BOOL=OFF
 
 (@):
 - elements/include/protobuf-source.yml
