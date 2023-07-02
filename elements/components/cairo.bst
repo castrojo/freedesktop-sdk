@@ -1,7 +1,7 @@
-kind: autotools
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 - components/gtk-doc.bst
 
 depends:
@@ -13,14 +13,13 @@ depends:
 - components/fontconfig.bst
 
 variables:
-  conf-local: >-
-    --enable-xlib
-    --enable-ft
-    --enable-svg
-    --enable-ps
-    --enable-pdf
-    --enable-tee
-    --enable-gobject
+  # We don't built libspectre and it would depend on ghostscript
+  # our libbfd is doesn't have what's required for symbol-lookup
+  # tests: tries to pull poppler-glib which causes a circular dep
+  meson-local: >-
+    -Dspectre=disabled
+    -Dsymbol-lookup=disabled
+    -Dtests=disabled
 
 public:
   bst:
@@ -33,16 +32,9 @@ public:
         - '%{libdir}/libcairo-gobject.so'
         - '%{libdir}/libcairo.so'
         - '%{libdir}/cairo/libcairo-trace.so'
-  cpe:
-    patches:
-    - CVE-2018-19876
-    - CVE-2020-35492
-    - CVE-2019-6462
 
 sources:
 - kind: git_repo
   url: freedesktop:cairo/cairo.git
-  track: 1.*[02468].*
-  ref: 1.16.0-0-g3ad43122b21a3299dd729dc8462d6b8f7f01142d
-- kind: patch_queue
-  path: patches/cairo
+  track: 1.*[024678].*
+  ref: 1.17.8-0-gc3b672634f0635af1ad0ffa8c15b34fc7c1035cf
