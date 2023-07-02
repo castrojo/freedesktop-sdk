@@ -10,4 +10,6 @@ sources:
 - kind: git_repo
   url: github:google/glog.git
   track: v*
+  exclude:
+  - '*rc*'
   ref: v0.6.0-0-gb33e3bad4c46c8a6345525fd822af355e5ef9446
