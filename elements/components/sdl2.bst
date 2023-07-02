@@ -78,4 +78,4 @@ sources:
 - kind: git_repo
   url: github:libsdl-org/SDL.git
   track: release-*
-  ref: release-2.26.5-0-gac13ca9ab691e13e8eebe9684740ddcb0d716203
+  ref: release-2.28.1-0-g4761467b2e8cc7db3d6bc98747daca0051858f09
