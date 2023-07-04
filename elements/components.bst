@@ -71,6 +71,7 @@ depends:
 - components/e2fsprogs.bst
 - components/ed.bst
 - components/efivar.bst
+- components/ell.bst
 - components/eos-metrics.bst
 - components/eos-updater.bst
 - components/expat.bst

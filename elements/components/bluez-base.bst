@@ -6,10 +6,12 @@ build-depends:
 - components/systemd.bst
 - components/dbus.bst
 - components/libical.bst
+- components/ell.bst
 
 variables:
   conf-local: >-
     --enable-library
+    --enable-external-ell
 
 public:
   bst:
