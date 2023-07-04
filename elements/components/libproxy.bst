@@ -4,6 +4,7 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/gobject-introspection.bst
 - components/python3-gi-docgen.bst
+- components/patchelf.bst
 
 depends:
 - bootstrap-import.bst
@@ -17,6 +18,11 @@ variables:
     -Dtests=false
     -Dvapi=false
 
+config:
+  install-commands:
+    (>):
+    - |
+      patchelf --remove-rpath "%{install-root}%{libdir}/libproxy/libpxbackend-1.0.so"
 
 public:
   bst:
