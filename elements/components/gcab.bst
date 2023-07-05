@@ -23,4 +23,4 @@ sources:
 - kind: git_repo
   url: gnome:gcab.git
   track: v*
-  ref: v1.5-0-gd8054af4381dcef17ae691775c96a60116823047
+  ref: v1.6-0-gb1a8a5867ccf0209d3e409b12986165c8f7a6fa4
