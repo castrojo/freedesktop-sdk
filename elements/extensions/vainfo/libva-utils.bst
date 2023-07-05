@@ -19,4 +19,4 @@ sources:
 - kind: git_repo
   url: github:intel/libva-utils.git
   track: '*.*.*'
-  ref: 2.18.2-0-g76993ae8d0fbd17e5bfff80ed495c71e727f0d06
+  ref: 2.19.0-0-g03f45b1fbb4b413492c3b36f3e804dac3b8e0631
