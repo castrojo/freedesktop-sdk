@@ -32,7 +32,7 @@ sources:
   kind: git_tag
   url: kernel:network/wireless/iwd.git
   track: master
-  ref: 2.6-0-g6ae9b4dc58d45e04c7b72a2a43e5f9292481636c
+  ref: 2.7-0-g0be288c5aa183d53e5e54ed0df8e565a062855f0
 - directory: ell
   kind: git_tag
   url: kernel:libs/ell/ell.git
