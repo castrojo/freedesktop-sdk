@@ -7,5 +7,5 @@ depends:
 sources:
 - kind: cpan
   name: Module::ScanDeps
-  url: cpan:authors/id/R/RS/RSCHUPP/Module-ScanDeps-1.31.tar.gz
-  sha256sum: fc4d98d2b0015745f3b55b51ddf4445a73b069ad0cb7ec36d8ea781d61074d9d
+  url: cpan:authors/id/R/RS/RSCHUPP/Module-ScanDeps-1.32.tar.gz
+  sha256sum: 7ab3556ccaa812298da33f0a0515037cd513b9e72c42a76d2c2e4d28832215f0
