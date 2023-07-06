@@ -1,0 +1,37 @@
+From e57088b0991a38c48861ade94db02a32680469cb Mon Sep 17 00:00:00 2001
+From: Robin Lee <robinlee.sysu@gmail.com>
+Date: Thu, 6 Jul 2023 14:00:21 +0800
+Subject: [PATCH] nls: Fix French language file for gettext 0.22
+
+gettext-0.22 raises errors on what is clearly an typo in the translation.
+
+Signed-off-by: Robin Lee <robinlee.sysu@gmail.com>
+---
+ po/fr.po | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/po/fr.po b/po/fr.po
+index 715c2b69..700834e1 100644
+--- a/po/fr.po
++++ b/po/fr.po
+@@ -3800,7 +3800,7 @@ msgid ""
+ "Type 'q' or <Esc> to continue "
+ msgstr ""
+ "Aide pour les commandes interactives~2 - %s\n"
+-"Fenêtre ~1%s~6: ~1Mode cumulatif ~3%s~2.  ~1Système~6: ~1Délai ~3%.1lf "
++"Fenêtre ~1%s~6: ~1Mode cumulatif ~3%s~2.  ~1Système~6: ~1Délai ~3%.1f "
+ "secs~2; ~1Mode sûr ~3%s~2.\n"
+ "\n"
+ "  Z~5,~1B~5,E,e   Global: «~1Z~2» couleurs; «~1B~2» gras; «~1E~2»/«~1e~2» "
+@@ -4723,7 +4723,7 @@ msgstr " -v, --version  affiche les informations de version et sort\n"
+ #: src/watch.c:486
+ #, c-format
+ msgid "Every %.1fs: "
+-msgstr "Toutes les %.1lfs: "
++msgstr "Toutes les %.1fs: "
+ 
+ #: src/watch.c:487
+ #, c-format
+-- 
+2.41.0
+
