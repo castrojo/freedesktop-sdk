@@ -24,4 +24,4 @@ sources:
 - kind: git_repo
   url: gnome:libgudev.git
   track: '[0-9]*'
-  ref: 237-0-gdff7a794e55d6ad7a10e8edacd73aa047593e74c
+  ref: 238-0-gdf7c9c9940160307aaeb31347f4776a46f8736a9
