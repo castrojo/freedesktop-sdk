@@ -2,6 +2,7 @@ kind: pip
 
 build-depends:
 - public-stacks/buildsystem-python.bst
+- components/python3-flit-core.bst
 
 depends:
 - components/python3.bst
@@ -10,5 +11,5 @@ sources:
 - kind: pypi
   name: editables
   ref:
-    sha256sum: 167524e377358ed1f1374e61c268f0d7a4bf7dbd046c656f7b410cde16161b1a
-    suffix: 01/b0/a2a87db4b6cb8e7d57004b6836faa634e0747e3e39ded126cdbe5a33ba36/editables-0.3.tar.gz
+    sha256sum: dc322c42e7ccaf19600874035a4573898d88aadd07e177c239298135b75da772
+    suffix: 43/8a/a060ff3e75328015150f680b4b4bc4617644aaef199ece380342a334d78f/editables-0.4.tar.gz
