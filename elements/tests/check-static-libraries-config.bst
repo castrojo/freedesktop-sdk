@@ -1,8 +1,8 @@
 kind: import
 
 config:
-  target: /utils
+  target: "%{datadir}/check-static-libraries"
 
 sources:
 - kind: local
-  path: utils/static_libraries_allow_list
+  path: tests/check-static-libraries/static_libraries_allow_list
