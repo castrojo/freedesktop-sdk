@@ -21,7 +21,6 @@ import filecmp
 from fnmatch import fnmatch
 import json
 import os
-import pathlib
 import re
 import subprocess
 import sys
@@ -56,6 +55,9 @@ def get_parser():
 
     parser.add_argument(
         '--suppressions', metavar='PATH', help='specify a suppression file')
+
+    parser.add_argument(
+        '--abidiff-suppressions', metavar='PATH', help='specify a suppression file for abidiff')
 
     parser.add_argument(
         '--forward-compatible', action='store_true')
@@ -238,7 +240,7 @@ def create_header_archive(archive_directory, old_include_dir, new_include_dir):
         tar.add(new_include_dir)
 
 
-def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on_core, archive_directory):
+def compare_tree_abis(old_checkout, new_checkout, suppression_file_path, forward_compatible, archive_on_core, archive_directory):
     print(format_title('Comparing ABIs', level=1), end='\n\n')
     success = True
 
@@ -247,7 +249,6 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
 
     all_keys = set(new_libs.keys()) | set(old_libs.keys())
 
-    suppression_file_path = pathlib.Path(__file__).parent.resolve() / 'check-abi-suppressions.json'
     with open(suppression_file_path, 'r', encoding='utf-8') as filehandle:
         suppression_rules = json.load(filehandle)
     suppression_regex = '|'.join(suppression_rules)
@@ -316,15 +317,15 @@ if __name__ == '__main__':
 
     args = get_parser().parse_args()
 
-    if args.suppressions:
-        os.environ['LIBABIGAIL_DEFAULT_USER_SUPPRESSION_FILE'] = args.suppressions
+    if args.abidiff_suppressions:
+        os.environ['LIBABIGAIL_DEFAULT_USER_SUPPRESSION_FILE'] = args.abidiff_suppressions
 
     archive_directory = os.path.join(args.archive_directory_parent, 'libabigail-tars')
     if args.archive_on_core:
         print(f'Creating archive directory {archive_directory}')
         os.makedirs(archive_directory)
 
-    abi_compatible = compare_tree_abis(args.old, args.new, args.forward_compatible, args.archive_on_core, archive_directory)
+    abi_compatible = compare_tree_abis(args.old, args.new, args.suppressions, args.forward_compatible, args.archive_on_core, archive_directory)
 
     if abi_compatible:
         print(format_title(f'Hurray! {args.old} and {args.new} are ABI-compatible!', level=2))
