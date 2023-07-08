@@ -59,17 +59,6 @@ build-tar:
 bootstrap:
 	$(BST) build bootstrap/bootstrap.bst
 
-check-abi:
-	$(BST) build tests/check-abi.bst; \
-	exit_code="$$?"; \
-	if [ "$${CI}" = "true" ]; then \
-		mv $${XDG_CACHE_HOME}/buildstream/build/tests-check-abi-*/root/libabigail-tars .; \
-	fi; \
-	exit $${exit_code}
-
-check-debuginfo:
-	$(BST) build tests/test-debug-crc.bst
-
 export: clean-runtime
 	$(BST) build flatpak-release-repo.bst
 
@@ -157,6 +146,17 @@ endif
 
 run-vm: build-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
 	unshare --map-root-user $(QEMU) $(QEMU_COMMON_ARGS) $(QEMU_VIRTFS_ARGS)
+
+check-abi:
+	$(BST) build tests/check-abi.bst; \
+	exit_code="$$?"; \
+	if [ "$${CI}" = "true" ]; then \
+		mv $${XDG_CACHE_HOME}/buildstream/build/tests-check-abi-*/root/libabigail-tars .; \
+	fi; \
+	exit $${exit_code}
+
+check-debuginfo:
+	$(BST) build tests/test-debug-crc.bst
 
 check-dev-files:
 	$(BST) build tests/check-dev-files.bst
