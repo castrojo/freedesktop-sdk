@@ -11,8 +11,8 @@ runtime-depends:
 config:
   install-commands:
   - |
-    install -Dm755 check-abi '%{install-root}%{bindir}/check-abi'
+    install -Dm755 check-abi.py '%{install-root}%{bindir}/check-abi'
 
 sources:
 - kind: local
-  path: utils/check-abi
+  path: utils/check-abi.py
