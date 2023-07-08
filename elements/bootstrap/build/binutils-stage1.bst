@@ -14,6 +14,11 @@ depends:
 - elements/bootstrap/include/build.yml
 - elements/bootstrap/include/binutils-source.yml
 
+environment:
+  CFLAGS_FOR_TARGET:  "%{target_flags}"
+  CXXFLAGS_FOR_TARGET: "%{target_flags}"
+  LDFLAGS_FOR_TARGET:  "%{ldflags_defaults}"
+
 variables:
   conf-local: >-
     --target=%{triplet}
