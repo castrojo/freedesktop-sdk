@@ -13,4 +13,3 @@ build-depends:
 config:
   commands:
   - check-abi --new /new-image --old /old-image --archive-on-core --forward-compatible --suppressions "%{datadir}/check-abi/check-abi-suppressions.json" --abidiff-suppressions "%{datadir}/check-abi/abidiff-suppressions.ini"
-

@@ -8,4 +8,3 @@ sources:
   path: utils/abidiff-suppressions.ini
 - kind: local
   path: utils/check-abi-suppressions.json
-
