@@ -326,8 +326,6 @@ license_checker:
     - ./utils/mirror-management-scripts/validate_aliases.py include/_private/aliases.yml include/_private/mirrors.yml
     - test "${ARCH}" != "i686" && make build
 
-    - make check-debuginfo
-
     - export FLATPAK_USER_DIR="${PWD}/tmp-flatpak"
     - make test-apps
 

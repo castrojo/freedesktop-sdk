@@ -45,13 +45,13 @@ QEMU=qemu-system-$(QEMU_ARCH)
 all: build
 
 build:
-	$(BST) build tests/check-platform.bst \
-	             tests/check-sdk.bst \
-	             components.bst \
+	$(BST) build components.bst \
 	             flatpak-release-repo.bst \
 	             public-stacks/buildsystems.bst \
-	             oci/layers/{bootstrap,debug,platform,sdk,flatpak}.bst
-
+	             oci/layers/{bootstrap,debug,platform,sdk,flatpak}.bst \
+	             tests/check-platform.bst \
+	             tests/check-sdk.bst \
+	             tests/test-debug-crc.bst
 
 build-tar:
 	$(BST) build $(TAR_ELEMENTS)
