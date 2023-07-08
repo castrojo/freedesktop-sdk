@@ -19,6 +19,7 @@ variables:
     --target=%{triplet}
     --with-sysroot=%{sysroot}
     --disable-nls
+    --enable-gprofng=no
     --disable-multilib
     --disable-werror
     %{disable-source}
