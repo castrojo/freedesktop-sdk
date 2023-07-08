@@ -1,10 +1,10 @@
 kind: import
 
 config:
-  target: /utils
+  target: "%{datadir}/check-abi"
 
 sources:
 - kind: local
-  path: utils/abidiff-suppressions.ini
+  path: tests/check-abi/abidiff-suppressions.ini
 - kind: local
-  path: utils/check-abi-suppressions.json
+  path: tests/check-abi/check-abi-suppressions.json
