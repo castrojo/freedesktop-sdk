@@ -10,4 +10,4 @@ config:
 
 sources:
 - kind: local
-  path: files/check-debug-crc/check-debug-crc.py
+  path: utils/check-debug-crc.py
