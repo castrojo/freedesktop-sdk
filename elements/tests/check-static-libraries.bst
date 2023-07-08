@@ -10,4 +10,4 @@ build-depends:
 config:
   commands:
   - |
-    check-static-libraries /sysroot %{datadir}/static_libraries_allow_list
+    check-static-libraries /sysroot "%{datadir}/check-static-libraries/static_libraries_allow_list"
