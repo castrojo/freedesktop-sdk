@@ -156,7 +156,7 @@ check-abi:
 	exit $${exit_code}
 
 check-debuginfo:
-	$(BST) build tests/test-debug-crc.bst
+	$(BST) build tests/check-debuginfo.bst
 
 check-dev-files:
 	$(BST) build tests/check-dev-files.bst
