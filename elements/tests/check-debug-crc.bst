@@ -1,6 +1,9 @@
 kind: manual
 
-depends:
+build-depends:
+- bootstrap-import.bst
+
+runtime-depends:
 - components/python3.bst
 
 config:
