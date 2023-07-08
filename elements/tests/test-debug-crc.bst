@@ -1,7 +1,7 @@
 kind: script
 
 build-depends:
-- tests/check-debug-crc.bst
+- utils/check-debug-crc.bst
 - filename: sdk.bst
   config:
     location: /sysroot
