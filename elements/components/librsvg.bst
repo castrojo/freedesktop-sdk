@@ -35,7 +35,7 @@ sources:
   url: gnome:librsvg.git
   track: '*.*.*'
   exclude:
-  - '*.*[13579].*'
+  - '*.*.9[0-9]'
   ref: 2.56.1-0-gc0d8ee415cd4ee268264ef2c7bfa53f576599cfa
 - kind: cargo
   url: crates:crates
