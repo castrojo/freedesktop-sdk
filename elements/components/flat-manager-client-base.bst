@@ -28,3 +28,7 @@ sources:
   url: github:flatpak/flat-manager.git
   track: '*.*.*'
   ref: 0.4.1-0-g2b81b6d46586118029b8a5e4b54f5d15b646ff03
+- kind: patch
+  path: patches/flat-manager-client/Use-TENACITY_RETRY_EXCEPTIONS-for-upload_files-too.patch
+- kind: patch
+  path: patches/flat-manager-client/Connection-reset-by-peer-results-in-ClientOSError.patch
