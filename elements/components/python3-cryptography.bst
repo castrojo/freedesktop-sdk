@@ -14,7 +14,7 @@ sources:
 - kind: git_repo
   url: github:pyca/cryptography.git
   track: '*.*.*'
-  ref: 41.0.1-0-gd02de9f26e9a2353e89427c1cea8b9ed2bae969e
+  ref: 41.0.2-0-g7431db737cf0407560fac689d24f1d2e5efc349d
 - kind: cargo
   url: crates:crates
   cargo-lock: src/rust/Cargo.lock
@@ -101,8 +101,8 @@ sources:
     version: 1.0.4
     sha: a1be40180e52ecc98ad80b184934baf3d0d29f979574e439af5a55274b35f869
   - name: proc-macro2
-    version: 1.0.59
-    sha: 6aeca18b86b413c660b781aa319e4e2648a3e6f9eadc9b47e9038e6fe9f3451b
+    version: 1.0.64
+    sha: 78803b62cbf1f46fde80d7c0e803111524b9877184cfe7c3033659490ac7a7da
   - name: pyo3
     version: 0.18.3
     sha: e3b1ac5b3731ba34fdaa9785f8d74d17448cd18f30cf19e0c7e7b1fdb5272109
