@@ -14,8 +14,8 @@ sources:
 - kind: pypi
   name: cryptography
   ref:
-    sha256sum: d34579085401d3f49762d2f7d6634d6b6c2ae1242202e860f4d26b046e3a1006
-    suffix: 19/8c/47f061de65d1571210dc46436c14a0a4c260fd0f3eaf61ce9b9d445ce12f/cryptography-41.0.1.tar.gz
+    sha256sum: 7d230bf856164de164ecb615ccc14c7fc6de6906ddd5b491f3af90d3514c925c
+    suffix: 93/b7/b6b3420a2f027c1067f712eb3aea8653f8ca7490f183f9917879c447139b/cryptography-41.0.2.tar.gz
 - kind: cargo
   url: crates:crates
   cargo-lock: src/rust/Cargo.lock
@@ -102,8 +102,8 @@ sources:
     version: 1.0.4
     sha: a1be40180e52ecc98ad80b184934baf3d0d29f979574e439af5a55274b35f869
   - name: proc-macro2
-    version: 1.0.59
-    sha: 6aeca18b86b413c660b781aa319e4e2648a3e6f9eadc9b47e9038e6fe9f3451b
+    version: 1.0.64
+    sha: 78803b62cbf1f46fde80d7c0e803111524b9877184cfe7c3033659490ac7a7da
   - name: pyo3
     version: 0.18.3
     sha: e3b1ac5b3731ba34fdaa9785f8d74d17448cd18f30cf19e0c7e7b1fdb5272109
