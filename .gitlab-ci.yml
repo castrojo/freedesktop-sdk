@@ -18,6 +18,7 @@ variables:
 
   GIT_SUBMODULE_STRATEGY: "recursive"
   BUILD_TASKS: 4
+  BUILD_CPU_MULTIPLIER: 1
 
 default:
   image: "${DOCKER_REGISTRY}/bst16:${DOCKER_IMAGE_ID}"
@@ -59,8 +60,10 @@ before_script:
   - export PATH=~/.local/bin:${PATH}
 
   # Configure Buildstream
-  - mkdir -p ~/.config
   - |
+    MAX_JOBS=$(python -c "print(round(($(nproc) * ${BUILD_CPU_MULTIPLIER}) / ${BUILD_TASKS}))")
+
+    mkdir -p ~/.config
     cat > ~/.config/buildstream.conf << EOF
     # Get a lot of output in case of errors
     logging:
@@ -68,7 +71,7 @@ before_script:
       error-lines: 80
     # Force higher parallelity
     build:
-      max-jobs: $(( $(nproc) / ${BUILD_TASKS} ))
+      max-jobs: ${MAX_JOBS}
     scheduler:
       builders: ${BUILD_TASKS}
       network-retries: 4
@@ -332,6 +335,7 @@ license_checker:
   variables:
     ARCH: x86_64
     BUILD_TASKS: 2
+    BUILD_CPU_MULTIPLIER: 1
 
 .builder-i686:
   tags:
@@ -339,6 +343,7 @@ license_checker:
   variables:
     ARCH: i686
     BUILD_TASKS: 2
+    BUILD_CPU_MULTIPLIER: 1
 
 .builder-aarch64:
   tags:
@@ -346,6 +351,7 @@ license_checker:
   variables:
     ARCH: aarch64
     BUILD_TASKS: 4
+    BUILD_CPU_MULTIPLIER: 1
 
 .builder-ppc64le:
   tags:
@@ -353,6 +359,7 @@ license_checker:
   variables:
     ARCH: ppc64le
     BUILD_TASKS: 2
+    BUILD_CPU_MULTIPLIER: 1
 
 .builder-riscv64:
   tags:
@@ -360,6 +367,7 @@ license_checker:
   variables:
     ARCH: riscv64
     BUILD_TASKS: 2
+    BUILD_CPU_MULTIPLIER: 1
 
 app_x86_64:
   extends:
