@@ -26,10 +26,6 @@ sources:
   - '*pre*'
   ref: v1.56.2-0-gc0d1c393d9365664d47df41746e992ae97b651ef
 - kind: git_module
-  url: github:abseil/abseil-cpp.git
-  path: third_party/abseil-cpp
-  ref: c2435f8342c2d0ed8101cb43adfd605fdc52dca2
-- kind: git_module
   url: github:google/re2.git
   path: third_party/re2
   ref: 0c5616df9c0aaa44c9440d87422012423d91c7d1
