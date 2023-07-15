@@ -11,7 +11,7 @@ variables:
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
   DOCKER_IMAGE_ID: "f77e043c23a3d192dd53c1ba05fe9d51ed2ff38a"
-  SCHEDULE_TASK: default
+  SCHEDULE_TASK: daily
 
   # Generic variable for invoking buildstream
   BST: bst --colors
@@ -217,7 +217,7 @@ pylint:
       esac
     - GITLAB_TOKEN=$FREEDESKTOP_API_KEY auto_updater --verbose
     - |
-      if [ "$SCHEDULE_TASK" = "default" ] && [ "$STABLE_ABI" = "true" ]; then
+      if [ "$SCHEDULE_TASK" = "daily" ] && [ "$STABLE_ABI" = "true" ]; then
           TRACK_ELEMENTS="$TRACK_ELEMENTS abi/freedesktop-sdk.bst"
       fi
       GITLAB_TOKEN=$FREEDESKTOP_API_KEY auto_updater --verbose \
@@ -240,7 +240,7 @@ daily_update_elements:
   variables:
     TRACK_ELEMENTS: track-elements.bst
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "default"'
+  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
 
 weekly_update_elements:
   extends:
@@ -286,7 +286,7 @@ check_mirrors:
       - ${CI_PROJECT_DIR}/README-Create-mirrors-script.md
   allow_failure: true
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "default"'
+  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
 
 license_checker:
   extends:
@@ -812,7 +812,7 @@ cve_report:
     paths:
       - "${CI_PROJECT_DIR}/cve-reports"
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK != "default"'
+  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK != "daily"'
     when: never
   - if: '$CI_COMMIT_BRANCH == "master"'
   - if: '$CI_COMMIT_BRANCH == "18.08"'
