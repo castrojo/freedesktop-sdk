@@ -24,11 +24,7 @@ sources:
   track: v*
   exclude:
   - '*pre*'
-  ref: v1.53.0-0-g358bfb581feeda5bf17dd3b96da1074d84a6ef8d
-- kind: git_module
-  url: github:abseil/abseil-cpp.git
-  path: third_party/abseil-cpp
-  ref: 78be63686ba732b25052be15f8d6dee891c05749
+  ref: v1.56.2-0-gc0d1c393d9365664d47df41746e992ae97b651ef
 - kind: git_module
   url: github:google/re2.git
   path: third_party/re2
