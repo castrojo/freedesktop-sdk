@@ -13,5 +13,5 @@ sources:
 - kind: pypi
   name: pip
   ref:
-    sha256sum: 0e7c86f486935893c708287b30bd050a36ac827ec7fe5e43fe7cb198dd835fba
-    suffix: fa/ee/74ff76da0ab649eec7581233daeb43d8aa35383d8f75317b2ab3b80c922f/pip-23.1.2.tar.gz
+    sha256sum: a160a170f3331d9ca1a0247eb1cd79c758879f1f81158f9cd05bbb5df80bea5c
+    suffix: 3d/ab/21fa8d1ecf5648559f056fda732b0f9fca0585eb2688252e67f70e74deaf/pip-23.2.tar.gz
