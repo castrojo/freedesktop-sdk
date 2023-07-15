@@ -48,3 +48,4 @@ config:
   - components/strace.bst
   - components/texinfo.bst
   - components/valgrind-maybe.bst
+  - components/vulkan-validation-layers.bst
