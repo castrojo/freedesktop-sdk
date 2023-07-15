@@ -201,9 +201,7 @@ pylint:
     - tags
   needs: []
 
-check_update_elements:
-  extends:
-    - .builder-aarch64
+.check_update_elements:
   stage: update
   variables:
     GIT_SUBMODULE_STRATEGY: none
@@ -224,8 +222,9 @@ check_update_elements:
         ;;
       esac
     - |
-      TRACK_ELEMENTS=track-elements.bst
-      [ "$STABLE_ABI" = "true" ] && TRACK_ELEMENTS="$TRACK_ELEMENTS abi/freedesktop-sdk.bst"
+      if [ "$SCHEDULE_TASK" = "default" ] && [ "$STABLE_ABI" = "true" ]; then
+          TRACK_ELEMENTS="$TRACK_ELEMENTS abi/freedesktop-sdk.bst"
+      fi
       GITLAB_TOKEN=$FREEDESKTOP_API_KEY auto_updater --verbose \
       --bst1 \
       --base_branch "${CI_COMMIT_REF_NAME}" \
@@ -236,10 +235,29 @@ check_update_elements:
       --shuffle-branches \
       --gitlab_project="freedesktop-sdk/freedesktop-sdk" \
       --max_merge_requests=4 \
+      $EXTRA_TRACK_ARGS \
       $TRACK_ELEMENTS
   interruptible: false
+
+daily_update_elements:
+  extends:
+    - .builder-aarch64
+    - .check_update_elements
+  variables:
+    TRACK_ELEMENTS: track-elements.bst
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "default"'
+
+weekly_update_elements:
+  extends:
+    - .builder-aarch64
+    - .check_update_elements
+  variables:
+    TRACK_ELEMENTS: track-elements-weekly.bst
+    EXTRA_TRACK_ARGS: >-
+      --bstignore=/dev/null
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly"'
 
 check_mirrors:
   stage: update
@@ -843,7 +861,7 @@ markdown_manifest:
       - ${CI_PROJECT_DIR}/reproducibility_results.html # All elements that are not reproducible
   interruptible: false
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "reproducible"'
+  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly"'
 
 reproducible_aarch64:
   extends:
