@@ -1,6 +1,9 @@
 kind: manual
 
-depends:
+build-depends:
+- bootstrap-import.bst
+
+runtime-depends:
 - components/python3.bst
 
 config:
@@ -10,4 +13,4 @@ config:
 
 sources:
 - kind: local
-  path: files/check-debug-crc/check-debug-crc.py
+  path: utils/check-debug-crc.py
