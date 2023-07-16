@@ -44,7 +44,6 @@ config:
   - components/python3-wheel.bst
   - components/ruby.bst
   - components/rust.bst
-  - components/standard-streams.bst
   - components/strace.bst
   - components/texinfo.bst
   - components/valgrind-maybe.bst
