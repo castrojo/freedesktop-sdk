@@ -131,9 +131,9 @@ public:
 
 sources:
 - kind: tar
-  url: tar_https:static.rust-lang.org/dist/rustc-1.70.0-src.tar.xz
-  ref: bb8e9c564566b2d3228d95de9063a9254182446a161353f1d843bfbaf5c34639
+  url: tar_https:static.rust-lang.org/dist/rustc-1.71.0-src.tar.xz
+  ref: 5814699031aafdcc2e2f71fc9b389678cd7042350d1583da061463d8e88681c7
 - kind: patch
-  # https://git.launchpad.net/ubuntu/+source/rustc/plain/debian/patches/ubuntu-fix-sysroot-detection.patch?h=applied/ubuntu/lunar-devel&id=7cc6b62b69c95351eaec5c89088853aeec52d39d
-  # https://github.com/rust-lang/rust/issues/109994
-  path: patches/rust/ubuntu-fix-sysroot-detection.patch
+  # applied in upstream git 67b5990472e3cac643d8cf90f45fe42201ddec3c
+  # https://github.com/rust-lang/rust/issues/113678
+  path: patches/rust/0001-Revert-Fix-x-test-lint-docs-when-download-rustc-is-e.patch
