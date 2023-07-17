@@ -5,7 +5,6 @@ build-depends:
 - bootstrap/gnu-config.bst
 
 runtime-depends:
-- bootstrap/base-sdk/xz.bst
 - bootstrap/build/debugedit-build.bst
 - bootstrap/build/dwz-build.bst
 
