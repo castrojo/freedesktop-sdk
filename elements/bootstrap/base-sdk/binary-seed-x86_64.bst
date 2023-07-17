@@ -11,4 +11,4 @@ sources:
   (@):
   - elements/bootstrap/base-sdk/binary-seed-source.yml
   architecture: "amd64"
-  ref: 9ce06fa60a0f1f075dd27eba03813db44c423afe449e2250a308a81890b29a55
+  ref: a35beeaf357a71e0dde97bc379b6a06db362cceb8b6c9be7657f1d5db66396ad

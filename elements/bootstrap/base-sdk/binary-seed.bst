@@ -10,6 +10,9 @@ kind: compose
 - bootstrap_build_arch == "ppc64le":
     build-depends:
     - bootstrap/base-sdk/binary-seed-ppc64le.bst
+- bootstrap_build_arch == "riscv64":
+    build-depends:
+    - bootstrap/base-sdk/binary-seed-riscv64.bst
 
 (@):
 - elements/bootstrap/include/base-sdk.yml

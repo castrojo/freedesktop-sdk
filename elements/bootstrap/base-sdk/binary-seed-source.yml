@@ -1,3 +1,3 @@
 registry-url: "gitlab_registry:"
 image: freedesktop-sdk/freedesktop-sdk-binary-seed/freedesktop-sdk-binary-seed
-track: 79382132313e9d2a58be33f7862c85b589e45437
+track: a85e559fcf2efc21d483b86f5cc87c288ead3c62
