@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""TODO"""
+"""Helper script for preparing and publishing release."""
 
 import argparse
 from contextlib import contextmanager
-import os.path
+import fileinput
+import os
 import subprocess
+import sys
 from tempfile import TemporaryDirectory
 
 
@@ -12,7 +14,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 def run_git(cmd, **kwargs):
-    return subprocess.check_output(["git", *cmd], text=True, **kwargs).strip()
+    return subprocess.check_output(["git", *cmd], text=True, **kwargs).rstrip()
 
 
 @contextmanager
@@ -28,6 +30,19 @@ def git_workdir(new_branch, stable_branch):
         run_git(["worktree", "prune"], cwd=SCRIPT_DIR)
 
 
+def process_change(line):
+    return f"  * {line}"
+
+
+def generate_changelog(previous_tag, git_dir):
+    print(f"Generating changelog for changes since {previous_tag}")
+    log_lines = run_git(
+        ["log", "--no-merges", "--format=%s", f"{previous_tag}.."],
+        cwd=git_dir,
+    ).splitlines()
+    return "\n".join(process_change(line) for line in log_lines)
+
+
 def prepare(args):
     news_branch = f"news/{args.new_version}"
     print(f"Creating branch '{news_branch}'")
@@ -38,9 +53,17 @@ def prepare(args):
             ["describe", "--abbrev=0", f"{args.remote}/{args.stable_branch}"],
             cwd=git_dir,
         )
-        log = run_git(
-            ["log", "--no-merges", "--format=  * %s", f"{previous_tag}.."], cwd=git_dir
+        changelog = generate_changelog(previous_tag, git_dir)
+        with fileinput.FileInput(os.path.join(git_dir, "NEWS"), inplace=True) as f:
+            for line in f:
+                if f.lineno() == 1:
+                    line += f"\n{args.new_version}:\n{changelog}\n"
+                print(line, end="")
+        run_git(
+            ["commit", "-m", f"NEWS: Update for {args.new_version}", "NEWS"],
+            cwd=git_dir,
         )
+
         # git log --format="%s" freedesktop-sdk-22.08.5.. | sed 's|elements/components/\(.*\).bst|\1|'
 
 
