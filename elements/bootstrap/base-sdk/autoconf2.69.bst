@@ -18,6 +18,11 @@ variables:
   make-install: make -j1 install DESTDIR='%{install-root}' pkgdatadir='%{datadir}/autoconf2.69'
 
 config:
+  configure-commands:
+    (<):
+    - |
+      cp %{datadir}/gnu-config/config.guess %{datadir}/gnu-config/config.sub build-aux/
+
   install-commands:
     (>):
     - |
