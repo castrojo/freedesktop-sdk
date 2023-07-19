@@ -18,6 +18,6 @@ sources:
 - kind: git_repo
   url: github:libarchive/libarchive.git
   track: v*
-  ref: v3.6.2-0-gba80276ccc3c941c4918ec6e2460059f0c525c43
+  ref: v3.7.0-0-gee45796171324519f0c0bfd012018dd099296336
 - kind: patch_queue
   path: patches/libarchive
