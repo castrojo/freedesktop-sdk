@@ -31,6 +31,6 @@ sources:
 - kind: git_repo
   url: kernel:fs/xfs/xfsprogs-dev.git
   track: v*.*.*
-  ref: v6.3.0-0-gf499ee5cf0aa520ed7489249e2e465587ae19c59
+  ref: v6.4.0-0-gbacc3981d747ee33c13023426c22bdfb72c5a04d
 - kind: patch
   path: patches/xfsprogs/po-Fix-invalid-.de-translation-format-string.patch
