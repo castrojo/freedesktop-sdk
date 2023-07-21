@@ -35,7 +35,7 @@ sources:
   url: gnome:librsvg.git
   track: main
   track-extra:
-  - librsvg-2.48
+  - librsvg-2.56
   exclude:
   - '*.*[13579].*'
   - '*.*.9*'
