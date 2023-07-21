@@ -28,4 +28,4 @@ sources:
 - kind: git_repo
   url: github:storaged-project/libblockdev.git
   track: '*.*'
-  ref: 3.0.1-1-0-g986e9ac2e9f3a20aae192dae1faeac1f9ed58104
+  ref: 3.0.2-1-0-gc79f84780dd73fe16d8a52550f74d8059af6c2e0
