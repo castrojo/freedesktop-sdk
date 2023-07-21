@@ -38,6 +38,7 @@ sources:
   - librsvg-2.48
   exclude:
   - '*.*[13579].*'
+  - '*.*.9*'
   ref: 2.56.0-0-gb831e077174ae608d8cd09e532fc0e7ce1fe5c4f
 - kind: cargo
   url: crates:crates
