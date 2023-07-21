@@ -32,18 +32,18 @@ def git_workdir(new_branch, stable_branch):
         run_git(["worktree", "prune"], cwd=SCRIPT_DIR)
 
 
-def process_change(line):
-    
-    return f"  * {line}"
-
-
 def generate_changelog(previous_tag, git_dir):
     print(f"Generating changelog for changes since {previous_tag}")
     log_lines = run_git(
         ["log", "--no-merges", "--format=%s", f"{previous_tag}.."],
         cwd=git_dir,
     ).splitlines()
-    return "\n".join(process_change(line) for line in log_lines)
+    return "\n".join(f"  * {line}" for line in log_lines)
+
+
+def apply_log_filters(changelog, filters):
+    with open(
+    pass
 
 
 def prepare(args):
@@ -56,7 +56,8 @@ def prepare(args):
             ["describe", "--abbrev=0", f"{args.remote}/{args.stable_branch}"],
             cwd=git_dir,
         )
-        changelog = generate_changelog(previous_tag, git_dir)
+        rawlog = generate_changelog(previous_tag, git_dir)
+        changelog = apply_log_filters(changelog, [])
         with fileinput.FileInput(os.path.join(git_dir, "NEWS"), inplace=True) as f:
             for line in f:
                 if f.lineno() == 1:
