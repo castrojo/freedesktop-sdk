@@ -21,7 +21,6 @@ variables:
 sources:
 - kind: git_tag
   url: freedesktop:mesa/demos.git
-  track: main
   ref: mesa-demos-8.5.0-0-gcda7fa14b8484c716441cfb04a1b1dccec57888e
 - kind: patch
   path: patches/mesa-demos/meson-Add-missing-build-dependencies-on-glu.patch
