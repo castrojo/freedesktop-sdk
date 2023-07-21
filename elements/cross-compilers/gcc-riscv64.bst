@@ -10,7 +10,7 @@ build-depends:
 - components/flex.bst
 
 depends:
-- cross-compilers/binutils-aarch64.bst
+- cross-compilers/binutils-riscv64.bst
 
 (@):
 - elements/bootstrap/include/gcc-source.yml
