@@ -9,6 +9,8 @@ import subprocess
 import sys
 from tempfile import TemporaryDirectory
 
+import gitlab
+
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -31,6 +33,7 @@ def git_workdir(new_branch, stable_branch):
 
 
 def process_change(line):
+    
     return f"  * {line}"
 
 
@@ -71,7 +74,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     subparsers = parser.add_subparsers()
 
-    prepare_parser = subparsers.add_parser("prepare", help="TODO")
+    prepare_parser = subparsers.add_parser("prepare", help="Prepare a release")
     prepare_parser.add_argument("-r", "--remote", default="origin", help="TODO")
     prepare_parser.add_argument("stable_branch", help="TODO: E.g. 'release/22.08'")
     prepare_parser.add_argument("new_version", help="TODO")
