@@ -273,7 +273,6 @@ weekly_update_elements:
   variables:
     TRACK_ELEMENTS: track-elements-weekly.bst
     EXTRA_TRACK_ARGS: >-
-      --nodeps
       --bstignore=/dev/null
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly"'
