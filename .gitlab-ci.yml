@@ -216,17 +216,20 @@ check_update_elements:
         ;;
       esac
     - GITLAB_TOKEN=$FREEDESKTOP_API_KEY auto_updater --verbose
-      --bst1
-      --base_branch "${CI_COMMIT_REF_NAME}"
-      --nobuild
-      --overwrite
-      --push
-      --create_mr
-      --shuffle-branches
-      --gitlab_project="freedesktop-sdk/freedesktop-sdk"
-      --max_merge_requests=4
-      track-elements.bst
-      abi/freedesktop-sdk.bst
+    - |
+      TRACK_ELEMENTS=track-elements.bst
+      [ "$STABLE_ABI" = "true" ] && TRACK_ELEMENTS="$TRACK_ELEMENTS abi/freedesktop-sdk.bst"
+      GITLAB_TOKEN=$FREEDESKTOP_API_KEY auto_updater --verbose \
+      --bst1 \
+      --base_branch "${CI_COMMIT_REF_NAME}" \
+      --nobuild \
+      --overwrite \
+      --push \
+      --create_mr \
+      --shuffle-branches \
+      --gitlab_project="freedesktop-sdk/freedesktop-sdk" \
+      --max_merge_requests=4 \
+      $TRACK_ELEMENTS
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "default"'
 
