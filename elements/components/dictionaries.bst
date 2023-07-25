@@ -18,8 +18,10 @@ config:
 sources:
 - kind: git_repo
   url: git_https:git.libreoffice.org/dictionaries.git
-  track: libreoffice-6.2.5.2
-  ref: libreoffice-6.2.5.2-0-g78a4eb197bca11e88a2319fce860658bd757715a
+  track: libreoffice-*
+  exclude:
+  - '*branch-point*'
+  ref: libreoffice-7.6.0.1-0-ge6968b3ff0c6b2703b26d18f7258fb4f52d4358f
 - kind: local
   path: files/dictionaries/install_dicts.py
 - kind: local

@@ -102,8 +102,18 @@ def handle_file(filename):
                 loc = re.sub("(?P<lang>.*)-(?P<country>[A-Z][A-Z])(?P<suffix>(?:-.*)?)", r"\g<lang>_\g<country>\g<suffix>", loc)
                 symlink = symlink_dest + prefix + loc+suffix+ext
                 if symlink != full_dest_file:
-                    print(f" symlink {install_root + symlink} to {full_dest_file}")
-                    os.symlink(os.path.relpath(full_dest_file, os.path.dirname(symlink)), install_root + symlink)
+                    symlink_inst = install_root + symlink
+                    relpath = os.path.relpath(full_dest_file, os.path.dirname(symlink))
+                    print(f" symlink {symlink_inst} to {full_dest_file}")
+                    try:
+                        os.symlink(relpath, symlink_inst)
+                    except FileExistsError:
+                        # Overwrite existing symlink if we have a more specific set of files for the locale.
+                        if basename == f"{loc}{ext}":
+                            os.unlink(symlink_inst)
+                            os.symlink(relpath, symlink_inst)
+
+
 
 for i in sys.argv[1:]:
     handle_file(i)
