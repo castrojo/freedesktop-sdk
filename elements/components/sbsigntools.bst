@@ -19,8 +19,8 @@ variables:
 sources:
 - kind: git_repo
   url: kernel:linux/kernel/git/jejb/sbsigntools.git
-  track: v0.9.4
-  ref: v0.9.4-0-gd52f7bbb73401aab8a1d59e8d0d686ad9641035e
+  track: v*.*.*
+  ref: v0.9.5-0-g9cfca9fe7aa7a8e29b92fe33ce8433e212c9a8ba
 - kind: git_module
   path: lib/ccan.git
   url: git_https:git.ozlabs.org/~ccan/ccan
