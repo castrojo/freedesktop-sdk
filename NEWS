@@ -1,5 +1,221 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08beta.6:
+  * Update python3-editables to 0.5
+  * Update python3-virtualenv to 20.24.2-0
+  * Update linux to v6.4.6-0
+  * Update python3-sphinx to 7.1.0
+  * Update sudo to SUDO_1_9_14p3-0
+  * Update linux to v6.4.5-0
+  * Update python3-pip to 23.2.1
+  * Update python3-certifi to 2023.7.22
+  * Update python3-wheel to 0.41.0-0
+  * Update pipewire-base to 0.3.75-0
+  * extensions/glxinfo/glu.bst: switch to meson
+  * Update glu to glu-9.0.3-0
+  * Update mesa to mesa-23.1.4-0
+  * Update xxhash to v0.8.2-0
+  * Attempt to fix autoconf 2.69 to support riscv64 properly
+  * xz is now part of binary-seed
+  * Add riscv64 to base-sdk architectures and remove unsupported arches
+  * Update podman to v4.6.0-0
+  * Update gstreamer to 1.22.5-0
+  * Update librsvg to 2.56.3-0
+  * Update libblockdev to 3.0.2-1-0
+  * Update openssh to V_9_3_P2-0
+  * cross-compilers/gcc-riscv64.bst: fix a typo to use the proper binutils
+  * bootstrap/build/binutils-stage1.bst: Define *_FOR_TARGET environment variables
+  * patches/gcc: Add patch to fix handling of CXXFLAGS_FOR_BUILD
+  * cross-compilers: Use correct value for bootstrap_build_arch
+  * rust: Update to 1.71.0
+  * Update libseat to 0.8.0-0
+  * Update python3-urllib3 to 2.0.4-0
+  * xfsprogs: drop unneeded patches
+  * Update xfsprogs to v6.4.0-0
+  * Update python3-aiohttp to 3.8.5
+  * Update curl to curl-8_2_0-0
+  * Update python3-virtualenv to 20.24.1-0
+  * Update python3-grpcio to 1.56.2
+  * Update shaderc to v2023.5-0
+  * libarchive: drop unneeded patches
+  * Update libarchive to v3.7.0-0
+  * Update polkit-base to 122-32
+  * Update cmake to v3.27.0-0
+  * tar: Update to 1.35
+  * Update python3-pyyaml to 6.0.1
+  * Update systemd to v253.7-0
+  * Update sudo to SUDO_1_9_14p2-0
+  * Update python3-distlib to 0.3.7
+  * Update meson to 1.2.0-0
+  * Remove obsolete standard-streams element
+  * caladea and carlito: Update to last version
+  * Update glibc to glibc-2.37-27
+  * ci: Don't set a default value for SCHEDULE_TASK
+  * ci: Rename 'default' schedule task to 'daily'
+  * Add glibc to the list of elements that are updated weekly
+  * ci: Add weekly tracking pipeline that updates normally ignored elements
+  * Update python3-virtualenv to 20.24.0-0
+  * Update libnghttp2 to v1.55.1-0
+  * Update python3-pip to 23.2
+  * Move vulkan-validation-layers to sdk
+  * buildbox-common: apply patches to fix build with latest gRPC/Protobuf/CMake
+  * protobuf: update to 23.4 and include the abseil-cpp git module
+  * Port protobuf to cmake
+  * Update grpc to v1.56.2-0
+  * utils: Move static_libraries_allow_list to the tests/check-static-libraries directory
+  * tests: Build check-static-libraries in the utils directory
+  * utils/check-static-libraries.py: Add shebang
+  * tests: Build scan-for-dev-files in the utils directory
+  * tests: Build find-rpath in the utils directory
+  * utils: Move check-abi config files to the tests/check-abi directory
+  * utils: Rename check-abi to check-abi.py
+  * tests: Build check-abi in the utils directory
+  * utils/check-abi: Use command argument to specify check-abi supressions
+  * tests: Rename test-debug-crc to check-debuginfo.bst
+  * tests: Build check-debug-crc in utils directory
+  * utils/check-debug-crc.bst: Specify correct build and runtime dependencies
+  * tests/check-debug-crc.bst: Move check-debug-crc.py to utils
+  * Makefile: Keep all tests together
+  * Update to image with dulwich 0.21.5
+  * Update to bst-plugins-experimental 1.95.7
+  * .gitlab-ci.yml: Set CPU multiplier to 2 for jobs handled by x86_64 runners
+  * .gitlab-ci.yml: Add CPU multiplier for max-jobs calculation
+  * Update libnftnl to libnftnl-1.2.6-0
+  * Update pipewire-base to 0.3.74-0
+  * Update libnghttp2 to v1.55.0-0
+  * Update python3-frozenlist to 1.4.0
+  * Update harfbuzz to 8.0.1-0
+  * Update to image version with flat-manager retry improvements
+  * Update sudo to SUDO_1_9_14p1-0
+  * Update go to go1.20.6-0
+  * Update buildbox-fuse to 1.0.1-0
+  * flat-manager: Backport patches for improved retry handling
+  * Update fwupd to 1.9.3-0
+  * Update python3-cryptography to 41.0.2-0
+  * Update librsvg to 2.56.2-0
+  * Revert "libabigail: Disable compiler optimisations"
+  * Update python3-editables to 0.4
+  * gcc: backport a patch to fix grpc build failure
+  * Update python3-grpcio to 1.56.0
+  * Update qpdf to v11.5.0-0
+  * librsvg: fix tracking to properly exclude development versions
+  * Update extra-cmake-modules to v5.108.0-0
+  * Update harfbuzz to 8.0.0-0
+  * Update python3-charset-normalizer to 3.2.0
+  * Update libproxy to 0.5.3-0
+  * Update gpgme to gpgme-1.21.0-0
+  * Update pipewire-base to 0.3.73-0
+  * Update eos-metrics to Release_5.0.5-0
+  * Update glib to 2.76.4-0
+  * Update libgudev to 238-0
+  * Update inih to r57-0
+  * Update eos-updater to Release_5.0.5-0
+  * Update python3-trove-classifiers to 2023.7.6-0
+  * vm/minimal-secure/deps.bst: Fix build failure due to typo
+  * project.conf: Append to environment-nocache
+  * bootstrap/build/gcc-stage2.bst: Build less compilers
+  * bootstrap/build/binutils-stage1.bst: Disable gprofng
+  * systemd: Enable some missing features
+  * Update python3-lxml to 4.9.3
+  * Update perl-source to v5.38.0-0
+  * Update fuse3 to fuse-3.15.1-0
+  * Update iwd to 2.7-0
+  * Update perl-module-scandeps to 1.32
+  * Update libbytesize to 2.9-0
+  * Update python3-typing-extensions to 4.7.1-0
+  * Update vala to 0.56.9-0
+  * Drop protobuf-c
+  * cairo: Update to 1.17.8 and switch to meson
+  * Update dtc to v1.7.0-0
+  * Update python3-ruamel-yaml to 0.17.32
+  * Update python3-pil to 10.0.0
+  * Update c-ares to cares-1_19_1-0
+  * Update sdl2 to release-2.28.1-0
+  * procps: Patch to fix invalid translation file caught by gettext
+  * xfsprogs: Patch to fix invalid translation file caught by gettext
+  * gettext: Update to 0.22
+  * Update gnupg to gnupg-2.4.3-0
+  * Update libva to 2.19.0-0
+  * Update libva-utils to 2.19.0-0
+  * Update gcab to v1.6-0
+  * Update libblockdev to 3.0.1-1-0
+  * Update cython to 0.29.36
+  * Update wayland-protocols to 1.32-0
+  * Update gnu-config to 91f6a7f
+  * Update poppler to poppler-23.07.0-0
+  * Update jpeg to 3.0.0-0
+  * Unify Perl sources
+  * Update libnvme to v1.5-0
+  * Update python3-ujson to 5.8.0-0
+  * Update foomatic-db to 5b91615
+  * Update libpaper to v2.1.1-0
+  * Update python3-psutil to release-5.9.5-0
+  * ostree: drop upstreamed patch
+  * Update ostree to v2023.5-0
+  * bluez: add ell to fix build
+  * Update bluez to 5.68-0
+  * Exclude release candidates for glog
+  * libproxy: remove unneeded rpath from libpxbackend-1.0.so
+  * Port libproxy to Meson
+  * Update libproxy to 0.5.2-0
+  * git: Add missing dependencies for git send-email
+  * pipewire: fix rpath check for pipewire modules
+  * pipewire: move raop-discover module to daemon domain
+  * git: Remove -dirty from version
+  * Add BuildStream 2 to freedesktop-sdk
+  * Update ca-certificates to ca-certificates-2010_63-3_fc14-139
+  * Update p11-kit to 0.25.0-0
+  * Update elements/extensions/vulkaninfo/vulkan-tools to sdk-1.3.250.1-0
+  * Update vulkan-headers to sdk-1.3.250.1-0
+  * Update vulkan-icd-loader to sdk-1.3.250.1-0
+  * Update glib-networking to 2.76.1-0
+  * Update vulkan-validation-layers to sdk-1.3.250.1-0
+  * Update glslang to sdk-1.3.250.1-0
+  * Update spirv-tools to sdk-1.3.250.1-0
+  * generate_cve_report: Fix format string
+  * generate_cve_report: Strip newlines from summary
+  * generate_cve_report: Use libversion for version comparison
+  * Update udisks to udisks-2.10.0-0
+  * libblockdev.bst: add libnvme to fix build
+  * Update libblockdev to 3.0-1-0
+  * Update kbd to v2.6.1-0
+  * Update libwebp to v1.3.1-0
+  * Update networkmanager to 1.42.8-0
+  * Update python3-typing-extensions to 4.7.0-0
+  * slang: Update to 2.3.3
+  * perf.bst: add libtraceevent to fix build
+  * Update util-linux-base to v2.39.1-0
+  * Update sudo to SUDO_1_9_14-0
+  * gdb: Install libbfd since it is not matching binutils'
+  * glibc: Capture additional debug files
+  * Update pipewire-base to 0.3.72-0
+  * elfutils: Update to 0.189
+  * stripper: Do not call debugedit while scanning directories
+  * Update strace to v6.4-0
+  * Update iproute2 to v6.4.0-0
+  * Switch to new image with buildbox 1.0
+  * linux-pam: Update to 1.5.3
+  * gnutls: Update to 3.8.0
+  * vim: Update to 9.0.1667
+  * tcl: Update to 8.6.13
+  * sndfile: Update to 1.2.0
+  * ruby: Update to 3.2.2
+  * protobuf-c: Update to 1.4.1 and switch to git
+  * parted: Update to 3.6
+  * nspr: Update to 4.35
+  * noto-emoji: Update to 2.038
+  * mythes: Update to 1.2.5 and switch to git
+  * mtools: Update to 4.0.43
+  * mpg123: Update to 1.31.3
+  * ostree: Update upstree fix for flatpak to work
+  * ncurses: Update to 6.4
+  * Fix module signing and make linux.bst reproducible
+  * Update elements/bootstrap/gnu-config to 4ad4bb7
+  * Update linux-firmware to 20230625-0
+  * CONTRIBUTING.md: master uses buildstream 2
+  * Update freetype to VER-2-13-1-0
+  * Fix reference to targz_blob for oci-builder
+
 freedesktop-sdk-23.08beta.5:
   * Update libflac to 1.4.3-0
   * Update mesa to mesa-23.1.3-0
