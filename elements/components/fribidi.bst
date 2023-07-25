@@ -20,5 +20,5 @@ public:
 sources:
 - kind: git_repo
   url: github:fribidi/fribidi.git
-  track: v1.0.12
-  ref: v1.0.12-0-g6428d8469e536bcbb6e12c7b79ba6659371c435a
+  track: v*.*.*
+  ref: v1.0.13-0-gb54871c339dabb7434718da3fed2fa63320997e5
