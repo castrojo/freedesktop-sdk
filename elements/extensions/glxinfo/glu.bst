@@ -1,9 +1,9 @@
-kind: autotools
+kind: meson
 
 (@): elements/extensions/include/app.yml
 
 depends:
-- filename: public-stacks/buildsystem-autotools.bst
+- filename: public-stacks/buildsystem-meson.bst
   type: build
 - filename: components/mesa-headers.bst
   type: build
