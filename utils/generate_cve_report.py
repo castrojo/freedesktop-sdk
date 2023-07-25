@@ -55,7 +55,7 @@ def extract_product_vulns_sub(node):
 
 def extract_product_vulns(tree):
     for item in tree['CVE_Items']:
-        summary = item['cve']['description']['description_data'][0]['value']
+        summary = item['cve']['description']['description_data'][0]['value'].replace('\n', ' ').strip()
         scorev2 = item['impact'].get('baseMetricV2', {}).get('cvssV2', {}).get('baseScore')
         scorev3 = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('baseScore')
 
