@@ -9,5 +9,5 @@ depends:
 sources:
 - kind: git_repo
   url: github:pallets/click.git
-  track: 7.*
-  ref: 7.1.2-0-g1784558ed7c75c65764d2a434bd9cbb206ca939d
+  track: 8.*
+  ref: 8.1.6-0-g3793f5b2d79d5999552b970bf17c37588efcf008
