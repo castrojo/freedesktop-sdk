@@ -9,5 +9,5 @@ depends:
 sources:
 - kind: git_repo
   url: github:akornatskyy/wheezy.template.git
-  track: '0.1.167'
-  ref: 0.1.167-0-g544b5e2a35536f647d409b0740a72adea6adf7aa
+  track: '*.*.*'
+  ref: 3.1.0-0-gf9f55e37e16d9b4fd34bdc0f4b91a122382f7adb
