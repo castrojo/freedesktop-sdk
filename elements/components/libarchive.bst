@@ -19,5 +19,3 @@ sources:
   url: github:libarchive/libarchive.git
   track: master
   ref: v3.7.0-0-gee45796171324519f0c0bfd012018dd099296336
-- kind: patch_queue
-  path: patches/libarchive
