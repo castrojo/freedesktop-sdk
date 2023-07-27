@@ -21,5 +21,5 @@ config:
 sources:
 - kind: git_tag
   url: gnome:zenity.git
-  track: master
-  ref: 3.44.0-0-g7bf8c8910d34bfb2b883b32118b93b68d44dd77b
+  track: zenity-3-44
+  ref: 3.44.1-0-g5cb56e3e87dcbb1fb423ecee436a62bde483b611
