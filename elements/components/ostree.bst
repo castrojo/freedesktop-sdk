@@ -47,5 +47,8 @@ sources:
     bsdiff:
       checkout: true
       url: github:mendsley/bsdiff.git
+    composefs:
+      checkout: true
+      url: github:containers/composefs.git
 - kind: patch
   path: patches/ostree/no-boot-symlink.patch
