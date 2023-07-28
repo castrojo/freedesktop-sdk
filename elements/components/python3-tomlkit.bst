@@ -10,5 +10,5 @@ sources:
 - kind: pypi
   name: tomlkit
   ref:
-    sha256sum: 9330fc7faa1db67b541b28e62018c17d20be733177d290a13b24c62d1614e0c3
-    suffix: 10/37/dd53019ccb72ef7d73fff0bee9e20b16faff9658b47913a35d79e89978af/tomlkit-0.11.8.tar.gz
+    sha256sum: 38e1ff8edb991273ec9f6181244a6a391ac30e9f5098e7535640ea6be97a7c86
+    suffix: 0d/07/d34a911a98e64b07f862da4b10028de0c1ac2222ab848eaf5dd1877c4b1b/tomlkit-0.12.1.tar.gz
