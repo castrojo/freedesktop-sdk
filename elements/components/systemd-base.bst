@@ -19,7 +19,7 @@ build-depends:
 - components/util-linux-full.bst
 - components/linux-pam.bst
 - components/kmod.bst
-- components/gnu-efi-maybe.bst
+- components/pyelftools.bst
 - components/libxslt.bst
 - components/docbook-xsl.bst
 - components/cryptsetup-lvm2-stage1.bst
@@ -65,7 +65,7 @@ variables:
     -Dusers-gid=100
     -Dopenssl=true
     -Dpam=true
-    -Dgnu-efi=%{efi}
+    -Dbootloader=%{efi}
     -Defi=%{efi}
     -Dfirstboot=true
     -Dzlib=true

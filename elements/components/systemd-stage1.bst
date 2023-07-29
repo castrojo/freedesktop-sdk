@@ -30,7 +30,7 @@ variables:
     -Dusers-gid=100
     -Dopenssl=true
     -Dpam=true
-    -Dgnu-efi=false
+    -Dbootloader=false
     -Defi=false
     -Dfirstboot=true
     -Dzlib=true

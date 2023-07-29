@@ -11,7 +11,6 @@ runtime-depends:
 - components/linux-pam.bst
 - components/kmod.bst
 - components/systemd-manifest.bst
-- components/gnu-efi-maybe.bst
 - components/tzdata.bst
 - components/shadow.bst
 - components/util-linux-full.bst
