@@ -77,4 +77,4 @@ sources:
 - kind: git_tag
   url: github:openssl/openssl.git
   track: OpenSSL_1_1_1-stable
-  ref: OpenSSL_1_1_1s-0-g129058165d195e43a0ad10111b0c2e29bdf65980
+  ref: OpenSSL_1_1_1u-0-g70c2912f635aac8ab28629a2b5ea0c09740d2bda
