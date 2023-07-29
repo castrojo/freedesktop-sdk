@@ -4,17 +4,19 @@
 import argparse
 from contextlib import contextmanager
 import fileinput
+
+# TODO: pathlib?
 import os
 import re
 import shlex
 import subprocess
-import sys
 from tempfile import TemporaryDirectory
 
 import gitlab
 
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+FD_SDK_ID = 4339844
 
 
 def run_git(cmd, **kwargs):
@@ -22,11 +24,12 @@ def run_git(cmd, **kwargs):
 
 
 @contextmanager
-def git_workdir(new_branch, stable_branch):
+def git_workdir(ref, branch=None):
     try:
         with TemporaryDirectory() as tmpdir:
+            branch_args = [] if branch is None else ["-b", branch]
             run_git(
-                ["worktree", "add", "-b", new_branch, tmpdir, stable_branch],
+                ["worktree", "add", *branch_args, tmpdir, ref],
                 cwd=SCRIPT_DIR,
             )
             yield tmpdir
@@ -72,13 +75,15 @@ def prepare(args):
     stable_branch = f"{args.remote}/{args.stable_branch}"
 
     run_git(["fetch", "--prune", args.remote])
-    with git_workdir(news_branch, stable_branch) as git_dir:
+    with git_workdir(stable_branch, branch=news_branch) as git_dir:
         previous_tag = run_git(
             ["describe", "--abbrev=0", stable_branch],
             cwd=git_dir,
         )
         changelog = generate_changelog(previous_tag, git_dir)
-        with fileinput.FileInput(os.path.join(git_dir, "NEWS"), inplace=True) as f:
+        with fileinput.FileInput(
+            os.path.join(git_dir, "NEWS"), inplace=True, encoding="utf-8"
+        ) as f:
             for line in f:
                 if f.lineno() == 1:
                     line += f"\n{args.new_version}:\n{changelog}\n"
@@ -95,11 +100,34 @@ def prepare(args):
 
 def publish(args):
     gl = gitlab.Gitlab("https://gitlab.com", args.api_token)
-    run_git(
-        ["tag", "-s", args.new_version, "-m", args.new_version, args.commit],
-        cwd=SCRIPT_DIR,
+    gl.auth()
+    # run_git(
+    #        ["tag", "-s", args.new_version, "-m", args.new_version, args.commit],
+    #       cwd=SCRIPT_DIR,
+    #  )
+    # run_git(["push", args.remote, args.new_version], cwd=SCRIPT_DIR)
+    readlines = False
+    loglines = []
+    with git_workdir(args.commit) as git_dir:
+        with open(os.path.join(git_dir, "NEWS"), encoding="utf-8") as f:
+            for line in f:
+                if readlines:
+                    if line.strip() == "":
+                        break
+                    loglines.append(line[2:])
+                if line.startswith(args.new_version):
+                    readlines = True
+            else:
+                raise RuntimeError()
+    changelog = "".join(loglines).strip()
+    project = gl.projects.get(FD_SDK_ID, lazy=True)
+    project.releases.create(
+        {
+            "name": args.new_version,
+            "tag_name": args.new_version,
+            "description": changelog,
+        }
     )
-    run_git(["push", args.remote, args.new_version], cwd=SCRIPT_DIR)
 
 
 def main():
