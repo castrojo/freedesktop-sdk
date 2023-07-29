@@ -50,8 +50,8 @@ public:
 sources:
 - kind: git_repo
   url: freedesktop:polkit/polkit.git
-  track: master
-  ref: 122-32-gf17b9ad55a69f42202a9f00871ecc9b354b130af
+  track: '[0-9]*'
+  ref: 123-0-gfc8b07e71d99f88a29258cde99b913b44da1846d
 - kind: local
   path: files/polkit/sysusers.conf
   directory: extra
