@@ -93,19 +93,28 @@ def prepare(args):
         )
 
 
+def publish(args):
+    gl = gitlab.Gitlab("https://gitlab.com", args.api_token)
+    run_git(
+        ["tag", "-s", args.new_version, "-m", args.new_version, args.commit],
+        cwd=SCRIPT_DIR,
+    )
+    run_git(["push", args.remote, args.new_version], cwd=SCRIPT_DIR)
+
+
 def main():
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
-    subparsers = parser.add_subparsers()
-
-    prepare_parser = subparsers.add_parser("prepare", help="Prepare a release")
-    prepare_parser.add_argument(
+    parser.add_argument(
         "-r",
         "--remote",
         default="origin",
         help="The configured remote to perform git operations against",
     )
+    subparsers = parser.add_subparsers()
+
+    prepare_parser = subparsers.add_parser("prepare", help="Prepare a release")
     prepare_parser.add_argument(
         "-p",
         "--push",
@@ -118,6 +127,12 @@ def main():
     )
     prepare_parser.add_argument("new_version", help="The new release tag/version")
     prepare_parser.set_defaults(func=prepare)
+
+    publish_parser = subparsers.add_parser("publish", help="Publish a release")
+    publish_parser.add_argument("api_token", help="The API token to TODO")
+    publish_parser.add_argument("new_version", help="The new release tag/version")
+    publish_parser.add_argument("commit", help="The commit to tag")
+    publish_parser.set_defaults(func=publish)
 
     args = parser.parse_args()
     args.func(args)
