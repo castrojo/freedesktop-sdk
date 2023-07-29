@@ -142,19 +142,11 @@ sources:
 - kind: git_repo
   url: github:nss-dev/nss.git
   # https://wiki.mozilla.org/NSS:Release_Versions
-  # Next ESR will be 3.92
-  track: NSS_3_79_*_RTM
-  ref: NSS_3_79_4_RTM-0-g033b99629659db93c56e0533a2db57e62828d22a
+  # Next ESR is unknown
+  track: NSS_3_92*_RTM
+  ref: NSS_3_92_RTM-0-g9f609fe89b23c41b5a2f06090b9fe6145d6f8b60
   directory: nss
 - kind: patch
   path: patches/nss/pkg-config-libdir.patch
-- kind: patch
-  # backport from upstream git edf5cb12 to fix build GCC 13 build with
-  # directory prefixes adapted by "sed 's:a/:nss.old/nss/:; s:b/:nss/nss/:'"
-  path: patches/nss/0001-Bug-1771273-cpputil-databuffer.h-add-missing-cstdint.patch
-- kind: patch
-  # backport from upstream git 4e7e332 to fix build GCC 13 build with
-  # directory prefixes adapted by "sed 's:a/:nss.old/nss/:; s:b/:nss/nss/:'"
-  path: patches/nss/0001-Bug-1812671-build-failure-while-implicitly-casting-S.patch
 - kind: local
   path: files/nss/load-p11-kit-trust.c
