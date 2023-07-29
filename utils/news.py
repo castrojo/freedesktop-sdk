@@ -10,6 +10,7 @@ import os
 import re
 import shlex
 import subprocess
+import sys
 from tempfile import TemporaryDirectory
 
 import gitlab
@@ -98,35 +99,42 @@ def prepare(args):
         )
 
 
+def read_changelog(git_dir, new_version):
+    lines = []
+    reading = False
+    with open(os.path.join(git_dir, "NEWS"), encoding="utf-8") as f:
+        for line in f:
+            if reading:
+                if line.strip() == "":
+                    break
+                lines.append(line[2:])
+            if line.startswith(new_version):
+                reading = True
+        else:
+            print(
+                f"error: Failed to find NEWS entry for {new_version}", file=sys.stderr
+            )
+            sys.exit(1)
+    return "".join(lines).strip()
+
+
 def publish(args):
     gl = gitlab.Gitlab("https://gitlab.com", args.api_token)
     gl.auth()
-    # run_git(
-    #        ["tag", "-s", args.new_version, "-m", args.new_version, args.commit],
-    #       cwd=SCRIPT_DIR,
-    #  )
-    # run_git(["push", args.remote, args.new_version], cwd=SCRIPT_DIR)
-    readlines = False
-    loglines = []
     with git_workdir(args.commit) as git_dir:
-        with open(os.path.join(git_dir, "NEWS"), encoding="utf-8") as f:
-            for line in f:
-                if readlines:
-                    if line.strip() == "":
-                        break
-                    loglines.append(line[2:])
-                if line.startswith(args.new_version):
-                    readlines = True
-            else:
-                raise RuntimeError()
-    changelog = "".join(loglines).strip()
+        changelog = read_changelog(git_dir, args.new_version)
+        run_git(
+            ["tag", "-asm", args.new_version, args.new_version],
+            cwd=SCRIPT_DIR,
+        )
+        run_git(["push", args.remote, args.new_version], cwd=SCRIPT_DIR)
     project = gl.projects.get(FD_SDK_ID, lazy=True)
     project.releases.create(
-        {
-            "name": args.new_version,
-            "tag_name": args.new_version,
-            "description": changelog,
-        }
+       {
+           "name": args.new_version,
+           "tag_name": args.new_version,
+           "description": changelog,
+       }
     )
 
 
