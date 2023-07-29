@@ -1,13 +1,13 @@
-diff --git a/configure.ac b/configure.ac
-index 6482944f..f8e5eb64 100644
---- a/configure.ac
-+++ b/configure.ac
-@@ -4,7 +4,7 @@
- # All rights reserved.
+diff --git a/bootstrap b/bootstrap
+index df576d18..798abeae 100755
+--- a/bootstrap
++++ b/bootstrap
+@@ -1,7 +1,7 @@
+ #!/bin/sh
+ set -e
  
- AC_INIT([tpm2-tss],
--        [m4_esyscmd_s([git describe --tags --always --dirty])],
-+        [m4_esyscmd_s([git describe --tags --always])],
-         [https://github.com/tpm2-software/tpm2-tss/issues],
-         [],
-         [https://github.com/tpm2-software/tpm2-tss])
+-git describe --tags --always --dirty > VERSION
++git describe --tags --always > VERSION
+ 
+ # generate list of source files for use in Makefile.am
+ # if you add new source files, you must run ./bootstrap again
