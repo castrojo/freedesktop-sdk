@@ -1,5 +1,102 @@
 Freedesktop-SDK
 
+freedesktop-sdk-21.08.20:
+  * freedesktop-sdk: Bump ABI reference due to skip
+  * Update btrfs-progs to v6.3.3-0
+  * Update openssl to OpenSSL_1_1_1u-0
+  * Update python3-sphinx to 7.1.1
+  * Update python3-tomlkit to 0.12.1
+  * Update python3-dbusmock to 0.29.1
+  * generate_cve_report: Replace newlines in summary with spaces
+  * Add glibc to the list of elements that are updated weekly
+  * bstignore: Remove non-existent element
+  * ci: Don't set a default value for SCHEDULE_TASK
+  * ci: Rename 'default' schedule task to 'daily'
+  * ci: Add weekly tracking pipeline that updates normally ignored elements
+  * ci: Make update checking uninterruptible
+  * ci: Automate tracking of ABI reference for stable branches
+  * ostree: backport fixes from master
+  * Update ostree to v2023.5-0
+  * gawk: drop unneeded patches
+  * Update gawk to gawk-5.2.2-0
+  * lvm2: build in source directory
+  * Update lvm2 to v2_03_21-0
+  * Update libcbor to v0.10.2-0
+  * Update xcb-util to xcb-util-0.4.1-0
+  * Update ca-certificates to ca-certificates-2010_63-3_fc14-140
+  * Update cmake to v3.27.1-0
+  * Update vala to 0.56.9-0
+  * extensions/glxinfo/glu.bst: switch to meson
+  * Update glu to glu-9.0.3-0
+  * Update python3-editables to 0.5
+  * Update python3-virtualenv to 20.24.2
+  * Update python3-sphinx to 7.1.0
+  * Update librsvg to 2.48.12-0
+  * Update python3-certifi to 2023.7.22
+  * .gitlab-ci.yml: Set CPU multiplier to 2 for jobs handled by x86_64 runners
+  * .gitlab-ci.yml: Add CPU multiplier for max-jobs calculation
+  * Update librsvg to 2.48.11-0
+  * Update python3-virtualenv to 20.24.1
+  * Update python3-aiohttp to 3.8.5
+  * Update cmake to v3.27.0-0
+  * Update python3-distlib to 0.3.7
+  * Update python3-pyyaml to 6.0.1
+  * Only allow pip 23.0.x into 21.08
+  * Update python3-trove-classifiers to 2023.7.6
+  * Update python3-hatchling to 1.18.0
+  * Update python3-editables to 0.4
+  * Update python3-pluggy to 1.2.0
+  * Update python3-typing-extensions to 4.7.1
+  * Freeze Mesa to 21.3
+  * Update python3-virtualenv to 20.24.0
+  * Add hatchling build system
+  * Update python3-zipp to 3.16.2
+  * Update python3-zipp to 3.16.1
+  * Update libnftnl to libnftnl-1.2.6-0
+  * Update python3-frozenlist to 1.4.0
+  * Update to image version with flat-manager retry improvements
+  * Update btrfs-progs to v6.3.2-0
+  * Revert "libabigail: Disable compiler optimisations"
+  * Update python3-importlib-resources to 6.0.0
+  * Update inih to r57-0
+  * Update python3-zipp to 3.16.0
+  * Update eos-metrics to Release_5.0.5-0
+  * Update python3-charset-normalizer to 3.2.0
+  * Update python3-importlib-metadata to 6.8.0
+  * Update libbytesize to 2.9-0
+  * Update fuse3 to fuse-3.15.1-0
+  * Update python3-lxml to 4.9.3
+  * Update cython to 0.29.36
+  * Update gnu-config to 91f6a7f
+  * Update wayland-protocols to 1.32-0
+  * Update poppler to poppler-23.07.0-0
+  * Update foomatic-db to 5b91615
+  * Update ca-certificates to ca-certificates-2010_63-3_fc14-139
+  * stripper: Ensure debug sections are first decompressed prior to optimising
+  * stripper: Set .gnu_debugaltlink sections relative to debug files
+  * stripper: Separate debug file compression
+  * stripper: Split out function to get debug file path
+  * generate_cve_report: Use libversion for version comparison
+  * ed: Set cpe vendor
+  * Ignore invalid CVE-2007-2768 for openssh
+  * Ignore CVE-2000-0006 for strace
+  * utils/generate_cve_report.py: escape special characters in summary
+  * Update kbd to v2.6.1-0
+  * Update python3-typing-extensions to 4.7.0
+  * Update libabigail to libabigail-2.3-4-g676d8a8149a63d5d77b31ad6f6dc7f44500dbed0
+  * Update strace to v6.4-0
+  * libabigail: Disable compiler optimisations
+  * libabigail: Update to 2.3
+  * check-abi: Create a separate archive for header files
+  * check-abi: Split archive creation into its own function
+  * check-abi: Also generate tarballs on seg fault
+  * check-abi: Run with output streams unbuffered
+  * ci: Add pylint check for check-abi script
+  * check-abi: Appease pylint
+  * check-abi: Add message when ABI is incompatible
+  * Update freedesktop-sdk to freedesktop-sdk-21.08.19-0
+  * Update gnu-config to 4ad4bb7
+
 freedesktop-sdk-21.08.19:
   * Update libpng to v1.6.40
   * Update pycairo to 1.24.0
