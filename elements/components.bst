@@ -45,6 +45,7 @@ depends:
 - components/c-ares.bst
 - components/ca-certificates.bst
 - components/cairo.bst
+- components/catatonit.bst
 - components/ccache.bst
 - components/ccid.bst
 - components/clean-xml-catalog.bst

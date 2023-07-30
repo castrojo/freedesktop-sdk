@@ -14,6 +14,7 @@ depends:
 - bootstrap-import.bst
 
 runtime-depends:
+- components/catatonit.bst
 - components/conmon.bst
 - components/cni.bst
 - components/crun.bst
