@@ -42,6 +42,7 @@ variables:
     -Dbluez5-codec-aptx=disabled
     -Dlibcamera=disabled
     -Dlibcanberra=disabled
+    -Dbluez5-codec-lc3=disabled
     -Dbluez5-codec-lc3plus=disabled
     -Dlv2=disabled
     -Dlibjack-path=%{libdir}
@@ -128,4 +129,4 @@ sources:
   track: '*.*.*'
   exclude:
   - '*.*.9*'
-  ref: 0.3.75-0-ga3bd0f7a0a8dec9045deeb5eb3eb92b09ff75d57
+  ref: 0.3.76-0-g9bcc90fdc3ece16a4e0a91446641e56332b979fd
