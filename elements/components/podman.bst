@@ -17,6 +17,7 @@ runtime-depends:
 - components/conmon.bst
 - components/cni.bst
 - components/crun.bst
+- components/netavark.bst
 - components/slirp4netns.bst
 - components/fuse-overlayfs.bst
 - components/iptables.bst

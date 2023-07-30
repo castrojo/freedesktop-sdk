@@ -1,6 +1,7 @@
 kind: stack
 
 depends:
+- components/aardvark-dns.bst
 - components/acpica-tools.bst
 - components/alsa-lib.bst
 - components/alsa-plugins.bst
@@ -310,6 +311,7 @@ depends:
 - components/mythes.bst
 - components/nano.bst
 - components/nasm.bst
+- components/netavark.bst
 - components/nettle.bst
 - components/networkmanager.bst
 - components/newt.bst
