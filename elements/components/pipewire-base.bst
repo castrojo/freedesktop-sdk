@@ -42,6 +42,7 @@ variables:
     -Dbluez5-codec-aptx=disabled
     -Dlibcamera=disabled
     -Dlibcanberra=disabled
+    -Dbluez5-codec-lc3=disabled
     -Dbluez5-codec-lc3plus=disabled
     -Dlv2=disabled
     -Dlibjack-path=%{libdir}
