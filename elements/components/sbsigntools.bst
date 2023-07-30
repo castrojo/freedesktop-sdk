@@ -25,5 +25,3 @@ sources:
   path: lib/ccan.git
   url: git_https:git.ozlabs.org/~ccan/ccan
   ref: b1f28e17227f2320d07fe052a8a48942fe17caa5
-- kind: patch
-  path: patches/sbsigntools/openssl3.patch
