@@ -342,6 +342,7 @@ depends:
 - components/p11-kit.bst
 - components/pango.bst
 - components/parted.bst
+- components/passt.bst
 - components/patch.bst
 - components/patchelf.bst
 - components/pciutils.bst
