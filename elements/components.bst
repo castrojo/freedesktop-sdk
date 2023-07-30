@@ -498,6 +498,7 @@ depends:
 - components/rust-bindgen.bst
 - components/rust.bst
 - components/sbc.bst
+- components/sbsigntools-maybe.bst
 - components/sdl2-image.bst
 - components/sdl2-mixer.bst
 - components/sdl2-net.bst
