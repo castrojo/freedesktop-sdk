@@ -26,7 +26,6 @@ public:
 build-depends:
 - platform.bst
 - components/nsswitch-config.bst
-- components/python3-usercustomize.bst
 - components/python3-sitecustomize.bst
 - multiarch/multiarch-platform.bst
 - integration/split-locales.bst

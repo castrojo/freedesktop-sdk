@@ -486,7 +486,6 @@ depends:
 - components/python3-typogrify.bst
 - components/python3-ujson.bst
 - components/python3-urllib3.bst
-- components/python3-usercustomize.bst
 - components/python3-virtualenv.bst
 - components/python3-wheel.bst
 - components/python3-wheezy-template.bst
