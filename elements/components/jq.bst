@@ -19,6 +19,8 @@ sources:
 - kind: git_tag
   url: github:stedolan/jq.git
   track: master
+  exclude:
+  - '*rc*'
   ref: jq-1.6-0-g2e01ff1fb69609540b2bdc4e62a60499f2b2fb8e
 - kind: git_module
   path: modules/oniguruma
