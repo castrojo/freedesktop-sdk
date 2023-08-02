@@ -18,6 +18,7 @@ config:
       "cflags": ($ENV.CFLAGS // ""),
       "cxxflags": ($ENV.CXXFLAGS // ""),
       "cppflags": ($ENV.CPPFLAGS // ""),
+      "rustflags": ($ENV.RUSTFLAGS // ""),
       "ldflags": "-L/app/lib \($ENV.LDFLAGS // "")"
     }' > defaults.json
 
