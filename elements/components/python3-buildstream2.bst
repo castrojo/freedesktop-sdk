@@ -17,6 +17,7 @@ runtime-depends:
 - components/python3-blessings.bst
 - components/python3-click.bst
 - components/python3-dateutil.bst
+- components/python3-dulwich.bst
 - components/python3-grpcio.bst
 - components/python3-jinja2.bst
 - components/python3-pluginbase.bst
