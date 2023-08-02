@@ -16,10 +16,14 @@ build-depends:
 - filename: bootstrap/glibc.bst
   config:
     location: "%{sysroot}"
+- filename: bootstrap/libxcrypt.bst
+  config:
+    location: "%{sysroot}"
 
 runtime-depends:
 - bootstrap/glibc.bst
 - bootstrap/binutils.bst
+- bootstrap/libxcrypt.bst
 
 (@):
 - elements/bootstrap/include/gcc-arch-opts.yml

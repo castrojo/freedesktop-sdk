@@ -82,6 +82,12 @@ variables:
 config:
   install-commands:
     (>):
+    # https://www.linuxfromscratch.org/lfs/view/11.3/chapter05/gcc-pass1.html
+    # needed for building libxcrypt
+    - |
+      cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
+        `dirname $(%{install-root}%{bindir}/%{triplet}-gcc -print-libgcc-file-name)`/include/limits.h
+
     - |
       rm "%{install-root}%{bindir}/%{triplet}-c++"
       ln -s "%{triplet}-g++" "%{install-root}%{bindir}/%{triplet}-c++"

@@ -14,6 +14,9 @@ build-depends:
 - filename: bootstrap/glibc.bst
   config:
     location: "%{sysroot}"
+- filename: bootstrap/libxcrypt.bst
+  config:
+    location: "%{sysroot}"
 
 runtime-depends:
 - bootstrap/build/binutils-stage1.bst
