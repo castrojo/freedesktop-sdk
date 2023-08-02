@@ -10,7 +10,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "1d280916fa12ee45896a0363a7c78c33c1a38905"
+  DOCKER_IMAGE_ID: "a680da765c4e040ecd9bf587824117f91e451fcf"
 
   # Generic variable for invoking buildstream
   BST: bst --colors
@@ -74,6 +74,7 @@ before_script:
     # Force higher parallelity
     build:
       max-jobs: ${MAX_JOBS}
+      retry-failed: True
     scheduler:
       builders: ${BUILD_TASKS}
       network-retries: 4
