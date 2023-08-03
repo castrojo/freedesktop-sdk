@@ -183,6 +183,6 @@ sources:
   url: fedora_rpms:ca-certificates.git
   track: rawhide
   track-tags: false
-  ref: ca-certificates-2010_63-3_fc14-140-g0ea28921fee2cd846567b4239fe5f84da0108b5f
+  ref: ca-certificates-2010_63-3_fc14-141-g19f1fee1e6c804ddaf0f57485678bc9291e2af97
 - kind: patch
   path: patches/ca-certificates/directory-hash-writable.patch
