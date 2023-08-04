@@ -57,7 +57,7 @@ bool has_debuglink(fd_t& fd) {
   {
     Elf32_Ehdr header;
     mapped_file m(fd);
-    auto mm_header = static_cast<Elf32_Ehdr const*>(m.ptr(0));
+    auto mm_header = m.ptr<Elf32_Ehdr>(0);
     if ( get_endianness(mm_header) == endianness::be ) {
       header_be(mm_header, header);
     }
@@ -73,7 +73,7 @@ bool has_debuglink(fd_t& fd) {
   }
   mapped_file m(fd);
   Elf64_Ehdr header;
-  auto mm_header = static_cast<Elf64_Ehdr const*>(m.ptr(0));
+  auto mm_header = m.ptr<Elf64_Ehdr>(0);
   if ( get_endianness(mm_header) == endianness::be ) {
     header_be(mm_header, header);
   }
