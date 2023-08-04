@@ -62,9 +62,9 @@ sect_header_le(Header const* mm_header);
 
 template <typename Header>
 section_header_t<Header> const
-get_section(mapped_file const& file, Header const& header, unsigned n) {
+get_section(mapped_file& file, Header const& header, unsigned n) {
   assert((header.e_shoff + header.e_shentsize*n) < file.get_size());
-  auto secthdr = static_cast<section_header_t<Header> const*>(file.ptr(header.e_shoff + header.e_shentsize*n));
+  auto secthdr = file.ptr<section_header_t<Header>>(header.e_shoff + header.e_shentsize*n);
   if ( get_endianness(&header) == endianness::be ) {
     return sect_header_be(secthdr);
   }
@@ -72,7 +72,7 @@ get_section(mapped_file const& file, Header const& header, unsigned n) {
 }
 
 template <typename Header>
-bool has_debuglink(mapped_file const& file, Header const& header) {
+bool has_debuglink(mapped_file& file, Header const& header) {
   if ((header.e_shoff + header.e_shentsize*header.e_shnum) > file.get_size()) {
     throw std::runtime_error("Unexpected values for section headers");
   }
@@ -83,7 +83,7 @@ bool has_debuglink(mapped_file const& file, Header const& header) {
   if ((strheader.sh_offset+strheader.sh_size) > file.get_size()) {
     throw std::runtime_error("String table section outside of file");
   }
-  auto strtbl = static_cast<char const*>(file.ptr(strheader.sh_offset));
+  auto strtbl = file.ptr<char>(strheader.sh_offset, strheader.sh_size);
   for (unsigned i = 0; i < header.e_shnum; ++i) {
     auto section = get_section(file, header, i);
     if (section.sh_name >= strheader.sh_size) {

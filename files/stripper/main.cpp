@@ -80,7 +80,7 @@ struct script {
       return nullptr;
     }
     mapped_file m(fd);
-    auto mm_header = static_cast<Elf32_Ehdr const*>(m.ptr(0));
+    auto mm_header = m.ptr<Elf32_Ehdr>(0);
     std::string magic(ELFMAG);
     if (magic.compare(0, SELFMAG, (char*)(mm_header->e_ident), SELFMAG) != 0) {
       return nullptr;
