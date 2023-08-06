@@ -1,20 +1,23 @@
-kind: autotools
+kind: meson
 
 depends:
 - bootstrap-import.bst
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 - components/flatpak.bst
 - components/fontconfig.bst
 - components/fuse3.bst
 - components/geoclue.bst
 - components/glib.bst
 - components/pipewire.bst
+- components/docbook-xsl.bst
+- components/xmlto.bst
 
 variables:
-  conf-local: >-
-    --disable-libportal
+  meson-local: >-
+    -Dlibportal=disabled
+    -Dpytest=disabled
 
 public:
   bst:
