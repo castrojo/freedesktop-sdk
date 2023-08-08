@@ -131,9 +131,5 @@ public:
 
 sources:
 - kind: tar
-  url: tar_https:static.rust-lang.org/dist/rustc-1.71.0-src.tar.xz
-  ref: 5814699031aafdcc2e2f71fc9b389678cd7042350d1583da061463d8e88681c7
-- kind: patch
-  # applied in upstream git 67b5990472e3cac643d8cf90f45fe42201ddec3c
-  # https://github.com/rust-lang/rust/issues/113678
-  path: patches/rust/0001-Revert-Fix-x-test-lint-docs-when-download-rustc-is-e.patch
+  url: tar_https:static.rust-lang.org/dist/rustc-1.71.1-src.tar.xz
+  ref: 371af0fbe04051e20a74dbea6d4e4e548f10f15309c49cae2688afb882b6c7f1
