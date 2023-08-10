@@ -12,7 +12,7 @@ sources:
 - kind: git_repo
   url: github:faust-streaming/cChardet.git
   track: '*.*.*'
-  ref: v2.1.18-0-gb8f0d3b493830ced8ca2f8e4c686bbeda1f12f8e
+  ref: v2.1.19-0-g3ab4c8b6c82559ecb03a623a825fa3c5c08e5ec8
 - kind: git_module
   path: src/ext/uchardet
   url: github:PyYoshi/uchardet.git
