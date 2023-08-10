@@ -44,6 +44,26 @@ struct result_t {
   std::vector<std::string> source_files;
 };
 
+struct ensure_writable {
+  explicit ensure_writable(std::filesystem::path path): path(std::move(path)) {
+    auto st = status(this->path);
+    permissions = st.permissions();
+    if (0 != access(this->path.c_str(), W_OK)) {
+      chmod(this->path.c_str(), 0755);
+    }
+  }
+
+  ensure_writable(ensure_writable const&) = delete;
+  ensure_writable(ensure_writable&&) = delete;
+
+  ~ensure_writable() {
+    chmod(path.c_str(), (unsigned)permissions);
+  }
+
+private:
+  std::filesystem::path path;
+  std::filesystem::perms permissions;
+};
 
 struct script {
   script():
@@ -288,17 +308,12 @@ struct script {
        throw std::runtime_error("xz failed");
     }
 
-    auto st = status(binary);
-    if (0 != access(binary.c_str(), W_OK)) {
-      chmod(binary.c_str(), 0755);
-    }
+    ensure_writable e(binary);
 
     if (0 != run(std::vector<std::string>{(toolchain / "objcopy").string(),
                                           "--add-section", ".gnu_debugdata="+compressed.get_path(), binary})) {
       throw std::runtime_error("objcopy failed");
     }
-
-    chmod(binary.c_str(), (unsigned)st.permissions());
   }
 
   void strip_file(std::filesystem::path const& toolchain,
@@ -313,10 +328,8 @@ struct script {
     }
 
     chmod(debugfile.c_str(), 0644);
-    auto st = status(binary);
-    if (0 != access(binary.c_str(), W_OK)) {
-      chmod(binary.c_str(), 0755);
-    }
+
+    ensure_writable e(binary);
 
     if (0 != run(std::vector<std::string>{(toolchain / "strip").string(),
                                             "--remove-section=.comment",
@@ -326,8 +339,6 @@ struct script {
                                             binary})) {
       throw std::runtime_error("strip failed");
     }
-
-    chmod(binary.c_str(), (unsigned)st.permissions());
   }
 
   bool strip() {
@@ -390,6 +401,8 @@ struct script {
               throw std::runtime_error("eu-elfcompress failed");
             }
           }
+
+          ensure_writable e(binary);
 
           if (run(std::vector<std::string>{(toolchain / "objcopy").string(),
                                            "--add-gnu-debuglink", debugfile,
