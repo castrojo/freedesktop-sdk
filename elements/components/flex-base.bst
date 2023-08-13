@@ -27,6 +27,8 @@ public:
     split-rules:
       libfl:
       - '%{libdir}/libfl.so.*'
+  cpe:
+    product: flex
 
 sources:
 - kind: tar
