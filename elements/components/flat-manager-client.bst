@@ -23,6 +23,8 @@ public:
     integration-commands:
     - |
       flat-manager-client --help > /dev/null
+  cpe:
+    product: flat-manager
 
 sources:
 - kind: git_tag
