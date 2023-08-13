@@ -62,3 +62,5 @@ public:
       - "%{datadir}/gir-1.0"
       - "%{datadir}/gir-1.0/**"
       - "%{debugdir}%{libdir}/libavahi-gobject.so*.debug"
+  cpe:
+    product: avahi
