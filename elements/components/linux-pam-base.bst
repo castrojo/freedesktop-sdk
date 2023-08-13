@@ -31,6 +31,8 @@ public:
       - '%{bindir}/**'
       - '%{datadir}'
       - '%{datadir}/**'
+  cpe:
+    product: linux-pam
 
 sources:
 - kind: tar

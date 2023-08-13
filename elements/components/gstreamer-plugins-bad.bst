@@ -86,6 +86,8 @@ public:
         - '%{libdir}/libgstwayland-1.0.so'
         - '%{libdir}/libgstwebrtc-1.0.so'
         - '%{libdir}/libgstwebrtcnice-1.0.so'
+  cpe:
+    product: gstreamer
 
 (@):
 - elements/include/gstreamer-source.yml
