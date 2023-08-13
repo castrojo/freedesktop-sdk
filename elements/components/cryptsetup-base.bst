@@ -16,6 +16,10 @@ variables:
     --disable-ssh-token
     --with-tmpfilesdir="%{indep-libdir}/tmpfiles.d"
 
+public:
+  cpe:
+    product: cryptsetup
+
 sources:
 - kind: git_repo
   url: gitlab:cryptsetup/cryptsetup.git
