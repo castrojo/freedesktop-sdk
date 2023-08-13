@@ -43,6 +43,10 @@ variables:
     -Dexamples=disabled
     -Drpicamsrc=disabled
 
+public:
+  cpe:
+    product: gst-plugins-good
+
 sources:
 - kind: git_tag
   url: freedesktop:gstreamer/gst-plugins-good.git
