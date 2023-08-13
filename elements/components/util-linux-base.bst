@@ -63,6 +63,8 @@ public:
       - '%{libdir}/libfdisk.so*'
 
       - '%{bindir}/setpriv'
+  cpe:
+    product: util-linux
 
 config:
   install-commands:
