@@ -9,3 +9,6 @@ sources:
   path: third_party/abseil-cpp
   url: github:abseil/abseil-cpp.git
   ref: c2435f8342c2d0ed8101cb43adfd605fdc52dca2
+- kind: patch
+  # applied in upstream git 2eee41224e2eac1aa4e8e8f4a28ff11748e49a41
+  path: patches/protobuf/0001-Remove-editions-test-proto-from-setup.py.patch
