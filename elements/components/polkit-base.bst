@@ -32,6 +32,7 @@ config:
 
 public:
   cpe:
+    product: polkit
     patches:
     - CVE-2021-4034
     - CVE-2021-4115
