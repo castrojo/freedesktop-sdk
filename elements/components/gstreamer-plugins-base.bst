@@ -65,6 +65,8 @@ public:
         - '%{libdir}/libgstgl-1.0.so'
         - '%{libdir}/gstreamer-1.0/include'
         - '%{libdir}/gstreamer-1.0/include/**'
+  cpe:
+    product: gstreamer
 
 (@):
 - elements/include/gstreamer-source.yml

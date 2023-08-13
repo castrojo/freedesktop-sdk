@@ -21,5 +21,9 @@ variables:
     -Dorc=enabled
     -Dpackage-origin="freedesktop-sdk"
 
+public:
+  cpe:
+    product: gstreamer
+
 (@):
 - elements/include/gstreamer-source.yml
