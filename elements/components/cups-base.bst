@@ -46,6 +46,8 @@ public:
       - '%{bindir}/cups-config'
       - '%{libdir}/lib*.so'
       - '%{libdir}/lib*.so.*'
+  cpe:
+    product: cups
 
 sources:
 - kind: git_repo
