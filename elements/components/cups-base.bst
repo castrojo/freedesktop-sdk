@@ -15,6 +15,7 @@ variables:
     --with-dbusdir=/etc/dbus-1
     --with-tls=openssl
     --with-cups-group=lp
+    --with-pkgconfpath="%{libdir}/pkgconfig"
     --with-system-groups=wheel
     --with-rundir=/run/cups
     localedir=/usr/share/locale
@@ -42,6 +43,7 @@ public:
       - '%{includedir}'
       - '%{includedir}/**'
       - '%{bindir}/cups-config'
+      - "%{libdir}/pkgconfig/cups.pc"
       - '%{libdir}/lib*.so'
       - '%{libdir}/lib*.so.*'
   cpe:
