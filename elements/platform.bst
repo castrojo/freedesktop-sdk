@@ -102,7 +102,7 @@ depends:
 - components/fribidi.bst
 - components/gcab.bst
 - components/gdk-pixbuf.bst
-- components/geoclue.bst
+- components/geoclue-libs.bst
 - components/glib-networking.bst
 - components/glslang.bst
 - components/gnu-free-fonts.bst

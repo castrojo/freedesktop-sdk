@@ -8,7 +8,7 @@ build-depends:
 - components/flatpak-minimal.bst
 - components/fontconfig.bst
 - components/fuse3.bst
-- components/geoclue.bst
+- components/geoclue-libs.bst
 - components/glib.bst
 - components/pipewire.bst
 - components/docbook-xsl.bst

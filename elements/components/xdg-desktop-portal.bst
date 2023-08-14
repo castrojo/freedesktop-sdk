@@ -7,7 +7,7 @@ runtime-depends:
 - components/flatpak.bst
 - components/fontconfig.bst
 - components/fuse3.bst
-- components/geoclue.bst
+- components/geoclue-libs.bst
 - components/glib.bst
 - components/pipewire-daemon.bst
 - components/xdg-desktop-portal-manifest.bst

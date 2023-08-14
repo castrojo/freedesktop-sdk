@@ -131,6 +131,7 @@ depends:
 - components/genimage.bst
 - components/genpeimg.bst
 - components/geoclue.bst
+- components/geoclue-libs.bst
 - components/gettext.bst
 - components/gflags.bst
 - components/ghostscript.bst
