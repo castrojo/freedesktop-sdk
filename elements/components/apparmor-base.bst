@@ -74,6 +74,8 @@ public:
       - '%{includedir}/**'
       - '%{libdir}/libapparmor.*'
       - '%{libdir}/pkgconfig/libapparmor.pc'
+  cpe:
+    product: apparmor
 
 sources:
 - kind: tar

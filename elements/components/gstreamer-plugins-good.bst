@@ -45,5 +45,9 @@ variables:
     -Dexamples=disabled
     -Drpicamsrc=disabled
 
+public:
+  cpe:
+    product: gstreamer
+
 (@):
 - elements/include/gstreamer-source.yml
