@@ -20,6 +20,8 @@ public:
       - "%{datadir}/pkgconfig/*.pc"
       - "%{datadir}/dbus-1/interfaces"
       - "%{datadir}/dbus-1/interfaces/org.freedesktop.portal*"
+  cpe:
+    product: xdg-desktop-portal
 
 sources:
 - kind: git_tag

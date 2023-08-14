@@ -59,6 +59,8 @@ public:
         - '%{libdir}/libgstgl-1.0.so'
         - '%{libdir}/gstreamer-1.0/include'
         - '%{libdir}/gstreamer-1.0/include/**'
+  cpe:
+    product: gst-plugins-base
 
 sources:
 - kind: git_tag

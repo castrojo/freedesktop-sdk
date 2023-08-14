@@ -79,6 +79,8 @@ public:
         - '%{libdir}/libgstvulkan-1.0.so'
         - '%{libdir}/libgstwayland-1.0.so'
         - '%{libdir}/libgstwebrtc-1.0.so'
+  cpe:
+    product: gst-plugins-bad
 
 sources:
 - kind: git_tag

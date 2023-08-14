@@ -19,6 +19,10 @@ variables:
     -Dorc=enabled
     -Dpackage-origin="freedesktop-sdk"
 
+public:
+  cpe:
+    product: gst-plugins-ugly
+
 sources:
 - kind: git_tag
   url: freedesktop:gstreamer/gst-plugins-ugly.git
