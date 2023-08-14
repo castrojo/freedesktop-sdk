@@ -6,7 +6,7 @@ variables:
   GET_SOURCES_ATTEMPTS: 3
   BST_CACHE_SERVER_ADDRESS: 'cache.freedesktop-sdk.io'
   RUNTIME_VERSION: '23.08'
-  STABLE_ABI: 'false'
+  STABLE_ABI: 'true'
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
