@@ -13,8 +13,6 @@ variables:
     --enable-debug
     --with-components=all
     --with-dbusdir=/etc/dbus-1
-    --enable-systemd
-    --enable-threads
     --with-tls=openssl
     --with-cups-group=lp
     --with-pkgconfpath="%{libdir}/pkgconfig"
