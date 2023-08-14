@@ -1,5 +1,96 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08rc.1:
+  * .gitlab-ci.yml: Mark ABI as stable
+  * components/cups: Set the pkgconfig path
+  * geoclue: Add a separate element with all the files needed for the daemon
+  * Update harfbuzz to 8.1.1-0
+  * Update linux to v6.4.10-0
+  * Update python3-sphinxcontrib-devhelp to 1.0.4
+  * Update python3-sphinxcontrib-qthelp to 1.0.5
+  * Update json-c to json-c-0.17-20230812-0
+  * Update shaderc to v2023.6-0
+  * Update python3-async-timeout to 4.0.3
+  * Update zenity to 3.44.2-real-0
+  * Update python3-sphinxcontrib-serializinghtml to 1.1.7
+  * Update pango to 1.51.1-0
+  * Update pkg-config to pkgconf-2.0.1-0
+  * python3-protobuf: backport a patch to fix build
+  * Update protobuf to v24.0-0
+  * podman: Add pasta
+  * podman: Add catatonit init
+  * podman: Add new network stack
+  * include/flags.yml: Build rust binaries with frame pointers
+  * components/util-linux-base.bst: Add CPE product name
+  * components/polkit-base.bst: Add CPE product name
+  * components/linux-pam-base.bst: Add CPE product name
+  * components/flex-base.bst: Add CPE product name
+  * components/flat-manager-client-base.bst: Add CPE product name
+  * components/cryptsetup-base.bst: Add CPE product name
+  * components/avahi-base.bst: Add CPE product name
+  * components/apparmor-base.bst: Add CPE product name
+  * components/xdg-desktop-portal-base.bst: Add CPE product name
+  * components/gstreamer-plugins-*: Add CPE product name
+  * cups-base.bst: Add CPE product name
+  * Update python3-virtualenv to 20.24.3-0
+  * Update podman to v4.6.1-0
+  * Update libxmlb to 0.3.12-0
+  * Update perl-sasl to 2.1700
+  * Update python3-grpcio to 1.57.0
+  * Update openssh to V_9_4_P1-0
+  * Update cmake to v3.27.2-0
+  * Update mesa to mesa-23.1.5-0
+  * Update systemd to v254.1-0
+  * Update grpc to v1.57.0-0
+  * Update networkmanager to 1.44.0-0
+  * Update python3-faust-cchardet to v2.1.19-0
+  * python3-sphinxcontrib-applehelp.bst: switch to flit
+  * Update python3-sphinxcontrib-applehelp to 1.0.5
+  * Update go to go1.21.0-0
+  * Update dictionaries to libreoffice-7.6.0.3-0
+  * python3-sphinxcontrib-serializinghtml.bst: switch to flit
+  * Update python3-sphinxcontrib-serializinghtml to 1.1.6
+  * Update fuse3 to fuse-3.16.1-0
+  * python3-sphinxcontrib-devhelp.bst: switch to flit
+  * Update python3-sphinxcontrib-devhelp to 1.0.3
+  * python3-sphinxcontrib-qthelp.bst: switch to flit
+  * Update python3-sphinxcontrib-qthelp to 1.0.4
+  * Update meson to 1.2.1-0
+  * Update binary seed to 2daadb6cdbbda6063d6e4caa45bfcf87c7c0cf31
+  * Update xdg-dbus-proxy to 0.1.5-0
+  * Update python3-trove-classifiers to 2023.8.7-0
+  * rust: Update to 1.71.1
+  * Update python3-pygments to 2.16.1
+  * Update audit to v3.1.2-0
+  * Update python3-wheel to 0.41.1-0
+  * Update vala to 0.56.10-0
+  * Update pipewire-base to 0.3.77-0
+  * Update perl-module-scandeps to 1.33
+  * Update xdg-desktop-portal-base to 1.17.0-0
+  * Update spirv-llvm-translator to v16.0.0-9
+  * Update frei0r to v2.3.1-0
+  * Update linux-firmware to 20230804-0
+  * Update lvm2 to v2_03_22-0
+  * Update xz to v5.4.4-0
+  * Update weston to 12.0.2-0
+  * Update sdl2 to release-2.28.2-0
+  * Update foomatic-db to a6e32fa
+  * components/buildstream2: add missing dulwich dependancy
+  * Update python3-sphinx to 7.1.2
+  * Update openssl to openssl-3.1.2-0
+  * Update man-pages to man-pages-6.05-0
+  * Update ca-certificates to ca-certificates-2010_63-3_fc14-141
+  * Update python3-chardet to 5.2.0
+  * Update python3-cryptography to 41.0.3-0
+  * Update poppler to poppler-23.08.0-0
+  * Update harfbuzz to 8.1.0-0
+  * Update gnu-config to d4e37b5
+  * Update python3-pyparsing to 3.1.1
+  * Update vim to v9.0.1677-0
+  * Update libarchive to v3.7.1-0
+  * Update python3-wheezy-template to 3.2.1-0
+  * Update file to FILE5_45-0
+
 freedesktop-sdk-23.08beta.7:
   * stripper: Fix writing non writable binaries
   * Update glibc to glibc-2.38-1
