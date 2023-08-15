@@ -11,4 +11,4 @@ sources:
   (@):
   - elements/bootstrap/base-sdk/binary-seed-source.yml
   architecture: "ppc64le"
-  ref: fecf977d5a49f09a8e2e9d627252c582b33a063a2be7eaaa745b075d8c67ecc3
+  ref: 62ec27077f787c234ef983866b8021358163cd22ff7a188b1c90861d24704de8
