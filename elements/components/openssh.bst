@@ -43,5 +43,7 @@ sources:
   url: github:openssh/openssh-portable.git
   track: master
   track-extra:
-  - V_8_3
-  ref: V_9_3_P1-0-gcb30fbdbee869f1ce11f06aa97e1cb8717a0b645
+  - V_9_4
+  # Attempt to predict the next branchpoint.
+  - V_9_5
+  ref: V_9_4_P1-0-gdaa5b2d869ee5a16f3ef9035aa0ad3c70cf4028e
