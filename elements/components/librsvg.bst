@@ -37,6 +37,8 @@ sources:
   track: '*.*.*'
   exclude:
   - '*.*.9[0-9]'
+  - '*beta*'
+  - '*rc*'
   ref: 2.56.3-0-g312c4b8c28c99b9051ee6de6fa966cf977b0f7b4
 - kind: cargo
   url: crates:crates
