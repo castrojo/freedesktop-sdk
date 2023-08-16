@@ -18,4 +18,4 @@ sources:
 - kind: git_repo
   url: gitlab:BuildGrid/buildbox/buildbox-fuse.git
   track: '*.*.*'
-  ref: 1.0.1-0-g3b9d7b99cbaef63c6a94c094a5dca4e922c0c901
+  ref: 1.0.2-0-g90b80e4ed48e624059b9922dc4018b43dc7f3e7e
