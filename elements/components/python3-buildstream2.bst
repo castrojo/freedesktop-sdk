@@ -31,9 +31,3 @@ sources:
   url: github:apache/buildstream.git
   track: '*.*.*'
   ref: 2.0.1-0-g23c432e81c0e5fb1850637b583808df99e5eed5b
-
-public:
-  bst:
-    integration-commands:
-    - |
-      python3 -c "import pkg_resources; pkg_resources.require('BuildStream>=2.0')"
