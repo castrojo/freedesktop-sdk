@@ -214,6 +214,8 @@ def get_debugaltlink(debug_file):
     dirname = os.path.dirname(debug_file)
     with ELFFile.load_from_path(debug_file) as elffile:
         altlink = elffile.get_section_by_name('.gnu_debugaltlink')
+        if altlink is None:
+            return None
         return os.path.join(dirname, altlink.data().split(b'\x00')[0].decode('latin-1'))
 
 
@@ -221,13 +223,15 @@ def create_binary_archive(archive_directory, old_debug_dir, old_library, old_che
     old_debug_file = os.path.join(old_debug_dir, os.path.relpath(old_library, old_checkout)) + '.debug'
     new_debug_file = os.path.join(new_debug_dir, os.path.relpath(new_library, new_checkout)) + '.debug'
     altlink = get_debugaltlink(old_debug_file)
-    prefix = os.path.commonpath((altlink, old_checkout))
-    rel_path = os.path.relpath(altlink, prefix)
+    files = [old_library, old_debug_file, new_library, new_debug_file]
+    if altlink is not None:
+        prefix = os.path.commonpath((altlink, old_checkout))
+        rel_path = os.path.relpath(altlink, prefix)
+        files.extend((os.path.join(old_checkout, rel_path), os.path.join(new_checkout, rel_path)))
     tar_file = os.path.join(archive_directory, f'{os.path.basename(old_library)}.tar.xz')
     with tarfile.open(tar_file, 'w:xz') as tar:
-        for _file in (old_library, old_debug_file, os.path.join(old_checkout, rel_path),
-                      new_library, new_debug_file, os.path.join(new_checkout, rel_path)):
-            tar.add(_file)
+        for file in files:
+            tar.add(file)
 
 
 def create_header_archive(archive_directory, old_include_dir, new_include_dir):
