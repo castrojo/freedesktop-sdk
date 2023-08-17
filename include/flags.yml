@@ -137,3 +137,4 @@ environment:
   CFLAGS:  "%{target_flags}"
   CXXFLAGS: "%{target_flags}"
   LDFLAGS:  "%{ldflags_defaults}"
+  RUSTFLAGS:  "%{rust_target_flags}"

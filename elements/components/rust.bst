@@ -47,7 +47,6 @@ environment-nocache:
 - MAXJOBS
 
 environment:
-  (@): include/_private/rustflags.yml
   MAXJOBS: '%{max-jobs}'
 
 config:
