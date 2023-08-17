@@ -25,6 +25,7 @@ public:
         - '%{libdir}/libxcb-xvmc.so'
         - '%{libdir}/libxcb-res.so'
         - '%{libdir}/libxcb-shm.so'
+        - '%{libdir}/libxcb-dbe.so'
         - '%{libdir}/libxcb-dri2.so'
         - '%{libdir}/libxcb.so'
         - '%{libdir}/libxcb-composite.so'
@@ -59,4 +60,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libxcb.git
   track: libxcb-*
-  ref: libxcb-1.15-0-gc2c4a2cd1947e559718acdba19ef6e7db731dbeb
+  ref: libxcb-1.16-0-gcc4b93c9cd93bad15b7106747b0213e4b9c53a1c
