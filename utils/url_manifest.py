@@ -78,14 +78,24 @@ def get_source_locations(sources):
             #skip over sources that don't have source URLs, like patch sources
             if source_kind in ['tar', 'zip', 'remote', 'ostree', 'pypi']:
                 source_url = source.url
-            if source_kind in ['git', 'git_repo', 'git_module']:
+                raw_url = source.original_url
+
+            if source_kind == 'git_repo':
+                source_url = source.translate_url(
+                    source.url,
+                    alias_override=None,
+                    primary=source.mirror.primary
+                )
+                raw_url = source.url
+
+            if source_kind in ['git', 'git_module']:
                 source_url = source.translate_url(
                     source.original_url,
                     alias_override=None,
                     primary=source.mirror.primary
                 )
+                raw_url = source.original_url
 
-            raw_url = source.original_url
             if source_url == raw_url:
                 # no alias detected, no translation done
                 alias = None
