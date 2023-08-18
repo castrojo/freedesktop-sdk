@@ -18,6 +18,7 @@ variables:
   conf-local: >-
     --with-libpam
     --without-selinux
+    --without-libbsd
     --enable-man
 
   make-install: make -j1 install DESTDIR="%{install-root}" ubindir="%{bindir}" usbindir="%{sbindir}"
@@ -60,4 +61,4 @@ sources:
   track: '*.*'
   exclude:
   - '*-rc*'
-  ref: 4.13-0-g24b44b686ea2221405cfd806dede046cf1fd9584
+  ref: 4.14.0-0-g014536f5d55df33fc032d7a14d9f9d975d569722
