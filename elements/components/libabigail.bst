@@ -10,5 +10,5 @@ depends:
 sources:
 - kind: git_repo
   url: sourceware:libabigail.git
-  track: libabigail-*
-  ref: libabigail-2.3-0-gcdf3f8e2370b9c393b9fec097a8ef2dde2d45101
+  track: master
+  ref: libabigail-2.3-21-g320ab7fdab2b7215f4581c0540a5db5404a38c20
