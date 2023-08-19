@@ -4,11 +4,8 @@ sources:
   track: v*
   exclude:
   - '*rc*'
-  ref: v24.0-0-g093e258a71caacc053cf5ce86977ba3131361a9a
+  ref: v24.1-0-gb256412ba0c37c54247731aec9daa9592627ad5c
 - kind: git_module
   path: third_party/abseil-cpp
   url: github:abseil/abseil-cpp.git
   ref: c2435f8342c2d0ed8101cb43adfd605fdc52dca2
-- kind: patch
-  # applied in upstream git 2eee41224e2eac1aa4e8e8f4a28ff11748e49a41
-  path: patches/protobuf/0001-Remove-editions-test-proto-from-setup.py.patch
