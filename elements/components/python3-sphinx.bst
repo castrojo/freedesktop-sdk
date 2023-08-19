@@ -38,5 +38,5 @@ sources:
 - kind: pypi
   name: sphinx
   ref:
-    sha256sum: 780f4d32f1d7d1126576e0e5ecc19dc32ab76cd24e950228dcf7b1f6d3d9e22f
-    suffix: dc/01/688bdf9282241dca09fe6e3a1110eda399fa9b10d0672db609e37c2e7a39/sphinx-7.1.2.tar.gz
+    sha256sum: 1c0abe6d4de7a6b2c2b109a2e18387bf27b240742e1b34ea42ac3ed2ac99978c
+    suffix: 85/f9/f3e1e7b2f0615cded9c555aa75692a1004cdce765eccff9f6245473f3657/sphinx-7.2.2.tar.gz
