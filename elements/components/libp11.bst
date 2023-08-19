@@ -8,7 +8,7 @@ depends:
 - components/openssl.bst
 
 variables:
-  openssl_conf: "%{sysconfdir}/ssl/openssl.cnf"
+  openssl_conf: "%{sysconfdir}/pki/tls/openssl.cnf"
 
 config:
   install-commands:
@@ -17,11 +17,10 @@ config:
     - rm -r %{install-root}%{libdir}/pkgconfig
     - rm %{install-root}%{libdir}/libp11.so
     - |
+      test -f %{openssl_conf}
+
       mkdir -p $(dirname %{install-root}%{openssl_conf})
-
       cat >> %{install-root}%{openssl_conf} << EOF
-      openssl_conf = openssl_init
-
       $(cat %{openssl_conf})
 
       [openssl_init]
