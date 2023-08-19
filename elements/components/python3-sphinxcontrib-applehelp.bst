@@ -2,6 +2,7 @@ kind: pip
 
 build-depends:
 - components/python3-pip.bst
+- components/python3-flit-core.bst
 
 depends:
 - components/python3.bst
@@ -10,5 +11,5 @@ sources:
 - kind: pypi
   name: sphinxcontrib-applehelp
   ref:
-    sha256sum: 828f867945bbe39817c210a1abfd1bc4895c8b73fcaade56d45357a348a07d7e
-    suffix: 32/df/45e827f4d7e7fcc84e853bcef1d836effd762d63ccb86f43ede4e98b478c/sphinxcontrib-applehelp-1.0.4.tar.gz
+    sha256sum: 39fdc8d762d33b01a7d8f026a3b7d71563ea3b72787d5f00ad8465bd9d6dfbfa
+    suffix: 1c/5a/fce19be5d4db26edc853a0c34832b39db7b769b7689da027529767b0aa98/sphinxcontrib_applehelp-1.0.7.tar.gz
