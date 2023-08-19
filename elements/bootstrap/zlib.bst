@@ -40,4 +40,4 @@ sources:
 - kind: git_repo
   url: github:madler/zlib.git
   track: v*
-  ref: v1.2.13-0-g04f42ceca40f73e2978b50e93806c2a18c1281fc
+  ref: v1.3-0-g09155eaa2f9270dc4ed1fa13e2b4b2613e6e4851
