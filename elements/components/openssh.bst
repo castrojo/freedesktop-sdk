@@ -14,6 +14,7 @@ variables:
     --with-mantype=man
     --with-pam
     --with-pam-service=sshd
+    --without-zlib-version-check
 
 config:
   install-commands:
