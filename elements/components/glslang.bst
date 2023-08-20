@@ -33,7 +33,9 @@ sources:
 - kind: git_repo
   url: github:KhronosGroup/glslang.git
   track: sdk-*
-  ref: sdk-1.3.250.1-0-g3ebb72cc7429f0ab8218104dc3687c659c0f364d
+  exclude:
+  - sdk-1.3.250.1
+  ref: sdk-1.3.250.0-0-gd1517d64cfca91f573af1bf7341dc3a5113349c0
 - kind: patch
   # Install several static libraries that shaderc needs
   # https://gitweb.gentoo.org/repo/gentoo.git/tree/dev-util/glslang/files/glslang-1.3.236-Install-static-libs.patch
