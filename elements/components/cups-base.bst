@@ -13,10 +13,9 @@ variables:
     --enable-debug
     --with-components=all
     --with-dbusdir=/etc/dbus-1
-    --enable-systemd
-    --enable-threads
     --with-tls=openssl
     --with-cups-group=lp
+    --with-pkgconfpath="%{libdir}/pkgconfig"
     --with-system-groups=wheel
     --with-rundir=/run/cups
     localedir=/usr/share/locale
@@ -44,6 +43,7 @@ public:
       - '%{includedir}'
       - '%{includedir}/**'
       - '%{bindir}/cups-config'
+      - "%{libdir}/pkgconfig/cups.pc"
       - '%{libdir}/lib*.so'
       - '%{libdir}/lib*.so.*'
   cpe:
@@ -53,10 +53,12 @@ sources:
 - kind: git_tag
   url: github:OpenPrinting/cups.git
   track: master
+  track-extra:
+  - 2.4.x
   exclude:
   - "*a*"
   - "*b*"
-  ref: v2.4.3-0-g8ba52d1a9c0dc73d2be7fbe354e397fb9aa60f9d
+  ref: v2.4.6-0-g9d614a4b3184205294c55355a1d2eb54d4532ccd
 - kind: local
   path: files/cups/tmpfiles.conf
 - kind: local
