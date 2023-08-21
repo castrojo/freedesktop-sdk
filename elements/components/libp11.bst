@@ -7,14 +7,8 @@ depends:
 - bootstrap-import.bst
 - components/openssl.bst
 
-sources:
-- kind: git_tag
-  url: github:OpenSC/libp11.git
-  track: master
-  ref: libp11-0.4.12-0-g53d65dc48cf436694f7edcfc805414e608e8a2bf
-
 variables:
-  openssl_conf: "%{sysconfdir}/ssl/openssl.cnf"
+  openssl_conf: "%{sysconfdir}/pki/tls/openssl.cnf"
 
 config:
   install-commands:
@@ -23,11 +17,10 @@ config:
     - rm -r %{install-root}%{libdir}/pkgconfig
     - rm %{install-root}%{libdir}/libp11.so
     - |
+      test -f %{openssl_conf}
+
       mkdir -p $(dirname %{install-root}%{openssl_conf})
-
       cat >> %{install-root}%{openssl_conf} << EOF
-      openssl_conf = openssl_init
-
       $(cat %{openssl_conf})
 
       [openssl_init]
@@ -47,3 +40,9 @@ public:
   bst:
     overlap-whitelist:
     - "%{openssl_conf}"
+
+sources:
+- kind: git_tag
+  url: github:OpenSC/libp11.git
+  track: master
+  ref: libp11-0.4.12-0-g53d65dc48cf436694f7edcfc805414e608e8a2bf
