@@ -2,6 +2,7 @@ kind: pip
 
 build-depends:
 - components/python3-pip.bst
+- components/python3-flit-core.bst
 
 depends:
 - components/python3.bst
@@ -10,5 +11,5 @@ sources:
 - kind: pypi
   name: sphinxcontrib-serializinghtml
   ref:
-    sha256sum: aa5f6de5dfdf809ef505c4895e51ef5c9eac17d0f287933eb49ec495280b6952
-    suffix: b5/72/835d6fadb9e5d02304cf39b18f93d227cd93abd3c41ebf58e6853eeb1455/sphinxcontrib-serializinghtml-1.1.5.tar.gz
+    sha256sum: 0c64ff898339e1fac29abd2bf5f11078f3ec413cfe9c046d3120d7ca65530b54
+    suffix: 5c/41/df4cd017e8234ded544228f60f74fac1fe1c75bdb1e87b33a83c91a10530/sphinxcontrib_serializinghtml-1.1.9.tar.gz
