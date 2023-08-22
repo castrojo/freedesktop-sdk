@@ -10,7 +10,6 @@ depends:
 - components/python3.bst
 
 runtime-depends:
-- components/python3-six.bst
 - components/protobuf.bst
 
 environment:
