@@ -440,7 +440,6 @@ depends:
 - components/python3-packaging.bst
 - components/python3-pathlib2.bst
 - components/python3-pathspec.bst
-- components/python3-pep8.bst
 - components/python3-pil.bst
 - components/python3-pip.bst
 - components/python3-pkgconfig.bst
@@ -467,7 +466,6 @@ depends:
 - components/python3-schema.bst
 - components/python3-semantic-version.bst
 - components/python3-setuptools-git.bst
-- components/python3-setuptools-pep8.bst
 - components/python3-setuptools-rust.bst
 - components/python3-setuptools-scm.bst
 - components/python3-setuptools.bst
