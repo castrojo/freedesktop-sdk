@@ -7,9 +7,9 @@ sources:
   directory: gmp
   ref: a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898
 - kind: tar
-  url: ftp_gnu_org:mpfr/mpfr-4.2.0.tar.xz
+  url: ftp_gnu_org:mpfr/mpfr-4.2.1.tar.xz
   directory: mpfr
-  ref: 06a378df13501248c1b2db5aa977a2c8126ae849a9d9b7be2546fb4a9c26d993
+  ref: 277807353a6726978996945af13e52829e3abd7a9a5b7fb2793894e18f1fcbb2
 - kind: tar
   url: ftp_gnu_org:mpc/mpc-1.3.1.tar.gz
   directory: mpc
