@@ -35,7 +35,7 @@ sources:
   track: sdk-*
   exclude:
   - sdk-1.3.250.1
-  ref: sdk-1.3.250.0-0-gd1517d64cfca91f573af1bf7341dc3a5113349c0
+  ref: sdk-1.3.261.0-0-g76b52ebf77833908dc4c0dd6c70a9c357ac720bd
 - kind: patch
   # Install several static libraries that shaderc needs
   # https://gitweb.gentoo.org/repo/gentoo.git/tree/dev-util/glslang/files/glslang-1.3.236-Install-static-libs.patch
