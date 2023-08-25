@@ -295,16 +295,13 @@ OSTREE_BRANCH=freedesktop-sdk/minimal/$(BRANCH)/$(ARCH)
 
 .PHONY: vulkan-stack-update
 vulkan-stack-update:
-	test -n "${SDK_VERSION}"
-	for name in components/vulkan-icd-loader.bst \
+	bst source track components/vulkan-icd-loader.bst \
 	components/vulkan-headers.bst \
 	components/vulkan-validation-layers.bst \
 	extensions/vulkaninfo/vulkan-tools.bst \
 	components/spirv-headers.bst \
-	components/spirv-tools.bst; do \
-	sed -i -e "s/- sdk-[1-9]\..*/- sdk-${SDK_VERSION}/" elements/$${name}; \
-	bst source track $${name}; \
-	done
+	components/spirv-tools.bst \
+	components/glslang.bst
 
 OVMF_VARS=$(VM_CHECKOUT_ROOT)/efi_vars.fd
 ifeq ($(ARCH),aarch64)

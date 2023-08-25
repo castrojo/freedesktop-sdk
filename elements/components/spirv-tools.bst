@@ -35,6 +35,6 @@ sources:
 - kind: git_repo
   url: github:KhronosGroup/SPIRV-Tools.git
   track: sdk-*
-  ref: sdk-1.3.250.1-0-ge7c6084fd1d6d6f5ac393e842728d8be309688ca
+  ref: sdk-1.3.261.0-0-ge553b884c7c9febaa4e52334f683641fb5f196a0
 - kind: patch
   path: patches/spirv-tools/Remove-libSPIRV-Tools-shared.so.patch
