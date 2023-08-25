@@ -66,6 +66,7 @@ variables:
     -Dgallium-vdpau=enabled
     -Dgallium-xa=disabled
     -Dgbm=enabled
+    -Dgbm-backends-path="/usr/lib/%{gcc_triplet}/GL/lib/gbm"
     -Dgles1=disabled
     -Dgles2=enabled
     -Dglvnd=true
