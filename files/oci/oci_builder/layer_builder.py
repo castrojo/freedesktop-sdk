@@ -36,8 +36,7 @@ def xattr_sha256(filename):
             # to calculating sha256 manually
             return None
         raise
-    else:
-        return checksum.decode()
+    return checksum.decode()
 
 
 def file_sha256(file_handle):
