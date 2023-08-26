@@ -4,11 +4,11 @@ sources:
   track: v*
   exclude:
   - v*.*.*
-  ref: v2023.5-0-g26b833e90a1dcd3d40e06e43f5597a9951df8641
+  ref: v2023.6-0-gdab8051fd8b9aa464bd05b6401bf676ef9b1fcb5
 - kind: git_module
   path: libglnx
   url: gnome:libglnx.git
-  ref: 07e3e49d3e47dfd4265ffb5495111439131715ca
+  ref: c02eb5991695be11899fe0bdf6bd71ae2ff1ae21
 - kind: git_module
   path: bsdiff
   url: github:mendsley/bsdiff.git
@@ -16,6 +16,6 @@ sources:
 - kind: git_module
   path: composefs
   url: github:containers/composefs.git
-  ref: 412cb5e6aaf516c5e2a7f67e426a25ed2926e101
+  ref: 1aed8781d6ce617234175d5d3b0458f91a6e38f3
 - kind: patch_queue
   path: patches/ostree
