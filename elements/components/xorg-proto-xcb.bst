@@ -14,4 +14,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/proto/xcbproto.git
   track: xcb-proto-*
-  ref: xcb-proto-1.15.2-0-ged461f379b6cde5bea7bc99d253c270b37298401
+  ref: xcb-proto-1.16.0-0-g98eeebfc2d7db5377b85437418fb942ea30ffc0d
