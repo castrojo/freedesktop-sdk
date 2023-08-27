@@ -25,4 +25,4 @@ sources:
   track: main
   exclude:
   - "*.9??"
-  ref: 1.23.0-0-g0b005eb64b12603e65a620a77c67ec62fd03f413
+  ref: 1.24.0-0-g1680f2fbaa63a91739012c6b57988ab1918ea0b7
