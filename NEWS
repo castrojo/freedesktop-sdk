@@ -1,5 +1,64 @@
 Freedesktop-SDK
 
+freedesktop-sdk-21.08.21:
+  * Update libinput to 1.24.0-0
+  * Update python3-pluggy to 1.3.0
+  * Update doxygen to Release_1_9_8-0
+  * Update python3 to v3.9.18-0
+  * Update ostree to v2023.6-0
+  * Update vim to v9.0.1787-0
+  * Update cmake to v3.27.4-0
+  * Update conmon to v2.1.8-0
+  * Update mutool to 1.23.0-0
+  * Update git to v2.42.0-0
+  * Update crun to 1.8.7-0
+  * Update python3-poetry to 1.6.1
+  * Update python3-poetry-core to 1.7.0
+  * Update vala to 0.56.12-0
+  * Update slirp4netns to v1.2.1-0
+  * Update fcitx5 to 5.1.0-0
+  * Update python3-tenacity to 8.2.3
+  * Update vim to v9.0.1736-0
+  * Update kbd to v2.6.2-0
+  * Update python3-shellingham to 1.5.3
+  * Update cmake to v3.27.3-0
+  * Update gyp to c6d8b9f
+  * Update vala to 0.56.11-0
+  * Update cmake to v3.27.2-0
+  * Update python3-virtualenv to 20.24.3
+  * Update vim to v9.0.1683-0
+  * Update python3-async-timeout to 4.0.3
+  * Update gyp to 9d09418
+  * components/linux-pam-base.bst: Add CPE product name
+  * components/flex-base.bst: Add CPE product name
+  * components/flat-manager-client.bst: Add CPE product name
+  * components/cryptsetup-base.bst: Add CPE product name
+  * components/avahi-base.bst: Add CPE product name
+  * components/apparmor-base.bst: Add CPE product name
+  * components/xdg-desktop-portal-base.bst: Add CPE product name
+  * components/gstreamer-plugins-*: Add CPE product name
+  * cups-base.bst: Add CPE product name
+  * Update fuse3 to fuse-3.16.1-0
+  * Update python3-importlib-resources to 6.0.1
+  * Update python3-trove-classifiers to 2023.8.7
+  * glibc: Fix bstignore entry
+  * Update audit to v3.1.2-0
+  * Update vala to 0.56.10-0
+  * Update frei0r to v2.3.1-0
+  * Update vim to v9.0.1677-0
+  * Update poppler to poppler-23.08.0-0
+  * Update lvm2 to v2_03_22-0
+  * Update python3-sphinx to 7.1.2
+  * Update foomatic-db to a6e32fa
+  * Update weston to 10.0.5-0
+  * Update gnu-config to d4e37b5
+  * Update ca-certificates to ca-certificates-2010_63-3_fc14-141
+  * Update openssl to OpenSSL_1_1_1v-0
+  * Update python3-pyparsing to 3.1.1
+  * Update glibc to glibc-2.33-243
+  * Update freedesktop-sdk to freedesktop-sdk-21.08.20.1-0
+  * Update python3-pathspec to 0.11.2
+
 freedesktop-sdk-21.08.20:
   * freedesktop-sdk: Bump ABI reference due to skip
   * Update btrfs-progs to v6.3.3-0
