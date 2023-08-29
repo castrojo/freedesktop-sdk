@@ -7,6 +7,7 @@ variables:
   BST_CACHE_SERVER_ADDRESS: 'cache.freedesktop-sdk.io'
   RUNTIME_VERSION: '22.08'
   STABLE_ABI: 'true'
+  EXPIRED: '0'
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
@@ -626,8 +627,8 @@ finish_publish:
   stage: finish-publish
   script:
     - |
-      EOL_MESSAGE=$(utils/eol-message.py ${RUNTIME_VERSION})
-      if [ -n "{$EOL_MESSAGE}" ]; then
+      if [ "${EXPIRED}" = "1" ]; then
+        EOL_MESSAGE=$(utils/eol-message.py ${RUNTIME_VERSION})
         flat-manager-client -v commit --wait "$(cat publish_build.txt)" \
           --end-of-life "${EOL_MESSAGE}"
       else
