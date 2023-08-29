@@ -17,7 +17,6 @@ variables:
     --with-ca-fallback
     --with-ssl
     --with-nghttp2
-    --enable-debug
     --enable-optimize
     --disable-warnings
     --disable-curldebug
@@ -38,3 +37,4 @@ sources:
   url: github:curl/curl.git
   track: curl-*
   ref: curl-8_2_1-0-g50490c0679fcd0e50bb3a8fbf2d9244845652cf0
+
