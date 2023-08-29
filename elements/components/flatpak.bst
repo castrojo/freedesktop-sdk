@@ -8,6 +8,7 @@ build-depends:
 - components/gobject-introspection.bst
 - components/libxslt.bst
 - components/python3-pyparsing.bst
+- components/xmlto.bst
 
 depends:
 - bootstrap-import.bst
@@ -34,7 +35,6 @@ variables:
     -Ddconf=disabled
     -Dmalcontent=disabled
     -Dselinux_module=disabled
-    -Ddocbook_docs=disabled
     -Dtests=false
     -Dsystem_dbus_proxy=xdg-dbus-proxy
 
