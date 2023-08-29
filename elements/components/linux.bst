@@ -178,7 +178,7 @@ config:
 
     # Strongly Recommended
     enable IPV6
-    enable AUTOFS4_FS
+    enable AUTOFS_FS
     enable TMPFS_XATTR
     enable TMPFS_POSIX_ACL
     enable EXT4_FS_POSIX_ACL
@@ -257,7 +257,6 @@ config:
     module TOUCHSCREEN_GUNZE
     module TOUCHSCREEN_INEXIO
     module TOUCHSCREEN_MCS5000
-    module TOUCHSCREEN_MK712
     module TOUCHSCREEN_MTOUCH
     module TOUCHSCREEN_PENMOUNT
     module TOUCHSCREEN_SURFACE3_SPI
