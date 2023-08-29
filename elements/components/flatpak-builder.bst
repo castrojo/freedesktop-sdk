@@ -11,6 +11,8 @@ depends:
 - components/json-glib.bst
 - components/libsoup.bst
 - components/libyaml.bst
+- components/docbook-xsl.bst
+- components/xmlto.bst
 
 runtime-depends:
 - components/git.bst
@@ -20,7 +22,6 @@ runtime-depends:
 
 variables:
   meson-local: >-
-    -Ddocs=disabled
     -Dtests=false
     -Dfuse=3
 
