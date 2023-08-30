@@ -16,6 +16,8 @@ depends:
 variables:
   conf-local: >-
     --runstatedir=/run
+    --with-sysusersdir="$(pkg-config --variable=sysusersdir systemd)"
+    --with-tmpfilesdir="$(pkg-config --variable=tmpfilesdir systemd)"
 
 sources:
 - kind: git_repo
