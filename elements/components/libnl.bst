@@ -19,4 +19,4 @@ sources:
 - kind: git_tag
   url: github:thom311/libnl.git
   track: main
-  ref: libnl3_7_0-0-g1bb416213c7038d0da9a6f5141c611f6dbcefedc
+  ref: libnl3_8_0-0-g6b2533c02813ce21b27ea8318fbe1af95652a39e
