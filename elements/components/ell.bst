@@ -17,4 +17,4 @@ sources:
 - kind: git_tag
   url: kernel:libs/ell/ell.git
   track: master
-  ref: 0.57-0-g104d49638e3668bcc2935099a59f2ab2caf6b27f
+  ref: 0.58-0-g3b743fc1a1d6bab9cefc764f00a50b77c877ec1f
