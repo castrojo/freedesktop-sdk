@@ -65,8 +65,8 @@ sources:
 - kind: git_repo
   url: gitlab:gnuwget/wget2.git
   track: v*
-  ref: v2.0.1-0-g3d25515253c26f0510a1a10882a668ca81fcc4d6
+  ref: v2.1.0-0-g657e3d22c488a2d1f173e208e253995e15f8b6db
 - kind: git_module
   path: gnulib
   url: savannah:gnulib.git
-  ref: a88d5ed6bd16d702896a4a5367d7320020cb8988
+  ref: 2ae6faf9c78384dc6a2674b62dd56ff153cd51f6
