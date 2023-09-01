@@ -124,7 +124,6 @@ public:
 sources:
 - kind: git_tag
   url: freedesktop:PipeWire/pipewire.git
-  track: master
   exclude:
   - '*.*.9*'
   ref: 0.3.69-0-gcd8be0ba3b27542253f7744b699c2ede159e2d7c
