@@ -3,4 +3,4 @@
 # anywhere else, otherwise elements will need to be rebuilt.
 # This file is for Snap
 variables:
-  runtime-version: '23.08-devel'
+  runtime-version: '24.08-devel'

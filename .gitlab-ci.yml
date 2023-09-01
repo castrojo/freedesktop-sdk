@@ -5,8 +5,8 @@ variables:
   XDG_CACHE_HOME: "${CI_PROJECT_DIR}/cache"
   GET_SOURCES_ATTEMPTS: 3
   BST_CACHE_SERVER_ADDRESS: 'cache.freedesktop-sdk.io'
-  RUNTIME_VERSION: '23.08'
-  STABLE_ABI: 'true'
+  RUNTIME_VERSION: '24.08'
+  STABLE_ABI: 'false'
   EXPIRED: '0'
 
   # Docker Images
