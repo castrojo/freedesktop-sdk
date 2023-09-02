@@ -644,6 +644,8 @@ config:
     module DM_RAID
     module DM_SNAPSHOT
     module DM_VERITY
+    enable DM_VERITY_VERIFY_ROOTHASH_SIG
+    enable DM_VERITY_VERIFY_ROOTHASH_SIG_SECONDARY_KEYRING
 
     # Firewire
     module FIREWIRE
