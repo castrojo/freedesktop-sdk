@@ -17,7 +17,6 @@ depends:
 runtime-depends:
 - components/python3-appdirs.bst
 - components/python3-dbus-deviation.bst
-- components/python3-feedgen.bst
 - components/python3-lxml.bst
 - components/python3-pyyaml.bst
 - components/python3-schema.bst
@@ -46,3 +45,5 @@ sources:
   ref:
     sha256sum: b1f43f88177567e62a9da3a0f23df6ac2da2b9c76288add37dff4d7d81674327
     suffix: ce/a8/c11ea806d630d778997d6ef58ca6e86a79af98f6cffa1e50a3d29718a5b1/hotdoc-0.15.tar.gz
+- kind: patch
+  path: patches/hotdoc/Make-feedgen-an-optional-dependency.patch
