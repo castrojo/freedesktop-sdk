@@ -13,4 +13,4 @@ sources:
 - kind: git_tag
   url: github:vim/vim.git
   track: master
-  ref: v9.0.1757-0-g4b1cc7906f2fa9aa5a41c16467e5d3ac4b64e323
+  ref: v9.0.1853-0-g15cbaae31382f17c96a4519e334dd7ba4a90ecba
