@@ -1,5 +1,109 @@
 Freedesktop-SDK
 
+freedesktop-sdk-22.08.15:
+  * Update pkg-config to pkgconf-2.0.2-0
+  * Update wireless-regdb-bin to master-2023-09-01-0
+  * pipewire-base: Freeze due to forward ABI break
+  * pygobject: Update and fix tracking
+  * Update aom to v3.7.0-0
+  * Update python3-filelock to 3.12.3
+  * Update libwacom to libwacom-2.8.0-0
+  * Update libnl to libnl3_8_0-0
+  * Update doxygen to Release_1_9_8-0
+  * Update vala to 0.56.13-0
+  * Update fuse-overlayfs to v1.13-0
+  * xdg-desktop-portal: add python3-docutils to fix build
+  * Update xdg-desktop-portal-base to 1.17.1-0
+  * Update libdrm to libdrm-2.4.116-0
+  * Update python3-sphinxcontrib-htmlhelp to 2.0.4
+  * Update python3-setuptools-rust to 1.7.0
+  * Update python3-sphinxcontrib-serializinghtml to 1.1.9
+  * Update python3-poetry-core to 1.7.0
+  * Update python3-sphinxcontrib-applehelp to 1.0.7
+  * Update python3-sphinxcontrib-devhelp to 1.0.5
+  * Update python3-sphinxcontrib-qthelp to 1.0.6
+  * Update xz to v5.2.12-0
+  * Simplify expired into simple boolean
+  * Update libxmlb to 0.3.14-0
+  * Update ostree to v2023.6-0
+  * Update libinput to 1.24.0-0
+  * Update iwd to 2.8-0
+  * Update python3-pluggy to 1.3.0
+  * flatpak-images/include/platform-vars.yml: Add gbm backends path to merge-dirs
+  * dummy-gbm,extensions/mesa: Set gbm-backends-path
+  * Update python3 to v3.10.13-0
+  * Update conmon to v2.1.8-0
+  * Update git to v2.42.0-0
+  * Update mutool to 1.23.0-0
+  * Update cmake to v3.27.4-0
+  * Update python3-wheel to 0.41.2
+  * Update fwupd to 1.9.4-0
+  * Update crun to 1.8.7-0
+  * Update vim to v9.0.1757-0
+  * Update vala to 0.56.12-0
+  * Update fcitx5 to 5.1.0-0
+  * Update slirp4netns to v1.2.1-0
+  * Update python3-setuptools to 68.1.2
+  * Update python3-sphinx to 7.2.2
+  * Update libxmlb to 0.3.13-0
+  * Update mesa to mesa-23.1.6-0
+  * Update python3-shellingham to 1.5.3
+  * Update mesa to mesa-23.1.6-0
+  * libp11: Fix path to openssl.cnf
+  * libp11: Move "sources" section to the bottom
+  * cups: update to 2.4.6 and fix tracking
+  * cups: Set the pkgconfig path
+  * cups: Remove unrecognized configure options
+  * Update python3-setuptools to 68.1.0
+  * Update kbd to v2.6.2-0
+  * openssh: Update to 9.3p2
+  * Update python3-tenacity to 8.2.3
+  * Update zenity to 3.44.2-real-0
+  * Update vala to 0.56.11-0
+  * Update pango to 1.51.1-0
+  * util-linux-base: Add CPE product name
+  * polkit-base: Add CPE product name
+  * linux-pam-base: Add CPE product name
+  * flex-base: Add CPE product name
+  * flat-manager-client-base: Add CPE product name
+  * cryptsetup-base: Add CPE product name
+  * avahi-base: Add CPE product name
+  * apparmor-base: Add CPE product name
+  * xdg-desktop-portal-base: Add CPE product name
+  * gstreamer-plugins-*: Add CPE product name
+  * cups-base.bst: Add CPE product name
+  * Update vim to v9.0.1699-0
+  * Update python3-async-timeout to 4.0.3
+  * Update libxmlb to 0.3.12-0
+  * Update cmake to v3.27.2-0
+  * Update fuse3 to fuse-3.16.1-0
+  * Update go to go1.21.0-0
+  * Update python3-trove-classifiers to 2023.8.7
+  * Update frei0r to v2.3.1-0
+  * Update audit to v3.1.2-0
+  * glibc: Fix bstignore entry
+  * Update python3-pygments to 2.16.1
+  * Update vala to 0.56.10-0
+  * Update man-pages to man-pages-6.05-0
+  * Update python3-wheel to 0.41.1
+  * Update mesa to mesa-23.1.5-0
+  * Update go to go1.20.7-0
+  * Update linux-firmware to 20230804-0
+  * xdg-desktop-portal: switch to meson
+  * Update xdg-desktop-portal-base to 1.17.0-0
+  * Update poppler to poppler-23.08.0-0
+  * Update python3-chardet to 5.2.0
+  * Update gnu-config to d4e37b5
+  * Update lvm2 to v2_03_22-0
+  * Update python3-sphinx to 7.1.2
+  * Update freedesktop-sdk to freedesktop-sdk-22.08.14-0
+  * Update foomatic-db to a6e32fa
+  * Update mesa to mesa-23.1.5-0
+  * Update python3-cryptography to 41.0.3
+  * Update openssl to openssl-3.0.10-0
+  * Update ca-certificates to ca-certificates-2010_63-3_fc14-141
+  * Update spirv-llvm-translator to v15.0.0-67
+
 freedesktop-sdk-22.08.14:
   * Exclude release candidates for jq
   * Update python3-pyparsing to 3.1.1
