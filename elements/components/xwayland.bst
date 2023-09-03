@@ -24,10 +24,12 @@ depends:
 - components/xorg-font-util.bst
 - components/wayland.bst
 - components/systemd.bst
+- components/libei.bst
 
 variables:
   meson-local: >-
     -Dxvfb=false
+    -Dxwayland_ei=portal
 
 sources:
 - kind: git_repo
