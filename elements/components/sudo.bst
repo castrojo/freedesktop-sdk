@@ -6,6 +6,13 @@ build-depends:
 
 depends:
 - bootstrap-import.bst
+- components/linux-pam-base.bst
+
+config:
+  install-commands:
+    (>):
+    - |
+      install -Dm644 pam.conf "%{install-root}%{sysconfdir}/pam.d/sudo"
 
 public:
   initial-script:
@@ -21,3 +28,5 @@ sources:
   url: github:sudo-project/sudo.git
   track: SUDO_*
   ref: SUDO_1_9_14p3-0-ga06cbb8efac912ca0b8a70a16e9fb9b7c83f831c
+- kind: local
+  path: files/sudo/pam.conf
