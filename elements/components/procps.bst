@@ -27,6 +27,3 @@ sources:
   exclude:
   - '*rc*'
   ref: v4.0.4-0-g4ddcef2fd843170c8e2d59a83042978f41037a2b
-- kind: patch
-  # https://gitlab.com/procps-ng/procps/-/merge_requests/192
-  path: patches/procps/0001-nls-Fix-French-language-file-for-gettext-0.22.patch
