@@ -207,7 +207,7 @@ config:
     # Sound with QEMU
     module SOUND
     module SND
-    enable SND_HDA_GENERIC
+    module SND_HDA_GENERIC
 
     # Required for live boot
     module SQUASHFS
@@ -799,7 +799,8 @@ config:
     module SND_RAWMIDI
 
     # Sound for HDA
-    module SND_HDA_INTEL
+    module SND_HDA
+    remove SND_HDA_INTEL; module SND_HDA_INTEL # module only
     enable SND_HDA_RECONFIG
     enable SND_HDA_INPUT_BEEP
     enable SND_HDA_PATCH_LOADER
