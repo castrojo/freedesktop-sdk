@@ -5,7 +5,7 @@ build-depends:
 - components/gperf.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/freetype.bst
 
 variables:

@@ -7,7 +7,7 @@ build-depends:
 - components/hotdoc.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/cairo.bst
 - components/jpeg.bst
 - components/orc.bst

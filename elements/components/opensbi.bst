@@ -1,7 +1,7 @@
 kind: make
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/python3.bst
 
 variables:

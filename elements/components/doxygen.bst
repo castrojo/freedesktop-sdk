@@ -1,7 +1,7 @@
 kind: cmake
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst

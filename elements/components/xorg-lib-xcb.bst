@@ -7,7 +7,7 @@ build-depends:
 - components/python3-minimal.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/xorg-proto-xcb.bst
 - components/xorg-lib-xau.bst
 

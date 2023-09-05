@@ -1,7 +1,7 @@
 kind: autotools
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/itstool.bst
 - filename: components/docbook-xml.bst
 - filename: components/docbook-xsl.bst

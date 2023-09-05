@@ -1,19 +1,23 @@
 kind: manual
 
 build-depends:
+- bootstrap/grep.bst
+- bootstrap/sed.bst
 - components/cmake-stage1.bst
+- components/gcc.bst
 - components/gettext.bst
 - components/ninja.bst
 - components/pkg-config.bst
 - components/python3-minimal.bst
 - components/rust-stage1.bst
+- components/stripper.bst
 
 depends:
-- bootstrap-import.bst
 - components/curl.bst
-- components/llvm.bst
 - components/libxml2.bst
+- components/llvm.bst
 - components/openssl.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   optimize-debug: "false"

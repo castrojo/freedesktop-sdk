@@ -5,7 +5,11 @@ depends:
 - components/kmod.bst
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/buildsystem-make.bst
+- bootstrap/diffutils.bst
+- bootstrap/gawk.bst
+- bootstrap/grep.bst
+- bootstrap/sed.bst
 - components/bison.bst
 - components/cpio.bst  # loongarch64 build enabled CONFIG_IKHEADERS by default
 - components/flex.bst

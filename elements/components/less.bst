@@ -1,12 +1,12 @@
 kind: autotools
 description: GNU less
 
-depends:
-- bootstrap-import.bst
-
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/groff.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
 
 variables:
   # https://github.com/gwsw/less/blob/v661-rel/README#L35

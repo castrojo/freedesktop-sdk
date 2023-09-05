@@ -1,11 +1,13 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- bootstrap/diffutils.bst
+- components/perl.bst
+- components/nasm.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/perl.bst
-  type: build
-- filename: components/nasm.bst
-  type: build
+- public-stacks/runtime-minimal.bst
 
 variables:
   (?):

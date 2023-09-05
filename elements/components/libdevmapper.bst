@@ -4,8 +4,8 @@ build-depends:
 - components/lvm2-base.bst
 
 runtime-depends:
-- bootstrap-import.bst
 - components/systemd-libs.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   include:

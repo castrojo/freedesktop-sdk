@@ -1,11 +1,11 @@
 kind: autotools
 
 build-depends:
-- components/gettext.bst
+- public-stacks/buildsystem-autotools.bst
 - components/python3.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 sources:
 - kind: git_repo

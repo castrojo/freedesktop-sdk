@@ -6,7 +6,7 @@ build-depends:
 - components/hotdoc.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/orc.bst
 - components/graphene.bst
 - components/gstreamer.bst

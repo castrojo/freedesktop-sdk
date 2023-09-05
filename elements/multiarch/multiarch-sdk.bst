@@ -1,7 +1,7 @@
 kind: stack
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - multiarch/multiarch-sdk-arches.bst
 
 variables:

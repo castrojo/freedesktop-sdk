@@ -6,7 +6,7 @@ build-depends:
 - public-stacks/buildsystem-cmake.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/brotli.bst
 - components/gdk-pixbuf.bst
 - components/highway.bst

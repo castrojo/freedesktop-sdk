@@ -5,7 +5,7 @@ build-depends:
 
 depends:
 - components/util-linux-full.bst
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 sources:
 - kind: git_repo

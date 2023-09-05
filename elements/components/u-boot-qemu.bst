@@ -1,6 +1,10 @@
 kind: manual
 
 build-depends:
+- public-stacks/buildsystem-make.bst
+- bootstrap/gawk.bst
+- bootstrap/grep.bst
+- bootstrap/sed.bst
 - components/bison.bst
 - components/flex.bst
 - components/gzip.bst

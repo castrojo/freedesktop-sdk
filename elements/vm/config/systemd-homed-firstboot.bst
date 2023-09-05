@@ -1,7 +1,7 @@
 kind: manual
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 
 config:

@@ -7,7 +7,7 @@ build-depends:
 - components/gobject-introspection.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/at-spi2-core.bst
 - components/cairo.bst
 - components/cups.bst

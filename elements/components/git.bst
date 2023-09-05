@@ -9,7 +9,7 @@ build-depends:
 - components/libxslt.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/git-minimal.bst
 - components/perl.bst
 - components/python3.bst
@@ -20,6 +20,7 @@ depends:
 - components/openssl.bst
 
 runtime-depends:
+- bootstrap/zlib.bst
 - components/ca-certificates.bst
 - components/perl-ssl.bst
 - components/perl-sasl.bst

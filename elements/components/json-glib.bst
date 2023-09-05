@@ -6,7 +6,7 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   install-commands:

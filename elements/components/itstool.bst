@@ -1,7 +1,7 @@
 kind: autotools
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/python3.bst
 - filename: components/libxslt.bst
 - filename: public-stacks/buildsystem-autotools.bst

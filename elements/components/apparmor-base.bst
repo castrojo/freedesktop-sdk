@@ -1,12 +1,11 @@
 kind: autotools
 
 build-depends:
+- public-stacks/buildsystem-autotools.bst
 - components/bison.bst
 - components/flex.bst
-- components/gettext.bst
 - components/python3.bst
 - components/python3-setuptools.bst
-- components/which.bst
 - components/linux-pam-base.bst
 
 variables:

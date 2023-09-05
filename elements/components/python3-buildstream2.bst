@@ -5,6 +5,8 @@ build-depends:
 - components/cython.bst
 - components/git-minimal.bst
 - components/python3-packaging.bst
+- components/gcc.bst
+- components/stripper.bst
 
 depends:
 - components/python3.bst

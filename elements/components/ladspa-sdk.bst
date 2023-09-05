@@ -1,7 +1,10 @@
 kind: make
 
+build-depends:
+- public-stacks/buildsystem-make.bst
+
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/sndfile.bst
 
 variables:

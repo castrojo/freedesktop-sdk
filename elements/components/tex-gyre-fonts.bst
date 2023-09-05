@@ -1,7 +1,7 @@
 kind: manual
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   fontdir: '%{install-root}%{datadir}/fonts'

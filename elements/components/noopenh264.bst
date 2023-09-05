@@ -1,7 +1,8 @@
 kind: meson
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
+- bootstrap/grep.bst
 
 build-depends:
 - public-stacks/buildsystem-meson.bst

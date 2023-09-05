@@ -1,7 +1,7 @@
 kind: manual
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   install-commands:

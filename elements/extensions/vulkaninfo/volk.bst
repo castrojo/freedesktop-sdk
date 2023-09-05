@@ -9,7 +9,7 @@ build-depends:
 - components/vulkan-headers.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   cmake-local: >-

@@ -1,7 +1,7 @@
 kind: meson
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/gdk-pixbuf.bst
 - components/pango.bst
 - components/cairo.bst

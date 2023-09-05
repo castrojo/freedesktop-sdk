@@ -6,7 +6,8 @@ build-depends:
 - components/openssl.bst
 
 depends:
-- bootstrap-import.bst
+- bootstrap/libxcrypt.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   arch_options: ''

@@ -1,6 +1,7 @@
 kind: make
 
 build-depends:
+- public-stacks/buildsystem-make.bst
 - components/pkg-config.bst
 - components/git-minimal.bst
 - components/go.bst
@@ -8,7 +9,7 @@ build-depends:
 
 depends:
 - components/linux-pam.bst
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   ldflags_defaults: ""

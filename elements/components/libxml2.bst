@@ -5,7 +5,9 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
+- bootstrap/zlib.bst
+- bootstrap/xz.bst
 - components/icu.bst
 
 variables:

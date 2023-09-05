@@ -8,7 +8,7 @@ build-depends:
 - components/gnupg.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   build-dir: ''

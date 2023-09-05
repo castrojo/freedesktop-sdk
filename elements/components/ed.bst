@@ -1,9 +1,11 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/texinfo.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/texinfo.bst
-  type: build
+- public-stacks/runtime-minimal.bst
 
 variables:
   conf-local: |

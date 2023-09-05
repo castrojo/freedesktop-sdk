@@ -1,7 +1,7 @@
 kind: autotools
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/openssl.bst
 
 build-depends:

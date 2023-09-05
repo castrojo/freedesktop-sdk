@@ -2,7 +2,7 @@ kind: autotools
 description: X.org lib xpm
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/xorg-lib-x11.bst
 - filename: public-stacks/buildsystem-autotools.bst
   type: build

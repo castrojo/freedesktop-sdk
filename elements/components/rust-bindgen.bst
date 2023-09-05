@@ -4,6 +4,8 @@ depends:
 - components/llvm.bst
 
 build-depends:
+- components/gcc.bst
+- components/stripper.bst
 - components/rust.bst
 
 environment:

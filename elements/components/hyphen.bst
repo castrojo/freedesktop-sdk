@@ -1,11 +1,12 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/patch.bst
+- components/perl.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/patch.bst
-  type: build
-- filename: components/perl.bst
-  type: build
+- public-stacks/runtime-minimal.bst
 
 config:
   install-commands:

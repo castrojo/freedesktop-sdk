@@ -6,7 +6,7 @@ build-depends:
 - components/systemd.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/less.bst
 - components/groff.bst
 - components/libpipeline.bst

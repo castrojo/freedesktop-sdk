@@ -2,15 +2,16 @@ kind: autotools
 description: GNU debugger
 
 depends:
-- bootstrap-import.bst
-- components/python3.bst
+- bootstrap/xxhash.bst
 - components/debuginfod.bst
 - components/gmp.bst
 - components/mpfr.bst
+- components/python3.bst
 - components/zstd.bst
+- public-stacks/runtime-minimal.bst
 
 build-depends:
-- components/pkg-config.bst
+- public-stacks/buildsystem-autotools.bst
 - components/texinfo.bst
 - components/perl.bst
 - components/flex.bst

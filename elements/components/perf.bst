@@ -1,15 +1,21 @@
 kind: make
 
 build-depends:
+- public-stacks/buildsystem-make.bst
+- bootstrap/diffutils.bst
+- bootstrap/gawk.bst
+- bootstrap/grep.bst
+- bootstrap/sed.bst
 - components/audit.bst
+- components/bc.bst
 - components/bison.bst
 - components/flex.bst
-- components/bc.bst
 - components/gzip.bst
 - components/kmod.bst
 - components/pkg-config.bst
-- components/python3.bst
 - components/python3-setuptools.bst
+- components/python3.bst
+- components/which.bst
 
 depends:
 - components/libunwind.bst

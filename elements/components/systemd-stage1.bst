@@ -2,6 +2,10 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- bootstrap/diffutils.bst
+- bootstrap/gawk.bst
+- bootstrap/grep.bst
+- bootstrap/sed.bst
 - components/docbook-xsl.bst
 - components/gperf.bst
 - components/libxslt.bst
@@ -9,7 +13,9 @@ build-depends:
 - components/python3-jinja2.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
+- bootstrap/libxcrypt.bst
+- bootstrap/xz.bst
 - components/kmod.bst
 - components/libcap.bst
 - components/libgpg-error.bst

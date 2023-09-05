@@ -2,6 +2,8 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
+- components/gcc.bst
+- components/stripper.bst
 
 depends:
 - components/python3.bst

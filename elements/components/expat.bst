@@ -2,12 +2,14 @@ kind: cmake
 
 build-depends:
 - components/cmake-stage1.bst
+- components/gcc.bst
 - components/gettext.bst
 - components/ninja.bst
 - components/pkg-config.bst
+- components/stripper.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   command-subdir: expat

@@ -1,10 +1,14 @@
 kind: manual
 
+build-depends:
+- bootstrap/sed.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/libxml2.bst
-- filename: components/clean-xml-catalog.bst
-  type: runtime
+- public-stacks/runtime-minimal.bst
+- components/libxml2.bst
+
+runtime-depends:
+- components/clean-xml-catalog.bst
 
 variables:
   data: '%{datadir}/xml/docbook/xml-dtd'

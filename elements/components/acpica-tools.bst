@@ -1,12 +1,13 @@
 kind: make
 
 build-depends:
+- public-stacks/buildsystem-make.bst
 - components/m4.bst
 - components/bison.bst
 - components/flex.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 environment:
   NOWERROR: "TRUE"

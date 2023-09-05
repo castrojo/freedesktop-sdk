@@ -9,7 +9,7 @@ build-depends:
 - components/vala-bootstrap.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/glib.bst
 
 variables:

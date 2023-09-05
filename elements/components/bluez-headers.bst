@@ -5,7 +5,7 @@ description: |
   this element. Full elements is `components/bluez.bst`.
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   install-commands:

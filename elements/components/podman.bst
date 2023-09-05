@@ -1,17 +1,21 @@
 kind: make
 
 build-depends:
+- bootstrap/findutils.bst
+- bootstrap/grep.bst
+- bootstrap/sed.bst
 - components/pkg-config.bst
 - components/go.bst
 - components/go-md2man.bst
 - components/git-minimal.bst
 - components/python3.bst
+- public-stacks/buildsystem-make.bst
 
 depends:
 - components/libseccomp.bst
 - components/systemd-libs.bst
 - components/gpgme.bst
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 runtime-depends:
 - components/catatonit.bst

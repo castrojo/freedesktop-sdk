@@ -1,7 +1,13 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-make.bst
+- bootstrap/gawk.bst
+- bootstrap/grep.bst
+- bootstrap/sed.bst
+
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 sources:
 - kind: tar

@@ -8,7 +8,7 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/shared-mime-info.bst
 - components/libtiff.bst
 - components/libpng.bst

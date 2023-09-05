@@ -2,7 +2,7 @@ kind: autotools
 description: X.org lib Xcomposite
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/xorg-lib-x11.bst
 - filename: components/xorg-lib-xfixes.bst
 - filename: public-stacks/buildsystem-autotools.bst

@@ -1,7 +1,7 @@
 kind: script
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   compat_arch: i386-linux-gnu

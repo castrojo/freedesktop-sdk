@@ -6,7 +6,7 @@ build-depends:
 - components/flex.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 sources:
 - kind: git_repo

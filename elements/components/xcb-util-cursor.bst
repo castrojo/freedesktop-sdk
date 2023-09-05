@@ -7,7 +7,7 @@ build-depends:
 - components/gperf.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/xcb-util-renderutil.bst
 - components/xcb-util-image.bst
 

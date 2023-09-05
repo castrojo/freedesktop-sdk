@@ -1,7 +1,7 @@
 kind: manual
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/m4.bst
 
 runtime-depends:

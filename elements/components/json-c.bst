@@ -3,7 +3,7 @@ kind: cmake
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 sources:
 - kind: git_repo

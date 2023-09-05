@@ -1,9 +1,11 @@
 kind: manual
 
 build-depends:
+- bootstrap/binutils.bst
+- bootstrap/sed.bst
 - components/llvm.bst
 - components/spirv-llvm-translator.bst
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   libraries: >-

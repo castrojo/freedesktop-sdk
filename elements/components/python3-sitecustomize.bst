@@ -1,4 +1,5 @@
 kind: manual
+
 depends:
 - components/python3.bst
 

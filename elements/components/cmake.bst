@@ -4,13 +4,14 @@ build-depends:
 - components/cmake-stage1.bst
 - components/gcc.bst
 - components/ninja.bst
+- components/stripper.bst
 
 depends:
-- bootstrap-import.bst
 - components/curl.bst
 - components/expat.bst
 - components/libarchive.bst
 - components/openssl.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   cmake-local: >-

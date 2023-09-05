@@ -6,7 +6,7 @@ build-depends:
 - components/python3-wheel.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/python3.bst
 
 config:

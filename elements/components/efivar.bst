@@ -1,10 +1,12 @@
 kind: make
 
 build-depends:
+- public-stacks/buildsystem-make.bst
 - components/mandoc.bst
+- bootstrap/sed.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   make-args: >-

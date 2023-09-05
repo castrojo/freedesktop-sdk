@@ -7,7 +7,7 @@ build-depends:
 
 depends:
 - components/linux-pam.bst
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 sources:
 - kind: git_repo

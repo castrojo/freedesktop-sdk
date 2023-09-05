@@ -4,6 +4,8 @@ build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
 - components/python3-setuptools-rust.bst
 - components/rust.bst
+- components/gcc.bst
+- components/stripper.bst
 
 depends:
 - components/python3.bst

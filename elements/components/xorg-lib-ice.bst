@@ -2,7 +2,7 @@ kind: autotools
 description: X.org lib ICE
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/xorg-proto-xorgproto.bst
 - filename: components/xorg-lib-xtrans.bst
 - filename: public-stacks/buildsystem-autotools.bst

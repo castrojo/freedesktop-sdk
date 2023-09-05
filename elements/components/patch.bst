@@ -6,7 +6,7 @@ build-depends:
 - components/git-minimal.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   autogen: ./bootstrap --no-git --gnulib-srcdir=%{build-root}/gnulib

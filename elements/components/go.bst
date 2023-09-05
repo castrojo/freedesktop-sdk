@@ -2,9 +2,14 @@ kind: manual
 
 build-depends:
 - bootstrap/go.bst
+- bootstrap/grep.bst
+- bootstrap/sed.bst
+- bootstrap/findutils.bst
+- components/gcc.bst
+- components/stripper.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   optimize-debug: "false"

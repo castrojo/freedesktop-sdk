@@ -5,6 +5,8 @@ depends:
 - components/libnl.bst
 
 build-depends:
+- public-stacks/buildsystem-make.bst
+- bootstrap/sed.bst
 - components/pkg-config.bst
 - components/systemd.bst
 

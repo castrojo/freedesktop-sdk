@@ -1,7 +1,7 @@
 kind: meson
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/gobject-introspection.bst
 - components/gtk-doc.bst
 - components/vala.bst

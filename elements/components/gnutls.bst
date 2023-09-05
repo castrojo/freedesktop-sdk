@@ -10,7 +10,7 @@ build-depends:
 - components/python3.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/libtasn1.bst
 - components/libunistring.bst
 - components/libidn2.bst

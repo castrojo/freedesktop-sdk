@@ -5,7 +5,8 @@ build-depends:
 - components/tar.bst
 
 depends:
-- bootstrap-import.bst
+- bootstrap/zlib.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   # When build-dir is used with git, only configure logs land in

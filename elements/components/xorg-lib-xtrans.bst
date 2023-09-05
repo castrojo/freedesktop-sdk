@@ -2,7 +2,7 @@ kind: autotools
 description: X.org lib xtrans
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: public-stacks/buildsystem-autotools.bst
   type: build
 - filename: components/xorg-util-macros.bst

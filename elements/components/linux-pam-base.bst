@@ -2,7 +2,7 @@ kind: autotools
 
 depends:
 - components/audit.bst
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst

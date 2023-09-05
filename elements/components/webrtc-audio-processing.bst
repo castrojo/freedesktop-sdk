@@ -5,8 +5,8 @@ build-depends:
 - components/cmake.bst
 
 depends:
-- bootstrap-import.bst
 - components/abseil-cpp.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   arch-conf: ''

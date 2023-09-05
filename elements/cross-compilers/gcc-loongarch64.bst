@@ -1,13 +1,12 @@
 kind: autotools
 
 build-depends:
-- bootstrap-import.bst
-- components/tar.bst
-- cross-compilers/standard-libs-loongarch64.bst
 - public-stacks/buildsystem-autotools.bst
-- components/texinfo.bst
+- cross-compilers/standard-libs-loongarch64.bst
 - components/autoconf2.69.bst
 - components/flex.bst
+- components/tar.bst
+- components/texinfo.bst
 
 depends:
 - cross-compilers/binutils-loongarch64.bst

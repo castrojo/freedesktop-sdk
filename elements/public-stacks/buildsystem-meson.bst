@@ -1,7 +1,8 @@
 kind: stack
 
 depends:
-- public-stacks/buildsystem-make.bst
+- components/gcc.bst
+- components/stripper.bst
 - components/gettext.bst
 - components/git-minimal.bst
 - components/meson.bst

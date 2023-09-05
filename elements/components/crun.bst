@@ -12,7 +12,7 @@ depends:
 - components/systemd-libs.bst
 - components/libcap.bst
 - components/libseccomp.bst
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 environment:
   (?):

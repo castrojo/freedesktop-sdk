@@ -1,7 +1,7 @@
 kind: stack
 
 runtime-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/util-linux-full.bst
 - components/linux.bst
 - components/linux-firmware.bst

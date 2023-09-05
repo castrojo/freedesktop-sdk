@@ -4,7 +4,7 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/libarchive.bst
 - components/sqlite.bst
 - components/curl.bst

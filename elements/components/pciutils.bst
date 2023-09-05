@@ -1,8 +1,14 @@
 kind: make
 
-depends:
-- bootstrap-import.bst
+build-depends:
+- public-stacks/buildsystem-make.bst
+- bootstrap/grep.bst
+- bootstrap/sed.bst
+- components/which.bst
 - components/gzip.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
 - components/curl.bst
 
 variables:

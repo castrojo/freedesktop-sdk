@@ -2,12 +2,13 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- bootstrap/diffutils.bst
 - components/flex.bst
 - components/gperf.bst
 - components/texinfo.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/brotli.bst
 - components/ca-certificates.bst
 - components/gpgme.bst

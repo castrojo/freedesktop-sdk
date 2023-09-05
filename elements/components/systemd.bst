@@ -4,6 +4,8 @@ build-depends:
 - components/systemd-base.bst
 
 runtime-depends:
+- bootstrap/libxcrypt.bst
+- bootstrap/xz.bst
 - components/systemd-libs.bst
 - components/systemd-hwdb.bst
 - components/audit.bst

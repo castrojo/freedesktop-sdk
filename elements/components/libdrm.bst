@@ -6,7 +6,7 @@ build-depends:
 - components/python3-docutils.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/xorg-lib-pciaccess.bst
 
 variables:

@@ -1,7 +1,7 @@
 kind: meson
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/aom.bst
 - components/orc.bst
 - components/frei0r.bst

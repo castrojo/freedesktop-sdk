@@ -9,7 +9,7 @@ build-depends:
 
 depends:
 - components/openssl.bst
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   conf-local: >-

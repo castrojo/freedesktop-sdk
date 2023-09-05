@@ -1,10 +1,9 @@
 kind: autotools
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/buildsystem-autotools.bst
 - components/bison.bst
 - components/flex.bst
-- components/pkg-config.bst
 - components/texinfo.bst
 
 depends:

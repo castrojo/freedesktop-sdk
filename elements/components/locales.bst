@@ -1,12 +1,11 @@
 kind: script
 
-depends:
-- filename: bootstrap-import.bst
-  type: build
-- filename: components/gzip.bst
-  type: build
-- filename: components/supported-locales.bst
-  type: build
+build-depends:
+- public-stacks/runtime-minimal.bst
+- bootstrap/findutils.bst
+- bootstrap/grep.bst
+- components/gzip.bst
+- components/supported-locales.bst
 
 environment:
   MAXJOBS: "%{max-jobs}"

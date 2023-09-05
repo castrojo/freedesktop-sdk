@@ -1,12 +1,12 @@
 kind: manual
 
-depends:
-- filename: bootstrap-import.bst
-  type: build
-- filename: components/libglvnd.bst
-  type: runtime
-- filename: components/git-minimal.bst
-  type: build
+build-depends:
+- public-stacks/runtime-minimal.bst
+- components/git-minimal.bst
+- bootstrap/sed.bst
+
+runtime-depends:
+- components/libglvnd.bst
 
 (@):
 - elements/include/mesa-sdk.yml

@@ -2,11 +2,12 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- bootstrap/gawk.bst
 - components/asciidoc.bst
 - components/xmlto.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 public:
   bst:

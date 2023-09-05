@@ -10,6 +10,7 @@ build-depends:
 - components/libeconf.bst
 
 depends:
+- bootstrap/file.bst
 - components/sqlite.bst
 
 variables:

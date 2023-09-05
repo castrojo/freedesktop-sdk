@@ -2,7 +2,7 @@ kind: script
 
 build-depends:
 - components/u-boot-qemu.bst
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   commands:

@@ -1,7 +1,7 @@
 kind: autotools
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/jpeg.bst
 - components/lzip.bst
 - components/libwebp.bst

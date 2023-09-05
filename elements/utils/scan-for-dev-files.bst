@@ -1,7 +1,10 @@
 kind: manual
 
 depends:
-- bootstrap-import.bst
+- bootstrap/binutils.bst
+- bootstrap/findutils.bst
+- bootstrap/sed.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   install-commands:

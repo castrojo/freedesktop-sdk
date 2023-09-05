@@ -5,7 +5,7 @@ kind: meson
 #  - components/pipewire-daemon.bst
 
 build-depends:
-- bootstrap-import.bst
+- bootstrap/grep.bst
 - components/alsa-lib.bst
 - components/avahi.bst
 - components/bluez.bst

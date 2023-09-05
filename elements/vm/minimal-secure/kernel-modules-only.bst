@@ -2,7 +2,7 @@ kind: manual
 
 build-depends:
 - vm/boot/efi-secure.bst
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   install-commands:

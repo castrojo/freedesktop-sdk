@@ -4,7 +4,7 @@ build-depends:
 - components/polkit-base.bst
 
 runtime-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/glib.bst
 - components/systemd-libs.bst
 

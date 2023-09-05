@@ -5,10 +5,11 @@ build-depends:
 - components/git-minimal.bst
 - components/python3.bst
 - components/spirv-tools.bst
+- bootstrap/sed.bst
 
 depends:
-- bootstrap-import.bst
 - components/glslang.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   cmake-local: >-

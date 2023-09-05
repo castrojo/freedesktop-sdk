@@ -1,8 +1,10 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
-- filename: bootstrap-import.bst
-  type: build
+- public-stacks/runtime-minimal.bst
 
 sources:
 - kind: tar

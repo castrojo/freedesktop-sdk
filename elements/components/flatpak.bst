@@ -12,7 +12,7 @@ build-depends:
 - components/xmlto.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/bubblewrap.bst
 - components/gpgme.bst
 - components/libarchive.bst

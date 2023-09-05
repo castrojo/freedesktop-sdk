@@ -2,7 +2,7 @@ kind: autotools
 description: X.org lib Xt
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/xorg-lib-x11.bst
 - filename: components/xorg-lib-sm.bst
 - filename: components/xorg-lib-ice.bst

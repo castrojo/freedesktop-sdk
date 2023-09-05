@@ -4,7 +4,7 @@ build-depends:
 - components/avahi-base.bst
 
 runtime-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/dbus.bst
 - components/glib.bst
 - components/systemd.bst

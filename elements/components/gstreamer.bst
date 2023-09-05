@@ -1,15 +1,16 @@
 kind: meson
 
 build-depends:
-- components/gobject-introspection.bst
 - public-stacks/buildsystem-meson.bst
-- components/flex.bst
 - components/bison.bst
+- components/flex.bst
+- components/gobject-introspection.bst
 - components/hotdoc.bst
 - components/rust.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
+- bootstrap/elfutils.bst
 - components/glib.bst
 - components/libunwind.bst
 - components/svt-av1.bst

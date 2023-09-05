@@ -2,6 +2,7 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- bootstrap/sed.bst
 - components/docbook-xsl.bst
 - components/gperf.bst
 - components/itstool.bst

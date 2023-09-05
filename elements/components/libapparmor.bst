@@ -5,7 +5,7 @@ build-depends:
 
 runtime-depends:
 - components/apparmor-manifest.bst
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   include:

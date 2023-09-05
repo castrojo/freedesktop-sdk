@@ -2,7 +2,7 @@ kind: autotools
 description: X.org lib SM
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/xorg-lib-ice.bst
 - filename: components/xorg-lib-xtrans.bst
 - filename: public-stacks/buildsystem-autotools.bst

@@ -5,7 +5,7 @@ build-depends:
 - components/systemd.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/systemd-libs.bst
 
 variables:

@@ -7,7 +7,7 @@ build-depends:
 - components/docbook-xml.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/pango.bst
 - components/gtk3.bst
 - components/libdrm.bst

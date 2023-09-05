@@ -2,6 +2,8 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- bootstrap/grep.bst
+- bootstrap/sed.bst
 - components/doxygen.bst
 - components/git-minimal.bst
 - components/llvm.bst  # bpf support
@@ -9,7 +11,7 @@ build-depends:
 - components/systemd.bst     # To properly place udev rules
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/jpeg.bst
 - components/mesa-headers.bst
 - components/libbpf.bst

@@ -4,6 +4,8 @@ kind: pyproject
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
 - components/cython.bst
+- components/gcc.bst
+- components/stripper.bst
 
 depends:
 - components/abseil-cpp.bst

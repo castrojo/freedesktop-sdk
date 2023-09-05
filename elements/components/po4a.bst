@@ -1,14 +1,17 @@
 kind: modulebuild
 
 build-depends:
-- components/perl-build.bst
+- bootstrap/make.bst
+- bootstrap/diffutils.bst
+- components/gettext.bst
+- components/docbook-xsl.bst
 - components/gettext.bst
 - components/libxslt.bst
-- components/docbook-xsl.bst
+- components/perl-build.bst
 - components/perl-pod-parser.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/perl.bst
 
 sources:

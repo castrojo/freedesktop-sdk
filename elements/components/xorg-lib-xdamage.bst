@@ -6,7 +6,7 @@ build-depends:
 - components/xorg-util-macros.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/xorg-lib-xfixes.bst
 - components/xorg-lib-x11.bst
 

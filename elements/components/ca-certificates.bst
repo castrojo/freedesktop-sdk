@@ -14,6 +14,10 @@ variables:
   manpage-xsl: "%{datadir}/xml/docbook/xml/xsl-stylesheets/manpages/docbook.xsl"
 
 build-depends:
+- bootstrap/findutils.bst
+- bootstrap/gawk.bst
+- bootstrap/grep.bst
+- bootstrap/sed.bst
 - components/asciidoc.bst
 - components/python3.bst
 - components/docbook-xsl.bst

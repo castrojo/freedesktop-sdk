@@ -1,4 +1,5 @@
 build-depends:
+- bootstrap/sed.bst
 - components/appstream-minimal.bst
 - components/git-minimal.bst
 - components/m4.bst

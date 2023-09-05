@@ -1,13 +1,15 @@
 kind: make
 
 build-depends:
+- public-stacks/buildsystem-make.bst
+- bootstrap/sed.bst
 - components/git-minimal.bst
 - components/go-md2man.bst
 - components/rust.bst
 - components/protobuf.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 runtime-depends:
 - components/aardvark-dns.bst

@@ -2,7 +2,7 @@ kind: autotools
 description: X.org xcb-util-image
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/xorg-lib-xcb.bst
 - filename: components/xcb-util.bst
 - filename: public-stacks/buildsystem-autotools.bst

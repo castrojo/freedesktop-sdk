@@ -1,10 +1,15 @@
 kind: make
 
 build-depends:
+- bootstrap/diffutils.bst
+- bootstrap/findutils.bst
+- bootstrap/grep.bst
+- bootstrap/sed.bst
 - components/perl.bst
+- public-stacks/buildsystem-make.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   make-args: >-

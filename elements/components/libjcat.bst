@@ -2,6 +2,7 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- bootstrap/diffutils.bst
 - components/gobject-introspection.bst
 - components/gtk-doc.bst
 - components/vala.bst

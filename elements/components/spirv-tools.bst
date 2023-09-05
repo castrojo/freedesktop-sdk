@@ -5,7 +5,7 @@ build-depends:
 - components/python3.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/spirv-headers.bst
 
 variables:

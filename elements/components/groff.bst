@@ -1,12 +1,12 @@
 kind: autotools
 
-depends:
-- bootstrap-import.bst
-- components/perl.bst
-
 build-depends:
-- components/m4.bst
+- public-stacks/buildsystem-autotools.bst
 - components/texinfo.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
+- components/perl.bst
 
 config:
   build-commands:

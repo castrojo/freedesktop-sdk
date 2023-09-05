@@ -9,9 +9,8 @@ description: |
   For bootable systems, we should follow the Filesystem Heirarchy Standard:
   see <http://refspecs.linuxfoundation.org/fhs.shtml> for more information.
 
-depends:
-- filename: bootstrap-import.bst
-  type: build
+build-depends:
+- public-stacks/runtime-minimal.bst
 
 config:
   commands:

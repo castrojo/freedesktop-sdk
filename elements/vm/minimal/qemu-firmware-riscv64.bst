@@ -2,7 +2,7 @@ kind: script
 
 build-depends:
 - components/opensbi-u-boot.bst
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   commands:
