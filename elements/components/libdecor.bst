@@ -26,3 +26,5 @@ sources:
   url: freedesktop:libdecor/libdecor.git
   track: '*.*.*'
   ref: 0.1.1-0-g4db201134ab51950a1c673d77d7c4f2f7c7b48fd
+- kind: patch_queue
+  path: patches/libdecor
