@@ -4,7 +4,7 @@ sources:
 - kind: git_repo
   url: github:jelmer/dulwich
   track: 'dulwich-*.*.*'
-  ref: dulwich-0.21.5-0-g320cc2f16d8014a55381b7cbb69c508b520d94b6
+  ref: dulwich-0.21.6-0-gdaf70786f929e3fd4995ad5d56bd93b437c20e5e
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
