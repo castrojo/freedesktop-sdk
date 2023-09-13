@@ -39,3 +39,5 @@ sources:
   exclude:
   - '*-rc*'
   ref: v1.3.1-0-gfd7bb21c0cb56e8a82e9bfa376164b842f433f3b
+- kind: patch_queue
+  path: patches/libwebp
