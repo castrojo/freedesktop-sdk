@@ -41,4 +41,4 @@ sources:
 - kind: git_repo
   url: freedesktop:glvnd/libglvnd.git
   track: v*
-  ref: v1.6.0-0-gb05bbcdaeb9b700cf7877e6d66f8fc3ac952295b
+  ref: v1.7.0-0-gfaa23f21fc677af5792825dc30cb1ccef4bf33a6
