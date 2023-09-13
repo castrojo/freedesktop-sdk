@@ -4,7 +4,7 @@ sources:
   track: v*
   exclude:
   - '*rc*'
-  ref: v24.2-0-g54a2e5caa9d1a0a714fb2aa99753a1444414292a
+  ref: v24.3-0-gee1355459c9ce7ffe264bc40cfdc7b7623d37e99
 - kind: git_module
   path: third_party/abseil-cpp
   url: github:abseil/abseil-cpp.git
