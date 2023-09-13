@@ -23,7 +23,7 @@ sources:
 - kind: git_repo
   track: v*
   url: github:rust-lang/rust-bindgen.git
-  ref: v0.66.1-0-g38a779c61734c134429dfb99da3499173a848c17
+  ref: v0.68.1-0-g8d75a02bbb5c64e85e6ce62b57d52b7df9c61c79
 - kind: cargo
   url: crates:crates
   ref:
@@ -66,9 +66,6 @@ sources:
   - name: clap_lex
     version: 0.3.1
     sha: 783fe232adfca04f90f56201b26d79682d4cd2625e0bc7290b95123afe558ade
-  - name: diff
-    version: 0.1.13
-    sha: 56254986775e3233ffa9c4d7d3faaf6d36a2c09d30b20687e9f88bc8bafc16c8
   - name: either
     version: 1.8.1
     sha: 7fcaabb2fef8c910e7f4c7ce9f67a1283a1715879a7c230ca9d6d1ae31f16d91
@@ -81,6 +78,9 @@ sources:
   - name: errno
     version: 0.2.8
     sha: f639046355ee4f37944e44f60642c6f3a7efa3cf6b78c78a0d989a8ce6c396a1
+  - name: errno
+    version: 0.3.1
+    sha: 4bcfec3a70f97c962c307b2d2c56e358cf1d00b558d74262b5f929ee8cc7e73a
   - name: errno-dragonfly
     version: 0.1.2
     sha: aa68f1b12764fab894d2755d2518754e71b4fd80ecfb822714a1206c2aab39bf
@@ -97,8 +97,8 @@ sources:
     version: 0.4.0
     sha: 2540771e65fc8cb83cd6e8a237f70c319bd5c29f78ed1084ba5d50eeac86f7f9
   - name: hermit-abi
-    version: 0.2.6
-    sha: ee512640fe35acbfb4bb779db6f0d80704c2cacfa2e39b601ef3e3f47d1ae4c7
+    version: 0.3.2
+    sha: 443144c8cdadd93ebf52ddb4056d257f5b52c04d3c804e657d19eb73fc33668b
   - name: humantime
     version: 2.1.0
     sha: 9a3a5bfb195931eeb336b2a7b4d761daec841b97f947d34394601737a7bba5e4
@@ -109,8 +109,8 @@ sources:
     version: 1.0.4
     sha: e7d6c6f8c91b4b9ed43484ad1a938e393caf35960fce7f82a040497207bd8e9e
   - name: is-terminal
-    version: 0.4.2
-    sha: 28dfb6c8100ccc63462345b67d1bbc3679177c75ee4bf59bf29c8b1d110b8189
+    version: 0.4.7
+    sha: adcf93614601c8129ddf72e2d5633df827ba6551541c6d8c59520a371475be1f
   - name: lazy_static
     version: 1.4.0
     sha: e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646
@@ -126,6 +126,9 @@ sources:
   - name: linux-raw-sys
     version: 0.1.4
     sha: f051f77a7c8e6957c0696eac88f26b0117e54f52d3fc682ab19397a8812846a4
+  - name: linux-raw-sys
+    version: 0.3.8
+    sha: ef53942eb7bf7ff43a617b3e2c1c4a5ecf5944a7c1bc12d7ee39bbb15e5c1519
   - name: log
     version: 0.4.17
     sha: abb12e687cfb44aa40f41fc3978ef76448f9b6038cad6aef4259d3c095a2382e
@@ -150,12 +153,15 @@ sources:
   - name: os_str_bytes
     version: 6.4.1
     sha: 9b7820b9daea5457c9f21c69448905d723fbd21136ccf521748f23fd49e723ee
+  - name: owo-colors
+    version: 3.5.0
+    sha: c1b04fb49957986fdce4d6ee7a65027d55d4b6d2265e5848bbb507b58ccfdb6f
   - name: peeking_take_while
     version: 0.1.2
     sha: 19b17cddbe7ec3f8bc800887bab5e717348c95ea2ca0b1bf0837fb964dc67099
   - name: prettyplease
-    version: 0.2.0
-    sha: 4508c0eff4d1e708551034de4bddd61bf8bda8c7b5ae72bd844cf68ea21117ac
+    version: 0.2.7
+    sha: 43ded2b5b204571f065ab8540367d738dfe1b3606ab9eb669dcfb5e7a3a07501
   - name: proc-macro-error
     version: 1.0.4
     sha: da25490ff9892aab3fcf7c36f08cfb902dd3e71ca0f9f9517bea02a73a5ce38c
@@ -163,14 +169,14 @@ sources:
     version: 1.0.4
     sha: a1be40180e52ecc98ad80b184934baf3d0d29f979574e439af5a55274b35f869
   - name: proc-macro2
-    version: 1.0.52
-    sha: 1d0e1ae9e836cc3beddd63db0df682593d7e2d3d891ae8c9083d2113e1744224
+    version: 1.0.60
+    sha: dec2b086b7a862cf4de201096214fa870344cf922b2b30c167badb3af3195406
   - name: quickcheck
     version: 1.0.3
     sha: 588f6378e4dd99458b60ec275b4477add41ce4fa9f64dcba6f15adccb19b50d6
   - name: quote
-    version: 1.0.26
-    sha: 4424af4bf778aae2051a77b60283332f386554255d722233d09fbfc7e30da2fc
+    version: 1.0.28
+    sha: 1b9ab9c7eadfd8df19006f1cf1a4aed13540ed5cbc047010ece5826e10825488
   - name: rand
     version: 0.8.5
     sha: 34af8d1a0e25924bc5b7c43c079c942339d8f0a8b57c39049bef581b46327404
@@ -192,9 +198,15 @@ sources:
   - name: rustix
     version: 0.36.7
     sha: d4fdebc4b395b7fbb9ab11e462e20ed9051e7b16e42d24042c776eca0ac81b03
+  - name: rustix
+    version: 0.37.3
+    sha: 62b24138615de35e32031d041a09032ef3487a616d901ca4db224e7d557efae2
   - name: shlex
     version: 1.1.0
     sha: 43b2853a4d09f215c24cc5489c992ce46052d359b5109343cbafbf26bc62f8a3
+  - name: similar
+    version: 2.2.1
+    sha: 420acb44afdae038210c99e69aae24109f32f15500aa708e81d46c9f29d55fcf
   - name: strsim
     version: 0.10.0
     sha: 73473c0e59e6d5812c5dfe2a064a6444949f089e20eec9a2e5506596494e4623
@@ -202,8 +214,8 @@ sources:
     version: 1.0.107
     sha: 1f4064b5b16e03ae50984a5a8ed5d4f8803e6bc1fd170a3cda91a1be4b18e3f5
   - name: syn
-    version: 2.0.7
-    sha: 9a9a90d19f27bb60792270bb90225f96d97fc5705395134b2ca1dcbb3acc27f4
+    version: 2.0.18
+    sha: 32d41677bcbe24c20c52e7c70b0d8db04134c5d1066bf98662e2871ad200ea3e
   - name: tempfile
     version: 3.4.0
     sha: af18f7ae1acd354b992402e9ec5864359d693cd8a79dcbef59f76891701c1e95
@@ -240,27 +252,60 @@ sources:
   - name: windows-sys
     version: 0.42.0
     sha: 5a3e1820f08b8513f676f7ab6c1f99ff312fb97b553d30ff4dd86f9f15728aa7
+  - name: windows-sys
+    version: 0.45.0
+    sha: 75283be5efb2831d37ea142365f009c02ec203cd29a3ebecbc093d52315b66d0
+  - name: windows-sys
+    version: 0.48.0
+    sha: 677d2418bec65e3338edb076e806bc1ec15693c5d0104683f2efe857f61056a9
+  - name: windows-targets
+    version: 0.42.2
+    sha: 8e5180c00cd44c9b1c88adb3693291f1cd93605ded80c250a75d472756b4d071
+  - name: windows-targets
+    version: 0.48.1
+    sha: 05d4b17490f70499f20b9e791dcf6a299785ce8af4d709018206dc5b4953e95f
   - name: windows_aarch64_gnullvm
-    version: 0.42.1
-    sha: 8c9864e83243fdec7fc9c5444389dcbbfd258f745e7853198f365e3c4968a608
+    version: 0.42.2
+    sha: 597a5118570b68bc08d8d59125332c54f1ba9d9adeedeef5b99b02ba2b0698f8
+  - name: windows_aarch64_gnullvm
+    version: 0.48.0
+    sha: 91ae572e1b79dba883e0d315474df7305d12f569b400fcf90581b06062f7e1bc
   - name: windows_aarch64_msvc
-    version: 0.42.1
-    sha: 4c8b1b673ffc16c47a9ff48570a9d85e25d265735c503681332589af6253c6c7
+    version: 0.42.2
+    sha: e08e8864a60f06ef0d0ff4ba04124db8b0fb3be5776a5cd47641e942e58c4d43
+  - name: windows_aarch64_msvc
+    version: 0.48.0
+    sha: b2ef27e0d7bdfcfc7b868b317c1d32c641a6fe4629c171b8928c7b08d98d7cf3
   - name: windows_i686_gnu
-    version: 0.42.1
-    sha: de3887528ad530ba7bdbb1faa8275ec7a1155a45ffa57c37993960277145d640
+    version: 0.42.2
+    sha: c61d927d8da41da96a81f029489353e68739737d3beca43145c8afec9a31a84f
+  - name: windows_i686_gnu
+    version: 0.48.0
+    sha: 622a1962a7db830d6fd0a69683c80a18fda201879f0f447f065a3b7467daa241
   - name: windows_i686_msvc
-    version: 0.42.1
-    sha: bf4d1122317eddd6ff351aa852118a2418ad4214e6613a50e0191f7004372605
+    version: 0.42.2
+    sha: 44d840b6ec649f480a41c8d80f9c65108b92d89345dd94027bfe06ac444d1060
+  - name: windows_i686_msvc
+    version: 0.48.0
+    sha: 4542c6e364ce21bf45d69fdd2a8e455fa38d316158cfd43b3ac1c5b1b19f8e00
   - name: windows_x86_64_gnu
-    version: 0.42.1
-    sha: c1040f221285e17ebccbc2591ffdc2d44ee1f9186324dd3e84e99ac68d699c45
+    version: 0.42.2
+    sha: 8de912b8b8feb55c064867cf047dda097f92d51efad5b491dfb98f6bbb70cb36
+  - name: windows_x86_64_gnu
+    version: 0.48.0
+    sha: ca2b8a661f7628cbd23440e50b05d705db3686f894fc9580820623656af974b1
   - name: windows_x86_64_gnullvm
-    version: 0.42.1
-    sha: 628bfdf232daa22b0d64fdb62b09fcc36bb01f05a3939e20ab73aaf9470d0463
+    version: 0.42.2
+    sha: 26d41b46a36d453748aedef1486d5c7a85db22e56aff34643984ea85514e94a3
+  - name: windows_x86_64_gnullvm
+    version: 0.48.0
+    sha: 7896dbc1f41e08872e9d5e8f8baa8fdd2677f29468c4e156210174edc7f7b953
   - name: windows_x86_64_msvc
-    version: 0.42.1
-    sha: 447660ad36a13288b1db4d4248e857b510e8c3a225c822ba4fb748c0aafecffd
+    version: 0.42.2
+    sha: 9aec5da331524158c6d1a4ac0ab1541149c0b9505fde06423b02f5ef0106b9f0
+  - name: windows_x86_64_msvc
+    version: 0.48.0
+    sha: 1a515f5799fe4961cb532f983ce2b23082366b898e52ffbce459c86f67c8378a
   - name: yansi-term
     version: 0.1.2
     sha: fe5c30ade05e61656247b2e334a031dfd0cc466fadef865bdcdea8d537951bf1
