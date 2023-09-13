@@ -51,6 +51,7 @@ stages:
   - publish
   - finish-publish
   - reproducible
+  - check_debuginfo
 
 before_script:
   - ./utils/preresolve.py $BST_CACHE_SERVER_ADDRESS
@@ -295,6 +296,30 @@ check_mirrors:
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
 
+
+.check_debuginfo:
+  stage: check_debuginfo
+  needs: []
+  script:
+  - make check-debuginfo
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly"'
+
+check_debuginfo_aarch64:
+  extends:
+  - .check_debuginfo
+  - .builder-aarch64
+
+check_debuginfo_x86_64:
+  extends:
+  - .check_debuginfo
+  - .builder-x86_64
+
+check_debuginfo_i686:
+  extends:
+  - .check_debuginfo
+  - .builder-i686
+
 license_checker:
   extends:
     - .builder-x86_64
@@ -326,8 +351,6 @@ license_checker:
     - make url-manifest
     - python3 utils/mirror-management-scripts/check_mirrors.py --alias_test --mirror_defined_test -m "release-url-manifest/url-manifest-no-mirrors.json" -M "include/_private/mirrors.yml" -i "utils/mirror-management-scripts/ignore_dict.json" --output_file "mirror_problem_list.json"
     - test "${ARCH}" != "i686" && make build
-
-    - make check-debuginfo
 
     - export FLATPAK_USER_DIR="${PWD}/tmp-flatpak"
     - make test-apps
