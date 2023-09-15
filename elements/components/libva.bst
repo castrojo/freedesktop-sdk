@@ -32,6 +32,6 @@ public:
 sources:
 - kind: git_repo
   url: github:intel/libva.git
-  track: '2.*.*'
+  track: '2.19.*'
   # WARNING: Tracking must be pinned to a major.minor version on stable release.
   ref: 2.19.0-0-g807044bd0fcb944edf230052fa09acc4266790fe
