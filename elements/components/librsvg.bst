@@ -39,7 +39,7 @@ sources:
   exclude:
   - '*.*[13579].*'
   - '*.*.9*'
-  ref: 2.56.3-0-g312c4b8c28c99b9051ee6de6fa966cf977b0f7b4
+  ref: 2.56.4-0-g79d44da2e1b45b483a41af89f28ec98daf13ab19
 - kind: cargo
   url: crates:crates
   ref:
