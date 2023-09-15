@@ -33,4 +33,4 @@ sources:
 - kind: git_repo
   url: gnome:at-spi2-core.git
   track: AT_SPI2_CORE_2_*[02468]_*
-  ref: AT_SPI2_CORE_2_48_3-0-gc0c1b0477ab643e900cecfaf8d3af70ed9400b82
+  ref: AT_SPI2_CORE_2_48_4-0-gebfda3a63fc351f977d5428b1e7e1979c8edb5c5
