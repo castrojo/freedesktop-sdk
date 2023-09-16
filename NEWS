@@ -1,5 +1,96 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08.1:
+  * Revert "Update elements/include/pkg-config-source.yml to pkgconf-2.0.3-0"
+  * Update gsettings-desktop-schemas to 45.0-0
+  * Backport cmake patch to add compatibility with new pkgconfig
+  * Update python3-pil to 10.0.1
+  * Update ghostscript to ghostpdl-10.02.0
+  * Update cmake.bst to v3.27.5
+  * Update gyp to a03d741
+  * Update libtiff to v4.6.0-0
+  * Update libva-utils to 2.20.0-0
+  * Update buildbox-common to 1.0.4-0
+  * Update strace to v6.5-0
+  * Update slirp4netns to v1.2.2-0
+  * Update grpc to v1.58.1-0
+  * Update librsvg to 2.57.0-0
+  * Update python3-sphinx to 7.2.6
+  * Update python3-filelock to 3.12.4
+  * Update linux to v6.5.3-0
+  * Update btrfs-progs to v6.5.1-0
+  * Tie glib to 2.76
+  * Update libwebp to v1.3.2-0
+  * Update python3-setuptools to v68.2.2-0
+  * components/libwebp: CVE-2023-4863
+  * Update xdg-desktop-portal-base to 1.17.2-0
+  * Update grpc to v1.58.0-0
+  * Update elements/include/systemd.yml to v254.3-0
+  * Update rust-bindgen to v0.68.1-0
+  * Update spirv-llvm-translator to v16.0.0-10
+  * Update buildbox-casd to 1.0.1-0
+  * Update protobuf to v24.3-0
+  * Update libglvnd to v1.7.0-0
+  * Update extra-cmake-modules to v5.110.0-0
+  * Move check debuginfo into weekly
+  * Update python3-setuptools to v68.2.1-0
+  * Update libarchive to v3.7.2-0
+  * Update crun to 1.9-0
+  * Update ca-certificates to ca-certificates-2010_63-3_fc14-142
+  * Update pygobject to 3.46.0-0
+  * Update geoclue-base to 2.7.1-0
+  * Update poppler to poppler-23.09.0-0
+  * Update python3-pyelftools to 0.30
+  * Update python3-dulwich to dulwich-0.21.6-0
+  * Update gyp to c6d8b9f
+  * Update passt to 2023_09_08.05627dc-0
+  * Update mesa to mesa-23.1.7-0
+  * Update dictionaries to libreoffice-7.6.1.2-0
+  * Update python3-grpcio to 1.58.0
+  * Update vim to v9.0.1894-0
+  * Backport duplicate symbols patch
+  * Update glibc to glibc-2.38-13
+  * Update python3-pytz to 2023.3.post1
+  * Update mutool to 1.23.3-0
+  * Update aom to v3.7.0-0
+  * Update python3-pyroaring to 0.4.4-0
+  * Update xorg-font-util to font-util-1.4.1-0
+  * Update go to go1.21.1-0
+  * Update python3-virtualenv to 20.24.5-0
+  * Update libblockdev to 3.0.3-1-0
+  * Ignore libassuan base commits
+  * Update to image built against 23.08.0
+  * Update jq to jq-1.7-0
+  * Update pyelftools to v0.30-0
+  * Update dbus-base to dbus-1.14.10-0
+  * Update libabigail to libabigail-2.3-38
+  * Update udisks to udisks-2.10.1-0
+  * Update libei to 1.1.0-0
+  * Update qpdf to v11.6.1-0
+  * Update python3-build to 1.0.3-0
+  * Update iproute2 to v6.5.0-0
+  * Update pkg-config to pkgconf-2.0.3-0
+  * Update python3-build to 1.0.0-0
+  * Update buildbox-common to 1.0.3-0
+  * Update gyp to 9d09418
+  * Update libwacom to libwacom-2.8.0-0
+  * Update wireless-regdb-bin to master-2023-09-01-0
+  * Update foomatic-db to 4e6ab90
+  * Update python3-sphinx to 7.2.5
+  * sudo: use pam to verify password
+  * xwayland: Enable libei
+  * linux: Make SND_HDA module only
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-23.08.0-0
+  * Update btrfs-progs to v6.5-0
+  * Update fwupd to 1.9.5-0
+  * Update sdl2 to release-2.28.3-0
+  * Update glib to 2.76.5-0
+  * Update libnghttp2 to v1.56.0-0
+  * procps: drop an upstreamed patch
+  * Update procps to v4.0.4-0
+  * Update qpdf to v11.6.0-0
+  * Exclude pre-releases for pyroaring
+
 freedesktop-sdk-23.08.0:
   * Change references from 23.08beta to 23.08
   * Fix weekly tracking
