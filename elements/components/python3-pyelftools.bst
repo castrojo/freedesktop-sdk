@@ -10,5 +10,6 @@ sources:
 - kind: pypi
   name: pyelftools
   ref:
-    sha256sum: ec761596aafa16e282a31de188737e5485552469ac63b60cfcccf22263fd24ff
-    suffix: 0e/35/e76da824595452a5ad07f289ea1737ca0971fc6cc7b6ee9464279be06b5e/pyelftools-0.29.tar.gz
+    sha256sum: 2fc92b0d534f8b081f58c7c370967379123d8e00984deb53c209364efd575b40
+    suffix: 
+      84/05/fd41cd647de044d1ffec90ce5aaae935126ac217f8ecb302186655284fc8/pyelftools-0.30.tar.gz
