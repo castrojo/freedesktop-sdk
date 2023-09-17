@@ -6,6 +6,7 @@ build-depends:
 runtime-depends:
 - components/util-linux.bst
 - components/libcap-ng.bst
+- components/libeconf.bst
 
 config:
   include:

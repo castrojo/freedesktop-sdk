@@ -217,6 +217,7 @@ depends:
 - components/libdbus.bst
 - components/libdecor.bst
 - components/libdrm.bst
+- components/libeconf.bst
 - components/libei.bst
 - components/libepoxy.bst
 - components/liberation-fonts.bst

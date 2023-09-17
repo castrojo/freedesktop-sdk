@@ -6,6 +6,7 @@ build-depends:
 - components/bison.bst
 - components/git-minimal.bst
 - components/libcap-ng.bst
+- components/libeconf.bst
 
 variables:
   conf-local: >-
@@ -16,6 +17,7 @@ variables:
     --disable-nologin
     --enable-usrdir-path
     --enable-setpriv
+    --with-econf
 
 public:
   initial-script:
@@ -41,6 +43,7 @@ public:
 
       - '%{bindir}/sulogin'
       - '%{bindir}/agetty'
+      - '%{bindir}/lslogins'
 
       - '%{bindir}/sfdisk'
       - '%{bindir}/fdisk'
