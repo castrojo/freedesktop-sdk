@@ -24,3 +24,5 @@ sources:
   ref: v3.27.5-0-g7d3b4868d0306d4fcc430349241b5b78f76d543c
 - kind: patch
   path: patches/cmake/cmake-nolib64.patch
+- kind: patch
+  path: patches/cmake/trim-trailing-whitespace.patch
