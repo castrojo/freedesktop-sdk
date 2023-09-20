@@ -29,6 +29,8 @@ sources:
 - kind: git_repo
   url: github:apache/buildstream.git
   track: '*.*.*'
+  exclude:
+  - '*.dev*'
   ref: 2.0.1-0-g23c432e81c0e5fb1850637b583808df99e5eed5b
 - kind: patch_queue
   path: patches/buildstream
