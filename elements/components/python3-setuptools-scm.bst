@@ -10,13 +10,11 @@ depends:
 - components/git-minimal.bst
 - components/python3-typing-extensions.bst
 - components/python3-packaging.bst
-
-runtime-depends:
 - components/python3-tomli.bst
 
 sources:
 - kind: pypi
   name: setuptools_scm
   ref:
-    sha256sum: 6c508345a771aad7d56ebff0e70628bf2b0ec7573762be9960214730de278f27
-    suffix: 98/12/2c1e579bb968759fc512391473340d0661b1a8c96a59fb7c65b02eec1321/setuptools_scm-7.1.0.tar.gz
+    sha256sum: e69bf0b8265fdc8f4e070c98235b1b0816ffa8b7f91153400404bf68496012e3
+    suffix: a7/16/8aef42ae27036ceb201f1774940357da18ae7daac45bdd721da554892012/setuptools-scm-8.0.1.tar.gz
