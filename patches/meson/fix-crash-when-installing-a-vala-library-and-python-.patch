@@ -1,0 +1,154 @@
+From 45095bf7da15461d969204e32824a6d24b12710f Mon Sep 17 00:00:00 2001
+From: Xavier Claessens <xavier.claessens@collabora.com>
+Date: Wed, 20 Sep 2023 00:43:04 +0200
+Subject: [PATCH] Fix crash when installing a vala library and python sources
+
+Installing python sources causes the python module to call
+create_install_data() before Ninja backends adds extra outputs to Vala
+targets.
+
+Target objects are supposed to be immutable, adding outputs that late is
+totally wrong. Add extra vala outputs immediately, but be careful
+because the main output is only added later in post_init(). Luckily
+the base class already puts a placeholder item in self.outputs for the
+main filename so we can just replace self.outputs[0] instead of
+replacing the whole list which would contain vala outputs at that stage.
+This is surprisingly what SharedLibrary was already doing.
+---
+ data/test.schema.json                            |  1 +
+ mesonbuild/backend/ninjabackend.py               |  4 ----
+ mesonbuild/build.py                              | 10 ++++++++--
+ run_project_tests.py                             |  5 ++++-
+ test cases/vala/7 shared library/lib/meson.build |  5 +++++
+ test cases/vala/7 shared library/test.json       |  4 +++-
+ 6 files changed, 21 insertions(+), 8 deletions(-)
+
+diff --git a/data/test.schema.json b/data/test.schema.json
+index a809388b4..fa5a53e5f 100644
+--- a/data/test.schema.json
++++ b/data/test.schema.json
+@@ -26,6 +26,7 @@
+               "exe",
+               "shared_lib",
+               "python_lib",
++              "python_bytecode",
+               "pdb",
+               "implib",
+               "py_implib",
+diff --git a/mesonbuild/backend/ninjabackend.py b/mesonbuild/backend/ninjabackend.py
+index f211f168c..7905e590a 100644
+--- a/mesonbuild/backend/ninjabackend.py
++++ b/mesonbuild/backend/ninjabackend.py
+@@ -1687,8 +1687,6 @@ class NinjaBackend(backends.Backend):
+             # Without this, it will write it inside c_out_dir
+             args += ['--vapi', os.path.join('..', target.vala_vapi)]
+             valac_outputs.append(vapiname)
+-            target.outputs += [target.vala_header, target.vala_vapi]
+-            target.install_tag += ['devel', 'devel']
+             # Install header and vapi to default locations if user requests this
+             if len(target.install_dir) > 1 and target.install_dir[1] is True:
+                 target.install_dir[1] = self.environment.get_includedir()
+@@ -1699,8 +1697,6 @@ class NinjaBackend(backends.Backend):
+                 girname = os.path.join(self.get_target_dir(target), target.vala_gir)
+                 args += ['--gir', os.path.join('..', target.vala_gir)]
+                 valac_outputs.append(girname)
+-                target.outputs.append(target.vala_gir)
+-                target.install_tag.append('devel')
+                 # Install GIR to default location if requested by user
+                 if len(target.install_dir) > 3 and target.install_dir[3] is True:
+                     target.install_dir[3] = os.path.join(self.environment.get_datadir(), 'gir-1.0')
+diff --git a/mesonbuild/build.py b/mesonbuild/build.py
+index 2b537e0b0..3c62fe8b9 100644
+--- a/mesonbuild/build.py
++++ b/mesonbuild/build.py
+@@ -788,6 +788,12 @@ class BuildTarget(Target):
+             # relocation-model=pic is rustc's default and Meson does not
+             # currently have a way to disable PIC.
+             self.pic = True
++        if 'vala' in self.compilers and self.is_linkable_target():
++            self.outputs += [self.vala_header, self.vala_vapi]
++            self.install_tag += ['devel', 'devel']
++            if self.vala_gir:
++                self.outputs.append(self.vala_gir)
++                self.install_tag.append('devel')
+ 
+     def __repr__(self):
+         repr_str = "<{0} {1}: {2}>"
+@@ -1962,7 +1968,7 @@ class Executable(BuildTarget):
+         self.filename = self.name
+         if self.suffix:
+             self.filename += '.' + self.suffix
+-        self.outputs = [self.filename]
++        self.outputs[0] = self.filename
+ 
+         # The import library this target will generate
+         self.import_filename = None
+@@ -2111,7 +2117,7 @@ class StaticLibrary(BuildTarget):
+             else:
+                 self.suffix = 'a'
+         self.filename = self.prefix + self.name + '.' + self.suffix
+-        self.outputs = [self.filename]
++        self.outputs[0] = self.filename
+ 
+     def get_link_deps_mapping(self, prefix: str) -> T.Mapping[str, str]:
+         return {}
+diff --git a/run_project_tests.py b/run_project_tests.py
+index facf1e98f..252227973 100755
+--- a/run_project_tests.py
++++ b/run_project_tests.py
+@@ -40,6 +40,7 @@ import time
+ import typing as T
+ import xml.etree.ElementTree as ET
+ import collections
++import importlib.util
+ 
+ from mesonbuild import build
+ from mesonbuild import environment
+@@ -167,7 +168,7 @@ class InstalledFile:
+             return None
+ 
+         # Handle the different types
+-        if self.typ in {'py_implib', 'python_lib', 'python_file'}:
++        if self.typ in {'py_implib', 'python_lib', 'python_file', 'python_bytecode'}:
+             val = p.as_posix()
+             val = val.replace('@PYTHON_PLATLIB@', python.platlib)
+             val = val.replace('@PYTHON_PURELIB@', python.purelib)
+@@ -184,6 +185,8 @@ class InstalledFile:
+                     return p.with_suffix('.dll.a')
+                 else:
+                     return None
++            if self.typ == 'python_bytecode':
++                return p.parent / importlib.util.cache_from_source(p.name)
+         elif self.typ in {'file', 'dir'}:
+             return p
+         elif self.typ == 'shared_lib':
+diff --git a/test cases/vala/7 shared library/lib/meson.build b/test cases/vala/7 shared library/lib/meson.build
+index edeeb96d1..bbd3862f1 100644
+--- a/test cases/vala/7 shared library/lib/meson.build	
++++ b/test cases/vala/7 shared library/lib/meson.build	
+@@ -33,3 +33,8 @@ shared_library('installed_vala_onlyvapi', 'mylib.vala',
+   dependencies : valadeps,
+   install : true,
+   install_dir : [false, false, join_paths(get_option('datadir'), 'vala', 'vapi')])
++
++# Regression test: Vala libraries were broken when also installing python modules.
++# https://gitlab.gnome.org/GNOME/gitg/-/issues/412
++python = import('python').find_installation()
++python.install_sources('source.py')
+diff --git a/test cases/vala/7 shared library/test.json b/test cases/vala/7 shared library/test.json
+index eee3c3dca..08bd70734 100644
+--- a/test cases/vala/7 shared library/test.json	
++++ b/test cases/vala/7 shared library/test.json	
+@@ -9,6 +9,8 @@
+     {"type": "file", "file": "usr/include/installed_vala_onlyh.h"},
+     {"type": "file", "file": "usr/share/vala/vapi/installed_vala_all.vapi"},
+     {"type": "file", "file": "usr/share/vala-1.0/vapi/installed_vala_all_nolib.vapi"},
+-    {"type": "file", "file": "usr/share/vala/vapi/installed_vala_onlyvapi.vapi"}
++    {"type": "file", "file": "usr/share/vala/vapi/installed_vala_onlyvapi.vapi"},
++    {"type": "python_file", "file": "usr/@PYTHON_PURELIB@/source.py"},
++    {"type": "python_bytecode", "file": "usr/@PYTHON_PURELIB@/source.py"}
+   ]
+ }
+-- 
+2.41.0
+

@@ -15,3 +15,6 @@ sources:
 - kind: patch
   path: patches/meson/meson-no-lib64.patch
   strip-level: 0
+- kind: patch
+  path: patches/meson/fix-crash-when-installing-a-vala-library-and-python-.patch
+  strip-level: 1
