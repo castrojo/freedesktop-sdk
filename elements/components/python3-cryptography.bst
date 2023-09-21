@@ -14,7 +14,7 @@ sources:
 - kind: git_repo
   url: github:pyca/cryptography.git
   track: '*.*.*'
-  ref: 41.0.3-0-gb22271cf3c3dd8dc8978f8f4b00b5c7060b6538d
+  ref: 41.0.4-0-gfc11bce6930e591ce26a2317b31b9ce2b3e25512
 - kind: cargo
   url: crates:crates
   cargo-lock: src/rust/Cargo.lock
