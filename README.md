@@ -121,8 +121,8 @@ on are own flatpak remote:
 ## Multimedia codecs
 
 As part of the runtime, there's ffmpeg which contains various common
-patent-free codecs. We also provide provide an `openh264` extension, which
-provides a royalty free H.264 codec.
+patent-free codecs. We also provide an `openh264` extension, which
+is a royalty free H.264 codec.
 
 If your application requires further codecs or openh264 is for some reason
 not functioning correctly for your consumers, it's also possible to declare
