@@ -7,6 +7,7 @@ variables:
   RUNTIME_VERSION: '22.08'
   STABLE_ABI: 'true'
   EXPIRED: '0'
+  MAX_MERGE_REQUESTS: '4'
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
@@ -180,6 +181,7 @@ pylint:
       --shuffle-branches \
       --gitlab_project="freedesktop-sdk/freedesktop-sdk" \
       --max_merge_requests=4 \
+      --max_merge_requests=${MAX_MERGE_REQUESTS} \
       $EXTRA_TRACK_ARGS \
       $TRACK_ELEMENTS
   interruptible: false
