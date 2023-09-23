@@ -38,4 +38,4 @@ sources:
 - kind: git_repo
   url: github:OpenPrinting/cups-filters.git
   track: '*.*.*'
-  ref: 1.28.17-0-gdeceb54f7c6935683732de936364eb82c0d32dbb
+  ref: 2.0.0-0-g2ddc72c47172b1b943fa9b228580d931edc9aa35
