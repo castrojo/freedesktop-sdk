@@ -1,14 +1,11 @@
-kind: autotools
+kind: cmake
 
 depends:
 - filename: bootstrap-import.bst
-- filename: public-stacks/buildsystem-autotools.bst
+- filename: public-stacks/buildsystem-cmake.bst
   type: build
 - filename: components/bc.bst
   type: build
-
-variables:
-  autogen: ./bootstrap
 
 public:
   bst:
@@ -24,6 +21,6 @@ sources:
 - kind: git_repo
   url: github:google/brotli.git
   track: v*
-  ref: v1.0.9-0-ge61745a6b7add50d380cfd7d3883dd6c62fc2c71
-- kind: patch
-  path: patches/brotli/fix-pkg-config.patch
+  exclude:
+  - "*rc*"
+  ref: v1.1.0-0-ged738e842d2fbdf2d6459e39267a633c4a9b2f5d
