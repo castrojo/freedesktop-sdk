@@ -32,5 +32,3 @@ sources:
   exclude:
   - '*.dev*'
   ref: 2.1.0-0-g171e3a85e897f03ee8b05307366de1f2123fcfdf
-- kind: patch_queue
-  path: patches/buildstream
