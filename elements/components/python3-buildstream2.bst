@@ -32,6 +32,6 @@ sources:
   track: '*.*.*'
   exclude:
   - '*.dev*'
-  ref: 2.0.1-0-g23c432e81c0e5fb1850637b583808df99e5eed5b
+  ref: 2.1.0-0-g171e3a85e897f03ee8b05307366de1f2123fcfdf
 - kind: patch_queue
   path: patches/buildstream
