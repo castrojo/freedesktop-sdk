@@ -247,6 +247,7 @@ depends:
 - components/libnghttp2.bst
 - components/libnice.bst
 - components/libnl.bst
+- components/libnotify.bst
 - components/libnvme.bst
 - components/libogg.bst
 - components/libp11.bst
