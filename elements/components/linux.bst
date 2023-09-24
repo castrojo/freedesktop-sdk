@@ -1212,6 +1212,7 @@ config:
         module AXP288_CHARGER
         module AXP288_FUEL_GAUGE
         module BATTERY_SURFACE
+        module CHARGER_SURFACE
       ;;
     esac
 
@@ -1743,6 +1744,9 @@ config:
         module CROS_EC
         module CROS_KBD_LED_BACKLIGHT
         module SURFACE_AGGREGATOR
+        module SURFACE_AGGREGATOR_CDEV
+        module SURFACE_AGGREGATOR_HUB
+        module SURFACE_AGGREGATOR_TABLET_SWITCH
         module SURFACE_3_POWER_OPREGION
         module SURFACE_ACPI_NOTIFY
         module SURFACE_AGGREGATOR_REGISTRY
