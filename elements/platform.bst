@@ -129,6 +129,7 @@ depends:
 - components/libepoxy.bst
 - components/liberation-fonts.bst
 - components/libglvnd.bst
+- components/libnotify.bst
 - components/libp11.bst
 - components/libproxy.bst
 - components/libpsl.bst
