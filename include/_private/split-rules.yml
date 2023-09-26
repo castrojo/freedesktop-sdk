@@ -18,6 +18,8 @@ devel:
   - "%{libdir}/*.a"
   - "%{datadir}/gir-1.0"
   - "%{datadir}/gir-1.0/**"
+  - "%{datadir}/vala*/vapi"
+  - "%{datadir}/vala*/vapi/**"
   - "%{prefix}/src/**"
 
 debug:
