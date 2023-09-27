@@ -27,3 +27,5 @@ sources:
   url: freedesktop:libdecor/libdecor.git
   track: '*.*.*'
   ref: 0.2.0-0-gad320fc0e0ec2cd75a87fed454a9c7d6d1921464
+- kind: patch
+  path: patches/libdecor/symbol-visibility.patch

@@ -1,0 +1,124 @@
+From 672985cae25fb6e5ad20ffe7a2c315c1c26a7310 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jonas=20=C3=85dahl?= <jadahl@gmail.com>
+Date: Wed, 27 Sep 2023 17:51:14 +0800
+Subject: [PATCH] build: Use `gnu_symbol_visibility` everywhere
+
+We were accidentally leaking symbols from an internal static library
+shared between plugins. Lets fix that by using `gnu_symbol_visibility:
+'hidden'` everywhere, and remove the manual C args shuffling.
+
+Closes: https://gitlab.freedesktop.org/libdecor/libdecor/-/issues/57
+---
+ meson.build                    | 6 +-----
+ src/meson.build                | 4 +++-
+ src/plugins/cairo/meson.build  | 2 +-
+ src/plugins/common/meson.build | 1 +
+ src/plugins/dummy/meson.build  | 2 +-
+ src/plugins/gtk/meson.build    | 2 +-
+ 6 files changed, 8 insertions(+), 9 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index 419ea269..fe61de9e 100644
+--- a/meson.build
++++ b/meson.build
+@@ -1,6 +1,6 @@
+ project('libdecor', 'c',
+   version: '0.2.0',
+-  meson_version: '>= 0.47.0',
++  meson_version: '>= 0.49.0',
+   license: 'MIT',
+   default_options: [
+     'c_std=c99',
+@@ -67,10 +67,6 @@ pkglibdir = join_paths(libdir, pkgname)
+ 
+ plugindir = join_paths(pkglibdir, 'plugins-@0@'.format(plugin_api_version_string))
+ 
+-libdecor_c_args = [
+-  '-fvisibility=hidden',
+-]
+-
+ cdata = configuration_data()
+ cdata.set_quoted('VERSION', meson.project_version())
+ cdata.set_quoted('LIBDECOR_PLUGIN_DIR', plugindir)
+diff --git a/src/meson.build b/src/meson.build
+index c01c85d0..d6ca6936 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -72,6 +72,7 @@ cursor_settings = static_library('cursor_settings',
+   sources: ['cursor-settings.c'],
+   include_directories: [top_includepath],
+   dependencies: [dbus_dep],
++  gnu_symbol_visibility: 'hidden',
+ )
+ 
+ cursor_settings_dep = declare_dependency(
+@@ -83,6 +84,7 @@ cursor_settings_dep = declare_dependency(
+ os_compatibility = static_library('os_compatibility',
+   sources: ['os-compatibility.c'],
+   include_directories: [top_includepath],
++  gnu_symbol_visibility: 'hidden',
+ )
+ 
+ os_compatibility_dep = declare_dependency(
+@@ -98,7 +100,7 @@ libdecor = shared_library(libdecor_name,
+   soversion: libdecor_soversion,
+   version: libdecor_libversion,
+   include_directories: libdecor_includes,
+-  c_args: libdecor_c_args,
++  gnu_symbol_visibility: 'hidden',
+   dependencies: [
+     wayland_client_dep,
+     dl_dep,
+diff --git a/src/plugins/cairo/meson.build b/src/plugins/cairo/meson.build
+index 249dbc9d..a3d8874e 100644
+--- a/src/plugins/cairo/meson.build
++++ b/src/plugins/cairo/meson.build
+@@ -10,7 +10,7 @@ shared_module('decor-cairo',
+     libdecor_includepath,
+     plugin_include_path,
+   ],
+-  c_args: libdecor_c_args,
++  gnu_symbol_visibility: 'hidden',
+   dependencies: [
+     libdecor_dep,
+     pangocairo_dep,
+diff --git a/src/plugins/common/meson.build b/src/plugins/common/meson.build
+index b59c75c0..f4e6fccd 100644
+--- a/src/plugins/common/meson.build
++++ b/src/plugins/common/meson.build
+@@ -9,5 +9,6 @@ plugin_common = static_library('cairo-blur',
+     cairo_dep,
+     math_dep,
+   ],
++  gnu_symbol_visibility: 'hidden',
+   install: false,
+ )
+diff --git a/src/plugins/dummy/meson.build b/src/plugins/dummy/meson.build
+index e35c9394..f16d730b 100644
+--- a/src/plugins/dummy/meson.build
++++ b/src/plugins/dummy/meson.build
+@@ -6,7 +6,7 @@ shared_module('decor-dummy',
+     top_includepath,
+     libdecor_includepath,
+   ],
+-  c_args: libdecor_c_args,
++  gnu_symbol_visibility: 'hidden',
+   dependencies: [
+     libdecor_dep,
+   ],
+diff --git a/src/plugins/gtk/meson.build b/src/plugins/gtk/meson.build
+index 04f2ce62..f7a79466 100644
+--- a/src/plugins/gtk/meson.build
++++ b/src/plugins/gtk/meson.build
+@@ -9,7 +9,7 @@ shared_module('decor-gtk',
+     libdecor_includepath,
+     plugin_include_path,
+   ],
+-  c_args: libdecor_c_args,
++  gnu_symbol_visibility: 'hidden',
+   dependencies: [
+     libdecor_dep,
+     cairo_dep,
+-- 
+GitLab
+
