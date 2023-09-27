@@ -20,7 +20,6 @@ build-depends:
 - components/python3-docutils.bst
 - components/rtkit.bst
 - components/sbc.bst
-- components/sdl2.bst
 - components/systemd-libs.bst
 - components/systemd.bst
 - components/vulkan-headers.bst
@@ -50,6 +49,7 @@ variables:
     -Dudevrulesdir=$(pkg-config --variable=udevdir udev)/rules.d
     -Dsession-managers=[]
     -Dlibffado=disabled
+    -Dsdl2=disabled
 
 config:
   install-commands:
