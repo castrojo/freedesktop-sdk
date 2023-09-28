@@ -54,3 +54,5 @@ sources:
   exclude:
   - v*rc*
   ref: v1.13.0-0-gd6eb9696aa72473c1a11d34d928d35a3acc0c9a9
+- kind: patch_queue
+  path: patches/libvpx
