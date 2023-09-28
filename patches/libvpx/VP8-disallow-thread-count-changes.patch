@@ -1,0 +1,33 @@
+From 4b07ef193504671e989463d190410ea9f3b5a810 Mon Sep 17 00:00:00 2001
+From: James Zern <jzern@google.com>
+Date: Mon, 25 Sep 2023 18:55:59 -0700
+Subject: [PATCH] VP8: disallow thread count changes
+
+Currently allocations are done at encoder creation time. Going from
+threaded to non-threaded would cause a crash.
+
+Bug: chromium:1486441
+Change-Id: Ie301c2a70847dff2f0daae408fbef1e4d42e73d4
+---
+ vp8/encoder/onyx_if.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/vp8/encoder/onyx_if.c b/vp8/encoder/onyx_if.c
+index 4bbeadef0..148a16cc4 100644
+--- a/vp8/encoder/onyx_if.c
++++ b/vp8/encoder/onyx_if.c
+@@ -1443,6 +1443,11 @@ void vp8_change_config(VP8_COMP *cpi, VP8_CONFIG *oxcf) {
+   last_h = cpi->oxcf.Height;
+   prev_number_of_layers = cpi->oxcf.number_of_layers;
+ 
++  if (cpi->initial_width) {
++    // TODO(https://crbug.com/1486441): Allow changing thread counts; the
++    // allocation is done once in vp8_create_compressor().
++    oxcf->multi_threaded = cpi->oxcf.multi_threaded;
++  }
+   cpi->oxcf = *oxcf;
+ 
+   switch (cpi->oxcf.Mode) {
+-- 
+2.41.0
+
