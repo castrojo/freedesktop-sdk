@@ -48,3 +48,5 @@ sources:
 - kind: git_tag
   url: chromium:webm/libvpx.git
   ref: v1.12.0-0-g03265cd42b3783532de72f2ded5436652e6f5ce3
+- kind: patch_queue
+  path: patches/libvpx
