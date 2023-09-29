@@ -3,6 +3,9 @@ kind: manual
 depends:
 - public-stacks/runtime-minimal.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - install -Dm644 -t "%{install-root}%{indep-libdir}/firmware" regulatory.{db,db.p7s,bin}

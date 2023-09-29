@@ -12,6 +12,7 @@ runtime-depends:
 
 variables:
   data: '%{datadir}/xml/docbook/xml-dtd'
+  strip-binaries: ''
 
 config:
   build-commands:

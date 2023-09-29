@@ -23,6 +23,8 @@ config:
       mv ruamel.yaml.clib/* .
       rmdir ruamel.yaml.clib
 
+(@): include/strip.yml
+
 sources:
 - kind: git_repo
   url: github:ruamel/yaml.clib.git

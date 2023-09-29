@@ -7,6 +7,7 @@ variables:
   fontdir: '%{install-root}%{datadir}/fonts'
   confdir: '%{install-root}%{sysconfdir}/fonts'
   fontname: google-crosextra-carlito
+  strip-binaries: ''
 
 config:
   install-commands:

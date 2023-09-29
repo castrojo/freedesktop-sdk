@@ -9,6 +9,9 @@ build-depends:
 - components/which.bst
 - components/rdfind.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   build-commands:
   - python3 compress.py

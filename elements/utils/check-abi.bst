@@ -9,6 +9,9 @@ runtime-depends:
 - components/python3-pyelftools.bst
 - components/libabigail.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - |

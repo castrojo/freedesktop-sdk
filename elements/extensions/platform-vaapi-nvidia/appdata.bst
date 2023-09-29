@@ -5,6 +5,7 @@ build-depends:
 
 variables:
   prefix: "/usr/lib/%{gcc_triplet}/dri/nvidia-vaapi-driver"
+  strip-binaries: ''
 
 config:
   install-commands:

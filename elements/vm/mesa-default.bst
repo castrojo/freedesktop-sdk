@@ -9,6 +9,7 @@ runtime-depends:
 
 variables:
   ld_so_conf_d: "%{sysconfdir}/ld.so.conf.d"
+  strip-binaries: ''
 
 config:
   install-commands:

@@ -5,6 +5,9 @@ description: Creates a debug directory, links the debug data of /app to a subdir
 depends:
 - public-stacks/runtime-minimal.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - |

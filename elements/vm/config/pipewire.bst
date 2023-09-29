@@ -6,6 +6,9 @@ depends:
 runtime-depends:
 - components/pipewire-daemon.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - |

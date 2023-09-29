@@ -6,6 +6,7 @@ depends:
 variables:
   fontdir: '%{install-root}%{datadir}/fonts'
   confdir: '%{install-root}%{sysconfdir}/fonts'
+  strip-binaries: ''
 
 config:
   install-commands:

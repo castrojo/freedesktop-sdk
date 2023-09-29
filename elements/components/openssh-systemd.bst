@@ -7,6 +7,9 @@ build-depends:
 runtime-depends:
 - components/openssh.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - |

@@ -8,6 +8,8 @@ depends:
 - components/perl.bst
 - components/expat.bst
 
+(@): include/strip.yml
+
 sources:
 - kind: cpan
   name: XML::Parser

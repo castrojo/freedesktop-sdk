@@ -4,6 +4,9 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/weston.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - |

@@ -6,6 +6,9 @@ depends:
 - bootstrap/sed.bst
 - public-stacks/runtime-minimal.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - |

@@ -3,6 +3,9 @@ kind: manual
 depends:
 - components/ruby.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   build-commands:
   - |

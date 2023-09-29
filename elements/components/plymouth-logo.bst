@@ -3,6 +3,9 @@ kind: manual
 build-depends:
 - public-stacks/runtime-minimal.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
     - install -Dm644 -t "%{install-root}%{datadir}/pixmaps" freedesktop-sdk-40.png

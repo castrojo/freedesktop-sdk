@@ -7,6 +7,9 @@ runtime-depends:
 - bootstrap/binutils.bst
 - components/python3.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - |

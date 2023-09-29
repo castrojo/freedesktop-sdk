@@ -4,6 +4,9 @@ description: Creates VAAPI subdirectories, needed for VAAPI compat extensions
 build-depends:
 - public-stacks/runtime-minimal.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - |

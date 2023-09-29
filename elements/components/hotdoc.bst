@@ -31,6 +31,8 @@ runtime-depends:
 environment:
   HOTDOC_BUILD_C_EXTENSION: enabled
 
+(@): include/strip.yml
+
 public:
   bst:
     integration-commands:

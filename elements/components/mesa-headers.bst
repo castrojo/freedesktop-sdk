@@ -36,6 +36,7 @@ variables:
     d3dadapter/present.h
     d3dadapter/d3dadapter9.h
     d3dadapter/drm.h
+  strip-binaries: ''
 
 config:
   install-commands:

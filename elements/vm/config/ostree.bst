@@ -9,6 +9,7 @@ runtime-depends:
 - components/ostree.bst
 
 variables:
+  strip-binaries: ''
   (@):
   - ostree-config.yml
 

@@ -10,6 +10,8 @@ build-depends:
 depends:
 - components/python3.bst
 
+(@): include/strip.yml
+
 environment:
   # -march=native can be problematic and could generate binary that
   # does not work on other builders. It is also not available on

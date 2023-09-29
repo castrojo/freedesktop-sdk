@@ -12,6 +12,9 @@ runtime-depends:
 - components/pygobject.bst
 - components/python3-tenacity.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - |

@@ -8,6 +8,8 @@ depends:
 - components/perl.bst
 - components/openssl.bst
 
+(@): include/strip.yml
+
 sources:
 - kind: cpan
   name: Net::SSLeay

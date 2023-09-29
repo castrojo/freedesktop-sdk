@@ -5,6 +5,7 @@ depends:
 - multiarch/multiarch-platform-arches.bst
 
 variables:
+  strip-binaries: ''
   arches: ''
   (?):
   - target_arch == "x86_64":

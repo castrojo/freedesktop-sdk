@@ -4,6 +4,9 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/sudo.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - |

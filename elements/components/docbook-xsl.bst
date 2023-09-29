@@ -10,6 +10,7 @@ runtime-depends:
 
 variables:
   data: '%{datadir}/xml/docbook/xml/xsl-stylesheets'
+  strip-binaries: ''
 
 config:
   install-commands:

@@ -7,6 +7,9 @@ runtime-depends:
 - components/python3.bst
 - components/python3-pyelftools.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - |

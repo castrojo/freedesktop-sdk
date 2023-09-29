@@ -5,6 +5,9 @@ kind: manual
 build-depends:
 - components/appstream-minimal.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - install -Dm644 -t "%{install-root}%{datadir}/metainfo" org.freedesktop.Platform.VdpauInfo.metainfo.xml

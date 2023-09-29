@@ -6,6 +6,9 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   build-commands:
   - |

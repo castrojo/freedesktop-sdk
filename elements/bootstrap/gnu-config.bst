@@ -9,6 +9,7 @@ build-depends:
 
 variables:
   lib: lib
+  strip-binaries: ''
 
 environment:
   CFLAGS: ""

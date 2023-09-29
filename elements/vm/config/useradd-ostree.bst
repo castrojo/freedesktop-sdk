@@ -6,6 +6,9 @@ build-depends:
 runtime-depends:
 - components/shadow.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - install -Dm644 -t "%{install-root}/etc/default" useradd

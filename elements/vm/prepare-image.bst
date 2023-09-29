@@ -9,6 +9,9 @@ runtime-depends:
 - components/systemd.bst
 - components/tzdata.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - |

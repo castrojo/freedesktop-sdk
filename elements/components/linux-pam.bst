@@ -9,6 +9,7 @@ runtime-depends:
 
 variables:
   pamconfdir: "%{sysconfdir}/pam.d"
+  strip-binaries: ''
 
 config:
   build-commands:

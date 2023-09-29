@@ -5,6 +5,7 @@ depends:
 
 variables:
   networkd-config: "%{install-root}%{indep-libdir}/systemd/network/"
+  strip-binaries: ''
 
 config:
   install-commands:

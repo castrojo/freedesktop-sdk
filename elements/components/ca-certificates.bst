@@ -12,6 +12,7 @@ variables:
   pkidir: "%{sysconfdir}/pki"
   usr-store: "%{pkidir}/ca-trust-store"
   manpage-xsl: "%{datadir}/xml/docbook/xml/xsl-stylesheets/manpages/docbook.xsl"
+  strip-binaries: ''
 
 build-depends:
 - bootstrap/findutils.bst
