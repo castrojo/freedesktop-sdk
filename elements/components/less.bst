@@ -14,6 +14,12 @@ public:
     patches:
     - CVE-2022-46663
 
+config:
+  configure-commands:
+    (<):
+    # workaround #1649 and https://github.com/python/cpython/issues/108254
+    - chmod +x configure mkinstalldirs
+
 sources:
 - kind: tar
   url: ftp_gnu_org:less/less-590.tar.gz
