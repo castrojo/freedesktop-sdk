@@ -9,6 +9,12 @@ public:
     vendor: 'gnu'
     version-match: '\d+'
 
+config:
+  configure-commands:
+    (<):
+    # workaround #1649 and https://github.com/python/cpython/issues/108254
+    - chmod +x configure mkinstalldirs
+
 sources:
 - kind: tar
   url: ftp_gnu_org:less/less-643.tar.gz
