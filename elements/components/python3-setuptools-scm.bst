@@ -15,3 +15,5 @@ sources:
   url: github:pypa/setuptools_scm.git
   track: v*
   ref: v8.0.3-0-g7e867ada4acbfc0e4f0448eb3c439bfd4e37fcc7
+- kind: patch
+  path: patches/python3-setuptools-scm/rich.patch
