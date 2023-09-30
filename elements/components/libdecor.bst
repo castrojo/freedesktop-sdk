@@ -13,6 +13,7 @@ variables:
   meson-local: >-
     -Ddemo=false
     -Ddbus=disabled
+    -Dgtk=disabled
 
 public:
   bst:
@@ -25,6 +26,6 @@ sources:
 - kind: git_repo
   url: freedesktop:libdecor/libdecor.git
   track: '*.*.*'
-  ref: 0.1.1-0-g4db201134ab51950a1c673d77d7c4f2f7c7b48fd
-- kind: patch_queue
-  path: patches/libdecor
+  ref: 0.2.0-0-gad320fc0e0ec2cd75a87fed454a9c7d6d1921464
+- kind: patch
+  path: patches/libdecor/symbol-visibility.patch
