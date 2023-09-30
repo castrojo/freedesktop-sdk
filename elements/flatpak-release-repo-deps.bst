@@ -13,7 +13,6 @@ depends:
 - flatpak-images/platform-arch-libs.bst
 - flatpak-images/platform-arch-libs-debug.bst
 - flatpak-images/platform-ffmpeg-full.bst
-- flatpak-images/platform-gstreamer-vaapi.bst
 - flatpak-images/clinfo.bst
 - flatpak-images/glxinfo.bst
 - flatpak-images/glxinfo-debug.bst
