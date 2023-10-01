@@ -53,6 +53,7 @@ variables:
     -Dsndfile=enabled
     -Dva=enabled
     -Dvulkan=enabled
+    -Dv4l2codecs=enabled
     -Dwayland=enabled
     -Dwebp=enabled
     -Dopenh264=enabled
@@ -83,6 +84,7 @@ public:
         - '%{libdir}/libgsturidownloader-1.0.so'
         - '%{libdir}/libgstva-1.0.so'
         - '%{libdir}/libgstvulkan-1.0.so'
+        - '%{libdir}/libgstv4l2codecs.so'
         - '%{libdir}/libgstwayland-1.0.so'
         - '%{libdir}/libgstwebrtc-1.0.so'
         - '%{libdir}/libgstwebrtcnice-1.0.so'
