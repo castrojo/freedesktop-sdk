@@ -208,6 +208,7 @@ depends:
 - components/libatasmart.bst
 - components/libblockdev.bst
 - components/libbytesize.bst
+- components/libcamera.bst
 - components/libcap-ng.bst
 - components/libcap.bst
 - components/libcbor.bst
@@ -222,6 +223,7 @@ depends:
 - components/libepoxy.bst
 - components/liberation-fonts.bst
 - components/libevdev.bst
+- components/libevent.bst
 - components/libexif.bst
 - components/libfdk-aac.bst
 - components/libffi.bst
@@ -446,6 +448,7 @@ depends:
 - components/python3-pkgconfig.bst
 - components/python3-pluggy.bst
 - components/python3-pluginbase.bst
+- components/python3-ply.bst
 - components/python3-poetry-core.bst
 - components/python3-protobuf.bst
 - components/python3-psutil.bst

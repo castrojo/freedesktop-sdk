@@ -14,6 +14,7 @@ build-depends:
 - components/ffmpeg.bst
 - components/gstreamer-plugins-base.bst
 - components/gtk-doc.bst
+- components/libcamera.bst
 - components/libusb.bst
 - components/libmysofa.bst
 - components/patchelf.bst
@@ -39,7 +40,8 @@ variables:
     -Dman=enabled
     -Dbluez5-codec-ldac=disabled
     -Dbluez5-codec-aptx=disabled
-    -Dlibcamera=disabled
+    -Dlibcamera=enabled
+    -Dpipewire-v4l2=disabled
     -Dlibcanberra=disabled
     -Dbluez5-codec-lc3=disabled
     -Dbluez5-codec-lc3plus=disabled
@@ -73,6 +75,8 @@ public:
       - '%{libdir}/spa-0.2/bluez5/**'
       - '%{libdir}/spa-0.2/v4l2'
       - '%{libdir}/spa-0.2/v4l2/**'
+      - '%{libdir}/spa-0.2/libcamera'
+      - '%{libdir}/spa-0.2/libcamera/**'
       - '%{libdir}/pipewire-0.3/libpipewire-module-access.so'
       - '%{libdir}/pipewire-0.3/libpipewire-module-echo-cancel.so'
       - '%{libdir}/pipewire-0.3/libpipewire-module-filter-chain.so'
@@ -100,25 +104,27 @@ public:
       - '%{indep-libdir}/udev/**'
       - '%{debugdir}%{bindir}/pipewire*.debug'
       - '%{debugdir}%{libdir}/libjackserver.so*'
-      - '%{libdir}/spa-0.2/alsa'
-      - '%{libdir}/spa-0.2/alsa/**'
-      - '%{libdir}/spa-0.2/bluez5'
-      - '%{libdir}/spa-0.2/bluez5/**'
-      - '%{libdir}/spa-0.2/v4l2'
-      - '%{libdir}/spa-0.2/v4l2/**'
-      - '%{libdir}/pipewire-0.3/libpipewire-module-access.so.debug'
-      - '%{libdir}/pipewire-0.3/libpipewire-module-echo-cancel.so.debug'
-      - '%{libdir}/pipewire-0.3/libpipewire-module-filter-chain.so.debug'
-      - '%{libdir}/pipewire-0.3/libpipewire-module-link-factory.so.debug'
-      - '%{libdir}/pipewire-0.3/libpipewire-module-portal.so.debug'
-      - '%{libdir}/pipewire-0.3/libpipewire-module-profiler.so.debug'
-      - '%{libdir}/pipewire-0.3/libpipewire-module-protocol-pulse.so.debug'
-      - '%{libdir}/pipewire-0.3/libpipewire-module-protocol-simple.so.debug'
-      - '%{libdir}/pipewire-0.3/libpipewire-module-pulse-tunnel.so.debug'
-      - '%{libdir}/pipewire-0.3/libpipewire-module-spa-device.so.debug'
-      - '%{libdir}/pipewire-0.3/libpipewire-module-spa-node-factory.so.debug'
-      - '%{libdir}/pipewire-0.3/libpipewire-module-spa-node.so.debug'
-      - '%{libdir}/pipewire-0.3/libpipewire-module-zeroconf-discover.so.debug'
+      - '%{debugdir}%{libdir}/spa-0.2/alsa'
+      - '%{debugdir}%{libdir}/spa-0.2/alsa/**'
+      - '%{debugdir}%{libdir}/spa-0.2/bluez5'
+      - '%{debugdir}%{libdir}/spa-0.2/bluez5/**'
+      - '%{debugdir}%{libdir}/spa-0.2/v4l2'
+      - '%{debugdir}%{libdir}/spa-0.2/v4l2/**'
+      - '%{debugdir}%{libdir}/spa-0.2/libcamera'
+      - '%{debugdir}%{libdir}/spa-0.2/libcamera/**'
+      - '%{debugdir}%{libdir}/pipewire-0.3/libpipewire-module-access.so.debug'
+      - '%{debugdir}%{libdir}/pipewire-0.3/libpipewire-module-echo-cancel.so.debug'
+      - '%{debugdir}%{libdir}/pipewire-0.3/libpipewire-module-filter-chain.so.debug'
+      - '%{debugdir}%{libdir}/pipewire-0.3/libpipewire-module-link-factory.so.debug'
+      - '%{debugdir}%{libdir}/pipewire-0.3/libpipewire-module-portal.so.debug'
+      - '%{debugdir}%{libdir}/pipewire-0.3/libpipewire-module-profiler.so.debug'
+      - '%{debugdir}%{libdir}/pipewire-0.3/libpipewire-module-protocol-pulse.so.debug'
+      - '%{debugdir}%{libdir}/pipewire-0.3/libpipewire-module-protocol-simple.so.debug'
+      - '%{debugdir}%{libdir}/pipewire-0.3/libpipewire-module-pulse-tunnel.so.debug'
+      - '%{debugdir}%{libdir}/pipewire-0.3/libpipewire-module-spa-device.so.debug'
+      - '%{debugdir}%{libdir}/pipewire-0.3/libpipewire-module-spa-node-factory.so.debug'
+      - '%{debugdir}%{libdir}/pipewire-0.3/libpipewire-module-spa-node.so.debug'
+      - '%{debugdir}%{libdir}/pipewire-0.3/libpipewire-module-zeroconf-discover.so.debug'
 
   cpe:
     product: pipewire
