@@ -20,6 +20,13 @@ variables:
     -Dvapi=enabled
     -Dintrospection=enabled
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libgudev-1.0.so'
+
 sources:
 - kind: git_repo
   url: gnome:libgudev.git

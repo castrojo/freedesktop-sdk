@@ -25,6 +25,7 @@ depends:
 - components/speex.bst
 - components/wavpack.bst
 - components/v4l-utils.bst
+- components/libgudev.bst
 
 variables:
   command-subdir: subprojects/gst-plugins-good
@@ -32,7 +33,7 @@ variables:
   meson-local: >-
     -Dpackage-origin="freedesktop-sdk"
     -Dv4l2-libv4l2=enabled
-    -Dv4l2-gudev=disabled
+    -Dv4l2-gudev=enabled
     -Daalib=disabled
     -Djack=disabled
     -Dlibcaca=disabled
