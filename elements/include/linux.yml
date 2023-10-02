@@ -7,5 +7,5 @@ sources:
   ref: v6.5.5-0-g2309983b0ac063045af3b01b0251dfd118d45449
 - kind: local
   path: files/linux/config-utils.sh
-- kind: patch_queue
-  path: patches/linux
+- kind: patch
+  path: patches/linux/0001-riscv-sifive-fu740-cpu-1-2-3-4-set-compatible-to-sif.patch
