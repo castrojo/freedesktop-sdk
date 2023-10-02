@@ -1,0 +1,24 @@
+From 28a5db70d4686b1f0e4668abfff17c1f75abb734 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Miro=20Hron=C4=8Dok?= <miro@hroncok.cz>
+Date: Tue, 26 Sep 2023 18:39:09 +0200
+Subject: [PATCH] Avoid rich as a build backend dependency
+
+It was only added for debugging and it is not actually needed.
+
+Fixes https://github.com/pypa/setuptools_scm/issues/941
+---
+ pyproject.toml | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 0a94c940..7a9df4d2 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -3,7 +3,6 @@
+ [build-system]
+ build-backend = "_own_version_helper:build_meta"
+ requires = [
+-  "rich",
+   "setuptools>=61",
+   'tomli; python_version < "3.11"',
+ ]
