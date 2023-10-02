@@ -1,5 +1,83 @@
 Freedesktop-SDK
 
+freedesktop-sdk-22.08.16:
+  * Revert "Update elements/include/pkg-config-source.yml to pkgconf-2.0.3-0"
+  * Updates elements/abi/freedesktop-sdk.bst to freedesktop-sdk-22.08.15-102 (0e37a7a)
+  * Update glibc to glibc-2.35-273
+  * Update python3-packaging to 23.2
+  * Update python3-charset-normalizer to 3.3.0
+  * Update vim to v9.0.1964-0
+  * Update kmod to v31-0
+  * Update python3-cffi to 1.16.0
+  * Update bluez to 5.70-0
+  * libvpx: Patch for CVE-2023-5217
+  * Update crun to 1.9.2-0
+  * Update ell to 0.59-0
+  * Update iwd to 0.59-0
+  * Update pycairo to 1.25.0
+  * Update crun to 1.9.1-0
+  * Update python3-setuptools-scm to 8.0.3
+  * Update vim to v9.0.1927-0
+  * Update elements/bootstrap/gnu-config to 28ea239
+  * Update python3-setuptools-scm to 8.0.1
+  * Update eos-metrics to Release_5.0.6-0
+  * Update kbd to v2.6.3-0
+  * Update openssl to openssl-3.0.11-0
+  * Update systemd to v251.19-0
+  * Update mesa to mesa-23.1.8-0
+  * Update python3-urllib3 to 2.0.5
+  * Update linux-firmware to 20230919-0
+  * Update cmake to v3.27.6-0
+  * Update gsettings-desktop-schemas to 45.0-0
+  * Update python3-cryptography to 41.0.4
+  * Update xdg-desktop-portal-base to 1.18.0-0
+  * Update python3-trove-classifiers to 2023.9.19
+  * Update python3-typing-extensions to 4.8.0
+  * Update vim to v9.0.1903-0
+  * Update btrfs-progs to v6.5.1-0
+  * Backport cmake patch to add compatibility with new pkgconfig
+  * Update python3-pil to 10.0.1
+  * Update python3-setuptools to 68.2.2
+  * Update librsvg to 2.56.4-0
+  * Update cmake to v3.27.5-0
+  * Update gyp to a03d741
+  * libwebp: CVE-2023-4863
+  * Update python3-sphinx to 7.2.6
+  * Update python3-filelock to 3.12.4
+  * Update slirp4netns to v1.2.2-0
+  * Update spirv-llvm-translator to v15.0.0-68
+  * Update libglvnd to v1.7.0-0
+  * Update python3-setuptools to 68.2.1
+  * Move check debuginfo into weekly
+  * Update libarchive to v3.7.2-0
+  * Update ca-certificates to ca-certificates-2010_63-3_fc14-142
+  * Update pygobject to 3.46.0-0
+  * Update vim to v9.0.1888-0
+  * Update python3-virtualenv to 20.24.5
+  * Update xorg-font-util to font-util-1.4.1-0
+  * Update crun to 1.9-0
+  * Update go to go1.21.1-0
+  * Update iproute2 to v6.5.0-0
+  * Update python3-setuptools to 68.2.0
+  * Update jq to jq-1.7-0
+  * Update python3-pyelftools to 0.30
+  * Update python3-pytz to 2023.3.post1
+  * components/ell.bst: Update to 0.58
+  * bluez: add ell to fix build
+  * Update elements/include/bluez.yml to 5.69-0
+  * Update poppler to poppler-23.09.0-0
+  * Update foomatic-db to 4e6ab90
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-22.08.15-0
+  * Update libnghttp2 to v1.56.0-0
+  * Update xdg-desktop-portal-base to 1.17.2-0
+  * Update fwupd to 1.9.5-0
+  * Update pkg-config to pkgconf-2.0.3-0
+  * Update dbus-base to dbus-1.14.10-0
+  * Update btrfs-progs to v6.5-0
+  * Update strace to v6.5-0
+  * Update python3-virtualenv to 20.24.4
+  * Update vim to v9.0.1853-0
+
 freedesktop-sdk-22.08.15:
   * Update pkg-config to pkgconf-2.0.2-0
   * Update wireless-regdb-bin to master-2023-09-01-0
