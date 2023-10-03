@@ -1,5 +1,61 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08.2:
+  * Update bluez to 5.70-0
+  * Updates elements/abi/freedesktop-sdk.bst to freedesktop-sdk-23.08.1-73 (b42f60a)
+  * Update glibc to glibc-2.38-25
+  * Update vim to v9.0.1968-0
+  * Update to bst-plugins-experimental 1.95.10
+  * Update to newer ABI image
+  * Update cairo to 1.18.0-0
+  * Update crun to 1.9.2-0
+  * Update aardvark-dns to v1.8.0-0
+  * Update python3-charset-normalizer to 3.3.0
+  * Update systemd to v254.5-0
+  * Update libnvme to v1.6-0
+  * Update iwd to 0.59-0
+  * Update kmod to v31-0
+  * Update python3-grpcio to 1.59.0
+  * Update python3-ruamel-yaml to 0.17.33
+  * Update libvpx to v1.13.1-0
+  * Update ell to 0.59-0
+  * Update ABI image
+  * Backport libdecor symbol visibility patch
+  * Update libdecor to 0.2.0-0
+  * netavark.bst: update to 1.8.0
+  * Update to bst-plugins-experimental 1.95.9
+  * Update to bst-plugins-experimental 1.95.8
+  * Patch for CVE-2023-5217
+  * Update pycairo to 1.25.0
+  * Update crun to 1.9.1-0
+  * Remove vapi files from Platform
+  * Update perl-module-scandeps to 1.34
+  * Update linux to v6.5.5-0
+  * Update vim to v9.0.1930-0
+  * python3-buildstream2: drop unneeded patches
+  * Update python3-buildstream2 to 2.1.0-0
+  * Make max merge requests a variable that can be set in scheduled
+  * Update dictionaries to libreoffice-7.6.2.1-0
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-23.08.1-0
+  * Update cmake to v3.27.6-0
+  * Update mesa to mesa-23.1.8-0
+  * Update kbd to v2.6.3-0
+  * Update linux-firmware to 20230919-0
+  * Update vim to v9.0.1907-0
+  * Update glib-networking to 2.78.0-0
+  * Update python3-cryptography to 41.0.4-0
+  * Exclude BuildStream2 pre-releases
+  * Update eos-metrics to Release_5.0.6-0
+  * Update libabigail to libabigail-2.3-40
+  * Update eos-updater to Release_5.0.6-0
+  * Update gnu-config to 28ea239
+  * Update xwayland to xwayland-23.2.1-0
+  * Update openssl to openssl-3.1.3-0
+  * Update xdg-desktop-portal-base to 1.18.0-0
+  * Update python3-typing-extensions to 4.8.0-0
+  * Update python3-trove-classifiers to 2023.9.19-0
+  * components/protobuf-base.bst: build against a separately built version of abseil
+
 freedesktop-sdk-23.08.1:
   * Revert "Update elements/include/pkg-config-source.yml to pkgconf-2.0.3-0"
   * Update gsettings-desktop-schemas to 45.0-0
