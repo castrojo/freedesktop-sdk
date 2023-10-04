@@ -26,4 +26,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libx11.git
   track: libX11-*
-  ref: libX11-1.8.6-0-g695e90ad26f632feb0f58ad94882fb3a263bf114
+  ref: libX11-1.8.7-0-gc745719e23af44a4b40ab4508447637b35d91a1e
