@@ -13,5 +13,6 @@ sources:
 - kind: pypi
   name: ruamel.yaml
   ref:
-    sha256sum: ec939063761914e14542972a5cba6d33c23b0859ab6342f61cf070cfc600efc2
-    suffix: 63/dd/b4719a290e49015536bd0ab06ab13e3b468d8697bec6c2f668ac48b05661/ruamel.yaml-0.17.32.tar.gz
+    sha256sum: 6ffd0a1906ddeac4a46b7b53d288a5a26bfab8f1986ddab3d8e406beda7e6e72
+    suffix: 
+      05/52/9bb03af8f9e7c238f563a7f5ad1e84583de6d2c5e1cd8cbbbbf0c81ecd5c/ruamel.yaml-0.17.34.tar.gz
