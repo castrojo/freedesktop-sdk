@@ -1,0 +1,27 @@
+From 5a77fbb81fa1b3c98b21d1277efee1d83ecbb963 Mon Sep 17 00:00:00 2001
+From: Valentin David <me@valentindavid.com>
+Date: Mon, 18 Sep 2023 21:01:52 +0200
+Subject: [PATCH] repart: Fix a check for CopyBlocks on data partition
+
+The check was verifying that the verity partition had CopyBlocks set instead of
+the associated data partition.
+---
+ src/partition/repart.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/partition/repart.c b/src/partition/repart.c
+index 773874021d..6cadc5f668 100644
+--- a/src/partition/repart.c
++++ b/src/partition/repart.c
+@@ -2195,7 +2195,7 @@ static int context_read_definitions(Context *context) {
+ 
+                 assert_se(dp = p->siblings[VERITY_DATA]);
+ 
+-                if (dp->minimize == MINIMIZE_OFF && !(p->copy_blocks_path || p->copy_blocks_auto))
++                if (dp->minimize == MINIMIZE_OFF && !(dp->copy_blocks_path || dp->copy_blocks_auto))
+                         return log_syntax(NULL, LOG_ERR, p->definition_path, 1, SYNTHETIC_ERRNO(EINVAL),
+                                           "Minimize= set for verity hash partition but data partition does "
+                                           "not set CopyBlocks= or Minimize=");
+-- 
+2.41.0
+
