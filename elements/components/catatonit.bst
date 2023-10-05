@@ -10,6 +10,6 @@ sources:
 - kind: git_repo
   url: github:openSUSE/catatonit.git
   track: 'v*.*.*'
-  ref: v0.1.7-0-g4045634d6255b63d285d73ffc522822a73f4bd03
+  ref: v0.2.0-0-g7f0c9bb45d3490c3e7f579833c9b0689f78c8923
 - kind: patch
   path: patches/catatonit/configure.ac-call-AM_INIT_AUTOMAKE-only-once.patch
