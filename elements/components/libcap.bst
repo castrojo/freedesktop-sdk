@@ -9,7 +9,7 @@ variables:
   make-args: >-
     DYNAMIC=yes
     prefix="%{prefix}"
-    lib="lib/%{gcc_triplet}"
+    lib="%{lib}"
     SBINDIR="%{sbindir}"
     RAISE_SETFCAP=no
 
