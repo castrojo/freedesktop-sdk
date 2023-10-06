@@ -26,4 +26,6 @@ sources:
   track: '[0-9]*'
   ref: 059-0-g0aa08f0ebff09b4501aad6e0fb7fc0dda04370e6
 - kind: patch
+  path: patches/dracut/dracut-use-dynamic-uefi-sections.patch
+- kind: patch
   path: patches/dracut/dracut-riscv64-efi.patch
