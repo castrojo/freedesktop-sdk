@@ -11,6 +11,9 @@ depends:
 - components/util-linux.bst
 - components/python3.bst
 
+runtime-depends:
+- components/python3-setuptools.bst
+
 variables:
   meson-local: >-
     -Dselinux=disabled

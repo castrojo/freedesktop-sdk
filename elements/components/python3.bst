@@ -14,7 +14,7 @@ depends:
 - components/sqlite.bst
 
 variables:
-  install-conf: MAX_COMPILEALL_JOBS=1  # Used for deterministic compiling
+  install-conf: COMPILEALL_OPTS=-j1  # Used for deterministic compiling
   conf-local: |
     --enable-shared \
     --without-ensurepip \
@@ -25,7 +25,7 @@ variables:
     --with-lto \
     --with-conf-includedir="%{includedir}/%{gcc_triplet}"
   version_short: "3"
-  version_long: "%{version_short}.11"
+  version_long: "%{version_short}.12"
 
 config:
   install-commands:
