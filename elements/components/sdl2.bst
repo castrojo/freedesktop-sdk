@@ -3,6 +3,7 @@ kind: cmake
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/ibus.bst
+- components/pipewire.bst
 - components/wayland-protocols.bst
 
 depends:
@@ -30,6 +31,7 @@ variables:
     -DSDL_WAYLAND_SHARED:BOOL=OFF
     -DSDL_RPATH:BOOL=OFF
     -DSDL_WAYLAND_LIBDECOR=ON
+    -DSDL_PIPEWIRE_SHARED:BOOL=ON
 
 config:
   install-commands:
