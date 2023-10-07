@@ -15,6 +15,7 @@ build-depends:
 - components/gtk-doc.bst
 - components/libcamera.bst
 - components/libusb.bst
+- components/libpulse.bst
 - components/libmysofa.bst
 - components/patchelf.bst
 - components/python3-docutils.bst
