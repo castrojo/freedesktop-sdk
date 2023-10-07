@@ -8,7 +8,6 @@ runtime-depends:
 - components/gstreamer-plugins-base.bst
 - components/alsa-lib.bst
 - components/libdbus.bst
-- components/ffmpeg.bst
 - components/systemd-libs.bst
 - components/pipewire-manifest.bst
 

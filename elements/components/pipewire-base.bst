@@ -11,7 +11,6 @@ build-depends:
 - components/bluez.bst
 - components/bluez-libs.bst
 - components/dbus.bst
-- components/ffmpeg.bst
 - components/gstreamer-plugins-base.bst
 - components/gtk-doc.bst
 - components/libcamera.bst
