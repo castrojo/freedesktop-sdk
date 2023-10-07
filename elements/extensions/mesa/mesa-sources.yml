@@ -5,8 +5,6 @@ sources:
   exclude:
   - '*rc*'
   - '*branchpoint*'
-  ref: mesa-23.1.8-0-g4baea976bb585013124b91dc4e9aef793f36605a
+  ref: mesa-23.2.1-0-g49a47f187e1de48794a9641821ab1e952814969c
 - kind: patch
   path: patches/mesa/mesa_libdrm_deps.patch
-- kind: patch
-  path: patches/mesa/meson-add-feature-option-for-use-of-system-Clang-headers.patch
