@@ -14,6 +14,7 @@ build-depends:
 - components/gstreamer-plugins-base.bst
 - components/gtk-doc.bst
 - components/libcamera.bst
+- components/libfdk-aac.bst
 - components/libusb.bst
 - components/libpulse.bst
 - components/libmysofa.bst

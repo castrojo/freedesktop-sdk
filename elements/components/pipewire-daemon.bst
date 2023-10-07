@@ -15,6 +15,7 @@ runtime-depends:
 - components/wireplumber.bst
 - components/libcamera.bst
 - components/libpulse.bst
+- components/libfdk-aac.bst
 
 config:
   include:
