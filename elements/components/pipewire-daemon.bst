@@ -13,6 +13,7 @@ runtime-depends:
 - components/rtkit.bst
 - components/webrtc-audio-processing.bst
 - components/wireplumber.bst
+- components/libpulse.bst
 
 config:
   include:
