@@ -22,6 +22,9 @@ build-depends:
 depends:
 - components/p11-kit.bst
 
+runtime-depends:
+- components/util-linux.bst  # Integration command depends on this
+
 config:
   build-commands:
   - |
@@ -177,7 +180,7 @@ config:
 public:
   bst:
     integration-commands:
-    - update-ca-trust
+    - update-ca-trust extract
 
 sources:
 - kind: git_repo
