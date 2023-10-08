@@ -185,5 +185,3 @@ sources:
   track: rawhide
   track-tags: false
   ref: ca-certificates-2010_63-3_fc14-146-gf04a9cf58dbadc93569c318a0d7272b44e4f6f9e
-- kind: patch
-  path: patches/ca-certificates/directory-hash-writable.patch
