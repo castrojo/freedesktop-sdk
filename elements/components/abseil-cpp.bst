@@ -6,6 +6,10 @@ build-depends:
 depends:
 - bootstrap-import.bst
 
+variables:
+  cmake-local: >-
+    -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+
 sources:
 - kind: git_repo
   url: github:abseil/abseil-cpp.git
