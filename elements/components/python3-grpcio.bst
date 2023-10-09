@@ -22,6 +22,8 @@ environment:
   GRPC_PYTHON_BUILD_SYSTEM_RE2: 'true'
   GRPC_PYTHON_BUILD_SYSTEM_ABSL: 'true'
   GRPC_PYTHON_DISABLE_LIBC_COMPATIBILITY: 'true'
+  GRPC_PYTHON_CFLAGS: "-std=c++17 -fvisibility=hidden -fno-wrapv -fno-exceptions"
+
 
 sources:
 - kind: pypi
