@@ -22,6 +22,9 @@ build-depends:
 depends:
 - components/p11-kit.bst
 
+runtime-depends:
+- components/util-linux.bst  # Integration command depends on this
+
 config:
   build-commands:
   - |
@@ -177,12 +180,10 @@ config:
 public:
   bst:
     integration-commands:
-    - update-ca-trust
+    - update-ca-trust extract
 
 sources:
 - kind: git_repo
   url: fedora_rpms:ca-certificates.git
   track: rawhide
-  ref: ca-certificates-2010_63-3_fc14-142-gebc3273b934b715a5f23734984dce65bf68236d2
-- kind: patch
-  path: patches/ca-certificates/directory-hash-writable.patch
+  ref: ca-certificates-2010_63-3_fc14-146-gf04a9cf58dbadc93569c318a0d7272b44e4f6f9e
