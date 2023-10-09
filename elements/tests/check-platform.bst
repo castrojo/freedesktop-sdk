@@ -48,3 +48,5 @@ config:
   - components/texinfo.bst
   - components/valgrind-maybe.bst
   - components/vulkan-validation-layers.bst
+  - components/abseil-cpp.bst
+  - components/protobuf-base.bst
