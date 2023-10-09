@@ -8,6 +8,7 @@ depends:
 - components/gflags.bst
 - components/protobuf.bst
 - components/util-linux.bst
+- components/re2.bst
 
 variables:
   cmake-local: >-
@@ -16,6 +17,7 @@ variables:
     -DgRPC_ZLIB_PROVIDER=package
     -DgRPC_GFLAGS_PROVIDER=package
     -DgRPC_CARES_PROVIDER=package
+    -DgRPC_RE2_PROVIDER:STRING=package
     -DgRPC_INSTALL_LIBDIR="%{lib}"
 
 sources:
@@ -24,11 +26,7 @@ sources:
   track: v*
   exclude:
   - '*pre*'
-  ref: v1.59.0-0-g08cc1787de022069135004adfdd17938b5062319
-- kind: git_module
-  url: github:google/re2.git
-  path: third_party/re2
-  ref: 0c5616df9c0aaa44c9440d87422012423d91c7d1
+  ref: v1.59.1-0-g0df9accc5c3478d126742fb84dd7155786dc4f68
 - kind: git_module
   url: github:census-instrumentation/opencensus-proto.git
   path: third_party/opencensus-proto
