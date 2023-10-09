@@ -1,8 +1,8 @@
-kind: autotools
+kind: meson
 
 depends:
 - filename: bootstrap-import.bst
-- filename: public-stacks/buildsystem-autotools.bst
+- filename: public-stacks/buildsystem-meson.bst
   type: build
 - filename: components/glib.bst
 
