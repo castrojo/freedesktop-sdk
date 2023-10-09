@@ -21,7 +21,7 @@ environment:
   GRPC_PYTHON_BUILD_WITH_CYTHON: "true"
   GRPC_PYTHON_BUILD_SYSTEM_RE2: 'true'
   GRPC_PYTHON_BUILD_SYSTEM_ABSL: 'true'
-
+  GRPC_PYTHON_DISABLE_LIBC_COMPATIBILITY: 'true'
 
 sources:
 - kind: pypi
