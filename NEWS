@@ -1,5 +1,50 @@
 Freedesktop-SDK
 
+freedesktop-sdk-22.08.17:
+  * utils/check-abi: Add pylint suppressions for some imports
+  * Use new --build-log-url parameter for flat-manager-client
+  * Update to new image on top of freedesktop-sdk 23.08.3
+  * Update python3-pil to 10.1.0
+  * Update libical to v3.0.17-0
+  * Fix multiarch symlink destination
+  * Update vim to v9.0.2026-0
+  * Update ca-certificates to ca-certificates-2010_63-3_fc14-147
+  * Update flat-manager-client-base to 0.4.2-0
+  * Fix update-ca-certificates extract argument and add dependency on util-linux
+  * Remove downstream chmod patch
+  * Update ca-certificates to ca-certificates-2010_63-3_fc14-146
+  * Add CVE metadata for fixed CVEs
+  * components/curl: Add patch for CVE-2023-27534
+  * components/curl: Add patch for CVE-2023-27533
+  * components/curl: Add patch for CVE-2023-23914
+  * Fix remove-doc-timestamp patch
+  * components/curl: Add patch for CVE-2023-38546
+  * components/curl: Add patch for CVE-2023-38545
+  * Update go to go1.21.3-0
+  * Update fuse3 to fuse-3.16.2-0
+  * Update iptables to v1.8.10-0
+  * Update go-md2man to v2.0.3-0
+  * Update libgusb to 0.4.7-0
+  * desktop-file-utils is now a Meson project
+  * Update desktop-file-utils to 0.27-0
+  * Update glibc to glibc-2.35-274
+  * Update shared-mime-info to 2.3-0
+  * Update python3-aiohttp to 3.8.6
+  * Update vim to v9.0.1999-0
+  * Update fwupd to 1.9.6-0
+  * Update python3-markdown to 3.5
+  * Update cmake to v3.27.7-0
+  * Update python3-setuptools-scm to 8.0.4
+  * Update python3-urllib3 to 2.0.6
+  * Update xorg-data-xkeyboard-config to xkeyboard-config-2.40-0
+  * Update openssh to V_9_5_P1-0
+  * Update mesa to mesa-23.1.9-0
+  * Update xorg-lib-xrandr to libXrandr-1.5.4-0
+  * Components/libvpx: Add patch for CVE-2023-44488
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-22.08.16-0
+  * Update btrfs-progs to v6.5.2-0
+  * Update python3-babel to 2.13.0
+
 freedesktop-sdk-22.08.16:
   * Revert "Update elements/include/pkg-config-source.yml to pkgconf-2.0.3-0"
   * Updates elements/abi/freedesktop-sdk.bst to freedesktop-sdk-22.08.15-102 (0e37a7a)
