@@ -43,6 +43,7 @@ public:
       - '%{includedir}'
       - '%{includedir}/**'
       - '%{bindir}/cups-config'
+      - '%{bindir}/lpr'
       - "%{libdir}/pkgconfig/cups.pc"
       - '%{libdir}/lib*.so'
       - '%{libdir}/lib*.so.*'
