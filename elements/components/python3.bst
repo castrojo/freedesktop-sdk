@@ -75,6 +75,8 @@ config:
     #endif
     #elif defined(__riscv) && (__riscv_xlen == 64)
     # include "riscv64-linux-gnu/python%{version_long}/pyconfig.h"
+    #elif defined(__loongarch__) && defined(__loongarch_double_float)
+    # include "loongarch64-linux-gnu/python%{version_long}/pyconfig.h"
     #else
     # error "Unknown cross-compiler"
     #endif
