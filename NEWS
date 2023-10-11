@@ -1,5 +1,75 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08.3:
+  * elements/abi/freedesktop-sdk.bst: Update ABI reference
+  * Update elements/include/mesa.yml to mesa-23.2.1-0
+  * Suppress addition of curl_multi_get_handles and curl_global_trace
+  * curl: Update to 8.4.0
+  * libcap: use %{lib} variable
+  * Update linux to v6.5.6-0
+  * Update libgusb to 0.4.7-0
+  * Update podman to v4.7.1-0
+  * Update btrfs-progs to v6.5.2-0
+  * Adapt CFLAGS from Fedora for grpcio
+  * Drop completely unnecessary libc compatibility
+  * Use system abseil and re2 for grpcio
+  * Also turn re2 into package
+  * Update elements/components/fwupd.bst to 1.9.6-0
+  * tests/check-platform.bst: Add abseil and protobuf-base
+  * components/protobuf-base.bst: Add CMake arguments to protobuf-base.bst
+  * components/abseil-cpp.bst: Add CMake arguments to abseil-cpp.bst
+  * Fix update-ca-certificates extract argument and add dependency on util-linux
+  * Remove downstream chmod patch
+  * Update ca-certificates to ca-certificates-2010_63-3_fc14-146
+  * Update go to go1.21.2-0
+  * Update shared-mime-info to 2.3-0
+  * Update sdl2 to release-2.28.4-0
+  * Update glibc to glibc-2.38-27
+  * Update vim to v9.0.2003-0
+  * Update mesa to mesa-23.2.1-0
+  * Remove tracking for unstable cairo version
+  * desktop-file-utils is now a Meson project
+  * Update desktop-file-utils to 0.27-0
+  * pipewire: add missing libfdk-aac dependency
+  * pipewire: add missing libpulse dependency
+  * components/sdl2.bst: enable pipewire audio driver
+  * pipewire: drop unuseed ffmpeg dependency
+  * pipewire: disable sdl2
+  * Update python3-aiohttp to 3.8.6
+  * Update qpdf to v11.6.2-0
+  * Update c-ares to cares-1_20_0-0
+  * Update grpc to v1.59.1-0
+  * Update python3-markdown to 3.5
+  * Update to bst-plugins-experimental 1.95.11
+  * Update libabigail to libabigail-2.3-49
+  * components/dracut.bst: Apply patch to fix UEFI boot with systemd v254
+  * Update xorg-data-xkeyboard-config to xkeyboard-config-2.40-0
+  * Update passt to 2023_10_04.f851084-0
+  * Update xorg-lib-xrandr to libXrandr-1.5.4-0
+  * Update cmake to v3.27.7-0
+  * Update protobuf to v24.4-0
+  * Update python3-ruamel-yaml to 0.17.35
+  * Update spirv-llvm-translator to v16.0.0-22
+  * Update openssh to V_9_5_P1-0
+  * Update buildbox-common to 1.0.5-0
+  * Update shadow to 4.14.1-0
+  * Update python3-babel to 2.13.0
+  * Update libabigail to libabigail-2.3-46
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-23.08.2-0
+  * Update glib to 2.76.6-0
+  * Update networkmanager to 1.44.2-0
+  * systemd: repart: Fix a check for CopyBlocks on data partition
+  * Update python3-setuptools-scm to 8.0.4
+  * Update python3-ruamel-yaml-clib to 0.2.8
+  * Update xorg-lib-x11 to libX11-1.8.7-0
+  * Update grpc to v1.59.0-0
+  * .gitlab-ci.yml: Use new container image
+  * linux: Add VIDEO_IPU3_CIO2
+  * linux: Add some missing configuration for surface tablets
+  * Update podman to v4.7.0-0
+  * Update python3-urllib3 to 2.0.6-0
+  * Update python3-cffi to 2
+
 freedesktop-sdk-23.08.2:
   * Update bluez to 5.70-0
   * Updates elements/abi/freedesktop-sdk.bst to freedesktop-sdk-23.08.1-73 (b42f60a)
