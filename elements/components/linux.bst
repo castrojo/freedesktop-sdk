@@ -219,6 +219,14 @@ config:
     enable SQUASHFS_LZO
     enable SQUASHFS_XATTR
 
+    # erofs is potential replacement of squashfs on GNOME OS
+    module EROFS_FS
+    enable EROFS_FS_XATTR
+    enable EROFS_FS_POSIX_ACL
+    enable EROFS_FS_SECURITY
+    enable EROFS_FS_ZIP
+    enable EROFS_FS_ZIP_LZMA
+
     # Some useful drivers when running as virtual machine
     module VIRTIO_BALLOON
     module VIRTIO_INPUT

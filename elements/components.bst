@@ -94,6 +94,7 @@ depends:
 - components/ell.bst
 - components/eos-metrics.bst
 - components/eos-updater.bst
+- components/erofs-utils.bst
 - components/expat.bst
 - components/extra-cmake-modules.bst
 - components/f2fs-tools.bst
