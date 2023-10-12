@@ -36,6 +36,12 @@ public:
 
   cpe:
     version-match: '(\d+)_(\d+)_(\d+)'
+    patches:
+    - CVE-2023-38545
+    - CVE-2023-38546
+    - CVE-2023-27534
+    - CVE-2023-27533
+    - CVE-2023-23914
 
 sources:
 - kind: git_tag
