@@ -1,10 +1,12 @@
 kind: autotools
 
 depends:
-- filename: bootstrap-import.bst
-- filename: components/perl.bst
-- filename: components/texinfo.bst
-  type: build
+- bootstrap-import.bst
+- components/perl.bst
+
+build-depends:
+- components/m4.bst
+- components/texinfo.bst
 
 config:
   build-commands:
@@ -21,5 +23,5 @@ config:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:groff/groff-1.22.4.tar.gz
-  ref: e78e7b4cb7dec310849004fa88847c44701e8d133b5d4c13057d876c1bad0293
+  url: ftp_gnu_org:groff/groff-1.23.0.tar.gz
+  ref: 6b9757f592b7518b4902eb6af7e54570bdccba37a871fddb2d30ae3863511c13
