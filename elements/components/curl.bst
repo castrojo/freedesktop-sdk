@@ -42,5 +42,5 @@ sources:
   url: github:curl/curl.git
   track: master
   ref: curl-7_86_0-0-gcd95ee9f771361acf241629d2fe5507e308082a2
-- kind: patch
-  path: patches/curl/remove-doc-timestamp.patch
+- kind: patch_queue
+  path: patches/curl
