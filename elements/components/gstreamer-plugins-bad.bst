@@ -14,6 +14,7 @@ depends:
 - components/libnice.bst
 - components/librsvg.bst
 - components/libva.bst
+- components/libgudev.bst
 - components/openal.bst
 - components/vulkan-icd-loader.bst
 - components/wayland.bst
