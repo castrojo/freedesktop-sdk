@@ -6,10 +6,8 @@ build-depends:
 - components/cython.bst
 
 depends:
-- components/abseil-cpp.bst
 - components/c-ares.bst
 - components/python3.bst
-- components/re2.bst
 
 runtime-depends:
 - components/protobuf.bst
@@ -18,11 +16,7 @@ environment:
   GRPC_PYTHON_BUILD_SYSTEM_OPENSSL: "true"
   GRPC_PYTHON_BUILD_SYSTEM_ZLIB: "true"
   GRPC_PYTHON_BUILD_SYSTEM_CARES: "true"
-  GRPC_PYTHON_BUILD_WITH_CYTHON: "true"
-  GRPC_PYTHON_BUILD_SYSTEM_RE2: 'true'
-  GRPC_PYTHON_BUILD_SYSTEM_ABSL: 'true'
-  GRPC_PYTHON_DISABLE_LIBC_COMPATIBILITY: 'true'
-  GRPC_PYTHON_CFLAGS: "-std=c++17 -fvisibility=hidden -fno-wrapv -fno-exceptions"
+  GRPC_PYTHON_BUILD_WITH_CYTHON: "1"
 
 
 sources:
