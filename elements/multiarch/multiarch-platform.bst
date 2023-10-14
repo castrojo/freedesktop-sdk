@@ -21,6 +21,6 @@ config:
     mkdir -p %{install-root}%{indep-libdir}
     for i in %{arches}; do
       if [ "${i}" != "%{gcc_triplet}" ]; then
-        ln -sr "/app/lib/${i}" "%{install-root}%{indep-libdir}/${i}"
+        ln -sr "%{install-root}/app/lib/${i}" "%{install-root}%{indep-libdir}/${i}"
       fi
     done
