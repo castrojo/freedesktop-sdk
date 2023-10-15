@@ -42,7 +42,6 @@ depends:
 - components/buildbox-common.bst
 - components/buildbox-fuse.bst
 - components/buildbox-run-bubblewrap.bst
-- components/c-ares.bst
 - components/ca-certificates.bst
 - components/cairo.bst
 - components/catatonit.bst
