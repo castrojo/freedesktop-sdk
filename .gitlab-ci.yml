@@ -635,7 +635,7 @@ desktop_efi_vm_image_aarch64:
 prepare_publish:
   stage: prepare-publish
   script:
-    - flat-manager-client -v create "$RELEASES_SERVER_ADDRESS" "${RELEASE_CHANNEL}" > publish_build.txt
+    - flat-manager-client -v create "$RELEASES_SERVER_ADDRESS" "${RELEASE_CHANNEL}" --build-log-url ${CI_PIPELINE_URL} > publish_build.txt
   artifacts:
     paths:
       - publish_build.txt
@@ -750,7 +750,7 @@ finish_publish_failed:
       esac
 
     - flatpak build-update-repo repo
-    - flat-manager-client push "$(cat publish_build.txt)" repo
+    - flat-manager-client push "$(cat publish_build.txt)" repo --build-log-url ${CI_PIPELINE_URL}
 
   artifacts:
     when: always
