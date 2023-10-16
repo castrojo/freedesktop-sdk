@@ -32,14 +32,8 @@ public:
     product: international_components_for_unicode
 
 sources:
-- kind: git_repo
-  url: github:unicode-org/icu.git
-  track: release-*
-  exclude:
-  - "release-*-rc"
-  - "*-preview"
-  - "*-alpha"
-  - "*-beta"
-  ref: release-73-2-0-g680f521746a3bd6a86f25f25ee50a62d88b489cf
+- kind: tar
+  url: github_files:unicode-org/icu/archive/refs/tags/release-73-2.tar.gz
+  ref: c15f704e83c221c0680640a995d9db641f5b82098fb4b258a94b7d0561493c88
 - kind: patch
   path: patches/icu/icu-fix-shared-linking.patch
