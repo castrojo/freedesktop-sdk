@@ -11,4 +11,4 @@ sources:
 - kind: git_repo
   url: github:hoene/libmysofa.git
   track: "v*"
-  ref: v1.3.1-0-g3002ea258686ae1129f042644a3c2a87860b7d31
+  ref: v1.3.2-0-g33974839677da7044ef5a70be7ad5550735aae6e
