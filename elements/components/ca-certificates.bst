@@ -180,7 +180,9 @@ config:
 public:
   bst:
     integration-commands:
-    - update-ca-trust extract
+    - |
+      update-ca-trust extract
+      chmod -R u+w %{catrustdir}/extracted
 
 sources:
 - kind: git_tag
