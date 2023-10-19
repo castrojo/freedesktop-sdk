@@ -1,5 +1,11 @@
 Freedesktop-SDK
 
+freedesktop-sdk-22.08.18:
+  * Ensure all files after CA unpack have write permission
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-22.08.17-0
+  * Update python3-urllib3 to 2.0.7
+  * Update python3-docutils to 0.20.1
+
 freedesktop-sdk-22.08.17:
   * utils/check-abi: Add pylint suppressions for some imports
   * Use new --build-log-url parameter for flat-manager-client
