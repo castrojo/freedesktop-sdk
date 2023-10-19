@@ -1,4 +1,4 @@
 sources:
 - kind: tar
-  url: ftp_gnu_org:texinfo/texinfo-7.0.3.tar.xz
-  ref: 74b420d09d7f528e84f97aa330f0dd69a98a6053e7a4e01767eed115038807bf
+  url: ftp_gnu_org:texinfo/texinfo-7.1.tar.xz
+  ref: deeec9f19f159e046fdf8ad22231981806dac332cc372f1c763504ad82b30953
