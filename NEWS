@@ -1,5 +1,12 @@
 Freedesktop-SDK
 
+freedesktop-sdk-22.08.19:
+  * Mitigate chmod bug in update-ca-trust upstream script
+  * Update elements/components/spirv-llvm-translator.bst to v15.0.0-69
+  * Update elements/components/python3-trove-classifiers.bst to 2023.10.18
+  * Update elements/components/crun.bst to 1.10-0
+  * Update elements/components/xcb-util-cursor.bst to xcb-util-cursor-0.1.5-0
+
 freedesktop-sdk-22.08.18:
   * Ensure all files after CA unpack have write permission
   * Update elements/abi/freedesktop-sdk to freedesktop-sdk-22.08.17-0
