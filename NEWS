@@ -1,5 +1,52 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08.4:
+  * Ensure all files after CA unpack have write permission
+  * Remove components/c-ares.bst, no longer used
+  * components/grpc.bst: use bundled c-ares
+  * components/grpc.bst: use c-ares as a submodule
+  * Update libabigail to libabigail-2.3-54
+  * Update python3-trove-classifiers to 2023.10.17-0
+  * Update python3-urllib3 to 2.0.7-0
+  * Update spirv-llvm-translator to v16.0.0-23
+  * Update jpeg to 3.0.1-0
+  * Update libpaper to v2.1.2-0
+  * Add erofs
+  * apparmor: Update to 3.1.6
+  * Use new --build-log-url parameter for flat-manager-client
+  * Update to new image on top of freedesktop-sdk 23.08.3
+  * Update grpc to v1.59.1-0
+  * Update python3-pil to 10.1.0
+  * Update python3-psutil to release-5.9.6-0
+  * Update libmysofa to v1.3.2-0
+  * Update python3-pip to 23.3
+  * Update qpdf to v11.6.3-0
+  * elements/cups-base.bst: ship lpr binary in flatpak runtimes
+  * Update vim to v9.0.2032-0
+  * Fix multiarch symlink destination
+  * Update libical to v3.0.17-0
+  * Update libblockdev to 3.0.4-1-0
+  * Update shaderc to v2023.7-0
+  * Update flat-manager-client-base to 0.4.2-0
+  * Update c-ares to cares-1_20_1-0
+  * Update xfsprogs to v6.5.0-0
+  * Revert grpc+grpcio shared elements
+  * Bump ABI image
+  * Update pipewire-base to 0.3.81-0
+  * Update elements/include/linux.yml to v6.5.7-0
+  * Update mutool to 1.23.4-0
+  * Update ca-certificates to ca-certificates-2010_63-3_fc14-147
+  * Update libabigail to libabigail-2.3-53
+  * Update wireplumber to 0.4.15-0
+  * Update go to go1.21.3-0
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-23.08.3-0
+  * Update libabigail to libabigail-2.3-52
+  * Update iptables to v1.8.10-0
+  * Update fuse3 to fuse-3.16.2-0
+  * Update go-md2man to v2.0.3-0
+  * elements/components/webrtc-audio-processing.bst: lock in 0.3.x
+  * Update catatonit to v0.2.0-0
+
 freedesktop-sdk-23.08.3:
   * elements/abi/freedesktop-sdk.bst: Update ABI reference
   * Update elements/include/mesa.yml to mesa-23.2.1-0
