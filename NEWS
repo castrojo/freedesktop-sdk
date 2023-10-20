@@ -1,5 +1,16 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08.5:
+  * Mitigate chmod bug in update-ca-trust upstream script
+  * Update elements/components/python3-trove-classifiers.bst to 2023.10.18-0
+  * Update elements/components/libbytesize.bst to 2.10-0
+  * Update elements/components/extra-cmake-modules.bst to v5.111.0-0
+  * Update elements/components/xcb-util-cursor.bst to xcb-util-cursor-0.1.5-0
+  * Update elements/components/erofs-utils.bst to v1.7.1-0
+  * Update elements/components/python3-ruamel-yaml.bst to 0.17.39
+  * Update elements/components/crun.bst to 1.10-0
+  * Update elements/include/linux.yml to v6.5.8-0
+
 freedesktop-sdk-23.08.4:
   * Ensure all files after CA unpack have write permission
   * Remove components/c-ares.bst, no longer used
