@@ -181,7 +181,7 @@ public:
   bst:
     integration-commands:
     - |
-      update-ca-trust extract
+      update-ca-trust extract -o %{catrustdir}/extracted
       chmod -R u+w %{catrustdir}/extracted
 
 sources:
