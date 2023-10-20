@@ -30,7 +30,7 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libxcb-cursor.git
   track: xcb-util-cursor-*
-  ref: xcb-util-cursor-0.1.4-0-g3d7e713e85af18d7e52cafdc9d20a2715048dee7
+  ref: xcb-util-cursor-0.1.5-0-gc393b71fff76fe8627d0e95c53e756615f84d7a3
 - kind: git_module
   path: m4
   url: freedesktop:xorg/util/xcb-util-m4.git
