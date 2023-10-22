@@ -24,4 +24,4 @@ sources:
 - kind: git_tag
   url: kernel:linux/kernel/git/kdave/btrfs-progs.git
   track: master
-  ref: v6.5.2-0-g546edf535ddecae480a51306e4d08f5dbd4e3ea7
+  ref: v6.5.3-0-ga45c360b64660477c726e192d9e92ceb73a50f80
