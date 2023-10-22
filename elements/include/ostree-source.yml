@@ -6,11 +6,11 @@ sources:
   - v*
   exclude:
   - v*.*.*
-  ref: v2023.6-0-gdab8051fd8b9aa464bd05b6401bf676ef9b1fcb5
+  ref: v2023.7-0-ga87e90691e03d72e9ea6ef9070d85fa6bacc649e
 - kind: git_module
   path: libglnx
   url: gnome:libglnx.git
-  ref: c02eb5991695be11899fe0bdf6bd71ae2ff1ae21
+  ref: aff1eea9b6fa62a1ef05c8fa0936c69a31a2bf4e
 - kind: git_module
   path: bsdiff
   url: github:mendsley/bsdiff.git
@@ -18,6 +18,6 @@ sources:
 - kind: git_module
   path: composefs
   url: github:containers/composefs.git
-  ref: 1aed8781d6ce617234175d5d3b0458f91a6e38f3
+  ref: cca8be49843385ce556fccf51f75821f70fb7769
 - kind: patch
   path: patches/ostree/no-boot-symlink.patch
