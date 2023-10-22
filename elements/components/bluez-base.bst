@@ -13,6 +13,12 @@ variables:
     --enable-library
     --enable-external-ell
 
+config:
+  install-commands:
+    (>):
+    - |
+      install -Dm644 -t '%{install-root}%{sysconfdir}/bluetooth/' src/main.conf profiles/network/network.conf profiles/input/input.conf
+
 public:
   bst:
     split-rules:
