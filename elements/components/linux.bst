@@ -163,6 +163,10 @@ config:
     # Some udev/virtualization requires
     enable DMIID
 
+    # systemd-creds depends on this
+    enable DMI_SYSFS
+    enable FW_CFG_SYSFS
+
     # Support for some SCSI devices serial number retrieval
     enable BLK_DEV_BSG
 
