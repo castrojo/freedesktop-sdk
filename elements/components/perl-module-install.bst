@@ -10,5 +10,5 @@ depends:
 sources:
 - kind: cpan
   name: Module::Install
-  url: cpan:authors/id/E/ET/ETHER/Module-Install-1.21.tar.gz
+  suffix: authors/id/E/ET/ETHER/Module-Install-1.21.tar.gz
   sha256sum: fbf91007f30565f3920e106055fd0d4287981d5e7dad8b35323ce4b733f15a7b
