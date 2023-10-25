@@ -66,4 +66,4 @@ sources:
   exclude:
   - openssl*alpha*
   - openssl*beta*
-  ref: openssl-3.1.3-0-g7b649c73a2b99b52d45fc0600ee1ecf156113deb
+  ref: openssl-3.1.4-0-g01d5e2318405362b4de5e670c90d9b40a351d053
