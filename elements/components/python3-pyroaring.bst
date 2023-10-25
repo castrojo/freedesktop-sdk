@@ -15,9 +15,8 @@ environment:
   ARCHI: generic
 
 sources:
-- kind: git_repo
-  url: github:Ezibenroc/PyRoaringBitMap.git
-  track: '*.*.*'
-  exclude:
-  - '*dev*'
-  ref: 0.4.4-0-gd2438574b572d209ee1c99912014597b204161dc
+- kind: pypi
+  name: pyroaring
+  ref:
+    sha256sum: 20529ed1e71bf4b49536994445037e6a1c06697ebf5a2b8d73190f88c0cfa232
+    suffix: ec/86/20906a65021bf7ad20c0d6b4260ccd9cae3ffabfd7545fb5238e5c9e3f26/pyroaring-0.4.4.tar.gz
