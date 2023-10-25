@@ -3,3 +3,5 @@ variables:
   lib: "lib"
   debugdir: "/usr/lib/debug"
   debugdatadir: "%{debugdir}%{prefix}"
+  conf-libtool-force-dlsearch: ""
+  local_ldflags: "-Wl,-rpath=%{libdir}"
