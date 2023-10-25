@@ -63,4 +63,4 @@ sources:
 - kind: git_tag
   url: github:openssl/openssl.git
   track: openssl-3.0
-  ref: openssl-3.0.11-0-g6ba3884c3235e1bb474b379026087f8216afacf4
+  ref: openssl-3.0.12-0-gc3cc0f1386b0544383a61244a4beeb762b67498f
