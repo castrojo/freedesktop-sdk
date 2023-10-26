@@ -594,6 +594,20 @@ minimal_systemd_vm_aarch64:
     - job: app_aarch64
       artifacts: false
 
+minimal_systemd_vm_loongarch64:
+  extends:
+    - .vm_imageless_template
+    - .builder-x86_64
+  variables:
+    VM_ARTIFACT_BOOT: vm/boot/virt.bst
+    VM_ARTIFACT_FILESYSTEM: vm/minimal/virt.bst
+    ARCH: loongarch64
+  allow_failure: true
+  when: manual
+  needs:
+    - job: bootstrap_loongarch64
+      artifacts: false
+
 desktop_systemd_vm_x86_64:
   extends:
     - .vm_imageless_template
@@ -655,6 +669,18 @@ minimal_efi_vm_image_aarch64:
   variables:
     VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
     DIALOG: root-login
+
+minimal_efi_vm_image_loongarch64:
+  extends:
+    - .vm_efi_image_template
+    - .builder-x86_64
+  needs:
+  - minimal_systemd_vm_loongarch64
+  variables:
+    VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
+    ARCH: loongarch64
+  allow_failure: true
+  when: manual
 
 desktop_efi_vm_image_x86_64:
   extends:
