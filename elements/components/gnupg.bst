@@ -7,6 +7,8 @@ depends:
 - components/libksba.bst
 - components/npth.bst
 - components/sqlite.bst
+- components/gnutls.bst
+
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
@@ -32,7 +34,9 @@ variables:
   conf-local: |
     --enable-maintainer-mode \
     --disable-doc \
-    --disable-all-tests
+    --disable-all-tests \
+    --enable-dirmngr \
+    --disable-ldap
 
 (@):
 - elements/include/gnupg-source.yml
