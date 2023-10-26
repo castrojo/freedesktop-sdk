@@ -38,5 +38,16 @@ variables:
     --enable-dirmngr \
     --disable-ldap
 
-(@):
-- elements/include/gnupg-source.yml
+sources:
+- kind: git_repo
+  url: gnupg:gnupg.git
+  track: gnupg-*
+  exclude:
+  - '*-base'
+  ref: gnupg-2.4.3-0-gd073f26d81ff51afc94c908c8736eb31a31892d1
+- kind: patch
+  path: patches/gnupg/gnupg-don-t-include-tests-with-tarred-data.patch
+- kind: patch
+  path: patches/gnupg/remove-Werror-from-configure.ac.patch
+- kind: patch
+  path: patches/gnupg/Fix-build-without-LDAP.patch
