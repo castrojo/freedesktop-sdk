@@ -147,7 +147,6 @@ depends:
 - components/gnu-efi-maybe.bst
 - components/gnu-free-fonts.bst
 - components/gnupg.bst
-- components/gnupg-dirmngr.bst
 - components/gnutls.bst
 - components/go-md2man.bst
 - components/go.bst
@@ -336,7 +335,6 @@ depends:
 - components/openal.bst
 - components/opencl.bst
 - components/openjpeg.bst
-- components/openldap.bst
 - components/openssh-systemd.bst
 - components/openssh.bst
 - components/openssl.bst
