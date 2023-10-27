@@ -7,7 +7,6 @@ depends:
 - components/python3.bst
 
 sources:
-  # This project only has wheel in pypi so we use git
 - kind: git_repo
   url: github:leohemsted/smartypants.py.git
   track: v*
