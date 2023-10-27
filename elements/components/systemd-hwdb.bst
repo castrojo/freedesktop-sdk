@@ -5,4 +5,7 @@ build-depends:
 
 config:
   commands:
-  - systemd-hwdb --usr --root %{install-root} update
+  - |
+    systemd-hwdb --usr update
+    mkdir -p %{install-root}%{indep-libdir}/udev/
+    mv %{indep-libdir}/udev/hwdb.bin %{install-root}%{indep-libdir}/udev/
