@@ -40,6 +40,6 @@ sources:
   - "*-preview"
   - "*-alpha"
   - "*-beta"
-  ref: release-73-2-0-g680f521746a3bd6a86f25f25ee50a62d88b489cf
+  ref: release-74-1-0-g9f64d3f269014814058091bfe9982c42d59847a7
 - kind: patch
   path: patches/icu/icu-fix-shared-linking.patch
