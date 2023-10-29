@@ -1,5 +1,48 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08.6:
+  * Update python3-filelock to 3.13.0
+  * Update xdg-desktop-portal-base to 1.18.1-0
+  * Update python3-setuptools-rust to 1.8.0
+  * Update crun to 1.11-0
+  * Update libsoup to 3.4.4-0
+  * Make freedesktop-sdk part of the alias for the oci registry
+  * Update elements/abi/freedesktop-sdk.bst to freedesktop-sdk-23.08.5-44
+  * Update glibc to glibc-2.38-30
+  * Revert "Move appstream-glib to sdk" [ABI break]
+  * components/gnupg.bst: fix dirmngr build
+  * Update newt to r0-52-24-0
+  * Update xwayland to xwayland-23.2.2-0
+  * Update linux to v6.5.9-0
+  * Update ccid to 1.5.3-0
+  * linux: Enable DMI and FW_CFG sysfs
+  * components/python3-pyroaring.bst: use a pypi tarball instead of git
+  * components/icu.bst: use tarball instead of git
+  * Update python3-babel to 2.13.1
+  * Update python3-shellingham to 1.5.4
+  * Update python3-ruamel-yaml to 0.18.2
+  * Update python3-cryptography to 41.0.5-0
+  * Update openssl to openssl-3.1.4-0
+  * components/noto_emoji.bst: fix url to use the correct alias
+  * Update vim to v9.0.2059-0
+  * Update spirv-llvm-translator to v16.0.0-24
+  * Update python3-virtualenv to 20.24.6-0
+  * Update python3-ruamel-yaml to 0.18.0
+  * Update libabigail to libabigail-2.4-1
+  * Update to image based on freedesktop-sdk 23.08.4
+  * plugins/bst-plugins-experimental.bst: update to 1.96.0
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-23.08.5-0
+  * Update usbutils to v016-0
+  * Update python3-charset-normalizer to 3.3.1
+  * Update btrfs-progs to v6.5.3-0
+  * Update pycairo to 1.25.1
+  * Update python3-pip to 23.3.1
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-23.08.4-0
+  * Update python3-ruamel-yaml to 0.17.40
+  * Update libdrm to libdrm-2.4.117-0
+  * Update ostree to v2023.7-0
+  * Update meson to 1.2.3-0
+
 freedesktop-sdk-23.08.5:
   * Mitigate chmod bug in update-ca-trust upstream script
   * Update elements/components/python3-trove-classifiers.bst to 2023.10.18-0
