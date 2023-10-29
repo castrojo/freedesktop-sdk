@@ -27,8 +27,8 @@ public:
 
 sources:
 - kind: git_repo
-  url: savannah:libunwind.git
+  url: github:libunwind/libunwind.git
   track: v*
   exclude:
   - "*-rc*"
-  ref: v1.6.2-0-gb3ca1b59a795a617877c01fe5d299ab7a07ff29d
+  ref: v1.7.2-0-g24947191d61dda869e039e0414fe97e9f594acd5
