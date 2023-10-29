@@ -283,37 +283,30 @@ weekly_update_elements:
 
 check_mirrors:
   stage: update
+  before_script:
+  # Configure Buildstream
+  - mkdir -p ~/.config
+  - |
+    cat > ~/.config/buildstream.conf << EOF
+    # Get a lot of output in case of errors
+    logging:
+      message-format: '[%{wallclock}][%{elapsed}][%{key}][%{element}] %{action} %{message}'
+      error-lines: 80
+    scheduler:
+      network-retries: 4
+      on-error: continue
+    # We want to test that everything is mirrored
+    fetch:
+      source: mirrors
+    source-caches:
+      override-project-caches: true
+    EOF
+
   script:
-    - make url-manifest
     - |
-      m_file="release-url-manifest/url-manifest-no-mirrors.json"
-      mir_aliases="include/_private/mirrors.yml"
-      i_file="utils/mirror-management-scripts/ignore_dict.json"
-      check_command="utils/mirror-management-scripts/check_mirrors.py --manifest_file $m_file --mirror_aliases_file $mir_aliases --ignore_file $i_file"
-
-      test_1_passes=true
-      $check_command --alias_test --mirror_defined_test --mirror_commit_test --output_file "mirror_problem_list.json" || test_1_passes=false
-      test_2_passes=true
-      if $check_command --existence_test --output_file "unmirrored_sources_list.json"; then 
-          true
-      else
-          cp utils/mirror-management-scripts/create_mirrors_from_problem_list.py ./
-          cp utils/mirror-management-scripts/README-Create-mirrors-script.md ./
-          echo "CI JOB FAILING DUE TO UNMIRRORED SOURCES"
-          echo "This usually means a new URL source has been added to the project"
-          echo "Someone with appropriate permissions needs to create download mirrors for the new source."
-          echo "Download the job artefacts for a README: with more information, a python script to create the mirrors, and json file with the list of new mirrors to create."
-          test_2_passes=false
-      fi
-      $test_1_passes && $test_2_passes
-
-  artifacts:
-    when: always
-    paths:
-      - ${CI_PROJECT_DIR}/mirror_problem_list.json
-      - ${CI_PROJECT_DIR}/unmirrored_sources_list.json
-      - ${CI_PROJECT_DIR}/create_mirrors_from_problem_list.py
-      - ${CI_PROJECT_DIR}/README-Create-mirrors-script.md
+      ${BST} source fetch --deps all flatpak-release-repo.bst components.bst \
+             components/rust-stage1-{x86_64,i686,aarch64,armv7,powerpc64le}.bst \
+             oci/layers/{flatpak,debug,platform,sdk}.bst
   allow_failure: true
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
