@@ -45,6 +45,10 @@ def bst_build(
 
     if disallow_artifact_pull:
         bst_call.extend(["--ignore-project-artifact-remotes"])
+        # This will override the artifact remotes defined in the user config.
+        # It can't be empty but setting it to an invalid url will just show
+        # a warning and still won't use the artifact remotes defined in the user config.
+        bst_call.extend(["--artifact-remote", "invalid"])
     print("BST BUILD RUNNING:", bst_call, file=sys.stderr)
     subprocess.run(bst_call, check=True)
 
