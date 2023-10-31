@@ -24,5 +24,6 @@ sources:
 - kind: pypi
   name: wheel
   ref:
-    sha256sum: 0c5ac5ff2afb79ac23ab82bab027a0be7b5dbcf2e54dc50efe4bf507de1f7985
-    suffix: a4/99/78c4f3bd50619d772168bec6a0f34379b02c19c9cced0ed833ecd021fd0d/wheel-0.41.2.tar.gz
+    sha256sum: 4d4987ce51a49370ea65c0bfd2234e8ce80a12780820d9dc462597a6e60d0841
+    suffix: 
+      fb/d0/0b4c18a0b85c20233b0c3bc33f792aefd7f12a5832b4da77419949ff6fd9/wheel-0.41.3.tar.gz
