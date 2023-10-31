@@ -2,7 +2,7 @@
 
 # Need to include the key as otherwise we have a YAML list, not a dict
 mirrors:
-- name: gitlab_dot_com_freedesktop__sdk_mirrors
+- name: freedesktop-sdk-git-mirrors
   aliases:
     chromium:
     - https://gitlab.com/freedesktop-sdk/mirrors/chromium/
@@ -68,7 +68,7 @@ mirrors:
     # git_http:
     # - https://gitlab.com/freedesktop-sdk/mirrors/git_http/
 
-- name: freedesktop_tarball_mirror
+- name: freedesktop-sdk-raw-file-mirrors
   # for sources that consist of a single, downloadable file, eg tarballs, zipfiles, and rust crates
   aliases:
     cpan:
@@ -98,8 +98,10 @@ mirrors:
     tar_https:
     - https://gitlab.com/freedesktop-sdk/mirrors/tar_https/raw-files/-/raw/master/
 
-- name: kernel_org
+# "Not real mirrors" for things under our control
+- name: freedestkop-sdk
   aliases:
-    ftp_gnu_org:
-    - https://mirrors.kernel.org/gnu/
-
+    fdsdk_registry:
+    - https://registry.gitlab.com/freedesktop-sdk/
+    fdsdk_git:
+    - https://gitlab.com/freedesktop-sdk/
