@@ -12,4 +12,4 @@ sources:
   url: github:pygobject/pycairo.git
   track: v*
   ref-format: git-describe
-  ref: v1.25.0-0-g5835e4cd3478aa5187ca704bfedcd002c49bb05d
+  ref: v1.25.1-0-g26b3287bffbd91b5a2a41be72090a3a23b1fc98c
