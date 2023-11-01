@@ -11,10 +11,7 @@ sources:
   track: '*.*.*'
   exclude:
   - '*rc*'
-  ref: 1.2.1-0-gda78b969ee3635bbea81909aa9ebdad3c77257a5
+  ref: 1.2.3-0-g84e437179da05db10aa2457322c54f4ec8be61f1
 - kind: patch
   path: patches/meson/meson-no-lib64.patch
   strip-level: 0
-- kind: patch
-  path: patches/meson/fix-crash-when-installing-a-vala-library-and-python-.patch
-  strip-level: 1
