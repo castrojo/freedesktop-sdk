@@ -10,6 +10,8 @@ mirrors:
     - https://gitlab.com/freedesktop-sdk/mirrors/debian_salsa/
     denx:
     - https://gitlab.com/freedesktop-sdk/mirrors/denx/
+    fdsdk_git:
+    - https://gitlab.com/freedesktop-sdk/
     fedora_rpms:
     - https://gitlab.com/freedesktop-sdk/mirrors/fedora_rpms/
     ffmpeg:

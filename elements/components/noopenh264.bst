@@ -38,6 +38,6 @@ public:
 
 sources:
 - kind: git_repo
-  url: freedesktop-sdk-project:noopenh264.git
+  url: fdsdk_git:noopenh264.git
   track: openh264-*
   ref: openh264-2.3.1-0-g6be12bafe243b6b848f5f32103a3cdcfd20ceb34
