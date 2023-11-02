@@ -36,6 +36,6 @@ sources:
 - kind: git_tag
   url: repo_or_cz:valgrind.git
   track: master
-  ref: VALGRIND_3_21_0-0-gd97fed7c3e4aa7c910dfa0b6c5de12fd6cf08155
+  ref: VALGRIND_3_22_0-0-gbd4db67b1d386c352040b1d8fab82f5f3340fc59
 - kind: patch
   path: patches/valgrind/valgrind-arm-hot_cpu.patch
