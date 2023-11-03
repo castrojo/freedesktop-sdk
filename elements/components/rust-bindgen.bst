@@ -23,7 +23,7 @@ sources:
 - kind: git_repo
   track: v*
   url: github:rust-lang/rust-bindgen.git
-  ref: v0.68.1-0-g8d75a02bbb5c64e85e6ce62b57d52b7df9c61c79
+  ref: v0.69.1-0-gf3f3d326c7e9e6fa55562fec6a8676ae8eab7588
 - kind: cargo
   url: crates:crates
   ref:
@@ -75,9 +75,6 @@ sources:
   - name: env_logger
     version: 0.8.4
     sha: a19187fea3ac7e84da7dacf48de0c45d63c6a76f9490dae389aead16c243fce3
-  - name: errno
-    version: 0.2.8
-    sha: f639046355ee4f37944e44f60642c6f3a7efa3cf6b78c78a0d989a8ce6c396a1
   - name: errno
     version: 0.3.1
     sha: 4bcfec3a70f97c962c307b2d2c56e358cf1d00b558d74262b5f929ee8cc7e73a
@@ -196,8 +193,8 @@ sources:
     version: 1.1.0
     sha: 08d43f7aa6b08d49f382cde6a7982047c3426db949b1424bc4b7ec9ae12c6ce2
   - name: rustix
-    version: 0.36.7
-    sha: d4fdebc4b395b7fbb9ab11e462e20ed9051e7b16e42d24042c776eca0ac81b03
+    version: 0.36.16
+    sha: 6da3636faa25820d8648e0e31c5d519bbb01f72fdf57131f0f5f7da5fed36eab
   - name: rustix
     version: 0.37.3
     sha: 62b24138615de35e32031d041a09032ef3487a616d901ca4db224e7d557efae2
