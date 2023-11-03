@@ -35,23 +35,21 @@ depends:
 
 variables:
   plugin_dell: 'false'
-  plugin_msr: 'false'
-  plugin_uefi_capsule: 'false'
+  plugin_msr: 'disabled'
+  plugin_uefi_capsule: 'disabled'
   efi_binary: 'false'
   (?):
   - target_arch in ["arm", "aarch64"]:
-      plugin_uefi_capsule: 'true'
+      plugin_uefi_capsule: 'enabled'
       efi_binary: 'true'
   - target_arch in ["i686", "x86_64"]:
-      plugin_dell: 'true'
-      plugin_msr: 'true'
-      plugin_uefi_capsule: 'true'
+      plugin_msr: 'enabled'
+      plugin_uefi_capsule: 'enabled'
       efi_binary: 'true'
 
   meson-local: >-
     -Dauto_features=disabled
     -Ddocs=enabled
-    -Dplugin_dell=%{plugin_dell}
     -Dplugin_msr=%{plugin_msr}
     -Dplugin_uefi_capsule=%{plugin_uefi_capsule}
     -Defi_binary=%{efi_binary}
@@ -61,4 +59,4 @@ sources:
 - kind: git_repo
   url: github:fwupd/fwupd.git
   track: '*.*.*'
-  ref: 1.9.5-0-g9d83e88cd92a8626b000a789d29b949a0e6d9fc6
+  ref: 1.9.7-0-g24396f802d954eddbd37395adf8c561381e7c59a
