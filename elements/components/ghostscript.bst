@@ -32,4 +32,4 @@ sources:
   exclude:
   - '*rc*'
   - '*test*'
-  ref: ghostpdl-10.02.0-0-g8add3bf87045b3f83130160462dd8e8299f3a81d
+  ref: ghostpdl-10.02.1-0-g80d5c438c2aca5fc49dfc477766e144ccc49d247
