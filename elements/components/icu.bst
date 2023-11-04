@@ -1,16 +1,17 @@
 kind: autotools
 
 depends:
-- filename: bootstrap-import.bst
-- filename: components/python3.bst
-  type: build
+- bootstrap-import.bst
+
+build-depends:
+- components/python3.bst
 
 config:
   configure-commands:
   - |
     mkdir "%{build-dir}"
     cd "%{build-dir}"
-    ../icu4c/source/configure %{conf-args}
+    ../source/configure %{conf-args}
 
 public:
   bst:
@@ -28,18 +29,14 @@ public:
         - '%{libdir}/icu/**'
 
   cpe:
-    version-match: '(\d+)-(\d+)'
+    version-match: '(\d+)_(\d+)'
     product: international_components_for_unicode
 
+# The git repsitory is unreliable as tags are force-pushed
+# See https://github.com/sdispater/tomlkit/issues/322
 sources:
-- kind: git_repo
-  url: github:unicode-org/icu.git
-  track: release-*
-  exclude:
-  - "release-*-rc"
-  - "*-preview"
-  - "*-alpha"
-  - "*-beta"
-  ref: release-74-1-0-g9f64d3f269014814058091bfe9982c42d59847a7
+- kind: tar
+  url: github_files:unicode-org/icu/releases/download/release-74-1/icu4c-74_1-src.tgz
+  ref: 86ce8e60681972e60e4dcb2490c697463fcec60dd400a5f9bffba26d0b52b8d0
 - kind: patch
   path: patches/icu/icu-fix-shared-linking.patch
