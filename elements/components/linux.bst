@@ -12,6 +12,7 @@ build-depends:
 - components/gzip.bst
 - components/rsync.bst
 - components/linux-module-cert.bst
+- components/util-linux.bst
 
 variables:
   bootdir: /boot
@@ -23,8 +24,6 @@ variables:
       src-arch: x86
   - target_arch == "aarch64":
       kernel_arch: arm64
-      # The default image file is not EFI compatible
-      image-name: arch/arm64/boot/Image
   - target_arch == "i686":
       src-arch: x86
       kernel_arch: i386
@@ -32,7 +31,6 @@ variables:
       kernel_arch: powerpc
   - target_arch == "riscv64":
       kernel_arch: riscv
-      image-name: arch/riscv/boot/Image
   - target_arch == "loongarch64":
       kernel_arch: loongarch
 
@@ -206,6 +204,9 @@ config:
     # For UEFI systems
     enable EFIVAR_FS
     enable EFI_PARTITION
+    if has EFI_GENERIC_STUB; then
+      enable EFI_ZBOOT
+    fi
 
     # RT group scheduling (effectively) makes RT scheduling unavailable for userspace
     remove RT_GROUP_SCHED
