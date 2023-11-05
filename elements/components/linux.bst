@@ -741,7 +741,6 @@ config:
     if has ACPI && has I2C && has X86; then
       module IPU_BRIDGE
       module VIDEO_IPU3_CIO2
-      enable CIO2_BRIDGE
     fi
 
     # NVME disks
@@ -1469,7 +1468,6 @@ config:
     # gameport
     module GAMEPORT_EMU10K1
     module GAMEPORT_FM801
-    module GAMEPORT_L4
 
     # Other human interfaces
     module HID_ACCUTOUCH
@@ -1874,7 +1872,7 @@ config:
     release=$(make -s kernelrelease)
     targetdir="%{install-root}%{prefix}/src/linux-${release}"
 
-    rm "%{install-root}%{indep-libdir}/modules/${release}"/{source,build}
+    rm "%{install-root}%{indep-libdir}/modules/${release}"/build
 
     to_copy=(
       Makefile
@@ -1896,7 +1894,6 @@ config:
       cp -aT "${file}" "${targetfile}"
     done
 
-    ln -sr "${targetdir}" "%{install-root}%{indep-libdir}/modules/${release}/source"
     ln -sr "${targetdir}" "%{install-root}%{indep-libdir}/modules/${release}/build"
 
   (?):
