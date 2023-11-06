@@ -6,9 +6,11 @@ build-depends:
 depends:
 - components/python3.bst
 
+# Don't convert to git
+# See https://github.com/sdispater/tomlkit/issues/322
 sources:
-- kind: git_repo
-  url: github:sdispater/tomlkit.git
-  track: '*.*.*'
-  ref-format: git-describe
-  ref: 0.12.2-0-ga1a8d3721dc175faf62b891d9e1e68aaae4052ab
+- kind: pypi
+  name: tomlkit
+  ref:
+    sha256sum: df32fab589a81f0d7dc525a4267b6d7a64ee99619cbd1eeb0fae32c1dd426977
+    suffix: 9b/93/93f12cdd3b9da81e94f2435d01fe6b3e9edc7704a25d4ad260ce7906ca62/tomlkit-0.12.2.tar.gz
