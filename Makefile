@@ -86,11 +86,28 @@ export-tar: build-tar
 clean-vm:
 	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
 	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
+	rm -rf $(OVMF_VARS)
 
-$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM):
+OVMF_VARS=$(VM_CHECKOUT_ROOT)/efi_vars.fd
+ifeq ($(ARCH),aarch64)
+OVMF_VARS_TEMPLATE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/QEMU_VARS.fd
+OVMF_CODE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/QEMU_EFI.fd
+else
+OVMF_VARS_TEMPLATE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/OVMF_VARS.fd
+OVMF_CODE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/OVMF_CODE.fd
+endif
+
+$(OVMF_VARS_TEMPLATE) $(OVMF_CODE):
+	$(BST) build components/ovmf.bst
+	$(BST) artifact checkout components/ovmf.bst --directory $(VM_CHECKOUT_ROOT)/ovmf
+
+$(OVMF_VARS): $(OVMF_VARS_TEMPLATE)
+	cp "$<" "$@"
+
+$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)/usr/lib/os-release:
 	$(BST) artifact checkout $(VM_ARTIFACT_FILESYSTEM) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
 
-$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT):
+$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/vmlinuz:
 	$(BST) artifact checkout $(VM_ARTIFACT_BOOT) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
 
 build-vm:
@@ -120,16 +137,22 @@ QEMU_TPM_ARGS =									\
 	-device tpm-tis,tpmdev=tpm0
 
 ifeq ($(ARCH),x86_64)
+run-vm: $(OVMF_CODE) $(OVMF_VARS)
+
 QEMU_COMMON_ARGS+=				\
 	-M q35,accel=kvm
 QEMU_VIRTFS_ARGS+=												\
-	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap console=ttyS0'
+	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap console=ttyS0'	\
+	$(QEMU_EFI_ARGS)
 else ifeq ($(ARCH),aarch64)
+run-vm: $(OVMF_CODE) $(OVMF_VARS)
+
 QEMU_COMMON_ARGS+=				\
 	-machine type=virt,accel=kvm		\
 	-cpu max
 QEMU_VIRTFS_ARGS+=																\
-	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap init=/usr/lib/systemd/systemd console=ttyAMA0'
+	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap init=/usr/lib/systemd/systemd console=ttyAMA0'	\
+	$(QEMU_EFI_ARGS)
 else ifeq ($(ARCH),ppc64le)
 QEMU_COMMON_ARGS+=				\
 	-machine pseries
@@ -137,7 +160,7 @@ QEMU_VIRTFS_ARGS+=																\
 	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap init=/usr/lib/systemd/systemd console=ttyS0'
 endif
 
-run-vm: build-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
+run-vm: build-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/vmlinuz $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)/usr/lib/os-release
 	unshare --map-root-user $(QEMU) $(QEMU_COMMON_ARGS) $(QEMU_VIRTFS_ARGS)
 
 check-abi:
@@ -302,22 +325,6 @@ vulkan-stack-update:
 	components/spirv-headers.bst \
 	components/spirv-tools.bst \
 	components/glslang.bst
-
-OVMF_VARS=$(VM_CHECKOUT_ROOT)/efi_vars.fd
-ifeq ($(ARCH),aarch64)
-OVMF_VARS_TEMPLATE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/QEMU_VARS.fd
-OVMF_CODE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/QEMU_EFI.fd
-else
-OVMF_VARS_TEMPLATE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/OVMF_VARS.fd
-OVMF_CODE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/OVMF_CODE.fd
-endif
-
-$(OVMF_VARS_TEMPLATE) $(OVMF_CODE):
-	$(BST) build components/ovmf.bst
-	$(BST) artifact checkout components/ovmf.bst --directory $(VM_CHECKOUT_ROOT)/ovmf
-
-$(OVMF_VARS): $(OVMF_VARS_TEMPLATE)
-	cp "$<" "$@"
 
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img:
 	$(BST) artifact checkout $(VM_ARTIFACT_IMAGE) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
