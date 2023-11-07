@@ -12,6 +12,7 @@ build-depends:
 - components/gzip.bst
 - components/rsync.bst
 - components/linux-module-cert.bst
+- components/util-linux.bst
 
 variables:
   bootdir: /boot
@@ -23,8 +24,6 @@ variables:
       src-arch: x86
   - target_arch == "aarch64":
       kernel_arch: arm64
-      # The default image file is not EFI compatible
-      image-name: arch/arm64/boot/Image
   - target_arch == "i686":
       src-arch: x86
       kernel_arch: i386
@@ -32,7 +31,6 @@ variables:
       kernel_arch: powerpc
   - target_arch == "riscv64":
       kernel_arch: riscv
-      image-name: arch/riscv/boot/Image
 
 environment:
   ARCH: '%{kernel_arch}'
@@ -204,6 +202,9 @@ config:
     # For UEFI systems
     enable EFIVAR_FS
     enable EFI_PARTITION
+    if has EFI_GENERIC_STUB; then
+      enable EFI_ZBOOT
+    fi
 
     # RT group scheduling (effectively) makes RT scheduling unavailable for userspace
     remove RT_GROUP_SCHED
@@ -741,7 +742,6 @@ config:
     if has ACPI && has I2C && has X86; then
       module IPU_BRIDGE
       module VIDEO_IPU3_CIO2
-      enable CIO2_BRIDGE
     fi
 
     # NVME disks
@@ -1469,7 +1469,6 @@ config:
     # gameport
     module GAMEPORT_EMU10K1
     module GAMEPORT_FM801
-    module GAMEPORT_L4
 
     # Other human interfaces
     module HID_ACCUTOUCH
@@ -1874,7 +1873,7 @@ config:
     release=$(make -s kernelrelease)
     targetdir="%{install-root}%{prefix}/src/linux-${release}"
 
-    rm "%{install-root}%{indep-libdir}/modules/${release}"/{source,build}
+    rm "%{install-root}%{indep-libdir}/modules/${release}"/build
 
     to_copy=(
       Makefile
@@ -1896,7 +1895,6 @@ config:
       cp -aT "${file}" "${targetfile}"
     done
 
-    ln -sr "${targetdir}" "%{install-root}%{indep-libdir}/modules/${release}/source"
     ln -sr "${targetdir}" "%{install-root}%{indep-libdir}/modules/${release}/build"
 
   (?):
