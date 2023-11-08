@@ -17,7 +17,7 @@ environment:
 sources:
 - kind: git_repo
   url: github:Ezibenroc/PyRoaringBitMap.git
-  track: '*.*.*'
+  track: refs/tags/*.*.*
   exclude:
   - '*dev*'
   ref: 0.4.4-0-gd2438574b572d209ee1c99912014597b204161dc
