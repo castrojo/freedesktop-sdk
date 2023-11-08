@@ -14,6 +14,8 @@ depends:
 - components/lcms.bst
 - components/nss.bst
 - components/openjpeg.bst
+- components/gpgme.bst
+- components/curl.bst
 
 variables:
   cmake-local: >-
@@ -34,4 +36,4 @@ sources:
 - kind: git_repo
   url: freedesktop:poppler/poppler.git
   track: poppler-*
-  ref: poppler-23.09.0-0-g6e2c0fe0434cfadc3d161e7cd348212f644b725e
+  ref: poppler-23.11.0-0-g975d6998b0ad979e81ea133be493bbf7be113fc7
