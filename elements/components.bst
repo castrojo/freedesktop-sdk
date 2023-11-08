@@ -500,6 +500,7 @@ depends:
 - components/python3-yarl.bst
 - components/python3.bst
 - components/qpdf.bst
+- components/recc.bst
 - components/rsync.bst
 - components/rtkit.bst
 - components/ruby.bst
