@@ -376,7 +376,7 @@ license_checker:
   stage: flatpak
   script:
     - arch-test || true
-    - ./utils/mirror-management-scripts/validate_aliases.py include/_private/aliases.yml include/_private/mirrors.yml
+    - ./utils/validate_aliases.py include/_private/aliases.yml include/_private/mirrors.yml
     - test "${ARCH}" != "i686" && make build
 
     - export FLATPAK_USER_DIR="${PWD}/tmp-flatpak"
