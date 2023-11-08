@@ -7,6 +7,7 @@ depends:
 - components/glog.bst
 - components/grpc.bst
 - components/protobuf.bst
+- components/util-linux.bst
 
 
 variables:

@@ -6,7 +6,6 @@ build-depends:
 depends:
 - components/gflags.bst
 - components/protobuf.bst
-- components/util-linux.bst
 
 variables:
   cmake-local: >-
