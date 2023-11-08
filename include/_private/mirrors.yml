@@ -55,7 +55,7 @@ mirrors:
     savannah:
     - https://gitlab.com/freedesktop-sdk/mirrors/savannah/
     sourceforge_git:
-    - https://gitlab.com/freedesktop-sdk/mirrors/sourceforge/
+    - https://gitlab.com/freedesktop-sdk/mirrors/sourceforge_git/
     sourceware:
     - https://gitlab.com/freedesktop-sdk/mirrors/sourceware/
     tukaani:
