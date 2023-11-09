@@ -12,5 +12,5 @@ config:
 
 sources:
 - kind: tar
-  url: github:thesofproject/sof-bin/releases/download/v2.2.5/sof-bin-v2.2.5.tar.gz
+  url: github_files:thesofproject/sof-bin/releases/download/v2.2.5/sof-bin-v2.2.5.tar.gz
   ref: 577f450875bd833af9b8b716e368d873aac913a35dd996c7aa0f52adddef92ee
