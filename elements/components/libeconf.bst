@@ -9,5 +9,5 @@ depends:
 sources:
 - kind: git_repo
   url: github:openSUSE/libeconf.git
-  track: master
-  ref: v0.5.2-4-g9e9adf213476fcf0e0f57691bc69e7a0b061ce92
+  track: v*
+  ref: v0.6.0-0-gf809899aa4a58003fd646612dbf5915d037b1f76
