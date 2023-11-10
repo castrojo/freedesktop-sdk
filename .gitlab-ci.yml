@@ -82,6 +82,9 @@ before_script:
       builders: ${BUILD_TASKS}
       network-retries: 4
       on-error: continue
+    # We want to make sure that everything is mirrored
+    fetch:
+      source: mirrors
     track:
       # Because we want tracking to succeed even if origin disappears
       source: all
