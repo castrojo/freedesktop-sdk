@@ -71,5 +71,5 @@ sources:
 - kind: git_repo
   url: savannah:bash.git
   track: master
-  ref: bash-5.2-15-gec8113b9861375e4e17b3307372569d429dec814
+  ref: bash-5.2-21-g2bb3cbefdb8fd019765b1a9cc42ecf37ff22fec6
 
