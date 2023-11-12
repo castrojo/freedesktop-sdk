@@ -5,6 +5,8 @@ depends:
 
 build-depends:
 - components/python3.bst
+- components/which.bst
+- components/rdfind.bst
 
 config:
   build-commands:
