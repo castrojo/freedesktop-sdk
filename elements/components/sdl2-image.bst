@@ -13,6 +13,8 @@ depends:
 variables:
   cmake-local: >-
     -DSDL2IMAGE_DEPS_SHARED:BOOL=OFF
+    -DSDL2IMAGE_TIF:BOOL=ON
+    -DSDL2IMAGE_WEBP:BOOL=ON
 
 public:
   bst:
