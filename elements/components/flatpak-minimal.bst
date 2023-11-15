@@ -34,6 +34,7 @@ variables:
     -Ddocbook_docs=disabled
     -Dtests=false
     -Dsystem_dbus_proxy=xdg-dbus-proxy
+    -Dwayland_security_context=disabled
 
 (@):
 - elements/include/flatpak.yml
