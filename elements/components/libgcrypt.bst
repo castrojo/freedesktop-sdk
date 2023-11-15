@@ -25,4 +25,4 @@ sources:
 - kind: git_tag
   url: gnupg:libgcrypt.git
   track: LIBGCRYPT-1.10-BRANCH
-  ref: libgcrypt-1.10.2-0-g1c5cbacf3d88dded5063e959ee68678ff7d0fa56
+  ref: libgcrypt-1.10.3-0-gaa1610866f8e42bdc272584f0a717f32ee050a22
