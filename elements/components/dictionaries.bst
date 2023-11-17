@@ -21,7 +21,7 @@ sources:
   track: libreoffice-*
   exclude:
   - '*branch-point*'
-  ref: libreoffice-7.6.3.1-0-g69d464588c44e74b9170e3a275f942263ad61a37
+  ref: libreoffice-7.6.3.2-0-g3b7e1d20e5563f388c75450ce19db63b91892cca
 - kind: local
   path: files/dictionaries/install_dicts.py
 - kind: local
