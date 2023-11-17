@@ -32,4 +32,4 @@ sources:
 - kind: git_repo
   url: gnome:libxslt.git
   track: v*
-  ref: v1.1.38-0-gb9196c0b357a903ad0a41cb4acce62cc1b0f2057
+  ref: v1.1.39-0-g743ab691bed98ed11ac99bbd9d903d59fb814ab8
