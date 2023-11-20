@@ -8,6 +8,7 @@ build-depends:
 - components/gobject-introspection.bst
 - components/libxslt.bst
 - components/python3-pyparsing.bst
+- components/wayland-protocols.bst
 - components/xmlto.bst
 
 depends:
