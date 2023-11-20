@@ -627,6 +627,9 @@ config:
         module DRM_I915
         module DRM_GMA500
         ;;
+      aarch64)
+        module DRM_PANFROST
+        ;;
     esac
 
     # DRM for virtual machines
