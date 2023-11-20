@@ -21,6 +21,6 @@ sources:
   track: v*
   exclude:
   - v*-rc*
-  ref: v3.27.7-0-g9532e1cf5b238ee5da2ea0b2fbb0194eaa5aaf03
+  ref: v3.27.8-0-g9cfff766eb26ab8b29aa509e42d6b367dd00c7b7
 - kind: patch
   path: patches/cmake/cmake-nolib64.patch
