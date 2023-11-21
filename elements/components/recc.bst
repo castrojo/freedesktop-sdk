@@ -19,4 +19,4 @@ sources:
 - kind: git_repo
   url: gitlab:BuildGrid/recc.git
   track: '*.*.*'
-  ref: 1.0.4-0-ga2e98639681e25ca5f80cb4c5256a2a0a226957d
+  ref: 1.0.5-0-gd5b2f882ef8073d2ef0a55de92793a3eb7ad7439
