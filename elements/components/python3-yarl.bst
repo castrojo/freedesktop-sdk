@@ -15,4 +15,4 @@ sources:
 - kind: git_repo
   url: github:aio-libs/yarl.git
   track: v*
-  ref: v1.9.2-0-gcfc634eb6adbf65828dfe7052838023280d50c57
+  ref: v1.9.3-0-g0698dc947772786fcff467b12cfb1f3921c7ff31
