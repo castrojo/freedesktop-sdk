@@ -10,6 +10,7 @@ runtime-depends:
 - components/python3-jinja2.bst
 - components/python3-markdown.bst
 - components/python3-markupsafe.bst
+- components/python3-packaging.bst
 - components/python3-pygments.bst
 - components/python3-typogrify.bst
 
