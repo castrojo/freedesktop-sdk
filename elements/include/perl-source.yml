@@ -6,7 +6,7 @@ sources:
   - v5.36.*
   exclude:
   - v*-RC*
-  ref: v5.36.1-0-g42e3343be621a2b9cdb98befd92de43cc0b7ef3e
+  ref: v5.36.2-0-g991b41619a089200e56b78e6261ef5e343f74632
 - kind: local
   path: files/perl/config.over
 - kind: patch
