@@ -10,6 +10,7 @@ runtime-depends:
 - components/python3-jinja2.bst
 - components/python3-markdown.bst
 - components/python3-markupsafe.bst
+- components/python3-packaging.bst
 - components/python3-pygments.bst
 - components/python3-typogrify.bst
 
@@ -18,4 +19,4 @@ sources:
   url: gnome:gi-docgen.git
   track: '*.*'
   ref-format: git-describe
-  ref: 2023.1-0-g63b4fad4181e793f34b7777a89e5cb58fe8ac7e6
+  ref: 2023.3-0-g96f2e9b93e1d8a5338eb05b87fd879856ab7b3cc
