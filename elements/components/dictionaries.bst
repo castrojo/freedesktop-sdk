@@ -21,6 +21,9 @@ sources:
   track: libreoffice-*
   exclude:
   - '*branch-point*'
+  - '*-android'
+  - '*alpha*'
+  - '*beta*'
   ref: libreoffice-7.6.3.2-0-g3b7e1d20e5563f388c75450ce19db63b91892cca
 - kind: local
   path: files/dictionaries/install_dicts.py
