@@ -35,7 +35,6 @@ variables:
   meson-local: >-
     -Dbackend-rdp=false
     -Dbackend-vnc=false
-    -Dlauncher-libseat=true
 
   meson-lto-flags: ""
 
@@ -45,4 +44,4 @@ sources:
   exclude:
   - '*.*.9[0-9]'
   url: freedesktop:wayland/weston.git
-  ref: 12.0.2-0-g55986c42889011d02022a90f86b246512171356d
+  ref: 13.0.0-0-g712cdc56ab7eab5f11f4934e04904a6d01a07733
