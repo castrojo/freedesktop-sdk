@@ -13,6 +13,13 @@ variables:
   meson-local: >-
     -Dtests=false
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libxmlb.so'
+
 sources:
 - kind: git_repo
   url: github:hughsie/libxmlb.git
