@@ -27,5 +27,16 @@ variables:
     -Dstemming=false
     -Dcompose=true
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libappstream-compose.so'
+        - '%{libdir}/libappstream.so'
+        - '%{bindir}'
+        - '%{bindir}/**'
+
+
 (@):
 - elements/include/appstream-source.yml
