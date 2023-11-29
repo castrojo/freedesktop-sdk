@@ -2,6 +2,7 @@ kind: stack
 description: Stack of elements in the freedesktop runtime
 
 depends:
+- components/appstream.bst
 - components/bluez-libs.bst
 - components/ca-certificates.bst
 - components/cracklib.bst
