@@ -22,7 +22,7 @@ sources:
   track: v*
   exclude:
   - '*pre*'
-  ref: v1.59.3-0-g35df344f5e17a9cb290ebf0f5b0f03ddb1ff0a97
+  ref: v1.60.0-0-g0ef13a7555dbaadd4633399242524129eef5e231
 - kind: git_module
   url: github:c-ares/c-ares.git
   path: third_party/cares/cares
