@@ -121,6 +121,7 @@ depends:
 - components/fscrypt-maybe.bst
 - components/fuse-overlayfs.bst
 - components/fuse3.bst
+- components/fwupd.bst
 - components/fwupd-efi-maybe.bst
 - components/gamemode.bst
 - components/gcab.bst
