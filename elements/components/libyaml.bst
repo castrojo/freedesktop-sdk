@@ -6,6 +6,13 @@ build-depends:
 depends:
 - bootstrap-import.bst
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libyaml.so'
+
 sources:
 - kind: git_repo
   url: github:yaml/libyaml.git
