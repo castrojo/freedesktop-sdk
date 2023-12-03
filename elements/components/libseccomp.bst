@@ -22,7 +22,7 @@ public:
     - kind: git_repo
       url: github:seccomp/libseccomp.git
       track: v*
-      ref: v2.5.4-0-gf33f95014b36f97b42f0c2290e96d5c31647ed10
+      ref: v2.5.5-0-gf0b04ab0b4fc0bc2cde6da1f407b4a487fe6d78f
 - target_arch == "loongarch64":
     config:
       configure-commands:
