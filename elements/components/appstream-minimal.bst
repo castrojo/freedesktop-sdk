@@ -3,6 +3,7 @@ kind: meson
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/gtk-doc.bst
+- components/gperf.bst
 - components/itstool.bst
 
 depends:
@@ -14,7 +15,6 @@ depends:
 - components/glib.bst
 - components/glib-networking.bst
 - components/gobject-introspection.bst
-- components/gperf.bst
 - components/libyaml.bst
 - components/libxml2.bst
 - components/libxmlb.bst
