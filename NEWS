@@ -1,5 +1,37 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08.8:
+  * Update libseccomp to v2.5.5-0
+  * Update python3-virtualenv to 20.25.0-0
+  * Update libabigail to libabigail-2.4-9
+  * Update spirv-llvm-translator to v17.0.0-1
+  * noto-emoji: Update to 2.042
+  * Update eos-metrics to Release_5.1.0-0
+  * Update dictionaries to libreoffice-7.6.4.1-0
+  * rust: Update to 1.73.0
+  * spirv-llvm-translator: update to v17 and track releases
+  * Update llvm to llvmorg-17.0.6-0
+  * Update mesa to mesa-23.3.0-0
+  * Update perl to v5.38.2-0
+  * Update mutool to 1.23.7-0
+  * Update python3-dbusmock to 0.30.0
+  * Update python3-trove-classifiers to 2023.11.29-0
+  * Update iwd to 2.10-0
+  * Update elements/include/mesa.yml to mesa-23.3.0-0
+  * Update extra-cmake-modules to v5.246.1-0
+  * Update cmake to v3.27.9-0
+  * Update systemd to v254.7-0
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-23.08.7-0
+  * Update podman to v4.8.0-0
+  * Update linux to v6.6.3-0
+  * Update grpc to v1.60.0-0
+  * pasta: Install to correct location
+  * Update weston to 13.0.0-0
+  * Update python3-cryptography to 41.0.7-0
+  * Update netavark to v1.9.0-0
+  * Update aardvark-dns to v1.9.0-0
+  * Update vim to v9.0.2130-0
+
 freedesktop-sdk-23.08.7:
   * elements/include/pkg-config-source.yml: Exclude 2.1.0
   * Revert "Update elements/include/pkg-config-source.yml to pkgconf-2.1.0-0"
