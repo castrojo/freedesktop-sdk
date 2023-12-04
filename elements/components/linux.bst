@@ -340,6 +340,9 @@ config:
       ;;
     esac
 
+    # Dummy network driver
+    module DUMMY
+
     # For wireless networks
     enable WIRELESS
     module CFG80211
