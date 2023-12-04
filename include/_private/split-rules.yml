@@ -32,7 +32,7 @@ doc:
   - "%{infodir}/**"
   - "%{mandir}"
   - "%{mandir}/**"
-  - "%{datadir}/gtk-doc/html/"
+  - "%{datadir}/gtk-doc/html"
   - "%{datadir}/gtk-doc/html/**"
   - "%{datadir}/examples"
   - "%{datadir}/examples/**"
@@ -40,7 +40,7 @@ doc:
   - "%{datadir}/help/**"
   - "%{datadir}/ri"
   - "%{datadir}/ri/**"
-  - "%{datadir}/cmake-*/Help/"
+  - "%{datadir}/cmake-*/Help"
   - "%{datadir}/cmake-*/Help/**"
 
 static-blocklist: []
