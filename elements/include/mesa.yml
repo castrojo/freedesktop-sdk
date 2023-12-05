@@ -10,8 +10,8 @@ sources:
   url: freedesktop:mesa/mesa.git
   track: main
   track-extra:
-  - '23.1'
+  - '23.3'
   exclude:
   - '*rc*'
   - '*branchpoint*'
-  ref: mesa-23.1.9-0-gacb5ee278ac11b1da44c9f9e64c43389e606403b
+  ref: mesa-23.3.0-0-g1fbdd37d4c1133ced5eb9812daa1fff04cbf5daa
