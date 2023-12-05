@@ -58,4 +58,4 @@ sources:
 - kind: git_repo
   url: github:fwupd/fwupd.git
   track: '*.*.*'
-  ref: 1.9.9-0-g2836d32db223590b0f5b5c4c6f0423dc7281abcf
+  ref: 1.9.10-0-g8afede84fcfb789ee36c2292139ce042ed193140
