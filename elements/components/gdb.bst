@@ -59,6 +59,6 @@ sources:
 - kind: git_repo
   url: sourceware:binutils-gdb.git
   track: gdb-*.*
-  ref: gdb-13.2-release-0-g662243de0e14a4945555a480dca33c0e677976eb
+  ref: gdb-14.1-release-0-g6bda1c19bcd16eff8488facb8a67d52a436f70e7
 - kind: patch
   path: patches/gdb/crash-on-exit.patch
