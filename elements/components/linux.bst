@@ -790,22 +790,24 @@ config:
 
     # Bluetooth
     enable BT
-    module BT_HCIBTUSB
-    module BT_HIDP
-    module UHID
+    enable BT_BREDR
+    enable BT_HS
+    enable BT_LE
+
     module BT_ATH3K
+    module BT_BNEP
     module BT_HCIBCM203X
     module BT_HCIBFUSB
+    module BT_HCIBTUSB
+    module BT_HIDP
+    module BT_RFCOMM
     if has PCMCIA; then
       module BT_HCIBLUECARD
       module BT_HCIBT3C
       module BT_HCIDTL1
     fi
-    module BT_HCIBPA10X
-    module BT_HCIBTSDIO
     enable BT_HCIBTUSB_AUTOSUSPEND
     enable BT_HCIBTUSB_MTK
-    module BT_HCIUART
     enable BT_HCIUART_3WIRE
     enable BT_HCIUART_AG6XX
     enable BT_HCIUART_ATH3K
@@ -818,9 +820,25 @@ config:
     enable BT_HCIUART_NOKIA
     enable BT_HCIUART_QCA
     enable BT_HCIUART_RTL
+    enable BT_LE_L2CAP_ECRED
+    enable BT_LEDS
+    enable BT_MSFTEXT
+    enable BT_RFCOMM_TTY
+    module BT_6LOWPAN
+    enable BT_AOSPEXT
+    enable BT_BNEP_MC_FILTER
+    enable BT_BNEP_PROTO_FILTER
+    module BT_HCIBCM4377
+    module BT_HCIBPA10X
+    module BT_HCIBTSDIO
+    module BT_HCIUART
     module BT_HCIVHCI
     module BT_MRVL
     module BT_MRVL_SDIO
+    module BT_MTKSDIO
+    module BT_MTKUART
+    module BT_NXPUART
+    module BT_VIRTIO
 
     # MIDI
     module SND_SEQUENCER
@@ -1027,6 +1045,7 @@ config:
       module I2C_HID_ACPI
     fi
     enable HIDRAW
+    module UHID
 
     # CPU support
     enable PINCTRL
@@ -1633,6 +1652,7 @@ config:
     enable NETFILTER_ADVANCED
     module VETH
     module BLK_DEV_NBD
+    module 6LOWPAN
 
     # Those two modules are required by multipass
     module NETFILTER_XT_MATCH_COMMENT
