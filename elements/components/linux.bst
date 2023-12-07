@@ -342,6 +342,9 @@ config:
       ;;
     esac
 
+    # Wireguard
+    module WIREGUARD
+
     # Dummy network driver
     module DUMMY
 
