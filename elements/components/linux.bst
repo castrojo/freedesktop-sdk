@@ -158,6 +158,17 @@ config:
     # Userspace firmware loading not supported
     remove FW_LOADER_USER_HELPER
 
+    # UNWINDER_ORC is great for the kernel
+    # but it wasn't designed to be used from the userspace
+    # thus we need FRAME_POINTER so userspace applications
+    # will also be able to capture traces efficiently
+    case "%{arch}" in
+      x86_64|i686)
+        remove UNWINDER_ORC
+        enable UNWINDER_FRAME_POINTER
+      ;;
+    esac
+
     # Some udev/virtualization requires
     enable DMIID
 
