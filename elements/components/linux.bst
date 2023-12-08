@@ -803,8 +803,10 @@ config:
     module TERANETICS_PHY
 
     # NVME disks
-    module BLK_DEV_NVME
     enable NVME_HWMON
+    module BLK_DEV_NVME
+    module NVME_FC
+    module NVME_TCP
 
     # Memory card readers
     module MISC_RTSX_PCI
