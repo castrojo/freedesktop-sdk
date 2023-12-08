@@ -1025,6 +1025,7 @@ config:
       x86_64|i686)
         # pinctrl_amd might not work as module if it is loaded to late
         enable PINCTRL_AMD
+        enable INTEL_IOMMU
         enable X86_AMD_PLATFORM_DEVICE
         ;;
     esac
