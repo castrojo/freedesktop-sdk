@@ -760,6 +760,48 @@ config:
       module VIDEO_IPU3_CIO2
     fi
 
+    # PHY controllers
+    enable GENERIC_PHY
+    enable NETWORK_PHY_TIMESTAMPING
+    module PHY_CAN_TRANSCEIVER
+    module ADIN_PHY
+    module AMD_PHY
+    module AQUANTIA_PHY
+    module AT803X_PHY
+    module BCM54140_PHY
+    module BCM7XXX_PHY
+    module BCM87XX_PHY
+    module BROADCOM_PHY
+    module CICADA_PHY
+    module CORTINA_PHY
+    module DAVICOM_PHY
+    module DP83822_PHY
+    module DP83848_PHY
+    module DP83869_PHY
+    module ICPLUS_PHY
+    module INTEL_XWAY_PHY
+    module LSI_ET1011C_PHY
+    module LXT_PHY
+    module MARVELL_10G_PHY
+    module MARVELL_88Q2XXX_PHY
+    module MARVELL_88X2222_PHY
+    module MARVELL_PHY
+    module MAXLINEAR_GPHY
+    module MEDIATEK_GE_PHY
+    module MICREL_PHY
+    module MICROCHIP_T1S_PHY
+    module MICROSEMI_PHY
+    module MOTORCOMM_PHY
+    module NATIONAL_PHY
+    module NCN26000_PHY
+    module NXP_C45_TJA11XX_PHY
+    module NXP_CBTX_PHY
+    module PHYLIB
+    module QSEMI_PHY
+    module SFP
+    module STE10XP
+    module TERANETICS_PHY
+
     # NVME disks
     module BLK_DEV_NVME
     enable NVME_HWMON
@@ -1798,24 +1840,30 @@ config:
     esac
 
     # LEDS
-    module LEDS_CLASS
-    module LEDS_CLASS_MULTICOLOR
+    enable LED_TRIGGER_PHY
     enable LEDS_BRIGHTNESS_HW_CHANGED
+    enable LEDS_TRIGGERS
+    enable NEW_LEDS
+    module LEDS_CLASS
+    module LEDS_CLASS_FLASH
+    module LEDS_CLASS_MULTICOLOR
     module LEDS_LP3944
     module LEDS_LT3593
     module LEDS_REGULATOR
+
+    enable LEDS_TRIGGER_DISK
+    enable LEDS_TRIGGER_PANIC
     module LEDS_TRIGGER_ACTIVITY
     module LEDS_TRIGGER_BACKLIGHT
     module LEDS_TRIGGER_CAMERA
     module LEDS_TRIGGER_DEFAULT_ON
-    enable LEDS_TRIGGER_DISK
     module LEDS_TRIGGER_HEARTBEAT
     module LEDS_TRIGGER_NETDEV
     module LEDS_TRIGGER_ONESHOT
-    enable LEDS_TRIGGER_PANIC
     module LEDS_TRIGGER_PATTERN
     module LEDS_TRIGGER_TIMER
     module LEDS_TRIGGER_TRANSIENT
+
     case "%{arch}" in
       x86_64|i686)
         module LEDS_APU
