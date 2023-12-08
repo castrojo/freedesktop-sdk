@@ -55,7 +55,7 @@ sources:
 - kind: git_repo
   url: gnome:glib.git
   track: 2.*[02468].*
-  ref: 2.78.1-0-g21624e78f013ee8706483086e3086076d08fe242
+  ref: 2.78.3-0-g03f7c1fbf3a3784cb4c3604f83ca3645e9225577
 - kind: git_module
   path: subprojects/gvdb
   url: gnome:gvdb.git
