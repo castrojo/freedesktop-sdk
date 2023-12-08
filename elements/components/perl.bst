@@ -20,7 +20,8 @@ config:
       -Doptimize="none" \
       -Dccflags="$CFLAGS" \
       -Dldflags="$LDFLAGS" \
-      -Dlddlflags="-shared $LDFLAGS"
+      -Dlddlflags="-shared $LDFLAGS" \
+      -Duse64bitint
 
   build-commands:
   - |
