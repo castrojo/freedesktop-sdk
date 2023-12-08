@@ -1105,6 +1105,15 @@ config:
         ;;
     esac
 
+    if has ARCH_SUPPORTS_MEMORY_FAILURE; then
+      enable MEMORY_FAILURE
+    fi
+
+    case "%{arch}" in
+      x86_64)
+        enable ADDRESS_MASKING
+        ;;
+    esac
 
     # Enable HW Random
     enable HW_RANDOM
