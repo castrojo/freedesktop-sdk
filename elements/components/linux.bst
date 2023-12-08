@@ -1295,9 +1295,11 @@ config:
     # KVM
     case "%{arch}" in
       x86_64|i686)
+        enable PARAVIRT_SPINLOCKS
+        enable PARAVIRT_TIME_ACCOUNTING
         module KVM
-        module KVM_INTEL
         module KVM_AMD
+        module KVM_INTEL
         ;;
       aarch64)
         module KVM
