@@ -1967,6 +1967,9 @@ config:
       enable BPF_JIT
     fi
 
+    # ZSWAP
+    enable ZSWAP
+
     # Secure boot
     enable SYSTEM_BLACKLIST_KEYRING
     enable SYSTEM_TRUSTED_KEYRING
