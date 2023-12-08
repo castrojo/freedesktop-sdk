@@ -2206,6 +2206,25 @@ config:
 
     # power
     enable ENERGY_MODEL
+    enable POWER_RESET
+    enable POWER_RESET_RESTART
+    enable POWER_SUPPLY
+    enable POWER_SUPPLY_HWMON
+
+    # power/supply
+    module BATTERY_CW2015
+    module BATTERY_RT5033
+    module BATTERY_UG3105
+    module CHARGER_BD99954
+    module CHARGER_BQ2515X
+    module CHARGER_BQ256XX
+    module CHARGER_BQ25890
+    module CHARGER_LT3651
+    module CHARGER_LTC4162L
+    module CHARGER_MAX77976
+    module CHARGER_RT9467
+    module CHARGER_RT9471
+    module CHARGER_SMB347
 
     # Powercap
     enable POWERCAP
