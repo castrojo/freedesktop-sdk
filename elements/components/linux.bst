@@ -282,6 +282,7 @@ config:
     module TOUCHSCREEN_USB_COMPOSITE
     enable TOUCHSCREEN_USB_E2I
     module TOUCHSCREEN_WACOM_W8001
+    module TOUCHSCREEN_SILEAD
 
     # tablets
     module TABLET_SERIAL_WACOM4
@@ -337,7 +338,18 @@ config:
     # Needed by some devices
     case "%{arch}" in
       i686|x86_64)
+        enable INTEL_TPMI
+        enable INTEL_VSEC
         enable X86_INTEL_LPSS
+      ;;
+    esac
+
+    # Device Tree and Open Firmware
+    case "%{arch}" in
+      aarch64|arm)
+        enable DTPM
+        enable DTPM_CPU
+        enable DTPM_DEVFREQ
       ;;
     esac
 
@@ -1458,6 +1470,8 @@ config:
       if has RAS; then
         enable PCIEAER
         module PCIEAER_INJECT
+        enable PCIEASPM
+        enable PCIEASPM_POWER_SUPERSAVE
         enable PCIE_ECRC
         enable PCIE_DPC
         if has ACPI; then
@@ -1943,12 +1957,38 @@ config:
 
     # Platforms
     case "%{arch}" in
+      aarch64|arm|x86_64|i686)
+        # Chrome Platform
+        enable CHROME_PLATFORMS
+        module CHARGER_CROS_USBPD
+        module CHROMEOS_ACPI
+        module CHROMEOS_PRIVACY_SCREEN
+        module CHROMEOS_TBMC
+        module CROS_EC
+        module CROS_EC_I2C
+        module CROS_EC_SPI
+        module CROS_EC_UART
+        module CROS_EC_UART
+        module CROS_HPS_I2C
+        module CROS_HPS_I2C
+        module CROS_KBD_LED_BACKLIGHT
+        module CROS_USBPD_LOGGER
+
+        # Mellanox Platform
+        enable MELLANOX_PLATFORM
+        module MLXREG_HOTPLUG
+        module MLXREG_IO
+        module MLXREG_LC
+        module NVSW_SN2201
+      ;;
+    esac
+
+    case "%{arch}" in
       x86_64|i686)
+        enable MLX_PLATFORM
         module CHROMEOS_LAPTOP
         module CHROMEOS_PSTORE
-        enable CHROME_PLATFORMS
-        module CROS_EC
-        module CROS_KBD_LED_BACKLIGHT
+        module CROS_EC_LPC
         module SURFACE_AGGREGATOR
         module SURFACE_AGGREGATOR_CDEV
         module SURFACE_AGGREGATOR_HUB
@@ -1965,6 +2005,7 @@ config:
         module ACER_WIRELESS
         module ACPI_TOSHIBA
         module AMD_PMC
+        module AMD_PMF
         module AMILO_RFKILL
         module APPLE_GMUX
         module ASUS_LAPTOP
@@ -1987,30 +2028,38 @@ config:
         module INTEL_IPS
         module INTEL_PMC_CORE
         module LG_LAPTOP
+        module LENOVO_YMC
         module MSI_LAPTOP
+        module MSI_EC
         module PANASONIC_LAPTOP
         module PCENGINES_APU2
         module SAMSUNG_LAPTOP
         module SAMSUNG_Q10
         module SENSORS_HDAPS
         module SERIAL_MULTI_INSTANTIATE
+        module SYSTEM76_ACPI
         module SONY_LAPTOP
         enable SONYPI_COMPAT
         module THINKPAD_ACPI
         enable THINKPAD_ACPI_ALSA_SUPPORT
         enable THINKPAD_ACPI_HOTKEY_POLL
         enable THINKPAD_ACPI_VIDEO
+        enable THINKPAD_LMI
         module TOPSTAR_LAPTOP
         module TOSHIBA_BT_RFKILL
         module TOSHIBA_HAPS
         module TOSHIBA_WMI
+        module WIRELESS_HOTKEY
+        module YOGABOOK
         module ACPI_WMI
         module ACER_WMI
+        module GIGABYTE_WMI
         enable X86_PLATFORM_DRIVERS_DELL
         enable X86_PLATFORM_DRIVERS_HP
         module ALIENWARE_WMI
         module ASUS_NB_WMI
         module ASUS_WMI
+        module ASUS_TF103C_DOCK
         enable DELL_SMBIOS_WMI
         module DELL_WMI_AIO
         module DELL_WMI_LED
@@ -2024,6 +2073,18 @@ config:
         module SENSORS_ASUS_WMI
         module SURFACE3_WMI
         module X86_ANDROID_TABLETS
+      ;;
+    esac
+
+    # power
+    enable ENERGY_MODEL
+
+    # Powercap
+    enable POWERCAP
+    enable IDLE_INJECT
+    case "%{arch}" in
+      x86_64|i686)
+        module INTEL_RAPL
       ;;
     esac
 
