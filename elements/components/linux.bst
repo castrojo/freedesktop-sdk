@@ -231,9 +231,14 @@ config:
     module OVERLAY_FS
 
     # Required by snapd
-    enable SQUASHFS_XZ
+    enable SQUASHFS_COMPILE_DECOMP_MULTI_PERCPU
+    enable SQUASHFS_DECOMP_MULTI_PERCPU
+    enable SQUASHFS_FILE_DIRECT
+    enable SQUASHFS_LZ4
     enable SQUASHFS_LZO
     enable SQUASHFS_XATTR
+    enable SQUASHFS_XZ
+    enable SQUASHFS_ZSTD
 
     # erofs is potential replacement of squashfs on GNOME OS
     module EROFS_FS
@@ -242,6 +247,7 @@ config:
     enable EROFS_FS_SECURITY
     enable EROFS_FS_ZIP
     enable EROFS_FS_ZIP_LZMA
+    enable EROFS_FS_ZIP_DEFLATE
 
     # Some useful drivers when running as virtual machine
     module VIRTIO_BALLOON
@@ -670,8 +676,9 @@ config:
     fi
 
     # FUSE
-    module FUSE_FS
     module CUSE
+    module FUSE_FS
+    module VIRTIO_FS
 
     # iSCSI
     enable SCSI_LOWLEVEL
@@ -1429,15 +1436,26 @@ config:
     for fs in XFS BTRFS EXFAT VFAT F2FS ISO9660 UDF NTFS3; do
       module "${fs}_FS"
     done
-    for fs in BTRFS F2FS; do
+    for fs in BTRFS F2FS NTFS3; do
       enable "${fs}_FS_POSIX_ACL"
     done
+    enable "NTFS3_LZX_XPRESS"
     enable "XFS_POSIX_ACL"
     enable FS_ENCRYPTION
+    enable XFS_ONLINE_SCRUB
+    enable XFS_QUOTA
+    enable XFS_RT
 
     # Needed for FAT filesystems
     enable NLS_CODEPAGE_437
     enable NLS_ISO8859_1
+
+    # Will be needed for composefs
+    enable FS_VERITY
+
+    # FS access notifications
+    enable FANOTIFY
+    enable FANOTIFY_ACCESS_PERMISSIONS
 
     # Extcon
     module EXTCON
