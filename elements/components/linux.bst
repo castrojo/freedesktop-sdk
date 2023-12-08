@@ -1086,6 +1086,66 @@ config:
       ;;
     esac
 
+    # ACPI
+    enable ACPI_FFH
+    enable ACPI_PCI_SLOT
+    module ACPI_HED
+    module ACPI_IPMI
+    module ACPI_PFRUT
+    module ACPI_TAD
+
+    if has ARCH_ENABLE_MEMORY_HOTPLUG; then
+      enable MEMORY_HOTPLUG
+      enable ACPI_HOTPLUG_MEMORY
+    fi
+
+    if has ACPI_NUMA; then
+      enable ACPI_HMAT
+    fi
+
+    case "%{arch}" in
+      x86_64|aarch64)
+        enable ACPI_FPDT
+        ;;
+    esac
+
+    # acpi apei
+    if has HAVE_ACPI_APEI; then
+      enable ACPI_APEI
+      enable ACPI_APEI_GHES
+      if has ARCH_SUPPORTS_MEMORY_FAILURE; then
+        enable ACPI_APEI_MEMORY_FAILURE
+      fi
+      enable ACPI_APEI_PCIEAER
+      module ACPI_APEI_EINJ
+
+      case "%{arch}" in
+        aarch64)
+          enable ACPI_APEI_SEA
+          ;;
+      esac
+    fi
+
+    case "%{arch}" in
+      x86_64|i686)
+        module ACPI_EXTLOG
+        module ACPI_PROCESSOR_AGGREGATOR
+        module ACPI_SBS
+        ;;
+    esac
+
+    # acpi pmic
+    case "%{arch}" in
+      x86_64|i686)
+        enable BXT_WC_PMIC_OPREGION
+        enable BYTCRC_PMIC_OPREGION
+        enable CHTCRC_PMIC_OPREGION
+        enable CHT_DC_TI_PMIC_OPREGION
+        enable CHT_WC_PMIC_OPREGION
+        enable XPOWER_PMIC_OPREGION
+        ;;
+    esac
+
     # HID drivers
     module HID_MULTITOUCH
     module HID_GENERIC
@@ -1379,6 +1439,10 @@ config:
     if has HAS_IOMEM && has EDAC_SUPPORT; then
       enable RAS
       module EDAC
+    fi
+
+    if has HAS_IOMEM; then
+      module IPMI_HANDLER
     fi
 
     # PCI
@@ -1858,14 +1922,22 @@ config:
     # cpufreq
     case "%{arch}" in
       x86_64|i686)
-        module CPU_FREQ_GOV_CONSERVATIVE
-        module CPU_FREQ_GOV_POWERSAVE
         enable CPU_FREQ_STAT
-        module X86_AMD_FREQ_SENSITIVITY
         enable X86_AMD_PSTATE
+        module CPU_FREQ_GOV_CONSERVATIVE
+        module CPU_FREQ_GOV_PERFORMANCE
+        module CPU_FREQ_GOV_POWERSAVE
+        module X86_AMD_FREQ_SENSITIVITY
+        module X86_AMD_PSTATE_UT
         module X86_P4_CLOCKMOD
         module X86_PCC_CPUFREQ
         module X86_POWERNOW_K8
+      ;;
+      aarch64|arm)
+        enable ACPI_CPPC_CPUFREQ_FIE
+        enable ARM_PSCI_CPUIDLE_DOMAIN
+        module ACPI_CPPC_CPUFREQ
+        module ARM_SCPI_CPUFREQ
       ;;
     esac
 
