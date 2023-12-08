@@ -684,9 +684,14 @@ config:
     module FIREWIRE_SBP2
 
     # USB
+    enable USB
+    enable USB_PHY
     module USB_ROLE_SWITCH
+    module USB4
+    module USB4_NET
     case "%{arch}" in
       x86_64|i686)
+        module USB_LGM_PHY
         module USB_ROLES_INTEL_XHCI
       ;;
     esac
@@ -1154,6 +1159,14 @@ config:
         enable HW_RANDOM_ARM_SMCCC_TRNG
         ;;
     esac
+
+    # NVMEM support
+    # Needed for USB4 and Thunderbolt
+    enable MTD
+    enable NVMEM
+    module NVMEM_LAYOUT_ONIE_TLV
+    module NVMEM_LAYOUT_SL28_VPD
+    module NVMEM_RMEM
 
     # I2C/SMBus
     case "%{arch}" in
