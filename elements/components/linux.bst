@@ -1160,6 +1160,20 @@ config:
         ;;
     esac
 
+
+    # Enable HW Random
+    enable HW_RANDOM
+    enable HW_RANDOM_VIRTIO
+    case "%{arch}" in
+      x86_64|i686)
+        enable HW_RANDOM_AMD
+        enable HW_RANDOM_INTEL
+        ;;
+      aarch64|arm)
+        enable HW_RANDOM_ARM_SMCCC_TRNG
+        ;;
+    esac
+
     # NVMEM support
     # Needed for USB4 and Thunderbolt
     enable MTD
