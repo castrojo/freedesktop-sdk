@@ -246,7 +246,6 @@ config:
 
     enable BLK_MQ_VIRTIO
     module VIRTIO_CONSOLE
-    enable HW_RANDOM_VIRTIO
     module VIRTIO_MMIO
     module CRYPTO_DEV_VIRTIO
 
@@ -1103,6 +1102,20 @@ config:
         # pinctrl_amd might not work as module if it is loaded to late
         enable PINCTRL_AMD
         enable X86_AMD_PLATFORM_DEVICE
+        ;;
+    esac
+
+
+    # Enable HW Random
+    enable HW_RANDOM
+    enable HW_RANDOM_VIRTIO
+    case "%{arch}" in
+      x86_64|i686)
+        enable HW_RANDOM_AMD
+        enable HW_RANDOM_INTEL
+        ;;
+      aarch64|arm)
+        enable HW_RANDOM_ARM_SMCCC_TRNG
         ;;
     esac
 
