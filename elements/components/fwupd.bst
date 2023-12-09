@@ -19,7 +19,6 @@ depends:
 - components/libxmlb.bst
 - components/libjcat.bst
 - components/libarchive.bst
-- components/libsoup.bst
 - components/gcab.bst
 - components/efivar.bst
 - components/tpm2-tss.bst
@@ -34,7 +33,6 @@ depends:
 - components/gnu-efi-maybe.bst
 
 variables:
-  plugin_dell: 'false'
   plugin_msr: 'disabled'
   plugin_uefi_capsule: 'disabled'
   efi_binary: 'false'
@@ -47,13 +45,19 @@ variables:
       plugin_uefi_capsule: 'enabled'
       efi_binary: 'true'
 
+  # FIXME: consider adding dependencies for passim and all plugins
   meson-local: >-
-    -Dauto_features=disabled
     -Ddocs=enabled
     -Dplugin_msr=%{plugin_msr}
     -Dplugin_uefi_capsule=%{plugin_uefi_capsule}
     -Defi_binary=%{efi_binary}
     -Dpolkit=enabled
+    -Dpassim=disabled
+    -Dlaunchd=disabled
+    -Dplugin_flashrom=disabled
+    -Dplugin_amdgpu=disabled
+    -Dplugin_logitech_bulkcontroller=false
+    -Dplugin_modem_manager=false
 
 sources:
 - kind: git_repo
