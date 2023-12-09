@@ -1054,6 +1054,10 @@ config:
       enable SHADOW_CALL_STACK
     fi
 
+    if has HAVE_IRQ_TIME_ACCOUNTING; then
+      enable IRQ_TIME_ACCOUNTING
+    fi
+
     case "%{arch}" in
       x86_64)
         enable ADDRESS_MASKING
