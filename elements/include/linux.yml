@@ -7,5 +7,7 @@ sources:
   ref: v6.7.6-0-gb631f5b445dc3379f67ff63a2e4c58f22d4975dc
 - kind: local
   path: files/linux/config-utils.sh
+- kind: local
+  path: files/linux/fdsdk-config.sh
 - kind: patch
   path: patches/linux/0001-riscv-sifive-fu740-cpu-1-2-3-4-set-compatible-to-sif.patch
