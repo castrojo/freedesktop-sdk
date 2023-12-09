@@ -1945,7 +1945,7 @@ if [ -f /keys/linux-module-cert.crt ]; then
     remove MODULE_SIG_SHA256
     remove MODULE_SIG_SHA384
     enable MODULE_SIG_SHA512
-    value_str MODULE_SIG_HASH="sha512"
+    value_str MODULE_SIG_HASH "sha512"
 
     enable SECURITY_LOCKDOWN_LSM
     enable SECURITY_LOCKDOWN_LSM_EARLY
