@@ -1021,11 +1021,15 @@ config:
 
     # CPU support
     enable PINCTRL
+    if has IOMMU_SUPPORT; then
+      enable IOMMUFD
+    fi
     case "%{arch}" in
       x86_64|i686)
         # pinctrl_amd might not work as module if it is loaded to late
         enable PINCTRL_AMD
         enable INTEL_IOMMU
+        enable IRQ_REMAP
         enable X86_AMD_PLATFORM_DEVICE
         ;;
     esac
