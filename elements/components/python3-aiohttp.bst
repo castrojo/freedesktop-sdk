@@ -6,6 +6,7 @@ build-depends:
 
 runtime-depends:
 - components/python3.bst
+- components/python3-aiosignal.bst
 - components/python3-async-timeout.bst
 - components/python3-attrs.bst
 - components/python3-chardet.bst
