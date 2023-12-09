@@ -1197,11 +1197,16 @@ config:
         enable INTEL_IOMMU
         enable IRQ_REMAP
         enable X86_AMD_PLATFORM_DEVICE
+        enable CONFIG_X86_USER_SHADOW_STACK
         ;;
     esac
 
     if has ARCH_SUPPORTS_MEMORY_FAILURE; then
       enable MEMORY_FAILURE
+    fi
+
+    if has ARCH_SUPPORTS_SHADOW_CALL_STACK; then
+      enable SHADOW_CALL_STACK
     fi
 
     case "%{arch}" in
