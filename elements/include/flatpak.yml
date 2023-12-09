@@ -7,7 +7,7 @@ sources:
   match:
   - 1.[02468]*
   - 1.1[02468]*
-  ref: 1.14.4-0-g8a1edceadfab936953e2ab947b0e7ae5b71e4173
+  ref: 1.14.5-0-g17455f97fc93bdd0a5a42a79a74fac5cdc1ba316
 - kind: patch
   path: patches/flatpak/revert-compat-arch.patch
 - kind: git_module
