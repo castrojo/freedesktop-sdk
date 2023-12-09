@@ -1055,6 +1055,18 @@ config:
         ;;
     esac
 
+    # Performance monitoring
+    case "%{arch}" in
+      x86_64|i686)
+        enable PERF_EVENTS_AMD_BRS
+        enable PERF_EVENTS_INTEL_CSTATE
+        enable PERF_EVENTS_INTEL_RAPL
+        enable PERF_EVENTS_INTEL_UNCORE
+        module PERF_EVENTS_AMD_POWER
+        module PERF_EVENTS_AMD_UNCORE
+      ;;
+    esac
+
     # Enable HW Random
     enable HW_RANDOM
     enable HW_RANDOM_VIRTIO
