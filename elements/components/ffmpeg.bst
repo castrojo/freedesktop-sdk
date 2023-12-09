@@ -135,3 +135,4 @@ variables:
     --enable-libopenh264
     --enable-encoder=%{encoders}
     --enable-decoder=%{decoders}
+    --disable-decoder="h264,hevc,vc1"
