@@ -1554,7 +1554,7 @@ case "$arch" in
 
         # Sifive Unmatched
         enable SOC_SIFIVE
-        enable SIFIVE_L2
+        enable SIFIVE_CCACHE
         enable PCIE_FU740
         enable PCIE_MICROSEMI
         enable PCI_SW_SWITCHTEC
