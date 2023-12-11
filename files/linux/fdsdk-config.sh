@@ -599,6 +599,12 @@ enable DRM_AMD_DC
 case "$arch" in
     x86_64|i686)
         enable DRM_AMD_DC_FP
+        enable DRM_AMD_SECURE_DISPLAY
+    ;;
+esac
+case "$arch" in
+    x86_64|aarch64)
+        enable HSA_AMD
     ;;
 esac
 enable DRM_AMD_DC_SI
@@ -631,6 +637,13 @@ if has VBOXGUEST; then
     module DRM_VBOXVIDEO
 fi
 
+# Common DMA drivers
+case "$arch" in
+    x86_64)
+        module AMD_PTDMA
+    ;;
+esac
+
 # FUSE
 module CUSE
 module FUSE_FS
@@ -657,6 +670,9 @@ module FIREWIRE_NET
 module FIREWIRE_NOSY
 module FIREWIRE_OHCI
 module FIREWIRE_SBP2
+
+# GPIO
+module GPIO_AMDPT
 
 # USB
 enable USB
@@ -1165,8 +1181,18 @@ if has HAVE_IRQ_TIME_ACCOUNTING; then
 fi
 
 case "$arch" in
+    x86_64|aarch64)
+        enable CRYPTO_DEV_CCP
+        enable CRYPTO_DEV_CCP_DD
+    ;;
+esac
+
+case "$arch" in
     x86_64)
         enable ADDRESS_MASKING
+        enable CRYPTO_DEV_SP_PSP
+        module AMD_HSMP
+        module NTB_AMD
     ;;
 esac
 
@@ -1209,6 +1235,7 @@ case "$arch" in
         module I2C_PIIX4
         enable I2C_DESIGNWARE_PLATFORM
         enable I2C_DESIGNWARE_BAYTRAIL
+        enable I2C_DESIGNWARE_AMDPSP
         module MFD_INTEL_LPSS_PCI
         module MFD_INTEL_LPSS_ACPI
         module I2C_CHT_WC
@@ -1533,6 +1560,8 @@ if has HAVE_PCI; then
     enable PCIEPORTBUS
     #enable PCIE_PME
     enable PCIE_PTM
+    enable NTB
+    enable NTB_TRANSPORT
     if has RAS; then
         enable PCIEAER
         module PCIEAER_INJECT
@@ -1891,6 +1920,7 @@ enable AUDIT
 # SPI
 if has HAS_IOMEM; then
     enable SPI
+    module SPI_AMD
 fi
 
 # TPM
