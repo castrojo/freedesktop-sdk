@@ -28,7 +28,6 @@ config:
   - components/groff.bst
   - components/help2man.bst
   - components/libpipeline.bst
-  - components/libsoup2.bst
   - components/m4.bst
   - components/man-db.bst
   - components/man-pages.bst

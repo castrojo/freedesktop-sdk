@@ -267,7 +267,6 @@ depends:
 - components/libslirp.bst
 - components/libsmbios-maybe.bst
 - components/libsoup.bst
-- components/libsoup2.bst
 - components/libsrtp2.bst
 - components/libtasn1.bst
 - components/libthai.bst
