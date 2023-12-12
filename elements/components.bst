@@ -624,8 +624,6 @@ depends:
 - components/xwayland.bst
 - components/xz-docs.bst
 - components/yajl.bst
-- components/yelp-tools.bst
-- components/yelp-xsl.bst
 - components/zenity.bst
 - components/zip.bst
 - components/zstd.bst
