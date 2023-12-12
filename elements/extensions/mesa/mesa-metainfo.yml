@@ -1,5 +1,5 @@
 build-depends:
-- components/appstream-glib.bst
+- components/appstream-minimal.bst
 - components/git-minimal.bst
 - components/m4.bst
 
@@ -16,7 +16,7 @@ config:
   install-commands:
   - |
     set -e
-    appdata_dir=%{install-root}%{datadir}/appdata
+    appdata_dir=%{install-root}%{datadir}/metainfo
     mkdir -p ${appdata_dir}
     CURRENT_REF=$(git describe --match mesa-*)
     TIMESTAMP=$(git log -1 --format="%at" ${CURRENT_REF})
@@ -29,9 +29,10 @@ config:
       -D__VARIANT_TEXT__='%{variant_text}' \
       -D__APP_ID__=${app_id} \
       appdata.template > ${appdata_dir}/${app_id}.appdata.xml
-      appstream-compose --basename ${app_id} \
-      --prefix=%{install-root}%{prefix} --origin=flatpak ${app_id}
-    done
+        appstreamcli compose --components ${app_id} \
+        --prefix=%{prefix} --result-root %{install-root} \
+        --data-dir %{install-root}%{flatpak_xmldir} --origin=flatpak %{install-root}
+      done
 
 sources:
   (>):

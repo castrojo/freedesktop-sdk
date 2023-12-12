@@ -1,3 +1,4 @@
 variables:
   ffmpeg-prefix: '%{libdir}/ffmpeg'
   ffmpeg-libdir: '%{ffmpeg-prefix}/lib'
+  flatpak_xmldir: "%{ffmpeg-prefix}/share/app-info/xmls"
