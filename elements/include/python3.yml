@@ -1,6 +1,6 @@
 sources:
 - kind: git_repo
-  track: v*
+  track: v3.11.*
   exclude:
   - v*a*
   - v*b*
