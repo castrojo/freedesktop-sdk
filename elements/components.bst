@@ -414,7 +414,6 @@ depends:
 - components/python3-cryptography.bst
 - components/python3-dbus-deviation.bst
 - components/python3-dbus.bst
-- components/python3-dbusmock.bst
 - components/python3-distlib.bst
 - components/python3-docutils.bst
 - components/python3-dulwich.bst
