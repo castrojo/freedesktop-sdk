@@ -10,8 +10,14 @@ depends:
 variables:
   datadir: "%{libdir}/GL"
 
+  asm: 'enabled'
   meson-local: >-
     -Dheaders=false
+    -Dasm=%{asm}
+
+  (?):
+  - target_arch in ["riscv64"]:
+      asm: 'disabled'
 
 config:
   install-commands:
