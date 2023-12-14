@@ -1,5 +1,72 @@
 Freedesktop-SDK
 
+freedesktop-sdk-22.08.20:
+ * Update elements/components/flatpak-builder-base.bst to 1.4.0-0
+ * Update elements/components/kbd.bst to v2.6.4-0
+ * Update elements/components/python3-pathspec.bst to 0.12.1
+ * Update elements/include/git.yml to v2.43.0-0
+ * Update elements/components/python3-typing-extensions.bst to 4.9.0
+ * Update elements/components/vim.bst to v9.0.2155-0
+ * Update elements/components/libseccomp.bst to v2.5.5-0
+ * Update elements/include/flatpak.yml to 1.14.5-0
+ * Update elements/components/frei0r.bst to v2.3.2-0
+ * Update elements/include/ostree-source.yml to v2023.8-0
+ * Update elements/components/aom.bst to v3.8.0-0
+ * Update elements/components/libnl.bst to libnl3_9_0-0
+ * Update elements/components/fwupd.bst to 1.9.10-0
+ * Update elements/components/cni.bst to v1.4.0-0
+ * Update elements/components/wireplumber.bst to 0.4.17-0
+ * mesa: Update to 23.3.0
+ * Update elements/components/cmake.bst to v3.27.9-0
+ * Update elements/components/python3-virtualenv.bst to 20.25.0
+ * Update elements/components/python3-dbusmock.bst to 0.30.0
+ * Update elements/components/eos-metrics.bst to Release_5.1.0-0
+ * Update elements/include/perl-source.yml to v5.36.3-0
+ * Update elements/components/python3-trove-classifiers.bst to 2023.11.29
+ * Update elements/components/python3-cryptography.bst to 41.0.7
+ * Update elements/components/iwd.bst to 2.10-0
+ * Update elements/components/python3-gi-docgen.bst to 2023.3
+ * Update elements/components/python3-wheel.bst to 0.42.0
+ * Update elements/components/python3-aiohttp.bst to 3.9.1
+ * Update elements/components/ell.bst to 0.61-0
+ * Update elements/components/python3-idna.bst to 3.5
+ * Update elements/components/crun.bst to 1.12-0
+ * Update elements/components/python3-setuptools.bst to 69.0.2
+ * Update elements/extensions/mesa/libdrm.bst to libdrm-2.4.118-0
+ * Update elements/components/spirv-llvm-translator.bst to v15.0.0-72
+ * Update elements/components/python3-certifi.bst to 2023.11.17
+ * Update elements/components/libksba.bst to libksba-1.6.5-0
+ * Update elements/components/btrfs-progs.bst to v6.6.2-0
+ * Update elements/components/libfido2.bst to 1.14.0-0
+ * Update elements/components/python3-tomlkit.bst to 0.12.3
+ * Update elements/components/vala.bst to 0.56.14-0
+ * Update elements/components/python3-urllib3.bst to 2.1.0
+ * Update elements/components/shared-mime-info.bst to 2.4-0
+ * Update elements/components/extra-cmake-modules.bst to v5.245.0-0
+ * Update elements/components/sudo.bst to SUDO_1_9_15p2-0
+ * Update elements/components/python3-mako.bst to 1.3.0
+ * Update elements/components/python3-hatch-vcs.bst to 0.4.0
+ * Update elements/components/linux-firmware.bst to 20231030-0
+ * Update elements/components/python3-charset-normalizer.bst to 3.3.2
+ * Update elements/components/python3-poetry-core.bst to 1.8.1
+ * Update elements/components/python3-filelock.bst to 3.13.1
+ * Update elements/components/noopenh264.bst to Version_2.3.0+really2.2.0-3
+ * Update elements/components/valgrind.bst to VALGRIND_3_22_0-0
+ * Update elements/components/strace.bst to v6.6-0
+ * Update elements/components/python3-markdown.bst to 3.5.1
+ * Update elements/components/usbutils.bst to v017-0
+ * Update elements/components/python3-setuptools-rust.bst to 1.8.1
+ * Update elements/components/python3-cleo.bst to 2.1.0
+ * Update elements/components/ccid.bst to 1.5.4-0
+ * Update elements/bootstrap/include/glibc-source.yml to glibc-2.35-277
+ * Update elements/components/xdg-desktop-portal-base.bst to 1.18.1-0
+ * Update elements/components/newt.bst to r0-52-24-0
+ * Update elements/components/python3-shellingham.bst to 1.5.4
+ * Update elements/components/python3-babel.bst to 2.13.1
+ * Update elements/components/openssl.bst to openssl-3.0.12-0
+ * Update elements/components/python3-cryptography.bst to 41.0.5
+ * Update elements/components/pycairo.bst to 1.25.1
+
 freedesktop-sdk-22.08.19:
   * Mitigate chmod bug in update-ca-trust upstream script
   * Update elements/components/spirv-llvm-translator.bst to v15.0.0-69
