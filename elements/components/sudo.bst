@@ -22,4 +22,4 @@ sources:
   track: main
   track-extra:
   - sudo-1.9
-  ref: SUDO_1_9_15p2-0-g22298e15e1830785885462b994dea6f705627f1a
+  ref: SUDO_1_9_15p3-0-ga1bb5e5c1c2c389c0f6bee88a5d4ffe73b2dabad
