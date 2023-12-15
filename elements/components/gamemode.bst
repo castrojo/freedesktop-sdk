@@ -10,7 +10,6 @@ depends:
 
 variables:
   meson-local: >-
-    -Dwith-pam-group=users
     -Dwith-sd-bus-provider=systemd
     -Dwith-examples=false
     -Dwith-util=true
