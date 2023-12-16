@@ -7,6 +7,7 @@ description: Base ffmpeg we ship in the SDK, no patented codecs
 depends:
   (>):
   - components/noopenh264.bst
+  - components/libfdk-aac.bst
 
 variables:
   # Fedora's list omits openh264
@@ -134,6 +135,7 @@ variables:
 
   conf-extra: >-
     --enable-libopenh264
+    --enable-libfdk-aac
     --enable-encoder=%{encoders}
     --enable-decoder=%{decoders}
     --disable-decoder="h264,hevc,vc1"
