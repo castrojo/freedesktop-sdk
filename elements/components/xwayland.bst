@@ -37,4 +37,4 @@ sources:
   track: xwayland-*
   exclude:
   - '*.99.*'
-  ref: xwayland-23.2.2-0-ge4487cae153ae67772ce875039c056868fe1607c
+  ref: xwayland-23.2.3-0-g7439e9c6c59219335fe35629a90f4fdd49912bcf
