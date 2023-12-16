@@ -9,7 +9,6 @@ depends:
 - components/fontconfig.bst
 - components/freetype.bst
 - components/fribidi.bst
-- components/libfdk-aac.bst
 - components/lame.bst
 - components/libva.bst
 - components/libvdpau.bst
@@ -61,7 +60,6 @@ variables:
     --enable-lcms2
     --enable-libaom
     --enable-libdav1d
-    --enable-libfdk-aac
     --enable-libmp3lame
     --enable-libfontconfig
     --enable-libfreetype
