@@ -1692,6 +1692,7 @@ config:
     # Security modules
     enable SECURITY_SELINUX
     enable SECURITY_APPARMOR
+    enable SECURITY_LANDLOCK
     enable AUDIT
 
     # SPI
