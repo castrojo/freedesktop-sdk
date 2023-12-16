@@ -10,9 +10,10 @@ depends:
   - components/libfdk-aac.bst
 
 variables:
-  # Fedora's list omits openh264
-  extra-encoders: libopenh264
-  extra-decoders: libopenh264
+  # Extra codecs not available in Fedora
+  extra-encoders:
+  extra-decoders:
+
   # Fedora's list of allowed encoders and decoders
   # Generated with utils/generate_ffmpeg_fedora_list.py
   encoders: |-
