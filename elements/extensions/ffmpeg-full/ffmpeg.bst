@@ -6,4 +6,7 @@ description: ffmpeg shipped in the ffmpeg-full extension, has more codecs enable
 - elements/extensions/ffmpeg-full/config.yml
 
 variables:
-  conf-extra: --enable-encoders --enable-decoders
+  conf-extra: >-
+    --enable-encoders
+    --enable-decoders
+    --disable-programs
