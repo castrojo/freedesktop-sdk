@@ -48,8 +48,6 @@ mirrors:
     - https://gitlab.com/freedesktop-sdk/mirrors/passt/
     pagure:
     - https://gitlab.com/freedesktop-sdk/mirrors/pagure/
-    repo_or_cz:
-    - https://gitlab.com/freedesktop-sdk/mirrors/repo_or_cz/
     samba:
     - https://gitlab.com/freedesktop-sdk/mirrors/samba/
     savannah:
