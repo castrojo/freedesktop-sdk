@@ -4,7 +4,7 @@ sources:
   track: v*
   exclude:
   - '*-rc*'
-  ref: v6.6.5-0-g3318612b308bd4fa8647f9f80becd8ff1e2ef208
+  ref: v6.6.7-0-gac25535242acb0d0042b920e5232b10e76ad169b
 - kind: local
   path: files/linux/config-utils.sh
 - kind: patch_queue
