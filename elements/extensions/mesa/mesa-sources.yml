@@ -8,3 +8,7 @@ sources:
   ref: mesa-23.3.1-0-g6cdc2b044d5cbf094540cbb562a32ecbe339fcc2
 - kind: patch
   path: patches/mesa/mesa_libdrm_deps.patch
+- kind: patch
+  path: patches/mesa/0001-intel-compiler-move-gen5-final-pass-to-actually-be-f.patch
+- kind: patch
+  path: patches/mesa/0002-Revert-nir-opt_if-Simplify-if-s-with-general-conditi.patch
