@@ -9,12 +9,20 @@ depends:
 - bootstrap-import.bst
 
 variables:
+  arch_options: ''
+  (?):
+  # ppc64le doesn't support --fzero-call-used-regs=used flag
+  # which is part of openssh 'hardening' and the rest have marginal importance
+  # https://gitweb.gentoo.org/repo/gentoo.git/commit/net-misc/openssh?id=0b22d07f89b16ac3400e45077702ac4c4492e5a4
+  - target_arch == "ppc64le":
+      arch_options: "--without-hardening"
   # linux-pam provides /etc/pam.d/sshd, so this is the pam service name
   conf-local: >-
     --with-mantype=man
     --with-pam
     --with-pam-service=sshd
     --without-zlib-version-check
+    %{arch_options}
 
 config:
   install-commands:
