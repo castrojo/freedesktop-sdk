@@ -13,5 +13,6 @@ sources:
 - kind: pypi
   name: lxml
   ref:
-    sha256sum: 48628bd53a426c9eb9bc066a923acaa0878d1e86129fd5359aee99285f4eed9c
-    suffix: 30/39/7305428d1c4f28282a4f5bdbef24e0f905d351f34cf351ceb131f5cddf78/lxml-4.9.3.tar.gz
+    sha256sum: b1541e50b78e15fa06a2670157a1962ef06591d4c998b998047fff5e3236880e
+    suffix: 
+      84/14/c2070b5e37c650198de8328467dd3d1681e80986f81ba0fea04fc4ec9883/lxml-4.9.4.tar.gz
