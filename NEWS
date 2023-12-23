@@ -1,5 +1,77 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08.9:
+  * Update dictionaries to libreoffice-24.2.0.1-0
+  * Update libdrm to libdrm-2.4.119-0
+  * Update python3-hatchling to hatchling-v1.21.0-0
+  * Update libcap-ng to v0.8.4-0
+  * Update python3-lxml to 4.9.4
+  * Update gtk3 to 3.24.39-0
+  * Update extra-cmake-modules to v5.247.0-0
+  * Update linux to v6.6.8-0
+  * Update buildbox-common to 1.0.8-0
+  * Update libnvme to v1.7-0
+  * Update libselinux to libselinux-3.6-0
+  * openssh: Use --without-hardening on ppc64le
+  * Update openssh to V_9_6_P1-0
+  * mesa: Hotfix for crocus Intel gen 5 devices
+  * Update vim to v9.0.2173-0
+  * Update glibc to glibc-2.38-33
+  * Update python3-pip to 23.3.2
+  * Update conmon to v2.1.10-0
+  * Update python3-psutil to release-5.9.7-0
+  * Update sudo to SUDO_1_9_15p4-0
+  * Update zenity to 3.44.3-0
+  * Update mesa to mesa-23.3.1-0
+  * valgrind has moved to sourceware
+  * Update librsvg to 2.57.1-0
+  * Update cmake to v3.28.1-0
+  * ffmpeg: disable programs
+  * ffmpeg: drop duplicate codecs
+  * ffmpeg: don't use libfdk-aac in ffmpeg-full
+  * ffmpeg sync codec list from fedora
+  * Update gamemode to 1.8.1-0
+  * Update xwayland to xwayland-23.2.3-0
+  * Update kbd to v2.6.4-0
+  * Update python3-distlib to 0.3.8
+  * Update jq to jq-1.7.1-0
+  * Update iwd to 2.11-0
+  * Update python3-setuptools to v69.0.3-0
+  * libglvnd: Disable assembly on RISC-V
+  * split-rules: Fix paths to some directories
+  * Update python3-babel to 2.14.0
+  * Update python3 to v3.11.7-0
+  * Update linux-firmware to 20231211-0
+  * Update podman to v4.8.2-0
+  * Update buildbox-casd to 1.0.2-0
+  * Update flatpak-builder to 1.4.0 and use stable releases
+  * Ensure 23.08 won't update to Python 3.12
+  * Update qpdf to v11.6.4-0
+  * Update python3-ujson to 5.9.0-0
+  * Update python3-typing-extensions to 4.9.0-0
+  * Update python3-pathspec to 0.12.1
+  * tests/check-abi/abidiff-suppressions.ini: ignore removal of avpriv_h264_has_num_reorder_frames function
+  * ffmpeg: really disable some codecs
+  * components/python3-aiohttp.bst: depends on aiosignal
+  * Update curl to curl-8_5_0-0
+  * Update ostree to v2023.8-0
+  * Update frei0r to v2.3.2-0
+  * Build perl with -Duse64bitint
+  * Update python3-yarl to v1.9.4-0
+  * Update libva-utils to 2.20.1-0
+  * Update python3-dulwich to 0.21.7
+  * Update go to go1.21.5-0
+  * Update libei to 1.2.0-0
+  * Update cni to v1.4.0-0
+  * Update passt to 2023_12_04.b86afe3-0
+  * Update aom to v3.8.0-0
+  * Update python3-grpcio to 1.60.0
+  * Update libnl to libnl3_9_0-0
+  * Update fwupd to 1.9.10-0
+  * Update util-linux-base to v2.39.3-0
+  * Update wireplumber to 0.4.17-0
+  * Update linux to v6.6.4-0
+
 freedesktop-sdk-23.08.8:
   * Update libseccomp to v2.5.5-0
   * Update python3-virtualenv to 20.25.0-0
