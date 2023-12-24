@@ -18,4 +18,4 @@ sources:
   track: master
   exclude:
   - '*rc*'
-  ref: v5.245.0-0-gb7754a267b6926f29b87996965da1adc4481f148
+  ref: v5.247.0-0-g2d071663301ab843d7d552fc6b1264226f81fd3d
