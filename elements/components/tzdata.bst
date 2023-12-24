@@ -1,12 +1,12 @@
 kind: manual
 
 depends:
-- filename: bootstrap-import.bst
+- bootstrap-import.bst
 
 config:
   build-commands:
   - |
-    make
+    make CC=gcc
 
   install-commands:
   - |
