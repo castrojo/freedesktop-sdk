@@ -1,17 +1,23 @@
-kind: autotools
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
+- components/doxygen.bst
 - components/git-minimal.bst
+- components/llvm.bst  # bpf support
+- components/perl.bst
 - components/systemd.bst     # To properly place udev rules
 
 depends:
 - bootstrap-import.bst
 - components/jpeg.bst
+- components/mesa-headers.bst
 
 variables:
-  conf-local: |
-    --with-udevdir=$(pkg-config --variable=udevdir udev)
+  meson-local: >-
+    -Dudevdir=$(pkg-config --variable=udevdir udev)
+    -Dqvidcap=disabled
+    -Dqv4l2=disabled
 
 public:
   bst:
