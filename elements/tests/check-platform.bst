@@ -24,6 +24,7 @@ config:
   - components/flex.bst
   - components/gdb.bst
   - components/git.bst
+  - components/git-lfs.bst
   - components/gperf.bst
   - components/groff.bst
   - components/help2man.bst
