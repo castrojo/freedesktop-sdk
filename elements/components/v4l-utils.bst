@@ -12,6 +12,7 @@ depends:
 - bootstrap-import.bst
 - components/jpeg.bst
 - components/mesa-headers.bst
+- components/libbpf.bst
 
 variables:
   meson-local: >-
