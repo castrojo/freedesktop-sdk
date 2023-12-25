@@ -2,9 +2,11 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/gtk-doc.bst
+- components/docbook-xsl.bst
 - components/gperf.bst
 - components/itstool.bst
+- components/python3-gi-docgen.bst
+- components/xmlto.bst
 
 depends:
 - components/cairo.bst
@@ -26,6 +28,8 @@ variables:
   meson-local: >-
     -Dstemming=false
     -Dcompose=true
+    -Ddocs=false
+    -Dapidocs=true
 
 public:
   bst:
