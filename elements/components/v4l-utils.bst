@@ -19,6 +19,7 @@ variables:
     -Dudevdir=$(pkg-config --variable=udevdir udev)
     -Dqvidcap=disabled
     -Dqv4l2=disabled
+    -Dgconv=disabled
 
 config:
   install-commands:
