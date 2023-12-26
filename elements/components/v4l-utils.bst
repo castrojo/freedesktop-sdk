@@ -20,6 +20,14 @@ variables:
     -Dqvidcap=disabled
     -Dqv4l2=disabled
 
+config:
+  install-commands:
+    (>):
+    # Undo sbin split done by v4l-utils
+    - |
+      mv %{install-root}/%{prefix}/sbin/* %{install-root}%{bindir}
+      rmdir %{install-root}/%{prefix}/sbin
+
 public:
   bst:
     split-rules:
