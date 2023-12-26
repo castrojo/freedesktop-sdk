@@ -31,4 +31,5 @@ sources:
   track: v*
   exclude:
   - "*-rc*"
+  - "*branchpoint*"
   ref: v1.7.2-0-g24947191d61dda869e039e0414fe97e9f594acd5
