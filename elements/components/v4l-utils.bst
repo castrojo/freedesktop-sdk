@@ -42,6 +42,10 @@ public:
         - '%{libdir}/v4l1compat.so'
         - '%{libdir}/v4l2convert.so'
 
+      vm-only:
+      - '%{indep-libdir}/udev'
+      - '%{indep-libdir}/udev/**'
+
 sources:
 - kind: git_repo
   url: git_https:git.linuxtv.org/v4l-utils.git
