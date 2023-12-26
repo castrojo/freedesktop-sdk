@@ -21,17 +21,17 @@ variables:
 
   (?):
   - target_arch == "i686":
-      targets: X86;AMDGPU;NVPTX
+      targets: X86;AMDGPU;NVPTX;BPF
   - target_arch == "x86_64":
-      targets: X86;AMDGPU;NVPTX
+      targets: X86;AMDGPU;NVPTX;BPF
   - target_arch == "arm":
-      targets: ARM
+      targets: ARM;BPF
   - target_arch == "aarch64":
-      targets: AArch64;AMDGPU
+      targets: AArch64;AMDGPU;BPF
   - target_arch in ("ppc64le", "ppc64"):
-      targets: PowerPC;AMDGPU
+      targets: PowerPC;AMDGPU;BPF
   - target_arch == "riscv64":
-      targets: RISCV;AMDGPU
+      targets: RISCV;AMDGPU;BPF
 
   cmake-local: >-
     -DLLVM_ENABLE_PROJECTS='clang;compiler-rt'

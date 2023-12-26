@@ -207,6 +207,7 @@ depends:
 - components/libassuan.bst
 - components/libatasmart.bst
 - components/libblockdev.bst
+- components/libbpf.bst
 - components/libbytesize.bst
 - components/libcamera.bst
 - components/libcap-ng.bst
