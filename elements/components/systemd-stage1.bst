@@ -20,6 +20,7 @@ depends:
 
 variables:
   meson-local: >-
+    -Dauto_features=disabled
     -Drootprefix=%{prefix}
     -Drootlibdir=%{libdir}
     -Dsysvinit-path=%{sysconfdir}/init.d
@@ -28,22 +29,27 @@ variables:
     -Dsystem-uid-max=999
     -Dsystem-gid-max=999
     -Dusers-gid=100
-    -Dopenssl=true
-    -Dpam=true
+    -Dopenssl=enabled
+    -Dpam=enabled
     -Dbootloader=false
     -Defi=false
     -Dfirstboot=true
-    -Dzlib=true
-    -Dbzip2=true
-    -Dxz=true
-    -Dlz4=true
+    -Dzlib=enabled
+    -Dbzip2=enabled
+    -Dxz=enabled
+    -Dlz4=enabled
     -Ddefault-dnssec=no
-    -Drepart=false
-    -Dman=false
-    -Dhtml=false
-    -Dlibcryptsetup=false
-    -Dp11kit=false
-    -Dlibfido2=false
+    -Drepart=disabled
+    -Dman=disabled
+    -Dhtml=disabled
+    -Dlibcryptsetup=disabled
+    -Dlibcryptsetup-plugins=disabled
+    -Dp11kit=disabled
+    -Dlibfido2=disabled
+    -Dbpf-framework=disabled
+    -Dapparmor=disabled
+    -Dxenctrl=disabled
+    -Dmicrohttpd=disabled
 
 public:
   cpe:
