@@ -37,5 +37,3 @@ sources:
   exclude:
   - 'rel-*-*'
   ref: rel-0.60.8.1-0-g061f2e450d41808f7bd8c6eb84b2256455ae8c26
-- kind: patch
-  path: patches/aspell/objstack-assert-that-the-alloc-size-will-fit-within-.patch
