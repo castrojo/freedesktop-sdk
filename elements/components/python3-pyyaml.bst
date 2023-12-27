@@ -2,7 +2,8 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
-- components/cython.bst
+# https://github.com/yaml/pyyaml/issues/601
+- components/cython-0.29.bst
 
 depends:
 - components/python3.bst

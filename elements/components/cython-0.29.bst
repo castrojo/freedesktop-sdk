@@ -9,6 +9,6 @@ runtime-depends:
 sources:
 - kind: git_repo
   url: github:cython/cython.git
-  track: '*.*.*'
+  track: '0.29.*'
   ref-format: git-describe
-  ref: 3.0.6-0-g248655889fe9ae554d12f5bb17cb61eb9878c99f
+  ref: 0.29.37.1-0-g598be7f9fd253c9e44f051f2235abedc66c022c1
