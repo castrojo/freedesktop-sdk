@@ -37,7 +37,7 @@ sources:
 - kind: git_repo
   url: freedesktop:plymouth/plymouth.git
   track: '*.*.*'
-  ref: 22.02.122-0-g27764b2a2c2e21ad988cae01dc59d4bb78e5c1dc
+  ref: 23.360.11-0-gc835c7ff53aa25009b694fd66e9a6c55cbed670c
 - kind: patch_queue
   path: patches/plymouth
 - kind: local
