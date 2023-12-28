@@ -9,6 +9,4 @@ sources:
 - kind: patch
   path: patches/mesa/mesa_libdrm_deps.patch
 - kind: patch
-  path: patches/mesa/0001-intel-compiler-move-gen5-final-pass-to-actually-be-f.patch
-- kind: patch
   path: patches/mesa/0002-Revert-nir-opt_if-Simplify-if-s-with-general-conditi.patch
