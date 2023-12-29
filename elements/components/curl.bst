@@ -2,6 +2,7 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- components/git-minimal.bst
 
 depends:
 - bootstrap-import.bst
@@ -21,6 +22,20 @@ variables:
     --disable-warnings
     --disable-curldebug
 
+config:
+  configure-commands:
+    (<):
+    - |
+      set -u
+      TAG=$(git describe | cut -d- -f2)
+      REF=$(git rev-parse curl-${TAG})
+      PKGVER="${TAG//_/.}"
+      TIMESTAMP=$(git log -1 --format=%cs "${REF}")
+      sed -i \
+      -e "/\WLIBCURL_VERSION\W/c #define LIBCURL_VERSION \"${PKGVER}\"" \
+      -e "/\WLIBCURL_TIMESTAMP\W/c #define LIBCURL_TIMESTAMP \"${TIMESTAMP}\"" \
+      include/curl/curlver.h
+
 public:
   bst:
     split-rules:
@@ -37,4 +52,3 @@ sources:
   url: github:curl/curl.git
   track: curl-*
   ref: curl-8_5_0-0-g7161cb17c01dcff1dc5bf89a18437d9d729f1ecd
-
