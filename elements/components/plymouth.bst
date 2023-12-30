@@ -1,7 +1,7 @@
-kind: autotools
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 - components/docbook-xsl.bst
 - components/libxslt.bst
 - components/docbook-xml.bst
@@ -11,35 +11,23 @@ depends:
 - components/pango.bst
 - components/gtk3.bst
 - components/libdrm.bst
+- components/libevdev.bst
+- components/plymouth-logo.bst
 - components/systemd.bst
 
-
 variables:
-  conf-local: >-
-    runstatedir=/run
-    --with-logo="%{datadir}/pixmaps/freedesktop-sdk-40.png"
+  meson-local: >-
+    -Dlogo="%{datadir}/pixmaps/freedesktop-sdk-40.png"
 
 config:
   install-commands:
-    (<):
-    - |
-      install -d "%{install-root}/var"
-
     (>):
     - |
-      install -Dm644 -t "%{install-root}%{datadir}/pixmaps" freedesktop-sdk/freedesktop-sdk-40.png
-    - |
-      install -Dm644 -t "%{install-root}%{datadir}/plymouth" freedesktop-sdk/plymouthd.defaults
-    - |
-      install -Dm644 freedesktop-sdk/freedesktop-sdk-40.png "%{install-root}%{datadir}/plymouth/themes/spinner/watermark.png"
-
+      install -Dm644 -t "%{install-root}%{datadir}/plymouth" plymouthd.defaults
 sources:
 - kind: git_tag
   url: freedesktop:plymouth/plymouth.git
   track: main
-  ref: 22.02.122-0-g27764b2a2c2e21ad988cae01dc59d4bb78e5c1dc
-- kind: patch_queue
-  path: patches/plymouth
+  ref: 23.360.11-0-gc835c7ff53aa25009b694fd66e9a6c55cbed670c
 - kind: local
-  path: files/plymouth
-  directory: freedesktop-sdk
+  path: files/plymouth/plymouthd.defaults
