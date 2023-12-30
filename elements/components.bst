@@ -374,6 +374,7 @@ depends:
 - components/pipewire.bst
 - components/pixman.bst
 - components/pkg-config.bst
+- components/plymouth-logo.bst
 - components/plymouth.bst
 - components/po4a.bst
 - components/podman-config.bst
