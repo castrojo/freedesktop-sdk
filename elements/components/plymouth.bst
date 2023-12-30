@@ -1,7 +1,7 @@
-kind: autotools
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 - components/docbook-xsl.bst
 - components/libxslt.bst
 - components/docbook-xml.bst
@@ -11,13 +11,12 @@ depends:
 - components/pango.bst
 - components/gtk3.bst
 - components/libdrm.bst
+- components/libevdev.bst
 - components/systemd.bst
 
-
 variables:
-  conf-local: >-
-    runstatedir=/run
-    --with-logo="%{datadir}/pixmaps/freedesktop-sdk-40.png"
+  meson-local: >-
+    -Dlogo="%{datadir}/pixmaps/freedesktop-sdk-40.png"
 
 config:
   install-commands:
@@ -38,8 +37,6 @@ sources:
   url: freedesktop:plymouth/plymouth.git
   track: '*.*.*'
   ref: 23.360.11-0-gc835c7ff53aa25009b694fd66e9a6c55cbed670c
-- kind: patch_queue
-  path: patches/plymouth
 - kind: local
   path: files/plymouth
   directory: freedesktop-sdk
