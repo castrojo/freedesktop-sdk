@@ -14,4 +14,4 @@ sources:
   track: v*
   exclude:
   - '*beta*'
-  ref: v4.1.1-0-g77323a0f07562b7d90d36181697a72a909b9519a
+  ref: v4.2.0-0-gd65157602d53d08c2fad5c362f66c8c0cae7a4f4
