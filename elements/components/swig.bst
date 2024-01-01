@@ -15,4 +15,4 @@ sources:
   track: master
   exclude:
   - '*beta*'
-  ref: v4.1.0-0-g1e99e4fe37c0f2334b6de1c6bc3fcd3188bc2c92
+  ref: v4.2.0-0-gd65157602d53d08c2fad5c362f66c8c0cae7a4f4
