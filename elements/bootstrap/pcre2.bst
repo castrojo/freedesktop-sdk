@@ -46,4 +46,4 @@ sources:
 - kind: git_repo
   url: github:PCRE2Project/pcre2.git
   track: pcre2-*
-  ref: pcre2-10.42-0-g52c08847921a324c804cabf2814549f50bce1265
+  ref: pcre2-10.43-RC1-0-gaadef0c3b4647e6d32ed95eea2487db990c4f183
