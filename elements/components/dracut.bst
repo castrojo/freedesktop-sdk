@@ -29,3 +29,5 @@ sources:
   path: patches/dracut/dracut-use-dynamic-uefi-sections.patch
 - kind: patch
   path: patches/dracut/dracut-riscv64-efi.patch
+- kind: patch
+  path: patches/dracut/install-systemd-executor.patch
