@@ -1,7 +1,7 @@
 sources:
 - kind: git_repo
   url: github:systemd/systemd-stable.git
-  track: v*
+  track: v254.*
   exclude:
   - '*rc*'
   ref: v254.7-0-gbe8b196ed026164f29943d8a1d04dc2d2ae3942a
