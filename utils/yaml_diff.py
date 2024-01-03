@@ -4,7 +4,7 @@ import sys
 import contextlib
 import tempfile
 import subprocess
-from ruamel import yaml
+from ruamel.yaml import YAML, YAMLError
 
 path, old_file, _, _, new_file, _, _ = \
     sys.argv[1:]
@@ -16,14 +16,20 @@ def diff(path, old, new):
                     old, new])
 
 with contextlib.ExitStack() as stack:
+    yaml = YAML(typ='safe')
+    yaml.default_flow_style = False
     try:
-        old_data = yaml.load(stack.enter_context(open(old_file, 'r', encoding="utf-8")), Loader=yaml.Loader)
-        new_data = yaml.load(stack.enter_context(open(new_file, 'r', encoding="utf-8")), Loader=yaml.Loader)
-    except yaml.YAMLError:
+        old_data = yaml.load(
+            stack.enter_context(open(old_file, 'r', encoding="utf-8"))
+        )
+        new_data = yaml.load(
+            stack.enter_context(open(new_file, 'r', encoding="utf-8"))
+        )
+    except YAMLError:
         diff(path, old_file, new_file)
     else:
         old_formatted = stack.enter_context(tempfile.NamedTemporaryFile(mode='w'))
         new_formatted = stack.enter_context(tempfile.NamedTemporaryFile(mode='w'))
-        yaml.dump(old_data, old_formatted, default_flow_style=False)
-        yaml.dump(new_data, new_formatted, default_flow_style=False)
+        yaml.dump(old_data, old_formatted)
+        yaml.dump(new_data, new_formatted)
         diff(path, old_formatted.name, new_formatted.name)
