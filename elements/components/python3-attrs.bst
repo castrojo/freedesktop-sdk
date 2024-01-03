@@ -2,6 +2,9 @@ kind: pip
 
 depends:
 - components/python3.bst
+- components/python3-hatchling.bst
+- components/python3-hatch-vcs.bst
+- components/python3-hatch-fancy-pypi-readme.bst
 
 build-depends:
 - components/python3-pip.bst
