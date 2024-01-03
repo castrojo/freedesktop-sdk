@@ -7,9 +7,11 @@ build-depends:
 
 depends:
 - components/cairo.bst
+- components/curl.bst
 - components/fontconfig.bst
 - components/freetype.bst
 - components/glib.bst
+- components/gpgme.bst
 - components/jpeg.bst
 - components/lcms.bst
 - components/nss.bst
