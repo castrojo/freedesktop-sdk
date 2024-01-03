@@ -47,6 +47,8 @@ public:
       - "%{libdir}/pkgconfig/cups.pc"
       - '%{libdir}/lib*.so'
       - '%{libdir}/lib*.so.*'
+      - '%{debugdir}%{bindir}/lpr.debug'
+      - '%{debugdir}%{libdir}/lib*.so.*'
   cpe:
     product: cups
 

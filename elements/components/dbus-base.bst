@@ -46,6 +46,8 @@ public:
       - '%{sourcedir}/**'
       dbus-tools:
       - '%{bindir}/dbus-send'
+      - '%{debugdir}%{bindir}/dbus-send.debug'
+
 
   cpe:
     product: d-bus

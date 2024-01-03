@@ -117,6 +117,7 @@ public:
       - '%{debugdir}/dwz/%{stripdir-suffix}/*'
       - '%{debugdir}%{libdir}/libsystemd*.so*'
       - '%{debugdir}%{libdir}/libudev*.so*'
+      - '%{debugdir}%{libdir}/libnss_resolve.so*'
       - '%{sourcedir}'
       - '%{sourcedir}/**'
 
