@@ -7,3 +7,5 @@ vm-only:
   - "%{prefix}/lib/sysusers.d/**"
   - "%{prefix}/lib/tmpfiles.d"
   - "%{prefix}/lib/tmpfiles.d/**"
+  - "%{prefix}/lib/udev"
+  - "%{prefix}/lib/udev/**"
