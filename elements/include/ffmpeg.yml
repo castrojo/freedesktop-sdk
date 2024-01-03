@@ -115,6 +115,6 @@ sources:
   track: n*
   exclude:
   - '*-dev'
-  ref: n6.1-0-gd4ff0020b40b524a490cf62eccbd3a318f4c0e58
+  ref: n6.1.1-0-ge38092ef9395d7049f871ef4d5411eb410e283e0
 - kind: patch
   path: patches/ffmpeg/vulkan_av1.patch
