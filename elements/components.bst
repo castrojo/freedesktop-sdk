@@ -69,6 +69,7 @@ depends:
 - components/curl.bst
 - components/cyrus-sasl.bst
 - components/cython.bst
+- components/cython-3.bst
 - components/dav1d.bst
 - components/dbus-base.bst
 - components/dbus-manifest.bst
