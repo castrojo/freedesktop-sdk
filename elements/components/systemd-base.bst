@@ -10,6 +10,7 @@ build-depends:
 - components/audit.bst
 - components/gperf.bst
 - components/m4.bst
+- components/libapparmor.bst
 - components/libcap.bst
 - components/libgcrypt.bst
 - components/libgpg-error.bst
@@ -34,6 +35,7 @@ build-depends:
 - components/libqrencode.bst
 - components/iptables.bst
 - components/libxkbcommon.bst
+- components/libmicrohttpd.bst
 
 config:
   install-commands:
@@ -68,31 +70,37 @@ variables:
     -Dbootloader=%{efi}
     -Defi=%{efi}
     -Dfirstboot=true
-    -Dzlib=true
-    -Dzstd=true
-    -Dbzip2=true
-    -Dxz=true
-    -Dlz4=true
+    -Dzlib=enabled
+    -Dzstd=enabled
+    -Dbzip2=enabled
+    -Dxz=enabled
+    -Dlz4=enabled
     -Ddefault-dnssec=no
     -Didn=true
-    -Drepart=true
-    -Dman=true
-    -Dhtml=true
-    -Dlibcryptsetup=true
-    -Dp11kit=true
-    -Dlibfido2=true
-    -Dapparmor=true
+    -Drepart=enabled
+    -Dman=enabled
+    -Dhtml=enabled
+    -Dlibcryptsetup=enabled
+    -Dlibcryptsetup-plugins=enabled
+    -Dp11kit=enabled
+    -Dlibfido2=enabled
+    -Dapparmor=enabled
     -Dtpm=true
-    -Dtpm2=true
+    -Dtpm2=enabled
     -Dsbat-distro=freedesktop-sdk
     -Dsbat-distro-generation=1
     -Dsbat-distro-summary="Freedesktop SDK"
     -Dsbat-distro-url=https://gitlab.com/freedesktop-sdk/freedesktop-sdk/
     -Dversion-tag="$(git describe --abbrev=7 | sed "s/^v//")"
-    -Dqrencode=true
-    -Dxkbcommon=true
-    -Dlibidn2=true
-    -Dlibiptc=true
+    -Dqrencode=enabled
+    -Dxkbcommon=enabled
+    -Dlibidn2=enabled
+    -Dlibiptc=enabled
+    -Dxenctrl=disabled
+    -Dbpf-framework=disabled
+    -Dgnutls=disabled
+    -Dglib=disabled
+    -Ddbus=disabled  # test dependency
 
 public:
   cpe:

@@ -7,6 +7,7 @@ runtime-depends:
 - components/systemd-libs.bst
 - components/systemd-hwdb.bst
 - components/audit.bst
+- components/libapparmor.bst
 - components/libgpg-error.bst
 - components/linux-pam.bst
 - components/kmod.bst
@@ -27,6 +28,7 @@ runtime-depends:
 - components/libqrencode.bst
 - components/iptables.bst
 - components/libxkbcommon.bst
+- components/libmicrohttpd.bst
 
 config:
   exclude:
