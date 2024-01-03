@@ -41,10 +41,7 @@ public:
         - '%{libdir}/libv4lconvert.so'
         - '%{libdir}/v4l1compat.so'
         - '%{libdir}/v4l2convert.so'
-
-      vm-only:
-      - '%{indep-libdir}/udev'
-      - '%{indep-libdir}/udev/**'
+      (@): include/_private/exclude-systemd.yml
 
 sources:
 - kind: git_repo
