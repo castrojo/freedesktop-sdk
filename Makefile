@@ -180,14 +180,6 @@ markdown-manifest: manifest
 	python3 utils/jsontomd.py platform-manifest/usr/manifest.json
 	python3 utils/jsontomd.py sdk-manifest/usr/manifest.json
 
-url-manifest:
-	python3 utils/url_manifest.py release-url-manifest/url-manifest-no-mirrors.json \
-	  flatpak-release-repo.bst components.bst \
-	  components/rust-stage1-x86-64.bst components/rust-stage1-i686.bst components/rust-stage1-aarch64.bst \
-	  components/rust-stage1-armv7.bst components/rust-stage1-powerpc64le.bst \
-	  oci/layers/flatpak.bst oci/layers/debug.bst oci/layers/platform.bst oci/layers/sdk.bst
-
-test-apps: export XDG_DATA_HOME=$(CURDIR)/runtime
 test-apps: $(REPO)
 	echo $(XDG_DATA_HOME)
 	mkdir -p runtime
