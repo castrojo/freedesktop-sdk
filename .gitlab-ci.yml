@@ -9,6 +9,7 @@ variables:
   STABLE_ABI: 'false'
   EXPIRED: '0'
   MAX_MERGE_REQUESTS: '4'
+  CACHE_PUSH: 'true'
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
@@ -98,36 +99,30 @@ before_script:
       {
         if [ "${DISABLE_REMOTE_CACHE:+set}" != set ]; then
 
-          echo "projects:"
-          echo "  freedesktop-sdk:"
-          echo "    artifacts:"
-          echo "      servers:"
-          echo "      - url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
-          if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
-            echo "        push: true"
-          fi
-          echo "        auth:"
-          echo "          client-key: /etc/ssl/CAS/server.key"
-          echo "          client-cert: /etc/ssl/CAS/server.crt"
-          echo "    source-caches:"
-          echo "      servers:"
+          echo "artifacts:"
+          echo "  override-project-caches: true"
+          echo "  servers:"
+          echo "  - url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
+          echo "    push: ${CACHE_PUSH}"
+          echo "    auth:"
+          echo "      client-key: /etc/ssl/CAS/server.key"
+          echo "      client-cert: /etc/ssl/CAS/server.crt"
+          echo "source-caches:"
+          echo "  override-project-caches: true"
+          echo "  servers:"
           if [ -f /cache-certificate/server.crt ]; then
-            echo "      - url: https://local-cas-server:1102"
-            if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
-            echo "        push: true"
-            fi
-            echo "        auth:"
-            echo "          client-key: /etc/ssl/CAS/server.key"
-            echo "          client-cert: /etc/ssl/CAS/server.crt"
-            echo "          server-cert: /cache-certificate/server.crt"
+            echo "  - url: https://local-cas-server:1102"
+            echo "    push: ${CACHE_PUSH}"
+            echo "    auth:"
+            echo "      client-key: /etc/ssl/CAS/server.key"
+            echo "      client-cert: /etc/ssl/CAS/server.crt"
+            echo "      server-cert: /cache-certificate/server.crt"
           fi
-          echo "      - url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
-          if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
-            echo "        push: true"
-          fi
-          echo "        auth:"
-          echo "          client-key: /etc/ssl/CAS/server.key"
-          echo "          client-cert: /etc/ssl/CAS/server.crt"
+          echo "  - url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
+          echo "    push: ${CACHE_PUSH}"
+          echo "    auth:"
+          echo "      client-key: /etc/ssl/CAS/server.key"
+          echo "      client-cert: /etc/ssl/CAS/server.crt"
           if [ -f /cache-certificate/server.crt ]; then
             echo "cache:"
             echo "  storage-service:"
@@ -1029,7 +1024,7 @@ publish_docker_x86_64:
     - .builder-x86_64
     - .docker_publish_template
   variables:
-    DISABLE_CACHE_PUSH: 1
+    CACHE_PUSH: 'false'
   needs: []
 
 publish_docker_i686:
@@ -1037,7 +1032,7 @@ publish_docker_i686:
     - .builder-i686
     - .docker_publish_template
   variables:
-    DISABLE_CACHE_PUSH: 1
+    CACHE_PUSH: 'false'
   needs: []
 
 publish_docker_aarch64:
@@ -1045,7 +1040,7 @@ publish_docker_aarch64:
     - .builder-aarch64
     - .docker_publish_template
   variables:
-    DISABLE_CACHE_PUSH: 1
+    CACHE_PUSH: 'false'
   needs: []
 
 publish_docker_finish:
