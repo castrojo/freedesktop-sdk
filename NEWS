@@ -1,5 +1,62 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08.10:
+  * Update perl-pod-parser to 1.67
+  * Update systemd to v254.8-0
+  * Update fwupd to 1.9.11-0
+  * Update podman to v4.8.3-0
+  * Update eos-updater to Release_5.1.1-0
+  * Update shaderc to v2023.8-0
+  * Fix missing debuginfo in runtime
+  * elements/tests/check-debuginfo.bst: check sdk-image rather than sdk
+  * systemd: Freeze to v254 bugfix releases
+  * Update libjcat to 0.2.0-0
+  * Update eos-metrics to Release_5.1.1-0
+  * Update python3-wheezy-template to 3.2.2-0
+  * components/poppler.bst: Add curl and gpgme
+  * Update poppler to poppler-24.01.0-0
+  * Update python3-pil to 10.2.0
+  * Update libxmlb to 0.3.15-0
+  * Update python3-attrs to 23.2.0-0
+  * components/python3-lxml.bst: Cherry-pick changes from !16946
+  * components/python3-lxml.bst: Recythonise sources with cython3
+  * components/python3-lxml.bst: Use cython-3 for build
+  * Add cython-3
+  * Update python3-lxml to 5.0.0
+  * Update python3-hatch-fancy-pypi-readme to 24.1.0-0
+  * Update linux to v6.6.9-0
+  * Update python3-dbusmock to 0.30.2
+  * Update python3-hatch-fancy-pypi-readme to 23.2.0-0
+  * Update swig to v4.2.0-0
+  * Update vim to v9.0.2189-0
+  * Update sudo to SUDO_1_9_15p5-0
+  * Update ccache to v4.9-0
+  * Update passt to 2023_12_30.f091893-0
+  * components/plymouth.bst: Split plymouth-logo in a seperate element
+  * components/plymouth.bst: Switch to meson
+  * components/plymouth.bst: Drop patch Fixed in meson port
+  * components/plymouth.bst: Drop patch: It is in 23.360.11
+  * components/plymouth.bst: Drop patch: Implemented in meson port
+  * components/plymouth.bst: Drop patch: It is relative to runstatedir now
+  * Update plymouth to 23.360.11-0
+  * Update libtraceevent to libtraceevent-1.8.1-0
+  * Update perl-xml-parser to 2.47
+  * Update iwd to 2.12-0
+  * Remove intel patch
+  * Update mesa to mesa-23.3.2-0
+  * Update python3-feedgen to v1.0.0-0
+  * Update doxygen to Release_1_10_0-0
+  * Update libtraceevent to libtraceevent-1.8.0-0
+  * Update qpdf to v11.7.0-0
+  * Update vim to v9.0.2185-0
+  * Update glibc to glibc-2.38-39
+  * swig: Ignore beta releases
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-23.08.9-0
+  * Update python3-dbusmock to 0.30.1
+  * Update fontconfig to 2.15.0-0
+  * Update libnvme to v1.7.1-0
+  * Update iputils to 20231222-0
+
 freedesktop-sdk-23.08.9:
   * Update dictionaries to libreoffice-24.2.0.1-0
   * Update libdrm to libdrm-2.4.119-0
