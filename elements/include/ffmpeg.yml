@@ -116,5 +116,3 @@ sources:
   exclude:
   - '*-dev'
   ref: n6.0-0-gea3d24bbe3c58b171e55fe2151fc7ffaca3ab3d2
-- kind: patch
-  path: patches/ffmpeg/binutils-2.41.patch
