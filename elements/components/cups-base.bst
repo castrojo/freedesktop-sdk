@@ -49,6 +49,10 @@ public:
       - '%{libdir}/lib*.so.*'
       - '%{debugdir}%{bindir}/lpr.debug'
       - '%{debugdir}%{libdir}/lib*.so.*'
+      - '%{debugdir}/dwz'
+      - '%{debugdir}/dwz/**'
+      - '%{sourcedir}'
+      - '%{sourcedir}/**'
   cpe:
     product: cups
 
