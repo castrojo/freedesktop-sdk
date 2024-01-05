@@ -48,7 +48,6 @@ public:
       - '%{debugdir}/source/**'
       - '%{debugdir}%{libdir}'
       - '%{debugdir}%{libdir}/**'
-      - '%{debugdir}/dwz'
       - '%{libdir}/pkgconfig/libgeoclue*.pc'
       - '%{libdir}/girepository-*'
       - '%{libdir}/girepository-*/**'
