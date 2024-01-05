@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:PyCQA/pyflakes.git
   track: '*.*.*'
-  ref: '3.1.0-0-g58b94a021b2d966a40a5bced06bdd6188ddb9fc2'
+  ref: '3.2.0-0-g881ed2f00255cb247577adad59d4f05122a5f87a'
