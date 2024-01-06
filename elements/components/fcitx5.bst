@@ -26,4 +26,4 @@ sources:
 - kind: git_repo
   url: github:fcitx/fcitx5-gtk.git
   track: '*.*.*'
-  ref: 5.1.0-0-g68df55655d7bd2767b178ef7981378c97b3a80b1
+  ref: 5.1.1-0-gfaea3be521b6ff47b8c511b42fa6d0418769e6d5
