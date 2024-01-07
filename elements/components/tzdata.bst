@@ -6,7 +6,7 @@ depends:
 config:
   build-commands:
   - |
-    make
+    make CC=cc
 
   install-commands:
   - |
