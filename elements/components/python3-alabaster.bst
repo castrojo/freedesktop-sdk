@@ -2,6 +2,7 @@ kind: pip
 
 build-depends:
 - components/python3-pip.bst
+- components/python3-flit-core.bst
 
 depends:
 - components/python3.bst
