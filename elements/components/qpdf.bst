@@ -15,4 +15,4 @@ sources:
   track: main
   exclude:
   - '*cmake*'
-  ref: v11.2.0-0-g562ff1b6087a16a47ec5bc18fb765910541b1167
+  ref: v11.8.0-0-g452e1f5c20ec6adf62cd296cb9dddacbc06e6ffa
