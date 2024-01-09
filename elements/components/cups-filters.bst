@@ -21,6 +21,7 @@ depends:
 variables:
   # There's a related Python script which opens files assuming no build-dir
   build-dir: ''
+  local_flags: "-std=c++17"
 
 sources:
 - kind: git_tag
