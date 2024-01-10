@@ -25,7 +25,6 @@ variables:
 sources:
 - kind: git_tag
   url: freedesktop:pipewire/wireplumber.git
-  track: master
   ref: 0.4.17-0-gd3eb77b292655cef333a8f4cab4e861415bc37c2
 - kind: git_tag
   url: github:skystrife/cpptoml.git
