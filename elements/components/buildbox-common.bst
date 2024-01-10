@@ -20,7 +20,7 @@ sources:
 - kind: git_repo
   url: gitlab:BuildGrid/buildbox/buildbox-common.git
   track: '*.*.*'
-  ref: 1.0.8-0-g56ba6ee6381a59861571beba33b56913a0f978aa
+  ref: 1.0.9-0-g73b4dc8398414b04712df74b10bf2cc6c87647c1
 # https://gitlab.com/BuildGrid/buildbox/buildbox-common/-/merge_requests/505
 - kind: patch
   path: patches/buildbox-common/0002-Tell-CMake-to-find-Protobuf-in-Config-mode.patch
