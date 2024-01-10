@@ -112,9 +112,7 @@ config:
 sources:
 - kind: git_repo
   url: ffmpeg:ffmpeg.git
-  track: n*
+  track: n6.0.*
   exclude:
   - '*-dev'
-  ref: n6.0-0-gea3d24bbe3c58b171e55fe2151fc7ffaca3ab3d2
-- kind: patch
-  path: patches/ffmpeg/binutils-2.41.patch
+  ref: n6.0.1-0-gc41ff724ede7da657762d61097e26fac296c53bf
