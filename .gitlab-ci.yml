@@ -328,7 +328,7 @@ license_checker:
   script:
     - bst_license_checker --deps "${DEPS}" -w ${WORK_DIR} -o ${OUTPUT_DIR} --ignorelist ${IGNORE_LIST} ${TARGETS}
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "license_check"'
+  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly"'
 
 .flatpak_template:
   stage: flatpak
