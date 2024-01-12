@@ -10,5 +10,5 @@ sources:
 - kind: pypi
   name: cython
   ref:
-    sha256sum: 41c0cfd2d754e383c9eeb95effc9aa4ab847d0c9747077ddd7c0dcb68c3bc01f
-    suffix: 38/db/df0e99d6c5fe19ee5c981d22aad557be4bdeed3ecfae25d47b84b07f0f98/Cython-0.29.36.tar.gz
+    sha256sum: f813d4a6dd94adee5d4ff266191d1d95bf6d4164a4facc535422c021b2504cfb
+    suffix: 2a/97/8cc3fe7c6de4796921236a64d00ca8a95565772e57f0d3caae68d880b592/Cython-0.29.37.tar.gz
