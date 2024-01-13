@@ -27,4 +27,6 @@ sources:
 - kind: git_repo
   url: github:facebook/zstd.git
   track: v*.*.*
+  exclude:
+  - "*-kernel"
   ref: v1.5.5-0-g63779c798237346c2b245c546c40b72a5a5913fe
