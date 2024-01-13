@@ -11,5 +11,6 @@ sources:
 - kind: pypi
   name: sphinxcontrib-applehelp
   ref:
-    sha256sum: 39fdc8d762d33b01a7d8f026a3b7d71563ea3b72787d5f00ad8465bd9d6dfbfa
-    suffix: 1c/5a/fce19be5d4db26edc853a0c34832b39db7b769b7689da027529767b0aa98/sphinxcontrib_applehelp-1.0.7.tar.gz
+    sha256sum: c40a4f96f3776c4393d933412053962fac2b84f4c99a7982ba42e09576a70619
+    suffix: 
+      26/6b/68f470fc337ed24043fec987b101f25b35010970bd958970c2ae5990859f/sphinxcontrib_applehelp-1.0.8.tar.gz
