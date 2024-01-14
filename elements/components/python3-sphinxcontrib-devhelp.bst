@@ -11,5 +11,6 @@ sources:
 - kind: pypi
   name: sphinxcontrib-devhelp
   ref:
-    sha256sum: 63b41e0d38207ca40ebbeabcf4d8e51f76c03e78cd61abe118cf4435c73d4212
-    suffix: 2e/f2/6425b6db37e7c2254ad661c90a871061a078beaddaf9f15a00ba9c3a1529/sphinxcontrib_devhelp-1.0.5.tar.gz
+    sha256sum: 9893fd3f90506bc4b97bdb977ceb8fbd823989f4316b28c3841ec128544372d3
+    suffix: 
+      c7/a1/80b7e9f677abc673cb9320bf255ad4e08931ccbc2e66bde4b59bad3809ad/sphinxcontrib_devhelp-1.0.6.tar.gz
