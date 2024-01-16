@@ -14,8 +14,6 @@ public:
       devel:
         (>):
         - '%{libdir}/libffi.so'
-        - '%{libdir}/libffi-3.2.1/include'
-        - '%{libdir}/libffi-3.2.1/include/**'
 
 variables:
   conf-local: >-
