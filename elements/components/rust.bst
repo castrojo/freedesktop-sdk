@@ -88,6 +88,7 @@ config:
     debuginfo-level-tools = 2
     backtrace = true
     rpath = false
+    lto = "off"
     default-linker = "/usr/bin/gcc"
     [target.%{rust-target}]
     cc = "/usr/bin/%{host-triplet}-gcc"
