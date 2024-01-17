@@ -14,25 +14,17 @@ build-depends:
 variables:
   optimize-debug: "false"
 
-  debuginfo-level: '2'
-  debuginfo-level-std: '0'
+  debuginfo-level: '1'
   rust-target: '%{host-triplet}'
   llvm-targets: 'AArch64;ARM;Hexagon;MSP430;Mips;NVPTX;PowerPC;Sparc;SystemZ;WebAssembly;X86'
   build-docs: 'true'
   (?):
   - target_arch == "i686":
-      # i686 also exhausts memory on stage0
-      debuginfo-level: '0'
-      debuginfo-level-std: '2'
       llvm-targets: 'X86'
   - target_arch == "x86_64":
       llvm-targets: 'X86'
   - target_arch == "arm":
       rust-target: armv7-unknown-linux-gnueabihf
-      # armv7 exhausts memory on stage0 librustc w/ debuginfo
-      # github:rust-lang/rust/issues/45854
-      debuginfo-level: '0'
-      debuginfo-level-std: '2'
       llvm-targets: 'ARM'
   - target_arch == "aarch64":
       llvm-targets: 'AArch64'
@@ -84,8 +76,6 @@ config:
     optimize = true
     channel = "stable"
     debuginfo-level = %{debuginfo-level}
-    debuginfo-level-std = %{debuginfo-level-std}
-    debuginfo-level-tools = 2
     backtrace = true
     rpath = false
     lto = "off"
