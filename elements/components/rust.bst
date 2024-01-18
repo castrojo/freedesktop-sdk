@@ -14,7 +14,7 @@ build-depends:
 variables:
   optimize-debug: "false"
 
-  debuginfo-level: '1'
+  debuginfo-level-std: '1'
   rust-target: '%{host-triplet}'
   llvm-targets: 'AArch64;ARM;Hexagon;MSP430;Mips;NVPTX;PowerPC;Sparc;SystemZ;WebAssembly;X86'
   build-docs: 'true'
@@ -75,7 +75,7 @@ config:
     [rust]
     optimize = true
     channel = "stable"
-    debuginfo-level = %{debuginfo-level}
+    debuginfo-level-std = %{debuginfo-level-std}
     backtrace = true
     rpath = false
     lto = "off"
