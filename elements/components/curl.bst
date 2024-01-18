@@ -7,6 +7,7 @@ build-depends:
 depends:
 - bootstrap-import.bst
 - components/libnghttp2.bst
+- components/libpsl.bst
 - components/openssl.bst
 
 runtime-depends:
@@ -16,6 +17,7 @@ variables:
   conf-local: >-
     --without-ca-bundle
     --with-ca-fallback
+    --with-libpsl
     --with-ssl
     --with-nghttp2
     --enable-optimize
