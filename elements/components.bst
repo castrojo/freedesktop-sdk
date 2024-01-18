@@ -376,9 +376,11 @@ depends:
 - components/python3-sphinxcontrib-applehelp.bst
 - components/python3-sphinxcontrib-devhelp.bst
 - components/python3-sphinxcontrib-htmlhelp.bst
+- components/python3-sphinxcontrib-jquery.bst
 - components/python3-sphinxcontrib-jsmath.bst
 - components/python3-sphinxcontrib-qthelp.bst
 - components/python3-sphinxcontrib-serializinghtml.bst
+- components/python3-sphinx-rtd-theme.bst
 - components/python3-tenacity.bst
 - components/python3-tomlkit.bst
 - components/python3-toposort.bst
