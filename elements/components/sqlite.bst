@@ -43,4 +43,4 @@ sources:
 - kind: git_repo
   url: github:sqlite/sqlite.git
   track: version-*
-  ref: version-3.44.2-0-gc8f9803dc32bfee78a9ca2b1abbe39499729219b
+  ref: version-3.45.0-0-gf352e0a9cf3697c2bdb790705998121aa517fe36
