@@ -1,8 +1,11 @@
 kind: autotools
 
+build-depends:
+- bootstrap/bootstrap.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/perl.bst
+- bootstrap/bootstrap-base.bst
+- components/perl.bst
 
 sources:
 - kind: tar
