@@ -78,7 +78,7 @@ variables:
     --enable-multiarch
     --disable-bootstrap
     --with-build-sysroot=%{sysroot}
-    --enable-languages=c,c++,fortran,objc,obj-c++
+    --enable-languages=c,c++
     --enable-default-pie
     --enable-default-ssp
     --with-isl
