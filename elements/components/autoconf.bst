@@ -1,10 +1,13 @@
 kind: autotools
 description: GNU autoconf
 
+build-depends:
+- bootstrap/bootstrap.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/m4.bst
-- filename: components/perl.bst
+- bootstrap/bootstrap-base.bst
+- components/m4.bst
+- components/perl.bst
 
 sources:
 - kind: tar
