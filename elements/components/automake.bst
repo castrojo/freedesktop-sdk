@@ -2,10 +2,11 @@ kind: autotools
 description: GNU automake
 
 build-depends:
+- bootstrap/bootstrap.bst
 - components/help2man.bst
 
 depends:
-- bootstrap-import.bst
+- bootstrap/bootstrap-base.bst
 - components/autoconf.bst
 
 sources:
