@@ -1,14 +1,18 @@
 kind: autotools
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- bootstrap/bootstrap.bst
+- components/autoconf.bst
+- components/automake.bst
+- components/gettext.bst
+- components/libtool.bst
 - components/help2man.bst
 - components/tar.bst
 - components/texinfo.bst
 - components/gzip.bst
 
 depends:
-- bootstrap-import.bst
+- bootstrap/bootstrap-base.bst
 - components/m4.bst
 
 config:

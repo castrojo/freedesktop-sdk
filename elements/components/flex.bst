@@ -4,7 +4,7 @@ build-depends:
 - components/flex-base.bst
 
 runtime-depends:
-- bootstrap-import.bst
+- bootstrap/bootstrap-base.bst
 - components/m4.bst
 - components/libfl.bst
 
