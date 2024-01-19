@@ -1,11 +1,15 @@
 kind: autotools
 description: GNU gettext
 
+build-depends:
+- bootstrap/bootstrap.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/gzip.bst
-- filename: components/tar.bst
-  type: runtime
+- bootstrap/bootstrap-base.bst
+- components/gzip.bst
+
+runtime-depends:
+- components/tar.bst
 
 public:
   bst:
