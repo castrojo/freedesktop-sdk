@@ -1,8 +1,11 @@
 kind: autotools
 description: GNU zip
 
+build-depends:
+- bootstrap/bootstrap.bst
+
 depends:
-- bootstrap-import.bst
+- bootstrap/bootstrap-base.bst
 
 (?):
 - target_arch == "i686":
