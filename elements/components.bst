@@ -215,6 +215,7 @@ depends:
 - components/libcap.bst
 - components/libcbor.bst
 - components/libconfuse.bst
+- components/libcupsfilters.bst
 - components/libdaemon.bst
 - components/libdatrie.bst
 - components/libdbus.bst
