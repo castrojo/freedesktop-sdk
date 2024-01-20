@@ -3,6 +3,7 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/avahi.bst
+- components/ghostscript.bst
 - components/systemd.bst
 
 depends:
