@@ -6,18 +6,8 @@ build-depends:
 - components/systemd.bst
 
 depends:
-- components/cups-daemon-only.bst
 - components/dejavu-fonts.bst
-- components/ghostscript.bst
-- components/jpeg.bst
-- components/lcms.bst
-- components/libexif.bst
-- components/libpng.bst
-- components/libtiff.bst
-- components/mutool.bst
-- components/poppler.bst
-- components/qpdf.bst
-- components/dbus.bst
+- components/libppd.bst
 
 variables:
   # There's a related Python script which opens files assuming no build-dir

@@ -259,6 +259,7 @@ depends:
 - components/libpaper.bst
 - components/libpipeline.bst
 - components/libpng.bst
+- components/libppd.bst
 - components/libproxy.bst
 - components/libpsl.bst
 - components/libpulse.bst
