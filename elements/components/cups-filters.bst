@@ -4,6 +4,7 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/avahi.bst
 - components/ghostscript.bst
+- components/mutool.bst
 - components/systemd.bst
 
 depends:
