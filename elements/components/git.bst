@@ -46,6 +46,9 @@ config:
     - |
       find "%{install-root}" -type f -name perllocal.pod -delete
 
+    - |
+      install -Dm644 contrib/completion/git-completion.bash "%{install-root}%{datadir}/bash-completion/git"
+
 public:
   bst:
     overlap-whitelist:
