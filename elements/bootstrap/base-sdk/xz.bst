@@ -13,7 +13,7 @@ depends:
 - elements/bootstrap/include/base-sdk.yml
 
 variables:
-  autogen: ./autogen.sh --no-po4a
+  autogen: ./autogen.sh --no-po4a --no-doxygen
 
 sources:
 - kind: git_tag
