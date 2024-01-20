@@ -13,8 +13,7 @@ environment:
   LD_LIBRARY_PATH: '%{build-root}/%{build-dir}/lib/%{gcc_triplet}'
 
 variables:
-  cmake: |
-    cmake -B%{build-dir} -Hllvm -G"%{generator}" %{cmake-args}
+  conf-root: llvm
 
   debug_flags: "-g1"
   optimize-debug: "false"
