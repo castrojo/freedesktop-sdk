@@ -10,14 +10,6 @@ depends:
 - components/dejavu-fonts.bst
 - components/libppd.bst
 
-variables:
-  # There's a related Python script which opens files assuming no build-dir
-  build-dir: ''
-  conf-local: >-
-    --without-rcdir
-  # https://github.com/OpenPrinting/cups-filters/issues/512
-  local_flags: "-std=c++17"
-
 sources:
 - kind: git_repo
   url: github:OpenPrinting/cups-filters.git
