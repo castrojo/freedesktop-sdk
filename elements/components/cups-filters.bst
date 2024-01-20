@@ -5,7 +5,6 @@ build-depends:
 - components/avahi.bst
 - components/ghostscript.bst
 - components/mutool.bst
-- components/systemd.bst
 
 depends:
 - components/dejavu-fonts.bst
@@ -18,13 +17,6 @@ variables:
     --without-rcdir
   # https://github.com/OpenPrinting/cups-filters/issues/512
   local_flags: "-std=c++17"
-
-config:
-  install-commands:
-    (>):
-    - |
-      systemdsystemunitdir="$(pkg-config --variable systemdsystemunitdir systemd)"
-      install -Dm644 -t "%{install-root}${systemdsystemunitdir}" utils/cups-browsed.service
 
 sources:
 - kind: git_repo
