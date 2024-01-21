@@ -15,7 +15,7 @@ config:
     (>):
     # Cups seems not like non ppd files
     - |
-      find "%{install-root}%{datadir}/cups/model/foomatic-db-ppds" -not -type d -not -name "*.ppd" -not -name "*.ppd.*" -exec rm {} ";"
+      find "%{install-root}%{datadir}/cups/model/foomatic-db-ppds" -not -type d -not -name "*.ppd" -not -name "*.ppd.*" -delete
 
 sources:
 - kind: git_repo
