@@ -1,0 +1,32 @@
+From 5c6bf90ae3b9f0cc8fe6792b8cd24fac4559e9f1 Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Sun, 21 Jan 2024 17:30:18 +0530
+Subject: [PATCH] Cherry pick 6560fb26a62ef135a804357ef4f15a47de3e49b3
+
+On top of 0.187 https://sourceware.org/git/?p=elfutils.git;a=commit;h=d2bf497b12fbd49b4996ccf0744303ffd67735b1
+
+---
+ debuginfod/debuginfod-client.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/debuginfod/debuginfod-client.c b/debuginfod/debuginfod-client.c
+index ea6e461a..d7682db6 100644
+--- a/debuginfod/debuginfod-client.c
++++ b/debuginfod/debuginfod-client.c
+@@ -98,6 +98,13 @@ void debuginfod_end (debuginfod_client *c) { }
+   #include <fts.h>
+ #endif
+ 
++/* Older curl.h don't define CURL_AT_LEAST_VERSION.  */
++#ifndef CURL_AT_LEAST_VERSION
++  #define CURL_VERSION_BITS(x,y,z) ((x)<<16|(y)<<8|(z))
++  #define CURL_AT_LEAST_VERSION(x,y,z) \
++    (LIBCURL_VERSION_NUM >= CURL_VERSION_BITS(x, y, z))
++#endif
++
+ #include <pthread.h>
+ 
+ static pthread_once_t init_control = PTHREAD_ONCE_INIT;
+-- 
+2.43.0
+

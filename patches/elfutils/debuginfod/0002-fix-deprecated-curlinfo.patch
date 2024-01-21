@@ -1,0 +1,35 @@
+From 5c6bf90ae3b9f0cc8fe6792b8cd24fac4559e9f1 Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Sun, 21 Jan 2024 17:30:18 +0530
+Subject: [PATCH] Cherry pick d2bf497b12fbd49b4996ccf0744303ffd67735b1
+
+On top of 0.187 https://sourceware.org/git/?p=elfutils.git;a=commit;h=d2bf497b12fbd49b4996ccf0744303ffd67735b1
+---
+ debuginfod/debuginfod-client.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/debuginfod/debuginfod-client.c b/debuginfod/debuginfod-client.c
+index ea6e461a..56a6b7c3 100644
+--- a/debuginfod/debuginfod-client.c
++++ b/debuginfod/debuginfod-client.c
+@@ -1147,7 +1147,7 @@ debuginfod_query_server (debuginfod_client *c,
+              deflate-compressing proxies, this number is likely to be
+              unavailable, so -1 may show. */
+           CURLcode curl_res;
+-#ifdef CURLINFO_CONTENT_LENGTH_DOWNLOAD_T
++#if CURL_AT_LEAST_VERSION(7, 55, 0)
+           curl_off_t cl;
+           curl_res = curl_easy_getinfo(target_handle,
+                                        CURLINFO_CONTENT_LENGTH_DOWNLOAD_T,
+@@ -1182,7 +1182,7 @@ debuginfod_query_server (debuginfod_client *c,
+           if (target_handle) /* we've committed to a server; report its download progress */
+             {
+               CURLcode curl_res;
+-#ifdef CURLINFO_SIZE_DOWNLOAD_T
++#if CURL_AT_LEAST_VERSION(7, 55, 0)
+               curl_off_t dl;
+               curl_res = curl_easy_getinfo(target_handle,
+                                            CURLINFO_SIZE_DOWNLOAD_T,
+-- 
+2.43.0
+
