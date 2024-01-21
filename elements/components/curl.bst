@@ -41,12 +41,11 @@ public:
     - CVE-2023-38546
     - CVE-2023-27534
     - CVE-2023-27533
-    - CVE-2023-23914
 
 sources:
 - kind: git_tag
   url: github:curl/curl.git
   track: master
-  ref: curl-7_86_0-0-gcd95ee9f771361acf241629d2fe5507e308082a2
+  ref: curl-7_88_1-0-g046209e561b7e9b5aab1aef7daebf29ee6e6e8c7
 - kind: patch_queue
   path: patches/curl
