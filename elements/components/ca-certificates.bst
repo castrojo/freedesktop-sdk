@@ -189,4 +189,4 @@ sources:
   url: fedora_rpms:ca-certificates.git
   track: rawhide
   track-tags: false
-  ref: ca-certificates-2010_63-3_fc14-147-g44da037acbb6f11874d82c55afc46db072984c08
+  ref: ca-certificates-2010_63-3_fc14-148-g302dbabf4e206f6d18928e0c564f6891cb7898a5
