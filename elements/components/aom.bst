@@ -57,4 +57,4 @@ sources:
   - av1-normative
   match:
   - v*.*.*
-  ref: v3.8.0-0-gb681eac83963950afc7be55df56c22fa5210aaa2
+  ref: v3.8.1-0-gbb6430482199eaefbeaaa396600935082bc43f66
