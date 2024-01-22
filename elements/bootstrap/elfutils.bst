@@ -37,7 +37,7 @@ config:
   install-commands:
     (>):
     - |
-      find "%{install-root}" -name "lib*.a" -exec rm {} ";"
+      find "%{install-root}" -name "lib*.a" -delete
 
 public:
   bst:

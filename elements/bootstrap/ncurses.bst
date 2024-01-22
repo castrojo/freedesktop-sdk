@@ -78,7 +78,7 @@ config:
     mv "%{install-root}%{includedir}/ncurses.h" "%{install-root}%{includedir}/%{gcc_triplet}/"
 
   - |
-    find "%{install-root}" -name "lib*.a" -exec rm {} ";"
+    find "%{install-root}" -name "lib*.a" -delete
 
   - |
     %{delete-libtool-archives}

@@ -55,7 +55,7 @@ config:
     rm -r %{install-root}/'%{indep-libdir}/python%{version_long}/config-%{version_long}-%{gcc_triplet}'
 
   - |
-    find "%{install-root}" -name "lib*.a" -exec rm {} ";"
+    find "%{install-root}" -name "lib*.a" -delete
 
   - |
     cat <<EOF >"%{install-root}%{includedir}/python%{version_long}/pyconfig.h"
