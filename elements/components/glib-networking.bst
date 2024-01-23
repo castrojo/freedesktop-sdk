@@ -26,7 +26,7 @@ sources:
   track-extra:
   - glib-2-70
   match:
-  - 2.*[02468].*
+  - 2.72.*
   exclude:
   - '*alpha*'
   - '*beta*'
