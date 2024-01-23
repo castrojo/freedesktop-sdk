@@ -56,5 +56,5 @@ sources:
   track-extra:
   - glib-2-72
   match:
-  - 2.*[02468].*
+  - 2.72.*
   ref: 2.72.4-0-g6ed6303e40d6eaf80f2acfbfbcadbb169d156e9c
