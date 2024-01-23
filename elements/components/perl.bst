@@ -1,7 +1,10 @@
 kind: manual
 
+build-depends:
+- bootstrap/bootstrap.bst
+
 depends:
-- filename: bootstrap-import.bst
+- bootstrap/bootstrap-base.bst
 
 environment:
   BSTARCH: '%{arch}'

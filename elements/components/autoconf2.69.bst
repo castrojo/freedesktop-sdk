@@ -1,7 +1,10 @@
 kind: autotools
 
+build-depends:
+- bootstrap/bootstrap.bst
+
 depends:
-- bootstrap-import.bst
+- bootstrap/bootstrap-base.bst
 - components/m4.bst
 - components/perl.bst
 

@@ -1,8 +1,11 @@
 kind: autotools
 description: GNU m4
 
+build-depends:
+- bootstrap/bootstrap.bst
+
 depends:
-- filename: bootstrap-import.bst
+- bootstrap/bootstrap-base.bst
 
 sources:
 - kind: tar

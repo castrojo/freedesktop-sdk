@@ -62,7 +62,7 @@ variables:
     --disable-bootstrap
     --disable-nls
     --with-sysroot=%{sysroot}
-    --enable-languages=c,c++,fortran,objc
+    --enable-languages=c,c++
     --enable-default-pie
     --enable-default-ssp
     --with-isl

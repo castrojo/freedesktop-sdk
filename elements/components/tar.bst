@@ -1,7 +1,10 @@
 kind: autotools
 
+build-depends:
+- bootstrap/bootstrap.bst
+
 depends:
-- filename: bootstrap-import.bst
+- bootstrap/bootstrap-base.bst
 
 (@):
 - elements/include/tar-source.yml

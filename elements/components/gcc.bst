@@ -1,84 +1,34 @@
 kind: autotools
-description: GNU gcc Stage 3
 
 build-depends:
-- bootstrap/base-sdk/autoconf2.69.bst
-- bootstrap/base-sdk/automake.bst
-- bootstrap/base-sdk/libtool.bst
-- bootstrap/base-sdk/gettext.bst
-- bootstrap/base-sdk/tar.bst
-- bootstrap/base-sdk/texinfo.bst
-- bootstrap/base-sdk/flex.bst
-- bootstrap/build/gcc-stage2.bst
-- bootstrap/build/debug-utils.bst
-- bootstrap/build/python3.bst
-- bootstrap/gnu-config.bst
-- filename: bootstrap/glibc.bst
-  config:
-    location: "%{sysroot}"
-- filename: bootstrap/libxcrypt.bst
-  config:
-    location: "%{sysroot}"
+- bootstrap/bootstrap.bst
+- components/autoconf2.69.bst
+- components/automake.bst
+- components/libtool.bst
+- components/gettext.bst
+- components/tar.bst
+- components/texinfo.bst
+- components/flex.bst
+- components/python3-minimal.bst
 
-runtime-depends:
-- bootstrap/glibc.bst
-- bootstrap/binutils.bst
-- bootstrap/libxcrypt.bst
+depends:
+- bootstrap/bootstrap-base.bst
 
 (@):
-- elements/bootstrap/include/gcc-arch-opts.yml
 - elements/bootstrap/include/gcc-source.yml
-- elements/bootstrap/include/target.yml
-
-environment:
-  CC: '%{tools}/bin/%{triplet}-gcc'
-  CXX: '%{tools}/bin/%{triplet}-g++'
-  GFORTRAN_FOR_TARGET: '%{tools}/bin/%{triplet}-gfortran'
-  AR: '%{tools}/%{triplet}/bin/ar'
-  AS: '%{tools}/%{triplet}/bin/as'
-  LD: '%{tools}/%{triplet}/bin/ld'
-  NM: '%{tools}/%{triplet}/bin/nm'
-  RANLIB: '%{tools}/%{triplet}/bin/ranlib'
-  CC_FOR_BUILD: '%{bindir}/gcc'
-  CXX_FOR_BUILD: '%{bindir}/g++'
-  AR_FOR_BUILD: '%{bindir}/ar'
-  AS_FOR_BUILD: '%{bindir}/as'
-  LD_FOR_BUILD: '%{bindir}/ld'
-  NM_FOR_BUILD: '%{bindir}/nm'
-  RANLIB_FOR_BUILD: '%{bindir}/ranlib'
-  CFLAGS_FOR_BUILD:  "%{build_flags}"
-  CXXFLAGS_FOR_BUILD: "%{build_flags}"
-  LDFLAGS_FOR_BUILD:  "%{ldflags_defaults}"
-  PYTHON: python3
 
 variables:
   # gcc installs correctly libraries in the multiarch library
   # directory, but needs to be provided /usr/lib for --libdir.
   lib: lib
   multiarch_libdir: '%{prefix}/lib/%{gcc_triplet}'
-  autogen: |
-    autoreconf2.69 -fvi
-    for conf in */configure.ac; do
-      dir="$(dirname "${conf}")"
-      case "$(dirname "${conf}")" in
-        isl)
-          args=()
-          ;;
-        *)
-          args=("-I" "../config")
-          ;;
-      esac
-      echo "autoreconf: ${dir}"
-      (cd "${dir}" && autoreconf2.69 "${args[@]}" -fvi)
-    done
 
-  conf-local: >-
+  conf-local:
     --target=%{triplet}
     --disable-multilib
     --enable-multiarch
     --disable-bootstrap
-    --with-build-sysroot=%{sysroot}
-    --enable-languages=c,c++
+    --enable-languages=c,c++,fortran,objc,obj-c++
     --enable-default-pie
     --enable-default-ssp
     --with-isl
@@ -86,10 +36,6 @@ variables:
     --enable-linker-build-id
     --disable-libstdcxx-filesystem-ts
     --enable-cet
-    host_configargs='lt_cv_sys_lib_dlsearch_path_spec="/usr/lib/%{gcc_triplet}"'
-    target_configargs='lt_cv_sys_lib_dlsearch_path_spec="/usr/lib/%{gcc_triplet}"'
-    %{conf-arch}
-
   conf-link-args: |
     --enable-shared
 

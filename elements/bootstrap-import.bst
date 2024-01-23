@@ -1,4 +1,5 @@
 kind: stack
 
 depends:
-- bootstrap/bootstrap.bst
+- bootstrap/bootstrap-base.bst
+- components/gcc.bst
