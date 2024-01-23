@@ -164,6 +164,7 @@ depends:
 - components/json-c.bst
 - components/json-glib.bst
 - components/kbd.bst
+- components/keyutils.bst
 - components/kmod.bst
 - components/ladspa-sdk.bst
 - components/lame.bst
@@ -206,6 +207,7 @@ depends:
 - components/libnftnl.bst
 - components/libnice.bst
 - components/libnl.bst
+- components/libnvme.bst
 - components/libogg.bst
 - components/libpaper.bst
 - components/libpipeline.bst
