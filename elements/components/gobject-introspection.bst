@@ -41,5 +41,5 @@ sources:
   track-extra:
   - gnome-42
   match:
-  - "*.*[02468].*"
+  - "1.72.*"
   ref: 1.72.1-0-gc8aefdd9f606796037e36023d16e956450de3bf3
