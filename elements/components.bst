@@ -215,6 +215,7 @@ depends:
 - components/libcap.bst
 - components/libcbor.bst
 - components/libconfuse.bst
+- components/libcupsfilters.bst
 - components/libdaemon.bst
 - components/libdatrie.bst
 - components/libdbus.bst
@@ -258,6 +259,7 @@ depends:
 - components/libpaper.bst
 - components/libpipeline.bst
 - components/libpng.bst
+- components/libppd.bst
 - components/libproxy.bst
 - components/libpsl.bst
 - components/libpulse.bst
