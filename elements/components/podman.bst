@@ -27,6 +27,11 @@ runtime-depends:
 
 environment:
   GOPATH: "%{build-root}"
+  GOMAXPROCS: "%{max-jobs}"
+  MAKEFLAGS: -j1
+
+environment-nocache:
+- GOMAXPROCS
 
 variables:
   ldflags_defaults: ""
