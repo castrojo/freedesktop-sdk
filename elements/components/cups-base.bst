@@ -46,6 +46,12 @@ public:
       - "%{libdir}/pkgconfig/cups.pc"
       - '%{libdir}/lib*.so'
       - '%{libdir}/lib*.so.*'
+      - '%{debugdir}%{libdir}/lib*.so.*'
+      - '%{debugdir}/dwz'
+      - '%{debugdir}/dwz/**'
+      - '%{sourcedir}'
+      - '%{sourcedir}/**'
+
   cpe:
     product: cups
 
@@ -58,7 +64,7 @@ sources:
   exclude:
   - "*a*"
   - "*b*"
-  ref: v2.4.6-0-g9d614a4b3184205294c55355a1d2eb54d4532ccd
+  ref: v2.4.7-0-g3a4d9204e5818e5d0b8f1e0e50832661209048ee
 - kind: local
   path: files/cups/tmpfiles.conf
 - kind: local
