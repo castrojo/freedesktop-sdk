@@ -26,4 +26,4 @@ sources:
 - kind: git_repo
   url: github:hughsie/colord.git
   track: '*.*.*'
-  ref: 1.4.6-0-g43c19fd019da5f69d2ebc00a9908b1dd83129485
+  ref: 1.4.7-0-g1f55f64bbcdbf2283fbf2b3eed3966893870285a
