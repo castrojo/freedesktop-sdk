@@ -34,7 +34,7 @@ public:
 sources:
 - kind: git_repo
   url: github:KhronosGroup/SPIRV-Tools.git
-  track: sdk-*
+  track: vulkan-sdk-*
   ref: sdk-1.3.261.1-0-ge553b884c7c9febaa4e52334f683641fb5f196a0
 - kind: patch
   path: patches/spirv-tools/Remove-libSPIRV-Tools-shared.so.patch
