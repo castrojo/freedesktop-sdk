@@ -1,9 +1,10 @@
 sources:
 - kind: git_tag
   url: github:protocolbuffers/protobuf.git
-  track: main
-  track-extra:
-  - 21.x
+  track: 21.x
   exclude:
   - '*rc*'
+  - '*-dev'
+  - 'v3.*'
+  - 'v4.*'
   ref: v21.12-0-gf0dc78d7e6e331b8c6bb2d5283e06aa26883ca7c
