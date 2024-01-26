@@ -46,6 +46,6 @@ sources:
 - kind: git_tag
   url: github:curl/curl.git
   track: master
-  ref: curl-7_88_1-0-g046209e561b7e9b5aab1aef7daebf29ee6e6e8c7
+  ref: curl-8_5_0-0-g7161cb17c01dcff1dc5bf89a18437d9d729f1ecd
 - kind: patch_queue
   path: patches/curl
