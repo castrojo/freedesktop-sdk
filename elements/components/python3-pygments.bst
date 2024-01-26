@@ -3,6 +3,7 @@ kind: pip
 build-depends:
 - bootstrap-import.bst
 - components/python3-pip.bst
+- components/python3-hatchling.bst
 
 depends:
 - components/python3.bst
