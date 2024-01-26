@@ -34,7 +34,4 @@ public:
 sources:
 - kind: git_tag
   url: github:KhronosGroup/glslang.git
-  track: master
-  match:
-  - sdk-*
   ref: sdk-1.3.224.1-0-g10423ec659d301a0ff2daac8bbf38980abf27590
