@@ -3,9 +3,12 @@ From: Seppo Yli-Olli <seppo.yliolli@gmail.com>
 Date: Sat, 30 Jan 2021 23:48:27 +0200
 Subject: [PATCH] Remove date from curl man page
 
+---
+ docs/libcurl/mksymbolsmanpage.pl | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/docs/libcurl/mksymbolsmanpage.pl b/docs/libcurl/mksymbolsmanpage.pl
-index 8d1ddd044..c31a18542 100755
+index a8cb10d82..50791857c 100755
 --- a/docs/libcurl/mksymbolsmanpage.pl
 +++ b/docs/libcurl/mksymbolsmanpage.pl
 @@ -26,7 +26,6 @@
@@ -20,12 +23,11 @@ index 8d1ddd044..c31a18542 100755
  .\\" * SPDX-License-Identifier: curl
  .\\" *
  .\\" **************************************************************************
--.TH libcurl-symbols 3 "$date" "libcurl $version" "libcurl symbols"
-+.TH libcurl-symbols 3 "libcurl $version" "libcurl symbols"
+-.TH libcurl-symbols 3 "$date" "libcurl" "libcurl"
++.TH libcurl-symbols 3 "libcurl" "libcurl"
  .SH NAME
  libcurl-symbols \\- libcurl symbol version information
  .SH "libcurl symbols"
 -- 
-2.29.2
-
+2.43.0
 

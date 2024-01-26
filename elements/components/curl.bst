@@ -39,8 +39,6 @@ public:
     patches:
     - CVE-2023-38545
     - CVE-2023-38546
-    - CVE-2023-27534
-    - CVE-2023-27533
 
 sources:
 - kind: git_tag
