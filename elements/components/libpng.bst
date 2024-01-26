@@ -19,6 +19,6 @@ sources:
 - kind: git_tag
   url: github:glennrp/libpng.git
   track: libpng16
-  ref: v1.6.40-0-gf135775ad4e5d4408d2e12ffcc71bb36e6b48551
+  ref: v1.6.41-0-gba980b8f0cfbc270ba1c4a663455e2fe8bad91d2
 - kind: patch
   path: patches/libpng/libpng-1.6.37-apng.patch
