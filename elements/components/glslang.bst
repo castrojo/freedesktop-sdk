@@ -32,9 +32,7 @@ public:
 sources:
 - kind: git_repo
   url: github:KhronosGroup/glslang.git
-  track: sdk-*
-  exclude:
-  - sdk-1.3.250.1
+  track: vulkan-sdk-*
   ref: sdk-1.3.261.1-0-g76b52ebf77833908dc4c0dd6c70a9c357ac720bd
 - kind: patch
   # Install several static libraries that shaderc needs
