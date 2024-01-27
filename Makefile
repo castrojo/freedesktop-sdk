@@ -316,16 +316,6 @@ files/vm/ostree-config/fdsdk.gpg: ostree-gpg
 LOCAL_ADDRESS=$(shell ip route get 1.1.1.1 | cut -d" " -f7)
 OSTREE_BRANCH=freedesktop-sdk/minimal/$(BRANCH)/$(ARCH)
 
-.PHONY: vulkan-stack-update
-vulkan-stack-update:
-	bst source track components/vulkan-icd-loader.bst \
-	components/vulkan-headers.bst \
-	components/vulkan-validation-layers.bst \
-	extensions/vulkaninfo/vulkan-tools.bst \
-	components/spirv-headers.bst \
-	components/spirv-tools.bst \
-	components/glslang.bst
-
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img:
 	$(BST) artifact checkout $(VM_ARTIFACT_IMAGE) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
 
