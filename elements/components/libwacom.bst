@@ -6,6 +6,7 @@ build-depends:
 depends:
 - components/glib.bst
 - components/systemd.bst
+- components/libevdev.bst
 - components/libgudev.bst
 
 variables:
@@ -16,4 +17,4 @@ sources:
 - kind: git_repo
   url: github:linuxwacom/libwacom.git
   track: libwacom-*
-  ref: libwacom-2.8.0-0-gf5b92814320d0a5745b50b7b36103843ad23e299
+  ref: libwacom-2.9.0-0-g628e3013948401750f3f1cc5b919e5e5e908c7cc
