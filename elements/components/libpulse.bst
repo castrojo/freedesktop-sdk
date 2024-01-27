@@ -53,7 +53,7 @@ public:
 sources:
 - kind: git_tag
   url: freedesktop:pulseaudio/pulseaudio.git
-  track: master
+  track: stable-16.x
   exclude:
   - v*.99.*
   ref: v16.0-0-g237c5a5c36d49a51b1b7831b091ea250367c9102
