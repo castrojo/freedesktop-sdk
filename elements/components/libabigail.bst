@@ -12,5 +12,3 @@ sources:
   url: sourceware:libabigail.git
   track: master
   ref: libabigail-2.4-15-gf5c304427d6b8fa836eabe76c3c24df8dcc4e6e7
-- kind: patch_queue
-  path: patches/libabigail
