@@ -1,3 +1,4 @@
 [
-	"^libpipewire-module-.*\\.so"
+	"^libpipewire-module-.*\\.so",
+	"^libpulsecommon-.*\\.so"
 ]
