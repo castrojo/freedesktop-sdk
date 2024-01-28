@@ -1,7 +1,6 @@
 sources:
 - kind: git_tag
   url: savannah:freetype/freetype2.git
-  track: master
   ref: VER-2-12-1-0-ge8ebfe988b5f57bfb9a3ecb13c70d9791bce9ecf
 - kind: patch
   path: patches/freetype/enable-cleartype-subpixel.patch
