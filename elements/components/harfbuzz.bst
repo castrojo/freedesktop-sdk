@@ -29,5 +29,4 @@ public:
 sources:
 - kind: git_tag
   url: github:harfbuzz/harfbuzz.git
-  track: main
   ref: 5.2.0-0-g4a1d891c6317d2c83e5f3c2607ec5f5ccedffcde
