@@ -39,4 +39,4 @@ sources:
   track: master
   exclude:
   - '*RC*'
-  ref: pcre2-10.40-0-g3103b8f20a3b9944b177e812fde29fbfb8b90558
+  ref: pcre2-10.42-0-g52c08847921a324c804cabf2814549f50bce1265
