@@ -7,9 +7,7 @@ depends:
 - components/python3.bst
 
 sources:
-- kind: pypi
-  name: pygments
-  ref:
-    sha256sum: da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367
-    suffix: 
-      55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz
+- kind: git_repo
+  url: github:pygments/pygments.git
+  track: refs/tags/*.*.*
+  ref: 2.17.2-0-gee30ce132ae252bd72f3a74c86d9314a2214d0b4
