@@ -446,6 +446,7 @@ depends:
 - components/python3-packaging.bst
 - components/python3-pathlib2.bst
 - components/python3-pathspec.bst
+- components/python3-pefile.bst
 - components/python3-pil.bst
 - components/python3-pip.bst
 - components/python3-pkgconfig.bst
@@ -542,7 +543,9 @@ depends:
 - components/systemd-hwdb.bst
 - components/systemd-libs.bst
 - components/systemd-manifest.bst
+- components/systemd-kernel-install.bst
 - components/systemd-stage1.bst
+- components/systemd-ukify.bst
 - components/systemd.bst
 - components/tar.bst
 - components/tcl.bst

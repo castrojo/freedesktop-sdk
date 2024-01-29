@@ -101,6 +101,8 @@ variables:
     -Dgnutls=disabled
     -Dglib=disabled
     -Ddbus=disabled  # test dependency
+    -Dukify=%{efi}
+    -Dkernel-install=true
 
 public:
   cpe:
@@ -110,6 +112,17 @@ public:
 
   bst:
     split-rules:
+      kernel-install:
+      - '%{bindir}/kernel-install'
+      - '%{datadir}/bash-completion/completions/kernel-install'
+      - '%{datadir}/zsh/site-functions/_kernel-install'
+      - '%{indep-libdir}/kernel'
+      - '%{indep-libdir}/kernel/**'
+      - '%{mandir}/man8/kernel-install.8'
+      - '%{debugdir}%{bindir}/kernel-install.debug'
+      ukify:
+      - '%{indep-libdir}/systemd/ukify'
+      - '%{mandir}/man1/ukify.1'
       systemd-libs:
       - '%{libdir}'
       - '%{libdir}/libsystemd*.so*'

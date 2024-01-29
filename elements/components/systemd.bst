@@ -33,6 +33,8 @@ runtime-depends:
 config:
   exclude:
   - systemd-libs
+  - ukify
+  - kernel-install
 
   include-orphans: True
 
