@@ -23,4 +23,4 @@ sources:
   track: binutils-*
   exclude:
   - binutils-2_41
-  ref: binutils-2_41-release-0-g675b9d612cc59446e84e2c6d89b45500cb603a8d
+  ref: binutils-2_42-0-gc7f28aad0c99d1d2fec4e52ebfa3735d90ceb8e9
