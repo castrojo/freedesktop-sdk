@@ -28,6 +28,7 @@ build-depends:
 - components/libfido2.bst
 - components/libidn2.bst
 - components/openssl.bst
+- components/python3-pefile.bst
 - components/python3-jinja2.bst
 - components/apparmor.bst
 - components/tpm2-tss.bst
