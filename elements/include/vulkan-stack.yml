@@ -37,3 +37,11 @@ sources:
   # https://gitweb.gentoo.org/repo/gentoo.git/tree/dev-util/glslang/files/glslang-1.3.236-Install-static-libs.patch
   directory: glslang
   path: patches/glslang/glslang-1.3.236-Install-static-libs.patch
+- kind: git_repo
+  url: github:KhronosGroup/Vulkan-Loader.git
+  directory: vulkan-icd-loader
+  track: vulkan-sdk-*
+  ref: sdk-1.3.261.1-0-gafdd025ead2b63b2c73d900ab128a2d3b512cdf0
+- kind: patch
+  directory: vulkan-icd-loader
+  path: patches/vulkan/vulkan-libdir-path.patch
