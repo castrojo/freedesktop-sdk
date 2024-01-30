@@ -10,9 +10,9 @@ depends:
 - components/libffi.bst
 
 variables:
+  local_flags: -DXCURSORPATH='"%{cursorpath}"'
   meson-local: >-
     -Ddocumentation=false
-    -Dc_args=-DXCURSORPATH='\"%{cursorpath}\"'
 
 public:
   bst:
