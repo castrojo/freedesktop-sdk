@@ -66,6 +66,6 @@ sources:
   exclude:
   - openssl*alpha*
   - openssl*beta*
-  ref: openssl-3.1.4-0-g01d5e2318405362b4de5e670c90d9b40a351d053
+  ref: openssl-3.1.5-0-g99e6624ebb8a5943ab9699ed4ab221e8b29a31dd
 - kind: patch
   path: patches/openssl/0001-seed-aes-gcm-avx512.patch
