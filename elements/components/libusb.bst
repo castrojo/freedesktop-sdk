@@ -15,4 +15,4 @@ sources:
   - 'v*'
   exclude:
   - '*-rc*'
-  ref: v1.0.26-0-g4239bc3a50014b8e6a5a2a59df1fff3b7469543b
+  ref: v1.0.27-0-gd52e355daa09f17ce64819122cb067b8a2ee0d4b
