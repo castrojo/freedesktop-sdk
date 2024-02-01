@@ -14,10 +14,7 @@ depends:
 
 variables:
   command-subdir: subprojects/gst-libav
-
-  meson-local: >-
-    '-Dc_args=-DTRIPLET=\"%{gcc_triplet}\"'
-  optimize-debug: "false"
+  local_flags: -DTRIPLET='"%{gcc_triplet}"'
 
 (@):
 - elements/include/gstreamer-source.yml
