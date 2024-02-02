@@ -6,6 +6,7 @@ build-depends:
 
 depends:
 - components/cairo.bst
+- components/gtk3.bst
 - components/pango.bst
 - components/wayland.bst
 
@@ -13,7 +14,6 @@ variables:
   meson-local: >-
     -Ddemo=false
     -Ddbus=disabled
-    -Dgtk=disabled
 
 public:
   bst:
