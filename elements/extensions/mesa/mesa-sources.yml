@@ -8,5 +8,3 @@ sources:
   ref: mesa-23.3.6-0-g863338275d915e867319c3690ffd3272b06303c3
 - kind: patch
   path: patches/mesa/mesa_libdrm_deps.patch
-- kind: patch
-  path: patches/mesa/0002-Revert-nir-opt_if-Simplify-if-s-with-general-conditi.patch
