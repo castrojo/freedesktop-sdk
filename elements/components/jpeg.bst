@@ -8,9 +8,11 @@ depends:
   type: build
 
 variables:
-  cmake-local: |
-    -DCMAKE_SKIP_RPATH:BOOL=YES \
+  cmake-local: >-
+    -DCMAKE_SKIP_RPATH:BOOL=YES 
     -DENABLE_STATIC:BOOL=NO
+
+  optimize-debug: "false"
 
 config:
   install-commands:

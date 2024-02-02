@@ -8,7 +8,6 @@ depends:
 
 variables:
   cmake-local: |
-    -DCMAKE_BUILD_TYPE=Release \
     -DALSOFT_EXAMPLES=NO
 
 public:

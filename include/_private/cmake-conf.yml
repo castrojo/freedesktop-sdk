@@ -1,0 +1,7 @@
+# Project-wide configuration of cmake elements
+
+variables:
+  cmake-global: >-
+    -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    -DCMAKE_C_FLAGS_RELWITHDEBINFO="-DNDEBUG"
+    -DCMAKE_CXX_FLAGS_RELWITHDEBINFO="-DNDEBUG"
