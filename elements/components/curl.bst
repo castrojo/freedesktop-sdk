@@ -7,6 +7,7 @@ depends:
 - bootstrap-import.bst
 - components/libnghttp2.bst
 - components/openssl.bst
+- components/libpsl.bst
 
 runtime-depends:
 - components/ca-certificates.bst
