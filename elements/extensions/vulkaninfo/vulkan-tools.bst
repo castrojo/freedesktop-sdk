@@ -6,6 +6,7 @@ build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/glslang.bst
 - components/python3.bst
+- extensions/vulkaninfo/volk.bst
 
 depends:
 - bootstrap-import.bst
