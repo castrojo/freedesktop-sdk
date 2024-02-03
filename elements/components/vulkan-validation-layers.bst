@@ -5,6 +5,7 @@ build-depends:
 - components/glslang.bst
 - components/spirv-headers.bst
 - components/spirv-tools.bst
+- components/vulkan-utility-libraries.bst
 
 depends:
 - bootstrap-import.bst
