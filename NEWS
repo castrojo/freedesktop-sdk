@@ -1,5 +1,210 @@
 Freedesktop-SDK
 
+freedesktop-sdk-22.08.21:
+  * stripper: Set FILE_OFFSET_BITS=64
+  * ninja: Backport patch for largefile64 support
+  * components/pciutils.bst: Freeze to v3.8.0 due to ABI break
+  * Update libmicrohttpd to v1.0.0-0
+  * Update po4a to v0.70-0
+  * Update vim to v9.1.0075-0
+  * Update glibc to glibc-2.35-282
+  * Update python3-certifi to 2024.2.2
+  * Update foomatic-db to 20240202-0
+  * Update python3-trove-classifiers to 2024.1.31
+  * Update freedesktop-sdk to freedesktop-sdk-22.08.20-251
+  * wayland: stop overwriting all buildflags
+  * gstreamer-libav: stop overwriting all buildflags
+  * Update extra-cmake-modules to v5.249.0-0
+  * Update python3-urllib3 to 2.2.0
+  * Update mesa to mesa-23.3.5-0
+  * Update libusb to v1.0.27-0
+  * Update openssl to openssl-3.0.13-0
+  * Update libpng to v1.6.42-0
+  * Update python3-pytz to 2023.4
+  * Update cmake to v3.28.2-0
+  * Update jpeg to 2.1.5.1-0
+  * Update python3-aiohttp to 3.9.3
+  * Update strace to v6.7-0
+  * Update inih to r58-0
+  * Update pcre2 to pcre2-10.42-0
+  * utils/check-abi-suppressions.json: Properly ignore libpulsecommon soname from all_keys
+  * Revert "components/libpulse.bst: Freeze to v16 branch due to soname bump"
+  * Update python3-mako to 1.3.0
+  * components/librsvg.bst: Exclude beta tags
+  * Update crun to 1.14-0
+  * components/jpeg.bst: Freeze to 2.1.x due to ABI break
+  * bootstrap/pcre2.bst: Exclude RC tags
+  * components/harfbuzz.bst: Freeze to 5.2.0 due to ABI break
+  * include/freetype.yml: Freeze to 2-12-1 due to ABI break
+  * Update acl to v2.3.2-0
+  * Update vim to v9.1.0059-0
+  * Update xz to v5.4.6-0
+  * check-abi/abidiff-suppressions.ini: Suppress new function in libnghttp2 1.57.0
+  * components/libnghttp2.bst: Update to v1.58.0
+  * components/libpulse.bst: Freeze to v16 branch due to soname bump
+  * Update python3-hatchling to 1.21.1
+  * components/wget2.bst: Freeze to 2.0.x due to soname bump
+  * Update gyp to 2d207fd
+  * components/libwacom.bst: Add libevdev as dependency
+  * Update libwacom to libwacom-2.9.0-0
+  * components/python3-pygments.bst: Add python3-hatchling as build dependency
+  * components/python3-pygments.bst: Seperate build-depends
+  * Update python3-pygments to 2.17.2
+  * include/protobuf-source.yml: Freeze to 21.x and exclude v3 or 4 tags
+  * components/glslang.bst: Freeze glslang
+  * components/shaderc.bst: Freeze shaderc as it refuses to build with newer glslang
+  * Update mesa to mesa-23.3.4-0
+  * Update libpng to v1.6.41-0
+  * sdl2-net patch for missing pkgconfig file
+  * Update ostree to v2024.1-0
+  * Update cryptsetup-base to v2.7.0-0
+  * Update python3-pluggy to 1.4.0
+  * cups-base: fix missing debuginfo
+  * abidiff-suppressions.ini: ignore cupsHMACData function for libcups
+  * Update cups-base to v2.4.7-0
+  * Update zlib to v1.3.1-0
+  * Update gtk3 to 3.24.41-0
+  * utils/abidiff-suppressions.ini: Add suppressions for enum changes and a type change for curl
+  * bootstrap/include/elfutils-source.yml: Add patches to fix compilation against newer libcurl
+  * Update curl patches to 7.88.1
+  * components/curl.bst: Bumpt to 7.88.1 and remove resolved CVE-2023-23914 patch
+  * components/gobject-introspection.bst: Freeze to 1.72 due to newer glib requirement
+  * components/glib-networking.bst.bst: Freeze to 2.72 due to newer glib requirement
+  * components/glib.bst: Freeze to 2.72
+  * Update python3-mako to 1.3.1
+  * Update btrfs-progs to v6.7-0
+  * Update ca-certificates to ca-certificates-2010_63-3_fc14-149
+  * Update python3-markupsafe to 2.1.4
+  * Update ca-certificates to ca-certificates-2010_63-3_fc14-148
+  * Update aom to v3.8.1-0
+  * Update wayland-protocols to 1.33-0
+  * Update libjcat to 0.2.1-0
+  * Update genimage to v17-0
+  * bootstrap/base-sdk/xz.bst: Disable doxygen
+  * Update xz to v5.4.5-0
+  * Update vim to v9.1.0041-0
+  * components/cups-filters.bst: Freeze to 1.27.5
+  * Update iputils to 20240117-0
+  * Update polkit-base to 124-0
+  * Update gtk3 to 3.24.40-0
+  * Add python3-sphinx-rtd-theme for btrfs-progs
+  * Add python3-sphinxcontrib-jquery for sphinx-rtd-theme
+  * components/btrfs-progs.bst: Add sphinx-rtd-theme to build dependency
+  * Update btrfs-progs to v6.6.3-0
+  * Update libjcat to 0.2.0-0
+  * Update audit to v4.0-0
+  * Update crun to 1.13-0
+  * Update iwd to 2.13-0
+  * Update libinput to 1.25.0-0
+  * Update python3-sphinxcontrib-qthelp to 1.0.7
+  * Update gnu-config to 948ae97
+  * Update iso-codes to v4.16.0-0
+  * Update libdrm to libdrm-2.4.120-0
+  * Update python3-sphinxcontrib-serializinghtml to 1.1.10
+  * Update vim to v9.1.0027-0
+  * components/tzdata.bst: specify the C compiler
+  * Update tzdata to 2023d-0
+  * components/appstream.bst: Add libsystemd dependency
+  * components/appstream-minimal.bst: Add libsystemd dependency
+  * include/appstream-source.yml: Update to 0.16.4
+  * Update appstream to v0.16.1-0
+  * Update python3-sphinxcontrib-htmlhelp to 2.0.5
+  * Update python3-sphinxcontrib-devhelp to 1.0.6
+  * Update attr to v2.5.2-0
+  * Update python3-sphinxcontrib-applehelp to 1.0.8
+  * Update mesa to mesa-23.3.3-0
+  * components/cython.bst: Track cython0
+  * components/cython.bst: Bump cython to 0.29.37
+  * Update extra-cmake-modules to v5.248.0-0
+  * Update foomatic-db to 20240109-0
+  * Update python3-markdown to 3.5.2
+  * Update python3-jinja2 to 3.1.3
+  * Update mesa to mesa-23.3.3-0
+  * Update iproute2 to v6.7.0-0
+  * components/wireplumber.bst: Remove cpptoml
+  * components/wireplumber.bst: Freeze to 0.4.17
+  * Update python3-alabaster to 0.7.16
+  * Update go to go1.21.6-0
+  * components/cups-filters.bst: Use c++17
+  * Update qpdf to v11.8.0-0
+  * Update python3-alabaster to 0.7.15
+  * Update python3-trove-classifiers to 2024.1.8
+  * Update python3-lxml to 5.1.0
+  * components/python3-alabaster.bst: Add python3-flit-core as dependency
+  * Update python3-alabaster to 0.7.14
+  * Update ccid to 1.5.5-0
+  * Update python3-lxml to 5.0.1
+  * Update vim to v9.1.0015-0
+  * ci-image: ruamel-yaml is split to different versions for bst2 and bst1
+  * ci-image: Update to freedesktop-sdk 23.08.9
+  * Use image with keepalive patched into buildbox-casd
+  * Update fcitx5 to 5.1.1-0
+  * Update plymouth to 24.004.60-0
+  * Update perl-pod-parser to 1.67
+  * Update libxmlb to 0.3.15-0
+  * systemd: Start tracking only v251 branch
+  * Update systemd to v251.20-0
+  * eos-updater: Freeze since there is no maintenance-mode branch
+  * Update python3-pil to 10.2.0
+  * Update eos-metrics to Release_5.1.1-0
+  * components/poppler.bst: Add curl and gpgme
+  * Update poppler to poppler-24.01.0-0
+  * Add components/python3-hatch-fancy-pypi-readme.bst for python-attrs
+  * components/python3-attrs.bst: Add new build dependencies
+  * Update python3-attrs to 23.2.0
+  * Update python3-lxml to 5.0.0
+  * Update python3-dbusmock to 0.30.2
+  * Update swig to v4.2.0-0
+  * Update sudo to SUDO_1_9_15p5-0
+  * Update ccache to v4.9-0
+  * Update vim to v9.0.2189-0
+  * components/plymouth.bst: Split plymouth-logo in a seperate element
+  * components/plymouth.bst: Switch to meson
+  * components/plymouth.bst: Drop patch: Implemented in meson port
+  * components/plymouth.bst: Drop patch: It is relative to runstatedir now
+  * Update plymouth to 23.360.11-0
+  * Update python3-lxml to 5.0.0
+  * Update perl-xml-parser to 2.47
+  * Update mesa to mesa-23.3.2-0
+  * Update iwd to 2.12-0
+  * Update mesa to mesa-23.3.2-0
+  * Update doxygen to Release_1_10_0-0
+  * swig: Ignore beta releases
+  * libdrm: Freeze to 2.4.115 due to ABI break
+  * Update python3-dbusmock to 0.30.1
+  * Update python3-setuptools to 69.0.3
+  * Update extra-cmake-modules to v5.247.0-0
+  * Update iputils to 20231222-0
+  * Update vim to v9.0.2184-0
+  * Update glibc to glibc-2.35-281
+  * Update libdrm to libdrm-2.4.119-0
+  * Update libcap-ng to v0.8.4-0
+  * openssh: Use --without-hardening on ppc64le
+  * Update openssh to V_9_6_P1-0
+  * Update python3-lxml to 4.9.4
+  * Update gtk3 to 3.24.39-0
+  * Update python3-hatchling to 1.21.0
+  * Update conmon to v2.1.10-0
+  * valgrind has moved to sourceware
+  * Update iwd to 2.11-0
+  * Remove obsolete patch
+  * Update cmake to v3.28.1-0
+  * Update vim to v9.0.2173-0
+  * Update zenity to 3.44.3-0
+  * Update freedesktop-sdk to freedesktop-sdk-22.08.20-0
+  * Update mesa to mesa-23.3.1-0
+  * Update sudo to SUDO_1_9_15p4-0
+  * Exclude makemhr for openal
+  * Update python3-hatchling to 1.20.0
+  * Remove parameter which is gone
+  * Update gamemode to 1.8.1-0
+  * Update sudo to SUDO_1_9_15p3-0
+  * Update mesa to mesa-23.3.1-0
+  * Update jq to jq-1.7.1-0
+  * Update python3-hatchling to 1.19.1
+  * Update python3-distlib to 0.3.8
+  * Update python3-babel to 2.14.0
+
 freedesktop-sdk-22.08.20:
  * Update elements/components/flatpak-builder-base.bst to 1.4.0-0
  * Update elements/components/kbd.bst to v2.6.4-0
