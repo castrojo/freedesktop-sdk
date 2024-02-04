@@ -36,6 +36,8 @@ sources:
 - kind: git_repo
   url: github:lathiat/avahi.git
   track: v*.*
+  exclude:
+  - '*rc*'
   ref: v0.8-0-gf060abee2807c943821d88839c013ce15db17b58
 - kind: local
   path: files/avahi/avahi.conf
