@@ -66,6 +66,6 @@ sources:
   exclude:
   - openssl*alpha*
   - openssl*beta*
-  ref: openssl-3.2.0-0-gcf2877791ce7508684109664f467c9e40987692f
+  ref: openssl-3.2.1-0-ga7e992847de83aa36be0c399c89db3fb827b0be2
 - kind: patch_queue
   path: patches/openssl
