@@ -1,12 +1,12 @@
-kind: autotools
+kind: meson
 description: X.org lib pciaccess
 
+build-depends:
+- public-stacks/buildsystem-meson.bst
+- components/xorg-util-macros.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/xorg-util-macros.bst
-  type: build
+- bootstrap-import.bst
 
 public:
   bst:
@@ -19,4 +19,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libpciaccess.git
   track: libpciaccess-*
-  ref: libpciaccess-0.17-0-g935f0b4d6983f77c4f35e6d492f9f2c2d1ed57f9
+  ref: libpciaccess-0.18-0-g04271a93ed65bfde82469509120214424eb918d0
