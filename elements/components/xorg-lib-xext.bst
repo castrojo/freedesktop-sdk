@@ -22,4 +22,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libxext.git
   track: libXext-*
-  ref: libXext-1.3.5-0-g67e82cc395f44faddd83ec3d0d21624fe91c6fc0
+  ref: libXext-1.3.6-0-g3826a58d190c2d8093d3586cb33867668cbb4553
