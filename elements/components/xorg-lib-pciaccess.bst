@@ -1,12 +1,12 @@
-kind: autotools
+kind: meson
 description: X.org lib pciaccess
 
+build-depends:
+- public-stacks/buildsystem-meson.bst
+- components/xorg-util-macros.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/xorg-util-macros.bst
-  type: build
+- bootstrap-import.bst
 
 public:
   bst:
