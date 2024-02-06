@@ -56,6 +56,6 @@ sources:
   track: master
   exclude:
   - v*.99.*
-  ref: v16.0-0-g237c5a5c36d49a51b1b7831b091ea250367c9102
+  ref: v17.0-0-g1f020889c9aa44ea0f63d7222e8c2b62c3f45f68
 - kind: patch
   path: patches/pulseaudio/meson-disable-doxygen.patch
