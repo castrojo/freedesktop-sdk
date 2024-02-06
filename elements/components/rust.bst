@@ -94,7 +94,7 @@ config:
 
   install-commands:
   - |
-    DESTDIR="%{install-root}" python3 x.py install
+    DESTDIR="%{install-root}" python3 x.py -j1 install
 
   - |
     mkdir -p %{install-root}%{libdir}
