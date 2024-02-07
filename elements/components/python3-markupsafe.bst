@@ -15,6 +15,6 @@ sources:
 - kind: pypi
   name: markupsafe
   ref:
-    sha256sum: 3aae9af4cac263007fd6309c64c6ab4506dd2b79382d9d19a1994f9240b8db4f
+    sha256sum: d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b
     suffix: 
-      fb/5a/fb1326fe32913e663c8e2d6bdf7cde6f472e51f9c21f0768d9b9080fe7c5/MarkupSafe-2.1.4.tar.gz
+      87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz
