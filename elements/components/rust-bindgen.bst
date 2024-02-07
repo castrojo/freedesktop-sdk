@@ -23,7 +23,7 @@ sources:
 - kind: git_repo
   track: v*
   url: github:rust-lang/rust-bindgen.git
-  ref: v0.69.2-0-g2a22051bb06cf66bd4e3d9305c45a407b79cf1af
+  ref: v0.69.4-0-g62859b2c6108c1c0f60d16b9ffe7544a4fbce48b
 - kind: cargo
   url: crates:crates
   ref:
@@ -108,6 +108,9 @@ sources:
   - name: is-terminal
     version: 0.4.7
     sha: adcf93614601c8129ddf72e2d5633df827ba6551541c6d8c59520a371475be1f
+  - name: itertools
+    version: 0.12.1
+    sha: ba291022dbbd398a455acf126c1e341954079855bc60dfdda641363bd6922569
   - name: lazy_static
     version: 1.4.0
     sha: e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646
@@ -153,9 +156,6 @@ sources:
   - name: owo-colors
     version: 3.5.0
     sha: c1b04fb49957986fdce4d6ee7a65027d55d4b6d2265e5848bbb507b58ccfdb6f
-  - name: peeking_take_while
-    version: 0.1.2
-    sha: 19b17cddbe7ec3f8bc800887bab5e717348c95ea2ca0b1bf0837fb964dc67099
   - name: prettyplease
     version: 0.2.7
     sha: 43ded2b5b204571f065ab8540367d738dfe1b3606ab9eb669dcfb5e7a3a07501
@@ -199,8 +199,8 @@ sources:
     version: 0.37.3
     sha: 62b24138615de35e32031d041a09032ef3487a616d901ca4db224e7d557efae2
   - name: shlex
-    version: 1.1.0
-    sha: 43b2853a4d09f215c24cc5489c992ce46052d359b5109343cbafbf26bc62f8a3
+    version: 1.3.0
+    sha: 0fda2ff0d084019ba4d7c6f371c95d8fd75ce3524c3cb8fb653a3023f6323e64
   - name: similar
     version: 2.2.1
     sha: 420acb44afdae038210c99e69aae24109f32f15500aa708e81d46c9f29d55fcf
