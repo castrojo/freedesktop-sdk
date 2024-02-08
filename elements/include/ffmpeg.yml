@@ -116,3 +116,5 @@ sources:
   exclude:
   - '*-dev'
   ref: n6.1.1-0-ge38092ef9395d7049f871ef4d5411eb410e283e0
+- kind: patch_queue
+  path: patches/ffmpeg
