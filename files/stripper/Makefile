@@ -11,10 +11,10 @@ OBJS=						\
 	run.o
 
 freedesktop-sdk-stripper: $(OBJS)
-	$(CXX) $(CFLAGS) -std=c++17 -W -Wall -g $(OBJS) -pthread -o $@
+	$(CXX) $(CFLAGS) -D_FILE_OFFSET_BITS=64 -std=c++17 -W -Wall -g $(OBJS) -pthread -o $@
 
 .cpp.o:
-	$(CXX) $(LDFLAGS) -std=c++17 -W -Wall -g -c $<
+	$(CXX) $(LDFLAGS) -D_FILE_OFFSET_BITS=64 -std=c++17 -W -Wall -g -c $<
 
 clean:
 	rm -f $(OBJS) freedesktop-sdk-stripper
