@@ -4,7 +4,7 @@ sources:
   track: v*
   exclude:
   - v*.*.*
-  ref: v2024.1-0-g3b4f5e36ee6b83313d4a4afc8dacb5bb9367ee2b
+  ref: v2024.2-0-g9b30c946a1b0e6c70c25e573fd2e73eb0b99b6a2
 - kind: git_module
   path: libglnx
   url: gnome:libglnx.git
@@ -16,6 +16,6 @@ sources:
 - kind: git_module
   path: composefs
   url: github:containers/composefs.git
-  ref: cca8be49843385ce556fccf51f75821f70fb7769
+  ref: 2d5cdcb9176cfe4ccf1761ef6d78e1c48de35649
 - kind: patch_queue
   path: patches/ostree
