@@ -12,4 +12,4 @@ sources:
 - kind: git_repo
   url: chromium:external/gyp
   track: master
-  ref: 2d207fd1699c88dcf6dfdd819d940c0dd227ffe7
+  ref: 1615ec326858f8c2bd8f30b3a86ea71830409ce4
