@@ -30,4 +30,4 @@ sources:
 - kind: git_repo
   url: github:libexpat/libexpat.git
   track: R_*
-  ref: R_2_5_0-0-g654d2de0da85662fcc7644a7acd7c2dd2cfb21f0
+  ref: R_2_6_0-0-g849da3e3fe727fccef5e96ef35482d66447f06a2
