@@ -24,7 +24,7 @@ sources:
 - kind: git_tag
   url: github:containers/crun.git
   track: main
-  ref: 1.14-0-g667e6ebd4e2442d39512e63215e79d693d0780aa
+  ref: 1.14.1-0-gde537a7965bfbe9992e2cfae0baeb56a08128171
 - kind: git_module
   path: libocispec
   url: github:containers/libocispec.git
