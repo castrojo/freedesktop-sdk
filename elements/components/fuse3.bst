@@ -1,12 +1,10 @@
 kind: meson
 
-
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/systemd.bst
 
 depends:
-- components/systemd-libs.bst
+- bootstrap-import.bst
 
 variables:
   meson-local: >-
