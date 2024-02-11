@@ -35,6 +35,7 @@ variables:
     -Dtests=false
     -Dsystem_dbus_proxy=xdg-dbus-proxy
     -Dwayland_security_context=disabled
+    -Dsystemd=disabled
 
 (@):
 - elements/include/flatpak.yml

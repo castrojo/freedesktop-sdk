@@ -25,6 +25,7 @@ depends:
 - components/appstream.bst
 - components/libseccomp.bst
 - components/polkit.bst
+- components/systemd-libs.bst
 - components/xdg-dbus-proxy.bst
 
 
