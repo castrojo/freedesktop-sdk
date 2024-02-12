@@ -17,7 +17,7 @@ config:
 
 sources:
 - kind: git_tag
-  url: github:stedolan/jq.git
+  url: github:jqlang/jq.git
   track: master
   exclude:
   - '*rc*'
