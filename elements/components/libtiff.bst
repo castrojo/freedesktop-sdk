@@ -52,9 +52,6 @@ public:
 sources:
 - kind: git_tag
   url: gitlab:libtiff/libtiff.git
-  track: master
-  exclude:
-  - '*rc*'
   ref: v4.4.0-0-gb6a17e567f143fab49734a9e09e5bafeb6f97354
 - kind: patch
   path: patches/libtiff/fix-the-FPE-in-tiffcrop-415-427-and-428.patch
