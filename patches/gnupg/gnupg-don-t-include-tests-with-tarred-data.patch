@@ -1,17 +1,17 @@
 diff --git a/configure.ac b/configure.ac
-index 2e5c28453..354af28a5 100644
+index b583d16ab..e27644c53 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -2007,7 +2007,6 @@ tests/openpgp/Makefile
+@@ -1996,7 +1996,6 @@ tests/openpgp/Makefile
  tests/migrations/Makefile
  tests/gpgsm/Makefile
  tests/gpgme/Makefile
 -tests/pkits/Makefile
- agent/gpg-agent.w32-manifest
  g10/gpg.w32-manifest
  g10/gpgv.w32-manifest
+ sm/gpgsm.w32-manifest
 diff --git a/tests/Makefile.am b/tests/Makefile.am
-index 65978ae3f..65e928bc2 100644
+index b5749f9ef..80f90c085 100644
 --- a/tests/Makefile.am
 +++ b/tests/Makefile.am
 @@ -18,7 +18,7 @@
