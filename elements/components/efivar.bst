@@ -22,6 +22,6 @@ sources:
 - kind: git_tag
   url: github:rhboot/efivar.git
   track: main
-  ref: 38-0-g1753149d4176ebfb2b135ac0aaf79340bf0e7a93
+  ref: 39-0-gc47820c37ac26286559ec004de07d48d05f3308c
 - kind: patch_queue
   path: patches/efivar
