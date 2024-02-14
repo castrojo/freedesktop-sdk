@@ -10,6 +10,8 @@ depends:
 sources:
 - kind: pypi
   name: pycairo
+  include:
+  - '1.25.*'
   ref:
     sha256sum: 7e2be4fbc3b4536f16db7a11982cbf713e75069a4d73d44fe5a49b68423f5c0c
     suffix: 
