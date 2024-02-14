@@ -98,10 +98,10 @@ clean-vm:
 	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
 
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM):
-	$(BST) artifact checkout --hardlinks $(VM_ARTIFACT_FILESYSTEM) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
+	$(BST) artifact checkout $(VM_ARTIFACT_FILESYSTEM) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
 
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT):
-	$(BST) artifact checkout --hardlinks $(VM_ARTIFACT_BOOT) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
+	$(BST) artifact checkout $(VM_ARTIFACT_BOOT) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
 
 build-vm:
 	$(BST) build $(VM_ARTIFACT_FILESYSTEM) $(VM_ARTIFACT_BOOT)
@@ -323,7 +323,7 @@ efi_vars.fd: $(OVMF_VARS)
 	cp "$<" "$@"
 
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img:
-	$(BST) checkout --hardlinks $(VM_ARTIFACT_IMAGE) $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
+	$(BST) artifact checkout $(VM_ARTIFACT_IMAGE) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
 
 clean-efi-vm:
 	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
