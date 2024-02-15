@@ -60,10 +60,7 @@ public:
 sources:
 - kind: git_tag
   url: github:golang/go.git
-  track: release-branch.go1.20
-  track-extra:
-  # Attempt to predict the next branchpoint.
-  - release-branch.go1.21
+  track: release-branch.go1.21
   match:
   - 'go*'
   exclude:
