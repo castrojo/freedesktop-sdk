@@ -72,7 +72,7 @@ variables:
     --with-isl
     --enable-deterministic-archives
     --enable-linker-build-id
-    %{conf-extra}
+    %{conf-arch}
     %{conf-arch-extra}
 
   make-args: >-

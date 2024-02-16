@@ -1,28 +1,30 @@
 variables:
   (?):
+  - target_arch == "aarch64":
+      conf-arch: ""
   - target_arch == "arm":
-      conf-extra: >-
+      conf-arch: >-
         --with-mode=thumb
         --with-fpu=vfpv3-d16
         --with-arch=armv7-a
         --with-float=hard
   - target_arch == "i686":
       # pentium4 == sse2
-      conf-extra: >-
+      conf-arch: >-
         --with-cpu=pentium4
         --with-tune=generic
         --with-fpmath=sse
   - target_arch == "ppc64le":
-      conf-extra: >-
+      conf-arch: >-
         --with-cpu=power8
         --with-tune=power8
   - target_arch == "ppc64":
-      conf-extra: >-
+      conf-arch: >-
         --with-cpu=power8
         --with-tune=power8
   - target_arch == "riscv64":
-      conf-extra: >-
+      conf-arch: >-
         --with-arch=rv64gc
   - target_arch == "x86_64":
-      conf-extra: >-
+      conf-arch: >-
         --with-tune=generic

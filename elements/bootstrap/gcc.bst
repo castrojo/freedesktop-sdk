@@ -71,7 +71,7 @@ variables:
     --enable-cet
     host_configargs='lt_cv_sys_lib_dlsearch_path_spec="/usr/lib/%{gcc_triplet}"'
     target_configargs='lt_cv_sys_lib_dlsearch_path_spec="/usr/lib/%{gcc_triplet}"'
-    %{conf-extra}
+    %{conf-arch}
 
   conf-link-args: |
     --enable-shared

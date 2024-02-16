@@ -17,7 +17,7 @@ depends:
 - elements/cross-compilers/gcc-common.yml
 
 variables:
-  conf-extra: >-
+  conf-arch: >-
     --with-mode=thumb
     --with-fpu=vfpv3-d16
     --with-arch=armv7-a

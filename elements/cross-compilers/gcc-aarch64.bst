@@ -17,4 +17,4 @@ depends:
 - elements/cross-compilers/gcc-common.yml
 
 variables:
-  conf-extra: ''
+  conf-arch: ''
