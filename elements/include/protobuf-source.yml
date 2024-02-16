@@ -5,4 +5,4 @@ sources:
   exclude:
   - '*rc*'
   - '*-dev'
-  ref: v25.2-0-ga9b006bddd52e289029f16aa77b77e8e0033d9ee
+  ref: v25.3-0-g4a2aef570deb2bfb8927426558701e8bfc26f2a4
