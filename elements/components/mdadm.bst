@@ -30,7 +30,7 @@ sources:
 - kind: git_tag
   url: kernel:utils/mdadm/mdadm.git
   track: master
-  ref: mdadm-4.2-0-ge30ca260741d727e6f444e8f2ce25fe7a5a26567
+  ref: mdadm-4.3-0-gd709d4161d1dd51a976147e8372fbd99ff8183bd
 - kind: local
   path: files/mdadm
   directory: extra
