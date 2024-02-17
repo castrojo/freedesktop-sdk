@@ -55,7 +55,7 @@ variables:
     --enable-deterministic-archives
     --enable-linker-build-id
     --disable-libstdcxx-filesystem-ts
-    %{conf-extra}
+    %{conf-arch}
 
 config:
   install-commands:

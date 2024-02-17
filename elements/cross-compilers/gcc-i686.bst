@@ -17,7 +17,7 @@ depends:
 - elements/cross-compilers/gcc-common.yml
 
 variables:
-  conf-extra: >-
+  conf-arch: >-
     --with-cpu=pentium4
     --with-tune=generic
     --with-fpmath=sse
