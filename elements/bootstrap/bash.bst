@@ -28,6 +28,8 @@ variables:
     bash_cv_getcwd_malloc=yes
     bash_cv_job_control_missing=present
     bash_cv_termcap_lib=libtinfo
+    bash_cv_dev_fd=whacky
+    bash_cv_dev_stdin=absent
 
 config:
   build-commands:
