@@ -48,4 +48,4 @@ sources:
   track: pcre2-*
   exclude:
   - '*-RC*'
-  ref: pcre2-10.42-0-g52c08847921a324c804cabf2814549f50bce1265
+  ref: pcre2-10.43-0-g3864abdb713f78831dd12d898ab31bbb0fa630b6
