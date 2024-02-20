@@ -82,7 +82,7 @@ variables:
   arch_options: ''
 
   (?):
-  - target_arch == "i686" or target_arch == "x86_64":
+  - target_arch == "x86_64":
       arch_options: --enable-cet
 
   conf-local: |
