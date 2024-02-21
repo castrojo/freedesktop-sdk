@@ -4,4 +4,4 @@
 freedesktop-sdk-flatpak-branch: '24.08beta'
 freedesktop-sdk-flatpak-branch-extra: '24.08beta-extra'
 freedesktop-sdk-snap-branch: '2408'
-openh264-version: '2.3.1'
+openh264-version: '2.4.1'
