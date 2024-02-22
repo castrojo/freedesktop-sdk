@@ -24,3 +24,5 @@ sources:
   - '*b*'
   - '*rc*'
   ref: 2.2.0-0-gb9dae8373baad0f9f09a8d745a063f4960dd9369
+- kind: patch_queue
+  path: patches/tpm2-ptyss
