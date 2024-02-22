@@ -1,5 +1,117 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08.12:
+  * Update vim to v9.1.0136-0
+  * Update python3-trove-classifiers to 2024.2.23-0
+  * Update python3-cryptography to 42.0.5-0
+  * Update python3-setuptools to v69.1.1-0
+  * Update ABI image
+  * Fix VDPAU
+  * Add new app vdpauinfo
+  * Update libksba to libksba-1.6.6-0
+  * mesa: update to 24.0.1
+  * Update mutool to 1.23.11-0
+  * Update libmicrohttpd to v1.0.1-0
+  * Update linux to v6.7.6-0
+  * Update ostree to v2024.4-0
+  * Fix bash determinism
+  * libdrm: Update to 2.4.120 without breaking ABI
+  * Update to latest image
+  * Update python3-trove-classifiers to 2024.2.22-0
+  * Update networkmanager to 1.46.0-0
+  * Update python3-virtualenv to 20.25.1-0
+  * components/python3-tpm2-pytss: Add patch to fix build by cryptography
+  * components/python3-cryptography.bst: Bump to 42.0.4
+  * Update python3-cryptography to 42.0.2-0
+  * Update bash-completion to 2.12.0-0
+  * Update python3-grpcio to 1.62.0
+  * Update grpc to v1.62.0-0
+  * Update linux-firmware to 20240220-0
+  * Update asciidoctor to v2.0.21-0
+  * Update passt to 2024_02_20.1e6f92b-0
+  * rust: Update to rust 1.76.0
+  * Update passt to 2024_02_19.ff22a78-0
+  * extensions/mesa/mesa-sources.yml: Drop nir simply-if patch
+  * Update libabigail to libabigail-2.4-29
+  * Update python3-urllib3 to 2.2.1-0
+  * Update libffi to v3.4.6-0
+  * Update vim to v9.1.0115-0
+  * Update glibc to glibc-2.38-52
+  * linux: Update to 6.7.5
+  * Update gstreamer to 1.22.10-0
+  * Update crun to 1.14.3-0
+  * Update passt to 2024_02_16.08344da-0
+  * Update crun to 1.14.2-0
+  * check-abi/abidiff-suppressions.ini: Suppress addition in gstreamer
+  * Update protobuf to v25.3-0
+  * Update libffi to v3.4.5-0
+  * Update mdadm to mdadm-4.3-0
+  * Update git to v2.43.2-0
+  * Update btrfs-progs to v6.7.1-0
+  * Update libnvme to v1.8-0
+  * Update wireplumber to 0.4.82-0
+  * Update ostree to v2024.3-0
+  * Update shadow to 4.14.5-0
+  * Update podman to v4.9.3-0
+  * Update python3-setuptools to v69.1.0-0
+  * Update libabigail to libabigail-2.4-25
+  * include/gnupg-source.yml: Drop LDAP build fix patch
+  * Update gnupg to gnupg-2.4.4-0
+  * components/gdb.bst: Add mpfr as dependency
+  * components/gdb.bst: Drop patch included in 14.1
+  * Update gdb to gdb-14.1-release-0
+  * Update man-pages to man-pages-6.06-0
+  * Update grpc to v1.61.1-0
+  * Update abseil-cpp to 20240116.1-0
+  * backport: jq: moved from stedolan/jq to jqlang/jq
+  * Update pycairo to 1.26.0
+  * Update dictionaries to libreoffice-24.2.1.1-0
+  * Update shadow to 4.14.4-0
+  * Update netavark to v1.10.3-0
+  * Update slirp4netns to v1.2.3-0
+  * Update foomatic-db to 20240209-0
+  * Update vim to v9.1.0098-0
+  * Update ccache to v4.9.1-0
+  * flatpak: Fix systemd dependency
+  * fuse3: Remove systemd dependency
+  * Update crun to 1.14.1-0
+  * Update iwd to 2.14-0
+  * Update pango to 1.51.2-0
+  * Update libwacom to libwacom-2.10.0-0
+  * Update fwupd to 1.9.13-0
+  * Also publish ppc64le images to Docker Hub
+  * Update eos-updater to Release_5.1.2-0
+  * Update gyp to 1615ec3
+  * Update eos-metrics to Release_5.1.2-0
+  * Update flatpak-builder to 1.4.1-0
+  * Update xorg-lib-xkbfile to libxkbfile-1.1.3-0
+  * stripper: Set FILE_OFFSET_BITS=64
+  * Update python3-cachecontrol to 0.14.0
+  * Update mutool to 1.23.10-0
+  * Update cmake to v3.28.3-0
+  * Update python3-pip to 24.0
+  * Update ell to 0.62-0
+  * Update python3-ruamel-yaml to 0.18.6
+  * Update python3 to v3.11.8-0
+  * ninja: Backport patch for largefile64 support
+  * Update xorg-data-xkeyboard-config to xkeyboard-config-2.41-0
+  * Update xfsprogs to v6.6.0-0
+  * Update libei to 1.2.1-0
+  * Update libcbor to v0.11.0-0
+  * Update python3-markupsafe to 2.1.5
+  * Update iwd to 0.62-0
+  * Update python3-poetry-core to 1.9.0-0
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-23.08.11-0
+  * Update pkg-config to pkgconf-2.1.1-0
+  * xorg-lib-pciaccess: Port to Meson
+  * Update xorg-lib-pciaccess to libpciaccess-0.18-0
+  * Update python3-pytz to 2024.1
+  * Update rust-bindgen to v0.69.4-0
+  * Update poppler to poppler-24.02.0-0
+  * Update xorg-lib-xext to libXext-1.3.6-0
+  * Update libmicrohttpd to v1.0.0-0
+  * Update vim to v9.1.0076-0
+
 freedesktop-sdk-23.08.11:
   * Revert "Update elements/include/mesa.yml to mesa-24.0.0-0"
   * components/efivar.bst Drop riscv64 patch
