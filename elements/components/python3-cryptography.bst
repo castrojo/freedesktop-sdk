@@ -14,9 +14,8 @@ sources:
 - kind: pypi
   name: cryptography
   ref:
-    sha256sum: e0ec52ba3c7f1b7d813cd52649a5b3ef1fc0d433219dc8c93827c57eab6cf888
-    suffix: 
-      0f/6f/40f1b5c6bafc809dd21a9e577458ecc1d8062a7e10148d140f402b535eaa/cryptography-42.0.2.tar.gz
+    sha256sum: 6fe07eec95dfd477eb9530aef5bead34fec819b3aaf6c5bd6d20565da607bfe1
+    suffix: 13/9e/a55763a32d340d7b06d045753c186b690e7d88780cafce5f88cb931536be/cryptography-42.0.5.tar.gz
 - kind: cargo
   url: crates:crates
   cargo-lock: src/rust/Cargo.lock
@@ -90,24 +89,27 @@ sources:
   - name: pkg-config
     version: 0.3.29
     sha: 2900ede94e305130c13ddd391e0ab7cbaeb783945ae07a279c268cb05109c6cb
+  - name: portable-atomic
+    version: 1.6.0
+    sha: 7170ef9988bc169ba16dd36a7fa041e5c4cbeb6a35b76d4c03daded371eae7c0
   - name: proc-macro2
     version: 1.0.78
     sha: e2422ad645d89c99f8f3e6b88a9fdeca7fabeac836b1002371c4367c8f984aae
   - name: pyo3
-    version: 0.20.2
-    sha: 9a89dc7a5850d0e983be1ec2a463a171d20990487c3cfcd68b5363f1ee3d6fe0
+    version: 0.20.3
+    sha: 53bdbb96d49157e65d45cc287af5f32ffadd5f4761438b527b055fb0d4bb8233
   - name: pyo3-build-config
-    version: 0.20.2
-    sha: 07426f0d8fe5a601f26293f300afd1a7b1ed5e78b2a705870c5f30893c5163be
+    version: 0.20.3
+    sha: deaa5745de3f5231ce10517a1f5dd97d53e5a2fd77aa6b5842292085831d48d7
   - name: pyo3-ffi
-    version: 0.20.2
-    sha: dbb7dec17e17766b46bca4f1a4215a85006b4c2ecde122076c562dd058da6cf1
+    version: 0.20.3
+    sha: 62b42531d03e08d4ef1f6e85a2ed422eb678b8cd62b762e53891c05faf0d4afa
   - name: pyo3-macros
-    version: 0.20.2
-    sha: 05f738b4e40d50b5711957f142878cfa0f28e054aa0ebdfc3fd137a843f74ed3
+    version: 0.20.3
+    sha: 7305c720fa01b8055ec95e484a6eca7a83c841267f0dd5280f0c8b8551d2c158
   - name: pyo3-macros-backend
-    version: 0.20.2
-    sha: 0fc910d4851847827daf9d6cdd4a823fbdaab5b8818325c5e97a86da79e8881f
+    version: 0.20.3
+    sha: 7c7e9b68bb9c3149c5b0cade5d07f953d6d125eb4337723c4ccdb665f1f96185
   - name: quote
     version: 1.0.35
     sha: 291ec9ab5efd934aaf503a6466c5d5251535d108ee747472c3977cc5acc868ef
