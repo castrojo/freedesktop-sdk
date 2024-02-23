@@ -1,12 +1,28 @@
 kind: meson
 description: libvdpau
 
+build-depends:
+- public-stacks/buildsystem-meson.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/xorg-lib-x11.bst
-- filename: components/xorg-lib-xext.bst
-- filename: public-stacks/buildsystem-meson.bst
-  type: build
+- bootstrap-import.bst
+- components/xorg-lib-x11.bst
+- components/xorg-lib-xext.bst
+
+variables:
+  meson-local: >-
+    -Dmoduledir=%{vdpau-dir}
+    -Ddri2=true
+
+  vdpau-dir: "%{libdir}/GL/vdpau"
+  gl-default-lib: "%{libdir}/GL/default/lib"
+
+config:
+  install-commands:
+    (>):
+    - |
+      mkdir -p %{install-root}%{gl-default-lib}
+      mv %{install-root}%{vdpau-dir} %{install-root}%{gl-default-lib}
 
 public:
   bst:
@@ -15,6 +31,11 @@ public:
         (>):
         - '%{libdir}/libvdpau.so'
         - '%{libdir}/vdpau/libvdpau_*.so'
+
+      extra:
+      - "%{libdir}/GL"	
+      - "%{libdir}/GL/**"
+      
 
 sources:
 - kind: git_repo

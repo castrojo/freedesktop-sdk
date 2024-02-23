@@ -136,6 +136,7 @@ config:
       ln -sr '%{install-root}%{datadir}/vulkan/explicit_layer.d' '%{install-root}%{prefix}/vulkan/explicit_layer.d'
       ln -sr '%{install-root}%{datadir}/vulkan/implicit_layer.d' '%{install-root}%{prefix}/vulkan/implicit_layer.d'
       ln -sr '%{install-root}%{libdir}/OpenCL' '%{install-root}%{prefix}/OpenCL'
+      ln -sr '%{install-root}%{libdir}/vdpau' '%{install-root}%{prefix}/vdpau'
 
 public:
   bst:
