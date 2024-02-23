@@ -20,6 +20,7 @@ depends:
 - flatpak-images/vulkaninfo.bst
 - flatpak-images/vainfo.bst
 - flatpak-images/vainfo-debug.bst
+- flatpak-images/vdpauinfo.bst
 - flatpak-images/mesa.bst
 - flatpak-images/mesa-debug.bst
 
