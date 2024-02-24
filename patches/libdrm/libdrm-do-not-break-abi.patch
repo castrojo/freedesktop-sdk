@@ -1,0 +1,63 @@
+diff --git a/core-symbols.txt b/core-symbols.txt
+index 766c342d..9f8a323b 100644
+--- a/core-symbols.txt
++++ b/core-symbols.txt
+@@ -70,7 +70,6 @@ drmGetLibVersion
+ drmGetLock
+ drmGetMagic
+ drmGetMap
+-drmGetNodeTypeFromDevId
+ drmGetNodeTypeFromFd
+ drmGetPrimaryDeviceNameFromFd
+ drmGetRenderDeviceNameFromFd
+@@ -104,7 +103,6 @@ drmModeAtomicGetCursor
+ drmModeAtomicMerge
+ drmModeAtomicSetCursor
+ drmModeAttachMode
+-drmModeCloseFB
+ drmModeConnectorGetPossibleCrtcs
+ drmModeConnectorSetProperty
+ drmModeCreateDumbBuffer
+@@ -189,7 +187,6 @@ drmSLNext
+ drmSwitchToContext
+ drmSyncobjCreate
+ drmSyncobjDestroy
+-drmSyncobjEventfd
+ drmSyncobjExportSyncFile
+ drmSyncobjFDToHandle
+ drmSyncobjHandleToFD
+diff --git a/xf86drm.c b/xf86drm.c
+index 2e76f0ea..95abfc30 100644
+--- a/xf86drm.c
++++ b/xf86drm.c
+@@ -4687,7 +4687,7 @@ drm_public int drmGetDeviceFromDevId(dev_t find_rdev, uint32_t flags, drmDeviceP
+ #endif
+ }
+ 
+-drm_public int drmGetNodeTypeFromDevId(dev_t devid)
++int drmGetNodeTypeFromDevId(dev_t devid)
+ {
+     int maj, min, node_type;
+ 
+@@ -5121,7 +5121,7 @@ drm_public int drmSyncobjTransfer(int fd,
+     return ret;
+ }
+ 
+-drm_public int drmSyncobjEventfd(int fd, uint32_t handle, uint64_t point, int ev_fd,
++int drmSyncobjEventfd(int fd, uint32_t handle, uint64_t point, int ev_fd,
+                                  uint32_t flags)
+ {
+     struct drm_syncobj_eventfd args;
+diff --git a/xf86drmMode.c b/xf86drmMode.c
+index a4873a0f..2d056313 100644
+--- a/xf86drmMode.c
++++ b/xf86drmMode.c
+@@ -320,7 +320,7 @@ drm_public int drmModeRmFB(int fd, uint32_t bufferId)
+ 	return DRM_IOCTL(fd, DRM_IOCTL_MODE_RMFB, &bufferId);
+ }
+ 
+-drm_public int drmModeCloseFB(int fd, uint32_t buffer_id)
++int drmModeCloseFB(int fd, uint32_t buffer_id)
+ {
+ 	struct drm_mode_closefb closefb;
+ 
