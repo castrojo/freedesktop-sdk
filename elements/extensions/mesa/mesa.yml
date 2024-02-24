@@ -8,6 +8,8 @@ build-depends:
 - components/wayland-protocols.bst
 - components/glslang.bst
 - public-stacks/buildsystem-meson.bst
+- components/spirv-tools.bst
+- components/spirv-llvm-translator.bst
 
 depends:
 - bootstrap-import.bst
