@@ -91,6 +91,11 @@ variables:
     -Dvideo-codecs=%{video_codecs}
 
 config:
+  configure-commands:
+    (<):
+    - |
+      cp '/usr/lib/%{gcc_triplet}'/clang/15.0.*/include/opencl-c-base.h src/asahi/lib
+
   install-commands:
     (>):
     - |
