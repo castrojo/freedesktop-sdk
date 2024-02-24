@@ -13,11 +13,9 @@ variables:
     -DLLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR="%{prefix}"
 
 config:
-  build-commands:
-  - '%{make} llvm-spirv'
-
   install-commands:
-  - install -Dm755 -t "%{install-root}%{bindir}/" _builddir/tools/llvm-spirv/llvm-spirv
+    (>):
+    - install -Dm755 -t "%{install-root}%{bindir}" "%{build-dir}/tools/llvm-spirv/llvm-spirv"
 
 sources:
 - kind: git_tag
