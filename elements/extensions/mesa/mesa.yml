@@ -11,7 +11,11 @@ build-depends:
 - components/vulkan-headers.bst
 - components/wayland-protocols.bst
 - components/glslang.bst
-- public-stacks/buildsystem-meson.bst
+- extensions/mesa/meson-new.bst
+- components/gettext.bst
+- components/git-minimal.bst
+- components/ninja.bst
+- components/pkg-config.bst
 
 depends:
 - bootstrap-import.bst
