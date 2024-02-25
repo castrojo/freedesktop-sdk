@@ -19,4 +19,4 @@ sources:
   track: master
   exclude:
   - v0.9.71
-  ref: v1.0.0-0-gc4b4657f6180b2083e600b034c6e157a20462fb5
+  ref: v1.0.1-0-g3aee48fd77329ab37091a60602aa50d2fdee964a
