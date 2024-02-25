@@ -13,6 +13,11 @@ config:
   - |
     install -D -m 0755 ninja %{install-root}%{bindir}/ninja
 
+public:
+  cpe:
+    ignored:
+    - CVE-2021-4336
+
 sources:
 - kind: git_tag
   url: github:ninja-build/ninja.git
