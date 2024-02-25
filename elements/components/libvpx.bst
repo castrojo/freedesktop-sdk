@@ -44,6 +44,10 @@ public:
         (>):
         - '%{libdir}/libvpx.so'
 
+  cpe:
+    patches:
+    - CVE-2023-44488
+
 sources:
 - kind: git_tag
   url: chromium:webm/libvpx.git
