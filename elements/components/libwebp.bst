@@ -31,6 +31,10 @@ public:
         - '%{libdir}/libwebpmux.so'
         - '%{libdir}/libwebp.so'
 
+  cpe:
+    patches:
+    - CVE-2023-4863
+
 sources:
 - kind: git_tag
   url: chromium:webm/libwebp.git
