@@ -36,3 +36,8 @@ config:
 
 (@):
 - elements/include/perl-source.yml
+
+public:
+  cpe:
+    ignored:
+    - CVE-2023-47100
