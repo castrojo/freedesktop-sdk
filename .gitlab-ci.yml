@@ -1061,6 +1061,9 @@ publish_docker_finish:
 
   - |
     set -eu
+    
+    LATEST_RELEASE=$(./utils/detect_latest.py)
+    
     for name in platform sdk debug flatpak; do
       for dir in docker-pushed-digests/*; do
         DOCKER_VERSION="$(basename "${dir}")"
@@ -1069,6 +1072,12 @@ publish_docker_finish:
         podman manifest push --format v2s2 \
                       "freedesktopsdk/${name}:${DOCKER_VERSION}" \
                       docker://docker.io/freedesktopsdk/"${name}:${DOCKER_VERSION}"
+        if [ "${CI_COMMIT_BRANCH}" = "${LATEST_RELEASE}" ]
+        then
+          podman manifest push --format v2s2 \
+                        "freedesktopsdk/${name}:${DOCKER_VERSION}" \
+                        docker://docker.io/freedesktopsdk/"${name}:latest"
+        fi
       done
     done
 
