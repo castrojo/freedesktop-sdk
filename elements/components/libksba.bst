@@ -31,4 +31,4 @@ sources:
 - kind: git_tag
   url: gnupg:libksba.git
   track: master
-  ref: libksba-1.6.5-0-g7b3e4785e54280d1a13c5bc839bdc6722d898ac7
+  ref: libksba-1.6.6-0-g3a4382259c3c6e7ef38cd33626fe2c1da282f816
