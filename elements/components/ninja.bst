@@ -15,8 +15,7 @@ config:
 
 public:
   cpe:
-    ignored:
-    - CVE-2021-4336
+    vendor: ninja_build
 
 sources:
 - kind: git_tag
