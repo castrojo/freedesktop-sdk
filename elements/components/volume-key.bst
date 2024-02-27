@@ -3,6 +3,7 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/swig.bst
+- components/python3-setuptools.bst
 
 depends:
 - components/glib.bst
