@@ -8,9 +8,7 @@ variables:
   - include/repo_branches.yml
 
 build-depends:
-- bootstrap-import.bst
-- components/m4.bst
-- components/appstream-minimal.bst
+- components/flatpak-minimal-image.bst
 
 config:
   build-commands:
