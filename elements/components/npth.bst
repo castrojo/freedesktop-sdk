@@ -21,4 +21,4 @@ sources:
 - kind: git_repo
   url: gnupg:npth.git
   track: npth-*
-  ref: npth-1.6-0-g771287929ed226add3ef27de882c5359dcd3f66e
+  ref: npth-1.7-0-g150dc11942c90ff8190c2d48344eb4c1c48c7cd8
