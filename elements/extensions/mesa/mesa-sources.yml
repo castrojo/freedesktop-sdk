@@ -7,6 +7,6 @@ sources:
   exclude:
   - '*rc*'
   - '*branchpoint*'
-  ref: mesa-24.0.1-0-g3e361635b8db45dbb4896ed3cc1bda54c138334b
+  ref: mesa-24.0.2-0-ga3df5eab6c38682fd6ece3f9420d696eab9479f5
 - kind: patch
   path: patches/mesa/mesa_libdrm_deps.patch
