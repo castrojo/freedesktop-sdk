@@ -16,10 +16,15 @@ with (
         if mlink:
             link_name = mlink.group('link_name')
             target = mlink.group('target')
-            new.write(f'Link: {link_name}.xz -> {target}.xz\n')
-            if os.path.islink(link_name):
-                os.symlink(f'{target}.xz', f'{target}.xz')
-                os.unlink(link_name)
+            real_target = os.path.normpath(os.path.join(os.path.dirname(link_name), target))
+            if os.path.isdir(real_target):
+                new.write(line)
+                new.write('\n')
+            else:
+                new.write(f'Link: {link_name}.xz -> {target}.xz\n')
+                if os.path.islink(link_name):
+                    os.symlink(f'{target}.xz', f'{target}.xz')
+                    os.unlink(link_name)
         elif mfile:
             name = mfile.group('name')
             if os.path.islink(name):
