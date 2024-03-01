@@ -27,7 +27,7 @@ sources:
 - kind: git_repo
   url: github:git-lfs/git-lfs.git
   track: v*
-  ref: v3.4.1-0-g0898dcbc0a9dd281701c4ef6603b50d46be4dabc
+  ref: v3.5.0-0-g0757d453b310248da80a57f50c253816b9b33ef2
 - kind: local
   directory: vendor
   path: files/git-lfs/modules.txt
@@ -74,8 +74,8 @@ sources:
   directory: vendor/github.com/hashicorp/go-uuid
 - kind: git_repo
   url: github:inconshreveable/mousetrap.git
-  track: v1.0.1
-  ref: v1.0.1-0-g3a66f25f8779fad208598f21472174ef7b35c3ec
+  track: v1.1.0
+  ref: v1.1.0-0-g4e8053ee7ef85a6bd26368364a6d27f1641c1d21
   directory: vendor/github.com/inconshreveable/mousetrap
 - kind: zip
   url: tar_https:proxy.golang.org/github.com/jcmturner/aescts/v2/@v/v2.0.0.zip
@@ -108,6 +108,11 @@ sources:
   base-dir: 'github.com/jcmturner/rpc/v2@v2.0.3'
   directory: vendor/github.com/jcmturner/rpc/v2
 - kind: git_repo
+  url: github:jmhodges/clock.git
+  track: v1.2.0
+  ref: v1.2.0-0-g21de17d65b1b5cd83bb8fdbef90cb2ac369ce2dd
+  directory: vendor/github.com/jmhodges/clock
+- kind: git_repo
   url: github:leonelquinteros/gotext.git
   track: v1.5.0
   ref: v1.5.0-0-g1b8a993ae40a69bc9e9ed20a93b526c1e6b7d457
@@ -136,8 +141,8 @@ sources:
   ref: 787959303086f44a8c361240dfac53d3e9d53ed2
 - kind: git_repo
   url: github:spf13/cobra.git
-  track: v1.6.0
-  ref: v1.6.0-0-g860791844ed3a2e544a9b9bbbcb14144a948ad20
+  track: v1.7.0
+  ref: v1.7.0-0-g4dd4b25de38418174a6e859e8a32eaccca32dccc
   directory: vendor/github.com/spf13/cobra
 - kind: git_repo
   url: github:spf13/pflag.git
@@ -169,11 +174,12 @@ sources:
 - kind: git_repo
   url: git_https:go.googlesource.com/crypto
   directory: vendor/golang.org/x/crypto
-  ref: 7b82a4e95df4499652dca2c0d4185de9fffbdc8f
+  track: v0.17.0
+  ref: v0.17.0-0-g9d2ee975ef9fe627bf0a6f01c1f69e8ef1d4f05d
 - kind: git_repo
   url: git_https:go.googlesource.com/net
-  track: v0.7.0
-  ref: v0.7.0-0-g8e2b117aee74f6b86c207a808b0255de45c0a18a
+  track: v0.17.0
+  ref: v0.17.0-0-gb225e7ca6dde1ef5a5ae5ce922861bda011cfabd
   directory: vendor/golang.org/x/net
 - kind: git_repo
   url: git_https:go.googlesource.com/sync
@@ -182,13 +188,13 @@ sources:
   directory: vendor/golang.org/x/sync
 - kind: git_repo
   url: git_https:go.googlesource.com/sys
-  track: v0.5.0
-  ref: v0.5.0-0-g90c8f94a055257f9ab343137cbada4e658750fbb
+  track: v0.15.0
+  ref: v0.15.0-0-g13b15b780d9013988b1fb0e79e30b2528a877638
   directory: vendor/golang.org/x/sys
 - kind: git_repo
   url: git_https:go.googlesource.com/text
-  track: v0.7.0
-  ref: v0.7.0-0-g71a9c9afc4cd710b9412f7f99f0d8e35b10e488a
+  track: v0.14.0
+  ref: v0.14.0-0-g6c97a165dd661335ff7bce6104a008558123c353
   directory: vendor/golang.org/x/text
 - kind: git_repo
   url: git_https:gopkg.in/yaml.v3
