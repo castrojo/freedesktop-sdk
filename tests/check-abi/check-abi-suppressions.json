@@ -1,4 +1,6 @@
 [
 	"^libpipewire-module-.*\\.so",
-	"^libpulsecommon-.*\\.so"
+	"^libpulsecommon-.*\\.so",
+	"^libdecor-cairo.so",
+	"^libdecor-gtk.so"
 ]
