@@ -14,4 +14,4 @@ sources:
 - kind: git_repo
   url: github:dateutil/dateutil
   track: '*.*.*'
-  ref: 2.8.2-0-g6b035517571e63b6a63a493740c5506ec1e5da44
+  ref: 2.9.0.post0-0-g1ae807774053c071acc9e7d3d27778fba0a7773e
