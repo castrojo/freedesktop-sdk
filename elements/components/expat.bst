@@ -29,5 +29,5 @@ config:
 sources:
 - kind: git_repo
   url: github:libexpat/libexpat.git
-  track: R_*
+  track: R_2_5_*
   ref: R_2_5_0-0-g654d2de0da85662fcc7644a7acd7c2dd2cfb21f0
