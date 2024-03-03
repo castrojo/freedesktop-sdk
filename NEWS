@@ -1,5 +1,58 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08.13:
+  * components/linux: Enable SECURITY_LANDLOCK
+  * components/linux.bst: Enable IRQ_TIME_ACCOUNTING
+  * components/linux.bst: enable shadow stack support when possible
+  * components/linux.bst: Explicitly enable PERF_EVENTS
+  * components/linux.bst: Use UNWINDER_FRAME_POINTER instead of UNWINDER_ORC
+  * components/linux.bst: Enable IOMMUFD and IRQ_REMAP
+  * components/linux.bst: Enable INTEL_IOMMU
+  * components/linux.bst: Enable ADRESS_MASKING
+  * components/linux.bst: Enable hwrandom for physical cpus
+  * components/linux.bst: Enable DUMMY network driver
+  * appstream: Track 0.x stable branch
+  * Revert "Update elements/include/appstream-source.yml to v1.0.2-0"
+  * extensions/mesa/mesa.bst: Make base mesa build all free codecs
+  * extensions/mesa/mesa-extra.bst: Switch to building all codecs
+  * Update libabigail to libabigail-2.4-38
+  * Update xorg-lib-xcursor to libXcursor-1.2.2-0
+  * Update xorg-lib-fontenc to libfontenc-1.1.8-0
+  * Update linux to v6.7.8-0
+  * Update xorg-lib-xcb to libxcb-1.16.1-0
+  * linux-firmware: Fix broken symlinks to directories
+  * Update wavpack to 5.7.0-0
+  * Update shadow to 4.14.6-0
+  * Update fcitx5 to 5.1.2-0
+  * Suppress ABI changes from libdecor cairo and GTK plugins
+  * components/libdecor.bst: Enable GTK plugin for libdecor
+  * Update crun to 1.14.4-0
+  * components/util-linux-base.bst: Exclude devel tags
+  * Update glib-networking to 2.78.1-0
+  * Update po4a to v0.71-0
+  * Update python3-build to 1.1.1-0
+  * Update mesa to mesa-24.0.2-0
+  * Update python3-dbusmock to 0.31.1
+  * Update extra-cmake-modules to v6.0.0-0
+  * Update openjpeg to v2.5.2-0
+  * Update dictionaries to libreoffice-24.2.1.2-0
+  * appstream: Switch from gtk-doc to gi-docgen
+  * Update appstream to v1.0.2-0
+  * Update qpdf to v11.9.0-0
+  * Update python3-setuptools-rust to 1.9.0
+  * Update git to v2.44.0-0
+  * Update swig to v4.2.1-0
+  * Update elements/abi/freedesktop-sdk to freedesktop-sdk-23.08.12-0
+  * Update iwd to 2.15-0
+  * Update ell to 0.63-0
+  * Update python3-tomlkit to 0.12.4
+  * Update systemd to v254.10-0
+  * buildbox-common: Remove downstream patch
+  * Update buildbox-common to 1.0.10-0
+  * Update python3-typing-extensions to 4.10.0-0
+  * Update fwupd to 1.9.14-0
+  * Add a new tag latest for Docker which means latest stable release
+
 freedesktop-sdk-23.08.12:
   * Update vim to v9.1.0136-0
   * Update python3-trove-classifiers to 2024.2.23-0
