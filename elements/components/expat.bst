@@ -1,9 +1,13 @@
-kind: autotools
+kind: cmake
+
+build-depends:
+- public-stacks/buildsystem-cmake.bst
 
 depends:
-- filename: bootstrap-import.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
+- bootstrap-import.bst
+
+variables:
+  command-subdir: expat
 
 public:
   bst:
@@ -15,19 +19,8 @@ public:
   cpe:
     version-match: '(\d+)_(\d+)_(\d+)'
 
-config:
-  configure-commands:
-  - |
-    cd expat
-    %{autogen}
-
-  - |
-    mkdir %{build-dir}
-    cd %{build-dir}
-    ../expat/%{configure}
-
 sources:
 - kind: git_repo
   url: github:libexpat/libexpat.git
   track: R_*
-  ref: R_2_6_0-0-g849da3e3fe727fccef5e96ef35482d66447f06a2
+  ref: R_2_6_1-0-ga590b2d5846865412182805b853dd91d18f38c8d
