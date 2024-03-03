@@ -1,4 +1,4 @@
-kind: manual
+kind: make
 
 build-depends:
 - bootstrap/base-sdk/binary-seed.bst
@@ -10,15 +10,6 @@ runtime-depends:
 
 (@):
 - elements/bootstrap/include/build.yml
-
-config:
-  build-commands:
-  - |
-    make
-
-  install-commands:
-  - |
-    install -Dm755 -t "%{install-root}%{bindir}" freedesktop-sdk-stripper
 
 sources:
 - kind: local

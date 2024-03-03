@@ -1,4 +1,4 @@
-kind: manual
+kind: make
 
 build-depends:
 - bootstrap/gnu-config.bst
@@ -18,15 +18,6 @@ runtime-depends:
 
 environment:
   CXX: "%{triplet}-g++"
-
-config:
-  build-commands:
-  - |
-    make
-
-  install-commands:
-  - |
-    install -Dm755 -t "%{install-root}%{bindir}" freedesktop-sdk-stripper
 
 public:
   bst:
