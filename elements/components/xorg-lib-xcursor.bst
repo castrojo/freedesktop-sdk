@@ -28,7 +28,7 @@ sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxcursor.git
   track: master
-  ref: libXcursor-1.2.1-0-g27adb16027fa99d83818a0ed9f6623cb03f0c574
+  ref: libXcursor-1.2.2-0-g09617bcc9a0f1b5072212da5f8fede92ab85d157
 
 (@):
 - elements/include/cursorpath.yml
