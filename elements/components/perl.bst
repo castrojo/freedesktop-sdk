@@ -1,4 +1,4 @@
-kind: manual
+kind: make
 
 build-depends:
 - bootstrap/bootstrap.bst
@@ -7,7 +7,7 @@ depends:
 - bootstrap/bootstrap-base.bst
 
 environment:
-  BSTARCH: '%{arch}'
+  BSTARCH: '%{bootstrap_build_arch}'
 
 config:
   configure-commands:
@@ -26,17 +26,11 @@ config:
       -Dlddlflags="-shared $LDFLAGS" \
       -Duse64bitint
 
-  build-commands:
-  - |
-    make
-
   install-commands:
-  - |
-    make -j1 DESTDIR="%{install-root}" install
-
-  - |
-    rm "%{install-root}%{bindir}/perl"
-    ln -sr "%{install-root}%{bindir}"/perl[0-9]* "%{install-root}%{bindir}/perl"
+    (>):
+    - |
+      rm "%{install-root}%{bindir}/perl"
+      ln -sr "%{install-root}%{bindir}"/perl[0-9]* "%{install-root}%{bindir}/perl"
 
 (@):
 - elements/include/perl-source.yml
