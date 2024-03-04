@@ -2,9 +2,8 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/docbook-xsl.bst
+- components/gtk-doc.bst
 - components/itstool.bst
-- components/python3-gi-docgen.bst
 
 depends:
 - components/cairo.bst
