@@ -156,6 +156,17 @@ config:
     # Userspace firmware loading not supported
     remove FW_LOADER_USER_HELPER
 
+    # UNWINDER_ORC is great for the kernel
+    # but it wasn't designed to be used from the userspace
+    # thus we need FRAME_POINTER so userspace applications
+    # will also be able to capture traces efficiently
+    case "%{arch}" in
+      x86_64|i686)
+        remove UNWINDER_ORC
+        enable UNWINDER_FRAME_POINTER
+      ;;
+    esac
+
     # Some udev/virtualization requires
     enable DMIID
 
@@ -244,7 +255,6 @@ config:
 
     enable BLK_MQ_VIRTIO
     module VIRTIO_CONSOLE
-    enable HW_RANDOM_VIRTIO
     module VIRTIO_MMIO
     module CRYPTO_DEV_VIRTIO
 
@@ -339,6 +349,9 @@ config:
         enable X86_INTEL_LPSS
       ;;
     esac
+
+    # Dummy network driver
+    module DUMMY
 
     # For wireless networks
     enable WIRELESS
@@ -1019,11 +1032,60 @@ config:
 
     # CPU support
     enable PINCTRL
+    if has IOMMU_SUPPORT; then
+      enable IOMMUFD
+    fi
     case "%{arch}" in
       x86_64|i686)
         # pinctrl_amd might not work as module if it is loaded to late
         enable PINCTRL_AMD
+        enable INTEL_IOMMU
+        enable IRQ_REMAP
         enable X86_AMD_PLATFORM_DEVICE
+        enable CONFIG_X86_USER_SHADOW_STACK
+        ;;
+    esac
+
+    if has ARCH_SUPPORTS_MEMORY_FAILURE; then
+      enable MEMORY_FAILURE
+    fi
+
+    if has ARCH_SUPPORTS_SHADOW_CALL_STACK; then
+      enable SHADOW_CALL_STACK
+    fi
+
+    if has HAVE_IRQ_TIME_ACCOUNTING; then
+      enable IRQ_TIME_ACCOUNTING
+    fi
+
+    case "%{arch}" in
+      x86_64)
+        enable ADDRESS_MASKING
+        ;;
+    esac
+
+    # Performance monitoring
+    case "%{arch}" in
+      x86_64|i686)
+        enable PERF_EVENTS_AMD_BRS
+        enable PERF_EVENTS_INTEL_CSTATE
+        enable PERF_EVENTS_INTEL_RAPL
+        enable PERF_EVENTS_INTEL_UNCORE
+        module PERF_EVENTS_AMD_POWER
+        module PERF_EVENTS_AMD_UNCORE
+      ;;
+    esac
+
+    # Enable HW Random
+    enable HW_RANDOM
+    enable HW_RANDOM_VIRTIO
+    case "%{arch}" in
+      x86_64|i686)
+        enable HW_RANDOM_AMD
+        enable HW_RANDOM_INTEL
+        ;;
+      aarch64|arm)
+        enable HW_RANDOM_ARM_SMCCC_TRNG
         ;;
     esac
 
@@ -1630,6 +1692,7 @@ config:
     # Security modules
     enable SECURITY_SELINUX
     enable SECURITY_APPARMOR
+    enable SECURITY_LANDLOCK
     enable AUDIT
 
     # SPI
