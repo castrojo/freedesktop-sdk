@@ -40,7 +40,7 @@ config:
             extraargs = "--invariant -F32 -i${id_efi} -n EFI"
         }
         mountpoint = "/boot"
-        size = 100M
+        size = 500M
         temporary = true
     }
     image disk.img {
