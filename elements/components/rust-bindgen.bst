@@ -25,7 +25,6 @@ sources:
   url: github:rust-lang/rust-bindgen.git
   ref: v0.69.4-0-g62859b2c6108c1c0f60d16b9ffe7544a4fbce48b
 - kind: cargo
-  url: crates:crates
   ref:
   - name: aho-corasick
     version: 0.7.20

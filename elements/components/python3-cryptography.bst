@@ -16,7 +16,6 @@ sources:
   track: '*.*.*'
   ref: 42.0.5-0-g33833f031d9d36234e11d9671be150d53b9e598d
 - kind: cargo
-  url: crates:crates
   cargo-lock: src/rust/Cargo.lock
   ref:
   - name: asn1
