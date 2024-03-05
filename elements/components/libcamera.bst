@@ -38,6 +38,4 @@ sources:
 - kind: git_repo
   url: git_https:git.libcamera.org/libcamera/libcamera.git
   track: v*.*
-  ref: v0.1.0-0-g668a5e674aed65b8982b449b4bed58ff7e3e1413
-- kind: patch
-  path: patches/libcamera/mojo-importlib.patch
+  ref: v0.2.0-0-g89227a428a82e724548399d35c98ea89566f9045
