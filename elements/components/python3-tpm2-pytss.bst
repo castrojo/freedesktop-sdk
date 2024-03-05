@@ -23,6 +23,6 @@ sources:
   - '*a*'
   - '*b*'
   - '*rc*'
-  ref: 2.2.0-0-gb9dae8373baad0f9f09a8d745a063f4960dd9369
+  ref: 2.2.1-0-g70a4ccc850bd9dba05043a90f08f818a1860826c
 - kind: patch_queue
   path: patches/tpm2-ptyss
