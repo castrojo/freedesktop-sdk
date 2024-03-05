@@ -19,7 +19,6 @@ sources:
 - kind: pypi
   name: tpm2-pytss
   ref:
-    sha256sum: 5b5b4b1456fdc1aeef3d2c3970beaa078c8f7f2648c97a69bcf60c5a2f95c897
-    suffix: 0f/e7/1680ec28f41196fb8adc0a2b2dc1e16d383b25446402dc83d158f3191d8b/tpm2-pytss-2.1.0.tar.gz
-- kind: patch_queue
-  path: patches/tpm2-ptyss
+    sha256sum: b8f15473422f377f59c7217dcd1479165cce62dfa33934ec976a278baf2e9efe
+    suffix: 
+      13/e5/8d4a9ac91579c741ec9fb63befcf6577107f22f3508c364fd53e277d7237/tpm2-pytss-2.2.1.tar.gz
