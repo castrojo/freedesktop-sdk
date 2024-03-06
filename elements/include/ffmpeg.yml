@@ -104,6 +104,10 @@ public:
         - '%{datadir}/ffmpeg/examples'
         - '%{datadir}/ffmpeg/examples/**'
 
+  cpe:
+    ignored:
+    - CVE-2024-22860
+
 # ffmpeg is not using autotools, but a configure and Makefile files
 config:
   configure-commands:
