@@ -399,7 +399,6 @@ license_checker:
 .builder-ppc64le:
   tags:
   - ppc64le
-  allow_failure: true
   variables:
     ARCH: ppc64le
     BUILD_TASKS: 2
