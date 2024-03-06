@@ -11,4 +11,4 @@ sources:
   url: github:cython/cython.git
   track: '*.*.*'
   ref-format: git-describe
-  ref: 3.0.8-0-ga1b79a6bc5326406ad73af73f5b41e3bb5f8da6e
+  ref: 3.0.9-0-g31d4058ab2bd3c6a6fa25197ef4fc6ac62a2d95b
