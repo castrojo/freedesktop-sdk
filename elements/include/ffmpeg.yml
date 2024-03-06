@@ -178,6 +178,7 @@ public:
     - CVE-2024-22862
     - CVE-2023-46407
     - CVE-2023-47470
+    - CVE-2022-48434
 
 # ffmpeg is not using autotools, but a configure and Makefile files
 config:
