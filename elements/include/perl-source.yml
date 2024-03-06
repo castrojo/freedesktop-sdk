@@ -1,3 +1,8 @@
+public:
+  cpe:
+    patches:
+    - CVE-2023-31484
+
 sources:
 - kind: git_tag
   url: github:perl/perl5.git
@@ -9,5 +14,5 @@ sources:
   ref: v5.36.3-0-gd456446ba5b8fba87f3f26fa700eb749c622e434
 - kind: local
   path: files/perl/config.over
-- kind: patch
-  path: patches/perl/no-rpath-libpath.patch
+- kind: patch_queue
+  path: patches/perl
