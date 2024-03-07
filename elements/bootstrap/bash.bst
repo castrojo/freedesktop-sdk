@@ -61,8 +61,11 @@ public:
     vendor: 'gnu'
     patches:
     - CVE-2019-18276
+    - CVE-2022-3715
 
 sources:
 - kind: git_tag
   url: savannah:bash.git
   ref: bash-5.1-18-g9439ce094c9aa7557a9d53ac7b412a23aa66e36b
+- kind: patch
+  path: patches/bash/CVE-2022-3715.patch
