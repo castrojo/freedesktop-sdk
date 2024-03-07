@@ -12,6 +12,7 @@ public:
     patches:
     - CVE-2022-38533
     - CVE-2022-4285
+    - CVE-2022-44840
 
 sources:
 - kind: git_tag
