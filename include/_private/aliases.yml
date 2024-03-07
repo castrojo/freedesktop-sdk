@@ -10,6 +10,7 @@ ffmpeg: https://git.ffmpeg.org/
 freedesktop_people: git://people.freedesktop.org/~wtay/
 freedesktop: https://gitlab.freedesktop.org/
 fdsdk_git: https://gitlab.com/freedesktop-sdk/
+gcc_gnu_org: https://gcc.gnu.org/git/
 ghostscript: https://git.ghostscript.com/
 github: https://github.com/
 gitlab: https://gitlab.com/
