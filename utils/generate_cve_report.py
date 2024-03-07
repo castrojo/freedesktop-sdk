@@ -39,7 +39,8 @@ with open(sys.argv[1], 'rb') as f:
             "name": module["name"],
             "version": version,
             "patches": cpe.get("patches", []),
-            "ignored": cpe.get("ignored", [])
+            "ignored": cpe.get("ignored", []),
+            "exclude-vendor": cpe.get("exclude-vendor", []),
         }
 
 
@@ -122,6 +123,8 @@ def extract_vulnerabilities(filename):
             if not module:
                 module = LOOKUP_TABLE.get(None, {}).get(name)
             if not module:
+                continue
+            if vendor in module["exclude-vendor"]:
                 continue
 
             if cve_id in module["patches"] or cve_id in module["ignored"]:
