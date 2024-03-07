@@ -6,6 +6,7 @@ build-depends:
 - components/flex.bst
 
 depends:
+- components/polkit-gobject.bst
 - components/systemd-libs.bst
 
 variables:
