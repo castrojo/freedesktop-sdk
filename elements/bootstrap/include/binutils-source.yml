@@ -21,7 +21,5 @@ sources:
   match:
   - 'binutils-*'
   ref: binutils-2_38-0-g20756b0fbe065a84710aa38f2457563b57546440
-- kind: patch
-  path: patches/binutils/dwarf5-fixes.patch
-- kind: patch
-  path: patches/binutils/PR29482-strip-heap-buffer-overflow.patch
+- kind: patch_queue
+  path: patches/binutils
