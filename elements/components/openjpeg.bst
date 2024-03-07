@@ -30,4 +30,4 @@ sources:
 - kind: git_tag
   url: github:uclouvain/openjpeg.git
   track: master
-  ref: v2.5.0-0-ga5891555eb49ed7cc26b2901ea680acda136d811
+  ref: v2.5.2-0-g39e8c50a2f9bdcf36810ee3d41bcbf1cc78968ae
