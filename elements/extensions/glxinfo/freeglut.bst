@@ -15,8 +15,6 @@ variables:
     -DFREEGLUT_BUILD_DEMOS:BOOL=OFF
     -DCMAKE_C_FLAGS="${CFLAGS} -I/app/include"
 
-  local_flags: -fcommon
-
 sources:
 - kind: git_repo
   url: github:FreeGLUTProject/freeglut.git
