@@ -23,6 +23,8 @@ public:
     - CVE-2022-47696
     - CVE-2022-48063
     - CVE-2022-48065
+    ignored:
+    - CVE-2022-48064
 
 sources:
 - kind: git_tag
