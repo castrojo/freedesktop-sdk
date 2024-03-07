@@ -9,7 +9,7 @@ depends:
 - bootstrap-import.bst
 
 (@):
-- elements/bootstrap/include/gcc-source.yml
+- elements/include/gcc-source.yml
 
 variables:
   lib: lib

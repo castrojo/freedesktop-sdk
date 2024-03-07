@@ -27,8 +27,8 @@ runtime-depends:
 
 (@):
 - elements/bootstrap/include/gcc-arch-opts.yml
-- elements/bootstrap/include/gcc-source.yml
 - elements/bootstrap/include/target.yml
+- elements/include/gcc-source.yml
 
 environment:
   CC: '%{tools}/bin/%{triplet}-gcc'

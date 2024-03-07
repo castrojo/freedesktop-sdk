@@ -15,7 +15,7 @@ depends:
 - bootstrap/bootstrap-base.bst
 
 (@):
-- elements/bootstrap/include/gcc-source.yml
+- elements/include/gcc-source.yml
 
 variables:
   # gcc installs correctly libraries in the multiarch library
