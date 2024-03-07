@@ -26,6 +26,7 @@ config:
   - components/pcsc-lite.bst
   - components/pipewire-daemon.bst
   - components/plymouth.bst
+  - components/polkit-gobject.bst
   - components/rtkit.bst
   - components/rust.bst
   - components/steam-devices.bst
