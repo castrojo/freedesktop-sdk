@@ -13,6 +13,7 @@ depends:
 - components/jpeg.bst
 - components/pango.bst
 - components/xorg-lib-xv.bst
+- components/libdrm.bst
 - components/libogg.bst
 - components/libpng.bst
 - components/libtheora.bst

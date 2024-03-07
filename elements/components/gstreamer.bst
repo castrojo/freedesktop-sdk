@@ -6,6 +6,7 @@ build-depends:
 - components/flex.bst
 - components/bison.bst
 - components/hotdoc.bst
+- components/rust.bst
 
 depends:
 - bootstrap-import.bst

@@ -46,6 +46,9 @@ variables:
     -Dtwolame=disabled
     -Dexamples=disabled
     -Drpicamsrc=disabled
+    -Dximagesrc-navigation=disabled
+    -Damrnb=disabled
+    -Damrwbdec=disabled
 
 public:
   cpe:

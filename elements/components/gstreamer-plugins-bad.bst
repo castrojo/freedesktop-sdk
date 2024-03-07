@@ -65,6 +65,7 @@ public:
     split-rules:
       devel:
         (>):
+        - '%{libdir}/libgstanalytics-1.0.so'
         - '%{libdir}/libgstadaptivedemux-1.0.so'
         - '%{libdir}/libgstbadallocators-1.0.so'
         - '%{libdir}/libgstbadaudio-1.0.so'
@@ -74,9 +75,11 @@ public:
         - '%{libdir}/libgstcodecparsers-1.0.so'
         - '%{libdir}/libgstcodecs-1.0.so'
         - '%{libdir}/libgstcuda-1.0.so'
+        - '%{libdir}/libgstdxva-1.0.so'
         - '%{libdir}/libgstinsertbin-1.0.so'
         - '%{libdir}/libgstisoff-1.0.so'
         - '%{libdir}/libgstmpegts-1.0.so'
+        - '%{libdir}/libgstmse-1.0.so'
         - '%{libdir}/libgstphotography-1.0.so'
         - '%{libdir}/libgstplay-1.0.so'
         - '%{libdir}/libgstplayer-1.0.so'
