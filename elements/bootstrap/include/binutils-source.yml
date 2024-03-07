@@ -24,6 +24,7 @@ public:
     - CVE-2022-48063
     - CVE-2022-48065
     ignored:
+    - CVE-2023-25584
     - CVE-2022-48064
 
 sources:
