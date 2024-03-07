@@ -6,6 +6,7 @@ build-depends:
 - components/flex.bst
 
 depends:
+- components/polkit-gobject.bst
 - components/systemd-libs.bst
 
 variables:
@@ -16,4 +17,4 @@ sources:
 - kind: git_tag
   url: debian_salsa:rousseau/PCSC.git
   track: master
-  ref: 2.0.0-0-g549922c1355fdd1e85eb0a952fefda7bb96e286a
+  ref: 2.0.3-0-gc4e7f6f9c6fe56fafd3f13c31fcc4f670ad6d022
