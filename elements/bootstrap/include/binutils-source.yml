@@ -11,6 +11,7 @@ public:
     version-match: '([0-9]*)_([0-9]*)'
     patches:
     - CVE-2022-38533
+    - CVE-2022-4285
 
 sources:
 - kind: git_tag
