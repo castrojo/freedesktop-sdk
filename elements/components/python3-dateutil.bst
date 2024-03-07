@@ -15,3 +15,5 @@ sources:
   url: github:dateutil/dateutil
   track: '*.*.*'
   ref: 2.9.0.post0-0-g1ae807774053c071acc9e7d3d27778fba0a7773e
+- kind: patch
+  path: patches/python3-dateutil/0001-Revert-Pin-setuptools_scm-to-8.patch

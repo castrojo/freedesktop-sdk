@@ -1,0 +1,25 @@
+From bec3716de5f4e259e6f9445cce269a84c1fc1a5f Mon Sep 17 00:00:00 2001
+From: Seppo Yli-Olli <seppo.yliolli@gmail.com>
+Date: Thu, 7 Mar 2024 09:46:53 +0200
+Subject: [PATCH] Revert "Pin `setuptools_scm` to <8"
+
+This reverts commit 9780d32aea9ab681769671c4e3540b449d62cdd0.
+
+We don't need to use old Python versions
+
+diff --git a/pyproject.toml b/pyproject.toml
+index b609717..67ad619 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -3,7 +3,7 @@ requires = [
+     "setuptools; python_version != '3.3'",
+     "setuptools<40.0; python_version == '3.3'",
+     "wheel",
+-    "setuptools_scm<8.0"
++    "setuptools_scm"
+ ]
+ build-backend = "setuptools.build_meta"
+ 
+-- 
+2.43.0.windows.1
+
