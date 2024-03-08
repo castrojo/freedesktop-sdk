@@ -48,6 +48,7 @@ public:
     - CVE-2022-2867
     - CVE-2022-2868
     - CVE-2022-2869
+    - CVE-2023-52355
 
 sources:
 - kind: git_tag
