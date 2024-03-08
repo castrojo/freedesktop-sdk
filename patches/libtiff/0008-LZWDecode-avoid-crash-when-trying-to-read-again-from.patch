@@ -1,0 +1,38 @@
+From fa44747dc0d7d51e213ed51de91a44831504e937 Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Fri, 8 Mar 2024 11:03:38 +0530
+Subject: [PATCH 08/18] LZWDecode(): avoid crash when trying to read again from
+ a strip whith a missing end-of-information marker (fixes #548)
+
+Backport of https://gitlab.com/libtiff/libtiff/-/commit/9be22b639ea69e102d3847dca4c53ef025e9527b
+Fixes CVE-2023-2731
+---
+ libtiff/tif_lzw.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/libtiff/tif_lzw.c b/libtiff/tif_lzw.c
+index 096824d2..b1fc3430 100644
+--- a/libtiff/tif_lzw.c
++++ b/libtiff/tif_lzw.c
+@@ -404,6 +404,10 @@ LZWDecode(TIFF* tif, uint8_t* op0, tmsize_t occ0, uint16_t s)
+ 	assert(sp->dec_codetab != NULL);
+ 
+ 	if (sp->read_error) {
++        TIFFErrorExt(tif->tif_clientdata, module,
++                      "LZWDecode: Scanline %" PRIu32 " cannot be read due to "
++                      "previous error",
++                      tif->tif_row);
+ 		return 0;
+ 	}
+ 
+@@ -705,6 +709,7 @@ after_loop:
+ 	return (1);
+ 
+ no_eoi:
++	sp->read_error = 1;
+     TIFFErrorExt(tif->tif_clientdata, module,
+                     "LZWDecode: Strip %"PRIu32" not terminated with EOI code",
+                     tif->tif_curstrip);
+-- 
+2.44.0
+
