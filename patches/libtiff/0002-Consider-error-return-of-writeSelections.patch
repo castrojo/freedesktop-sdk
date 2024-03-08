@@ -1,0 +1,37 @@
+From a40ab75e969724373307f17b7cb4a6ba64307222 Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Fri, 8 Mar 2024 10:05:28 +0530
+Subject: [PATCH 02/18] Consider error return of writeSelections()
+
+Backport of https://gitlab.com/libtiff/libtiff/-/commit/b5c7d4c4e03333ac16b5cfb11acaaeaa493334f8
+
+Fixes CVE-2023-3618 according to https://gitlab.com/libtiff/libtiff/-/issues/529#note_1514395486
+---
+ tools/tiffcrop.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/tools/tiffcrop.c b/tools/tiffcrop.c
+index 1bfac0b9..839277a7 100644
+--- a/tools/tiffcrop.c
++++ b/tools/tiffcrop.c
+@@ -2430,8 +2430,15 @@ main(int argc, char* argv[])
+         {  /* Whole image or sections not based on output page size */
+         if (crop.selections > 0)
+           {
+-	  writeSelections(in, &out, &crop, &image, &dump, seg_buffs,
+-                          mp, argv[argc - 1], &next_page, total_pages);
++            if (writeSelections(in, &out, &crop, &image, &dump,
++                                seg_buffs, mp, argv[argc - 1],
++                                &next_page, total_pages))
++            {
++                TIFFError("main",
++                          "Unable to write new image selections");
++                exit(EXIT_FAILURE);
++            }
++
+           }
+ 	else  /* One file all images and sections */
+           {
+-- 
+2.44.0
+
