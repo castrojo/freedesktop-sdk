@@ -74,23 +74,5 @@ sources:
 - kind: git_tag
   url: gitlab:libtiff/libtiff.git
   ref: v4.4.0-0-gb6a17e567f143fab49734a9e09e5bafeb6f97354
-- kind: patch
-  path: patches/libtiff/fix-the-FPE-in-tiffcrop-415-427-and-428.patch
-- kind: patch
-  path: patches/libtiff/CVE-2022-34526.patch
-- kind: patch
-  path: patches/libtiff/According-to-Richard-Nolde-https-gitlab.com-libtiff-.patch
-- kind: patch
-  path: patches/libtiff/tiffcrop-S-option-Make-decision-simpler.patch
-- kind: patch
-  path: patches/libtiff/tiffcrop-disable-incompatibility-of-Z-X-Y-z-options.patch
-- kind: patch
-  path: patches/libtiff/tiffcrop-subroutines-require-a-larger-buffer.patch
-- kind: patch
-  path: patches/libtiff/tiffcrop-subroutines-require-a-larger-buffer-change-buffersize-to-size_t.patch
-- kind: patch
-  path: patches/libtiff/Revised-handling-of-TIFFTAG_INKNAMES-and-related-TIFFTAG_NUMBEROFINKS-value.patch
-- kind: patch
-  path: patches/libtiff/TIFFReadRGBATileExt-fix-unsigned-integer-overflow-on-strips-tiles-2-GB.patch
-- kind: patch
-  path: patches/libtiff/tiffcrop-Correct-simple-copy-paste-error.patch
+- kind: patch_queue
+  path: patches/libtiff
