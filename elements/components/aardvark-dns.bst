@@ -12,7 +12,6 @@ sources:
   track: v*
   ref: v1.10.0-0-g875c717352be058864d107c6cb07e820904aca0d
 - kind: cargo
-  url: crates:crates
   ref:
   - name: addr2line
     version: 0.21.0

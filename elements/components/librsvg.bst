@@ -40,7 +40,6 @@ sources:
   - '*rc*'
   ref: 2.57.1-0-g34cc425b40bb6299868157fe98c945c30bbc3b71
 - kind: cargo
-  url: crates:crates
   ref:
   - name: adler
     version: 1.0.2
