@@ -141,7 +141,8 @@ def extract_vulnerabilities(filename):
                                      f"{cpe_match} ({cve_id})") from exc
             else:
                 vulnerable = False
-
+            if vulnerable:
+                print(product_name, cpe_match)
             yield cve_id, module["name"], module["version"], summary, scorev2, scorev3, vulnerable
 
 
