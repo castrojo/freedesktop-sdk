@@ -1,7 +1,7 @@
-From dd1bcc7abb26094e93636e85520f0d8f81ab0fab Mon Sep 17 00:00:00 2001
+From ed1e8c028fe9bbbccc1515a5cf8a9a643deaba54 Mon Sep 17 00:00:00 2001
 From: 4ugustus <wangdw.augustus@qq.com>
 Date: Sat, 11 Jun 2022 09:31:43 +0000
-Subject: [PATCH] fix the FPE in tiffcrop (#415, #427, and #428)
+Subject: [PATCH 14/18] fix the FPE in tiffcrop (#415, #427, and #428)
 
 ---
  libtiff/tif_aux.c |  9 +++++++
@@ -42,10 +42,10 @@ index e3af461d..4e8bdac2 100644
  extern tmsize_t
  _TIFFReadEncodedStripAndAllocBuffer(TIFF* tif, uint32_t strip,
 diff --git a/tools/tiffcrop.c b/tools/tiffcrop.c
-index 1f827b2b..90286a5e 100644
+index 36f581c3..78410843 100644
 --- a/tools/tiffcrop.c
 +++ b/tools/tiffcrop.c
-@@ -5268,17 +5268,17 @@ computeInputPixelOffsets(struct crop_mask *crop, struct image_data *image,
+@@ -5295,17 +5295,17 @@ computeInputPixelOffsets(struct crop_mask *crop, struct image_data *image,
        {
        if ((crop->res_unit == RESUNIT_INCH) || (crop->res_unit == RESUNIT_CENTIMETER))
          {
@@ -71,7 +71,7 @@ index 1f827b2b..90286a5e 100644
  	}
        /* a) Region needs to be within image sizes 0.. width-1; 0..length-1 
         * b) Corners are expected to be submitted as top-left to bottom-right.
-@@ -5357,17 +5357,17 @@ computeInputPixelOffsets(struct crop_mask *crop, struct image_data *image,
+@@ -5406,17 +5406,17 @@ computeInputPixelOffsets(struct crop_mask *crop, struct image_data *image,
      {
      if (crop->res_unit != RESUNIT_INCH && crop->res_unit != RESUNIT_CENTIMETER)
        { /* User has specified pixels as reference unit */
@@ -97,7 +97,7 @@ index 1f827b2b..90286a5e 100644
        }
  
      if ((lmargin + rmargin) > image->width)
-@@ -5397,24 +5397,24 @@ computeInputPixelOffsets(struct crop_mask *crop, struct image_data *image,
+@@ -5446,24 +5446,24 @@ computeInputPixelOffsets(struct crop_mask *crop, struct image_data *image,
    if (crop->res_unit != RESUNIT_INCH && crop->res_unit != RESUNIT_CENTIMETER)
      {
      if (crop->crop_mode & CROP_WIDTH)
@@ -126,7 +126,7 @@ index 1f827b2b..90286a5e 100644
      else
        length = image->length - tmargin - bmargin;
      }
-@@ -5868,13 +5868,13 @@ computeOutputPixelOffsets (struct crop_mask *crop, struct image_data *image,
+@@ -5917,13 +5917,13 @@ computeOutputPixelOffsets (struct crop_mask *crop, struct image_data *image,
      {
      if (page->res_unit == RESUNIT_INCH || page->res_unit == RESUNIT_CENTIMETER)
        { /* inches or centimeters specified */
@@ -144,7 +144,7 @@ index 1f827b2b..90286a5e 100644
        }
  
      if ((hmargin * 2.0) > (pwidth * page->hres))
-@@ -5912,13 +5912,13 @@ computeOutputPixelOffsets (struct crop_mask *crop, struct image_data *image,
+@@ -5961,13 +5961,13 @@ computeOutputPixelOffsets (struct crop_mask *crop, struct image_data *image,
      {
      if (page->mode & PAGE_MODE_PAPERSIZE )
        {
@@ -162,7 +162,7 @@ index 1f827b2b..90286a5e 100644
        }
      }
  
-@@ -5927,6 +5927,12 @@ computeOutputPixelOffsets (struct crop_mask *crop, struct image_data *image,
+@@ -5976,6 +5976,12 @@ computeOutputPixelOffsets (struct crop_mask *crop, struct image_data *image,
    if (olength > ilength)
      olength = ilength;
  
@@ -176,5 +176,5 @@ index 1f827b2b..90286a5e 100644
    switch (page->orient)
      {
 -- 
-2.37.0
+2.44.0
 

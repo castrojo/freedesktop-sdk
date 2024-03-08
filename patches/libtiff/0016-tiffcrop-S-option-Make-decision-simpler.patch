@@ -1,17 +1,17 @@
-From bad48e90b410df32172006c7876da449ba62cdba Mon Sep 17 00:00:00 2001
+From 420afbebd7064c9117a7a12ac3ac982e3ecc54e8 Mon Sep 17 00:00:00 2001
 From: Su_Laus <sulau@freenet.de>
 Date: Sat, 20 Aug 2022 23:35:26 +0200
-Subject: [PATCH 2/2] tiffcrop -S option: Make decision simpler.
+Subject: [PATCH 16/18] tiffcrop -S option: Make decision simpler.
 
 ---
  tools/tiffcrop.c | 10 +++++-----
  1 file changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/tools/tiffcrop.c b/tools/tiffcrop.c
-index c3b758ec..8fd856dc 100644
+index 4b0cf97b..db9c299a 100644
 --- a/tools/tiffcrop.c
 +++ b/tools/tiffcrop.c
-@@ -2133,11 +2133,11 @@ void  process_command_opts (int argc, char *argv[], char *mp, char *mode, uint32
+@@ -2148,11 +2148,11 @@ void  process_command_opts (int argc, char *argv[], char *mp, char *mode, uint32
      }
      /*-- Check for not allowed combinations (e.g. -X, -Y and -Z, -z and -S are mutually exclusive) --*/
      char XY, Z, R, S;
@@ -29,5 +29,5 @@ index c3b758ec..8fd856dc 100644
          exit(EXIT_FAILURE);
      }
 -- 
-2.37.3
+2.44.0
 

@@ -1,8 +1,8 @@
-From 227500897dfb07fb7d27f7aa570050e62617e3be Mon Sep 17 00:00:00 2001
+From 7710af149489f4315a0ea3d0139eca377d2ad517 Mon Sep 17 00:00:00 2001
 From: Even Rouault <even.rouault@spatialys.com>
 Date: Tue, 8 Nov 2022 15:16:58 +0100
-Subject: [PATCH] TIFFReadRGBATileExt(): fix (unsigned) integer overflow on
- strips/tiles > 2 GB
+Subject: [PATCH 17/18] TIFFReadRGBATileExt(): fix (unsigned) integer overflow
+ on strips/tiles > 2 GB
 
 Fixes https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=53137
 ---
@@ -10,10 +10,10 @@ Fixes https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=53137
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/libtiff/tif_getimage.c b/libtiff/tif_getimage.c
-index a4d0c1d6..60b94d8e 100644
+index a1b6570b..9a2e0c59 100644
 --- a/libtiff/tif_getimage.c
 +++ b/libtiff/tif_getimage.c
-@@ -3016,15 +3016,15 @@ TIFFReadRGBATileExt(TIFF* tif, uint32_t col, uint32_t row, uint32_t * raster, in
+@@ -3058,15 +3058,15 @@ TIFFReadRGBATileExt(TIFF* tif, uint32_t col, uint32_t row, uint32_t * raster, in
          return( ok );
  
      for( i_row = 0; i_row < read_ysize; i_row++ ) {
@@ -34,5 +34,5 @@ index a4d0c1d6..60b94d8e 100644
      }
  
 -- 
-GitLab
+2.44.0
 
