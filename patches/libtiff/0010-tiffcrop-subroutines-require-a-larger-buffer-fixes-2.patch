@@ -1,38 +1,24 @@
-From 9128bc41cd9ec4b33a860ceb34501ba26f175692 Mon Sep 17 00:00:00 2001
-From: Su_Laus <sulau@freenet.de>
-Date: Mon, 22 Aug 2022 09:35:48 +0200
-Subject: [PATCH] tiffcrop subroutines require a larger buffer (fixes #271,
- #381, #386, #388, #389, #435)
+From ccf5f9b7c85c2221b0310ffaeee4e90f9c36a1ff Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Fri, 8 Mar 2024 11:50:00 +0530
+Subject: [PATCH 10/18] tiffcrop subroutines require a larger buffer (fixes
+ #271, #381, #386, #388, #389, #435)
 
-Buffer overflows have been fixed by making the buffers at least 3 bytes larger than the image itself needs.
-This is required for some tiffcrop conversion subroutines.
-
-In addition, some integer casting warnings have been fixed.
-
-Closes issues #271, #381, #386, #388, #389 and #435.
+Backport of https://gitlab.com/libtiff/libtiff/-/merge_requests/382
+Fixes CVE-2023-30755, CVE-2022-3570 and CVE-2022-3598
 ---
- tools/tiffcrop.c | 209 ++++++++++++++++++++++++++---------------------
- 1 file changed, 118 insertions(+), 91 deletions(-)
+ tools/tiffcrop.c | 207 +++++++++++++++++++++++++++--------------------
+ 1 file changed, 118 insertions(+), 89 deletions(-)
 
 diff --git a/tools/tiffcrop.c b/tools/tiffcrop.c
-index 41a2ea36..3eac5b2a 100644
+index c5aec68e..4b940df4 100644
 --- a/tools/tiffcrop.c
 +++ b/tools/tiffcrop.c
-@@ -114,8 +114,8 @@
-  *          such as -H, -V, -P, -J or -K are not supported and may cause buffer overflows.
-   */
- 
--static   char tiffcrop_version_id[] = "2.5.3";
--static   char tiffcrop_rev_date[] = "26-08-2022";
-+static   char tiffcrop_version_id[] = "2.5.4";
-+static   char tiffcrop_rev_date[] = "27-08-2022";
- 
- #include "tif_config.h"
- #include "libport.h"
-@@ -212,6 +212,10 @@ static   char tiffcrop_rev_date[] = "26-08-2022";
+@@ -210,6 +210,11 @@ static   char tiffcrop_rev_date[] = "02-09-2022";
  
  #define TIFF_DIR_MAX  65534
  
++
 +/* Some conversion subroutines require image buffers, which are at least 3 bytes
 + * larger than the necessary size for the image itself. */
 +#define NUM_BUFF_OVERSIZE_BYTES   3
@@ -40,16 +26,16 @@ index 41a2ea36..3eac5b2a 100644
  /* Offsets into buffer for margins and fixed width and length segments */
  struct offset {
    uint32_t  tmargin;
-@@ -233,7 +237,7 @@ struct offset {
+@@ -231,7 +236,7 @@ struct offset {
   */
  
  struct  buffinfo {
 -  uint32_t size;           /* size of this buffer */
-+  uint64_t size;           /* size of this buffer */
++  size_t size;           /* size of this buffer */
    unsigned char *buffer; /* address of the allocated buffer */
  };
  
-@@ -810,8 +814,8 @@ static int readContigTilesIntoBuffer (TIFF* in, uint8_t* buf,
+@@ -804,8 +809,8 @@ static int readContigTilesIntoBuffer (TIFF* in, uint8_t* buf,
    uint32_t dst_rowsize, shift_width;
    uint32_t bytes_per_sample, bytes_per_pixel;
    uint32_t trailing_bits, prev_trailing_bits;
@@ -60,7 +46,7 @@ index 41a2ea36..3eac5b2a 100644
    uint32_t row_offset, col_offset;
    uint8_t *bufp = (uint8_t*) buf;
    unsigned char *src = NULL;
-@@ -861,7 +865,7 @@ static int readContigTilesIntoBuffer (TIFF* in, uint8_t* buf,
+@@ -855,7 +860,7 @@ static int readContigTilesIntoBuffer (TIFF* in, uint8_t* buf,
        TIFFError("readContigTilesIntoBuffer", "Integer overflow when calculating buffer size.");
        exit(EXIT_FAILURE);
    }
@@ -69,7 +55,7 @@ index 41a2ea36..3eac5b2a 100644
    if (tilebuf == 0)
      return 0;
    tilebuf[tile_buffsize] = 0;
-@@ -1024,7 +1028,7 @@ static int  readSeparateTilesIntoBuffer (TIFF* in, uint8_t *obuf,
+@@ -1018,7 +1023,7 @@ static int  readSeparateTilesIntoBuffer (TIFF* in, uint8_t *obuf,
    for (sample = 0; (sample < spp) && (sample < MAX_SAMPLES); sample++)
      {
      srcbuffs[sample] = NULL;
@@ -78,7 +64,7 @@ index 41a2ea36..3eac5b2a 100644
      if (!tbuff)
        {
        TIFFError ("readSeparateTilesIntoBuffer", 
-@@ -1217,7 +1221,8 @@ writeBufferToSeparateStrips (TIFF* out, uint8_t* buf,
+@@ -1211,7 +1216,8 @@ writeBufferToSeparateStrips (TIFF* out, uint8_t* buf,
    }
    rowstripsize = rowsperstrip * bytes_per_sample * (width + 1); 
  
@@ -88,7 +74,7 @@ index 41a2ea36..3eac5b2a 100644
    if (obuf == NULL)
      return 1;
    
-@@ -1229,7 +1234,7 @@ writeBufferToSeparateStrips (TIFF* out, uint8_t* buf,
+@@ -1223,7 +1229,7 @@ writeBufferToSeparateStrips (TIFF* out, uint8_t* buf,
  
        stripsize = TIFFVStripSize(out, nrows);
        src = buf + (row * rowsize);
@@ -97,7 +83,7 @@ index 41a2ea36..3eac5b2a 100644
        if (extractContigSamplesToBuffer(obuf, src, nrows, width, s, spp, bps, dump))
          {
          _TIFFfree(obuf);
-@@ -1237,10 +1242,15 @@ writeBufferToSeparateStrips (TIFF* out, uint8_t* buf,
+@@ -1231,10 +1237,15 @@ writeBufferToSeparateStrips (TIFF* out, uint8_t* buf,
  	}
        if ((dump->outfile != NULL) && (dump->level == 1))
          {
@@ -116,7 +102,7 @@ index 41a2ea36..3eac5b2a 100644
  	}
  
        if (TIFFWriteEncodedStrip(out, strip++, obuf, stripsize) < 0)
-@@ -1267,7 +1277,7 @@ static int writeBufferToContigTiles (TIFF* out, uint8_t* buf, uint32_t imageleng
+@@ -1261,7 +1272,7 @@ static int writeBufferToContigTiles (TIFF* out, uint8_t* buf, uint32_t imageleng
    uint32_t tl, tw;
    uint32_t row, col, nrow, ncol;
    uint32_t src_rowsize, col_offset;
@@ -125,7 +111,7 @@ index 41a2ea36..3eac5b2a 100644
    uint8_t* bufp = (uint8_t*) buf;
    tsize_t tile_buffsize = 0;
    tsize_t tilesize = TIFFTileSize(out);
-@@ -1310,9 +1320,11 @@ static int writeBufferToContigTiles (TIFF* out, uint8_t* buf, uint32_t imageleng
+@@ -1304,9 +1315,11 @@ static int writeBufferToContigTiles (TIFF* out, uint8_t* buf, uint32_t imageleng
    }
    src_rowsize = ((imagewidth * spp * bps) + 7U) / 8;
  
@@ -138,17 +124,18 @@ index 41a2ea36..3eac5b2a 100644
    for (row = 0; row < imagelength; row += tl)
      {
      nrow = (row + tl > imagelength) ? imagelength - row : tl;
-@@ -1358,7 +1370,8 @@ static int writeBufferToSeparateTiles (TIFF* out, uint8_t* buf, uint32_t imagele
+@@ -1352,7 +1365,9 @@ static int writeBufferToSeparateTiles (TIFF* out, uint8_t* buf, uint32_t imagele
                                         uint32_t imagewidth, tsample_t spp,
                                         struct dump_opts * dump)
    {
 -  tdata_t obuf = limitMalloc(TIFFTileSize(out));
++
 +  /* Add 3 padding bytes for extractContigSamples32bits */
 +  tdata_t obuf = limitMalloc(TIFFTileSize(out) + NUM_BUFF_OVERSIZE_BYTES);
    uint32_t tl, tw;
    uint32_t row, col, nrow, ncol;
    uint32_t src_rowsize, col_offset;
-@@ -1368,6 +1381,7 @@ static int writeBufferToSeparateTiles (TIFF* out, uint8_t* buf, uint32_t imagele
+@@ -1362,6 +1377,7 @@ static int writeBufferToSeparateTiles (TIFF* out, uint8_t* buf, uint32_t imagele
  
    if (obuf == NULL)
      return 1;
@@ -156,7 +143,7 @@ index 41a2ea36..3eac5b2a 100644
  
    if( !TIFFGetField(out, TIFFTAG_TILELENGTH, &tl) ||
        !TIFFGetField(out, TIFFTAG_TILEWIDTH, &tw) ||
-@@ -1793,14 +1807,14 @@ void  process_command_opts (int argc, char *argv[], char *mp, char *mode, uint32
+@@ -1787,14 +1803,14 @@ void  process_command_opts (int argc, char *argv[], char *mp, char *mode, uint32
                        
                      *opt_offset = '\0';
                      /* convert option to lowercase */
@@ -173,7 +160,7 @@ index 41a2ea36..3eac5b2a 100644
                        for (i = 1; i <= end; i++)
                          *(opt_offset + i) = tolower((int) *(opt_offset + i));
                        /* check dump format value */
-@@ -2273,6 +2287,8 @@ main(int argc, char* argv[])
+@@ -2255,6 +2271,8 @@ main(int argc, char* argv[])
    size_t length;
    char   temp_filename[PATH_MAX + 16]; /* Extra space keeps the compiler from complaining */
  
@@ -182,7 +169,7 @@ index 41a2ea36..3eac5b2a 100644
    little_endian = *((unsigned char *)&little_endian) & '1';
  
    initImageData(&image);
-@@ -3227,13 +3243,13 @@ extractContigSamples32bits (uint8_t *in, uint8_t *out, uint32_t cols,
+@@ -3217,13 +3235,13 @@ extractContigSamples32bits (uint8_t *in, uint8_t *out, uint32_t cols,
        /* If we have a full buffer's worth, write it out */
        if (ready_bits >= 32)
          {
@@ -200,7 +187,7 @@ index 41a2ea36..3eac5b2a 100644
          *dst++ = bytebuff4;
          ready_bits -= 32;
                      
-@@ -3642,13 +3658,13 @@ extractContigSamplesShifted32bits (uint8_t *in, uint8_t *out, uint32_t cols,
+@@ -3632,13 +3650,13 @@ extractContigSamplesShifted32bits (uint8_t *in, uint8_t *out, uint32_t cols,
          }
        else  /* If we have a full buffer's worth, write it out */
          {
@@ -218,7 +205,7 @@ index 41a2ea36..3eac5b2a 100644
          *dst++ = bytebuff4;
          ready_bits -= 32;
                      
-@@ -3825,10 +3841,10 @@ extractContigSamplesToTileBuffer(uint8_t *out, uint8_t *in, uint32_t rows, uint3
+@@ -3815,10 +3833,10 @@ extractContigSamplesToTileBuffer(uint8_t *out, uint8_t *in, uint32_t rows, uint3
  static int readContigStripsIntoBuffer (TIFF* in, uint8_t* buf)
  {
          uint8_t* bufp = buf;
@@ -232,7 +219,7 @@ index 41a2ea36..3eac5b2a 100644
          uint32_t rps = TIFFGetFieldDefaulted(in, TIFFTAG_ROWSPERSTRIP, &rps);
          tsize_t scanline_size = TIFFScanlineSize(in);
  
-@@ -3841,11 +3857,11 @@ static int readContigStripsIntoBuffer (TIFF* in, uint8_t* buf)
+@@ -3831,11 +3849,11 @@ static int readContigStripsIntoBuffer (TIFF* in, uint8_t* buf)
                  bytes_read = TIFFReadEncodedStrip (in, strip, bufp, -1);
                  rows = bytes_read / scanline_size;
                  if ((strip < (nstrips - 1)) && (bytes_read != (int32_t)stripsize))
@@ -246,7 +233,7 @@ index 41a2ea36..3eac5b2a 100644
                                    strip, rows);
                          return 0;
                  }
-@@ -4310,13 +4326,13 @@ combineSeparateSamples32bits (uint8_t *in[], uint8_t *out, uint32_t cols,
+@@ -4300,13 +4318,13 @@ combineSeparateSamples32bits (uint8_t *in[], uint8_t *out, uint32_t cols,
  	/* If we have a full buffer's worth, write it out */
  	if (ready_bits >= 32)
  	  {
@@ -264,7 +251,7 @@ index 41a2ea36..3eac5b2a 100644
  	  *dst++ = bytebuff4;
  	  ready_bits -= 32;
                      
-@@ -4359,10 +4375,10 @@ combineSeparateSamples32bits (uint8_t *in[], uint8_t *out, uint32_t cols,
+@@ -4349,10 +4367,10 @@ combineSeparateSamples32bits (uint8_t *in[], uint8_t *out, uint32_t cols,
  	         "Row %3d, Col %3d, Src byte offset %3d  bit offset %2d  Dst offset %3d",
  		 row + 1, col + 1, src_byte, src_bit, dst - out);
  
@@ -278,7 +265,7 @@ index 41a2ea36..3eac5b2a 100644
        dump_byte (dumpfile, format, "Write bits1", bytebuff1);
        dump_byte (dumpfile, format, "Write bits2", bytebuff2);
        dump_info (dumpfile, format, "", "Ready bits:  %2d", ready_bits); 
-@@ -4835,13 +4851,13 @@ combineSeparateTileSamples32bits (uint8_t *in[], uint8_t *out, uint32_t cols,
+@@ -4825,13 +4843,13 @@ combineSeparateTileSamples32bits (uint8_t *in[], uint8_t *out, uint32_t cols,
  	/* If we have a full buffer's worth, write it out */
  	if (ready_bits >= 32)
  	  {
@@ -296,7 +283,7 @@ index 41a2ea36..3eac5b2a 100644
  	  *dst++ = bytebuff4;
  	  ready_bits -= 32;
                      
-@@ -4884,10 +4900,10 @@ combineSeparateTileSamples32bits (uint8_t *in[], uint8_t *out, uint32_t cols,
+@@ -4874,10 +4892,10 @@ combineSeparateTileSamples32bits (uint8_t *in[], uint8_t *out, uint32_t cols,
  	         "Row %3d, Col %3d, Src byte offset %3d  bit offset %2d  Dst offset %3d",
  		 row + 1, col + 1, src_byte, src_bit, dst - out);
  
@@ -310,7 +297,7 @@ index 41a2ea36..3eac5b2a 100644
        dump_byte (dumpfile, format, "Write bits1", bytebuff1);
        dump_byte (dumpfile, format, "Write bits2", bytebuff2);
        dump_info (dumpfile, format, "", "Ready bits:  %2d", ready_bits); 
-@@ -4910,7 +4926,7 @@ static int readSeparateStripsIntoBuffer (TIFF *in, uint8_t *obuf, uint32_t lengt
+@@ -4900,7 +4918,7 @@ static int readSeparateStripsIntoBuffer (TIFF *in, uint8_t *obuf, uint32_t lengt
    {
    int i, bytes_per_sample, bytes_per_pixel, shift_width, result = 1;
    uint32_t j;
@@ -319,7 +306,7 @@ index 41a2ea36..3eac5b2a 100644
    uint16_t bps = 0, planar;
    uint32_t nstrips;
    uint32_t strips_per_sample;
-@@ -4976,7 +4992,7 @@ static int readSeparateStripsIntoBuffer (TIFF *in, uint8_t *obuf, uint32_t lengt
+@@ -4966,7 +4984,7 @@ static int readSeparateStripsIntoBuffer (TIFF *in, uint8_t *obuf, uint32_t lengt
    for (s = 0; (s < spp) && (s < MAX_SAMPLES); s++)
      {
      srcbuffs[s] = NULL;
@@ -328,7 +315,7 @@ index 41a2ea36..3eac5b2a 100644
      if (!buff)
        {
        TIFFError ("readSeparateStripsIntoBuffer", 
-@@ -4999,7 +5015,7 @@ static int readSeparateStripsIntoBuffer (TIFF *in, uint8_t *obuf, uint32_t lengt
+@@ -4989,7 +5007,7 @@ static int readSeparateStripsIntoBuffer (TIFF *in, uint8_t *obuf, uint32_t lengt
        buff = srcbuffs[s];
        strip = (s * strips_per_sample) + j; 
        bytes_read = TIFFReadEncodedStrip (in, strip, buff, stripsize);
@@ -337,7 +324,7 @@ index 41a2ea36..3eac5b2a 100644
        if (bytes_read < 0 && !ignore)
          {
          TIFFError(TIFFFileName(in),
-@@ -6062,13 +6078,14 @@ loadImage(TIFF* in, struct image_data *image, struct dump_opts *dump, unsigned c
+@@ -6067,13 +6085,14 @@ loadImage(TIFF* in, struct image_data *image, struct dump_opts *dump, unsigned c
    uint16_t   input_compression = 0, input_photometric = 0;
    uint16_t   subsampling_horiz, subsampling_vert;
    uint32_t   width = 0, length = 0;
@@ -355,7 +342,7 @@ index 41a2ea36..3eac5b2a 100644
  
    TIFFGetFieldDefaulted(in, TIFFTAG_BITSPERSAMPLE, &bps);
    TIFFGetFieldDefaulted(in, TIFFTAG_SAMPLESPERPIXEL, &spp);
-@@ -6325,6 +6342,8 @@ loadImage(TIFF* in, struct image_data *image, struct dump_opts *dump, unsigned c
+@@ -6330,6 +6349,8 @@ loadImage(TIFF* in, struct image_data *image, struct dump_opts *dump, unsigned c
      /* The buffsize_check and the possible adaptation of buffsize 
       * has to account also for padding of each line to a byte boundary. 
       * This is assumed by mirrorImage() and rotateImage().
@@ -364,7 +351,7 @@ index 41a2ea36..3eac5b2a 100644
       * Otherwise buffer-overflow might occur there.
       */
      buffsize_check = length * (uint32_t)(((width * spp * bps) + 7) / 8);
-@@ -6376,7 +6395,7 @@ loadImage(TIFF* in, struct image_data *image, struct dump_opts *dump, unsigned c
+@@ -6381,7 +6402,7 @@ loadImage(TIFF* in, struct image_data *image, struct dump_opts *dump, unsigned c
          TIFFError("loadImage", "Unable to allocate/reallocate read buffer");
          return (-1);
      }
@@ -373,7 +360,7 @@ index 41a2ea36..3eac5b2a 100644
    }
    else
      {
-@@ -6387,11 +6406,11 @@ loadImage(TIFF* in, struct image_data *image, struct dump_opts *dump, unsigned c
+@@ -6392,11 +6413,11 @@ loadImage(TIFF* in, struct image_data *image, struct dump_opts *dump, unsigned c
            TIFFError("loadImage", "Unable to allocate/reallocate read buffer");
            return (-1);
        }
@@ -387,7 +374,7 @@ index 41a2ea36..3eac5b2a 100644
          }
        else
          read_buff = new_buff;
-@@ -6464,8 +6483,13 @@ loadImage(TIFF* in, struct image_data *image, struct dump_opts *dump, unsigned c
+@@ -6469,8 +6490,13 @@ loadImage(TIFF* in, struct image_data *image, struct dump_opts *dump, unsigned c
      dump_info  (dump->infile, dump->format, "", 
                  "Bits per sample %"PRIu16", Samples per pixel %"PRIu16, bps, spp);
  
@@ -402,7 +389,7 @@ index 41a2ea36..3eac5b2a 100644
                    i, read_buff + (i * scanlinesize));
      }
    return (0);
-@@ -7485,13 +7509,13 @@ writeSingleSection(TIFF *in, TIFF *out, struct image_data *image,
+@@ -7536,13 +7562,13 @@ writeSingleSection(TIFF *in, TIFF *out, struct image_data *image,
       if (TIFFGetField(in, TIFFTAG_NUMBEROFINKS, &ninks)) {
         TIFFSetField(out, TIFFTAG_NUMBEROFINKS, ninks);
         if (TIFFGetField(in, TIFFTAG_INKNAMES, &inknames)) {
@@ -418,7 +405,7 @@ index 41a2ea36..3eac5b2a 100644
  	   }
  	   ninks--;
           }
-@@ -7554,23 +7578,23 @@ createImageSection(uint32_t sectsize, unsigned char **sect_buff_ptr)
+@@ -7605,23 +7631,23 @@ createImageSection(uint32_t sectsize, unsigned char **sect_buff_ptr)
  
    if (!sect_buff)
      {
@@ -446,7 +433,7 @@ index 41a2ea36..3eac5b2a 100644
          }
        else
          sect_buff = new_buff;
-@@ -7580,7 +7604,7 @@ createImageSection(uint32_t sectsize, unsigned char **sect_buff_ptr)
+@@ -7631,7 +7657,7 @@ createImageSection(uint32_t sectsize, unsigned char **sect_buff_ptr)
            TIFFError("createImageSection", "Unable to allocate/reallocate section buffer");
            return (-1);
        }
@@ -455,7 +442,7 @@ index 41a2ea36..3eac5b2a 100644
        }
      }
  
-@@ -7611,17 +7635,17 @@ processCropSelections(struct image_data *image, struct crop_mask *crop,
+@@ -7662,17 +7688,17 @@ processCropSelections(struct image_data *image, struct crop_mask *crop,
      cropsize = crop->bufftotal;
      crop_buff = seg_buffs[0].buffer; 
      if (!crop_buff)
@@ -476,7 +463,7 @@ index 41a2ea36..3eac5b2a 100644
            }
          else
            crop_buff = next_buff;
-@@ -7634,7 +7658,7 @@ processCropSelections(struct image_data *image, struct crop_mask *crop,
+@@ -7685,7 +7711,7 @@ processCropSelections(struct image_data *image, struct crop_mask *crop,
        return (-1);
        }
   
@@ -485,7 +472,7 @@ index 41a2ea36..3eac5b2a 100644
      seg_buffs[0].buffer = crop_buff;
      seg_buffs[0].size = cropsize;
  
-@@ -7714,17 +7738,17 @@ processCropSelections(struct image_data *image, struct crop_mask *crop,
+@@ -7765,17 +7791,17 @@ processCropSelections(struct image_data *image, struct crop_mask *crop,
          cropsize = crop->bufftotal;
        crop_buff = seg_buffs[i].buffer; 
        if (!crop_buff)
@@ -506,7 +493,7 @@ index 41a2ea36..3eac5b2a 100644
              }
            else
              crop_buff = next_buff;
-@@ -7737,7 +7761,7 @@ processCropSelections(struct image_data *image, struct crop_mask *crop,
+@@ -7788,7 +7814,7 @@ processCropSelections(struct image_data *image, struct crop_mask *crop,
          return (-1);
          }
   
@@ -515,7 +502,7 @@ index 41a2ea36..3eac5b2a 100644
        seg_buffs[i].buffer = crop_buff;
        seg_buffs[i].size = cropsize;
  
-@@ -7853,24 +7877,24 @@ createCroppedImage(struct image_data *image, struct crop_mask *crop,
+@@ -7909,24 +7935,24 @@ createCroppedImage(struct image_data *image, struct crop_mask *crop,
    crop_buff = *crop_buff_ptr;
    if (!crop_buff)
      {
@@ -540,11 +527,11 @@ index 41a2ea36..3eac5b2a 100644
          {
  	free (crop_buff);
 -        crop_buff = (unsigned char *)limitMalloc(cropsize);
-+        crop_buff = (unsigned char *)limitMalloc(cropsize + NUM_BUFF_OVERSIZE_BYTES);
++      crop_buff = (unsigned char *)limitMalloc(cropsize + NUM_BUFF_OVERSIZE_BYTES);
          }
        else
          crop_buff = new_buff;
-@@ -7879,7 +7903,7 @@ createCroppedImage(struct image_data *image, struct crop_mask *crop,
+@@ -7935,7 +7961,7 @@ createCroppedImage(struct image_data *image, struct crop_mask *crop,
            TIFFError("createCroppedImage", "Unable to allocate/reallocate crop buffer");
            return (-1);
        }
@@ -553,7 +540,7 @@ index 41a2ea36..3eac5b2a 100644
        }
      }
  
-@@ -8177,13 +8201,13 @@ writeCroppedImage(TIFF *in, TIFF *out, struct image_data *image,
+@@ -8233,13 +8259,13 @@ writeCroppedImage(TIFF *in, TIFF *out, struct image_data *image,
       if (TIFFGetField(in, TIFFTAG_NUMBEROFINKS, &ninks)) {
         TIFFSetField(out, TIFFTAG_NUMBEROFINKS, ninks);
         if (TIFFGetField(in, TIFFTAG_INKNAMES, &inknames)) {
@@ -569,7 +556,7 @@ index 41a2ea36..3eac5b2a 100644
  	   }
  	   ninks--;
           }
-@@ -8568,13 +8592,13 @@ rotateContigSamples32bits(uint16_t rotation, uint16_t spp, uint16_t bps, uint32_
+@@ -8624,13 +8650,13 @@ rotateContigSamples32bits(uint16_t rotation, uint16_t spp, uint16_t bps, uint32_
          }
        else /* If we have a full buffer's worth, write it out */
          {
@@ -587,7 +574,7 @@ index 41a2ea36..3eac5b2a 100644
          *dst++ = bytebuff4;
          ready_bits -= 32;
                      
-@@ -8643,12 +8667,13 @@ rotateImage(uint16_t rotation, struct image_data *image, uint32_t *img_width,
+@@ -8699,12 +8725,13 @@ rotateImage(uint16_t rotation, struct image_data *image, uint32_t *img_width,
                return (-1);
      }
  
@@ -604,7 +591,7 @@ index 41a2ea36..3eac5b2a 100644
  
    ibuff = *ibuff_ptr;
    switch (rotation)
-@@ -9176,13 +9201,13 @@ reverseSamples32bits (uint16_t spp, uint16_t bps, uint32_t width,
+@@ -9240,13 +9267,13 @@ reverseSamples32bits (uint16_t spp, uint16_t bps, uint32_t width,
          }
        else /* If we have a full buffer's worth, write it out */
          {
@@ -622,23 +609,23 @@ index 41a2ea36..3eac5b2a 100644
          *dst++ = bytebuff4;
          ready_bits -= 32;
                      
-@@ -9273,12 +9298,13 @@ mirrorImage(uint16_t spp, uint16_t bps, uint16_t mirror, uint32_t width, uint32_
+@@ -9337,12 +9364,13 @@ mirrorImage(uint16_t spp, uint16_t bps, uint16_t mirror, uint32_t width, uint32_
      {
      case MIRROR_BOTH:
      case MIRROR_VERT: 
 -             line_buff = (unsigned char *)limitMalloc(rowsize);
-+             line_buff = (unsigned char *)limitMalloc(rowsize + NUM_BUFF_OVERSIZE_BYTES);
++            line_buff = (unsigned char *)limitMalloc(rowsize + NUM_BUFF_OVERSIZE_BYTES);
               if (line_buff == NULL)
                 {
 -	       TIFFError ("mirrorImage", "Unable to allocate mirror line buffer of %1u bytes", rowsize);
 +	       TIFFError ("mirrorImage", "Unable to allocate mirror line buffer of %1u bytes", rowsize + NUM_BUFF_OVERSIZE_BYTES);
                 return (-1);
                 }
-+             _TIFFmemset(line_buff, '\0', rowsize + NUM_BUFF_OVERSIZE_BYTES);
++               _TIFFmemset(line_buff, '\0', rowsize + NUM_BUFF_OVERSIZE_BYTES);
  
               dst = ibuff + (rowsize * (length - 1));
               for (row = 0; row < length / 2; row++)
-@@ -9310,11 +9336,12 @@ mirrorImage(uint16_t spp, uint16_t bps, uint16_t mirror, uint32_t width, uint32_
+@@ -9374,11 +9402,12 @@ mirrorImage(uint16_t spp, uint16_t bps, uint16_t mirror, uint32_t width, uint32_
  		}
  	      else
                  { /* non 8 bit per sample  data */
@@ -648,11 +635,11 @@ index 41a2ea36..3eac5b2a 100644
                    TIFFError("mirrorImage", "Unable to allocate mirror line buffer");
                    return (-1);
                    }
-+                _TIFFmemset(line_buff, '\0', rowsize + NUM_BUFF_OVERSIZE_BYTES);
++                  _TIFFmemset(line_buff, '\0', rowsize + NUM_BUFF_OVERSIZE_BYTES);
                  bytes_per_sample = (bps + 7) / 8;
                  bytes_per_pixel  = ((bps * spp) + 7) / 8;
                  if (bytes_per_pixel < (bytes_per_sample + 1))
-@@ -9326,7 +9353,7 @@ mirrorImage(uint16_t spp, uint16_t bps, uint16_t mirror, uint32_t width, uint32_
+@@ -9390,7 +9419,7 @@ mirrorImage(uint16_t spp, uint16_t bps, uint16_t mirror, uint32_t width, uint32_
                    {
  		  row_offset = row * rowsize;
                    src = ibuff + row_offset;
@@ -662,5 +649,5 @@ index 41a2ea36..3eac5b2a 100644
                      {
                      case 1: if (reverseSamples16bits(spp, bps, width, src, line_buff))
 -- 
-GitLab
+2.44.0
 
