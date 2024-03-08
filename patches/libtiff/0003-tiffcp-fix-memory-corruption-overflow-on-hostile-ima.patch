@@ -1,0 +1,33 @@
+From c4e2d28438539b1c41253d8f4c07939614f13fed Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Fri, 8 Mar 2024 10:09:42 +0530
+Subject: [PATCH 03/18] tiffcp: fix memory corruption (overflow) on hostile
+ images (fixes #591)
+
+Backport of https://gitlab.com/libtiff/libtiff/-/commit/4fc16f649fa2875d5c388cf2edc295510a247ee5
+
+Fixes CVE-2023-40745
+---
+ tools/tiffcp.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/tools/tiffcp.c b/tools/tiffcp.c
+index 07ed0ebc..8295e61d 100644
+--- a/tools/tiffcp.c
++++ b/tools/tiffcp.c
+@@ -1564,6 +1564,12 @@ DECLAREreadFunc(readSeparateTilesIntoBuffer)
+ 		TIFFError(TIFFFileName(in), "Error, cannot handle that much samples per tile row (Tile Width * Samples/Pixel)");
+ 		return 0;
+ 	}
++    if ( (imagew - tilew * spp) > INT_MAX )
++    {
++        TIFFError(TIFFFileName(in),
++                  "Error, image raster scan line size is too large");
++        return 0;
++    }
+ 	iskew = imagew - tilew*spp;
+ 	tilebuf = limitMalloc(tilesize);
+ 	if (tilebuf == 0)
+-- 
+2.44.0
+
