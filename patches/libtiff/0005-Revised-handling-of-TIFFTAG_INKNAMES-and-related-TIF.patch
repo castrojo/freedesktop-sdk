@@ -1,40 +1,36 @@
-From f00484b9519df933723deb38fff943dc291a793d Mon Sep 17 00:00:00 2001
-From: Su_Laus <sulau@freenet.de>
-Date: Tue, 30 Aug 2022 16:56:48 +0200
-Subject: [PATCH] Revised handling of TIFFTAG_INKNAMES and related
- TIFFTAG_NUMBEROFINKS value
+From 1843a2ac0a38959226717d57f48da876d7a9cc01 Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Fri, 8 Mar 2024 10:35:56 +0530
+Subject: [PATCH 05/18] Revised handling of TIFFTAG_INKNAMES and related
+ TIFFTAG_NUMBEROFINKS value (fixes #149, #150, #152, #168, #250, #269, #398
+ and #456)
 
-In order to solve the buffer overflow issues related to TIFFTAG_INKNAMES and related TIFFTAG_NUMBEROFINKS value, a revised handling of those tags within LibTiff is proposed:
+Closes #474, #463, #387, #456, #398, #269, #250, #168, #152, #150 et #149
 
-Behaviour for writing:
-    `NumberOfInks`  MUST fit to the number of inks in the `InkNames` string.
-    `NumberOfInks` is automatically set when `InkNames` is set.
-    If `NumberOfInks` is different to the number of inks within `InkNames` string, that will be corrected and a warning is issued.
-    If `NumberOfInks` is not equal to samplesperpixel only a warning will be issued.
+See merge request !385
 
-Behaviour for reading:
-    When reading `InkNames` from a TIFF file, the `NumberOfInks` will be set automatically to the number of inks in `InkNames` string.
-    If `NumberOfInks` is different to the number of inks within `InkNames` string, that will be corrected and a warning is issued.
-    If  `NumberOfInks` is not equal to samplesperpixel only a warning will be issued.
+Backport of https://gitlab.com/libtiff/libtiff/-/commit/e813112545942107551433d61afd16ac094ff246
+Fixes CVE-2022-4645, CVE-2022-3599
 
-This allows the safe use of the NumberOfInks value to read out the InkNames without buffer overflow
+fix runtime error: applying zero offset to null pointer
 
-This MR will close the following issues:  #149, #150, #152, #168 (to be checked), #250, #269, #398 and #456.
+Backport of https://gitlab.com/libtiff/libtiff/-/merge_requests/479
+Fixes CVE-2023-2908
 
-It also fixes the old bug at http://bugzilla.maptools.org/show_bug.cgi?id=2599, for which the limitation of `NumberOfInks = SPP` was introduced, which is in my opinion not necessary and does not solve the general issue.
+The fix to CVE-2022-4645 caused CVE-2023-2908
 ---
- libtiff/tif_dir.c      | 119 ++++++++++++++++++++++++-----------------
+ libtiff/tif_dir.c      | 122 ++++++++++++++++++++++++-----------------
  libtiff/tif_dir.h      |   2 +
  libtiff/tif_dirinfo.c  |   2 +-
- libtiff/tif_dirwrite.c |   5 ++
+ libtiff/tif_dirwrite.c |   6 ++
  libtiff/tif_print.c    |   4 ++
- 5 files changed, 82 insertions(+), 50 deletions(-)
+ 5 files changed, 85 insertions(+), 51 deletions(-)
 
 diff --git a/libtiff/tif_dir.c b/libtiff/tif_dir.c
-index 793e8a79..816f7756 100644
+index e90f14a0..c53112e5 100644
 --- a/libtiff/tif_dir.c
 +++ b/libtiff/tif_dir.c
-@@ -136,32 +136,30 @@ setExtraSamples(TIFF* tif, va_list ap, uint32_t* v)
+@@ -136,32 +136,31 @@ setExtraSamples(TIFF* tif, va_list ap, uint32_t* v)
  }
  
  /*
@@ -50,13 +46,15 @@ index 793e8a79..816f7756 100644
 -	TIFFDirectory* td = &tif->tif_dir;
 -	uint16_t i = td->td_samplesperpixel;
 +	uint16_t i = 0;
-+	const char *ep = s + slen;
-+	const char *cp = s;
  
- 	if (slen > 0) {
+-	if (slen > 0) {
 -		const char* ep = s+slen;
 -		const char* cp = s;
 -		for (; i > 0; i--) {
++	if (slen > 0) 
++	{
++		const char *ep = s + slen;
++		const char *cp = s;
 +		do {
  			for (; cp < ep && *cp != '\0'; cp++) {}
  			if (cp >= ep)
@@ -79,7 +77,7 @@ index 793e8a79..816f7756 100644
  	return (0);
  }
  
-@@ -478,13 +476,61 @@ _TIFFVSetField(TIFF* tif, uint32_t tag, va_list ap)
+@@ -475,13 +474,61 @@ _TIFFVSetField(TIFF* tif, uint32_t tag, va_list ap)
  		_TIFFsetFloatArray(&td->td_refblackwhite, va_arg(ap, float*), 6);
  		break;
  	case TIFFTAG_INKNAMES:
@@ -148,11 +146,10 @@ index 793e8a79..816f7756 100644
  		}
  		break;
  	case TIFFTAG_PERSAMPLE:
-@@ -986,34 +1032,6 @@ _TIFFVGetField(TIFF* tif, uint32_t tag, va_list ap)
- 	if (fip->field_bit == FIELD_CUSTOM) {
+@@ -916,34 +963,6 @@ _TIFFVGetField(TIFF* tif, uint32_t tag, va_list ap)
  		standard_tag = 0;
  	}
--	
+ 	
 -        if( standard_tag == TIFFTAG_NUMBEROFINKS )
 -        {
 -            int i;
@@ -180,10 +177,11 @@ index 793e8a79..816f7756 100644
 -            }
 -            return 0;
 -        }
- 
+-
  	switch (standard_tag) {
  		case TIFFTAG_SUBFILETYPE:
-@@ -1195,6 +1213,9 @@ _TIFFVGetField(TIFF* tif, uint32_t tag, va_list ap)
+ 			*va_arg(ap, uint32_t*) = td->td_subfiletype;
+@@ -1124,6 +1143,9 @@ _TIFFVGetField(TIFF* tif, uint32_t tag, va_list ap)
  		case TIFFTAG_INKNAMES:
  			*va_arg(ap, const char**) = td->td_inknames;
  			break;
@@ -214,7 +212,7 @@ index 09065648..0c251c9e 100644
  /* end of support for well-known tags; codec-private tags follow */
  #define FIELD_CODEC                    66  /* base of codec-private tags */
 diff --git a/libtiff/tif_dirinfo.c b/libtiff/tif_dirinfo.c
-index 3371cb5c..3b4bcd33 100644
+index c30f569b..a7e78aae 100644
 --- a/libtiff/tif_dirinfo.c
 +++ b/libtiff/tif_dirinfo.c
 @@ -114,7 +114,7 @@ tiffFields[] = {
@@ -227,10 +225,10 @@ index 3371cb5c..3b4bcd33 100644
  	{ TIFFTAG_TARGETPRINTER, -1, -1, TIFF_ASCII, 0, TIFF_SETGET_ASCII, TIFF_SETGET_UNDEFINED, FIELD_CUSTOM, 1, 0, "TargetPrinter", NULL },
  	{ TIFFTAG_EXTRASAMPLES, -1, -1, TIFF_SHORT, 0, TIFF_SETGET_C16_UINT16, TIFF_SETGET_UNDEFINED, FIELD_EXTRASAMPLES, 0, 1, "ExtraSamples", NULL },
 diff --git a/libtiff/tif_dirwrite.c b/libtiff/tif_dirwrite.c
-index 6c86fdca..062e4610 100644
+index 2fef6d82..07f09fee 100644
 --- a/libtiff/tif_dirwrite.c
 +++ b/libtiff/tif_dirwrite.c
-@@ -626,6 +626,11 @@ TIFFWriteDirectorySec(TIFF* tif, int isimage, int imagedone, uint64_t* pdiroff)
+@@ -708,6 +708,12 @@ TIFFWriteDirectorySec(TIFF* tif, int isimage, int imagedone, uint64_t* pdiroff)
  				if (!TIFFWriteDirectoryTagAscii(tif,&ndir,dir,TIFFTAG_INKNAMES,tif->tif_dir.td_inknameslen,tif->tif_dir.td_inknames))
  					goto bad;
  			}
@@ -239,14 +237,15 @@ index 6c86fdca..062e4610 100644
 +				if (!TIFFWriteDirectoryTagShort(tif, &ndir, dir, TIFFTAG_NUMBEROFINKS, tif->tif_dir.td_numberofinks))
 +					goto bad;
 +			}
++
  			if (TIFFFieldSet(tif,FIELD_SUBIFD))
  			{
  				if (!TIFFWriteDirectoryTagSubifd(tif,&ndir,dir))
 diff --git a/libtiff/tif_print.c b/libtiff/tif_print.c
-index 16ce5780..a91b9e7b 100644
+index 80a9d90f..1ed90e28 100644
 --- a/libtiff/tif_print.c
 +++ b/libtiff/tif_print.c
-@@ -397,6 +397,10 @@ TIFFPrintDirectory(TIFF* tif, FILE* fd, long flags)
+@@ -401,6 +401,10 @@ TIFFPrintDirectory(TIFF* tif, FILE* fd, long flags)
  		}
                  fputs("\n", fd);
  	}
@@ -258,5 +257,5 @@ index 16ce5780..a91b9e7b 100644
  		fprintf(fd, "  Thresholding: ");
  		switch (td->td_threshholding) {
 -- 
-GitLab
+2.44.0
 
