@@ -24,7 +24,7 @@ sources:
   - '*-android'
   - '*alpha*'
   - '*beta*'
-  ref: libreoffice-24.2.1.2-0-g0baeab5a9e584d1b699bef69e49a9074137be365
+  ref: libreoffice-24.2.2.1-0-g320f3cdd3a2f95d17805aa3798b23d2cc45bc93d
 - kind: local
   path: files/dictionaries/install_dicts.py
 - kind: local
