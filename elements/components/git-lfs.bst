@@ -27,7 +27,7 @@ sources:
 - kind: git_repo
   url: github:git-lfs/git-lfs.git
   track: v*
-  ref: v3.5.0-0-g0757d453b310248da80a57f50c253816b9b33ef2
+  ref: v3.5.1-0-ge237bb3a364603cbb92cabc34b8401d1ad5d795b
 - kind: local
   directory: vendor
   path: files/git-lfs/modules.txt
