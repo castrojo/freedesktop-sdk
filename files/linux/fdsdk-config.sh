@@ -1957,6 +1957,7 @@ enable NETFILTER_ADVANCED
 module VETH
 module BLK_DEV_NBD
 module 6LOWPAN
+module IPVLAN
 
 # Those two modules are required by multipass
 module NETFILTER_XT_MATCH_COMMENT
