@@ -49,5 +49,3 @@ sources:
   path: patches/gnupg/gnupg-don-t-include-tests-with-tarred-data.patch
 - kind: patch
   path: patches/gnupg/remove-Werror-from-configure.ac.patch
-- kind: patch
-  path: patches/gnupg/Fix-build-without-LDAP.patch
