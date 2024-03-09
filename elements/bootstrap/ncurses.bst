@@ -31,6 +31,8 @@ config:
     --with-pkg-config="%{bindir}/pkg-config" \
     --with-pkg-config-libdir="%{libdir}/pkgconfig" \
     --disable-widec \
+    --disable-root-access \
+    --disable-setuid-environ \
     --with-shared \
     --without-ada \
     --without-normal \
@@ -49,6 +51,8 @@ config:
     --libdir=%{libdir} \
     --with-pkg-config="%{bindir}/pkg-config" \
     --with-pkg-config-libdir="%{libdir}/pkgconfig" \
+    --disable-root-access \
+    --disable-setuid-environ \
     --enable-widec \
     --with-shared \
     --without-ada \
