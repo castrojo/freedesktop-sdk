@@ -25,6 +25,7 @@ config:
     --with-pkg-config="%{bindir}/pkg-config" \
     --with-pkg-config-libdir="%{libdir}/pkgconfig" \
     --disable-widec \
+    --disable-root-environ \
     --with-shared \
     --without-ada \
     --without-normal \
@@ -44,6 +45,7 @@ config:
     --with-pkg-config="%{bindir}/pkg-config" \
     --with-pkg-config-libdir="%{libdir}/pkgconfig" \
     --enable-widec \
+    --disable-root-environ \
     --with-shared \
     --without-ada \
     --without-normal \
