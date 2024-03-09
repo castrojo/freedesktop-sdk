@@ -5,7 +5,7 @@ Subject: [PATCH 10/18] tiffcrop subroutines require a larger buffer (fixes
  #271, #381, #386, #388, #389, #435)
 
 Backport of https://gitlab.com/libtiff/libtiff/-/merge_requests/382
-Fixes CVE-2023-30755, CVE-2022-3570 and CVE-2022-3598
+Fixes CVE-2023-30775, CVE-2022-3570 and CVE-2022-3598
 ---
  tools/tiffcrop.c | 207 +++++++++++++++++++++++++++--------------------
  1 file changed, 118 insertions(+), 89 deletions(-)
