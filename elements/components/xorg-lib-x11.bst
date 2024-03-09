@@ -21,9 +21,13 @@ public:
         - '%{libdir}/libX11-xcb.so'
   cpe:
     product: libx11
+    patches:
+    - CVE-2023-43787
 
 sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libx11.git
   # Frozen due to ABI break
   ref: libX11-1.8.1-0-g3a30ada60c5217ada37b143b541c8e6f6284c7fa
+- kind: patch_queue
+  path: patches/xorg-lib-x11
