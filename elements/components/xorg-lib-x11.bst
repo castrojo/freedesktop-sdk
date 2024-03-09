@@ -23,6 +23,7 @@ public:
     product: libx11
     patches:
     - CVE-2023-43787
+    - CVE-2023-43785
 
 sources:
 - kind: git_tag
