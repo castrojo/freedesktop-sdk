@@ -21,6 +21,10 @@ config:
       install -Dm644 freedesktop-sdk/tmpfiles-audit.conf \
                      "%{install-root}%{indep-libdir}/tmpfiles.d/audit.conf"
 
+    - |
+      install -Dm755 -d "%{install-root}%{sysconfdir}/audit/rules.d"
+      ln -sr "%{install-root}%{datadir}/audit-rules/10-base-config.rules" "%{install-root}%{sysconfdir}/audit/rules.d/10-base-config.rules"
+
 sources:
 - kind: git_repo
   url: github:linux-audit/audit-userspace.git
