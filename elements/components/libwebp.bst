@@ -38,7 +38,6 @@ public:
 sources:
 - kind: git_tag
   url: chromium:webm/libwebp.git
-  track: main
   ref: v1.2.4-0-g0d1f12546bd803099a60c070517a552483f3790e
 - kind: patch_queue
   path: patches/libwebp
