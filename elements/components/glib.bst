@@ -10,9 +10,7 @@ depends:
 - components/libffi.bst
 - components/util-linux.bst
 - components/python3.bst
-
-runtime-depends:
-- components/python3-setuptools.bst
+- components/python3-packaging.bst
 
 variables:
   meson-local: >-
