@@ -22,6 +22,6 @@ sources:
   exclude:
   - v*alpha*
   - v*beta*
-  ref: v1.6.42-0-g35d9f5ea523cb4f9d677af4705e00ddd185ed10e
+  ref: v1.6.43-0-ged217e3e601d8e462f7fd1e04bed43ac42212429
 - kind: patch
   path: patches/libpng/libpng-1.6.37-apng.patch
