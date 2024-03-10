@@ -29,4 +29,4 @@ sources:
 - kind: git_repo
   url: freedesktop:libnice/libnice.git
   track: '*.*.*'
-  ref: 0.1.21-0-g3d9cae16a5094aadb1651572644cb5786a8b4e2d
+  ref: 0.1.22-0-gae3eb16fd7d1237353bf64e899c612b8a63bca8a
