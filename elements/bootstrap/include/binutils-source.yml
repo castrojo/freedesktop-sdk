@@ -30,11 +30,6 @@ public:
 sources:
 - kind: git_tag
   url: sourceware:binutils-gdb.git
-  track: master
-  track-extra:
-  - binutils-2_38-branch
-  match:
-  - 'binutils-*'
   ref: binutils-2_38-0-g20756b0fbe065a84710aa38f2457563b57546440
 - kind: patch_queue
   path: patches/binutils
