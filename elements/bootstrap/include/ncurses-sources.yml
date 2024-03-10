@@ -1,6 +1,11 @@
+public:
+  cpe:
+    patches:
+    - CVE-2023-29491
+
 sources:
 - kind: tar
   url: ftp_gnu_org:ncurses/ncurses-6.3.tar.gz
   ref: 97fc51ac2b085d4cde31ef4d2c3122c21abc217e9090a43a30fc5ec21684e059
-- kind: patch
-  path: patches/ncurses/always-cross-compile.patch
+- kind: patch_queue
+  path: patches/ncurses
