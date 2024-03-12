@@ -1,43 +1,5 @@
-kind: meson
-
-build-depends:
-- public-stacks/buildsystem-meson.bst
-- components/bison.bst
-- components/flex.bst
-- components/gtk-doc.bst
+kind: stack
 
 depends:
-- bootstrap-import.bst
+- components/gobject-introspection-base.bst
 - components/glib.bst
-- components/python3.bst
-- components/python3-mako.bst
-- components/python3-markdown.bst
-
-runtime-depends:
-- components/python3-setuptools.bst # https://gitlab.gnome.org/GNOME/gobject-introspection/-/issues/395
-
-variables:
-  meson-local: >-
-    -Dcairo=disabled
-    -Dgtk_doc=true
-    -Ddoctool=enabled
-
-public:
-  bst:
-    split-rules:
-      devel:
-        (>):
-        - '%{libdir}/gobject-introspection/giscanner'
-        - '%{libdir}/gobject-introspection/giscanner/**'
-        - '%{datadir}/gir-1.0'
-        - '%{datadir}/gir-1.0/**'
-        - '%{datadir}/gobject-introspection-1.0'
-        - '%{datadir}/gobject-introspection-1.0/**'
-        - '%{bindir}/g-ir-*'
-        - '%{libdir}/libgirepository-1.0.so'
-
-sources:
-- kind: git_repo
-  url: gnome:gobject-introspection.git
-  track: "*.*[02468].*"
-  ref: 1.78.1-0-ga0e8c17fcf58c6ea79f2887fa7d9f2b180f152b1
