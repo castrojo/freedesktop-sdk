@@ -12,9 +12,4 @@ depends:
 sources:
 - kind: git_tag
   url: gnome:pygobject.git
-  track: master
-  track-extra:
-  - pygobject-3-44
-  match:
-  - '*.*[02468].*'
   ref: 3.46.0-0-gb5b3fb1fcdbf539dd0cc04120ee4a8e81bce403c
