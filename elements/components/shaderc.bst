@@ -4,10 +4,10 @@ build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/git-minimal.bst
 - components/python3.bst
+- components/spirv-tools.bst
 
 depends:
 - components/glslang.bst
-- components/spirv-tools.bst
 - bootstrap-import.bst
 
 variables:
