@@ -44,6 +44,8 @@ public:
     - CVE-2023-32665
     - CVE-2023-29499
     - CVE-2023-32611
+    - CVE-2023-32643
+    - CVE-2023-32636
 
     integration-commands:
     - |
