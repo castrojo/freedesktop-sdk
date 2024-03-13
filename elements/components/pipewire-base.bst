@@ -127,7 +127,7 @@ public:
 sources:
 - kind: git_repo
   url: freedesktop:PipeWire/pipewire.git
-  track: '*.*.*'
+  track: '0.3.*'
   exclude:
   - '*.*.9*'
   ref: 0.3.83-0-g6fd7f39dbec9c3a65aa2de0123c6bfbda7c53a85
