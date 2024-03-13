@@ -39,6 +39,11 @@ public:
         - '%{libdir}/libgthread-2.0.so'
         - '%{libdir}/glib-2.0/include'
         - '%{libdir}/glib-2.0/include/**'
+  cpe:
+    patches:
+    - CVE-2023-32665
+    - CVE-2023-29499
+    - CVE-2023-32611
 
     integration-commands:
     - |
@@ -58,3 +63,5 @@ sources:
   match:
   - 2.72.*
   ref: 2.72.4-0-g6ed6303e40d6eaf80f2acfbfbcadbb169d156e9c
+- kind: patch_queue
+  path: patches/glib
