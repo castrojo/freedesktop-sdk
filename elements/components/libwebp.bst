@@ -34,6 +34,7 @@ public:
   cpe:
     patches:
     - CVE-2023-4863
+    - CVE-2023-1999
 
 sources:
 - kind: git_tag
