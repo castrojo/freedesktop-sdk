@@ -80,4 +80,4 @@ sources:
   track: stable/v2.38
   exclude:
   - v*-rc*
-  ref: v2.38-0-g1f5129b79ad232c79ecbac31998e96c20ff4c90c
+  ref: v2.38.1-0-g54a4d5c3ec33f2f743309ec883b9854818a25e31
