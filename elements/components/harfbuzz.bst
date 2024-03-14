@@ -1,22 +1,23 @@
-kind: autotools
+kind: meson
+
+build-depends:
+- public-stacks/buildsystem-meson.bst
+- components/freetype-stage1.bst
+- components/gtk-doc.bst
+- components/gobject-introspection.bst
 
 depends:
-- bootstrap-import.bst
 - components/glib.bst
 - components/icu.bst
 - components/graphite2.bst
 
-build-depends:
-- components/freetype-stage1.bst
-- components/gtk-doc.bst
-- public-stacks/buildsystem-autotools.bst
-- components/gobject-introspection.bst
-
 variables:
-  conf-local: |
-    --with-icu \
-    --with-gobject \
-    --with-graphite2
+  meson-local: >-
+    -Dcairo=disabled
+    -Dchafa=disabled
+    -Dtests=disabled
+
+  target_flags_exceptions: ''
 
 public:
   bst:
