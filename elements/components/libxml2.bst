@@ -31,6 +31,8 @@ public:
   cpe:
     ignored:
     - CVE-2016-3709
+    patches:
+    - CVE-2024-25062
 
 sources:
 - kind: git_tag
@@ -45,3 +47,5 @@ sources:
   path: patches/libxml2/libxml2-python3-unicode-errors.patch
 - kind: patch
   path: patches/libxml2/Migrate-away-from-deprecated-API.patch
+- kind: patch
+  path: patches/libxml2/CVE-2024-25062.patch
