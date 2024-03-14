@@ -1,14 +1,17 @@
-From 07aaa8477e06ce24c4beef03a9cda445e17c3864 Mon Sep 17 00:00:00 2001
-From: Seppo Yli-Olli <seppo.yli-olli@iki.fi>
-Date: Thu, 19 Nov 2020 20:31:29 +0200
+From 15c9a9e55a6a48ba2c18e08d09e80cd40ac7e762 Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Thu, 14 Mar 2024 21:21:44 +0530
 Subject: [PATCH] Migrate away from deprecated API
 
+---
+ python/libxml.c | 38 +++++++++++++++++++-------------------
+ 1 file changed, 19 insertions(+), 19 deletions(-)
 
 diff --git a/python/libxml.c b/python/libxml.c
-index 2271187b..352bd8b1 100644
+index 9d476f4f..68822874 100644
 --- a/python/libxml.c
 +++ b/python/libxml.c
-@@ -256,7 +256,7 @@ xmlPythonFileCloseRaw (void * context) {
+@@ -257,7 +257,7 @@ xmlPythonFileCloseRaw (void * context) {
  #endif
      file = (PyObject *) context;
      if (file == NULL) return(-1);
@@ -17,7 +20,7 @@ index 2271187b..352bd8b1 100644
      if (ret != NULL) {
  	Py_DECREF(ret);
      }
-@@ -286,7 +286,7 @@ xmlPythonFileReadRaw (void * context, char * buffer, int len) {
+@@ -287,7 +287,7 @@ xmlPythonFileReadRaw (void * context, char * buffer, int len) {
  #endif
      file = (PyObject *) context;
      if (file == NULL) return(-1);
@@ -26,7 +29,7 @@ index 2271187b..352bd8b1 100644
      if (ret == NULL) {
  	printf("xmlPythonFileReadRaw: result is NULL\n");
  	return(-1);
-@@ -351,7 +351,7 @@ xmlPythonFileRead (void * context, char * buffer, int len) {
+@@ -352,7 +352,7 @@ xmlPythonFileRead (void * context, char * buffer, int len) {
  #endif
      file = (PyObject *) context;
      if (file == NULL) return(-1);
@@ -35,23 +38,23 @@ index 2271187b..352bd8b1 100644
      if (ret == NULL) {
  	printf("xmlPythonFileRead: result is NULL\n");
  	return(-1);
-@@ -419,11 +419,11 @@ xmlPythonFileWrite (void * context, const char * buffer, int len) {
+@@ -420,11 +420,11 @@ xmlPythonFileWrite (void * context, const char * buffer, int len) {
      string = PY_IMPORT_STRING_SIZE(buffer, len);
      if (string == NULL) return(-1);
      if (PyObject_HasAttrString(file, (char *) "io_write")) {
 -        ret = PyEval_CallMethod(file, (char *) "io_write", (char *) "(O)",
 -	                        string);
 +        ret = PyObject_CallMethod(file, (char *) "io_write", (char *) "(O)",
-+	                          string);
++                                string);
      } else if (PyObject_HasAttrString(file, (char *) "write")) {
 -        ret = PyEval_CallMethod(file, (char *) "write", (char *) "(O)",
 -	                        string);
-+        ret = PyObject_CallMethod(file, (char *) "write", (char *) "(O)",
-+	                          string);
++        ret = PyObject_CallMethod(file, (char *) "write", (char *) "(O)", 
++                                string);
      }
      Py_DECREF(string);
      if (ret == NULL) {
-@@ -458,9 +458,9 @@ xmlPythonFileClose (void * context) {
+@@ -459,9 +459,9 @@ xmlPythonFileClose (void * context) {
      file = (PyObject *) context;
      if (file == NULL) return(-1);
      if (PyObject_HasAttrString(file, (char *) "io_close")) {
@@ -63,7 +66,7 @@ index 2271187b..352bd8b1 100644
      }
      if (ret != NULL) {
  	Py_DECREF(ret);
-@@ -1648,7 +1648,7 @@ libxml_xmlErrorFuncHandler(ATTRIBUTE_UNUSED void *ctx, const char *msg,
+@@ -1649,7 +1649,7 @@ libxml_xmlErrorFuncHandler(ATTRIBUTE_UNUSED void *ctx, const char *msg,
          Py_XINCREF(libxml_xmlPythonErrorFuncCtxt);
          message = libxml_charPtrConstWrap(ptr);
          PyTuple_SetItem(list, 1, message);
@@ -72,7 +75,7 @@ index 2271187b..352bd8b1 100644
          /* Forget any errors caused in the error handler. */
          PyErr_Clear();
          Py_XDECREF(list);
-@@ -1738,7 +1738,7 @@ libxml_xmlParserCtxtGenericErrorFuncHandler(void *ctx, int severity, char *str)
+@@ -1739,7 +1739,7 @@ libxml_xmlParserCtxtGenericErrorFuncHandler(void *ctx, int severity, char *str)
      PyTuple_SetItem(list, 2, libxml_intWrap(severity));
      PyTuple_SetItem(list, 3, Py_None);
      Py_INCREF(Py_None);
@@ -81,7 +84,7 @@ index 2271187b..352bd8b1 100644
      if (result == NULL) 
      {
  	/* TODO: manage for the exception to be propagated... */
-@@ -1923,7 +1923,7 @@ libxml_xmlValidCtxtGenericErrorFuncHandler(void *ctx, ATTRIBUTE_UNUSED int sever
+@@ -1925,7 +1925,7 @@ libxml_xmlValidCtxtGenericErrorFuncHandler(void *ctx, ATTRIBUTE_UNUSED int sever
      PyTuple_SetItem(list, 0, libxml_charPtrWrap(str));
      PyTuple_SetItem(list, 1, pyCtxt->arg);
      Py_XINCREF(pyCtxt->arg);
@@ -90,7 +93,7 @@ index 2271187b..352bd8b1 100644
      if (result == NULL) 
      {
  	/* TODO: manage for the exception to be propagated... */
-@@ -1950,7 +1950,7 @@ libxml_xmlValidCtxtGenericWarningFuncHandler(void *ctx, ATTRIBUTE_UNUSED int sev
+@@ -1952,7 +1952,7 @@ libxml_xmlValidCtxtGenericWarningFuncHandler(void *ctx, ATTRIBUTE_UNUSED int sev
      PyTuple_SetItem(list, 0, libxml_charPtrWrap(str));
      PyTuple_SetItem(list, 1, pyCtxt->arg);
      Py_XINCREF(pyCtxt->arg);
@@ -99,7 +102,7 @@ index 2271187b..352bd8b1 100644
      if (result == NULL) 
      {
  	/* TODO: manage for the exception to be propagated... */
-@@ -2084,7 +2084,7 @@ libxml_xmlTextReaderErrorCallback(void *arg,
+@@ -2087,7 +2087,7 @@ libxml_xmlTextReaderErrorCallback(void *arg,
      PyTuple_SetItem(list, 1, libxml_charPtrConstWrap(msg));
      PyTuple_SetItem(list, 2, libxml_intWrap(severity));
      PyTuple_SetItem(list, 3, libxml_xmlTextReaderLocatorPtrWrap(locator));
@@ -108,7 +111,7 @@ index 2271187b..352bd8b1 100644
      if (result == NULL)
      {
  	/* TODO: manage for the exception to be propagated... */
-@@ -2279,7 +2279,7 @@ libxml_xmlXPathFuncCallback(xmlXPathParserContextPtr ctxt, int nargs)
+@@ -2282,7 +2282,7 @@ libxml_xmlXPathFuncCallback(xmlXPathParserContextPtr ctxt, int nargs)
          cur = libxml_xmlXPathObjectPtrWrap(obj);
          PyTuple_SetItem(list, i + 1, cur);
      }
@@ -117,16 +120,16 @@ index 2271187b..352bd8b1 100644
      Py_DECREF(list);
  
      obj = libxml_xmlXPathObjectPtrConvert(result);
-@@ -3181,7 +3181,7 @@ libxml_xmlRelaxNGValidityGenericErrorFuncHandler(void *ctx, char *str)
+@@ -3159,7 +3159,7 @@ libxml_xmlRelaxNGValidityGenericErrorFuncHandler(void *ctx, char *str)
      PyTuple_SetItem(list, 0, libxml_charPtrWrap(str));
      PyTuple_SetItem(list, 1, pyCtxt->arg);
      Py_XINCREF(pyCtxt->arg);
 -    result = PyEval_CallObject(pyCtxt->error, list);
-+    result = PyObject_CallObject(pyCtxt->error, list);
++    result = PyObject_CallObject(pyCtxt->warn, list);
      if (result == NULL) 
      {
          /* TODO: manage for the exception to be propagated... */
-@@ -3208,7 +3208,7 @@ libxml_xmlRelaxNGValidityGenericWarningFuncHandler(void *ctx, char *str)
+@@ -3186,7 +3186,7 @@ libxml_xmlRelaxNGValidityGenericWarningFuncHandler(void *ctx, char *str)
      PyTuple_SetItem(list, 0, libxml_charPtrWrap(str));
      PyTuple_SetItem(list, 1, pyCtxt->arg);
      Py_XINCREF(pyCtxt->arg);
@@ -135,7 +138,7 @@ index 2271187b..352bd8b1 100644
      if (result == NULL) 
      {
          /* TODO: manage for the exception to be propagated... */
-@@ -3345,7 +3345,7 @@ libxml_xmlSchemaValidityGenericErrorFuncHandler(void *ctx, char *str)
+@@ -3323,7 +3323,7 @@ libxml_xmlSchemaValidityGenericErrorFuncHandler(void *ctx, char *str)
  	PyTuple_SetItem(list, 0, libxml_charPtrWrap(str));
  	PyTuple_SetItem(list, 1, pyCtxt->arg);
  	Py_XINCREF(pyCtxt->arg);
@@ -144,7 +147,7 @@ index 2271187b..352bd8b1 100644
  	if (result == NULL) 
  	{
  		/* TODO: manage for the exception to be propagated... */
-@@ -3372,7 +3372,7 @@ libxml_xmlSchemaValidityGenericWarningFuncHandler(void *ctx, char *str)
+@@ -3350,7 +3350,7 @@ libxml_xmlSchemaValidityGenericWarningFuncHandler(void *ctx, char *str)
  	PyTuple_SetItem(list, 0, libxml_charPtrWrap(str));
  	PyTuple_SetItem(list, 1, pyCtxt->arg);
  	Py_XINCREF(pyCtxt->arg);
@@ -154,5 +157,5 @@ index 2271187b..352bd8b1 100644
  	{
  		/* TODO: manage for the exception to be propagated... */
 -- 
-2.28.0
+2.44.0
 
