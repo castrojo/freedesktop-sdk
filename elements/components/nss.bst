@@ -77,6 +77,8 @@ public:
     ignored:
     - CVE-2013-0791
     - CVE-2013-1620
+    patches:
+    - CVE-2022-3479
 
 config:
   build-commands:
@@ -150,5 +152,7 @@ sources:
   directory: nss
 - kind: patch
   path: patches/nss/pkg-config-libdir.patch
+- kind: patch
+  path: patches/nss/CVE-2022-3479.patch
 - kind: local
   path: files/nss/load-p11-kit-trust.c
