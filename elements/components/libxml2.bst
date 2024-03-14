@@ -31,6 +31,7 @@ public:
   cpe:
     ignored:
     - CVE-2016-3709
+    - CVE-2023-45322
     patches:
     - CVE-2024-25062
 
