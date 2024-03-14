@@ -13,4 +13,4 @@ sources:
 - kind: git_repo
   url: gnome:pygobject.git
   track: '*.*[02468].*'
-  ref: 3.46.0-0-gb5b3fb1fcdbf539dd0cc04120ee4a8e81bce403c
+  ref: 3.48.1-0-g67b807613a93544fb7ff8f456b0de004950f7da4
