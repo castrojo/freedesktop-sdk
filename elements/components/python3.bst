@@ -99,6 +99,7 @@ public:
     ignored:
     - CVE-2007-4559
     - CVE-2015-20107
+    - CVE-2023-36632
 
 (@):
 - elements/include/python3.yml
