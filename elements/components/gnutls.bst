@@ -25,8 +25,13 @@ public:
         (>):
         - '%{libdir}/libgnutls.so'
         - '%{libdir}/libgnutlsxx.so'
+    cpe:
+      patches:
+      - CVE-2024-0553
 
 sources:
 - kind: tar
   url: tar_https:www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-3.7.10.tar.xz
   ref: b6e4e8bac3a950a3a1b7bdb0904979d4ab420a81e74de8636dd50b467d36f5a9
+- kind: patch_queue
+  path: patches/gnutls
