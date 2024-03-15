@@ -1,0 +1,12 @@
+diff --git a/doc/Makefile b/doc/Makefile
+index b34ece0..24b0e48 100644
+--- a/doc/Makefile
++++ b/doc/Makefile
+@@ -43,7 +43,6 @@ XMLALL = $(XMLMAN1) $(XMLMAN7) $(XMLINTERNAL) $(XMLDOC)
+ 
+ # Logo image file for HTML docs
+ giflib-logo.gif: ../pic/gifgrid.gif
+-	convert $^ -resize 50x50 $@
+ 
+ # Philosophical choice: the website gets the internal manual pages
+ allhtml: $(XMLALL:.xml=.html) giflib-logo.gif
