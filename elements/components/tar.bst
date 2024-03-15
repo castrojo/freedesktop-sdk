@@ -6,6 +6,11 @@ depends:
 environment:
   FORCE_UNSAFE_CONFIGURE: '1'
 
+public:
+  cpe:
+    patches:
+    - CVE-2022-48303
+
 sources:
 - kind: tar
   url: ftp_gnu_org:tar/tar-1.34.tar.xz
