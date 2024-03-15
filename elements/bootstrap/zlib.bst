@@ -31,6 +31,7 @@ public:
         (>):
         - '%{libdir}/libz.so'
   cpe:
+    vendor: zlib
     patches:
     - CVE-2022-37434
 
