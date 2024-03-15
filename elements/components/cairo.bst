@@ -38,6 +38,7 @@ public:
     - CVE-2018-19876
     - CVE-2020-35492
     - CVE-2019-6462
+    - CVE-2019-6461
     
 sources:
 - kind: git_tag
