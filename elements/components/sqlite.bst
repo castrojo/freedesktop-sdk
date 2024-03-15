@@ -33,6 +33,8 @@ public:
     vendor: 'sqlite'
     ignored:
     - CVE-2022-46908
+    patches:
+    - CVE-2023-7104
 
 sources:
 - kind: git_tag
@@ -41,3 +43,5 @@ sources:
   match:
   - 'version-*'
   ref: version-3.39.4-0-g48fa01e4a8da83823ea8e5fee1d6beaa6c0a3868
+- kind: patch
+  path: patches/sqlite/0001-Fix-a-buffer-overread-in-the-sessions-extension-that.patch

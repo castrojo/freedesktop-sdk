@@ -1,0 +1,46 @@
+From bb65780ec6ffcdcb67df5b95111544bd7f73d6a5 Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Fri, 15 Mar 2024 11:38:00 +0530
+Subject: [PATCH] Fix a buffer overread in the sessions extension that could
+ occur when processing a corrupt changeset.
+
+Backport of https://sqlite.org/src/info/0e4e7a05c4204b47
+Fixes CVE-2023-7104
+---
+ ext/session/sqlite3session.c | 18 +++++++++++-------
+ 1 file changed, 11 insertions(+), 7 deletions(-)
+
+diff --git a/ext/session/sqlite3session.c b/ext/session/sqlite3session.c
+index a892804b4..72ad427a4 100644
+--- a/ext/session/sqlite3session.c
++++ b/ext/session/sqlite3session.c
+@@ -3050,15 +3050,19 @@ static int sessionReadRecord(
+         }
+       }
+       if( eType==SQLITE_INTEGER || eType==SQLITE_FLOAT ){
+-        sqlite3_int64 v = sessionGetI64(aVal);
+-        if( eType==SQLITE_INTEGER ){
+-          sqlite3VdbeMemSetInt64(apOut[i], v);
++        if( (pIn->nData-pIn->iNext)<8 ){
++          rc = SQLITE_CORRUPT_BKPT;
+         }else{
+-          double d;
+-          memcpy(&d, &v, 8);
+-          sqlite3VdbeMemSetDouble(apOut[i], d);
++          sqlite3_int64 v = sessionGetI64(aVal);
++          if( eType==SQLITE_INTEGER ){
++            sqlite3VdbeMemSetInt64(apOut[i], v);
++          }else{
++            double d;
++            memcpy(&d, &v, 8);
++            sqlite3VdbeMemSetDouble(apOut[i], d);
++          }
++          pIn->iNext += 8;
+         }
+-        pIn->iNext += 8;
+       }
+     }
+   }
+-- 
+2.44.0
+
