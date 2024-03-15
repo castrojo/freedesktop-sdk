@@ -70,6 +70,7 @@ public:
     - CVE-2023-0802
     - CVE-2023-0803
     - CVE-2023-0804
+    - CVE-2023-3164
 
 sources:
 - kind: git_tag
