@@ -31,6 +31,8 @@ public:
 
   cpe:
     vendor: 'sqlite'
+    ignored:
+    - CVE-2022-46908
 
 sources:
 - kind: git_tag
