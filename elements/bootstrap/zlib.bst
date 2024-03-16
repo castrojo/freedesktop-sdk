@@ -36,6 +36,9 @@ public:
         (>):
         - '%{libdir}/libz.so'
 
+  cpe:
+    vendor: zlib
+
 sources:
 - kind: git_repo
   url: github:madler/zlib.git
