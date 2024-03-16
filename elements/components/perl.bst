@@ -39,5 +39,8 @@ config:
 
 public:
   cpe:
+    patches:
+    - CVE-2023-31484
     ignored:
     - CVE-2023-47100
+    - CVE-2023-31486

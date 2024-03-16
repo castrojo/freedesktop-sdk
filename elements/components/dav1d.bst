@@ -20,9 +20,9 @@ public:
       devel:
         (>):
         - '%{libdir}/libdav1d.so'
-    cpe:
-      patches:
-      - CVE-2023-32570
+  cpe:
+    patches:
+    - CVE-2023-32570
 
 sources:
 - kind: git_tag
