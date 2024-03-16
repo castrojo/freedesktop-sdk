@@ -13,6 +13,7 @@ config:
   - components/dracut.bst
   - components/ed.bst
   - components/gamemode.bst
+  - components/glib-stage1.bst
   - components/iproute2.bst
   - components/libapparmor.bst
   - components/liburcu.bst

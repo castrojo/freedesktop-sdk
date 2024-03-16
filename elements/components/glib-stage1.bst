@@ -3,9 +3,6 @@ description: Glib
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/gobject-introspection-base.bst
-- components/glib-stage1.bst
-- components/python3-gi-docgen.bst
 
 depends:
 - bootstrap-import.bst
@@ -16,9 +13,7 @@ depends:
 
 variables:
   meson-local: >-
-    -Dselinux=disabled
-    -Dman-pages=disabled
-    -Ddocumentation=true
+    -Dauto_features=disabled
 
 public:
   bst:
@@ -42,9 +37,6 @@ public:
         - '%{libdir}/libgthread-2.0.so'
         - '%{libdir}/glib-2.0/include'
         - '%{libdir}/glib-2.0/include/**'
-        - '%{datadir}/gobject-introspection-1.0'
-        - '%{datadir}/gobject-introspection-1.0/**'
-        - '%{libdir}/libgirepository-2.0.so'
 
     integration-commands:
     - |
