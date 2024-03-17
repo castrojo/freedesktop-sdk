@@ -25,10 +25,10 @@ public:
         (>):
         - '%{libdir}/libgnutls.so'
         - '%{libdir}/libgnutlsxx.so'
-    cpe:
-      patches:
-      - CVE-2024-0553
-      - CVE-2024-0567
+  cpe:
+    patches:
+    - CVE-2024-0553
+    - CVE-2024-0567
 
 sources:
 - kind: tar
