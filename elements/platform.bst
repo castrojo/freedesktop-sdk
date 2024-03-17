@@ -160,6 +160,7 @@ depends:
 - components/sdl2-net.bst
 - components/sdl2-ttf.bst
 - components/sdl2.bst
+- components/shaderc.bst
 - components/shared-mime-info.bst
 - components/tex-gyre-fonts.bst
 - components/v4l-utils.bst
