@@ -22,7 +22,7 @@ public:
 sources:
 - kind: git_repo
   url: gnome:glib-networking.git
-  track: 2.*[02468].*
+  track: 2.78.*
   exclude:
   - '*alpha*'
   - '*beta*'
