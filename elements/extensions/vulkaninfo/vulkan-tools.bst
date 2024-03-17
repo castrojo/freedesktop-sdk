@@ -1,6 +1,8 @@
 kind: cmake
 
-(@): elements/extensions/include/app.yml
+(@):
+- elements/extensions/include/app.yml
+- elements/include/vulkan-stack.yml
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
@@ -24,6 +26,3 @@ variables:
     -DBUILD_WSI_XLIB_SUPPORT=On \
     -DBUILD_WSI_WAYLAND_SUPPORT=On
   command-subdir: vulkan-tools
-
-(@):
-- elements/include/vulkan-stack.yml
