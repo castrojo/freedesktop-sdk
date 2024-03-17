@@ -1,4 +1,5 @@
 build-depends:
+- public-stacks/buildsystem-meson.bst
 - components/bison.bst
 - components/flex.bst
 - components/llvm.bst
@@ -11,11 +12,6 @@ build-depends:
 - components/vulkan-headers.bst
 - components/wayland-protocols.bst
 - components/glslang.bst
-- extensions/mesa/meson-new.bst
-- components/gettext.bst
-- components/git-minimal.bst
-- components/ninja.bst
-- components/pkg-config.bst
 
 depends:
 - bootstrap-import.bst
