@@ -28,6 +28,19 @@ config:
       "glslang $(glslangValidator --version | sed '/^Glslang Version: /{;s///;q;};d')"
       EOF
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{bindir}'
+        - '%{bindir}/**'
+        - '%{libdir}/libshaderc_shared.so'
+        
+      static-blocklist:
+        (>):
+        - "%{libdir}/*.a"
+
 sources:
 - kind: git_repo
   url: github:google/shaderc.git
