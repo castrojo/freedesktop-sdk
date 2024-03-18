@@ -17,7 +17,7 @@ def latest_release():
     output = subprocess.check_output(args, text=True)
     first_line = output.splitlines()[0]
     _, _, refname = first_line.strip().partition("\t")
-    match = re.search(r"^refs/heads/(.*)$", refname)
+    match = re.search(r"^refs/heads/release/(.*)$", refname)
     assert match
     return match.group(1)
 
