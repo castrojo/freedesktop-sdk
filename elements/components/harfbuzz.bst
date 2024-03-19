@@ -29,5 +29,4 @@ public:
 sources:
 - kind: git_repo
   url: github:harfbuzz/harfbuzz.git
-  track: '*.*.*'
   ref: 8.1.1-0-g1d665c2b521512cdd56964138fc601debd1f1177
