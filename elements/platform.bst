@@ -86,7 +86,6 @@ depends:
 - components/zip.bst
 - components/alsa-lib.bst
 - components/alsa-plugins.bst
-- components/appstream-glib.bst
 - components/aspell.bst
 - components/at-spi2-core.bst
 - components/cairo.bst

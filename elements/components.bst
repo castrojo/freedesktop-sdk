@@ -9,7 +9,6 @@ depends:
 - components/apparmor-base.bst
 - components/apparmor-manifest.bst
 - components/apparmor.bst
-- components/appstream-glib.bst
 - components/appstream-minimal.bst
 - components/appstream.bst
 - components/asciidoc.bst
