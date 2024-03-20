@@ -25,4 +25,4 @@ sources:
 - kind: git_repo
   url: gitlab:BuildGrid/buildbox/buildbox-run-bubblewrap.git
   track: '*.*.*'
-  ref: 1.0.0-0-g9808341cd6d1fe3b9a71578276f8c7394070116f
+  ref: 1.0.1-0-g86a0d9847724dcf3c0afa23163882db484ef6bd0
