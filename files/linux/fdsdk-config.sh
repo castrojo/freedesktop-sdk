@@ -1565,7 +1565,6 @@ if has HAVE_PCI; then
         enable PCIEAER
         module PCIEAER_INJECT
         enable PCIEASPM
-        enable PCIEASPM_POWER_SUPERSAVE
         enable PCIE_ECRC
         enable PCIE_DPC
         if has ACPI; then
