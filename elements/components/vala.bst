@@ -2,10 +2,11 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/vala-bootstrap.bst
-- components/flex.bst
 - components/bison.bst
+- components/flex.bst
 - components/git-minimal.bst
+- components/gobject-introspection.bst
+- components/vala-bootstrap.bst
 
 depends:
 - bootstrap-import.bst
