@@ -60,4 +60,4 @@ sources:
 - kind: git_repo
   url: sourceware:binutils-gdb.git
   track: gdb-*.*
-  ref: gdb-14.1-release-0-g6bda1c19bcd16eff8488facb8a67d52a436f70e7
+  ref: gdb-14.2-release-0-g02c10eaecb63e5dbb99cbfdd1c5385e53ed031ff
