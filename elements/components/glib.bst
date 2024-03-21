@@ -39,13 +39,6 @@ public:
         - '%{libdir}/libgthread-2.0.so'
         - '%{libdir}/glib-2.0/include'
         - '%{libdir}/glib-2.0/include/**'
-  cpe:
-    patches:
-    - CVE-2023-32665
-    - CVE-2023-29499
-    - CVE-2023-32611
-    - CVE-2023-32643
-    - CVE-2023-32636
 
     integration-commands:
     - |
@@ -55,6 +48,14 @@ public:
       if [ -d "%{libdir}/gio/modules" ]; then
         gio-querymodules "%{libdir}/gio/modules"
       fi
+
+  cpe:
+    patches:
+    - CVE-2023-32665
+    - CVE-2023-29499
+    - CVE-2023-32611
+    - CVE-2023-32643
+    - CVE-2023-32636
 
 sources:
 - kind: git_tag
