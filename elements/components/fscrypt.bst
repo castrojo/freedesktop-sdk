@@ -19,7 +19,7 @@ sources:
 - kind: git_repo
   url: github:google/fscrypt.git
   track: v*
-  ref: v0.3.4-0-gf91f8e4fcb59d6db80e5150530a65fe39a836eb2
+  ref: v0.3.5-0-g49c71dedfee544fd74808d3a18972fb65d6e9f02
 # You will have to manual again until we get a go plugin
 - kind: git_repo
   url: github:BurntSushi/toml.git
