@@ -29,6 +29,8 @@ sources:
   track: master
   exclude:
   - '*rc*'
+  match:
+  - 'v3.*'
   ref: v3.3.17-0-g19a508ea121c0c4ac6d0224575a036de745eaaf8
 - kind: patch
   path: patches/procps/CVE-2023-4016.patch
