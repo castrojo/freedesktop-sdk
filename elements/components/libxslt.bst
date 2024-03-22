@@ -31,5 +31,4 @@ public:
 sources:
 - kind: git_tag
   url: gnome:libxslt.git
-  track: master
   ref: v1.1.37-0-g5eca7fb65b7337409a02f9f94fde608edf7d1b0a
