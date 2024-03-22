@@ -1,5 +1,23 @@
 Freedesktop-SDK
 
+freedesktop-sdk-22.08.23:
+  * elements/components/glib.bst: fix manifest syntax
+  * Update elements/components/cmake.bst to v3.28.4-0
+  * Update elements/components/strace.bst to v6.8-0
+  * Update elements/components/wayland-protocols.bst to 1.34-0
+  * abidiff-suppressions.ini: Ignore additions in libwayland-server
+  * Update elements/components/wayland.bst to 1.22.0-0
+  * Update elements/components/python3-hatchling.bst to 1.22.3
+  * components/libpsl.bst: Freeze due to backwards ABI break
+  * components/pixman.bst: Freeze to 0.42
+  * Update elements/abi/freedesktop-sdk.bst to freedesktop-sdk-22.08.22-0
+  * Update elements/include/python3.yml to v3.10.14-0
+  * Update elements/components/mutool.bst to 1.24.0-0
+  * components/p11-kit.bst: Freeze due to ABI break
+  * components/libxkbcommon.bst: Freeze due to ABI break
+  * components/spirv-llvm-translator.bst: Freeze spirv-llvm-translator
+  * Update elements/components/python3-pyelftools.bst to 0.31
+
 freedesktop-sdk-22.08.22:
   * Update elements/components/pinentry-ncurses.bst to pinentry-1.3.0-0
   * Update python3-packaging to 24.0
