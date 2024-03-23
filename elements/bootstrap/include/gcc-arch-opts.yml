@@ -24,5 +24,13 @@ variables:
       conf-arch: >-
         --with-arch=rv64gc
   - target_arch == "x86_64":
+      (?):
+        - x86_64_v3:
+            arch-opt: x86-64-v3
+            tune-opt: skylake
+        - not x86_64_v3:
+            arch-opt: x86-64
+            tune-opt: generic
       conf-arch: >-
-        --with-tune=generic
+        --with-tune=%{tune-opt}
+        --with-arch_64=%{arch-opt}
