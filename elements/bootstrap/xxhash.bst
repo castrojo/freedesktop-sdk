@@ -16,18 +16,22 @@ runtime-depends:
 - bootstrap/glibc.bst
 
 variables:
+  arch-flags: ''
   make-args: >-
     CC="%{triplet}-gcc"
     AR="%{triplet}-ar"
     PREFIX="%{prefix}"
     LIBDIR="%{libdir}"
-    MOREFLAGS="${CFLAGS} ${LDFLAGS}"
+    MOREFLAGS="%{arch-flags} ${CFLAGS} ${LDFLAGS}"
     DISPATCH=%{dispatch}
   (?):
   - target_arch in ("i686", "x86_64"):
       dispatch: 1
   - target_arch not in ("i686", "x86_64"):
       dispatch: 0
+  - x86_64_v3:
+      arch-flags: >-
+        -DXXH_X86DISPATCH_ALLOW_AVX
 
 public:
   bst:
