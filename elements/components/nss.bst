@@ -48,6 +48,8 @@ variables:
       gyp-arch: ppc64
   - target_arch == 'riscv64':
       gyp-arch: riscv64
+  - target_arch == 'loongarch64':
+      gyp-arch: loongarch64
 
   build-args: >-
     --opt
@@ -60,7 +62,7 @@ variables:
 environment:
   MAXJOBS: "%{max-jobs}"
   (?):
-  - target_arch == 'riscv64':
+  - target_arch in ('riscv64', 'loongarch64'):
       CFLAGS: "%{target_common_flags} -DNSS_USE_64"
 
 environment-nocache:
