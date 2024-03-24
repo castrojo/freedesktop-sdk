@@ -16,6 +16,6 @@ sources:
 - kind: pypi
   name: hatchling
   ref:
-    sha256sum: adf5d32ab10ac59272cd0bcae9c8193288841860025f2c51df971dae161f8683
+    sha256sum: 8a2dcec96d7fb848382ef5848e5ac43fdae641f35a08a3fab5116bd495f3416e
     suffix: 
-      6a/a1/14f87714ecabcb25d2fb5d7640fd2b5cdd46bb4fe91ca5b3456e84127a8c/hatchling-1.22.3.tar.gz
+      4f/2a/c34d71531d1e1c9a5029bb73eb3816285befd0fffd7c63ffa0544253dca8/hatchling-1.22.4.tar.gz
