@@ -16,7 +16,7 @@ variables:
     -Dasm=%{asm}
 
   (?):
-  - target_arch in ["riscv64"]:
+  - target_arch in ["riscv64", "loongarch64"]:
       asm: 'disabled'
 
 config:
