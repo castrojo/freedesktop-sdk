@@ -62,6 +62,8 @@ config:
       # include "powerpc64le-linux-gnu/SDL2/SDL_config.h"
       #elif defined(__riscv) && (__riscv_xlen == 64)
       # include "riscv64-linux-gnu/SDL2/SDL_config.h"
+      #elif defined(__loongarch__) && defined(__loongarch_double_float)
+      # include "loongarch64-linux-gnu/SDL2/SDL_config.h"
       #else
       # error "Unknown cross-compiler"
       #endif
