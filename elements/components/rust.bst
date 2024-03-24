@@ -30,6 +30,9 @@ variables:
       rust-target: 'riscv64gc-unknown-linux-gnu'
       llvm-targets: 'RISCV'
       build-docs: 'false'
+  - target_arch == "loongarch64":
+      llvm-targets: 'LoongArch'
+      build-docs: 'false'
 
 environment-nocache:
 - MAXJOBS

@@ -16,3 +16,6 @@ kind: stack
 - target_arch == "riscv64":
     depends:
     - components/rust-stage1-riscv64.bst
+- target_arch == "loongarch64":
+    depends:
+    - components/rust-stage1-loongarch64.bst
