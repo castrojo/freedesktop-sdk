@@ -16,4 +16,4 @@ sources:
 - kind: git_repo
   url: github:pypa/packaging.git
   track: '*.*'
-  ref: 23.2-0-gb3a5d7d68991c040615d5345bb55f61de53ba176
+  ref: 24.0-0-g7a983f7f0068669ead9d4f7571be24d6c0d83eb9
