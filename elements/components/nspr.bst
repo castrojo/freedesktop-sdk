@@ -6,7 +6,7 @@ depends:
 variables:
   arch-conf: ''
   (?):
-  - target_arch in ["x86_64", "aarch64", "ppc64le"]:
+  - target_arch in ["x86_64", "aarch64", "ppc64le", "loongarch64"]:
       arch-conf: |
         --enable-64bit
   conf-local: '%{arch-conf}'
@@ -22,6 +22,14 @@ public:
     product: netscape_portable_runtime
 
 config:
+  # FIXME: not needed in next release
+  (?):
+  - target_arch == "loongarch64":
+      configure-commands:
+        (<):
+        - |
+          cp -v %{datadir}/gnu-config/config* build/autoconf
+
   install-commands:
     (>):
     - |
