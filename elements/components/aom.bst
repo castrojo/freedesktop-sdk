@@ -22,7 +22,7 @@ variables:
       aom_target: arm64
   - target_arch in ("ppc64le", "ppc64"):
       aom_target: ppc
-  - target_arch == "riscv64":
+  - target_arch in ("riscv64", "loongarch64"):
       aom_target: generic
 
   cmake-local: >-
