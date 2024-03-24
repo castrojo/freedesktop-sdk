@@ -21,6 +21,8 @@ variables:
       vpxtarget: generic-gnu
   - target_arch == "ppc64":
       vpxtarget: generic-gnu
+  - target_arch == "loongarch64":
+      vpxtarget: generic-gnu
 
 
   conf-args: |
