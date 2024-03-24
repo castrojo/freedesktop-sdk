@@ -29,6 +29,8 @@ variables:
       targets: PowerPC;AMDGPU;BPF
   - target_arch == "riscv64":
       targets: RISCV;AMDGPU;BPF
+  - target_arch == "loongarch64":
+      targets: LoongArch;AMDGPU;BPF
 
   cmake-local: >-
     -DLLVM_ENABLE_PROJECTS='clang;compiler-rt'
