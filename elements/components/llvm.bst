@@ -17,14 +17,17 @@ variables:
 
   debug_flags: "-g1"
   optimize-debug: "false"
+  extra-projects: ''
 
   (?):
   - target_arch == "i686":
       targets: X86;AMDGPU;NVPTX;BPF
   - target_arch == "x86_64":
       targets: X86;AMDGPU;NVPTX;BPF
+      extra-projects: 'bolt;lld'
   - target_arch == "aarch64":
       targets: AArch64;AMDGPU;BPF
+      extra-projects: 'bolt;lld'
   - target_arch in ("ppc64le", "ppc64"):
       targets: PowerPC;AMDGPU;BPF
   - target_arch == "riscv64":
@@ -33,7 +36,7 @@ variables:
       targets: LoongArch;AMDGPU;BPF
 
   cmake-local: >-
-    -DLLVM_ENABLE_PROJECTS='clang;compiler-rt'
+    -DLLVM_ENABLE_PROJECTS="clang;compiler-rt;%{extra-projects}"
     -DLLVM_ENABLE_ASSERTIONS:BOOL=OFF
     -DBUILD_SHARED_LIBS:BOOL=OFF
     -DLLVM_BUILD_LLVM_DYLIB:BOOL=ON
