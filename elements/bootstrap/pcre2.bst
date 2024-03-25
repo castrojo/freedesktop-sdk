@@ -36,7 +36,4 @@ public:
 sources:
 - kind: git_tag
   url: github:PCRE2Project/pcre2.git
-  track: master
-  exclude:
-  - '*RC*'
   ref: pcre2-10.42-0-g52c08847921a324c804cabf2814549f50bce1265

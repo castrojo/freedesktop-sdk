@@ -28,5 +28,4 @@ variables:
 sources:
 - kind: git_tag
   url: freedesktop:libnice/libnice.git
-  track: master
   ref: 0.1.21-0-g3d9cae16a5094aadb1651572644cb5786a8b4e2d
