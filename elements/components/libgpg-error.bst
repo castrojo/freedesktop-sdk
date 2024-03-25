@@ -26,7 +26,4 @@ public:
 sources:
 - kind: git_tag
   url: gnupg:libgpg-error.git
-  track: master
-  match:
-  - libgpg-error-*
   ref: libgpg-error-1.47-0-ga25cea92798a5ece3f49924911507f5335915ecc
