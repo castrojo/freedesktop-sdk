@@ -22,4 +22,4 @@ sources:
 - kind: git_repo
   url: github:dbry/WavPack.git
   track: '*.*.*'
-  ref: 5.6.0-0-ge03e8e29dc618e08e7baba9636e57ba1254874ce
+  ref: 5.7.0-0-g63dd3fa3b69fc236cc17886af6d4bd7dbe856125
