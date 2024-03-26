@@ -36,9 +36,6 @@ public:
 sources:
 - kind: git_tag
   url: freedesktop:fontconfig/fontconfig.git
-  track: main
-  exclude:
-  - 2.*.9*
   ref: 2.14.1-0-gc45e09df1ef235d653d56aef05012f6a3cc57979
 - kind: patch
   path: patches/fontconfig/mr-244.patch
