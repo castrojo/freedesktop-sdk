@@ -46,7 +46,6 @@ public:
 sources:
 - kind: git_tag
   url: github:curl/curl.git
-  track: master
   ref: curl-8_2_1-0-g50490c0679fcd0e50bb3a8fbf2d9244845652cf0
 - kind: patch_queue
   path: patches/curl
