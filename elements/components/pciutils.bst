@@ -46,4 +46,6 @@ public:
 sources:
 - kind: git_tag
   url: kernel:utils/pciutils/pciutils.git
+  match:
+  - 'v3.8.*'
   ref: v3.8.0-0-gd224993d423bcd0e88d8eacc0464bc3a66972e95
