@@ -4,6 +4,7 @@ config:
   options:
     bootstrap_build_arch: "%{bootstrap_build_arch}"
     target_arch: "x86_64"
+    map-aliases: identity
 
 sources:
 - kind: local
