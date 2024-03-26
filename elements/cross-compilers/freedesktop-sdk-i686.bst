@@ -4,6 +4,7 @@ config:
   options:
     bootstrap_build_arch: "%{target_arch}"
     target_arch: "i686"
+  map-aliases: true
 
 sources:
 - kind: local

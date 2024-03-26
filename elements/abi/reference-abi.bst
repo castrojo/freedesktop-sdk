@@ -4,6 +4,7 @@ config:
   options:
     bootstrap_build_arch: "%{bootstrap_build_arch}"
     target_arch: "%{target_arch}"
+  map-aliases: true
 
 sources:
 - kind: git_repo

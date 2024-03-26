@@ -4,6 +4,7 @@ config:
   options:
     bootstrap_build_arch: "%{target_arch}"
     target_arch: "arm"
+  map-aliases: true
 
 sources:
 - kind: local
