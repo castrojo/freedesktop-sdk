@@ -23,4 +23,4 @@ sources:
   exclude:
   - '*rc*'
   - '*-a*'
-  ref: man-pages-6.05.01-0-gcd09c7a4bf308d3c8a26bc3354658b7ac76090a5
+  ref: man-pages-6.7-0-g557f96fb1938cc82a543ae5af1dec920c282cf1e
