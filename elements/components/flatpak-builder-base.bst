@@ -30,8 +30,8 @@ sources:
   match:
   - 1.[02468]*
   - 1.1[02468]*
-  ref: 1.4.2-0-g0b9070037a573a6061d7893312611957561ca841
+  ref: 1.4.3-0-g71495258a5df18367ac502b2a191f93cd7481f92
 - kind: git_module
   path: subprojects/libglnx
   url: gnome:libglnx.git
-  ref: 470af8763ff7b99bec950a6ae0a957c1dcfc8edd
+  ref: 202b294e6079e23242e65e0426f8639841d1210b
