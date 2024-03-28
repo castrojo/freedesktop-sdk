@@ -4,13 +4,13 @@ sources:
   track: 1.*
   # track: 1.1[02468]*
   # We track development versions until 1.16
-  ref: 1.15.6-0-g27b11b93c2a80a91c9461bc6c7f5e9a201406041
+  ref: 1.15.7-0-gf1088e3013adc5010012e16d060178b0f1d48226
 - kind: patch
   path: patches/flatpak/revert-compat-arch.patch
 - kind: git_module
   path: subprojects/libglnx
   url: gnome:libglnx.git
-  ref: 54ad67db3ff38ece81be8b2ab35df77fd80e26f4
+  ref: 202b294e6079e23242e65e0426f8639841d1210b
 - kind: git_module
   path: subprojects/variant-schema-compiler
   url: git_https:gitlab.gnome.org/alexl/variant-schema-compiler.git
