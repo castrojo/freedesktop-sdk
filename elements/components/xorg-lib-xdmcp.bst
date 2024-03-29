@@ -20,4 +20,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libxdmcp.git
   track: libXdmcp-*
-  ref: libXdmcp-1.1.4-0-g7f5677e87df575298f62320d76408823b54cd883
+  ref: libXdmcp-1.1.5-0-g1192d3bc407348ff316bd3bffc791b3ac73f591b
