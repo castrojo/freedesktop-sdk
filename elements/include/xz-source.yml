@@ -1,9 +1,6 @@
 sources:
 - kind: git_tag
   url: tukaani:xz.git
-  track: master
-  track-extra:
-  - v5.2
   exclude:
   - v*alpha
   - v*beta
