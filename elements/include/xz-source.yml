@@ -1,7 +1,6 @@
 sources:
 - kind: git_repo
   url: tukaani:xz.git
-  track: v*
   exclude:
   - v*alpha
   - v*beta
