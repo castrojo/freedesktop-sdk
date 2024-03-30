@@ -1,8 +1,7 @@
 sources:
 - kind: git_repo
   url: tukaani:xz.git
-  track: v*
   exclude:
   - v*alpha
   - v*beta
-  ref: v5.6.1-0-gfd1b975b7851e081ed6e5cf63df946cd5cbdbb94
+  ref: v5.4.6-0-g6e8732c5a317a349986a4078718f1d95b67072c5
