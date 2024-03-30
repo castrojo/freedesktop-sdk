@@ -5,3 +5,5 @@ sources:
   - v*alpha
   - v*beta
   ref: v5.4.1-0-g18b845e69752c975dfeda418ec00eda22605c2ee
+- kind: patch
+  path: patches/xz/disable-test.patch

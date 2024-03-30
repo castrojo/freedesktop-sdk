@@ -17,6 +17,12 @@ runtime-depends:
 variables:
   autogen: ./autogen.sh --no-po4a --no-doxygen
 
+config:
+  configure-commands:
+    (<):
+    - |
+      rm -rv tests
+
 public:
   bst:
     split-rules:

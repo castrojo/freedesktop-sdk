@@ -1,0 +1,33 @@
+diff --git a/Makefile.am b/Makefile.am
+index f562f902..c072d102 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -8,14 +8,14 @@
+ # Use -n to prevent gzip from adding a timestamp to the .gz headers.
+ GZIP_ENV = -9n
+ 
+-DIST_SUBDIRS = lib src po tests debug
++DIST_SUBDIRS = lib src po debug
+ SUBDIRS =
+ 
+ if COND_GNULIB
+ SUBDIRS += lib
+ endif
+ 
+-SUBDIRS += src po tests
++SUBDIRS += src po
+ 
+ if COND_DOC
+ dist_doc_DATA = \
+diff --git a/configure.ac b/configure.ac
+index d8811b9b..78f8d4ad 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -1142,7 +1142,6 @@ AC_CONFIG_FILES([
+ 	src/xzdec/Makefile
+ 	src/lzmainfo/Makefile
+ 	src/scripts/Makefile
+-	tests/Makefile
+ 	debug/Makefile
+ ])
+ AC_CONFIG_FILES([src/scripts/xzdiff], [chmod +x src/scripts/xzdiff])
