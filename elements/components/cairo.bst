@@ -47,7 +47,7 @@ sources:
   track-extra:
   - 1.16
   match:
-  - 1.*[02468].*
+  - 1.16.*
   ref: 1.16.0-0-g3ad43122b21a3299dd729dc8462d6b8f7f01142d
 - kind: patch_queue
   path: patches/cairo
