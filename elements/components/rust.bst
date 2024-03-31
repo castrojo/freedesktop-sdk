@@ -17,9 +17,12 @@ variables:
   debuginfo-level-std: '1'
   rust-target: '%{host-triplet}'
   build-docs: 'true'
+  lto-level: 'thin'
   (?):
   - target_arch == "i686":
       llvm-targets: 'X86'
+      # Avoid OOMing during build on 32bit systems
+      lto-level: 'off'
   - target_arch == "x86_64":
       llvm-targets: 'X86'
   - target_arch == "aarch64":
@@ -77,7 +80,8 @@ config:
     debuginfo-level-std = %{debuginfo-level-std}
     backtrace = true
     rpath = false
-    lto = "off"
+    lto = "%{lto-level}"
+    codegen-units=1
     default-linker = "/usr/bin/gcc"
     [target.%{rust-target}]
     cc = "/usr/bin/%{host-triplet}-gcc"
