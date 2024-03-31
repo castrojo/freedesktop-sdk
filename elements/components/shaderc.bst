@@ -7,8 +7,8 @@ build-depends:
 - components/spirv-tools.bst
 
 depends:
-- components/glslang.bst
 - bootstrap-import.bst
+- components/glslang.bst
 
 variables:
   cmake-local: >-
