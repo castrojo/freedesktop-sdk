@@ -122,5 +122,5 @@ public:
 
 sources:
 - kind: tar
-  url: tar_https:static.rust-lang.org/dist/rustc-1.76.0-src.tar.xz
-  ref: 805482b436442a6786d270cacbab8f00529e06141b27b7fb01909b97ce4f3464
+  url: tar_https:static.rust-lang.org/dist/rustc-1.77.1-src.tar.xz
+  ref: 2ddc6f5e01df1bd6c7ff94d9931574181795a231b199ca6948d433fa5e795873
