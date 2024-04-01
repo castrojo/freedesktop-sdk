@@ -2,8 +2,7 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-
-depends:
+- components/genpeimg.bst
 - components/gnu-efi.bst
 
 sources:
