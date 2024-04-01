@@ -4,8 +4,6 @@ depends:
 - filename: bootstrap-import.bst
 - filename: public-stacks/buildsystem-cmake.bst
   type: build
-- filename: components/bc.bst
-  type: build
 
 public:
   bst:
