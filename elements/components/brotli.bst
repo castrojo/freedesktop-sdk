@@ -23,11 +23,6 @@ public:
 sources:
 - kind: git_tag
   url: github:google/brotli.git
-  track: master
-  track-extra:
-  - v1.0
-  match:
-  - v*
   ref: v1.0.9-0-ge61745a6b7add50d380cfd7d3883dd6c62fc2c71
 - kind: patch
   path: patches/brotli/fix-pkg-config.patch
