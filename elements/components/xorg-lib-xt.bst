@@ -23,5 +23,4 @@ public:
 sources:
 - kind: git_tag
   url: freedesktop:xorg/lib/libxt.git
-  track: master
   ref: libXt-1.2.1-0-gedd70bdfbbd16247e3d9564ca51d864f82626eb7
