@@ -1,9 +1,6 @@
 sources:
 - kind: git_tag
   track: release/15.x
-  track-extra:
-  # Attempt to predict the next branchpoint.
-  - release/16.x
   exclude:
   - llvmorg-*-rc*
   - llvmorg-*-init*
