@@ -32,6 +32,8 @@ mirrors:
     - https://gitlab.com/freedesktop-sdk/mirrors/kitware/
     kernel:
     - https://gitlab.com/freedesktop-sdk/mirrors/kernel/
+    kennylevinsen:
+    - https://gitlab.com/freedesktop-sdk/mirrors/kennylevinsen/
     libdaemon:
     - https://gitlab.com/freedesktop-sdk/mirrors/libdaemon/
     netfilter:
@@ -94,4 +96,3 @@ mirrors:
   aliases:
     ftp_gnu_org:
     - https://mirrors.kernel.org/gnu/
-
