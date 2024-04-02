@@ -22,7 +22,6 @@ variables:
 sources:
 - kind: git_tag
   url: github:google/fscrypt.git
-  track: master
   ref: v0.3.3-0-gf28f2be05de938b1c2da7a88569bf6611250a9e2
 # You will have to manual again until we get a go plugin
 - kind: git_tag
