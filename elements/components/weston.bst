@@ -5,6 +5,7 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/wayland-protocols.bst
 - extensions/mesa/libdrm.bst
+- components/xcb-util-cursor.bst
 
 depends:
 - components/libunwind.bst
