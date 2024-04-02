@@ -23,9 +23,9 @@ runtime-depends:
 
 
 (@):
-- elements/bootstrap/include/gcc-arch-opts.yml
-- elements/bootstrap/include/gcc-source.yml
 - elements/bootstrap/include/build.yml
+- elements/bootstrap/include/gcc-arch-opts.yml
+- elements/include/gcc-source.yml
 
 environment:
   CFLAGS_FOR_TARGET:  "%{target_flags}"

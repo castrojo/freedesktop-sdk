@@ -13,9 +13,9 @@ depends:
 - cross-compilers/binutils-riscv64.bst
 
 (@):
-- elements/bootstrap/include/gcc-source.yml
 - elements/cross-compilers/riscv64-vars.yml
 - elements/cross-compilers/gcc-common.yml
+- elements/include/gcc-source.yml
 
 variables:
   conf-arch: ''
