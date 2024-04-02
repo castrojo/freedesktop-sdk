@@ -336,6 +336,7 @@ depends:
 - components/python3-dbusmock.bst
 - components/python3-distlib.bst
 - components/python3-docutils.bst
+- components/python3-faust-cchardet.bst
 - components/python3-filelock.bst
 - components/python3-html5lib.bst
 - components/python3-idna.bst

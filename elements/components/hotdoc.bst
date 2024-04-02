@@ -4,7 +4,6 @@ build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/python3-pip.bst
 - components/python3-wheel.bst
-- components/pkg-config.bst
 - components/flex.bst
 
 depends:
@@ -18,14 +17,13 @@ depends:
 runtime-depends:
 - components/python3-appdirs.bst
 - components/python3-dbus-deviation.bst
+- components/python3-faust-cchardet.bst
 - components/python3-lxml.bst
 - components/python3-pyyaml.bst
 - components/python3-schema.bst
 - components/python3-toposort.bst
 - components/python3-wheezy-template.bst
-- components/python3-xdg.bst
 - components/python3-networkx.bst
-- components/python3-cchardet.bst
 - components/python3-pkgconfig.bst
 
 environment:
