@@ -6,6 +6,7 @@ build-depends:
 - components/flex.bst
 - components/bison.bst
 - components/git-minimal.bst
+- components/gobject-introspection.bst
 
 depends:
 - bootstrap-import.bst
