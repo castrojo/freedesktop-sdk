@@ -25,7 +25,7 @@ config:
     (>):
     - |
       rm -r "%{install-root}%{datadir}/applications"
-      rm -r "%{install-root}%{sysconfdir}/dbus-1/system.d"
+      rm -r "%{install-root}%{datadir}/dbus-1/system.d"
       rm -r "%{install-root}%{libexecdir}"
       rm -r "%{install-root}%{datadir}/dbus-1/system-services"
 
