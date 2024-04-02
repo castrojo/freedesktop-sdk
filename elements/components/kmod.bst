@@ -15,14 +15,6 @@ variables:
     --with-zlib \
     --enable-tools
 
-config:
-  install-commands:
-    (>):
-    - |
-      for tool in insmod rmmod lsmod modprobe modinfo depmod; do
-        ln -s kmod "%{install-root}%{bindir}/${tool}"
-      done
-
 sources:
 - kind: git_tag
   url: kernel:utils/kernel/kmod/kmod.git
