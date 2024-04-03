@@ -6,6 +6,10 @@ build-depends:
 depends:
 - bootstrap-import.bst
 
+variables:
+  cmake-local: >-
+    -DLIB_INSTALL_DIR:STRING="%{lib}"
+
 sources:
 - kind: git_repo
   url: github:gflags/gflags.git
