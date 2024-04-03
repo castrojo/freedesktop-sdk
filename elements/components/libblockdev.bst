@@ -2,9 +2,6 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/e2fsprogs.bst
-- components/keyutils.bst
-- components/libnvme.bst
 
 depends:
 - components/cryptsetup.bst
