@@ -1,5 +1,92 @@
 Freedesktop-SDK
 
+22.08.24:
+  * python3-faust-cchardet: correct project tracking
+  * Update python3-lxml to 5.2.1
+  * components/gnu-efi.bst: Freeze to 3.0.15 due to breaking EFI tests
+  * components/udisks.bst: Update to 2.10.0
+  * components/libblockdev.bst: Add e2fsprogs, keyutils and libnvme
+  * components/libblockdev.bst: Update to 3.1.0
+  * weston: Add build dependency to xcb-util-cursor
+  * weston: Disable new VNC backend
+  * weston: libseat dependency is now not optional
+  * Update weston to 13.0.0-0
+  * include/linux.yml: Freeze on 5.19.17
+  * components/fscrypt.bst: Freeze to 0.3.3
+  * components/go-md2man.bst: Freeze to 2.0.3
+  * components/hotdoc.bst: Add dependencies on feedgen and faust-cchardet
+  * Update hotdoc to 0.16
+  * components/vala.bst: Add build-depends on gobject-introspection
+  * Update vala to 0.56.16-0
+  * components/kmod.bst: Drop manual symlinks
+  * Update kmod to v32-0
+  * components/geoclue.bst: Change dbus policy location to system datadir
+  * Update geoclue to 2.7.1-0
+  * components/perl-build.bst: Match release tags only
+  * fwupd-efi: Fix dependencies to what they are in master
+  * Update fwupd-efi to 1.4-0
+  * Update python3-lxml to 5.2.0
+  * Update python3-pil to 10.3.0
+  * Update libical to v3.0.18-0
+  * Update poppler to poppler-24.04.0-0
+  * components/python3-frozenlist.bst: Freeze to 1.4.0
+  * components/python3-yarl.bst: Freeze to 1.9.2
+  * components/python3-dbus.bst: Convert to meson element
+  * Update python3-dbus to 1.3.2
+  * components/brotli.bst: Freeze to 1.0.9 due to ABI break
+  * components/xorg-lib-xt.bst: Freeze to 1.2.1 due to ABI break
+  * components/zstd.bst: Freeze due to ABI break
+  * include/llvm.yml: Freeze to 15.x
+  * Freeze vulkan stack due to ABI break
+  * Update python3-pycparser to 2.22
+  * Update vim to v9.1.0228-0
+  * components/cairo.bst: Freeze to 1.16 due to ABI break
+  * components/libxml2.bst: Freeze to 2.10 branch
+  * mesa/mesa-sources.yml: Drop radeon_bo_can_reclaim_slab patch
+  * Update mesa to mesa-24.0.4-0
+  * Update python3-pyasn1-modules to 0.4.0
+  * Update python3-lxml to 5.1.1
+  * Update pkg-config to pkgconf-2.2.0-0
+  * include/xz-source.yml: Revert to 5.2.9
+  * include/xz-source.yml: Freeze xz updates
+  * Update ell to 0.64-0
+  * Update iwd to 2.17-0
+  * Update bubblewrap to v0.9.0-0
+  * Update python3-trove-classifiers to 2024.3.25
+  * Update python3-pyasn1 to 0.6.0
+  * Update btrfs-progs to v6.8-0
+  * Update xorg-proto-xorgproto to xorgproto-2024.1-0
+  * Update python3-filelock to 3.13.3
+  * Update libblockdev to 2.29-1-0
+  * Update flatpak-builder-base to 1.4.3-0
+  * components/curl.bst: Freeze to 8.2.1 due to ABI break
+  * components/xorg-lib-xcb.bst: Freeze to 1.15 due to ABI break
+  * components/fontconfig.bst: Freeze to 2.14.1 due to ABI break
+  * components/pciutils.bst: Freeze to v3.8 due to ABI break
+  * bootstrap/libselinux.bst: Freeze to 3.4.0 due to ABI break
+  * components/gcab.bst: Freeze to 1.5.0 due to ABI break
+  * bootstrap/pcre2.bst: Freeze to 10.42 due to ABI break
+  * components/libgpg-error.bst: Freeze to 1.47 due to ABI break
+  * components/npth.bst: Freeze to 1.6 due to ABI break
+  * components/libnice.bst: Freeze to 0.1.21 due to ABI break
+  * components/pango.bst: Freeze to 1.51.2 due to ABI break
+  * Update python3-hatchling to 1.22.4
+  * Update linux-firmware to 20240312-0
+  * Update vim to v9.1.0199-0
+  * Update glibc to glibc-2.35-288
+  * abidiff-suppressions.ini: Suppress type changes in libbluetooth
+  * Update bluez to 5.73-0
+  * Update freedesktop-sdk to freedesktop-sdk-22.08.23-0
+  * components/procps.bst: Freeze to v3 due to ABI break
+  * Update python3-idna to 3.6
+  * Update python3-pyasn1 to 0.5.1
+  * Add rdfind, needed by linux-firmware
+  * Update linux-firmware to 20231111-0
+  * Update cmake to v3.29.0-0
+  * Update tpm2-tools to 5.6-0
+  * Update libgusb to 0.4.8-0
+  * Update gawk to gawk-5.3.0-0
+
 freedesktop-sdk-22.08.23:
   * elements/components/glib.bst: fix manifest syntax
   * Update elements/components/cmake.bst to v3.28.4-0
