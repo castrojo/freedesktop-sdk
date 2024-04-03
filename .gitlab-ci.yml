@@ -75,7 +75,6 @@ before_script:
       max-jobs: ${MAX_JOBS}
     scheduler:
       builders: ${BUILD_TASKS}
-      fetchers: 4
       network-retries: 4
       on-error: continue
     EOF
