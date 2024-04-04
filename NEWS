@@ -1,6 +1,6 @@
 Freedesktop-SDK
 
-22.08.24:
+freedesktop-sdk-22.08.24:
   * python3-faust-cchardet: correct project tracking
   * Update python3-lxml to 5.2.1
   * components/gnu-efi.bst: Freeze to 3.0.15 due to breaking EFI tests
