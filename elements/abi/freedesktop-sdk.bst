@@ -6,7 +6,7 @@ config:
     target_arch: "%{target_arch}"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop-sdk-project:freedesktop-sdk.git
-  track: release/22.08
-  ref: freedesktop-sdk-22.08.23-0-gc0e6b712b98d6fb7c3d9dd5efe1e79b94f2f5125
+  track: freedesktop-sdk-22.08.*
+  ref: freedesktop-sdk-22.08.24-30-g1428bdf64d7bbe2027c22b16c126e0ea4f4ad2e6
