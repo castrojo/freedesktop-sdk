@@ -2,10 +2,14 @@ kind: script
 
 build-depends:
 - vm/deploy-tools.bst
-- vm/boot/efi.bst
-- vm/minimal/filesystem.bst
 - vm/minimal/initial-scripts.bst
 - vm/prepare-image.bst
+- filename: vm/minimal/filesystem.bst
+  config:
+    location: '/sysroot'
+- filename: vm/boot/efi.bst
+  config:
+    location: '/sysroot/efi'
 
 environment:
   E2FSPROGS_FAKE_TIME: '%{source-date-epoch}'
@@ -26,19 +30,8 @@ variables:
         linux-root: 72EC70A6-CF74-40E6-BD49-4BDA08E8F224
 
 config:
-  layout:
-  - element: ''
-    destination: '%{build-root}'
-  - element: 'vm/deploy-tools.bst'
-    destination: '/'
-  - element: 'vm/boot/efi.bst'
-    destination: '/sysroot/efi'
-  - element: 'vm/minimal/filesystem.bst'
-    destination: '/sysroot'
-  - element: 'vm/minimal/initial-scripts.bst'
-    destination: '/'
-
   commands:
+  - mkdir -p %{build-root}
   - |
     prepare-image.sh \
        --sysroot /sysroot \

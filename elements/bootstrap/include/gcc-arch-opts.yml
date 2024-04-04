@@ -28,3 +28,5 @@ variables:
   - target_arch == "x86_64":
       conf-arch: >-
         --with-tune=generic
+  - target_arch == "aarch64":
+      conf-extra: ''

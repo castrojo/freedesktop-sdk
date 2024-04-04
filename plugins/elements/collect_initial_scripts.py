@@ -14,24 +14,21 @@ way to have integration scripts that we execute when we pack into an image
 
 import os
 import re
-from buildstream import Element, ElementError, Scope
+from buildstream import Element
 
 class ExtractInitialScriptsElement(Element):
-    def configure(self, node):
-        self.node_validate(node, [
-            'path',
-        ])
 
-        self.path = self.node_subst_member(node, 'path')
+    BST_MIN_VERSION = "2.0"
+    BST_FORBID_RDEPENDS = True
+    BST_FORBID_SOURCES = True
+
+    def configure(self, node):
+        node.validate_keys(['path'])
+
+        self.path = node.get_str('path')
 
     def preflight(self):
-        runtime_deps = list(self.dependencies(Scope.RUN, recurse=False))
-        if runtime_deps:
-            raise ElementError(f"{self}: Only build type dependencies supported by collect-integration elements")
-
-        sources = list(self.sources())
-        if sources:
-            raise ElementError(f"{self}: collect-integration elements may not have sources")
+        pass
 
     def get_unique_key(self):
         key = {
@@ -46,21 +43,22 @@ class ExtractInitialScriptsElement(Element):
         pass
 
     def assemble(self, sandbox):
-        basedir = sandbox.get_directory()
-        path = os.path.join(basedir, self.path.lstrip(os.sep))
+        basedir = sandbox.get_virtual_directory()
+        relative_path = self.path.strip(os.sep)
+
         index = 0
-        for dependency in self.dependencies(Scope.BUILD):
+        for dependency in self.dependencies():
             public = dependency.get_public_data('initial-script')
             if public and 'script' in public:
-                script = self.node_subst_member(public, 'script')
+                script = self.node_subst_vars(public.get_scalar('script'))
                 index += 1
                 depname = re.sub('[^A-Za-z0-9]', '_', dependency.name)
                 basename = f'{index:03}-{depname}'
-                filename = os.path.join(path, basename)
-                os.makedirs(path, exist_ok=True)
-                with open(filename, 'w', encoding="utf-8") as f:
+
+                pathdir = basedir.open_directory(relative_path, create=True)
+                with pathdir.open_file(basename, mode='w') as f:
                     f.write(script)
-                os.chmod(filename, 0o755)
+                    os.chmod(f.fileno(), 0o755)
 
         return os.sep
 

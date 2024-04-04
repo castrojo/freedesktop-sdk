@@ -21,7 +21,6 @@ import filecmp
 from fnmatch import fnmatch
 import json
 import os
-import pathlib
 import re
 import subprocess
 import sys
@@ -56,6 +55,9 @@ def get_parser():
 
     parser.add_argument(
         '--suppressions', metavar='PATH', help='specify a suppression file')
+
+    parser.add_argument(
+        '--abidiff-suppressions', metavar='PATH', help='specify a suppression file for abidiff')
 
     parser.add_argument(
         '--forward-compatible', action='store_true')
@@ -170,6 +172,23 @@ def get_libraries(tree):
     return libs
 
 
+def file_sha256(filename):
+    try:
+        checksum = os.getxattr(filename, "user.checksum.sha256")
+    except OSError:
+        return None
+
+    return checksum
+
+
+def fast_file_check(first, second):
+    first_sha256 = file_sha256(first)
+    second_sha256 = file_sha256(second)
+    if first_sha256 is None or second_sha256 is None:
+        return False
+    return first_sha256 == second_sha256
+
+
 def compare_abi(old_library, old_debug_dir, old_include_dir, new_library, new_debug_dir, new_include_dir, forward_compatible):
     options = [
         '--drop-private-types'
@@ -195,6 +214,8 @@ def get_debugaltlink(debug_file):
     dirname = os.path.dirname(debug_file)
     with ELFFile.load_from_path(debug_file) as elffile:
         altlink = elffile.get_section_by_name('.gnu_debugaltlink')
+        if altlink is None:
+            return None
         return os.path.join(dirname, altlink.data().split(b'\x00')[0].decode('latin-1'))
 
 
@@ -202,13 +223,15 @@ def create_binary_archive(archive_directory, old_debug_dir, old_library, old_che
     old_debug_file = os.path.join(old_debug_dir, os.path.relpath(old_library, old_checkout)) + '.debug'
     new_debug_file = os.path.join(new_debug_dir, os.path.relpath(new_library, new_checkout)) + '.debug'
     altlink = get_debugaltlink(old_debug_file)
-    prefix = os.path.commonpath((altlink, old_checkout))
-    rel_path = os.path.relpath(altlink, prefix)
+    files = [old_library, old_debug_file, new_library, new_debug_file]
+    if altlink is not None:
+        prefix = os.path.commonpath((altlink, old_checkout))
+        rel_path = os.path.relpath(altlink, prefix)
+        files.extend((os.path.join(old_checkout, rel_path), os.path.join(new_checkout, rel_path)))
     tar_file = os.path.join(archive_directory, f'{os.path.basename(old_library)}.tar.xz')
     with tarfile.open(tar_file, 'w:xz') as tar:
-        for _file in (old_library, old_debug_file, os.path.join(old_checkout, rel_path),
-                      new_library, new_debug_file, os.path.join(new_checkout, rel_path)):
-            tar.add(_file)
+        for file in files:
+            tar.add(file)
 
 
 def create_header_archive(archive_directory, old_include_dir, new_include_dir):
@@ -221,7 +244,7 @@ def create_header_archive(archive_directory, old_include_dir, new_include_dir):
         tar.add(new_include_dir)
 
 
-def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on_core, archive_directory):
+def compare_tree_abis(old_checkout, new_checkout, suppression_file_path, forward_compatible, archive_on_core, archive_directory):
     print(format_title('Comparing ABIs', level=1), end='\n\n')
     success = True
 
@@ -230,7 +253,6 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
 
     all_keys = set(new_libs.keys()) | set(old_libs.keys())
 
-    suppression_file_path = pathlib.Path(__file__).parent.resolve() / 'check-abi-suppressions.json'
     with open(suppression_file_path, 'r', encoding='utf-8') as filehandle:
         suppression_rules = json.load(filehandle)
     suppression_regex = '|'.join(suppression_rules)
@@ -268,6 +290,9 @@ def compare_tree_abis(old_checkout, new_checkout, forward_compatible, archive_on
         new_debug_dir = os.path.join(new_checkout, 'usr', 'lib', 'debug')
         new_include_dir = os.path.join(new_checkout, 'usr', 'include')
 
+        if fast_file_check(old_library, new_library):
+            continue
+
         if filecmp.cmp(old_library, new_library, shallow=False):
             # Full file equality, ABI cannot have changed
             continue
@@ -296,15 +321,15 @@ if __name__ == '__main__':
 
     args = get_parser().parse_args()
 
-    if args.suppressions:
-        os.environ['LIBABIGAIL_DEFAULT_USER_SUPPRESSION_FILE'] = args.suppressions
+    if args.abidiff_suppressions:
+        os.environ['LIBABIGAIL_DEFAULT_USER_SUPPRESSION_FILE'] = args.abidiff_suppressions
 
     archive_directory = os.path.join(args.archive_directory_parent, 'libabigail-tars')
     if args.archive_on_core:
         print(f'Creating archive directory {archive_directory}')
         os.makedirs(archive_directory)
 
-    abi_compatible = compare_tree_abis(args.old, args.new, args.forward_compatible, args.archive_on_core, archive_directory)
+    abi_compatible = compare_tree_abis(args.old, args.new, args.suppressions, args.forward_compatible, args.archive_on_core, archive_directory)
 
     if abi_compatible:
         print(format_title(f'Hurray! {args.old} and {args.new} are ABI-compatible!', level=2))

@@ -2,7 +2,9 @@ kind: script
 
 build-depends:
 - tests/check-dev-files-deps.bst
-- platform-image.bst
+- filename: platform-image.bst
+  config:
+    location: /sysroot
 
 config:
   commands:
@@ -14,9 +16,3 @@ config:
     sort -u found_dev_files.txt 1>&2
     false
     fi
-
-  layout:
-    - element: tests/check-dev-files-deps.bst
-      destination: /
-    - element: platform-image.bst
-      destination: /sysroot

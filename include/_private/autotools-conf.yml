@@ -3,21 +3,6 @@
 variables:
   build-dir: bst_build_dir
 
-  conf-args: |
-    --prefix=%{prefix} \
-    --exec-prefix=%{exec_prefix} \
-    --bindir=%{bindir} \
-    --sbindir=%{sbindir} \
-    --sysconfdir=%{sysconfdir} \
-    --datadir=%{datadir} \
-    --includedir=%{includedir} \
-    --libdir=%{libdir} \
-    --libexecdir=%{libexecdir} \
-    --localstatedir=%{localstatedir} \
-    --sharedstatedir=%{sharedstatedir} \
-    --mandir=%{mandir} \
-    --infodir=%{infodir} %{conf-global} %{conf-local}
-
   conf-deterministic: |
     --enable-deterministic-archives
   conf-link-args: |

@@ -1,7 +1,15 @@
 kind: autotools
 
 build-depends:
-- bootstrap/file-build-deps.bst
+- bootstrap/base-sdk/automake.bst
+- bootstrap/base-sdk/libtool.bst
+- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
+- bootstrap/build/file-stage1.bst
+- filename: bootstrap/zlib.bst
+  config:
+    location: "%{sysroot}"
 
 runtime-depends:
 - bootstrap/zlib.bst

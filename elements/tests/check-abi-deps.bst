@@ -1,10 +1,10 @@
 kind: compose
 
 build-depends:
-- components/libabigail.bst
-- components/python3-pyelftools.bst
-- tests/utils.bst
+- utils/check-abi.bst
+- tests/check-abi-config.bst
 
 config:
   exclude:
   - debug
+

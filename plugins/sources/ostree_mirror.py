@@ -3,34 +3,38 @@ import fnmatch
 
 import gi
 from gi.repository import OSTree, Gio, GLib
-from buildstream import Source, Consistency
+from buildstream import Source
 from buildstream import utils
 
 gi.require_version('OSTree', '1.0')
 gi.require_version('Gio', '2.0')
 
 class OSTreeMirrorSource(Source):
+    BST_MIN_VERSION = "2.0"
 
     def configure(self, node):
-        self.node_validate(node, ['match', 'path', 'url', 'ref', 'gpg'] + Source.COMMON_CONFIG_KEYS)
+        node.validate_keys(['match', 'path', 'url', 'ref', 'gpg'] + Source.COMMON_CONFIG_KEYS)
 
-        self.original_url = self.node_get_member(node, str, 'url', None)
+        self.original_url = node.get_str('url', None)
         if self.original_url:
             self.url = self.translate_url(self.original_url)
         else:
-            path = self.node_get_project_path(node, 'path')
+            path = self.node_get_project_path(node.get_scalar('path'))
             fullpath = os.path.join(self.get_project_directory(), path)
             self.url = self.original_url = f'file://{fullpath}'
-        self.ref = self.node_get_member(node, list, 'ref', None)
-        if self.ref is not None:
-            for r in self.ref:
-                self.node_validate(r, ['ref', 'checksum'])
+        ref = node.get_sequence('ref', None)
+        if ref is not None:
+            for r in ref:
+                r.validate_keys(['ref', 'checksum'])
+            self.ref = ref.strip_node_info()
+        else:
+            self.ref = {}
         self.mirror = os.path.join(self.get_mirror_directory(),
                                    utils.url_directory_name(self.original_url))
 
-        gpg = self.node_get_project_path(node, 'gpg')
+        gpg = self.node_get_project_path(node.get_scalar('gpg'))
         self.gpg = os.path.join(self.get_project_directory(), gpg)
-        self.match = self.node_get_member(node, str, 'match', None)
+        self.match = node.get_str('match', None)
 
         self.repo = OSTree.Repo.new(Gio.File.new_for_path(self.mirror))
         if os.path.isdir(self.mirror):
@@ -49,10 +53,10 @@ class OSTreeMirrorSource(Source):
         return [self.original_url, sorted(self.ref, key=lambda x: x['ref'])]
 
     def load_ref(self, node):
-        self.ref = self.node_get_member(node, list, 'ref', None)
+        self.ref = node.get_sequence('ref', None)
         if self.ref is not None:
             for r in self.ref:
-                self.node_validate(r, ['ref', 'checksum'])
+                r.validate_keys(['ref', 'checksum'])
 
     def get_ref(self):
         return self.ref
@@ -105,15 +109,15 @@ class OSTreeMirrorSource(Source):
         for ref, checksum in self._refs():
             local_repo.set_ref_immediate(None, ref, checksum, None)
 
-    def get_consistency(self):
-        if self.ref is None:
-            return Consistency.INCONSISTENT
+    def is_resolved(self):
+        return self.ref is not None
 
+    def is_cached(self):
         for _, checksum in self._refs():
             found, _ = self.repo.resolve_rev(checksum, False)
             if not found:
-                return Consistency.RESOLVED
-        return Consistency.CACHED
+                return False
+        return True
 
 def setup():
     return OSTreeMirrorSource
