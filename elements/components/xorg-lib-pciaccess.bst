@@ -16,6 +16,6 @@ public:
         - '%{libdir}/libpciaccess.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libpciaccess.git
   ref: libpciaccess-0.16-0-gfbd1f0fe79ba25b72635f8e36a6c33d7e0ca19f6

@@ -40,12 +40,10 @@ public:
         - '%{libdir}/libopenh264.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:endlessm/noopenh264.git
-  track: master
   # There is no tag for 2.2.0
   # This is a tag for 2.3.0 but the patches revert the version back to 2.2.0
-  track-tags: false
   ref: Version_2.3.0+really2.2.0-3-ga5f2e4af2edf20e0054a198bc4a163b8b4be2dd7
   exclude:
   - Release*

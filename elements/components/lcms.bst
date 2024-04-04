@@ -23,6 +23,6 @@ public:
     - CVE-2016-10165
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:mm2/Little-CMS.git
   ref: lcms2.13.1-0-g233004ae26b238b2831ff60eea9e753b99d97906

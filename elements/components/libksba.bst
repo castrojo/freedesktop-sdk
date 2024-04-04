@@ -28,7 +28,7 @@ public:
         - '%{libdir}/libksba.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnupg:libksba.git
-  track: master
+  track: libksba-*
   ref: libksba-1.6.6-0-g3a4382259c3c6e7ef38cd33626fe2c1da282f816

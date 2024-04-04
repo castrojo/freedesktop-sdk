@@ -25,9 +25,9 @@ variables:
   make-install: make -j1 install %{make-args} DESTDIR='%{install-root}'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:rhboot/shim.git
-  track: main
+  track: '*.*'
   ref: 15.5-0-gf2c598bb2218da966872ba3e0c6e7e830dca6ef0
 - kind: git_module
   url: github:rhboot/gnu-efi.git

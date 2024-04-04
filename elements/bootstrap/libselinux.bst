@@ -43,6 +43,6 @@ public:
         - '%{libdir}/libselinux.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:SELinuxProject/selinux.git
   ref: libselinux-3.4-0-g0a8c177dacdc1df96ea11bb8aa75e16c4fa82285

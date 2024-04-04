@@ -29,11 +29,7 @@ public:
         - '%{libdir}/libsoup-gnome-2.4.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:libsoup.git
-  track: master
-  #track-extra:
-  #- gnome-3-38
-  match:
-  - 2.[0-9][02468].*
+  track: '2.[0-9][02468].*'
   ref: 2.72.0-0-gae1632c176c60b7fe832024c0a958f4079767c44

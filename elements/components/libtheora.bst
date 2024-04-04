@@ -26,11 +26,9 @@ config:
     %{autogen}
     
 sources:
-- kind: git_tag
+- kind: git_repo
   url: xiph:theora.git
-  track: master
-  track-extra:
-  - theora-1.1
+  track: v*
   exclude:
   - '*alpha*'
   ref: v1.1.1-0-g7ffd8b2ecfc2d93ae5e16028e7528e609266bfbf

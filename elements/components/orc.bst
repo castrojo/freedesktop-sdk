@@ -29,6 +29,6 @@ config:
       find "%{install-root}" -name "lib*.a" -exec rm {} ";"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:gstreamer/orc.git
   ref: 0.4.32-0-g629864f073ae003e63c026c1de2407fec713cb53

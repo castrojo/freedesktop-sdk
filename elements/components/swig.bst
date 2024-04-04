@@ -10,9 +10,9 @@ depends:
 - components/pcre.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:swig/swig.git
-  track: master
+  track: v*
   exclude:
   - '*beta*'
   ref: v4.2.1-0-gb592468f522cf7f4a0812493bfa07cbe60679d7c

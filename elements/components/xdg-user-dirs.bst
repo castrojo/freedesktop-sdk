@@ -22,7 +22,7 @@ config:
     %{make-install} SUBDIRS=po
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xdg/xdg-user-dirs.git
-  track: master
+  track: '*.*'
   ref: 0.17-0-gec015cdd345dec8025948533e7a6f18680e7f70c

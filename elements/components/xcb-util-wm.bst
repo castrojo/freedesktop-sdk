@@ -21,9 +21,9 @@ public:
         - '%{libdir}/libxcb-icccm.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxcb-wm.git
-  track: master
+  track: xcb-util-wm-*
   ref: xcb-util-wm-0.4.2-0-g0c6681e465c9cc7b1fbb60778ba1eaa61ab01a14
 - kind: git_module
   path: m4

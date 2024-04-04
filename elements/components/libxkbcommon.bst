@@ -26,6 +26,6 @@ public:
         - '%{libdir}/libxkbregistry.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:xkbcommon/libxkbcommon.git
   ref: xkbcommon-1.5.0-0-gcecaa01df18925eb66c6a81f6e4b7167421d45f2

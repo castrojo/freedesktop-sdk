@@ -18,8 +18,7 @@ config:
       find "%{install-root}%{datadir}/cups/model/foomatic-db-ppds" -not -type d -not -name "*.ppd" -not -name "*.ppd.*" -exec rm {} ";"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:OpenPrinting/foomatic-db.git
   track: master
-  track-tags: false
   ref: 20240209-0-gf8b43644771612f854fecda969440511de784bf0

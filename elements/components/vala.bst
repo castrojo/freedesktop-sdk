@@ -19,13 +19,9 @@ variables:
   make: make bootstrap
 
 sources:
-- kind: git_tag
+- kind: git_repo
   # See https://wiki.gnome.org/Projects/Vala for last version
   url: gnome:vala.git
-  track: master
-  track-extra:
-  - '0.56'
   # Note for updates: Stable minor versions are even.
-  match:
-  - "*.*[02468].*"
+  track: "*.*[02468].*"
   ref: 0.56.16-0-gb6f944c4601092cad4dbb3d1e3bbbf84fa0ee000

@@ -18,7 +18,7 @@ variables:
     -Dxorg-rules-symlinks=true
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xkeyboard-config/xkeyboard-config.git
-  track: master
+  track: xkeyboard-config-*
   ref: xkeyboard-config-2.41-0-g2426c5997e9f76a45df2016d1092bff360712e70

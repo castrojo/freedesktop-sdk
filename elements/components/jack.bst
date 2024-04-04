@@ -43,7 +43,7 @@ config:
     python3 waf install --destdir="%{install-root}"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:jackaudio/jack2.git
-  track: master
+  track: v*
   ref: v1.9.22-0-g4f58969432339a250ce87fe855fb962c67d00ddb

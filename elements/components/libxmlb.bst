@@ -14,7 +14,7 @@ variables:
     -Dtests=false
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:hughsie/libxmlb.git
-  track: main
+  track: '*.*.*'
   ref: 0.3.16-0-g1b436f46819446a5ab382fff3acbd42988eb1711

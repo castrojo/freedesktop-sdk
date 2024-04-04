@@ -24,7 +24,7 @@ public:
         - '%{datadir}/cmake/**'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:libproxy/libproxy.git
-  track: master
+  track: '*.*.*'
   ref: 0.4.18-0-gcaccaf28e3df6ea612d2d4b39f781c4324019fdb

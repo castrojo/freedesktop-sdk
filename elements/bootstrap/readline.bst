@@ -40,7 +40,7 @@ public:
         - '%{libdir}/libhistory.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: savannah:readline.git
   ref: readline-8.1-0-gcf3c762ecfff5b2f445647a0f1543693984a5540
 - kind: patch

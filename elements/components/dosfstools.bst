@@ -6,9 +6,9 @@ depends:
   type: build
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:dosfstools/dosfstools.git
-  track: master
+  track: v*
   ref: v4.2-0-g697f7692c951173c1b732901e13f72bd3182d575
 
 config:

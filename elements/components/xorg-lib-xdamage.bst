@@ -18,7 +18,7 @@ public:
         - '%{libdir}/libXdamage.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxdamage.git
-  track: master
+  track: libXdamage-*
   ref: libXdamage-1.1.6-0-g1f20df4fd7c132f55e924dc5ec3f270cd54704d0

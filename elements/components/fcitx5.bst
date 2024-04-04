@@ -23,7 +23,7 @@ public:
         - '%{libdir}/libFcitx5GClient.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:fcitx/fcitx5-gtk.git
-  track: master
+  track: '*.*.*'
   ref: 5.1.2-0-gb505cd4887708d858dce4ed2a2be2fdf96e96c90

@@ -30,7 +30,7 @@ public:
         - '%{libdir}/libva-wayland.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:intel/libva.git
-  track: v2.18-branch
+  track: v2.18.*
   ref: 2.18.0-0-gb06ccb323cd68bc5ce3fa9861c831766d6355d88

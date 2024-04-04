@@ -38,8 +38,11 @@ config:
   - |
     install -Dm644 -t '%{install-root}' debian/config/debian-config
 
+
 sources:
-- kind: git_tag
+- kind: git_repo
   url: debian_salsa:kernel-team/linux.git
+  # It's intended to not have a pinned ref, as this module is only
+  # for local utility and you are expected to track every time you
+  # need to use it.
   track: master
-  ref: debian/6.0_rc7-1_exp1-0-g965a9ceed6da5a8402f72366bb3ec7370167e1a1

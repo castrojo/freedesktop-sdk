@@ -71,7 +71,7 @@ public:
     - CVE-2022-3715
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: savannah:bash.git
   ref: bash-5.1-18-g9439ce094c9aa7557a9d53ac7b412a23aa66e36b
 - kind: patch

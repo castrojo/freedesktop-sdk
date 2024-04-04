@@ -19,7 +19,7 @@ public:
         - '%{libdir}/libXft.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxft.git
-  track: master
+  track: libXft-*
   ref: libXft-2.3.8-0-gc532908f5fdd3aee9d88d9704aedbe3be82c7ce5

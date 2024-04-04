@@ -1,5 +1,5 @@
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:bluetooth/bluez.git
-  track: master
+  track: '*.*'
   ref: 5.73-0-g19f8fcdc2084048bebe5bd9ea4fb97f7ece16df0

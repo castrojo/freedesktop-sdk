@@ -23,6 +23,6 @@ variables:
     -Ddoc=disabled
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:pipewire/wireplumber.git
   ref: 0.4.17-0-gd3eb77b292655cef333a8f4cab4e861415bc37c2

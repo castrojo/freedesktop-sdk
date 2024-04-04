@@ -16,7 +16,7 @@ public:
     version: '1.32'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:gtk-doc.git
-  track: master
+  track: '*.*.*'
   ref: 1.34.0-0-gb7c8317bf023b5116250b4c5381737d5b9786976

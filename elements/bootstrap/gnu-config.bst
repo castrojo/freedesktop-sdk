@@ -33,8 +33,8 @@ public:
         - '**'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: savannah:config.git
   track: master
-  track-tags: False
+  ref-format: sha1
   ref: 948ae97ca5703224bd3eada06b7a69f40dd15a02

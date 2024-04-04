@@ -16,7 +16,7 @@ variables:
     -Dman-pages=enabled
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kennylevinsen:seatd
-  track: master
+  track: '*.*.*'
   ref: 0.8.0-0-g3e9ef69f14f630a719dd464f3c90a7932f1c8296

@@ -8,7 +8,7 @@ depends:
 - components/libcap.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:projectatomic/bubblewrap.git
-  track: main
+  track: v*
   ref: v0.9.0-0-g8e51677abd7e3338e4952370bf7d902e37d8cbb6

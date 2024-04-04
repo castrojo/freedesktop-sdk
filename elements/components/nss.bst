@@ -140,14 +140,9 @@ config:
     ln -s load-p11-kit-trust.so "%{install-root}%{libdir}/libnssckbi.so"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:nss-dev/nss.git
-  track: NSS_3_79_4_BRANCH  # Attention! Make sure we use latest ESR release
-  track-extra:
-  # Attempt to predict next branch
-  - NSS_3_79_5_BRANCH
-  match:
-  - 'NSS_*_RTM'
+  track: 'NSS_*_RTM'
   ref: NSS_3_79_4_RTM-0-g033b99629659db93c56e0533a2db57e62828d22a
   directory: nss
 - kind: patch

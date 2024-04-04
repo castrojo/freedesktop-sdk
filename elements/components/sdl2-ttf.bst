@@ -21,9 +21,7 @@ public:
         - '%{libdir}/libSDL2_ttf.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:libsdl-org/SDL_ttf.git
-  track: main
-  match:
-  - release-*
+  track: release-*
   ref: release-2.20.0-0-gf5e4828ffc9d3a84f00011fede4446aecb4a685f

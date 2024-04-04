@@ -1,5 +1,5 @@
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:linux/kernel/git/stable/linux.git
   ref: v5.19.17-0-g2b525314c7b57eac29fe8b77a6589428e4a4f6dd
 - kind: local

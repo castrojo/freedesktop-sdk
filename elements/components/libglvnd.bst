@@ -44,7 +44,7 @@ public:
         - '%{libdir}/libGLESv2.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:NVIDIA/libglvnd.git
-  track: master
+  track: v*
   ref: v1.7.0-0-gfaa23f21fc677af5792825dc30cb1ccef4bf33a6

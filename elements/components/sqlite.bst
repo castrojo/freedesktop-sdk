@@ -37,11 +37,9 @@ public:
     - CVE-2023-7104
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:sqlite/sqlite.git
-  track: branch-3.39
-  match:
-  - 'version-*'
+  track: version-3.39.*
   ref: version-3.39.4-0-g48fa01e4a8da83823ea8e5fee1d6beaa6c0a3868
 - kind: patch
   path: patches/sqlite/0001-Fix-a-buffer-overread-in-the-sessions-extension-that.patch

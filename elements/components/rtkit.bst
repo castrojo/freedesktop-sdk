@@ -17,9 +17,9 @@ config:
       install -Dm644 -t "%{install-root}${sysusersdir}" rtkit.conf
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:heftig/rtkit.git
-  track: master
+  track: v*
   ref: v0.13-0-gb9169402fe5e82d20efb754509eb0b191f214599
 - kind: local
   path: files/rtkit/rtkit.conf

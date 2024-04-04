@@ -32,6 +32,6 @@ public:
         - '%{bindir}/spirv-val'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:KhronosGroup/SPIRV-Tools.git
   ref: sdk-1.3.224.0-0-g5e61ea2098220059e89523f1f47b0bcd8c33b89a

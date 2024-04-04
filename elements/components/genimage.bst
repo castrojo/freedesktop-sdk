@@ -13,7 +13,7 @@ runtime-depends:
 - components/dosfstools.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:pengutronix/genimage.git
-  track: master
+  track: v*
   ref: v17-0-g875f1d9060637e211823166049d56ef191900a5b

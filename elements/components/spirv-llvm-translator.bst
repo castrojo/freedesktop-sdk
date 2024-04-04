@@ -18,6 +18,6 @@ config:
     - install -Dm755 -t "%{install-root}%{bindir}" "%{build-dir}/tools/llvm-spirv/llvm-spirv"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:KhronosGroup/SPIRV-LLVM-Translator.git
   ref: v15.0.0-72-gdc292a2b712c04ff933ecede6fa803c65105b535

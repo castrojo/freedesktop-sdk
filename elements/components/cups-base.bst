@@ -56,11 +56,9 @@ public:
     product: cups
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:OpenPrinting/cups.git
-  track: master
-  track-extra:
-  - 2.4.x
+  track: v*
   exclude:
   - "*a*"
   - "*b*"

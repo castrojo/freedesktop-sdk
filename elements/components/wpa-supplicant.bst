@@ -51,7 +51,7 @@ config:
     install -Dm644 -t "%{install-root}${systemdsystemunitdir}" systemd/*.service
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: git_https:w1.fi/hostap.git
-  track: main
+  track: hostap_*
   ref: hostap_2_10-0-gcff80b4f7d3c0a47c052e8187d671710f48939e4

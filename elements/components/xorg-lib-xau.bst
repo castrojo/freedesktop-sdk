@@ -17,7 +17,7 @@ public:
         - '%{libdir}/libXau.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxau.git
-  track: master
+  track: libXau-*
   ref: libXau-1.0.11-0-g14fdf25db9f21c8f3ad37f0d32a5b8e726efdc0d

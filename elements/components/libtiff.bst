@@ -73,7 +73,7 @@ public:
     - CVE-2023-3164
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gitlab:libtiff/libtiff.git
   ref: v4.4.0-0-gb6a17e567f143fab49734a9e09e5bafeb6f97354
 - kind: patch_queue

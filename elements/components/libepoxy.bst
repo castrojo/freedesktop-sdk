@@ -25,7 +25,7 @@ public:
         - '%{libdir}/libepoxy.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:anholt/libepoxy.git
-  track: master
+  track: '*.*.*'
   ref: 1.5.10-0-gc84bc9459357a40e46e2fec0408d04fbdde2c973

@@ -14,7 +14,7 @@ variables:
     LEXLIB=""
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: debian_salsa:rousseau/PCSC.git
-  track: master
+  track: '*.*.*'
   ref: 2.0.3-0-gc4e7f6f9c6fe56fafd3f13c31fcc4f670ad6d022

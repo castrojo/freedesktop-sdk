@@ -49,7 +49,7 @@ config:
       rm -rf "%{install-root}%{mandir}"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: savannah:attr.git
-  track: master
+  track: v*
   ref: v2.5.2-0-gee80fdbc11c351fe96bc54a20c2893dde7df8845

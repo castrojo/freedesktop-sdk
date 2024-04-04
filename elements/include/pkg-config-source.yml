@@ -1,7 +1,7 @@
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:pkgconf/pkgconf.git
-  track: master
+  track: pkgconf-*
   exclude:
   - pkgconf-2.0.3
   ref: pkgconf-2.2.0-0-g06120a8769aed87d50e914f87a6f9f67110cf16e

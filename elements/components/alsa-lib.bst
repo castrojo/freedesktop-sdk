@@ -52,7 +52,7 @@ public:
         - '%{libdir}/libatopology.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:alsa-project/alsa-lib.git
   ref: v1.2.7.2-0-g27cfa707e3e5597241e6137df4cc15fc5454caf9
 - kind: patch

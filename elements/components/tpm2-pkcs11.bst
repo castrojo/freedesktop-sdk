@@ -16,9 +16,9 @@ depends:
 - components/sqlite.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:tpm2-software/tpm2-pkcs11.git
-  track: master
+  track: '*.*.*'
   exclude:
   - '*rc*'
   ref: 1.9.0-0-g61056b9028ea7bef7d721906cc3102a414d99f06

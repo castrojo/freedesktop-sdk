@@ -21,9 +21,9 @@ public:
         - '%{libdir}/libxcb-image.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxcb-image.git
-  track: master
+  track: xcb-util-image-*
   ref: xcb-util-image-0.4.1-0-g525ce59fe2329d4b23fc0c52ed9dd92daac8ac2a
 - kind: git_module
   path: m4

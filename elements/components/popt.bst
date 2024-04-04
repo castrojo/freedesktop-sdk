@@ -14,7 +14,7 @@ public:
         - '%{libdir}/libpopt.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:rpm-software-management/popt.git
-  track: master
+  track: popt-*
   ref: popt-1.19-release-0-g916e61045d268f7e37ade5ec047eb77e8299e6ad

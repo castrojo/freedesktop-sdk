@@ -10,7 +10,7 @@ config:
     cp -r CL/ %{install-root}%{includedir}
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:KhronosGroup/OpenCL-Headers.git
   # No tags exist, track HEAD of the branch
   ref: 0d5f18c6e7196863bc1557a693f1509adfcee056

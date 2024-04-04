@@ -12,7 +12,7 @@ variables:
     -Wno-error
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:open-iscsi/open-isns.git
-  track: master
+  track: v*
   ref: v0.102-0-gc0e6d9fedc5a7041260de477fe1a8455fa074113

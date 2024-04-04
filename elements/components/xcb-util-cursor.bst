@@ -27,9 +27,9 @@ public:
         - '%{libdir}/libxcb-cursor.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxcb-cursor.git
-  track: master
+  track: xcb-util-cursor-*
   ref: xcb-util-cursor-0.1.5-0-gc393b71fff76fe8627d0e95c53e756615f84d7a3
 - kind: git_module
   path: m4

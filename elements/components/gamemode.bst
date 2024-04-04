@@ -33,7 +33,7 @@ public:
         - "%{libdir}/libINIReader.so"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:FeralInteractive/gamemode.git
-  track: master
+  track: '*.*.*'
   ref: 1.8.1-0-g5180d89e66830d87f69687b95fb86f622552b94b

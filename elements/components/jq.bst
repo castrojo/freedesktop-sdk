@@ -16,9 +16,9 @@ config:
       cd ../..
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:jqlang/jq.git
-  track: master
+  track: jq-*
   exclude:
   - '*rc*'
   ref: jq-1.7.1-0-g71c2ab509a8628dbbad4bc7b3f98a64aa90d3297

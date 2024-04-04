@@ -6,9 +6,7 @@ depends:
   type: build
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:akheron/jansson.git
-  track: master
-  track-extra:
-  - '2.12'
+  track: v*
   ref: v2.14-0-g684e18c927e89615c2d501737e90018f4930d6c5

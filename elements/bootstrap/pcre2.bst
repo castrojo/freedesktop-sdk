@@ -44,6 +44,6 @@ public:
         - '%{libdir}/libpcre2-posix.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:PCRE2Project/pcre2.git
   ref: pcre2-10.42-0-g52c08847921a324c804cabf2814549f50bce1265

@@ -9,9 +9,9 @@ depends:
   type: build
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/proto/xorgproto.git
-  track: master
+  track: xorgproto-*
   exclude:
   - xorgproto-*.*.99.*
   ref: xorgproto-2024.1-0-g67469711055522b8adb2d795b01e7ba98cb8816c

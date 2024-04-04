@@ -35,11 +35,9 @@ public:
       [ -x "%{bindir}/pinentry" ] || ln -s pinentry-ncurses "%{bindir}/pinentry"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:gpg/pinentry.git
-  track: master
-  match:
-  - 'pinentry-*'
+  track: pinentry-*
   exclude:
   - '*-base'
   ref: pinentry-1.3.0-0-g24833c9ef2bf93d9f6c0583a9ecfefa6747473bc

@@ -28,9 +28,9 @@ config:
   - install -Dm755 -t "%{install-root}%{bindir}" tools/mkimage
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: git_https:gitlab.denx.de/u-boot/u-boot.git
-  track: master
+  track: v*
   exclude:
   - "*-rc*"
   ref: v2021.04-0-gb46dd116ce03e235f2a7d4843c6278e1da44b5e1

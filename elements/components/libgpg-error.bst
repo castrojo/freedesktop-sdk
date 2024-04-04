@@ -24,6 +24,6 @@ public:
         - '%{libdir}/libgpg-error.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnupg:libgpg-error.git
   ref: libgpg-error-1.47-0-ga25cea92798a5ece3f49924911507f5335915ecc

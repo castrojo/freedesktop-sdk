@@ -1,5 +1,5 @@
 sources:
-- kind: git_tag
+- kind: git_repo
   url: tukaani:xz.git
   exclude:
   - v*alpha

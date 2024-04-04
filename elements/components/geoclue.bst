@@ -38,9 +38,7 @@ public:
         - '%{libdir}/libgeoclue-2.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:geoclue/geoclue.git
-  track: master
-  track-extra:
-  - 2.7.x
+  track: '*.*.*'
   ref: 2.7.1-0-g8a24f60969d4c235d9918796c38a6a9c42e10131

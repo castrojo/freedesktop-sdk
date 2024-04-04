@@ -15,7 +15,7 @@ public:
     - CVE-2000-0006
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:strace/strace.git
-  track: master
+  track: v*
   ref: v6.8-0-ga592648ae7d380b79ffb65275ec153b9e4844a57

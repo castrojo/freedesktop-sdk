@@ -14,7 +14,7 @@ public:
         - '%{libdir}/libell.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:libs/ell/ell.git
-  track: master
+  track: '*.*'
   ref: 0.64-0-gd8eaabc0c346a93543ba51f9ee6d5e8dd37ac5de

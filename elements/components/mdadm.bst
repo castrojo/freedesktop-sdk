@@ -27,9 +27,9 @@ config:
       install -Dm644 -t  "%{install-root}${tmpfilesdir}" extra/mdadm.conf
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:utils/mdadm/mdadm.git
-  track: master
+  track: mdadm-*
   ref: mdadm-4.3-0-gd709d4161d1dd51a976147e8372fbd99ff8183bd
 - kind: local
   path: files/mdadm

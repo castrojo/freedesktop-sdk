@@ -1,9 +1,7 @@
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:mesa/mesa.git
-  track: main
-  track-extra:
-  - '24.0'
+  track: mesa-*
   exclude:
   - '*rc*'
   - '*branchpoint*'

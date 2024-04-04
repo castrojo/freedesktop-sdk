@@ -17,7 +17,7 @@ public:
         - '%{libdir}/libXdmcp.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxdmcp.git
-  track: master
+  track: libXdmcp-*
   ref: libXdmcp-1.1.5-0-g1192d3bc407348ff316bd3bffc791b3ac73f591b

@@ -50,7 +50,7 @@ public:
     product: gtk+
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:gtk.git
-  track: gtk-3-24
+  track: '3.24.*'
   ref: 3.24.41-0-g77ebdd85091833a7869ece48c3114fa6d9966321

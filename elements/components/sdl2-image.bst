@@ -23,11 +23,7 @@ public:
         - '%{libdir}/libSDL2_image.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:libsdl-org/SDL_image.git
-  track: main
-  track-extra:
-  - release-2.6.x
-  match:
-  - release-*
+  track: release-*
   ref: release-2.6.3-0-gd3c6d5963dbe438bcae0e2b6f3d7cfea23d02829

@@ -7,7 +7,7 @@ depends:
 - filename: components/cairo.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:dyne/frei0r.git
-  track: master
+  track: v*
   ref: v2.3.2-0-ga303b82f34feb39aa400bd1b67fd8158a179368e

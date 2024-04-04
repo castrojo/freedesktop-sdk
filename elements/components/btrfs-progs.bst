@@ -22,7 +22,7 @@ variables:
   build-dir: ''
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:linux/kernel/git/kdave/btrfs-progs.git
-  track: master
+  track: v*
   ref: v6.8-0-g3793e987d2b4e878410da16f33d963043d137d48

@@ -20,6 +20,6 @@ variables:
   meson-local: -Ddocs=false
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:gcab.git
   ref: v1.5-0-gd8054af4381dcef17ae691775c96a60116823047

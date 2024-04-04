@@ -21,7 +21,7 @@ public:
         - "%{libdir}/libwebrtc_audio_processing.so"
 
 sources: 
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:pulseaudio/webrtc-audio-processing.git
   # webrtc-audio-processing 1.0 and above has dramatically different API
   ref: v0.3.1-0-ge882a5442ac22c93648e12837248d651d18b9247

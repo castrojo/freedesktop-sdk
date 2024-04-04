@@ -43,9 +43,8 @@ public:
 # we want latest kernel versions, linux-headers are commonly
 # unchanged and updating them results in world rebuild
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:linux/kernel/git/stable/linux.git
-  track: v5.18.7
   exclude:
   - '*-rc*'
   ref: v5.18.7-0-g7afbac05cb1c95e286ce97a40ee1c9f1791446c7

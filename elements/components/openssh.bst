@@ -47,11 +47,7 @@ public:
     - CVE-2007-2768
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:openssh/openssh-portable.git
-  track: master
-  track-extra:
-  - V_9_4
-  # Attempt to predict the next branchpoint.
-  - V_9_5
+  track: V*
   ref: V_9_7_P1-0-g86bdd3853f4d32c85e295e6216a2fe0953ad93f0

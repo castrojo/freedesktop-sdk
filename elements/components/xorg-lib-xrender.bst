@@ -19,7 +19,7 @@ public:
     product: libxrender
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxrender.git
-  track: master
+  track: libXrender-*
   ref: libXrender-0.9.11-0-ge5e23272394c90731debd7e18dd167e8c25b5c15

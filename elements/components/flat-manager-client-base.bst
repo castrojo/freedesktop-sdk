@@ -26,10 +26,7 @@ public:
     product: flat-manager
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:flatpak/flat-manager.git
-  track: 'master'
-  track-extra:
-  - '0.4.1'
-  track-tags: true
+  track: '*.*.*'
   ref: 0.4.2-0-gb07fe8652357ce16d9625f72f9acceaca94d860a

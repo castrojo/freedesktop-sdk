@@ -11,17 +11,7 @@ depends:
 
 (@):
 - elements/bootstrap/include/base-sdk.yml
+- elements/include/xz-source.yml
 
 variables:
   autogen: ./autogen.sh --no-po4a --no-doxygen
-
-sources:
-- kind: git_tag
-  url: tukaani:xz.git
-  track: master
-  track-extra:
-  - v5.4
-  exclude:
-  - v*alpha
-  - v*beta
-  ref: v5.4.6-0-g6e8732c5a317a349986a4078718f1d95b67072c5

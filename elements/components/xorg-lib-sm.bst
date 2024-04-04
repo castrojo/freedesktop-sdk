@@ -18,7 +18,7 @@ public:
         - '%{libdir}/libSM.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libsm.git
-  track: master
+  track: libSM-*
   ref: libSM-1.2.4-0-gdc882ac7b748048f12b033d0d8e5267a6e36036a

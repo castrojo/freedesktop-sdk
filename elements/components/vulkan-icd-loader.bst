@@ -27,7 +27,7 @@ public:
         - '%{libdir}/libvulkan.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:KhronosGroup/Vulkan-Loader.git
   ref: sdk-1.3.224.0-0-g09afdf64210b11ec653a1001e013b5af4fce8559
 - kind: patch

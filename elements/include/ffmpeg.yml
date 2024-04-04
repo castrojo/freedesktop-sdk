@@ -186,7 +186,7 @@ config:
   - ./configure %{conf-local} %{conf-extra}
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: ffmpeg:ffmpeg.git
-  track: release/5.0
+  track: n5.0.*
   ref: n5.0.3-0-g0e15444aceca0e78f99f3d67758eb79d11b86599

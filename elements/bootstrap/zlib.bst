@@ -41,7 +41,7 @@ public:
     - CVE-2022-37434
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:madler/zlib.git
-  track: master
+  track: v*
   ref: v1.3.1-0-g51b7f2abdade71cd9bb0e7a373ef2610ec6f9daf
