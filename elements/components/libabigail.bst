@@ -11,4 +11,4 @@ sources:
 - kind: git_repo
   url: sourceware:libabigail.git
   track: master
-  ref: libabigail-2.4-57-gf821c2be3fff2047ef8fc436f6f02301812d166f
+  ref: libabigail-2.4-58-g29719218eea567c6fef9024269ad529684f76c4d
