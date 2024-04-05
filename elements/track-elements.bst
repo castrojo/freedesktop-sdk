@@ -1,7 +1,7 @@
 kind: stack
 
 depends:
-- flatpak-release.bst
+- flatpak-release-repo.bst
 - bootstrap/base-sdk/binary-seed-aarch64.bst
 - bootstrap/base-sdk/binary-seed-x86_64.bst
 - bootstrap/base-sdk/binary-seed-ppc64le.bst
