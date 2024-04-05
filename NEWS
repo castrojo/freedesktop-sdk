@@ -1,5 +1,115 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08.15:
+  * Update passt to 2024_04_05.954589b-0
+  * Update buildbox-common to 1.0.14-0
+  * Update abseil-cpp to 20240116.2-0
+  * Update pygobject to 3.48.2-0
+  * Update vim to v9.1.0274-0
+  * xdg-desktop-portal-base: Add a comment about tracking unstable releases
+  * Update libxmlb to 0.3.17-0
+  * Update rsync to v3.3.0-0
+  * Update xorg-lib-x11 to libX11-1.8.9-0
+  * components/linux.bst: Fix PinePhone Pro config syntax
+  * components/linux.bst: Add PinePhone Pro configs
+  * buildbox-common: Add dependency tomlplusplus
+  * Update buildbox-common to 1.0.13-0
+  * Update xdg-desktop-portal-base to 1.18.3-0
+  * Update fwupd to 1.9.16-0
+  * Update libabigail to libabigail-2.4-59
+  * Update python3-typing-extensions to 4.11.0-0
+  * Backport bootstrap manual to make transitions from master
+  * Update buildbox-casd to 1.0.4-0
+  * bst-plugins-experimental: Update to 1.98.0
+  * Update python3-hatchling to hatchling-v1.22.5-0
+  * Update bash-completion to 2.13.0-0
+  * Update zenity to 3.44.4-0
+  * Update cmake to v3.29.1-0
+  * Update xwayland to xwayland-23.2.5-0
+  * Update libxmlb to 0.3.16-0
+  * Update libabigail to libabigail-2.4-58
+  * Update python3 to v3.11.9-0
+  * Update mutool to 1.24.1-0
+  * Update libabigail to libabigail-2.4-57
+  * Update python3-lxml to 5.2.1
+  * Update poppler to poppler-24.04.0-0
+  * Update python3-pil to 10.3.0
+  * Update podman to v5.0.1-0
+  * xz: Disable interacting with tests directory in source tree
+  * components/xz-docs.bst: Drop install-data-local target
+  * xz: Revert to 5.4.1
+  * components/brotli.bst: Freeze due to ABI break
+  * components/wireplumber.bst: Freeze wireplumber to 0.4.x
+  * Update libical to v3.0.18-0
+  * Update vim to v9.1.0250-0
+  * Update cython-3 to 3.0.10-0
+  * Update python3-pycparser to 2.22
+  * Update python3-lxml to 5.1.1
+  * Update libabigail to libabigail-2.4-55
+  * Update pkg-config to pkgconf-2.2.0-0
+  * xz: Freeze xz updates
+  * Update mesa to mesa-24.0.4-0
+  * Update ell to 0.64-0
+  * Update iwd to 2.17-0
+  * Update python3-build to 1.2.1-0
+  * Update btrfs-progs to v6.8-0
+  * Update flatpak to 1.15.7-0
+  * mesa: Remove radeon_bo_can_reclaim_slab patch as it is in 24.0.4
+  * Update passt to 2024_03_26.4988e2b-0
+  * Update curl to curl-8_7_1-0
+  * Update bubblewrap to v0.9.0-0
+  * Update protobuf to v26.1-0
+  * Update xorg-proto-xorgproto to xorgproto-2024.1-0
+  * Update python3-pyasn1-modules to 0.4.0
+  * Update python3-pyasn1 to 0.6.0
+  * Update libblockdev to 3.1.1-1-0
+  * Update python3-trove-classifiers to 2024.3.25-0
+  * Update flatpak-builder to 1.4.3-0
+  * Update python3-filelock to 3.13.3
+  * Update python3-hatchling to hatchling-v1.22.4-0
+  * Update bluez to 5.73-0
+  * Update vim to v9.1.0202-0
+  * Update glibc to glibc-2.38-55
+  * Update cmake to v3.29.0-0
+  * Update xorg-lib-pciaccess to libpciaccess-0.18.1-0
+  * Update shadow to 4.15.1-0
+  * abidiff-suppressions.ini: Suppress type changes in libbluetooth
+  * Update bluez to 5.72-0
+  * Update dictionaries to libreoffice-24.2.2.2-0
+  * Update libabigail to libabigail-2.4-51
+  * gstreamer-source: Update to 1.22.11
+  * gstreamer-source: Freeze to 1.22 branch
+  * Update wayland-protocols to 1.34-0
+  * Update mutool to 1.24.0-0
+  * Update passt to 2024_03_20.71dd405-0
+  * Update cmake to v3.28.4-0
+  * Update strace to v6.8-0
+  * abidiff-suppressions.ini: Suppress return type changes in aspell
+  * components/aspell: Remove patch
+  * Update aspell to rel-0.60.8.1-0
+  * linux: Disable PCIEASPM_POWER_SUPERSAVE
+  * components/at-spi2-core.bst: Freeze to 2.48.3 due to ABI break
+  * components/libpsl.bst: Freeze due to backwards ABI break
+  * components/pixman.bst: Freeze pixman to 0.42 due to ABI break
+  * components/sdl2-image.bst: Freeze to 2.6.3 due to ABI break
+  * Update man-pages to man-pages-6.7-0
+  * Update podman to v5.0.0-0
+  * Update python3-hatchling to hatchling-v1.22.3-0
+  * Update buildbox-run-bubblewrap to 1.0.1-0
+  * bootstrap/libsepol.bst: Freeze due to ABI break
+  * components/harfbuzz.bst: Freeze to 8.1.1
+  * components/gpgme.bst: Freeze due to ABI break
+  * components/libxkbcommon.bst: Freeze due to ABI break
+  * Update freedesktop-sdk to freedesktop-sdk-23.08.14-0
+  * Update pinentry-ncurses to pinentry-1.3.0-0
+  * Update passt to 2024_03_18.615d370-0
+  * shaderc: add split rules
+  * components/gobject-introspection.bst: Freeze to 1.76 branch
+  * Update gsettings-desktop-schemas to 46.0-0
+  * Use identifiers which also work for tags
+  * Update librsvg to 2.58.0-0
+  * Update vim to v9.1.0186-0
+
 freedesktop-sdk-23.08.14:
   * components/glib-networking.bst: Freeze to 2.78
   * components/gnutls.bst: Add patch for CVE-2024-0567
