@@ -25,4 +25,4 @@ sources:
 - kind: git_repo
   url: gitlab:BuildGrid/buildbox/buildbox-casd.git
   track: '*.*.*'
-  ref: 1.0.3-0-g05852c06a5b38fed16ed99c081d7b9cca6208e07
+  ref: 1.0.4-0-g16d08922d7bf34414526b64decd461c65989a5d1
