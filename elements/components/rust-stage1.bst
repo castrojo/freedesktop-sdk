@@ -3,7 +3,7 @@ kind: stack
 (?):
 - target_arch == "x86_64":
     depends:
-    - components/rust-stage1-x86-64.bst
+    - components/rust-stage1-x86_64.bst
 - target_arch == "i686":
     depends:
     - components/rust-stage1-i686.bst
