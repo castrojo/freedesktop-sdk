@@ -1,5 +1,9 @@
 all: freedesktop-sdk-stripper
 
+PREFIX?=/usr
+BINDIR=$(PREFIX)/bin
+DESTDIR?=
+
 OBJS=						\
 	main.o					\
 	thread_pool.o				\
@@ -15,6 +19,9 @@ freedesktop-sdk-stripper: $(OBJS)
 
 .cpp.o:
 	$(CXX) $(LDFLAGS) -D_FILE_OFFSET_BITS=64 -std=c++17 -W -Wall -g -c $<
+
+install: freedesktop-sdk-stripper
+	install -Dm755 -t "$(DESTDIR)$(BINDIR)" freedesktop-sdk-stripper
 
 clean:
 	rm -f $(OBJS) freedesktop-sdk-stripper
