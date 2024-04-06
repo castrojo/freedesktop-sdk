@@ -22,4 +22,4 @@ sources:
 - kind: git_repo
   url: github:libical/libical.git
   track: v*
-  ref: v3.0.17-0-g105cebc60084bd986d4e7904eadb56f5b587aa27
+  ref: v3.0.18-0-g1b28a846d2dca16e5d15a433c6011cc2483555bb
