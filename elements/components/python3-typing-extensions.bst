@@ -11,6 +11,6 @@ sources:
 - kind: pypi
   name: typing-extensions
   ref:
-    sha256sum: b0abd7c89e8fb96f98db18d86106ff1d90ab692004eb746cf6eda2682f91b3cb
+    sha256sum: 83f085bd5ca59c80295fc2a82ab5dac679cbe02b9f33f7d83af68e241bea51b0
     suffix: 
-      16/3a/0d26ce356c7465a19c9ea8814b960f8a36c3b0d07c323176620b7b483e44/typing_extensions-4.10.0.tar.gz
+      f6/f3/b827b3ab53b4e3d8513914586dcca61c355fa2ce8252dea4da56e67bf8f2/typing_extensions-4.11.0.tar.gz
