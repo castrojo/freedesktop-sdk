@@ -19,9 +19,9 @@ public:
         - '%{libdir}/libnvme-mi.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:linux-nvme/libnvme.git
-  track: 'v*'
+  track: v*
   exclude:
   - 'v*-rc*'
   ref: v1.7.1-0-g13ba38387e5446849ae59d3ccd8183cf9aca3145

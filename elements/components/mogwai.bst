@@ -12,7 +12,7 @@ depends:
 - components/libgsystemservice.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:pwithnall/mogwai.git
-  track: main
+  track: '*.*.*'
   ref: 0.3.0-0-g6ec6fcb005856b44402ae6d6d6f391a53379357c

@@ -1,7 +1,7 @@
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:protocolbuffers/protobuf.git
-  track: 21.x
+  track: v21.*
   exclude:
   - '*rc*'
   - '*-dev'

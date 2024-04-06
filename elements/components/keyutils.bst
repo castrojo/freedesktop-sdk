@@ -27,7 +27,7 @@ public:
         - '%{libdir}/libkeyutils.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:linux/kernel/git/dhowells/keyutils.git
   track: v*
   ref: v1.6.3-0-gcb3bb194cca88211cbfcdde2f10c0f43c3fb8ec3

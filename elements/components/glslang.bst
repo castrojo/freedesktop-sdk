@@ -32,6 +32,6 @@ public:
         - '%{datadir}/glslang/*.cmake'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:KhronosGroup/glslang.git
   ref: sdk-1.3.224.1-0-g10423ec659d301a0ff2daac8bbf38980abf27590

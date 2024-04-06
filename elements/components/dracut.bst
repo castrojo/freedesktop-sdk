@@ -21,9 +21,9 @@ variables:
   lib: 'lib'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:boot/dracut/dracut.git
-  track: master
+  track: '[0-9]*'
   ref: 056-0-g631d5f72a223288aa1f48bb8e8d0313e75947400
 - kind: patch
   path: patches/dracut/dracut-riscv64-efi.patch

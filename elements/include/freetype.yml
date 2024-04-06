@@ -1,5 +1,5 @@
 sources:
-- kind: git_tag
+- kind: git_repo
   url: savannah:freetype/freetype2.git
   ref: VER-2-12-1-0-ge8ebfe988b5f57bfb9a3ecb13c70d9791bce9ecf
 - kind: patch

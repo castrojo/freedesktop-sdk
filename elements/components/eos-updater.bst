@@ -17,7 +17,7 @@ depends:
 - components/ostree.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:endlessm/eos-updater.git
   # Updates frozen, use 23.08 for VM's
   ref: Release_4.0.14-0-gac2dd3856c04aef3c12f084fa61dc7b52814d5f3

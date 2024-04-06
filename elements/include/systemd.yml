@@ -1,5 +1,5 @@
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:systemd/systemd-stable.git
   track: v251-stable
   exclude:

@@ -24,11 +24,9 @@ config:
     - make manpages
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:netwide-assembler/nasm.git
-  track: master
-  track-extra:
-  - nasm-2.15.xx
+  track: nasm-*
   exclude:
   - nasm-*rc*
   ref: nasm-2.16.01-0-gd41598b3359d39c14e80f56bd8c3749f1d097932

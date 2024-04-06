@@ -44,7 +44,7 @@ public:
     - CVE-2023-46219
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:curl/curl.git
   ref: curl-8_2_1-0-g50490c0679fcd0e50bb3a8fbf2d9244845652cf0
 - kind: patch_queue

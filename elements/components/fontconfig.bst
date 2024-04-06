@@ -34,7 +34,7 @@ public:
       fi
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:fontconfig/fontconfig.git
   ref: 2.14.1-0-gc45e09df1ef235d653d56aef05012f6a3cc57979
 - kind: patch

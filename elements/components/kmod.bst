@@ -16,7 +16,7 @@ variables:
     --enable-tools
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:utils/kernel/kmod/kmod.git
-  track: master
+  track: v*
   ref: v32-0-g41faa59711742c1476d59985011ee0f27ed91d30

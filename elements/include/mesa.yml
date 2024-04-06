@@ -6,11 +6,9 @@ public:
     vendor: mesa3d
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:mesa/mesa.git
-  track: main
-  track-extra:
-  - '23.3'
+  track: mesa-23.3.*
   exclude:
   - '*rc*'
   - '*branchpoint*'

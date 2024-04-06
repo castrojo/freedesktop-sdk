@@ -32,12 +32,10 @@ variables:
   command-subdir: src/github.com/containers/podman
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:containers/podman.git
   directory: src/github.com/containers/podman
-  track: main
-  track-extra:
-  - v3.4
+  track: v*
   exclude:
   - "*rc*"
   ref: v3.4.7-0-g74d67f5d43bcd322a4fb11a7b58eced866f9d0b9

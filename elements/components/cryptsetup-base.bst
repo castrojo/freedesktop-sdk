@@ -21,9 +21,9 @@ public:
     product: cryptsetup
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gitlab:cryptsetup/cryptsetup.git
-  track: master
+  track: v*
   exclude:
   - '*rc*'
   ref: v2.7.0-0-g4dde8f078fe82e97920217e739319bbad88d3782

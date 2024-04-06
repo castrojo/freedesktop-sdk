@@ -59,9 +59,9 @@ public:
       - '%{bindir}/*'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:fs/ext2/e2fsprogs.git
-  track: master
+  track: v*
   ref: v1.47.0-0-g25ad8a431331b4d1d444a70b6079456cc612ac40
 - kind: patch
   path: patches/e2fsprogs/reproducible.patch

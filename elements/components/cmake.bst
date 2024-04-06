@@ -16,9 +16,9 @@ config:
     ../configure --prefix=%{prefix}
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kitware:cmake.git
-  track: master
+  track: v*
   exclude:
   - v*-rc*
   ref: v3.29.1-0-ga4774b0c10e9ce5354b9a7a721f8ff2952d1f247

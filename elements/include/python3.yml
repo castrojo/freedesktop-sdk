@@ -1,6 +1,6 @@
 sources:
-- kind: git_tag
-  track: '3.10'
+- kind: git_repo
+  track: v3.10.*
   exclude:
   - v*rc*
   url: github:python/cpython.git

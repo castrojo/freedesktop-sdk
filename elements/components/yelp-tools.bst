@@ -12,9 +12,9 @@ depends:
 - components/yelp-xsl.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:yelp-tools.git
-  track: master
+  track: '*.*'
   exclude:
   - '*rc*'
   - '*beta*'

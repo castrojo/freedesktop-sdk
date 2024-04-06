@@ -47,8 +47,8 @@ config:
       rm -f "%{install-root}%{datadir}"/locale/*/LC_MESSAGES/opcodes.mo
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: sourceware:binutils-gdb.git
-  track: gdb-12-branch
+  track: gdb-12.*
   ref: gdb-12.1-release-0-ge53a8e8685685c97588f8319d993ea6cd5635e47
 

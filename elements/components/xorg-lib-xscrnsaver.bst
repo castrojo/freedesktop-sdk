@@ -18,7 +18,7 @@ public:
         - '%{libdir}/libXss.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxscrnsaver.git
-  track: master
+  track: libXScrnSaver-*
   ref: libXScrnSaver-1.2.4-0-g34f3f72b88c0a0a10d618e9dfbc88474ae5ce880

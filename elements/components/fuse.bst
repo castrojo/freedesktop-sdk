@@ -30,10 +30,9 @@ public:
     vendor: fuse_project
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:libfuse/libfuse.git
   track: fuse_2_9_bugfix
-  track-tags: false
   ref: fuse-2.9.9-3-g5a43d0f724c56f8836f3f92411e0de1b5f82db32
 - kind: patch
   path: patches/fuse/fuse-kernel-h-clean-includes.patch

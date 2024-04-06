@@ -35,11 +35,7 @@ public:
         - '%{libdir}/libgirepository-1.0.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:gobject-introspection.git
-  track: main
-  track-extra:
-  - gnome-42
-  match:
-  - "1.72.*"
+  track: '1.72.*'
   ref: 1.72.1-0-gc8aefdd9f606796037e36023d16e956450de3bf3

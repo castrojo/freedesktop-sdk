@@ -32,11 +32,9 @@ variables:
     -Dqt=false
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:NetworkManager/NetworkManager.git
-  track: master
-  track-extra:
-  - nm-1-40
+  track: '*.*.*'
   exclude:
   - "*-dev*"
   - "*-rc*"

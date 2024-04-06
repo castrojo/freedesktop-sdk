@@ -55,6 +55,6 @@ public:
       chmod 4755 "${sysroot}%{bindir}/newgidmap"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:shadow-maint/shadow.git
   ref: 4.13-0-g24b44b686ea2221405cfd806dede046cf1fd9584

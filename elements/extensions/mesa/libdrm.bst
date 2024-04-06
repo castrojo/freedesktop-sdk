@@ -30,9 +30,9 @@ public:
         - '%{libdir}/libdrm_*.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:mesa/drm.git
-  track: main
+  track: libdrm-*
   ref: libdrm-2.4.120-0-g75254bf2390c10644ffb35a90fc8f18f196f9f0c
 - kind: patch
   path: patches/libdrm/libdrm-disable-libdrm.patch

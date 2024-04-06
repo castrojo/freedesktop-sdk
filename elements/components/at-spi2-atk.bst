@@ -32,11 +32,7 @@ public:
     vendor: 'gnome'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:at-spi2-atk.git
-  track: master
-  track-extra:
-  - gnome-3-32
-  match:
-  - AT_SPI2_ATK_*_*[02468]_*
+  track: 'AT_SPI2_ATK_*_*[02468]_*'
   ref: AT_SPI2_ATK_2_38_0-0-gb91a111f040a09e804428a81e6de214e4962247b

@@ -3,7 +3,7 @@ variables:
   build-dir: ''
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: sourceware:lvm2.git
-  track: main
+  track: v*
   ref: v2_03_22-0-g016e469caf856f1eb8dde39df0d1aa2e74225aed

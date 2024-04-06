@@ -8,9 +8,9 @@ depends:
   type: build
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:gsettings-desktop-schemas.git
-  track: master
+  track: '*.*'
   exclude:
   - '*alpha*'
   - '*beta*'

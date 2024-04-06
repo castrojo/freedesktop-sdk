@@ -28,13 +28,13 @@ config:
     ./%{configure}
 
 sources:
-- directory: iwd
-  kind: git_tag
+- kind: git_repo
+  directory: iwd
   url: kernel:network/wireless/iwd.git
-  track: master
+  track: '*.*'
   ref: 2.17-0-g468cecdbcaa870b2090d3598286c686c805615a0
-- directory: ell
-  kind: git_tag
+- kind: git_repo
+  directory: ell
   url: kernel:libs/ell/ell.git
-  track: master
+  track: '*.*'
   ref: 0.64-0-gd8eaabc0c346a93543ba51f9ee6d5e8dd37ac5de

@@ -19,7 +19,7 @@ variables:
     -Dtests=false
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:hughsie/libjcat.git
-  track: main
+  track: '*.*.*'
   ref: 0.2.1-0-g869e7cf4511b81897512a3f0adb627218e618112

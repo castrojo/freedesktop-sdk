@@ -15,11 +15,9 @@ variables:
     --disable-gir-doc
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:endlessm/eos-metrics.git
-  track: master
-  track-extra:
-  - eos5.0
+  track: Release_*
   exclude:
   - Release_4.*
   ref: Release_5.1.2-0-g893939f7be0996b3244dfcdf08aadc5accac8801

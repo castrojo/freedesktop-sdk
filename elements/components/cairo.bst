@@ -41,13 +41,9 @@ public:
     - CVE-2019-6461
     
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:cairo/cairo.git
-  track: master
-  track-extra:
-  - 1.16
-  match:
-  - 1.16.*
+  track: '1.16.*'
   ref: 1.16.0-0-g3ad43122b21a3299dd729dc8462d6b8f7f01142d
 - kind: patch_queue
   path: patches/cairo

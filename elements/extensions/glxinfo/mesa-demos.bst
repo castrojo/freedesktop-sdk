@@ -19,7 +19,7 @@ variables:
     -Dosmesa=disabled
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:mesa/demos.git
   ref: mesa-demos-8.5.0-0-gcda7fa14b8484c716441cfb04a1b1dccec57888e
 - kind: patch

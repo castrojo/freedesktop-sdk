@@ -16,7 +16,7 @@ variables:
   make-install: make -j1 install DESTDIR="%{install-root}" %{make-args}
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:network/iproute2/iproute2.git
-  track: main
+  track: v*
   ref: v6.8.0-0-ge5fd785830671180e934a84a44da93c51cce839d

@@ -32,9 +32,7 @@ public:
       gdk-pixbuf-query-loaders --update-cache
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:gdk-pixbuf.git
-  track: master
-  match:
-  - 2.*[02468].*
+  track: '2.*[02468].*'
   ref: 2.42.10-0-g9ac257eb38f772fec4253e8051743029e75a2acd

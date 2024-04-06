@@ -13,11 +13,9 @@ depends:
 - components/openssl.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:tpm2-software/tpm2-tss.git
-  track: master
-  track-extra:
-  - 3.2.x
+  track: '*.*.*'
   exclude:
   - '*rc*'
   ref: 3.2.2-0-gf2303275a3b4529b2480de5de2baf087f62e7df8

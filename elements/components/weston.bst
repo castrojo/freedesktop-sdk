@@ -39,7 +39,7 @@ variables:
   meson-lto-flags: ""
 
 sources:
-- kind: git_tag
-  track: main
+- kind: git_repo
+  track: '*.*.*'
   url: freedesktop:wayland/weston.git
   ref: 13.0.0-0-g712cdc56ab7eab5f11f4934e04904a6d01a07733

@@ -22,8 +22,6 @@ config:
     - touch */*.stamp
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: git_https:gitlab.gnome.org/Archive/vala-bootstrap.git
-  track: master
-  track-tags: False
   ref: b2beeaccdf2307ced172646c2ada9765e1747b28

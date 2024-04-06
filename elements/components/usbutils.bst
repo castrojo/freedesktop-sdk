@@ -14,7 +14,7 @@ variables:
     autoreconf --install --symlink
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:linux/kernel/git/gregkh/usbutils.git
-  track: master
+  track: v*
   ref: v017-0-g23077bf82534baad8adfe33ce4c02b5fb087eb86

@@ -19,7 +19,7 @@ public:
     product: libxrandr
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxrandr.git
-  track: master
+  track: libXrandr-*
   ref: libXrandr-1.5.4-0-g512bf0b15b5597c721ff8c61083616ca9040fa72

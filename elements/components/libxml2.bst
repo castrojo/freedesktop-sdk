@@ -36,9 +36,9 @@ public:
     - CVE-2024-25062
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gnome:libxml2.git
-  track: 2.10
+  track: v*
   ref: v2.10.4-0-g223cb03a5d27b1b2393b266a8657443d046139d6
 - kind: patch
   path: patches/libxml2/libxml2-python-in-nodeWrap-deal-with-name-is-None-case.patch

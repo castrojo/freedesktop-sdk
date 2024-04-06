@@ -26,7 +26,7 @@ public:
         - '%{libdir}/libunwind*.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: savannah:libunwind.git
-  track: v1.6-stable
+  track: v1.6.*
   ref: v1.6.2-0-gb3ca1b59a795a617877c01fe5d299ab7a07ff29d

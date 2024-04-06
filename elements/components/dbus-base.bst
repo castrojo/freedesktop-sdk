@@ -51,11 +51,7 @@ public:
     product: d-bus
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:dbus/dbus.git
-  track: master
-  track-extra:
-  - dbus-1.14
-  match:
-  - dbus-[0-9].*[02468].*[02468]
+  track: 'dbus-[0-9].*[02468].*[02468]'
   ref: dbus-1.14.10-0-gfa05c11a0047f2927e76d08f9fcf6638ded7ff50

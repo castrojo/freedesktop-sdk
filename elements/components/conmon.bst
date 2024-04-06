@@ -22,8 +22,8 @@ variables:
   command-subdir: src/github.com/containers/conmon
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:containers/conmon.git
   directory: src/github.com/containers/conmon
-  track: main
+  track: v*
   ref: v2.1.10-0-g2dcd736e46ded79a53339462bc251694b150f870

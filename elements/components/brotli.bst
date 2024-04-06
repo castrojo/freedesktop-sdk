@@ -21,7 +21,7 @@ public:
         - "%{libdir}/libbrotlienc.so"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:google/brotli.git
   ref: v1.0.9-0-ge61745a6b7add50d380cfd7d3883dd6c62fc2c71
 - kind: patch

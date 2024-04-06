@@ -13,7 +13,8 @@ public:
         - '%{libdir}/libfdk-aac.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop_people:fdk-aac.git
   track: stripped4
+  ref-format: sha1
   ref: 0fc0e0e0b89de3becd5f099eae725f13eeecc0d1

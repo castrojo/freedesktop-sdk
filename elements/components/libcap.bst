@@ -31,11 +31,9 @@ public:
         - '%{libdir}/libpsx.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:libs/libcap/libcap.git
-  track: master
-  match:
-  - 'libcap-*'
+  track: libcap-*
   exclude:
   - 'libcap-korg-*'
   ref: libcap-2.69-0-g8bed80f9b54b7bd2a1ee1fdc2124a094733c9356

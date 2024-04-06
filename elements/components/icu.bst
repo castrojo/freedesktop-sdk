@@ -32,19 +32,13 @@ public:
     product: international_components_for_unicode
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:unicode-org/icu.git
-  use-lfs: false
-  track: maint/maint-71
-  track-extra:
-  - maint/maint-64
   exclude:
   - "release-*-rc"
   - "*-preview"
   - "*-alpha"
   - "*-beta"
-  match:
-  - "release-*"
   ref: release-71-1-0-gc205e7ee49a7086a28b9c275fcfdac9ca3dc815d
 - kind: patch
   path: patches/icu/icu-fix-shared-linking.patch

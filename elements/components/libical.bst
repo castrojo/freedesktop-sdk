@@ -19,9 +19,7 @@ variables:
     -DICAL_GLIB_VAPI=ON
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:libical/libical.git
-  track: master
-  track-extra:
-  - '3.0'
+  track: v*
   ref: v3.0.18-0-g1b28a846d2dca16e5d15a433c6011cc2483555bb

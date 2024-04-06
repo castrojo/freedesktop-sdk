@@ -1,6 +1,6 @@
 sources:
-- kind: git_tag
-  track: release/15.x
+- kind: git_repo
+  track: llvm-15.*
   exclude:
   - llvmorg-*-rc*
   - llvmorg-*-init*

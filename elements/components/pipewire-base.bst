@@ -122,7 +122,7 @@ public:
     product: pipewire
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:PipeWire/pipewire.git
   exclude:
   - '*.*.9*'

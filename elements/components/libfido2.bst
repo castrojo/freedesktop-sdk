@@ -8,7 +8,7 @@ depends:
 - components/libcbor.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:Yubico/libfido2.git
-  track: main
+  track: '*.*.*'
   ref: 1.14.0-0-g1a9d335c8f0e821f9eff27482fdda96e59a4f577

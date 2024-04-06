@@ -56,6 +56,6 @@ config:
       autoreconf -ivf
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxcb.git
   ref: libxcb-1.15-0-gc2c4a2cd1947e559718acdba19ef6e7db731dbeb

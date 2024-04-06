@@ -17,7 +17,8 @@ variables:
   build-dir: ''
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:storaged-project/udisks.git
-  track: master
+  track: udisks-*
   ref: udisks-2.10.0-0-ga1a99ef84f96151f60f3254b767286ee26064846
+

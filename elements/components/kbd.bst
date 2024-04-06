@@ -10,9 +10,9 @@ depends:
 - bootstrap-import.bst
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:legionus/kbd.git
-  track: master
+  track: v*
   exclude:
   - '*alpha*'
   - '*beta*'

@@ -34,9 +34,9 @@ public:
         - '%{libdir}/graphite2/*.cmake'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:silnrsi/graphite.git
-  track: master
+  track: '*.*.*'
   ref: 1.3.14-0-g92f59dcc52f73ce747f1cdc831579ed2546884aa
 - kind: patch
   path: patches/graphite2/graphite2-1.2.0-cmakepath.patch

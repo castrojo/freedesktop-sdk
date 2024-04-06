@@ -21,9 +21,9 @@ environment:
       MAKEFLAGS: "-j1"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:containers/crun.git
-  track: main
+  track: '*.*.*'
   ref: 1.14.4-0-ga220ca661ce078f2c37b38c92e66cf66c012d9c1
 - kind: git_module
   path: libocispec

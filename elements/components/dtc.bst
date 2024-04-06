@@ -21,7 +21,7 @@ config:
     sed -i "s/-Werror//g" Makefile
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: kernel:utils/dtc/dtc.git
-  track: main
+  track: v*
   ref: v1.6.1-0-gb6910bec11614980a21e46fbccc35934b671bd81

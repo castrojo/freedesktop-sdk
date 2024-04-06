@@ -185,8 +185,7 @@ public:
       chmod -R u+w %{catrustdir}/extracted
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: fedora_rpms:ca-certificates.git
   track: rawhide
-  track-tags: false
   ref: ca-certificates-2010_63-3_fc14-149-gad028945f2bf4df4f74680c651e7adb37f032874

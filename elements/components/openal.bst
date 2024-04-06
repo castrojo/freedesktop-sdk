@@ -24,6 +24,6 @@ public:
         - '%{libdir}/libopenal.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:kcat/openal-soft.git
   ref: 1.22.2-0-gdc83d99c95a42c960150ddeee06c124134b52208

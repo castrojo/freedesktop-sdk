@@ -52,7 +52,7 @@ public:
         - '%{libdir}/libcrack.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:cracklib/cracklib.git
-  track: master
+  track: v*
   ref: v2.9.8-0-gd9e8f9f47718539aeba80f90f4e072549926dc9c

@@ -16,7 +16,7 @@ config:
     ln -s hunspell "%{install-root}%{datadir}/myspell"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: git_https:git.libreoffice.org/dictionaries.git
   track: libreoffice-6.2.5.2
   ref: libreoffice-6.2.5.2-0-g78a4eb197bca11e88a2319fce860658bd757715a

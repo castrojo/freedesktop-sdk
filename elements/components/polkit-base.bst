@@ -49,10 +49,9 @@ public:
       - '%{datadir}/gir-1.0/Polkit-1.0.gir'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:polkit/polkit.git
-  track: master
-  track-tags: true
+  track: '[0-9]*'
   ref: 124-0-g82f0924dc0eb23b9df68e88dbaf9e07c81940a5a
 - kind: local
   path: files/polkit/sysusers.conf

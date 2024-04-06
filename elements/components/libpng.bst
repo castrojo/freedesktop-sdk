@@ -16,9 +16,9 @@ public:
         - '%{libdir}/libpng16.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:glennrp/libpng.git
-  track: libpng16
+  track: v*
   ref: v1.6.43-0-ged217e3e601d8e462f7fd1e04bed43ac42212429
 - kind: patch
   path: patches/libpng/libpng-1.6.37-apng.patch

@@ -19,7 +19,7 @@ public:
     product: libxext
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxext.git
-  track: master
+  track: libXext-*
   ref: libXext-1.3.6-0-g3826a58d190c2d8093d3586cb33867668cbb4553

@@ -14,7 +14,7 @@ variables:
     -Dtests=disabled
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:linuxwacom/libwacom.git
-  track: master
+  track: libwacom-*
   ref: libwacom-2.10.0-0-gedc5a79bbce441730735546882a5439b4f302817

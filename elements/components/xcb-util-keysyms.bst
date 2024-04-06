@@ -20,9 +20,9 @@ public:
         - '%{libdir}/libxcb-keysyms.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxcb-keysyms.git
-  track: master
+  track: xcb-util-keysyms-*
   ref: xcb-util-keysyms-0.4.1-0-g85e093f14b0ade2956e0a5d1c37cfde06d8b1ba6
 - kind: git_module
   path: m4

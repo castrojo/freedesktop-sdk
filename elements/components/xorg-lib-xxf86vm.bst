@@ -20,7 +20,7 @@ public:
     product: libxf86vm
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/lib/libxxf86vm.git
-  track: master
+  track: libXxf86vm-*
   ref: libXxf86vm-1.1.5-0-g7fe2d41f164d3015216c1079cc7fbce1eea90c98

@@ -22,7 +22,7 @@ config:
       mv "%{install-root}%{sysconfdir}/alsa/conf.d/99-pulseaudio-default.conf.example" "%{install-root}%{sysconfdir}/alsa/conf.d/99-pulseaudio-default.conf"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:alsa-project/alsa-plugins.git
-  track: master
+  track: v*
   ref: v1.2.7.1-0-ga92944bf60f7d577c730a2856881e1ff5cbfeb88

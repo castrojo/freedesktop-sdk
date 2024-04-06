@@ -31,13 +31,9 @@ config:
       rm "%{install-root}%{infodir}/dir"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: savannah:aspell.git
-  track: master
-  track-extra:
-  - rel-0.60.8-branch
-  match:
-  - rel-*
+  track: rel-*
   ref: rel-0.60.8-0-gc96f9b06576cde08300c14f288727c754038fe3f
 - kind: patch
   path: patches/aspell/objstack-assert-that-the-alloc-size-will-fit-within-.patch

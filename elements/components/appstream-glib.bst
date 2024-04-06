@@ -37,7 +37,7 @@ public:
     version-match: '(\d+)_(\d+)_(\d+)'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:hughsie/appstream-glib.git
-  track: master
+  track: appstream_glib_*
   ref: appstream_glib_0_8_2-0-g02c8ad3b66075d9b2c9094dff816cd44839a4b45

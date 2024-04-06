@@ -1,3 +1,5 @@
 bootstrap/include/glibc-source.yml # We track commits, fewer world rebuilds a week please.
 components/vim.bst # Hopeless, there's closer to ten updates a day
 components/spirv-headers.bst # We track commits. Updates are manual only
+kernel-conf-utils/debian-config.bst # Utility, expected to be tracked manually when needed
+kernel-conf-utils/fedora-config.bst # Utility, expected to be tracked manually when needed

@@ -34,7 +34,7 @@ config:
     ln -sf "%{datadir}/zoneinfo/UTC" "%{install-root}%{sysconfdir}/localtime"
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: github:eggert/tz.git
-  track: main
+  track: v*
   ref: 2024a-0-g380c07cef01c71c1f93e9709d9f8c79b91cff063

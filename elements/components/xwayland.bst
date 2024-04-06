@@ -30,11 +30,7 @@ variables:
     -Dxvfb=false
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/xserver.git
-  track: master
-  track-extra:
-  - xwayland-22.1
-  match:
-  - xwayland-*
+  track: xwayland-*
   ref: xwayland-22.1.9-0-gf44cdcf4660ff70ee0dc9dc1f07ea31f8548837e

@@ -33,7 +33,7 @@ public:
         - '%{libdir}/libpoppler.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:poppler/poppler.git
-  track: master
+  track: poppler-*
   ref: poppler-24.04.0-0-g0aa1fe5c30a6c467c91bad8d81bd6c2f57fcb726

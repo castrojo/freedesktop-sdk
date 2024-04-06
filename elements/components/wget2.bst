@@ -61,11 +61,9 @@ public:
         - '%{libdir}/libwget_xml.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: gitlab:gnuwget/wget2.git
-  track: master
-  match:
-  - v2.0.*
+  track: v2.0.*
   ref: v2.0.1-0-g3d25515253c26f0510a1a10882a668ca81fcc4d6
 - kind: git_module
   path: gnulib

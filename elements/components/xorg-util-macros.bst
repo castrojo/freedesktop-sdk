@@ -13,7 +13,7 @@ public:
       - /**
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: freedesktop:xorg/util/macros.git
-  track: master
+  track: util-macros-*
   ref: util-macros-1.20.0-0-gcb147377e9341af05232f95814022abdecf14024

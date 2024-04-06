@@ -27,7 +27,7 @@ public:
         - '%{libdir}/v4l2convert.so'
 
 sources:
-- kind: git_tag
+- kind: git_repo
   url: git_https:git.linuxtv.org/v4l-utils.git
-  track: stable-1.22
+  track: v4l-utils-1.22.*
   ref: v4l-utils-1.22.1-0-g47c8c377cf299bc42cd73a5ed7f2821f24a7bc47
