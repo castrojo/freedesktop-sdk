@@ -7,7 +7,7 @@ depends:
 - components/glog.bst
 - components/grpc.bst
 - components/protobuf.bst
-
+- components/tomlplusplus.bst
 
 variables:
   cmake-local: >-
