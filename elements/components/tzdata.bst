@@ -36,5 +36,5 @@ config:
 sources:
 - kind: git_repo
   url: github:eggert/tz.git
-  track: v*
+  track: 20*
   ref: 2024a-0-g380c07cef01c71c1f93e9709d9f8c79b91cff063
