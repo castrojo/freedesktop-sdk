@@ -1,4 +1,4 @@
-kind: manual
+kind: make
 
 (@):
 - elements/bootstrap/include/build.yml
@@ -13,12 +13,3 @@ variables:
     CFLAGS="${CFLAGS}"
     CXXFLAGS="${CXXFLAGS}"
     LDFLAGS="${LDFLAGS}"
-
-config:
-  build-commands:
-  - |
-    make %{make-args}
-
-  install-commands:
-  - |
-    make %{make-args} -j1 install DESTDIR="%{install-root}" prefix=%{prefix}
