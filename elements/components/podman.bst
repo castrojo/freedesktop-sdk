@@ -16,7 +16,6 @@ depends:
 runtime-depends:
 - components/catatonit.bst
 - components/conmon.bst
-- components/cni.bst
 - components/crun.bst
 - components/netavark.bst
 - components/passt.bst
