@@ -48,7 +48,6 @@ depends:
 - components/ccid.bst
 - components/clean-xml-catalog.bst
 - components/cmake.bst
-- components/cni.bst
 - components/colord.bst
 - components/conmon.bst
 - components/cpio.bst
