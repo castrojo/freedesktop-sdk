@@ -19,5 +19,5 @@ public:
 sources:
 - kind: git_repo
   url: github:libexif/libexif.git
-  track: libexit-*
+  track: libexif-*
   ref: libexif-0_6_24-release-0-g5bc74ae756f01bba42e73281fad67053bc7ac5f7

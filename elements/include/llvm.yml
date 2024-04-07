@@ -1,6 +1,6 @@
 sources:
 - kind: git_repo
-  track: llvm-15.*
+  track: llvmorg-15.*
   exclude:
   - llvmorg-*-rc*
   - llvmorg-*-init*
