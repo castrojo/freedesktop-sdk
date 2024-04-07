@@ -1,7 +1,7 @@
 kind: script
 
 build-depends:
-- tests/check-rpath-deps.bst
+- utils/find-rpath.bst
 - filename: platform-image.bst
   config:
     location: /sysroot
@@ -9,4 +9,4 @@ build-depends:
 config:
   commands:
   - |
-    %{bindir}/find-rpath.py %{gcc_triplet} /sysroot
+    find-rpath %{gcc_triplet} /sysroot

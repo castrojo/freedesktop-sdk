@@ -1,7 +1,8 @@
 kind: script
 
 build-depends:
-- tests/check-static-libraries-deps.bst
+- utils/check-static-libraries.bst
+- tests/check-static-libraries-config.bst
 - filename: sdk-image.bst
   config:
     location: /sysroot
@@ -9,4 +10,4 @@ build-depends:
 config:
   commands:
   - |
-    python3 %{bindir}/check-static-libraries.py /sysroot %{datadir}/static_libraries_allow_list
+    check-static-libraries /sysroot "%{datadir}/check-static-libraries/static_libraries_allow_list"

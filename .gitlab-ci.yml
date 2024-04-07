@@ -211,7 +211,7 @@ pylint:
   stage: flatpak
   script:
     - find . -path 'files/oci' -prune -o -iname "*.py" -exec pylint {} +
-    - pylint files/oci/oci_builder utils/check-abi
+    - pylint files/oci/oci_builder
   except:
     - master
     - '18.08'
