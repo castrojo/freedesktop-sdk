@@ -34,6 +34,7 @@ variables:
     -fstack-clash-protection
     -fcf-protection
     -fno-omit-frame-pointer
+    -mno-omit-leaf-frame-pointer
 
   # -mstackrealign is to  a potential but unlikely bug introduced
   # by the change of the Linux i386 ABI a long time ago. Stack used to be
@@ -49,6 +50,7 @@ variables:
     -fasynchronous-unwind-tables
     -fstack-clash-protection
     -fno-omit-frame-pointer
+    -mno-omit-leaf-frame-pointer
   target_arm_flags: ""
   target_ppc64le_flags: >-
     -fasynchronous-unwind-tables
