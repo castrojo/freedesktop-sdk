@@ -24,5 +24,5 @@ public:
 sources:
 - kind: git_repo
   url: gnupg:libgcrypt.git
-  track: libcrypt-1.10.*
+  track: libgcrypt-1.10.*
   ref: libgcrypt-1.10.3-0-gaa1610866f8e42bdc272584f0a717f32ee050a22
