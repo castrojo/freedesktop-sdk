@@ -33,5 +33,6 @@ public:
 sources:
 - kind: git_repo
   url: github:flatpak/xdg-desktop-portal.git
-  track: '*.*[02468].*'
+  # Track unstable too for xdp-gnome/gnome-nightly
+  track: '*.*.*'
   ref: 1.18.2-0-gfa8d41a2f9a5d30a1e41568b6fb53b046dce14dc
