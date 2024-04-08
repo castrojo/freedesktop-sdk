@@ -7,7 +7,7 @@ arch=$1
 
 # Modify the kernel config for additional features
 
-case "%{arch}" in
+case "$arch" in
     aarch64)
         module VIDEO_ROCKCHIP_ISP1
         module VIDEO_ROCKCHIP_RGA
@@ -19,7 +19,7 @@ case "%{arch}" in
     ;;
 esac
 
-case "%{arch}" in
+case "$arch" in
     aarch64)
         module ROCKCHIP_SARADC
         enable ROCKCHIP_MBOX
@@ -28,25 +28,25 @@ case "%{arch}" in
     ;;
 esac
 
-case "%{arch}" in
+case "$arch" in
     aarch64)
         module CRYPTO_DEV_ROCKCHIP
     ;;
 esac
 
-case "%{arch}" in
+case "$arch" in
     aarch64)
         module PHY_ROCKCHIP_DPHY_RX0
     ;;
 esac
 
-case "%{arch}" in
+case "$arch" in
     aarch64)
         enable BACKLIGHT_CLASS_DEVICE
     ;;
 esac
 
-case "%{arch}" in
+case "$arch" in
     aarch64)
         module V4L2_FLASH_LED_CLASS
     ;;
