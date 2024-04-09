@@ -21,5 +21,5 @@ public:
 sources:
 - kind: git_repo
   url: github:libsdl-org/SDL_mixer.git
-  track: release-*
+  track: release-2.6.*
   ref: release-2.6.3-0-g6103316427a8479e5027e41ab9948bebfc1c3c19
