@@ -94,6 +94,7 @@ depends:
 - components/erofs-utils.bst
 - components/expat.bst
 - components/extra-cmake-modules.bst
+- components/exfat-progs.bst
 - components/f2fs-tools.bst
 - components/fcitx5.bst
 - components/ffmpeg.bst
