@@ -35,4 +35,6 @@ sources:
 - kind: git_repo
   url: github:libjpeg-turbo/libjpeg-turbo.git
   track: '2.1.*'
+  exclude:
+  - '*.*.9*'
   ref: 2.1.5.1-0-g8ecba3647edb6dd940463fedf38ca33a8e2a73d1
