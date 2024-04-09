@@ -14,9 +14,15 @@ variables:
     -DCMAKE_POSITION_INDEPENDENT_CODE=ON
     -Dprotobuf_BUILD_SHARED_LIBS=ON
 
-(@):
-- elements/include/protobuf-source.yml
-
 public:
   cpe:
     name: protobuf
+
+sources:
+- kind: git_repo
+  url: github:protocolbuffers/protobuf.git
+  track: v*
+  exclude:
+  - '*rc*'
+  - '*dev*'
+  ref: v25.3-0-g4a2aef570deb2bfb8927426558701e8bfc26f2a4
