@@ -43,7 +43,7 @@ def generate_changelog(previous_tag, git_dir):
         cwd=git_dir,
     ).splitlines()
     joined = "\n".join(f"  * {line}" for line in log_lines)
-    return re.sub(r"elements/.*/(.*?)(?:-sources?)?.(?:bst|yml)", r"\1", joined)
+    return re.sub(r"[^\s]+/(.*?)(?:-sources?)?.(?:bst|yml)", r"\1", joined)
 
 
 def maybe_push(push, git_dir, message, remote, stable_branch, news_branch):
