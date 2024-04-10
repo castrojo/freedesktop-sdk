@@ -18,6 +18,15 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 FD_SDK_ID = 4339844
 
 
+def release_version(value):
+    if not re.match(r"^freedesktop-sdk-\d{2}\.08(?:beta|rc)?\.\d+(?:\.\d+)?$", value):
+        raise argparse.ArgumentTypeError(
+            f"'{value}' does not match the expected freedesktop-sdk tag format"
+        )
+
+    return value
+
+
 def run_git(cmd, **kwargs):
     return subprocess.check_output(["git", *cmd], text=True, **kwargs).rstrip()
 
@@ -163,14 +172,18 @@ def main():
         "stable_branch",
         help="The branch to prepare a release for, e.g. 'release/22.08'",
     )
-    prepare_parser.add_argument("new_version", help="The new release tag/version")
+    prepare_parser.add_argument(
+        "new_version", type=release_version, help="The new release tag/version"
+    )
     prepare_parser.set_defaults(func=prepare)
 
     publish_parser = subparsers.add_parser("publish", help="Publish a release")
     publish_parser.add_argument(
         "api_token", help="The API token used to create a GitLab release entry"
     )
-    publish_parser.add_argument("new_version", help="The new release tag/version")
+    publish_parser.add_argument(
+        "new_version", type=release_version, help="The new release tag/version"
+    )
     publish_parser.add_argument("commit", help="The commit to tag")
     publish_parser.set_defaults(func=publish)
 
