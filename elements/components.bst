@@ -381,7 +381,6 @@ depends:
 - components/poppler.bst
 - components/popt.bst
 - components/procps.bst
-- components/protobuf-base.bst
 - components/protobuf.bst
 - components/pwquality.bst
 - components/pycairo.bst
