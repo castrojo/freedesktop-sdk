@@ -49,4 +49,5 @@ config:
   - components/valgrind-maybe.bst
   - components/vulkan-validation-layers.bst
   - components/abseil-cpp.bst
-  - components/protobuf-base.bst
+  - components/protobuf.bst
+  - components/python3-protobuf.bst
