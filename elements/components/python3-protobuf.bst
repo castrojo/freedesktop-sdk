@@ -5,7 +5,6 @@ build-depends:
 
 depends:
 - components/python3.bst
-- components/protobuf-base.bst
 
 sources:
 # requires pypi tarball specifically
