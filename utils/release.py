@@ -75,7 +75,7 @@ def maybe_push(push, git_dir, message, remote, stable_branch, news_branch):
         )
     else:
         print("To submit an MR for the release branch run:")
-        print("    ", shlex.join(["git", *push_args]))
+        print("    " + shlex.join(["git", *push_args]))
 
 
 def prepare(args):
