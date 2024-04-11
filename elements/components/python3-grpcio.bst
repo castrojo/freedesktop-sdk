@@ -9,7 +9,7 @@ depends:
 - components/python3.bst
 
 runtime-depends:
-- components/protobuf.bst
+- components/python3-protobuf.bst
 
 environment:
   GRPC_PYTHON_BUILD_SYSTEM_OPENSSL: "true"
