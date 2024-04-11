@@ -19,4 +19,4 @@ sources:
 - kind: git_repo
   url: github:asciidoctor/asciidoctor.git
   track: v*
-  ref: v2.0.15-0-g884917ce8f0d48c1b55ba5168a37fc06c9be9269
+  ref: v2.0.22-0-g360e6f1251e9992be9fec52eb9cc8e70708ab610
