@@ -13,4 +13,4 @@ sources:
 - kind: git_repo
   url: github:vim/vim.git
   track: v*
-  ref: v9.1.0228-0-gad493ef3ea9ef7f2b0badcd2298883b5ab6e4ef4
+  ref: v9.1.0318-0-g4b5cd7257ee99384940d5210cf50298ff925924e
