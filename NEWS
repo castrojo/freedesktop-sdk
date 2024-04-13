@@ -1,5 +1,48 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08.16:
+  * Update python3-setuptools to v69.4.0-0
+  * libnice: Freeze due to ABI break
+  * Update python3-aiohttp to 3.9.4
+  * Update pcsc-lite to 2.1.0-0
+  * Update mesa to mesa-24.0.5-0
+  * abidiff-suppressions: Ignore changes in libsrtp
+  * libsrtp2: Update to 2.6.0
+  * Update protobuf to v26.1-0
+  * Update python3-idna to 3.7
+  * Update cmake to v3.29.2-0
+  * Update dictionaries to libreoffice-24.2.3.1-0
+  * flatpak-builder-source: Fix track pattern
+  * perl-build: Match release tags only
+  * pciutils: Freeze due to ABI break
+  * libarchive: Freeze due to ABI break
+  * pango: Freeze due to ABI break
+  * zstd: Freeze due to ABI break
+  * Update python3-trove-classifiers to 2024.4.10-0
+  * Update python3-mako to 1.3.3
+  * Update mesa to mesa-24.0.5-0
+  * Update linux-firmware to 20240410-0
+  * pipewire-base: Freeze due to ABI break
+  * libproxy: Freeze due to backwards ABI break
+  * sdl2: Freeze to 2.28 due to ABI break
+  * libgpg-error: Freeze due to ABI break
+  * npth: Freeze due to ABI break
+  * sqlite: Freeze due to ABI break
+  * lcms: Freeze due to backwards ABI break
+  * Update ABI reference to freedesktop-sdk-23.08.15-0
+  * Update buildbox-common to 1.0.15-0
+  * Rename protobuf-base to protobuf
+  * protobuf: Delete shared source as python module is detached
+  * python3-protobuf: Add missing depends on python3
+  * python3-protobuf: Switch to pypi tarball per upstream
+  * Revert "python3-protobuf: Reverse breaking changes done upstream"
+  * util-linux is a dependency of buildbox-common, not grpc
+  * Update xwayland to xwayland-23.2.6-0
+  * Update cryptsetup-base to v2.7.2-0
+  * Update python3-filelock to 3.13.4
+  * Update libxmlb to 0.3.18-0
+  * Update libcap-ng to v0.8.5-0
+
 freedesktop-sdk-23.08.15:
   * Update passt to 2024_04_05.954589b-0
   * Update buildbox-common to 1.0.14-0
