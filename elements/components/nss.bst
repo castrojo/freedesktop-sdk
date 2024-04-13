@@ -142,7 +142,7 @@ config:
 sources:
 - kind: git_repo
   url: github:nss-dev/nss.git
-  track: 'NSS_*_RTM'
+  track: 'NSS_3_79_*_RTM'
   ref: NSS_3_79_4_RTM-0-g033b99629659db93c56e0533a2db57e62828d22a
   directory: nss
 - kind: patch
