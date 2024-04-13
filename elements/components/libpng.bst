@@ -19,6 +19,10 @@ sources:
 - kind: git_repo
   url: github:glennrp/libpng.git
   track: v*
+  exclude:
+  - '*rc*'
+  - '*beta*'
+  - '*alpha*'
   ref: v1.6.43-0-ged217e3e601d8e462f7fd1e04bed43ac42212429
 - kind: patch
   path: patches/libpng/libpng-1.6.37-apng.patch
