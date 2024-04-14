@@ -9,7 +9,7 @@ depends:
   type: build
 
 (@):
-- elements/include/mesa.yml
+- elements/include/mesa-sdk.yml
 
 variables:
   headers: >-

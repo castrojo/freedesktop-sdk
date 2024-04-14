@@ -19,7 +19,7 @@ depends:
 - components/libdrm.bst
 
 (@):
-- elements/include/mesa.yml
+- elements/include/mesa-sdk.yml
 
 environment:
   PKG_CONFIG_PATH: ":%{libdir}/GL/default/lib/pkgconfig"
