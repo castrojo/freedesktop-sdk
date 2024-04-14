@@ -242,7 +242,7 @@ pylint:
       esac
     - |
       if [ "$SCHEDULE_TASK" = "daily" ] && [ "$STABLE_ABI" = "true" ]; then
-          TRACK_ELEMENTS="$TRACK_ELEMENTS abi/freedesktop-sdk.bst"
+          TRACK_ELEMENTS="$TRACK_ELEMENTS abi/reference-abi.bst"
       fi
       GITLAB_TOKEN=$FREEDESKTOP_API_KEY auto_updater --verbose \
       --base_branch "${CI_COMMIT_REF_NAME}" \
