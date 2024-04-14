@@ -6,7 +6,7 @@ build-depends:
   config:
     location: /new-image
 - filename: abi/abi-image.bst
-  junction: abi/freedesktop-sdk.bst
+  junction: abi/reference-abi.bst
   config:
     location: /old-image
 
