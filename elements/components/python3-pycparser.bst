@@ -10,5 +10,6 @@ sources:
 - kind: pypi
   name: pycparser
   ref:
-    sha256sum: e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206
-    suffix: 5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz
+    sha256sum: 491c8be9c040f5390f5bf44a5b07752bd07f56edf992381b05c701439eec10f6
+    suffix: 
+      1d/b2/31537cf4b1ca988837256c910a668b553fceb8f069bedc4b1c826024b52c/pycparser-2.22.tar.gz
