@@ -42,4 +42,4 @@ sources:
 - kind: git_repo
   url: gnome:gobject-introspection.git
   track: "*.*[02468].*"
-  ref: 1.80.0-0-g2f3fe819bbb5b3bce1462fe02405c2f9ffdce0d3
+  ref: 1.80.1-0-g9cad2563baf4ddd5197ce8141afc0c0579050f74
