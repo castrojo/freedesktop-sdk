@@ -35,7 +35,7 @@ public:
 sources:
 - kind: git_repo
   url: chromium:webm/libwebp.git
-  track: v*
+  track: v1.3.*
   exclude:
   - '*-rc*'
   ref: v1.3.2-0-gca332209cb5567c9b249c86788cb2dbf8847e760
