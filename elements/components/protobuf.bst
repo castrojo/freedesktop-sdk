@@ -21,4 +21,5 @@ sources:
   exclude:
   - '*rc*'
   - '*dev*'
+  - '*head*'
   ref: v26.1-0-g2434ef2adf0c74149b9d547ac5fb545a1ff8b6b5
