@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:scop/bash-completion.git
   track: '*.*.*'
-  ref: 2.12.0-0-g88587c871a8519d2d628d3e46d59ca34e09330b0
+  ref: 2.13.0-0-g81b0f8c4dfafd6219c95ffa1defad7ff34394b0f
