@@ -326,7 +326,9 @@ license_checker:
     paths:
       - ${WORK_DIR}
   script:
-    - bst_license_checker --deps "${DEPS}" -w ${WORK_DIR} -o ${OUTPUT_DIR} --ignorelist ${IGNORE_LIST} ${TARGETS}
+    - |
+      ${BST} build ${TARGETS}
+      bst_license_checker --deps "${DEPS}" -w ${WORK_DIR} -o ${OUTPUT_DIR} --ignorelist ${IGNORE_LIST} ${TARGETS}
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly"'
 
