@@ -1,7 +1,7 @@
 sources:
 - kind: git_repo
   url: github:llvm/llvm-project.git
-  track: llvmorg-*
+  track: llvmorg-17.*
   exclude:
   - llvmorg-*-rc*
   - llvmorg-*-init*
