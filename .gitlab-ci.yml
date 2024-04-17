@@ -301,9 +301,6 @@ check_mirrors:
       ${BST} source fetch --deps all flatpak-release-repo.bst components.bst \
              components/rust-stage1-{x86_64,i686,aarch64,armv7,powerpc64le}.bst \
              oci/layers/{flatpak,debug,platform,sdk}.bst
-  allow_failure: true
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
 
 license_checker:
   extends:
