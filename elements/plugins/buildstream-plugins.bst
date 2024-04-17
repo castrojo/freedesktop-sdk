@@ -2,4 +2,5 @@ kind: junction
 sources:
 - kind: git_repo
   url: github:apache/buildstream-plugins.git
-  ref: 2.1.0-8-gdc0af568225c24762c0bda5a0fcdd12454857719
+  track: master
+  ref: 2.2.0.dev1-0-g8c9da7e24730f630532e6cf08cf99b3dd602a941
