@@ -19,6 +19,7 @@ sources:
   url: github:protocolbuffers/protobuf.git
   track: v*
   exclude:
+  - '*head*'
   - '*rc*'
   - '*dev*'
   ref: v25.3-0-g4a2aef570deb2bfb8927426558701e8bfc26f2a4
