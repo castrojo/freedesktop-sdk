@@ -1,5 +1,5 @@
 kind: junction
 sources:
 - kind: tar
-  url: pypi:05/10/e9f563bb9d626389da1dba1a230a21a1986ec9ebad1c789347d933177e20/bst_plugins_experimental-1.99.1.tar.gz
-  ref: 366a549458d438e777c89abeb114408b7cf13947530284342251f315762a200b
+  url: pypi:55/7e/8e85cc085a5f265d3dda1d9f93585867ace078183a5ab12882944b3aa636/bst_plugins_experimental-1.99.2.tar.gz
+  ref: bdae2e185ee55c1828fcdf08889608ec15a2487a7be7d1b9a9da8fa68547a6fd
