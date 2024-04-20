@@ -7,7 +7,6 @@ debian_salsa: https://salsa.debian.org/
 denx: https://gitlab.denx.de/
 fedora_rpms: https://src.fedoraproject.org/rpms/
 ffmpeg: https://git.ffmpeg.org/
-freedesktop_people: git://people.freedesktop.org/~wtay/
 freedesktop: https://gitlab.freedesktop.org/
 fdsdk_git: https://gitlab.com/freedesktop-sdk/
 gcc_gnu_org: https://gcc.gnu.org/git/
