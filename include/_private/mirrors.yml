@@ -14,8 +14,6 @@ mirrors:
     - https://gitlab.com/freedesktop-sdk/mirrors/fedora_rpms/
     ffmpeg:
     - https://gitlab.com/freedesktop-sdk/mirrors/ffmpeg/
-    freedesktop_people:
-    - https://gitlab.com/freedesktop-sdk/mirrors/freedesktop_people/
     freedesktop:
     - https://gitlab.com/freedesktop-sdk/mirrors/freedesktop/
     ghostscript:
