@@ -16,6 +16,7 @@ variables:
     ETCDIR='%{sysconfdir}'
     LIBDIR='%{libdir}'
     NO_ARLIB=1
+    BUILDDATE=$(date -u +%F -d @$SOURCE_DATE_EPOCH)
   make: make %{make-args}
   make-install: make -j1 install %{make-args} DESTDIR='%{install-root}'
 
