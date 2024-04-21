@@ -6,6 +6,7 @@ build-depends:
 - components/flex.bst
 - components/bison.bst
 - components/git-minimal.bst
+- components/gobject-introspection.bst
 
 depends:
 - bootstrap-import.bst
@@ -23,4 +24,4 @@ sources:
   url: gnome:vala.git
   # Note for updates: Stable minor versions are even.
   track: "*.*[02468].*"
-  ref: 0.56.14-0-gc36a694d9bf09b622aac7f9b9e0af70c966b721e
+  ref: 0.56.17-0-gef0d911609f6691df0f10877ee97ee34cd24d689
