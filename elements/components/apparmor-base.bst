@@ -4,7 +4,6 @@ build-depends:
 - components/bison.bst
 - components/flex.bst
 - components/gettext.bst
-- components/perl-pod-parser.bst
 - components/python3.bst
 - components/python3-setuptools.bst
 - components/which.bst
