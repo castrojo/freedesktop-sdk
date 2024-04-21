@@ -16,4 +16,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/util/macros.git
   track: util-macros-*
-  ref: util-macros-1.20.0-0-gcb147377e9341af05232f95814022abdecf14024
+  ref: util-macros-1.20.1-0-g7ed2b3798c030bd1729b699b446b43aba2ec606e
