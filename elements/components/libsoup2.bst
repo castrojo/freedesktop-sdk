@@ -32,4 +32,4 @@ sources:
 - kind: git_repo
   url: gnome:libsoup.git
   track: '2.[0-9][02468].*'
-  ref: 2.72.0-0-gae1632c176c60b7fe832024c0a958f4079767c44
+  ref: 2.74.3-0-g4a6b9178ded85e269872ffedfb2b18f2754a75d9
