@@ -3,6 +3,7 @@ kind: pyproject
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
 - components/python3-setuptools-scm.bst
+- components/python3-setuptools-rust.bst
 
 depends:
 - components/python3.bst
