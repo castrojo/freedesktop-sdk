@@ -3,6 +3,7 @@ kind: pyproject
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
 - components/python3-setuptools-scm.bst
+- components/python3-setuptools-rust.bst
 
 depends:
 - components/python3.bst
@@ -17,6 +18,6 @@ sources:
 - kind: pypi
   name: dulwich
   ref:
-    sha256sum: a9e9c66833cea580c3ac12927e4b9711985d76afca98da971405d414de60e968
+    sha256sum: e19789842ef6b9d3174db03c3300d9fe63d871f217ac0a8f6ded7b086898907d
     suffix: 
-      2b/e2/788910715b4910d08725d480278f625e315c3c011eb74b093213363042e0/dulwich-0.21.7.tar.gz
+      76/0f/84d09c282c04a6ee7d0a3e0c8fe72ec1eba3129b1a30e82aea18ebdbbd2e/dulwich-0.22.0.tar.gz
