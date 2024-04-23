@@ -2,7 +2,7 @@ sources:
 - kind: git_repo
   url: github:flatpak/flatpak.git
   track: '1.14.*'
-  ref: 1.14.5-0-g17455f97fc93bdd0a5a42a79a74fac5cdc1ba316
+  ref: 1.14.6-0-g3344a7a72ff2e3e728e31c846fff42bda14429dd
 - kind: patch
   path: patches/flatpak/revert-compat-arch.patch
 - kind: git_module
