@@ -25,4 +25,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xdg/xdg-user-dirs.git
   track: '*.*'
-  ref: 0.17-0-gec015cdd345dec8025948533e7a6f18680e7f70c
+  ref: 0.18-0-g52e71ff04416f2ca3adaf6d73193de4b8b83de46
