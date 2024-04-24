@@ -10,6 +10,7 @@ depends:
 - components/mpg123.bst
 - components/sdl2.bst
 - components/opusfile.bst
+- components/wavpack.bst
 
 variables:
   cmake-local: >-
