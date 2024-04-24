@@ -19,6 +19,7 @@ variables:
   meson-local: >
     -Dbuiltin_loaders=png,jpeg
     -Dinstalled_tests=false
+    -Dothers=enabled
 
 public:
   bst:
@@ -41,3 +42,5 @@ sources:
   exclude:
   - '2.9*'
   ref: 2.42.11-0-g2fdda020f459f10b78b69d1cf180ad5255dbc519
+- kind: patch
+  path: patches/gdk-pixbuf/0001-fix-build-failure-due-to-typo-in-the-build-script.patch
