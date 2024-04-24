@@ -6,6 +6,10 @@ build-depends:
 depends:
 - bootstrap-import.bst
 
+variables:
+  conf-local: >-
+    --disable-tests
+
 config:
   install-commands:
     (>):
