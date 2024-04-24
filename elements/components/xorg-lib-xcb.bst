@@ -60,4 +60,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libxcb.git
   track: libxcb-*
-  ref: libxcb-1.16.1-0-gc671b9b30aecada4e43cb48e0dee46d19fb5cb9c
+  ref: libxcb-1.17.0-0-g622152ee42a310876f10602601206954b8d0613e
