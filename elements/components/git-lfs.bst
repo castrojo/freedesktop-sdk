@@ -21,7 +21,14 @@ config:
 public:
   bst:
     integration-commands:
-    - git lfs install --system
+    - |
+      cat << EOF >> %{sysconfdir}/gitconfig
+      [filter·"lfs"]
+      	required·=·true
+      	clean·=·git-lfs·clean·--·%f
+      	smudge·=·git-lfs·smudge -- %f
+      	process·=·git-lfs·filter-process
+      EOF
 
 sources:
 - kind: git_repo
