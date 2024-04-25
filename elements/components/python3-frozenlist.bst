@@ -2,6 +2,7 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
+- components/cython-3.bst
 - components/python3-expandvars.bst
 
 depends:
