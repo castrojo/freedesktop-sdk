@@ -21,4 +21,4 @@ sources:
 - kind: git_repo
   url: github:hughsie/libgusb.git
   track: '*.*.*'
-  ref: 0.4.8-0-gea074426660eb78199106767d826db9ea0fc8734
+  ref: 0.4.9-0-ged31c8134d80d006bd45450e84180be2a7c0742e
