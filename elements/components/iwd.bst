@@ -37,4 +37,4 @@ sources:
   directory: ell
   url: kernel:libs/ell/ell.git
   track: '*.*'
-  ref: 0.64-0-gd8eaabc0c346a93543ba51f9ee6d5e8dd37ac5de
+  ref: 0.65-0-ga7c28b45eafbbddef9b17075e2db404606de5781
