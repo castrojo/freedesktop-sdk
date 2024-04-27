@@ -80,7 +80,7 @@ bool has_debuglink(mapped_file& file, Header const& header) {
     throw std::runtime_error("Unexpected value for e_shstrndx");
   }
   auto strheader = get_section(file, header, header.e_shstrndx);
-  if ((strheader.sh_offset+strheader.sh_size) >= file.get_size()) {
+  if ((strheader.sh_offset+strheader.sh_size) > file.get_size()) {
     throw std::runtime_error("String table section outside of file");
   }
   auto strtbl = file.ptr<char>(strheader.sh_offset, strheader.sh_size);
