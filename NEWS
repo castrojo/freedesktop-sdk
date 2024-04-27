@@ -1,5 +1,82 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08.17:
+  * Update wayland-protocols to 1.36-0
+  * Update passt to 2024_04_26.d03c4e2-0
+  * Update libabigail to libabigail-2.5-6
+  * Update buildbox-common to 1.0.20-0
+  * Update grpc to v1.63.0-0
+  * Update tpm2-tools to 5.7-0
+  * Update systemd to v254.11-0
+  * Update fribidi to v1.0.14-0
+  * Update slirp4netns to v1.3.0-0
+  * Update ell to 0.65-0
+  * Update iwd to 0.65-0
+  * python3-frozenlist: Add cython build dependency
+  * python3-frozenlist: Add build dependency to python3-expandvars
+  * Update python3-frozenlist to 1.4.1
+  * keyutils: Fix hardening and properly fix reproducibility
+  * Update weston to 13.0.1-0
+  * Update libgusb to 0.4.9-0
+  * Update mesa to mesa-24.0.6-0
+  * Update dmidecode to dmidecode-3-6-0
+  * Update aom to v3.9.0-0
+  * Update mesa-sdk to mesa-24.0.6-0
+  * Update buildbox-common to 1.0.19-0
+  * BuildStream plugin elements: update to latest releases
+  * Update fwupd to 1.9.18-0
+  * Update python3-dulwich to 0.22.1
+  * Update python3-virtualenv to 20.26.0-0
+  * Update fcitx5 to 5.1.3-0
+  * gdk-pixbuf: re-enable build of fringe loaders
+  * Update gdk-pixbuf to 2.42.11-0
+  * python3-dulwich: Add python3-setuptools-rust as dependency
+  * Update python3-dulwich to 0.22.0
+  * python3-buildstream2: Update to 2.2.0
+  * Update python3-hatchling to hatchling-v1.24.2-0
+  * Update libabigail to libabigail-2.5-4
+  * Update libxmlb to 0.3.19-0
+  * Update fwupd to 1.9.17-0
+  * Update vim to v9.1.0363-0
+  * Update glibc to glibc-2.38-66
+  * vala: Add build-depends on gobject-introspection
+  * Update vala to 0.56.17-0
+  * Update python3-pluggy to 1.5.0
+  * Update python3-virtualenv to 20.25.3-0
+  * Update buildbox-common to 1.0.18-0
+  * Update python3-sphinx to 7.3.7
+  * Update flatpak to 1.15.8-0
+  * Update python3-hatchling to hatchling-v1.24.1-0
+  * Update libabigail to libabigail-2.5-3
+  * Update python3-grpcio to 1.62.2
+  * Update xdg-desktop-portal-base to 1.18.4-0
+  * Update python3-aiohttp to 3.9.5
+  * openssl: Ensure we don't track release branches
+  * Update wayland-protocols to 1.35-0
+  * Update xfsprogs to v6.7.0-0
+  * Update python3-sphinx to 7.3.6
+  * Update podman to v5.0.2-0
+  * Update grpc to v1.62.2-0
+  * llvm: Freeze to LLVM 17
+  * Update libabigail to libabigail-2.4-60
+  * Update python3-hatchling to hatchling-v1.24.0-0
+  * Update buildbox-common to 1.0.17-0
+  * Update xorg-util-macros to util-macros-1.20.1-0
+  * Update python3-sphinx to 7.3.2
+  * Update buildbox-common to 1.0.16-0
+  * protobuf: Exclude head tag
+  * Update libwacom to libwacom-2.11.0-0
+  * Update bluez to 5.75-0
+  * libwebp: Freeze to 1.3 branch due to ABI break
+  * Update vim to v9.1.0326-0
+  * Update freedesktop-sdk to freedesktop-sdk-23.08.16-0
+  * Update bluez to 5.74-0
+  * Update python3-hatchling to hatchling-v1.23.0-0
+  * Update glibc to glibc-2.38-65
+  * Update to image based on freedesktop-sdk 23.08.16
+  * Update extra-cmake-modules to v6.1.0-0
+  * Update python3-setuptools to v69.5.1-0
+
 freedesktop-sdk-23.08.16:
   * Update python3-setuptools to v69.4.0-0
   * libnice: Freeze due to ABI break
