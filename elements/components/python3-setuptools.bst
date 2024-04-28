@@ -13,6 +13,6 @@ sources:
 - kind: git_repo
   url: github:pypa/setuptools.git
   track: v*
-  ref: v69.2.0-0-g6ee23bf0579c52e1cbe7c97fc20fd085ff2a25c7
+  ref: v69.5.1-0-gff58075cdf3459ecdf73486d2a83cecdd70c7e4a
 - kind: patch
   path: patches/setuptools/fix-version.patch
