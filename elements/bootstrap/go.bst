@@ -1,23 +1,23 @@
 kind: manual
 
 build-depends:
-- bootstrap/go.bst
+- bootstrap/base-sdk/binary-seed.bst
 
-depends:
-- bootstrap-import.bst
+runtime-depends:
+- bootstrap/symlinks.bst
+
+(@):
+- elements/bootstrap/include/target.yml
+- elements/include/go-source.yml
 
 variables:
   optimize-debug: "false"
   compress-debug: "false"
 
 environment:
-  GOROOT_BOOTSTRAP: '%{libdir}/go'
   GOARCH: "%{go-arch}"
-  GOHOSTARCH: "%{go-arch}"
-  CGO_ENABLED: '1'
-  (?):
-  - target_arch == "ppc64":
-      CGO_ENABLED: '0'
+  GOOS: linux
+  CGO_ENABLED: '0'
 
 config:
   build-commands:
@@ -28,7 +28,8 @@ config:
   install-commands:
   - |
     install -Dm755 -t "%{install-root}%{libdir}/go" VERSION
-    install -Dm755 -t "%{install-root}%{libdir}/go/bin" bin/*
+    install -v -Dm755 -t "%{install-root}%{libdir}/go/bin" \
+      $(test -d bin/${GOOS}_${GOARCH} && echo bin/${GOOS}_${GOARCH}/* || echo bin/*)
 
     mkdir -p "%{install-root}%{libdir}/go/pkg"
     for i in pkg/include pkg/tool; do
@@ -58,5 +59,3 @@ public:
         (>):
         - "%{libdir}/go/src/**"
         - "%{libdir}/go/src"
-
-(@): elements/include/go-source.yml

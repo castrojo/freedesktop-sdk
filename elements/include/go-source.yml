@@ -1,0 +1,8 @@
+sources:
+- kind: git_repo
+  url: github:golang/go.git
+  track: 'go*'
+  exclude:
+  - '*rc*'
+  - '*beta*'
+  ref: go1.22.2-0-gdddf0ae40fa0c1223aba191d73a44425a08e1035
