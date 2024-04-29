@@ -33,3 +33,5 @@ sources:
   exclude:
   - '*.dev*'
   ref: 2.2.0-0-gb0b7231fd0fe803463db3ea1f0e827082404306a
+- kind: patch
+  path: patches/buildstream/keepalive-timeout.patch
