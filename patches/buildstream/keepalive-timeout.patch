@@ -1,0 +1,30 @@
+From 2228a496d9537c717bda48f7996270193a840429 Mon Sep 17 00:00:00 2001
+From: Seppo Yli-Olli <seppo.yliolli@gmail.com>
+Date: Sun, 28 Apr 2024 21:09:13 +0300
+Subject: [PATCH] Properly set keepalive time
+
+---
+ src/buildstream/_cas/casremote.py | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/src/buildstream/_cas/casremote.py b/src/buildstream/_cas/casremote.py
+index 54e0b2ddc..f4fbe1223 100644
+--- a/src/buildstream/_cas/casremote.py
++++ b/src/buildstream/_cas/casremote.py
+@@ -13,7 +13,6 @@
+ #
+ 
+ import grpc
+-from google.protobuf.duration_pb2 import Duration  # pylint: disable=no-name-in-module
+ 
+ from .._protos.google.rpc import code_pb2
+ from .._protos.build.buildgrid import local_cas_pb2
+@@ -71,7 +70,7 @@ def _configure_protocols(self):
+         if self.spec.client_cert:
+             cas_endpoint.client_cert = self.spec.client_cert
+         if self.spec.keepalive_time is not None:
+-            cas_endpoint.keepalive_time = Duration().FromSeconds(self.spec.keepalive_time)
++            cas_endpoint.keepalive_time.FromSeconds(self.spec.keepalive_time)
+         try:
+             response = local_cas.GetInstanceNameForRemotes(request)
+         except grpc.RpcError as e:
