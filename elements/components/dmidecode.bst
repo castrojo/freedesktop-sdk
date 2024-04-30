@@ -15,4 +15,4 @@ sources:
 - kind: git_repo
   url: savannah:dmidecode.git
   track: dmidecode-*
-  ref: dmidecode-3-5-0-g484f8935b0fc768841f43fa388b191196b5e12fd
+  ref: dmidecode-3-6-0-g51b1ecc262e4d0a45994f7a736ca1ab77b10480b
