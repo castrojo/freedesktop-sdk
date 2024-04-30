@@ -25,4 +25,4 @@ sources:
   # This needs to be in sync with LLVM version
   track: llvm_release_180
   url: github:KhronosGroup/SPIRV-LLVM-Translator.git
-  ref: v18.1.0-4-g10938f5530ffcc56afaf0f62029e1a3ae52a6b78
+  ref: v18.1.0-12-g45737bbd22f747eaa4a71bdbf83f27fe3f14e4f3
