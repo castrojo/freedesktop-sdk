@@ -4,7 +4,6 @@ variables:
   # directory.
   XDG_CACHE_HOME: "${CI_PROJECT_DIR}/cache"
   GET_SOURCES_ATTEMPTS: 3
-  BST_CACHE_SERVER_ADDRESS: 'cache.freedesktop-sdk.io'
   RUNTIME_VERSION: '23.08'
   STABLE_ABI: 'true'
   EXPIRED: '0'
@@ -12,7 +11,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "a4dacc31afdf3c0c7348ff94e1d5e4493efd8a5e"
+  DOCKER_IMAGE_ID: "ff83a3b9d0d46c1024a4cbba41bb025b4b3fddfa"
 
   # Generic variable for invoking buildstream
   BST: bst --colors
@@ -60,87 +59,15 @@ stages:
   - check_debuginfo
 
 before_script:
-  - ./utils/preresolve.py $BST_CACHE_SERVER_ADDRESS
   - ulimit -n 1048576
   - export PATH=~/.local/bin:${PATH}
 
-  # Configure Buildstream
   - |
-    MAX_JOBS=$(python -c "print(round(($(nproc) * ${BUILD_CPU_MULTIPLIER}) / ${BUILD_TASKS}))")
-
-    mkdir -p ~/.config
-    cat > ~/.config/buildstream.conf << EOF
-    # Get a lot of output in case of errors
-    logging:
-      message-format: '[%{wallclock}][%{elapsed}][%{key}][%{element}] %{action} %{message}'
-      error-lines: 80
     # Force higher parallelity
-    build:
-      max-jobs: ${MAX_JOBS}
-      retry-failed: True
-    scheduler:
-      builders: ${BUILD_TASKS}
-      network-retries: 4
-      on-error: continue
-    track:
-      # Because we want tracking to succeed even if origin disappears
-      source: all
-    EOF
-
-  # Create CAS directory for SSL keys
-  - mkdir -p /etc/ssl/CAS
-
-  # Private SSL keys/certs for pushing to the CAS server
-  - |
-    if [ -n "$BB_CAS_PUSH_CERT" ] && [ -n "$BB_CAS_PUSH_KEY" ]; then
-      echo "$BB_CAS_PUSH_CERT" > /etc/ssl/CAS/server.crt
-      echo "$BB_CAS_PUSH_KEY" > /etc/ssl/CAS/server.key
-
-      {
-        if [ "${DISABLE_REMOTE_CACHE:+set}" != set ]; then
-
-          echo "projects:"
-          echo "  freedesktop-sdk:"
-          echo "    artifacts:"
-          echo "      servers:"
-          echo "      - url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
-          if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
-            echo "        push: true"
-          fi
-          echo "        auth:"
-          echo "          client-key: /etc/ssl/CAS/server.key"
-          echo "          client-cert: /etc/ssl/CAS/server.crt"
-          echo "    source-caches:"
-          echo "      servers:"
-          if [ -f /cache-certificate/server.crt ]; then
-            echo "      - url: https://local-cas-server:1102"
-            if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
-            echo "        push: true"
-            fi
-            echo "        auth:"
-            echo "          client-key: /etc/ssl/CAS/server.key"
-            echo "          client-cert: /etc/ssl/CAS/server.crt"
-            echo "          server-cert: /cache-certificate/server.crt"
-          fi
-          echo "      - url: https://${BST_CACHE_SERVER_ADDRESS}:11002"
-          if [ "${DISABLE_CACHE_PUSH:+set}" != set ]; then
-            echo "        push: true"
-          fi
-          echo "        auth:"
-          echo "          client-key: /etc/ssl/CAS/server.key"
-          echo "          client-cert: /etc/ssl/CAS/server.crt"
-          if [ -f /cache-certificate/server.crt ]; then
-            echo "cache:"
-            echo "  storage-service:"
-            echo "    url: https://local-cas-server:1102"
-            echo "    auth:"
-            echo "      client-key: /etc/ssl/CAS/server.key"
-            echo "      client-cert: /etc/ssl/CAS/server.crt"
-            echo "      server-cert: /cache-certificate/server.crt"
-          fi
-        fi
-      } >> ~/.config/buildstream.conf
-    fi
+    export MAX_JOBS=$(python -c "print(round(($(nproc) * ${BUILD_CPU_MULTIPLIER}) / ${BUILD_TASKS}))")
+    mkdir -p ~/.config
+    [ -f /cache-certificate/server.crt ] && export LOCAL_CAS=true
+    python3 -mmako.cmd templates/buildstream.conf --output-file ~/.config/buildstream.conf
     cat ~/.config/buildstream.conf
 
   # flat-manager tokens to upload the releases
@@ -368,7 +295,7 @@ license_checker:
 .flatpak_template:
   stage: flatpak
   script:
-    - arch-test || true
+    - test -x arch-test && arch-test
     - ./utils/validate_aliases.py include/_private/aliases.yml include/_private/mirrors.yml
     - test "${ARCH}" != "i686" && make build
 
