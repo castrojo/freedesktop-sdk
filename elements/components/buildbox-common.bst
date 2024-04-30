@@ -21,4 +21,4 @@ sources:
 - kind: git_repo
   url: gitlab:BuildGrid/buildbox/buildbox-common.git
   track: '*.*.*'
-  ref: 1.0.20-0-ge3f6422d35b2e196f24ffd26f7d85effe4b81bb6
+  ref: 1.0.21-0-g86dc52cf26c587683103351885df345663434a9e
