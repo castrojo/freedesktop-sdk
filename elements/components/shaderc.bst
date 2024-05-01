@@ -36,7 +36,6 @@ public:
         - '%{bindir}'
         - '%{bindir}/**'
         - '%{libdir}/libshaderc_shared.so'
-        
       static-blocklist:
         (>):
         - "%{libdir}/*.a"
@@ -45,6 +44,6 @@ sources:
 - kind: git_repo
   url: github:google/shaderc.git
   track: v*
-  ref: v2023.8-0-ge6edd6d48fa5bdd9d176794c6810fae7f8e938e1
+  ref: v2024.1-0-g47a9387ef5b3600d30d84c71ec77a59dc7db46fa
 - kind: patch
   path: patches/shaderc/what-a-mess.patch
