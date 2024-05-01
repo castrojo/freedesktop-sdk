@@ -73,5 +73,7 @@ sources:
 - kind: git_repo
   url: savannah:bash.git
   track: master
+  exclude:
+  - "*alpha*"
   ref: bash-5.2-27-gf3b6bd19457e260b65d11f2712ec3da56cef463f
 
