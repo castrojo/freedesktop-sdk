@@ -62,7 +62,7 @@ sources:
   exclude:
   - "*a*"
   - "*b*"
-  ref: v2.4.7-0-g3a4d9204e5818e5d0b8f1e0e50832661209048ee
+  ref: v2.4.8-0-ge64a8085f3d3bcd4178ee3c7c135f3bbb3b1c289
 - kind: local
   path: files/cups/tmpfiles.conf
 - kind: local
