@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Downloads CVE database and generate HTML output with all current CVEs for a given manifest.
 
