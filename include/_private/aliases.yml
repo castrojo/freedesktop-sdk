@@ -57,4 +57,4 @@ tar_https: https://
 crates: https://static.crates.io/
 
 # OCI registries
-gitlab_registry: https://registry.gitlab.com/
+fdsdk_registry: https://registry.gitlab.com/freedesktop-sdk/
