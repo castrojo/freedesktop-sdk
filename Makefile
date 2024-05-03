@@ -183,6 +183,27 @@ check-rpath:
 check-static-libraries:
 	$(BST) build tests/check-static-libraries.bst
 
+generate-cve-report: manifest
+	$(BST) build utils/generate-cve-report.bst
+
+	mkdir -p cve && cd cve &&	\
+	mkdir -p cve-reports && 	\
+	cp -r ../sdk-manifest . &&	\
+	cp -r ../platform-manifest .
+
+	$(BST) shell utils/generate-cve-report.bst --mount /etc/resolv.conf /etc/resolv.conf	\
+		--mount ./cve/ /buildstream-build -- update_local_cve_database
+	$(BST) shell utils/generate-cve-report.bst --mount /etc/resolv.conf /etc/resolv.conf	\
+		--mount ./cve/ /buildstream-build						\
+		-- generate_cve_report /buildstream-build/sdk-manifest/usr/manifest.json	\
+		/buildstream-build/cve-reports/sdk.md.html
+	$(BST) shell utils/generate-cve-report.bst --mount /etc/resolv.conf /etc/resolv.conf	\
+		--mount ./cve/ /buildstream-build						\
+		-- generate_cve_report /buildstream-build/platform-manifest/usr/manifest.json	\
+		/buildstream-build/cve-reports/platform.md.html
+
+	mv cve/cve-reports/ .
+
 manifest:
 	rm -rf sdk-manifest/
 	rm -rf platform-manifest/
