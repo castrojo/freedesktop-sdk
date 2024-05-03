@@ -676,11 +676,6 @@ finish_publish_failed:
             case "${ref}" in
               */*/ppc64le/*) ;&
               */*/arm/*) ;&
-              */org.freedesktop.Sdk.Extension.toolchain-arm/*/*) ;&
-              */org.freedesktop.Sdk.Compat.arm/*/*) ;&
-              */org.freedesktop.Sdk.Compat.arm.Debug/*/*) ;&
-              */org.freedesktop.Platform.GL32.mesa-git/*/*) ;&
-              */org.freedesktop.Platform.GL.mesa-git/*/*) ;&
               */*/i386/*)
                 echo "Deleting ${ref}"
                 ostree --repo=repo refs --delete "${ref}"
