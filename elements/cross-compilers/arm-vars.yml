@@ -1,7 +1,0 @@
-(@):
-- elements/cross-compilers/common-vars.yml
-
-variables:
-  cross_gcc_arch: "arm"
-  cross_arch: "arm"
-  cross_abi: "gnueabihf"
