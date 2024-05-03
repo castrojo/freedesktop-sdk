@@ -29,7 +29,6 @@ depends:
     depends:
       (>):
       - flatpak-images/toolchain-aarch64.bst
-      - flatpak-images/toolchain-arm.bst
       - flatpak-images/toolchain-i686.bst
 - target_arch == "i686" or target_arch == "x86_64":
     depends:
