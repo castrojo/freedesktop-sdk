@@ -27,3 +27,7 @@ sources:
   ref: 101-0-g2255bf3464536b02342d13398c5331999fcfd4fa
 - kind: patch
   path: patches/dracut/dracut-riscv64-efi.patch
+- kind: patch
+  path: patches/dracut/0001-fix-dracut-move-hooks-directory-from-usr-lib-to-var-.patch
+- kind: patch
+  path: patches/dracut/0001-fix-systemd-explicitly-install-some-libs-that-will-n.patch
