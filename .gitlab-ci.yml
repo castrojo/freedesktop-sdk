@@ -783,15 +783,8 @@ cve_report:
     paths:
       - "${XDG_CACHE_HOME}/cve"
   script:
-    - make manifest
+    - make generate-cve-report
 
-    - mkdir -p "${XDG_CACHE_HOME}/cve"
-    - cd "${XDG_CACHE_HOME}/cve"
-    - python3 "${CI_PROJECT_DIR}/utils/update_local_cve_database.py"
-
-    - mkdir -p "${CI_PROJECT_DIR}/cve-reports"
-    - GITLAB_TOKEN=$FREEDESKTOP_API_KEY python3 "${CI_PROJECT_DIR}/utils/generate_cve_report.py" "${CI_PROJECT_DIR}/sdk-manifest/usr/manifest.json" "${CI_PROJECT_DIR}/cve-reports/sdk.md.html"
-    - GITLAB_TOKEN=$FREEDESKTOP_API_KEY python3 "${CI_PROJECT_DIR}/utils/generate_cve_report.py" "${CI_PROJECT_DIR}/platform-manifest/usr/manifest.json" "${CI_PROJECT_DIR}/cve-reports/platform.md.html"
   artifacts:
     paths:
       - "${CI_PROJECT_DIR}/cve-reports"
