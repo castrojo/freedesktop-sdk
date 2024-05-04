@@ -4,7 +4,7 @@ build-depends:
 - public-stacks/buildsystem-python-flit.bst
 
 depends:
-- filename: components/python3.bst
+- components/python3.bst
 
 sources:
 - kind: pypi
