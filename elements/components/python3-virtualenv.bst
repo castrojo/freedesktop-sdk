@@ -19,6 +19,6 @@ sources:
 - kind: pypi
   name: virtualenv
   ref:
-    sha256sum: ec25a9671a5102c8d2657f62792a27b48f016664c6873f6beed3800008577210
+    sha256sum: 604bfdceaeece392802e6ae48e69cec49168b9c5f4a44e483963f9242eb0e78b
     suffix: 
-      d8/02/0737e7aca2f7df4a7e4bfcd4de73aaad3ae6465da0940b77d222b753b474/virtualenv-20.26.0.tar.gz
+      93/9f/97beb3dd55a764ac9776c489be4955380695e8d7a6987304e58778ac747d/virtualenv-20.26.1.tar.gz
