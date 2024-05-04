@@ -1,11 +1,11 @@
 kind: pip
 
 depends:
-- filename: components/python3.bst
+- components/python3.bst
 
 build-depends:
-- filename: bootstrap-import.bst
-- filename: components/python3-pip.bst
+- bootstrap-import.bst
+- components/python3-pip.bst
 
 config:
   install-commands:
