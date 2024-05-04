@@ -1,14 +1,15 @@
 kind: pyproject
 
 build-depends:
-- public-stacks/buildsystem-python-setuptools.bst
+- public-stacks/buildsystem-python-flit.bst
 
 depends:
-- filename: components/python3.bst
+- components/python3.bst
 
 sources:
 - kind: pypi
   name: docutils
   ref:
-    sha256sum: f08a4e276c3a1583a86dce3e34aba3fe04d02bba2dd51ed16106244e8a923e3b
-    suffix: 1f/53/a5da4f2c5739cf66290fac1431ee52aff6851c7c8ffd8264f13affd7bcdd/docutils-0.20.1.tar.gz
+    sha256sum: 3a6b18732edf182daa3cd12775bbb338cf5691468f91eeeb109deff6ebfa986f
+    suffix: 
+      ae/ed/aefcc8cd0ba62a0560c3c18c33925362d46c6075480bfa4df87b28e169a9/docutils-0.21.2.tar.gz
