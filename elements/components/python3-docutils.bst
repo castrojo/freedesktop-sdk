@@ -5,6 +5,7 @@ depends:
 
 build-depends:
 - bootstrap-import.bst
+- components/python3-flit-core.bst
 - components/python3-pip.bst
 
 config:
