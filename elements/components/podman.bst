@@ -6,6 +6,8 @@ build-depends:
 - components/go-md2man.bst
 - components/git-minimal.bst
 - components/standard-streams.bst
+- components/python3.bst
+
 
 depends:
 - components/libseccomp.bst
