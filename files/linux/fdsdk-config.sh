@@ -425,24 +425,11 @@ enable BRCMFMAC_SDIO
 enable BRCMFMAC_USB
 module IWL3945
 module IWL4965
-module HERMES
-enable HERMES_PRISM
-enable HERMES_CACHE_FW_ON_INIT
-module NORTEL_HERMES
-module ORINOCO_USB
-module PCI_HERMES
-if has PCMCIA; then
-    module PCMCIA_HERMES
-fi
-module PLX_HERMES
 module P54_COMMON
 module P54_PCI
 module P54_USB
 module MAC80211_HWSIM
 module LIBERTAS
-if has PCMCIA; then
-    module LIBERTAS_CS
-fi
 enable LIBERTAS_MESH
 module LIBERTAS_SDIO
 module LIBERTAS_USB
@@ -885,7 +872,6 @@ enable SERIAL_DEV_CTRL_TTYPORT
 # Bluetooth
 enable BT
 enable BT_BREDR
-enable BT_HS
 enable BT_LE
 
 module BT_ATH3K
@@ -1274,8 +1260,6 @@ esac
 # Needed for USB4 and Thunderbolt
 enable MTD
 enable NVMEM
-module NVMEM_LAYOUT_ONIE_TLV
-module NVMEM_LAYOUT_SL28_VPD
 module NVMEM_RMEM
 
 # I2C/SMBus
@@ -1353,7 +1337,6 @@ module USB_NET_KALMIA
 module USB_NET_MCS7830
 module USB_NET_PLUSB
 module USB_NET_QMI_WWAN
-module USB_NET_RNDIS_WLAN
 module USB_NET_SMSC75XX
 module USB_NET_SMSC95XX
 enable USB_ALI_M5632
@@ -2158,6 +2141,8 @@ case "$arch" in
         module ACER_WIRELESS
         module ACPI_TOSHIBA
         module AMD_PMC
+        module TEE
+        module AMDTEE
         module AMD_PMF
         module AMILO_RFKILL
         module APPLE_GMUX
@@ -2179,6 +2164,7 @@ case "$arch" in
         enable INTEL_TURBO_MAX_3
         module INTEL_VBTN
         module INTEL_IPS
+        module INTEL_PMT_TELEMETRY
         module INTEL_PMC_CORE
         module LG_LAPTOP
         module LENOVO_YMC
