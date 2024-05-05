@@ -19,5 +19,5 @@ public:
 sources:
 - kind: git_repo
   url: xiph:opus.git
-  track: v*
+  track: v1.4*
   ref: v1.4-0-g82ac57d9f1aaf575800cf17373348e45b7ce6c0d
