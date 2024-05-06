@@ -14,5 +14,6 @@ sources:
 - kind: pypi
   name: schema
   ref:
-    sha256sum: f06717112c61895cabc4707752b88716e8420a8819d71404501e114f91043197
-    suffix: 4e/e8/01e1b46d9e04cdaee91c9c736d9117304df53361a191144c8eccda7f0ee9/schema-0.7.5.tar.gz
+    sha256sum: 7da553abd2958a19dc2547c388cde53398b39196175a9be59ea1caf5ab0a1807
+    suffix: 
+      d4/01/0ea2e66bad2f13271e93b729c653747614784d3ebde219679e41ccdceecd/schema-0.7.7.tar.gz
