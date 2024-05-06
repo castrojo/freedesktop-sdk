@@ -1,7 +1,7 @@
 kind: pyproject
 
 build-depends:
-- public-stacks/buildsystem-python-setuptools.bst
+- public-stacks/buildsystem-python-flit.bst
 
 runtime-depends:
 - components/python3.bst
