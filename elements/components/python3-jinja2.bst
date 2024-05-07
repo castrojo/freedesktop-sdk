@@ -13,6 +13,6 @@ sources:
 - kind: pypi
   name: Jinja2
   ref:
-    sha256sum: ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90
+    sha256sum: 4a3aee7acbbe7303aede8e9648d13b8bf88a429282aa6122a993f0ac800cb369
     suffix: 
-      b2/5e/3a21abf3cd467d7876045335e681d276ac32492febe6d98ad89562d1a7e1/Jinja2-3.1.3.tar.gz
+      ed/55/39036716d19cab0747a5020fc7e907f362fbf48c984b14e62127f7e68e5d/jinja2-3.1.4.tar.gz
