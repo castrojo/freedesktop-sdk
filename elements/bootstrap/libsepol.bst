@@ -42,7 +42,4 @@ public:
 sources:
 - kind: git_repo
   url: github:SELinuxProject/selinux.git
-  track: libsepol-*
-  exclude:
-  - '*rc*'
   ref: libsepol-3.5-0-gd6e96c5929a3f1aa1dce93505edd9f0158757ac2
