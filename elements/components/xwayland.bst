@@ -32,5 +32,5 @@ variables:
 sources:
 - kind: git_repo
   url: freedesktop:xorg/xserver.git
-  track: xwayland-*
+  track: xwayland-23.*
   ref: xwayland-23.2.6-0-gdb9cde0328aa1bd21210cf5472ca7901697b3713
