@@ -29,6 +29,10 @@ sources:
 - kind: git_repo
   url: ghostscript:ghostpdl.git
   track: ghostpdl-9.56.*
+  exclude:
+  - '*rc*'
+  - '*test*'
+  - '*release*'
   ref: ghostpdl-9.56.1-0-g1149c5ab914c7695caa8951bb8213f4241c51104
 - kind: patch
   path: patches/ghostscript/autogen-Honour-NOCONFIGURE-1.patch
