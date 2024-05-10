@@ -11,4 +11,6 @@ sources:
 - kind: git_repo
   url: github:martinh/libconfuse.git
   track: v*
+  exclude:
+  - '*version*'
   ref: v3.3-0-ga42aebf13db33afd575da6e63f55163d371f776d
