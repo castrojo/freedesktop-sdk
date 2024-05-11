@@ -38,10 +38,7 @@ depends:
 - components/brotli.bst
 - components/btrfs-progs.bst
 - components/bubblewrap.bst
-- components/buildbox-casd.bst
-- components/buildbox-common.bst
-- components/buildbox-fuse.bst
-- components/buildbox-run-bubblewrap.bst
+- components/buildbox.bst
 - components/ca-certificates.bst
 - components/cairo.bst
 - components/catatonit.bst

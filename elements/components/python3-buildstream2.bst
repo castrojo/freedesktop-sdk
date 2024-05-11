@@ -10,9 +10,7 @@ depends:
 - components/python3.bst
 
 runtime-depends:
-- components/buildbox-casd.bst
-- components/buildbox-run-bubblewrap.bst
-- components/buildbox-fuse.bst
+- components/buildbox.bst
 - components/python3-arpy.bst
 - components/python3-blessings.bst
 - components/python3-click.bst
