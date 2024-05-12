@@ -23,13 +23,6 @@ variables:
 environment:
   XDG_DATA_DIRS: "%{datadir}:%{install-root}%{datadir}"
 
-config:
-  install-commands:
-    (>):
-    - |
-      SYSUSERSDIR=$(pkg-config --variable sysusersdir systemd)
-      install -D -m 644 extra/sysusers.conf %{install-root}/$SYSUSERSDIR/polkit.conf
-
 public:
   cpe:
     product: polkit
@@ -50,6 +43,3 @@ sources:
   url: github:polkit-org/polkit.git
   track: '[0-9]*'
   ref: 124-0-g82f0924dc0eb23b9df68e88dbaf9e07c81940a5a
-- kind: local
-  path: files/polkit/sysusers.conf
-  directory: extra
