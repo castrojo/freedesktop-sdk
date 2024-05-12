@@ -20,9 +20,6 @@ variables:
     -Djs_engine=duktape
   local_flags: -std=gnu++17
 
-environment:
-  XDG_DATA_DIRS: "%{datadir}:%{install-root}%{datadir}"
-
 public:
   cpe:
     product: polkit
