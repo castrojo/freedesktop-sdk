@@ -7,6 +7,8 @@ depends:
 - bootstrap-import.bst
 
 variables:
+  cmake-local: |
+    -DBUILD_TESTING:BOOL=OFF
   generator: Unix Makefiles
 
 sources:
