@@ -41,3 +41,4 @@ config:
   - components/xdg-desktop-portal.bst
   - components/xfsprogs.bst
   - components/xwayland.bst
+  - integration/ldconfig.bst
