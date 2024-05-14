@@ -17,14 +17,6 @@ variables:
     --with-openssl
     --enable-tools
 
-config:
-  install-commands:
-    (>):
-    - |
-      for tool in insmod rmmod lsmod modprobe modinfo depmod; do
-        ln -s kmod "%{install-root}%{bindir}/${tool}"
-      done
-
 sources:
 - kind: git_repo
   url: kernel:utils/kernel/kmod/kmod.git
