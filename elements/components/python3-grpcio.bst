@@ -3,8 +3,7 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
-# https://github.com/grpc/grpc/issues/33918
-- components/cython-0.29.bst
+- components/cython.bst
 
 depends:
 - components/python3.bst
