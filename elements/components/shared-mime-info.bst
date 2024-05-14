@@ -18,4 +18,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xdg/shared-mime-info.git
   track: '*.*'
-  ref: 2.3-0-g8e80a317f5c61a7f410330abea441e0b0b9280b5
+  ref: 2.4-0-g9a6d6b8e963935f145f3a1ef446552de6996dada
