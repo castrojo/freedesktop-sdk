@@ -1624,6 +1624,7 @@ remove DEBUG_BLOCK_EXT_DEVT
 
 # Compressed firmware
 enable FW_LOADER_COMPRESS
+enable FW_LOADER_COMPRESS_ZSTD
 
 # IIO
 module IIO
