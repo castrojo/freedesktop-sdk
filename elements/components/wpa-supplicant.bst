@@ -11,6 +11,8 @@ build-depends:
 variables:
   config: |
     # Add configuration here
+    CONFIG_OWE=y
+
   make-args: >-
     BINDIR="%{bindir}"
     LIBDIR="%{libdir}"
