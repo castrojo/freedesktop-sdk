@@ -640,7 +640,7 @@ module SND_SOC
 module SND_SOC_AMD_ACP
 case "$arch" in
     x86_64|i686)
-        module DRM_I915
+        remove DRM_I915; module DRM_I915
         module DRM_GMA500
     ;;
     aarch64)
