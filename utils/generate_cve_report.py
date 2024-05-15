@@ -26,6 +26,8 @@ import requests
 
 
 LOOKUP_TABLE = {}
+unversioned_git = {}
+unversioned_archive = {}
 
 with open(sys.argv[1], 'rb') as f:
     manifest = json.load(f)
@@ -33,6 +35,21 @@ with open(sys.argv[1], 'rb') as f:
         cpe = module["x-cpe"]
         version = cpe.get("version")
         if not version:
+            sources = module["sources"]
+            for element in sources:
+                if "commit" in element and element["type"] == "git":
+                    unversioned_git[module["name"]] = {
+                        "source": element["commit"],
+                        "url": element["url"],
+                        "product": cpe.get("product"),
+                        "cve_ids": set(),
+                    }
+                if "url" in element and element["type"] == "archive":
+                    unversioned_archive[module["name"]] = {
+                        "source": element["url"],
+                        "product": cpe.get("product"),
+                        "cve_ids": set(),
+                    }
             continue
         vendor = cpe.get("vendor")
         vendor_dict = LOOKUP_TABLE.setdefault(cpe.get("vendor"), {})
@@ -146,6 +163,18 @@ def extract_vulnerabilities(filename):
                 print(product_name, cpe_match)
             yield cve_id, module["name"], module["version"], summary, scorev2, scorev3, vulnerable
 
+def check_unversioned_elements(filename, unversioned_git, unversioned_archive):
+    with gzip.open(filename) as file:
+        tree = json.load(file)
+        for cve_id, _ , _ , _ , cpe_match in extract_product_vulns(tree):
+            product_name = cpe_match["cpe23Uri"]
+            _ , name, _ = product_name.split(':')[3:6]
+            for element in unversioned_git:
+                if name == unversioned_git[element]["product"]:
+                    unversioned_git[element]["cve_ids"].add(f"<nobr>[{cve_id}](https://nvd.nist.gov/vuln/detail/{cve_id})</nobr>")
+            for element in unversioned_archive:
+                if name == unversioned_archive[element]["product"]:
+                    unversioned_archive[element]["cve_ids"].add(f"<nobr>[{cve_id}(https://nvd.nist.gov/vuln/detail/{cve_id})</nobr>")
 
 def maybe_score(item):
     try:
@@ -177,6 +206,8 @@ if __name__ == "__main__":
             else:
                 vuln_map[cve_id] = cve_id, name, version, summary, scorev2, scorev3
 
+        check_unversioned_elements(filename, unversioned_git, unversioned_archive)
+
     entries = list(vuln_map.values())
 
     entries.sort(key=by_score, reverse=True)
@@ -189,6 +220,22 @@ if __name__ == "__main__":
             issues_mrs = ", ".join(f"[{id}]({link})" for id, link in get_issues_and_mrs(ID)) or "None"
             out.write(f"|[{ID}](https://nvd.nist.gov/vuln/detail/{ID})|{name}|{version}|{html.escape(summary)}|{format_score(scorev3)}|{format_score(scorev2)}|{issues_mrs}|\n")
 
+        out.write("\n\n\n")
+        out.write("|Unversioned Element|Source: Archive - URL|Reported Vulnerability|\n")
+        out.write("|---|---|---|\n")
+        for element, info in unversioned_archive.items():
+            cve_list = "None"
+            if info["cve_ids"]:
+                cve_list = ',<br>'.join(info["cve_ids"])
+            out.write(f"|{element}|{info['source']}|{cve_list}\n")
+        out.write("\n\n\n")
+        out.write("|Unversioned Element|Source: Git|Commit|Reported Vulnerability|\n")
+        out.write("|---|---|---|---|\n")
+        for element, info in unversioned_git.items():
+            cve_list = "None"
+            if info["cve_ids"]:
+                cve_list = ',<br>'.join(info["cve_ids"])
+            out.write(f"|{element}|{info['url']}|{info['source']}|{cve_list}\n")
         out.write('<!-- Markdeep: -->'
                   '<style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>'
                   '<script src="markdeep.min.js" charset="utf-8"></script>'
