@@ -16,5 +16,5 @@ config:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:cpio/cpio-2.14.tar.bz2
-  ref: fcdc15d60f7267a6fc7efcd6b9db7b6c8966c4f2fbbb964c24d41336fd3f2c12
+  url: ftp_gnu_org:cpio/cpio-2.15.tar.bz2
+  ref: 937610b97c329a1ec9268553fb780037bcfff0dcffe9725ebc4fd9c1aa9075db
