@@ -14,7 +14,7 @@ sources:
 - kind: git_repo
   url: github:pyca/cryptography.git
   track: '*.*.*'
-  ref: 42.0.5-0-g33833f031d9d36234e11d9671be150d53b9e598d
+  ref: 42.0.7-0-g0cc7fc384381ea09eea5f031d31b1417f9f40fdf
 - kind: cargo
   cargo-lock: src/rust/Cargo.lock
   ref:
@@ -67,14 +67,14 @@ sources:
     version: 1.19.0
     sha: 3fdb12b2476b595f9358c5161aa467c2438859caa136dec86c26fdd2efe17b92
   - name: openssl
-    version: 0.10.63
-    sha: 15c9d69dd87a29568d4d017cfe8ec518706046a05184e5aea92d0af890b803c8
+    version: 0.10.64
+    sha: 95a0481286a310808298130d22dd1fef0fa571e05a8f44ec801801e84b216b1f
   - name: openssl-macros
     version: 0.1.1
     sha: a948666b637a0f465e8564c73e89d4dde00d72d4d473cc972f390fc3dcee7d9c
   - name: openssl-sys
-    version: 0.9.99
-    sha: 22e1bf214306098e4832460f797824c05d25aacdf896f64a985fb0fd992454ae
+    version: 0.9.102
+    sha: c597637d56fbc83893a35eb0dd04b2b8e7a50c91e64e9493e398b5df4fb45fa2
   - name: parking_lot
     version: 0.12.1
     sha: 3742b2c103b9f06bc9fff0a37ff4912935851bee6d36f3c02bcc755bcfec228f
