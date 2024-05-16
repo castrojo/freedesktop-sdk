@@ -69,6 +69,7 @@ depends:
 - components/opus.bst
 - components/p11-kit.bst
 - components/procps.bst
+- components/pygobject.bst
 - components/python3.bst
 - components/python3-setuptools.bst
 - components/python3-six.bst
