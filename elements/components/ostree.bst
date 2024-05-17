@@ -7,6 +7,7 @@ build-depends:
 - components/bison.bst
 
 depends:
+- components/composefs.bst
 - components/curl.bst
 - components/glib.bst
 - components/gpgme.bst
