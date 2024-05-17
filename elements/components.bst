@@ -87,7 +87,6 @@ depends:
 - components/ed.bst
 - components/efivar.bst
 - components/ell.bst
-- components/eos-updater.bst
 - components/erofs-utils.bst
 - components/expat.bst
 - components/extra-cmake-modules.bst
