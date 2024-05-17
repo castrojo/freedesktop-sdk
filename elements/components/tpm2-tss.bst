@@ -15,7 +15,7 @@ depends:
 sources:
 - kind: git_repo
   url: github:tpm2-software/tpm2-tss.git
-  track: '*.*.*'
+  track: '3.*.*'
   exclude:
   - '*rc*'
   ref: 3.2.2-0-gf2303275a3b4529b2480de5de2baf087f62e7df8
