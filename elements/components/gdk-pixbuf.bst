@@ -39,5 +39,3 @@ sources:
   exclude:
   - '2.9*'
   ref: 2.42.12-0-ge4315fb8553776e13d39e3f2e0ea8792db61720c
-- kind: patch
-  path: patches/gdk-pixbuf/0001-fix-build-failure-due-to-typo-in-the-build-script.patch
