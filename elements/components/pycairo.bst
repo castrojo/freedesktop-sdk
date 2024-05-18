@@ -7,6 +7,14 @@ depends:
 - components/cairo.bst
 - components/python3.bst
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{indep-libdir}/python*/site-packages/*/include'
+        - '%{indep-libdir}/python*/site-packages/*/include/**'
+
 sources:
 - kind: git_repo
   url: github:pygobject/pycairo.git
