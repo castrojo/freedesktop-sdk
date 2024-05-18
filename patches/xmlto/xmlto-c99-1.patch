@@ -1,0 +1,26 @@
+commit 1375e2df75530cd198bd16ac3de38e2b0d126276
+Author: Thomas Kuehne <thomas@kuehne.cn>
+Date:   Sat Dec 11 21:10:41 2021 +0100
+
+    fix -Wimplicit-int for ifsense
+    
+    fixes:
+    xmlif/xmlif.l:46:8: warning: type defaults to ‘int’ in declaration of ‘ifsense’ [-Wimplicit-int]
+       46 | static ifsense;                 /* sense of last `if' or unless seen */
+          |        ^~~~~~~
+    
+    Signed-off-by: Thomas Kuehne <thomas@kuehne.cn>
+
+diff --git a/xmlif/xmlif.l b/xmlif/xmlif.l
+index ac421367d47a2cd4..6e5970e147be21b1 100644
+--- a/xmlif/xmlif.l
++++ b/xmlif/xmlif.l
+@@ -43,7 +43,7 @@
+ 
+ static char **selections;	/* selection tokens */
+ static int nselections;		/* number of selections */
+-static ifsense;			/* sense of last `if' or unless seen */
++static int ifsense;		/* sense of last `if' or unless seen */
+ static char *attribute;		/* last attribute scanned */
+ 
+ struct stack_t {
