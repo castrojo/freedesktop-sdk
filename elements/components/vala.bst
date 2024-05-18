@@ -17,6 +17,7 @@ variables:
   build-dir: ''
   conf-local: --disable-valadoc
   make: make bootstrap
+  local_flags: -fpermissive
 
 sources:
 - kind: git_repo
