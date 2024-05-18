@@ -16,7 +16,6 @@ depends:
 - vm/config/useradd-ostree.bst
 - vm/boot/efi-ostree.bst
 - components/gnupg.bst
-- components/eos-updater.bst
 - components/linux-firmware.bst
 - components/wireless-regdb-bin.bst
 - components/iproute2.bst
