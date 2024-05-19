@@ -18,4 +18,4 @@ sources:
 - kind: git_repo
   url: github:endlessm/eos-metrics.git
   track: Release_*
-  ref: Release_5.1.2-0-g893939f7be0996b3244dfcdf08aadc5accac8801
+  ref: Release_6.0.0-0-g893939f7be0996b3244dfcdf08aadc5accac8801
