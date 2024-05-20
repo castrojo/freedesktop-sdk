@@ -17,4 +17,4 @@ sources:
 - kind: git_repo
   url: debian_salsa:rousseau/PCSC.git
   track: '*.*.*'
-  ref: 2.0.3-0-gc4e7f6f9c6fe56fafd3f13c31fcc4f670ad6d022
+  ref: 2.2.1-0-gdbabd09d0c9c9a94a8405e00c42e767753de0bc1
