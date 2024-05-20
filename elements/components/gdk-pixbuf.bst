@@ -40,4 +40,4 @@ sources:
   track: 2.*[02468].*
   exclude:
   - '2.9*'
-  ref: 2.42.11-0-g2fdda020f459f10b78b69d1cf180ad5255dbc519
+  ref: 2.42.12-0-ge4315fb8553776e13d39e3f2e0ea8792db61720c
