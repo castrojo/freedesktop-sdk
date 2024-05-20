@@ -91,6 +91,7 @@ public:
       - '%{sysconfdir}/pipewire/media-session.d'
       - '%{sysconfdir}/pipewire/media-session.d/**'
       - '%{sysconfdir}/pipewire/pipewire*'
+      - '%{datadir}/alsa/alsa.conf.d/99-pipewire-default.conf'
       - '%{datadir}/alsa-card-profile'
       - '%{datadir}/alsa-card-profile/**'
       - '%{indep-libdir}/systemd'
