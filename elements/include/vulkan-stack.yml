@@ -3,27 +3,27 @@ sources:
   url: github:KhronosGroup/Vulkan-Headers.git
   directory: vulkan-headers
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.3.280.0-0-g577baa05033cf1d9236b3d078ca4b3269ed87a2b
+  ref: vulkan-sdk-1.3.283.0-0-geaa319dade959cb61ed2229c8ea42e307cc8f8b3
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-ValidationLayers.git
   directory: vulkan-validation-layers
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.3.280.0-0-g8506077b9a25a00684e8be24b779733ae1405a54
+  ref: vulkan-sdk-1.3.283.0-0-gd5bed3e26b3d487e8d21f0cc39039351eac921a7
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-Tools.git
   directory: vulkan-tools
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.3.280.0-0-g136976082d0b14dad8b9687982b2a80cc6e6a633
+  ref: vulkan-sdk-1.3.283.0-0-g38321da9031f5909f1ca2dbafac8840ef6b2c144
 - kind: git_repo
   url: github:KhronosGroup/SPIRV-Headers.git
   directory: spirv-headers
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.3.280.0-0-g8b246ff75c6615ba4532fe4fde20f1be090c3764
+  ref: vulkan-sdk-1.3.283.0-0-g4f7b471f1a66b6d06462cd4ba57628cc0cd087d7
 - kind: git_repo
   url: github:KhronosGroup/SPIRV-Tools.git
   directory: spirv-tools
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.3.280.0-0-g04896c462d9f3f504c99a4698605b6524af813c1
+  ref: vulkan-sdk-1.3.283.0-0-gdd4b663e13c07fea4fbb3f70c1c91c86731099f7
 - kind: patch
   directory: spirv-tools
   path: patches/spirv-tools/Remove-libSPIRV-Tools-shared.so.patch
@@ -31,12 +31,12 @@ sources:
   url: github:KhronosGroup/glslang.git
   directory: glslang
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.3.280.0-0-gee2f5d09eaf8f4e8d0d598bd2172fce290d4ca60
+  ref: vulkan-sdk-1.3.283.0-0-ge8dd0b6903b34f1879520b444634c75ea2deedf5
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-Loader.git
   directory: vulkan-icd-loader
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.3.280.0-0-g61a9c50248e09f3a0e0be7ce6f8bb1663855f979
+  ref: vulkan-sdk-1.3.283.0-0-g720be5198aad4696381d2e3eeadc131c9f56bdc6
 - kind: patch
   directory: vulkan-icd-loader
   path: patches/vulkan/vulkan-libdir-path.patch
@@ -44,9 +44,9 @@ sources:
   url: github:KhronosGroup/Vulkan-Utility-Libraries.git
   directory: vulkan-utility-libraries
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.3.280.0-0-ga4140c5fd47dcf3a030726a60b293db61cfb54a3
+  ref: vulkan-sdk-1.3.283.0-0-gad7f699a7b2b5deb66eb3de19f24aa33597ed65b
 - kind: git_repo
   url: github:zeux/volk.git
   directory: volk
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.3.280.0-0-g01986ac85fa2e5c70df09aeae9c907e27c5d50b2
+  ref: vulkan-sdk-1.3.283.0-0-g3a8068a57417940cf2bf9d837a7bb60d015ca2f1
