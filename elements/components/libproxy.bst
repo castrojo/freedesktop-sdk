@@ -3,20 +3,21 @@ kind: meson
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/gobject-introspection.bst
+- components/gsettings-desktop-schemas.bst
 - components/python3-gi-docgen.bst
 - components/patchelf.bst
+- components/vala.bst
 
 depends:
 - bootstrap-import.bst
+- components/curl.bst
+- components/duktape.bst
 - components/glib.bst
 
 variables:
   meson-local: >-
-    -Dconfig-gnome=false
-    -Dcurl=false
-    -Dpacrunner-duktape=false
     -Dtests=false
-    -Dvapi=false
+    -Drelease=true
 
 config:
   install-commands:
