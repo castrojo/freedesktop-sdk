@@ -18,10 +18,10 @@ variables:
   pipelines: uvcvideo%{arch-pipelines}
   arch-pipelines: ''
   (?):
-    - target_arch == "i686" or target_arch == "x86_64":
-        arch-pipelines: ',ipu3'
-    - target_arch == "aarch64" or target_arch == "arm":
-        arch-pipelines: ',imx8-isi,rkisp1,rpi/vc4,simple'
+  - target_arch == "i686" or target_arch == "x86_64":
+      arch-pipelines: ',ipu3'
+  - target_arch == "aarch64" or target_arch == "arm":
+      arch-pipelines: ',imx8-isi,rkisp1,rpi/vc4,simple'
 
   meson-local: >-
     -Dgstreamer=enabled
@@ -38,4 +38,4 @@ sources:
 - kind: git_repo
   url: git_https:git.libcamera.org/libcamera/libcamera.git
   track: v*.*
-  ref: v0.2.0-0-g89227a428a82e724548399d35c98ea89566f9045
+  ref: v0.3.0-0-gaee16c06913422a0ac84ee3217f87a9795e3c2d9
