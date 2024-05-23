@@ -28,6 +28,11 @@ variables:
   - target_arch == "riscv64":
       local_ldflags: "-Wl,--push-state,--no-as-needed -latomic -Wl,--pop-state"
 
+config:
+  install-commands:
+    (>):
+    - ln -s buildbox-run-bubblewrap "%{install-root}%{bindir}/buildbox-run"
+
 sources:
 - kind: git_repo
   url: gitlab:BuildGrid/buildbox/buildbox.git
