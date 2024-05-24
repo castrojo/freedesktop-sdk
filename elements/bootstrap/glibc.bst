@@ -65,8 +65,9 @@ config:
           ;;
       esac
 
+# ldconfig shows a warning if /etc/ld.so.conf doesn't exist
     - |
-       echo 'include ld.so.conf.d/*.conf' > '%{install-root}%{sysconfdir}/ld.so.conf'
+      touch '%{install-root}%{sysconfdir}/ld.so.conf'
 
     - |
       rm "%{install-root}%{infodir}/dir"
