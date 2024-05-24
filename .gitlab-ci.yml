@@ -693,7 +693,7 @@ finish_publish_failed:
           ;;
       esac
 
-    - flatpak build-update-repo repo
+    - flatpak build-update-repo --generate-static-deltas repo
     - flat-manager-client push "$(cat publish_build.txt)" repo --build-log-url ${CI_PIPELINE_URL}
 
   artifacts:
