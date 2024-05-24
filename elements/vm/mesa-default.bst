@@ -1,14 +1,11 @@
 kind: manual
 
-build-depends:
-- bootstrap-import.bst
+depends:
+- filename: bootstrap-import.bst
+  type: build
 
-runtime-depends:
-- extensions/mesa/mesa.bst
-- integration/ldconfig.bst
-
-variables:
-  ld_so_conf_d: "%{sysconfdir}/ld.so.conf.d"
+- filename: extensions/mesa/mesa.bst
+  type: runtime
 
 config:
   install-commands:
@@ -18,6 +15,12 @@ config:
       mkdir -p "%{install-root}%{libdir}/GL/$(dirname "${i}")"
       ln -rs "%{install-root}%{libdir}/GL/default/${i}" "%{install-root}%{libdir}/GL/${i}"
     done
-  - |
-    mkdir -p %{install-root}%{ld_so_conf_d}
-    echo "%{libdir}/GL/default/lib" > %{install-root}%{ld_so_conf_d}/00_mesa.conf
+
+public:
+  bst:
+    integration-commands:
+    - |
+      echo "%{libdir}/GL/default/lib" >>/etc/ld.so.conf
+
+    - |
+      ldconfig
