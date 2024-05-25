@@ -38,7 +38,7 @@ sources:
   - '*.*.9[0-9]'
   - '*beta*'
   - '*rc*'
-  ref: 2.58.0-0-geb713262e3458b77cfe00d286d7fa0b7968dbb8f
+  ref: 2.58.1-0-gc73be6715dae5063bcc59cdac67a92c69d3795bb
 - kind: cargo
   ref:
   - name: adler
