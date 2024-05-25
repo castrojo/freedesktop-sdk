@@ -1,5 +1,36 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08.19:
+  * Revert "Merge branch 'nanonyme/ldconfig-23.08' into 'release/23.08'"
+  * ci: Generate static deltas for Flathub
+  * Update flat-manager-client-base to 0.4.3-0
+  * Update protobuf to v27.0-0
+  * Update python3-gi-docgen to 2024.1
+  * Update python3-protobuf to 5.27.0
+  * Update passt to 2024_05_23.765eb0b-0
+  * Update to image built from freedesktop-sdk 23.08.18
+  * buildox: update to 1.2.3
+  * buildbox: Restore buildbox-run symlink
+  * Update cni to v1.5.0-0
+  * Update python3-virtualenv to 20.26.2-0
+  * Update fwupd to 1.9.20-0
+  * Update python3-requests to 2.32.1
+  * Update man-pages to man-pages-6.8-0
+  * python3-buildstream2: update to 2.2.1
+  * Update freedesktop-sdk to freedesktop-sdk-23.08.18-0
+  * Update pcsc-lite to 2.2.2-0
+  * Update python3-grpcio to 1.64.0
+  * Update mesa to mesa-24.1.0-0
+  * Update grpc to v1.64.0-0
+  * Update asciidoctor to v2.0.23-0
+  * Update dictionaries to libreoffice-24.2.4.1-0
+  * python3-typing-extensions: Exclude alpha releases
+  * gdk-pixbuf: Remove applied patch
+  * Update gdk-pixbuf to 2.42.12-0
+  * Update libcap to libcap-2.70-0
+  * Update buildbox to 1.2.2-0
+  * Update cunit to 3.3.1-0
+
 freedesktop-sdk-23.08.18:
   * elements/components/libfdk-aac.bst: disable tracking for now
   * Remove unused alias/mirror: freedesktop_people
