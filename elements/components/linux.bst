@@ -11,8 +11,9 @@ build-depends:
 - components/bc.bst
 - components/gzip.bst
 - components/rsync.bst
-- components/linux-module-cert.bst
 - components/util-linux.bst
+- filename: components/linux-module-cert.bst
+  strict: true
 
 variables:
   bootdir: /boot
