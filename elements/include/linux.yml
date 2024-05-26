@@ -11,3 +11,8 @@ sources:
   path: files/linux/fdsdk-config.sh
 - kind: patch
   path: patches/linux/0001-riscv-sifive-fu740-cpu-1-2-3-4-set-compatible-to-sif.patch
+# https://patchwork.ozlabs.org/project/linuxppc-dev/list/?series=407581
+- kind: patch
+  path: patches/linux/1-2-powerpc-uaccess-Fix-build-errors-seen-with-GCC-14.patch
+- kind: patch
+  path: patches/linux/2-2-powerpc-uaccess-Use-YZ-asm-constraint-for-ld.patch
