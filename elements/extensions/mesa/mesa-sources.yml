@@ -6,3 +6,5 @@ sources:
   - '*rc*'
   - '*branchpoint*'
   ref: mesa-24.1.0-0-ge1e425449181859689aaa9e193df86fd0b56b18e
+- kind: patch
+  path: patches/mesa/clang_res_path.patch
