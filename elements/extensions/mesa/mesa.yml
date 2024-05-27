@@ -73,7 +73,7 @@ variables:
     -Dgbm-backends-path="/usr/lib/%{gcc_triplet}/GL/lib/gbm"
     -Dgles1=disabled
     -Dgles2=enabled
-    -Dglvnd=true
+    -Dglvnd=enabled
     -Dglx=auto
     -Dlibunwind=%{libunwind}
     -Dllvm=enabled
@@ -85,7 +85,6 @@ variables:
     -Dselinux=false
     -Dshared-glapi=enabled
     -Dvalgrind=disabled
-    -Dopencl-external-clang-headers=disabled
     -Dvulkan-layers=device-select,overlay
     -Dvulkan-drivers=%{vulkan_drivers}
     -Dvulkan-icd-dir="%{libdir}/vulkan/icd.d"
