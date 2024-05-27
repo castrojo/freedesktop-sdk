@@ -5,6 +5,7 @@ build-depends:
 - components/python3.bst
 - components/python3-mako.bst
 - components/python3-ply.bst
+- components/python3-pycparser.bst
 - components/rust.bst
 - components/rust-bindgen.bst
 - components/spirv-llvm-translator.bst
