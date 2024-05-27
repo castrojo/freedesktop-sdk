@@ -41,6 +41,7 @@ environment:
   CXXFLAGS: "%{target_flags} -std=gnu++17"
 
 variables:
+  intel-rt: "disabled"
   (?):
   - target_arch == "i686" or target_arch == "x86_64":
       gallium_drivers: iris,crocus,nouveau,r300,r600,radeonsi,svga,swrast,virgl,zink,i915
@@ -54,6 +55,9 @@ variables:
       gallium_drivers: nouveau,r600,r300,radeonsi,swrast,virgl
       vulkan_drivers: amd
       libunwind: disabled
+
+  - target_arch == "x86_64":
+      intel-rt: enabled
 
   optimize-debug: "false"
 
@@ -92,6 +96,7 @@ variables:
     -Dzstd=enabled
     -Dvideo-codecs=%{video_codecs}
     -Drust_std=2021
+    -Dintel-rt=%{intel-rt}
 
 config:
   install-commands:
