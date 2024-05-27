@@ -7,5 +7,5 @@ kind: manual
 sources:
 - kind: tar
   url: 
-    tar_https:static.rust-lang.org/dist/rust-1.76.0-powerpc64le-unknown-linux-gnu.tar.xz
-  ref: 42620515ebed3ba9adf264194898f3c3ffe8512d9bde70d7948c545e6f43a34d
+    tar_https:static.rust-lang.org/dist/rust-1.77.2-powerpc64le-unknown-linux-gnu.tar.xz
+  ref: a02777d7c748166fae35170a1b782febe3f6023829d533ae43c3924fa7ffa06a
