@@ -99,6 +99,7 @@ variables:
     -Dvideo-codecs=%{video_codecs}
     -Drust_std=2021
     -Dintel-rt=%{intel-rt}
+    -Dteflon=true
 
 config:
   install-commands:
