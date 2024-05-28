@@ -6,6 +6,9 @@ build-depends:
 depends:
 - components/python3.bst
 
+variables:
+  local_flags: -fpermissive
+
 sources:
 - kind: pypi
   name: ruamel.yaml.clib

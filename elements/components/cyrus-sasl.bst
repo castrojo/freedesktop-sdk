@@ -22,6 +22,7 @@ variables:
     --without-pam
     --without-opie
     --without-des
+  local_flags: -fpermissive
 
 config:
   build-commands:

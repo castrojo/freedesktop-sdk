@@ -11,6 +11,7 @@ build-depends:
 
 variables:
   conf-local: --disable-valadoc
+  local_flags: -fpermissive
 
 environment:
   VALAC: /no-valac

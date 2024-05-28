@@ -1,0 +1,35 @@
+commit 8e34f087bf410bcc5fe445933d6ad9bae54f24b5
+Author: Thomas Kuehne <thomas@kuehne.cn>
+Date:   Sat Dec 11 21:54:50 2021 +0100
+
+    Fix return type of main function
+    
+    Fixes:
+    xmlif/xmlif.l:242:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+      242 | main(int argc, char *argv[])
+          | ^~~~
+    
+    Signed-off-by: Thomas Kuehne <thomas@kuehne.cn>
+
+diff --git a/xmlif/xmlif.l b/xmlif/xmlif.l
+index 6e5970e147be21b1..8bcc59216d41a3cb 100644
+--- a/xmlif/xmlif.l
++++ b/xmlif/xmlif.l
+@@ -239,7 +239,7 @@ WS		[ \t\n]*
+ 
+ int yywrap() {exit(0);};
+ 
+-main(int argc, char *argv[])
++int main(int argc, char *argv[])
+ {
+     int i;
+ 
+@@ -265,7 +265,7 @@ main(int argc, char *argv[])
+ 	    exit(1);
+ 	}
+ 
+-    yylex();
++    return yylex();
+ }
+ 
+ /*

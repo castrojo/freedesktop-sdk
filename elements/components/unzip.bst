@@ -57,3 +57,5 @@ sources:
   path: patches/unzip/unzip-6.0-bzip2-configure.patch
 - kind: patch
   path: patches/unzip/unzip-6.0-configure.patch
+- kind: patch
+  path: patches/unzip/unzip-gnu89-build.patch
