@@ -220,6 +220,10 @@ test-apps: $(REPO)
 
 	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean app tests/org.flatpak.Readline.json
 
+	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean --user --install app tests/io.freedesktop_sdk.SimpleProject.json
+	flatpak --arch=$(FLATPAK_ARCH) run io.freedesktop_sdk.SimpleProject
+
+
 test-codecs: export XDG_DATA_HOME=$(CURDIR)/runtime
 test-codecs: $(REPO)
 	flatpak remote-add --if-not-exists --user --no-gpg-verify fdo-sdk-test-repo $(REPO)

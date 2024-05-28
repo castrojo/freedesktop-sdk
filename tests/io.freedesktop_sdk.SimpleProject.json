@@ -1,0 +1,19 @@
+{
+    "app-id": "io.freedesktop_sdk.SimpleProject",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "23.08",
+    "sdk": "org.freedesktop.Sdk",
+    "command": "hello",
+    "modules": [
+        {
+            "name": "hello",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "dir",
+                    "path": "simpleproject"
+                }
+            ]
+        }
+    ]
+}
