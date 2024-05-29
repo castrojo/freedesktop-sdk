@@ -5,6 +5,8 @@ build-depends:
 - components/llvm.bst
 - components/python3.bst
 - components/python3-mako.bst
+- components/python3-ply.bst
+- components/python3-pycparser.bst
 - components/rust.bst
 - components/rust-bindgen.bst
 - components/spirv-llvm-translator.bst
@@ -41,6 +43,7 @@ environment:
   CXXFLAGS: "%{target_flags} -std=gnu++17"
 
 variables:
+  intel-rt: "disabled"
   (?):
   - target_arch == "i686" or target_arch == "x86_64":
       gallium_drivers: iris,crocus,nouveau,r300,r600,radeonsi,svga,swrast,virgl,zink,i915
@@ -54,6 +57,9 @@ variables:
       gallium_drivers: nouveau,r600,r300,radeonsi,swrast,virgl
       vulkan_drivers: amd
       libunwind: disabled
+
+  - target_arch == "x86_64":
+      intel-rt: enabled
 
   optimize-debug: "false"
 
@@ -74,7 +80,7 @@ variables:
     -Dgbm-backends-path="/usr/lib/%{gcc_triplet}/GL/lib/gbm"
     -Dgles1=disabled
     -Dgles2=enabled
-    -Dglvnd=true
+    -Dglvnd=enabled
     -Dglx=auto
     -Dlibunwind=%{libunwind}
     -Dllvm=enabled
@@ -86,7 +92,6 @@ variables:
     -Dselinux=false
     -Dshared-glapi=enabled
     -Dvalgrind=disabled
-    -Dopencl-external-clang-headers=disabled
     -Dvulkan-layers=device-select,overlay
     -Dvulkan-drivers=%{vulkan_drivers}
     -Dvulkan-icd-dir="%{libdir}/vulkan/icd.d"
@@ -94,6 +99,8 @@ variables:
     -Dzstd=enabled
     -Dvideo-codecs=%{video_codecs}
     -Drust_std=2021
+    -Dintel-rt=%{intel-rt}
+    -Dteflon=true
 
 config:
   install-commands:

@@ -442,6 +442,7 @@ depends:
 - components/python3-pil.bst
 - components/python3-pip.bst
 - components/python3-pkgconfig.bst
+- components/python3-ply.bst
 - components/python3-pluggy.bst
 - components/python3-pluginbase.bst
 - components/python3-poetry-core.bst
