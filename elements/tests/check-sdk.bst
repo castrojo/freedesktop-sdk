@@ -10,6 +10,7 @@ config:
   - components/bluez.bst
   - components/ccid.bst
   - components/dracut.bst
+  - components/fmtlib.bst
   - components/gamemode.bst
   - components/iproute2.bst
   - components/libapparmor.bst

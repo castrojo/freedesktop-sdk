@@ -87,6 +87,7 @@ depends:
 - components/flatpak.bst
 - components/flex-base.bst
 - components/flex.bst
+- components/fmtlib.bst
 - components/fontconfig.bst
 - components/foomatic-db.bst
 - components/freetype-stage1.bst

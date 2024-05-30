@@ -3,6 +3,7 @@ kind: cmake
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/asciidoc.bst
+- components/fmtlib.bst
 - components/git-minimal.bst
 - components/perl.bst
 
