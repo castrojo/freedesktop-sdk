@@ -39,7 +39,7 @@ else
 ABI=gnu
 endif
 
-BST=bst --colors $(ARCH_OPTS)
+BST=bst $(ARCH_OPTS)
 QEMU=qemu-system-$(QEMU_ARCH)
 
 all: build
@@ -263,8 +263,8 @@ clean-test:
 clean: clean-repo clean-runtime clean-test clean-vm clean-efi-vm
 
 export-snap:
-	bst --colors $(ARCH_OPTS) build "snap-images/images.bst"
-	bst --colors $(ARCH_OPTS) artifact checkout "snap-images/images.bst" --directory snap/
+	bst $(ARCH_OPTS) build "snap-images/images.bst"
+	bst $(ARCH_OPTS) artifact checkout "snap-images/images.bst" --directory snap/
 
 export-oci:
 	$(BST) build oci/platform-oci.bst \
