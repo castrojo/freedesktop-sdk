@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:containers/composefs.git
   track: v*
-  ref: v1.0.3-0-g2d5cdcb9176cfe4ccf1761ef6d78e1c48de35649
+  ref: v1.0.4-0-g7623e4dc89f62ada5724d4e41d0a16d2671312f5
