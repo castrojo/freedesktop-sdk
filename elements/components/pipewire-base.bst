@@ -53,6 +53,7 @@ variables:
     -Dsession-managers=[]
     -Dlibffado=disabled
     -Dsdl2=disabled
+    -Dsnap=disabled
 
 config:
   install-commands:
