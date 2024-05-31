@@ -24,7 +24,7 @@ sources:
 - kind: git_repo
   url: github:dracut-ng/dracut-ng.git
   track: '[0-9]*'
-  ref: 101-0-g2255bf3464536b02342d13398c5331999fcfd4fa
+  ref: 102-0-g1a8ee6e00bbe017717a5ef9e9bcfefb3b88f629e
 - kind: patch
   path: patches/dracut/dracut-riscv64-efi.patch
 - kind: patch
