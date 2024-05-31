@@ -13,6 +13,7 @@ variables:
   cmake-local: >-
     -DREDIS_STORAGE_BACKEND=OFF
     -DCCACHE_DEV_MODE=OFF
+    -DENABLE_TESTING=OFF
 
 depends:
 - bootstrap-import.bst
