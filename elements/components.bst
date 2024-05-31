@@ -507,6 +507,7 @@ depends:
 - components/xorg-proto-xorgproto.bst
 - components/xorg-util-macros.bst
 - components/xwayland.bst
+- components/xxhash.bst
 - components/xz-docs.bst
 - components/yajl.bst
 - components/yelp-tools.bst

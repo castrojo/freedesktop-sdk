@@ -6,6 +6,7 @@ build-depends:
 - components/fmtlib.bst
 - components/git-minimal.bst
 - components/perl.bst
+- components/xxhash.bst
 
 variables:
   cmake-local: >-

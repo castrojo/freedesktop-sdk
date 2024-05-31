@@ -39,4 +39,5 @@ config:
   - components/wpa-supplicant.bst
   - components/xdg-desktop-portal.bst
   - components/xfsprogs.bst
+  - components/xxhash.bst
   - components/xwayland.bst
