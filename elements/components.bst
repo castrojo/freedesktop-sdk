@@ -104,6 +104,7 @@ depends:
 - components/flatpak-minimal.bst
 - components/flatpak-xdg-utils.bst
 - components/flatpak.bst
+- components/fmtlib.bst
 - components/flex-base.bst
 - components/flex.bst
 - components/fontconfig-flatpak-config.bst
