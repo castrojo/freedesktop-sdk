@@ -33,6 +33,7 @@ variables:
     -Dlc-compliance=disabled
     -Dqcam=disabled
     -Ddocumentation=disabled
+    -Dpycamera=disabled
 
 sources:
 - kind: git_repo
