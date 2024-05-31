@@ -19,4 +19,4 @@ sources:
   url: gnome:gi-docgen.git
   track: '*.*'
   ref-format: git-describe
-  ref: 2023.3-0-g96f2e9b93e1d8a5338eb05b87fd879856ab7b3cc
+  ref: 2024.1-0-geff4ec3d21df38c9d857bcf58aa98437c6610489
