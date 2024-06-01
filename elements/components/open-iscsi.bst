@@ -25,6 +25,6 @@ sources:
 - kind: git_repo
   url: github:open-iscsi/open-iscsi.git
   track: '*.*.*'
-  ref: 2.1.9-0-g678c3e9232b2b7177b7131071910da14f065e037
+  ref: 2.1.10-0-gd0f04ae4b9bf0bc0be55fbda5f235afdfbf5dd19
 - kind: patch
   path: patches/open-iscsi/no-werror.patch
