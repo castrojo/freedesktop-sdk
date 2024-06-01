@@ -53,4 +53,4 @@ sources:
 - kind: git_repo
   url: git_https:aomedia.googlesource.com/aom.git
   track: v*.*.*
-  ref: v3.9.0-rc1-0-g8c92d3cbde9f53afa9f4592fe259e824f3210cc6
+  ref: v3.8.2-0-g615b5f541e4434aebd993036bc97ebc1a77ebc25
