@@ -53,4 +53,6 @@ sources:
 - kind: git_repo
   url: git_https:aomedia.googlesource.com/aom.git
   track: v*.*.*
+  exclude:
+  - "*-rc*"
   ref: v3.8.2-0-g615b5f541e4434aebd993036bc97ebc1a77ebc25
