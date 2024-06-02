@@ -27,3 +27,7 @@ sources:
   directory: subprojects/packagecache/quote-1.0.33
   url: tar_https:crates.io/api/v1/crates/quote/1.0.33/download
   ref: 5267fca4496028628a95160fc423a33e8b2e6af8a5302579e322e4b520293cae
+- kind: tar
+  directory: subprojects/packagecache/paste-1.0.14
+  url: tar_https:crates.io/api/v1/crates/paste/1.0.14/download
+  ref: de3145af08024dea9fa9914f381a17b8fc6034dfb00f3a84013f7ff43f29ed4c
