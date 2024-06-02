@@ -511,6 +511,7 @@ depends:
 - components/rtkit.bst
 - components/ruby.bst
 - components/rust-bindgen.bst
+- components/rust-cbindgen.bst
 - components/rust.bst
 - components/sbc.bst
 - components/sbsigntools-maybe.bst
