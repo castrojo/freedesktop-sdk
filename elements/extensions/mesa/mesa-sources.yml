@@ -10,6 +10,8 @@ sources:
   path: patches/mesa/clang_res_path.patch
 - kind: patch
   path: patches/mesa/nouveau-nvif-ioctl-header.patch
+- kind: patch
+  path: patches/mesa/nvk_cmd_buffer-remove-apparent-leftover-header.patch
 # Rust dependencies:
 - kind: tar
   directory: subprojects/packagecache/syn-2.0.39
