@@ -9,6 +9,7 @@ build-depends:
 - components/python3-pycparser.bst
 - components/rust.bst
 - components/rust-bindgen.bst
+- components/rust-cbindgen.bst
 - components/spirv-llvm-translator.bst
 - components/spirv-tools.bst
 - components/vulkan-headers.bst
