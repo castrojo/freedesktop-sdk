@@ -242,6 +242,7 @@ depends:
 - components/libidn2.bst
 - components/libinput.bst
 - components/libjcat.bst
+- components/libjxl.bst
 - components/libksba.bst
 - components/libmicrohttpd.bst
 - components/libmnl.bst
