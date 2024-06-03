@@ -10,6 +10,7 @@ depends:
 - components/freetype.bst
 - components/fribidi.bst
 - components/lame.bst
+- components/libjxl.bst
 - components/libva.bst
 - components/libvdpau.bst
 - components/librsvg.bst
@@ -66,6 +67,7 @@ variables:
     --enable-libfontconfig
     --enable-libfreetype
     --enable-libfribidi
+    --enable-libjxl
     --enable-libopus
     --enable-libpulse
     --enable-libspeex
