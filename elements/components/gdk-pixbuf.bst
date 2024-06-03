@@ -4,6 +4,7 @@ build-depends:
 - components/gobject-introspection.bst
 - components/gtk-doc.bst
 - components/python3-docutils.bst
+- components/python3-gi-docgen.bst
 - public-stacks/buildsystem-meson.bst
 
 depends:
@@ -19,6 +20,8 @@ variables:
     -Dinstalled_tests=false
     -Dothers=enabled
     -Dtests=false
+    -Dgtk_doc=true
+    -Dman=true
 
 public:
   bst:
