@@ -36,4 +36,4 @@ sources:
 - kind: git_repo
   url: github:libproxy/libproxy.git
   track: '*.*.*'
-  ref: 0.5.5-0-g184c32348edd530b7217b4f44b5a0080f50792fc
+  ref: 0.5.6-0-ge7d18806575e21f94cf2f6024659386b129ca189
