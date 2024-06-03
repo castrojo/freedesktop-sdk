@@ -1,19 +1,17 @@
 kind: meson
 
+build-depends:
+- components/gobject-introspection.bst
+- components/gtk-doc.bst
+- components/python3-docutils.bst
+- public-stacks/buildsystem-meson.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/shared-mime-info.bst
-- filename: components/gobject-introspection.bst
-  type: build
-- filename: components/libtiff.bst
-- filename: components/libpng.bst
-- filename: components/jpeg.bst
-- filename: components/gtk-doc.bst
-  type: build
-- filename: public-stacks/buildsystem-meson.bst
-  type: build
-- filename: components/python3-docutils.bst
-  type: build
+- bootstrap-import.bst
+- components/shared-mime-info.bst
+- components/libtiff.bst
+- components/libpng.bst
+- components/jpeg.bst
 
 variables:
   meson-local: >
