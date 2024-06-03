@@ -171,6 +171,7 @@ depends:
 - components/harfbuzz.bst
 - components/help2man.bst
 - components/hicolor-icon-theme.bst
+- components/highway.bst
 - components/hosts.bst
 - components/hotdoc.bst
 - components/hunspell.bst
