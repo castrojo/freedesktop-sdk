@@ -375,6 +375,7 @@ depends:
 - components/pipewire-manifest.bst
 - components/pipewire.bst
 - components/pixman.bst
+- components/gdk-pixbuf-loaders.bst
 - components/pkg-config.bst
 - components/plymouth-logo.bst
 - components/plymouth.bst
