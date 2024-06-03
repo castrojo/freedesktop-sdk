@@ -17,6 +17,7 @@ variables:
   meson-local: >
     -Dbuiltin_loaders=png,jpeg
     -Dinstalled_tests=false
+    -Dtests=false
 
 public:
   bst:
