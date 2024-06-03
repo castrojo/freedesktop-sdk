@@ -18,10 +18,6 @@ variables:
       aom_target: x86_64
   - target_arch == "i686":
       aom_target: x86
-  - target_arch == "arm":
-      aom_target: arm
-      arch-options: >-
-        -DENABLE_NEON=NO
   - target_arch == "aarch64":
       aom_target: arm64
   - target_arch in ("ppc64le", "ppc64"):

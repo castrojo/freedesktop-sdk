@@ -13,8 +13,6 @@ variables:
       vpxtarget: x86_64-linux-gcc
   - target_arch == "i686":
       vpxtarget: x86-linux-gcc
-  - target_arch == "arm":
-      vpxtarget: armv7-linux-gcc
   - target_arch == "aarch64":
       vpxtarget: arm64-linux-gcc
   - target_arch == "ppc64le":

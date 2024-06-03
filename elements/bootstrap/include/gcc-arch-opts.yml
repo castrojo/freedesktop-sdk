@@ -2,12 +2,6 @@ variables:
   (?):
   - target_arch == "aarch64":
       conf-arch: ""
-  - target_arch == "arm":
-      conf-arch: >-
-        --with-mode=thumb
-        --with-fpu=vfpv3-d16
-        --with-arch=armv7-a
-        --with-float=hard
   - target_arch == "i686":
       # pentium4 == sse2
       conf-arch: >-

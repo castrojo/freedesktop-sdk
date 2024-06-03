@@ -27,12 +27,11 @@ depends:
 
 variables:
   command-subdir: subprojects/gst-plugins-base
+  gl-api: opengl,gles2
 
   (?):
-  - target_arch == "i686" or target_arch == "arm":
+  - target_arch == "i686":
       gl-api: opengl
-  - target_arch != "i686" and target_arch != "arm":
-      gl-api: opengl,gles2
 
   meson-local: >-
     -Dgl_api=%{gl-api}

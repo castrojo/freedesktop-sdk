@@ -9,9 +9,6 @@ go-arch: "%{arch}"
 - target_arch == "i686":
     snap_arch: "i386"
     go-arch: "386"
-- target_arch == "arm":
-    snap_arch: "armhf"
-    go-arch: "arm"
 - target_arch == "x86_64":
     snap_arch: "amd64"
     go-arch: "amd64"

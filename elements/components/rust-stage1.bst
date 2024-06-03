@@ -10,9 +10,6 @@ kind: stack
 - target_arch == "aarch64":
     depends:
     - components/rust-stage1-aarch64.bst
-- target_arch == "arm":
-    depends:
-    - components/rust-stage1-armv7.bst
 - target_arch == "ppc64le":
     depends:
     - components/rust-stage1-powerpc64le.bst

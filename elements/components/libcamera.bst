@@ -20,7 +20,7 @@ variables:
   (?):
   - target_arch == "i686" or target_arch == "x86_64":
       arch-pipelines: ',ipu3'
-  - target_arch == "aarch64" or target_arch == "arm":
+  - target_arch == "aarch64":
       arch-pipelines: ',imx8-isi,rkisp1,rpi/vc4,simple'
 
   meson-local: >-

@@ -38,8 +38,6 @@ variables:
   (?):
   - bootstrap_build_arch == "i686":
       build_arch_flags: "%{build_i686_flags}"
-  - bootstrap_build_arch == "arm":
-      build_arch_flags: "%{build_arm_flags}"
   - bootstrap_build_arch == "x86_64":
       build_arch_flags: "%{build_x86_64_flags}"
   - bootstrap_build_arch == "aarch64":
