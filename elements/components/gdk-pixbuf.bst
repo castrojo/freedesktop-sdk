@@ -18,6 +18,7 @@ variables:
     -Dbuiltin_loaders=png,jpeg
     -Dinstalled_tests=false
     -Dothers=enabled
+    -Dtests=false
 
 public:
   bst:
