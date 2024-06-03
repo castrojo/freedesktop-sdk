@@ -2,6 +2,7 @@ kind: flatpak_image
 
 build-depends:
 - extensions/ffmpeg-full/ffmpeg.bst
+- extensions/ffmpeg-full/libheif.bst
 - extensions/ffmpeg-full/appdata.bst
 
 (@):
