@@ -204,6 +204,7 @@ depends:
 - components/libarchive.bst
 - components/libassuan.bst
 - components/libatasmart.bst
+- components/libavif.bst
 - components/libblockdev.bst
 - components/libbpf.bst
 - components/libbytesize.bst
