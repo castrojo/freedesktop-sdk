@@ -37,8 +37,6 @@ depends:
 variables:
   optimize-debug: "false"
 
-  ffmpeg-prefix: '%{prefix}'
-  ffmpeg-libdir: '%{libdir}'
   ffmpeg-arch: '%{arch}'
   (?):
   - target_arch == "i686":
@@ -47,8 +45,8 @@ variables:
   local_flags: -fpermissive
 
   conf-local: >-
-    --prefix="%{ffmpeg-prefix}"
-    --libdir="%{ffmpeg-libdir}"
+    --prefix="%{prefix}"
+    --libdir="%{libdir}"
     --optflags="${CFLAGS}"
     --extra-ldflags="${LDFLAGS}"
     --disable-stripping
