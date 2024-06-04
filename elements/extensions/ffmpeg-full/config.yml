@@ -1,3 +1,3 @@
 variables:
-  ffmpeg-prefix: '%{libdir}/ffmpeg'
-  ffmpeg-libdir: '%{ffmpeg-prefix}/lib'
+  prefix: '/usr/lib/%{gcc_triplet}/ffmpeg'
+  libdir: '%{prefix}'
