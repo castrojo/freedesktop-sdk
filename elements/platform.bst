@@ -13,6 +13,7 @@ depends:
 - components/expat.bst
 - components/frei0r.bst
 - components/gdbm.bst
+- components/gdk-pixbuf-loaders.bst
 - components/gettext.bst
 - components/giflib.bst
 - components/glib.bst
@@ -103,7 +104,6 @@ depends:
 - components/freetype.bst
 - components/fribidi.bst
 - components/gcab.bst
-- components/gdk-pixbuf.bst
 - components/geoclue-libs.bst
 - components/glib-networking.bst
 - components/glslang.bst

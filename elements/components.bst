@@ -171,6 +171,7 @@ depends:
 - components/harfbuzz.bst
 - components/help2man.bst
 - components/hicolor-icon-theme.bst
+- components/highway.bst
 - components/hosts.bst
 - components/hotdoc.bst
 - components/hunspell.bst
@@ -204,6 +205,7 @@ depends:
 - components/libarchive.bst
 - components/libassuan.bst
 - components/libatasmart.bst
+- components/libavif.bst
 - components/libblockdev.bst
 - components/libbpf.bst
 - components/libbytesize.bst
@@ -240,6 +242,7 @@ depends:
 - components/libidn2.bst
 - components/libinput.bst
 - components/libjcat.bst
+- components/libjxl.bst
 - components/libksba.bst
 - components/libmicrohttpd.bst
 - components/libmnl.bst
@@ -372,6 +375,7 @@ depends:
 - components/pipewire-manifest.bst
 - components/pipewire.bst
 - components/pixman.bst
+- components/gdk-pixbuf-loaders.bst
 - components/pkg-config.bst
 - components/plymouth-logo.bst
 - components/plymouth.bst
@@ -568,6 +572,7 @@ depends:
 - components/wavpack.bst
 - components/wayland-protocols.bst
 - components/wayland.bst
+- components/webp-pixbuf-loader.bst
 - components/webrtc-audio-processing.bst
 - components/weston.bst
 - components/wget2.bst

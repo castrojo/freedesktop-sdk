@@ -6,6 +6,7 @@ build-depends:
 depends:
 - components/sdl2.bst
 - components/jpeg.bst
+- components/libavif.bst
 - components/libpng.bst
 - components/libtiff.bst
 - components/libwebp.bst
@@ -15,6 +16,7 @@ variables:
     -DSDL2IMAGE_DEPS_SHARED:BOOL=OFF
     -DSDL2IMAGE_TIF:BOOL=ON
     -DSDL2IMAGE_WEBP:BOOL=ON
+    -DSDL2IMAGE_AVIF:BOOL=ON
 
 public:
   bst:
