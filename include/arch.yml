@@ -19,10 +19,6 @@ variables:
   - target_arch == "aarch64":
       arch: "aarch64"
       linux-root: B921B045-1DF0-41C3-AF44-4C6F280D3FAE
-  - target_arch == "arm":
-      arch: "arm"
-      abi: "gnueabihf"
-      linux-root: 69DAD710-2CE4-4E3C-B16C-21A1D49ABED3
   - target_arch == "ppc64le":
       arch: "powerpc64le"
       gcc_arch: "powerpc64le"

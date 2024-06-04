@@ -37,7 +37,7 @@ variables:
   plugin_uefi_capsule: 'disabled'
   efi_binary: 'false'
   (?):
-  - target_arch in ["arm", "aarch64"]:
+  - target_arch == "aarch64":
       plugin_uefi_capsule: 'enabled'
       efi_binary: 'true'
   - target_arch in ["i686", "x86_64"]:

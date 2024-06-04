@@ -23,8 +23,6 @@ variables:
       targets: X86;AMDGPU;NVPTX;BPF
   - target_arch == "x86_64":
       targets: X86;AMDGPU;NVPTX;BPF
-  - target_arch == "arm":
-      targets: ARM;BPF
   - target_arch == "aarch64":
       targets: AArch64;AMDGPU;BPF
   - target_arch in ("ppc64le", "ppc64"):

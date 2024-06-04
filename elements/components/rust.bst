@@ -16,16 +16,12 @@ variables:
 
   debuginfo-level-std: '1'
   rust-target: '%{host-triplet}'
-  llvm-targets: 'AArch64;ARM;Hexagon;MSP430;Mips;NVPTX;PowerPC;Sparc;SystemZ;WebAssembly;X86'
   build-docs: 'true'
   (?):
   - target_arch == "i686":
       llvm-targets: 'X86'
   - target_arch == "x86_64":
       llvm-targets: 'X86'
-  - target_arch == "arm":
-      rust-target: armv7-unknown-linux-gnueabihf
-      llvm-targets: 'ARM'
   - target_arch == "aarch64":
       llvm-targets: 'AArch64'
   - target_arch == "ppc64le":

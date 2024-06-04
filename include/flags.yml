@@ -118,9 +118,6 @@ variables:
   - target_arch == "i686":
       target_arch_flags: "%{target_i686_flags}"
       rust_target_arch_flags: "%{rust_target_i686_flags}"
-  - target_arch == "arm":
-      target_arch_flags: "%{target_arm_flags}"
-      rust_target_arch_flags: "%{rust_target_arm_flags}"
   - target_arch == "x86_64":
       target_arch_flags: "%{target_x86_64_flags}"
       rust_target_arch_flags: "%{rust_target_x86_64_flags}"
