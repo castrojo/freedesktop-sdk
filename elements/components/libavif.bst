@@ -28,8 +28,6 @@ public:
       devel:
         (>):
         - '%{libdir}/libavif.so'
-        - '%{libdir}/cmake'
-        - '%{libdir}/cmake/**'
 
   integration-commands:
   - |

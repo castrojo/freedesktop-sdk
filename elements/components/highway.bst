@@ -14,8 +14,6 @@ public:
         - '%{libdir}/libhwy.so'
         - '%{libdir}/libhwy_contrib.so'
         - '%{libdir}/libhwy_test.so'
-        - '%{libdir}/cmake'
-        - '%{libdir}/cmake/**'
 
 variables:
   cmake-local: >-
