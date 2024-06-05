@@ -42,6 +42,9 @@ public:
         - '%{libdir}/libpcre2-16.so'
         - '%{libdir}/libpcre2-32.so'
         - '%{libdir}/libpcre2-posix.so'
+  cpe:
+    ignored:
+    - CVE-2017-8399
 
 sources:
 - kind: git_repo
