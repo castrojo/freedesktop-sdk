@@ -60,7 +60,7 @@ public:
 sources:
 - kind: git_repo
   url: github:golang/go.git
-  track: go*
+  track: go1.21.*
   exclude:
   - '*rc*'
   - '*beta*'
