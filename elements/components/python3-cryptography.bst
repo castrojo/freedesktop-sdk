@@ -13,6 +13,8 @@ depends:
 sources:
 - kind: pypi
   name: cryptography
+  include:
+  - '42.0.5'
   ref:
     sha256sum: 6fe07eec95dfd477eb9530aef5bead34fec819b3aaf6c5bd6d20565da607bfe1
     suffix: 13/9e/a55763a32d340d7b06d045753c186b690e7d88780cafce5f88cb931536be/cryptography-42.0.5.tar.gz
