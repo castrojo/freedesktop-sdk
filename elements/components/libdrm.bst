@@ -56,6 +56,6 @@ sources:
 - kind: git_repo
   url: freedesktop:mesa/drm.git
   track: libdrm-*
-  ref: libdrm-2.4.120-0-g75254bf2390c10644ffb35a90fc8f18f196f9f0c
+  ref: libdrm-2.4.121-0-g70c4f836ccffa972978bc58c9cc0434f85984be8
 - kind: patch
   path: patches/libdrm/libdrm-do-not-break-abi.patch
