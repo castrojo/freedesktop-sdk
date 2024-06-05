@@ -1,0 +1,25 @@
+From adf1d9d0dddda86687d1eaf87f5f105e00ca671f Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Sun, 2 Jun 2024 10:48:56 +0530
+Subject: [PATCH] nvk_cmd_buffer: Remove apparent leftover header
+
+---
+ src/nouveau/vulkan/nvk_cmd_buffer.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/src/nouveau/vulkan/nvk_cmd_buffer.c b/src/nouveau/vulkan/nvk_cmd_buffer.c
+index 60db6fd21d6..a0fb4bbac27 100644
+--- a/src/nouveau/vulkan/nvk_cmd_buffer.c
++++ b/src/nouveau/vulkan/nvk_cmd_buffer.c
+@@ -20,8 +20,6 @@
+ 
+ #include "nouveau_context.h"
+ 
+-#include "nouveau/nouveau.h"
+-
+ #include "nvk_cl906f.h"
+ #include "nvk_cl90b5.h"
+ #include "nvk_cla097.h"
+-- 
+2.45.1
+
