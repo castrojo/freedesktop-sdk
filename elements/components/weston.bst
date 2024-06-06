@@ -42,4 +42,4 @@ sources:
 - kind: git_repo
   track: '*.*.*'
   url: freedesktop:wayland/weston.git
-  ref: 13.0.1-0-gfad928ca37beb3bdf70f33bcfcb12149e4da217d
+  ref: 13.0.3-0-g8cb33a19163be8c96e2f523ea1e09340c888c043
