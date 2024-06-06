@@ -232,7 +232,7 @@ check_mirrors:
   script:
     - |
       ${BST} source fetch --deps all flatpak-release-repo.bst components.bst \
-             components/rust-stage1-{x86_64,i686,aarch64,armv7,powerpc64le}.bst \
+             components/rust-stage1-{x86_64,i686,aarch64,powerpc64le}.bst \
              oci/layers/{flatpak,debug,platform,sdk}.bst
   allow_failure: true
   rules:
@@ -686,7 +686,6 @@ finish_publish_failed:
           for ref in $(ostree --repo=repo refs --list); do
             case "${ref}" in
               */*/ppc64le/*) ;&
-              */*/arm/*) ;&
               */*/i386/*)
                 echo "Deleting ${ref}"
                 ostree --repo=repo refs --delete "${ref}"
