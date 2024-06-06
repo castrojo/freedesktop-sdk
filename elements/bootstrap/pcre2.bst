@@ -42,6 +42,12 @@ public:
         - '%{libdir}/libpcre2-16.so'
         - '%{libdir}/libpcre2-32.so'
         - '%{libdir}/libpcre2-posix.so'
+  cpe:
+    patches:
+    - CVE-2022-1586
+    - CVE-2022-1587
+    ignored:
+    - CVE-2017-8399
 
 sources:
 - kind: git_repo
