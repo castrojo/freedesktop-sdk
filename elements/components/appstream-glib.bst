@@ -18,7 +18,6 @@ variables:
     -Dfonts=false
     -Ddep11=false
     -Drpm=false
-    -Dstemmer=false
 
 config:
   install-commands:
