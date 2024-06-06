@@ -1,10 +1,11 @@
 kind: autotools
 
 build-depends:
+- bootstrap/bootstrap.bst
 - components/perl.bst
 
 depends:
-- bootstrap-import.bst
+- bootstrap/bootstrap-base.bst
 
 variables:
   openssl-target: linux-%{target_arch}

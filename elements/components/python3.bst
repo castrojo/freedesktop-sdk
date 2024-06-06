@@ -12,6 +12,7 @@ depends:
 - components/gdbm.bst
 - components/openssl.bst
 - components/sqlite.bst
+- components/tk.bst
 
 variables:
   install-conf: COMPILEALL_OPTS=-j1  # Used for deterministic compiling
@@ -24,8 +25,6 @@ variables:
     --with-dbmliborder=gdbm \
     --with-lto \
     --with-conf-includedir="%{includedir}/%{gcc_triplet}"
-  version_short: "3"
-  version_long: "%{version_short}.12"
 
 config:
   install-commands:
@@ -39,8 +38,6 @@ config:
     rm -rf %{install-root}%{bindir}/idle*
   - |
     rm -rf %{install-root}%{indep-libdir}/python%{version_long}/idlelib
-  - |
-    rm -rf %{install-root}%{indep-libdir}/python%{version_long}/tkinter
   - |
     rm -rf %{install-root}%{indep-libdir}/python%{version_long}/turtle*
   - |

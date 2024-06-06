@@ -1,12 +1,14 @@
-kind: meson
+kind: autotools
 description: X.Org combined protocol headers
 
+
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/python3-minimal.bst
+- components/xorg-util-macros.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: public-stacks/buildsystem-meson.bst
-  type: build
-- filename: components/xorg-util-macros.bst
-  type: build
+- bootstrap-import.bst
 
 sources:
 - kind: git_repo
