@@ -18,7 +18,6 @@ variables:
     -Dfonts=false
     -Ddep11=false
     -Drpm=false
-    -Dstemmer=false
 
 config:
   install-commands:
@@ -40,4 +39,4 @@ sources:
 - kind: git_repo
   url: github:hughsie/appstream-glib.git
   track: appstream_glib_*
-  ref: appstream_glib_0_8_2-0-g02c8ad3b66075d9b2c9094dff816cd44839a4b45
+  ref: appstream_glib_0_8_3-0-g830cdbd0581110bdb74188e7a66c272cd059f5bb
