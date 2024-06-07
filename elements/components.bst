@@ -63,7 +63,6 @@ depends:
 - components/dmidecode.bst
 - components/docbook-xml.bst
 - components/docbook-xsl.bst
-- components/doctest.bst
 - components/dosfstools.bst
 - components/doxygen.bst
 - components/dracut.bst
@@ -88,7 +87,6 @@ depends:
 - components/flatpak.bst
 - components/flex-base.bst
 - components/flex.bst
-- components/fmtlib.bst
 - components/fontconfig.bst
 - components/foomatic-db.bst
 - components/freetype-stage1.bst
@@ -508,7 +506,6 @@ depends:
 - components/xorg-proto-xorgproto.bst
 - components/xorg-util-macros.bst
 - components/xwayland.bst
-- components/xxhash.bst
 - components/xz-docs.bst
 - components/yajl.bst
 - components/yelp-tools.bst

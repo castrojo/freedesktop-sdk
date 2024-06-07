@@ -10,7 +10,6 @@ config:
   - components/bluez.bst
   - components/ccid.bst
   - components/dracut.bst
-  - components/fmtlib.bst
   - components/gamemode.bst
   - components/iproute2.bst
   - components/libapparmor.bst
@@ -39,5 +38,4 @@ config:
   - components/wpa-supplicant.bst
   - components/xdg-desktop-portal.bst
   - components/xfsprogs.bst
-  - components/xxhash.bst
   - components/xwayland.bst
