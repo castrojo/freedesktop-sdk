@@ -18,5 +18,5 @@ depends:
 sources:
 - kind: git_repo
   url: github:ccache/ccache.git
-  track: v*
+  track: v4.9.*
   ref: v4.9.1-0-gec510e9b0f333b8e97aee98108de3e0858340d59
