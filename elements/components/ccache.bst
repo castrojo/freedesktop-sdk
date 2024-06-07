@@ -4,13 +4,13 @@ build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/asciidoc.bst
 - components/doctest.bst
-- components/fmtlib.bst
 - components/git-minimal.bst
 - components/perl.bst
 
 depends:
 - bootstrap-import.bst
 - components/zstd.bst
+- components/fmtlib.bst
 
 variables:
   cmake-local: >-
