@@ -8,15 +8,16 @@ build-depends:
 - components/git-minimal.bst
 - components/perl.bst
 
+depends:
+- bootstrap-import.bst
+- components/zstd.bst
+
 variables:
   cmake-local: >-
     -DREDIS_STORAGE_BACKEND=OFF
     -DCCACHE_DEV_MODE=OFF
     -DENABLE_TESTING=OFF
 
-depends:
-- bootstrap-import.bst
-- components/zstd.bst
 
 sources:
 - kind: git_repo
