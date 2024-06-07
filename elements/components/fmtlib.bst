@@ -17,8 +17,6 @@ public:
       devel:
         (>):
         - '%{libdir}/libfmt.so'
-        - '%{libdir}/cmake'
-        - '%{libdir}/cmake/**'
 
 sources:
 - kind: git_repo
