@@ -4,12 +4,14 @@ build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/asciidoc.bst
 - components/git-minimal.bst
+- components/fmtlib.bst
 - components/perl.bst
 
 variables:
   cmake-local: >-
     -DREDIS_STORAGE_BACKEND=OFF
     -DCCACHE_DEV_MODE=OFF
+    -DFMT_LIBRARY="%{libdir}/libfmt.a"
 
 depends:
 - bootstrap-import.bst
