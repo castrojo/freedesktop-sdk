@@ -122,7 +122,6 @@ depends:
 - components/fwupd-efi-maybe.bst
 - components/gamemode.bst
 - components/gcab.bst
-- components/gccgo.bst
 - components/gdb.bst
 - components/gdbm.bst
 - components/gdk-pixbuf.bst
