@@ -2,7 +2,7 @@ kind: autotools
 description: TCL
 
 depends:
-- filename: bootstrap-import.bst
+- bootstrap-import.bst
 
 variables:
   conf-cmd: ./unix/configure
@@ -15,6 +15,11 @@ public:
       devel:
         (>):
         - '%{indep-libdir}/tcl*/tclAppInit.c'
+      static-blocklist:
+        (>):
+        - '%{libdir}/libtclstub*.a'
+        - '%{libdir}/itcl*/libitclstub*.a'
+        - '%{libdir}/tdbc*/libtdbcstub*.a'
 
 config:
   install-commands:
@@ -23,6 +28,9 @@ config:
     - sed -i "s|%{build-root}|%{includedir}/tcl-private|" %{install-root}%{libdir}/tclConfig.sh
     - mkdir -p "%{install-root}%{includedir}/tcl-private/doc/"
     - cp "%{build-root}/doc/man.macros" "%{install-root}%{includedir}/tcl-private/doc/"
+
+    # The below file overlaps with a man page from perl.
+    - rm "%{install-root}%{mandir}/man3/Thread.3"
 
 sources:
 - kind: tar

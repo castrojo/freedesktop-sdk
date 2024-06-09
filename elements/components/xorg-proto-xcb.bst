@@ -1,14 +1,13 @@
 kind: autotools
 description: X.org proto xcb
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/python3-minimal.bst
+- components/xorg-util-macros.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/python3.bst
-  type: build
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/xorg-util-macros.bst
-  type: build
+- bootstrap-import.bst
 
 sources:
 - kind: git_repo

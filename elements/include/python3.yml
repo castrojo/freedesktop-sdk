@@ -1,3 +1,7 @@
+variables:
+  version_short: "3"
+  version_long: "%{version_short}.12"
+
 sources:
 - kind: git_repo
   track: v*

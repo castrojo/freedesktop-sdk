@@ -1,16 +1,15 @@
 kind: autotools
 description: X.org lib xcb
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/xorg-util-macros.bst
+- components/python3-minimal.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/xorg-proto-xcb.bst
-- filename: components/xorg-util-macros.bst
-  type: build
-- filename: components/xorg-lib-xau.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/python3.bst
-  type: build
+- bootstrap-import.bst
+- components/xorg-proto-xcb.bst
+- components/xorg-lib-xau.bst
 
 variables:
   conf-local: |

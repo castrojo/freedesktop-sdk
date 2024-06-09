@@ -1,6 +1,7 @@
 kind: manual
 
 depends:
+- bootstrap-import.bst
 - components/openssl.bst
 
 config:
