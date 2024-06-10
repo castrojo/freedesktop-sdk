@@ -2,7 +2,7 @@ sources:
 - kind: git_repo
   url: github:perl/perl5.git
   # Tracking is expected to be changed to a maintenance branch post-release
-  track: v5.*[02468].*
+  track: v5.38.*
   exclude:
   - v*-RC*
   ref: v5.38.2-0-g55dd2f792ffc8cefe614350a411f785374281b24
