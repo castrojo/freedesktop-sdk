@@ -1,5 +1,83 @@
 Freedesktop-SDK
 
+freedesktop-sdk-23.08.20:
+  * Update mesa to mesa-24.1.1-0
+  * Update libdrm to libdrm-2.4.121-0
+  * ccache: Freeze to 4.9
+  * ccache: Revert update to 4.10
+  * mesa: Remove applied patches
+  * Update mesa to mesa-24.1.1-0
+  * appstream-glib: Remove meson arg for stemmer
+  * Update appstream-glib to appstream_glib_0_8_3-0
+  * Update iwd to 2.18-0
+  * Update podman to v5.1.1-0
+  * Update libdrm to libdrm-2.4.121-0
+  * mesa: Remove apparently leftover libdrm nouveau header
+  * mesa: Add an element for cbindgen for NVK
+  * mesa: Add paste crate for NVK
+  * mesa: Enable nouveau vulkan
+  * Update ell to 0.66-0
+  * Update openssl to openssl-3.1.6-0
+  * Update python3-grpcio to 1.64.1
+  * Update buildbox to 1.2.4-0
+  * Update dictionaries to libreoffice-24.2.4.2-0
+  * Update python3-cryptography to 42.0.8-0
+  * nasm: Drop configure patch
+  * Update nasm to nasm-2.16.03-0
+  * Update cmake to v3.29.4-0
+  * Update iwd to 0.66-0
+  * Update python3-typing-extensions to 4.12.1-0
+  * Update python3-certifi to 2024.6.2
+  * Update poppler to poppler-24.06.0-0
+  * Update glibc to glibc-2.38-81
+  * gdk-pixbuf: Enable docs
+  * gdk-pixbuf: Disable tests fully
+  * gdk-pixbuf: Separate build dependencies
+  * Update vim to v9.1.0461-0
+  * ccid: Update to 1.6.0
+  * Update open-iscsi to 2.1.10-0
+  * Add an element for doctest to build documentation for ccache
+  * Add an element for fmtlib as ccache build depends on it
+  * ccache: Disable tests
+  * Update ccache to v4.10-0
+  * Update libevdev to libevdev-1.13.2-0
+  * Update networkmanager to 1.48.0-0
+  * Update libabigail to libabigail-2.5-24
+  * Update git to v2.45.2-0
+  * Update grpc to v1.64.1-0
+  * Update netavark to v1.11.0-0
+  * Update linux to v6.9.3-0
+  * Update aardvark-dns to v1.11.0-0
+  * Disable forced colors from CI
+  * rust: Update to 1.78.0
+  * Update composefs to v1.0.4-0
+  * Update genpeimg to v12.0.0-0
+  * Update podman to v5.1.0-0
+  * Update python3-requests to 2.32.3
+  * mesa: Enable teflon
+  * mesa: Add pycparser as a build dependency for non-x86_64
+  * mesa: Add patch for missing header in nvif
+  * mesa: Add patch to fix clang_res_path resolution
+  * mesa: Add ply as build depends
+  * Add element for python3-ply
+  * mesa: Remove meson patch
+  * mesa: Enable intel-rt only on x86_64
+  * mesa: Fix meson arguments
+  * Update mesa to mesa-24.1.0-0
+  * Add simple Meson project to validate dynamic linker works for apps
+  * Update systemd to v254.13-0
+  * Update pcsc-lite to 2.2.3-0
+  * Update vim to v9.1.0446-0
+  * Update freedesktop-sdk to freedesktop-sdk-23.08.19-0
+  * Update linux to v6.9.2-0
+  * Update po4a to v0.72-0
+  * Update python3-typing-extensions to 4.12.0-0
+  * Update librsvg to 2.58.1-0
+  * Update python3-setuptools to v70.0.0-0
+  * Update python3-requests to 2.32.2
+  * Update python3-trove-classifiers to 2024.5.22-0
+  * Update doxygen to Release_1_11_0-0
+
 freedesktop-sdk-23.08.19:
   * Revert "Merge branch 'nanonyme/ldconfig-23.08' into 'release/23.08'"
   * ci: Generate static deltas for Flathub
