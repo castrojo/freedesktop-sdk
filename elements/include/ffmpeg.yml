@@ -120,3 +120,5 @@ sources:
   exclude:
   - '*-dev'
   ref: n7.0.1-0-gaf25a4bfd2503caf3ee485b27b99b620302f5718
+- kind: patch_queue
+  path: patches/ffmpeg
