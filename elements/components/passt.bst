@@ -16,4 +16,4 @@ sources:
 - kind: git_repo
   url: passt:passt
   track: '*_*_*.*'
-  ref: 2024_04_26.d03c4e2-0-gd03c4e20202b9546b2b233a2ff98cb3b3395b8d9
+  ref: 2024_06_07.8a83b53-0-g8a83b530feeac1a9812fe457e86257430f6b2fed
