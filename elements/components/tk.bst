@@ -35,6 +35,7 @@ sources:
   url: github:tcltk/tk.git
   track: core-*
   exclude:
-  - "*a*"
-  - "rc*"
+  - "*-a*"
+  - "*-b*"
+  - "*-rc*"
   ref: core-8-6-10-0-gdab8eb4558ae5ea13f4cb684df1ade5910012483
