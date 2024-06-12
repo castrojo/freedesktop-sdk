@@ -8,6 +8,7 @@ runtime-depends:
 - components/systemd-hwdb.bst
 - components/audit.bst
 - components/libapparmor.bst
+- components/libarchive.bst
 - components/libgpg-error.bst
 - components/linux-pam.bst
 - components/kmod.bst
@@ -16,6 +17,7 @@ runtime-depends:
 - components/shadow.bst
 - components/util-linux-full.bst
 - components/libidn2.bst
+- components/libbpf.bst
 - components/libseccomp.bst
 - components/kbd.bst
 - components/cryptsetup.bst
