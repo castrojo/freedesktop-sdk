@@ -65,7 +65,7 @@ sources:
   - "*b*"
   - "*rc*"
   - "*op*"
-  ref: v2.4.8-0-ge64a8085f3d3bcd4178ee3c7c135f3bbb3b1c289
+  ref: v2.4.9-0-ga2bd523c63823f061d20e437258ed22a70b4df39
 - kind: local
   path: files/cups/tmpfiles.conf
 - kind: local
