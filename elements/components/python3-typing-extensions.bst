@@ -13,4 +13,4 @@ sources:
   exclude:
   - '*rc*'
   - '*a*'
-  ref: 4.12.0-0-gf90a8dc40b60bf43510b8611a07d8cc570544ffe
+  ref: 4.12.2-0-ge1250ff869e7ee5ad05170d8a4b65469f13801c3
