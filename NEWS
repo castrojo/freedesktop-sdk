@@ -1,6 +1,6 @@
 Freedesktop-SDK
 
-freedesktop-sdk-22.08.24:
+freedesktop-sdk-22.08.25:
   * Update python3-packaging to 24.1
   * Update extra-cmake-modules to v6.3.0-0
   * Update frei0r to v2.3.3-0
