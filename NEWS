@@ -1,6 +1,333 @@
 Freedesktop-SDK
 
 freedesktop-sdk-22.08.24:
+  * Update python3-packaging to 24.1
+  * Update extra-cmake-modules to v6.3.0-0
+  * Update frei0r to v2.3.3-0
+  * Update btrfs-progs to v6.9-0
+  * Update vim to v9.1.0470-0
+  * Update python3-typing-extensions to 4.12.2
+  * Update mutool to 1.24.3-0
+  * Update qpdf to v11.9.1-0
+  * ccache: Freeze to 4.9
+  * ccache: Revert update to 4.10
+  * Update libwacom to libwacom-2.12.0-0
+  * Update cmake to v3.29.5-0
+  * Update libinput to 1.26.0-0
+  * Update iwd to 2.18-0
+  * appstream-glib: Remove meson arg for stemmer
+  * Update appstream-glib to appstream_glib_0_8_3-0
+  * Update cmake to v3.29.4-0
+  * Update weston to 13.0.3-0
+  * pcre2: Mark CVE-2022-1586 and CVE-2022-1587 as patched
+  * pcre2: Ignore CVE-2017-8399
+  * go: Update to 1.21.11
+  * go: Track 1.21
+  * wayland: Freeze to 1.22 due to ABI break
+  * python3-cryptography: Freeze to 42.0.5
+  * Update libdrm to libdrm-2.4.121-0
+  * nasm: Drop configure patch
+  * Update nasm to nasm-2.16.03-0
+  * Update podman to v5.1.1-0
+  * Update openssl to openssl-3.0.14-0
+  * Update python3-certifi to 2024.6.2
+  * Update poppler to poppler-24.06.0-0
+  * Update ell to 0.66-0
+  * Update libdrm to libdrm-2.4.121-0
+  * Update networkmanager to 1.48.0-0
+  * Update python3-typing-extensions to 4.12.1
+  * Update aom to v3.9.0-0
+  * ccid: Update to 1.6.0
+  * Update vim to v9.1.0457-0
+  * ccache: Disable tests
+  * Add an element for doctest to build documentation for ccache
+  * Add an element for xxhash as ccache depends on it
+  * Add an element for fmtlib as ccache build depends on it
+  * Update ccache to v4.10-0
+  * Update libevdev to libevdev-1.13.2-0
+  * aom: Exclude rc tags
+  * Revert "Update aom to v3.9.0-rc1-0"
+  * Update git to v2.45.2-0
+  * Update open-iscsi to 2.1.10-0
+  * Disable forced colors from CI
+  * Update composefs to v1.0.4-0
+  * Update podman to v5.1.0-0
+  * Update python3-requests to 2.32.3
+  * Update genpeimg to v12.0.0-0
+  * Update pcsc-lite to 2.2.3-0
+  * Update po4a to v0.72-0
+  * Update vim to v9.1.0445-0
+  * Update cni to v1.5.0-0
+  * Update flat-manager-client-base to 0.4.3-0
+  * ci: Generate static deltas for Flathub
+  * Update python3-typing-extensions to 4.12.0
+  * Update python3-setuptools to 70.0.0
+  * Update python3-requests to 2.32.2
+  * Update python3-virtualenv to 20.26.2
+  * Update to image built from freedesktop-sdk 23.08.18
+  * Update python3-trove-classifiers to 2024.5.22
+  * Update libcap to libcap-2.70-0
+  * Update fwupd to 1.9.20-0
+  * Update python3-lxml to 5.2.2
+  * Update eos-metrics to Release_6.0.0-0
+  * Update doxygen to Release_1_11_0-0
+  * Update python3-requests to 2.32.1
+  * Update python3-gi-docgen to 2024.1
+  * Update man-pages to man-pages-6.8-0
+  * Update pcsc-lite to 2.2.2-0
+  * Update linux-firmware to 20240513-0
+  * Update lvm2 to v2_03_24-0
+  * Update iproute2 to v6.9.0-0
+  * Update bluez to 5.76-0
+  * Update conmon to v2.1.12-0
+  * Update mutool to 1.24.2-0
+  * Update gtk3 to 3.24.42-0
+  * Update tpm2-tss to 3.2.3-0
+  * Update vim to v9.1.0418-0
+  * gdk-pixbuf: Remove applied patch
+  * Update gdk-pixbuf to 2.42.12-0
+  * Update python3-mako to 1.3.5
+  * Update asciidoctor to v2.0.23-0
+  * Update python3-trove-classifiers to 2024.5.17
+  * tpm2-tss: Freeze to v3
+  * ostree: Update to v2024.6
+  * Update git to v2.45.1-0
+  * Update strace to v6.9-0
+  * Update xwayland to xwayland-23.2.7-0
+  * ninja: Freeze to 1.11.x
+  * Update freedesktop-sdk to freedesktop-sdk-22.08.24-270
+  * Update glibc to glibc-2.35-327
+  * Update slirp4netns to v1.3.1-0
+  * Update vim to v9.1.0408-0
+  * jinja2: Add flit-core build dependency
+  * Update python3-jinja2 to 3.1.4
+  * Update extra-cmake-modules to v6.2.0-0
+  * Update libassuan to libassuan-2.5.7-0
+  * Update sdl2 to release-2.24.2-0
+  * Update podman to v5.0.3-0
+  * ghostscript: Track only release versions
+  * libconfuse: Exclude version tags
+  * libassuan: Exclude base tags
+  * libproxy: Freeze to 0.4
+  * libarchive: Freeze to 3.7.2
+  * xwayland: Freeze to 23.x
+  * libsepol: Freeze to 3.5
+  * nettle: Freeze to 3.8
+  * Update python3-tenacity to 8.3.0
+  * Update libslirp to v4.8.0-0
+  * Update bash-completion to 2.14.0-0
+  * Update pcsc-lite to 2.2.1-0
+  * Update cmake to v3.29.3-0
+  * Update python3-tomlkit to 0.12.5
+  * Update mesa to mesa-24.0.7-0
+  * Update python3-babel to 2.15.0
+  * Update fwupd to 1.9.19-0
+  * Update libnvme to v1.9-0
+  * Update python3-setuptools-scm to 8.1.0
+  * Update pcsc-lite to 2.2.0-0
+  * Update flatpak to 1.14.8-0
+  * Update python3-schema to 0.7.7
+  * opus: Freeze to 1.4
+  * podman: Add python3 as build dependency for docs
+  * Update podman to v5.0.2-0
+  * Update python3-pygments to 2.18.0
+  * Update foomatic-db to 20240504-0
+  * Update wayland-protocols to 1.36-0
+  * Update vim to v9.1.0393-0
+  * Update foomatic-db to 20240209-1
+  * Update python3-virtualenv to 20.26.1
+  * Update ell to 0.65-0
+  * python3-dbus-deviation: Fix dependencies
+  * python3-docutils: Depends on flit
+  * python3-docutils: Remove filename from depends and build-depends
+  * Update python3-docutils to 0.21.2
+  * Fully remove armv7 flatpak cross-compilation toolchain
+  * python3-sphinx: Add tomli as dependency
+  * Update python3-sphinx to 7.3.7
+  * e2fsprogs: Exclude rc tags
+  * Update conmon to v2.1.11-0
+  * Update nano to v8.0-0
+  * Update btrfs-progs to v6.8.1-0
+  * sdl2: Fix tracking for 2.24
+  * Fix inconsistent whitespace
+  * Backport fdsk_registry for mirroring
+  * Update to new image
+  * Update git to v2.45.0-0
+  * Update cups-base to v2.4.8-0
+  * Update poppler to poppler-24.05.0-0
+  * Update libgusb to 0.4.9-0
+  * Update python3-filelock to 3.14.0
+  * Update gsettings-desktop-schemas to 46.0-0
+  * Update dmidecode to dmidecode-3-6-0
+  * Update mesa to mesa-24.0.6-0
+  * Update python3-setuptools to 69.5.1
+  * Update python3-trove-classifiers to 2024.4.10
+  * Update python3-pluggy to 1.5.0
+  * Update tpm2-tools to 5.7-0
+  * Update fcitx5 to 5.1.3-0
+  * Update slirp4netns to v1.3.0-0
+  * Update vim to v9.1.0377-0
+  * Update glibc to glibc-2.35-320
+  * Update python3-hatchling to 1.24.2
+  * Update weston to 13.0.1-0
+  * Update python3-virtualenv to 20.26.0
+  * Update vala to 0.56.17-0
+  * Update python3-idna to 3.7
+  * Update iwd to 0.65-0
+  * Update bluez to 5.75-0
+  * sdl2-image: Fix tracking
+  * *: update to latest releases
+  * freeglut: Ignore pre-releases
+  * Update libxmlb to 0.3.19-0
+  * Update libcap-ng to v0.8.5-0
+  * gdk-pixbuf: re-enable build of fringe loaders
+  * Update gdk-pixbuf to 2.42.11-0
+  * Update flatpak to 1.14.6-0
+  * Update xdg-user-dirs to 0.18-0
+  * Update libsoup2 to 2.74.3-0
+  * Update mutool to 1.24.1-0
+  * Update python3-virtualenv to 20.25.3
+  * Update cryptsetup-base to v2.7.2-0
+  * Update xorg-util-macros to util-macros-1.20.1-0
+  * Update gnupg to gnupg-2.2.43-0
+  * Update libblockdev to 3.1.1-1-0
+  * Update vim to v9.1.0359-0
+  * abidiff-suppressions: Ignore internal return type changes
+  * aspell: Update to 0.60.8.1
+  * aspell: Remove patch
+  * aspell: Exclude pre-release tags
+  * Update glibc to glibc-2.35-315
+  * Update cmake to v3.29.2-0
+  * Update xdg-desktop-portal-base to 1.18.4-0
+  * openssl: Track tags, not branch
+  * Update cracklib to v2.9.11-0
+  * Update extra-cmake-modules to v6.1.0-0
+  * Update libwacom to libwacom-2.11.0-0
+  * Update wayland-protocols to 1.35-0
+  * libsrtp2: Freeze to 2.4 due to backwards ABI break
+  * openjpeg: Exclude tags starting with version
+  * Update python3-aiohttp to 3.9.5
+  * Update libbytesize to 2.10-0
+  * Update genpeimg to v11.0.1-0
+  * Update linux-firmware to 20240410-0
+  * Update pcsc-lite to 2.1.0-0
+  * Update bash-completion to 2.13.0-0
+  * librsvg: Freeze to 2.56
+  * Update mesa to mesa-24.0.5-0
+  * Update libxmlb to 0.3.18-0
+  * Update to image based on freedesktop-sdk 23.08.16
+  * libsoup: Freeze to 3.0 branch due to ABI break
+  * at-spi2-core: Freeze to 2.44 branch due to ABI break
+  * Update xwayland to xwayland-23.2.6-0
+  * Update aom to v3.9.0-rc1-0
+  * Remove reproducible-test from make build
+  * utils/test_reproducibility.py: Ignore user defined artifact remotes
+  * Rename remove_internet_access to disallow_artifact_pull
+  * Prefetch sources as well
+  * Cap CPU count to 20
+  * Improve debug printing to go to right locations
+  * Force max-jobs higher for final build
+  * Fixes to reproducibility test for bst2
+  * Update vim to v9.1.0318-0
+  * Update rsync to v3.3.0-0
+  * Update glibc to glibc-2.35-313
+  * nss: Freeze to 3_79
+  * at-spi2-core: Fix tracking
+  * libpng: Exclude rc beta and alpha tags
+  * libxml2: Freeze libxml2 to 2.10 branch
+  * Update udisks to udisks-2.10.1-0
+  * perl-build: Exclude legacy 0.3 versions
+  * Update python3-filelock to 3.13.4
+  * Update asciidoctor to v2.0.22-0
+  * Update python3-mako to 1.3.3
+  * python3-sphinx-rtd-theme: Exclude rc tags
+  * Update clinfo to 3.0.23.01.25-0
+  * Update ccache to v4.9.1-0
+  * Update glib-networking to 2.72.2-0
+  * Update libva-utils to 2.21.0-0
+  * sdl2-mixer: Freeze due to forward ABI break
+  * gdk-pixbuf: Exclude 2.90 pre releases
+  * libcap: Fix tracking
+  * libpipeline: Exclude pre, 2.4 and 2.5 tags
+  * jpeg: Exclude pre-releases
+  * Update networkmanager to 1.46.0-0
+  * Update libnvme to v1.8-0
+  * xdg-desktop-portal-base: Add a comment about tracking unstable releases
+  * check-debuginfo: check sdk-image rather than sdk
+  * utils: Move static_libraries_allow_list to the tests/check-static-libraries directory
+  * tests: Build check-static-libraries in the utils directory
+  * utils/check-static-libraries.py: Add shebang
+  * tests: Build scan-for-dev-files in the utils directory
+  * tests: Build find-rpath in the utils directory
+  * utils: Move check-abi config files to the tests/check-abi directory
+  * utils: Rename check-abi to check-abi.py
+  * tests: Build check-abi in the utils directory
+  * tests: Rename test-debug-crc.bst to check-debuginfo.bst
+  * tests: Build check-debug-crc in utils directory
+  * check-debug-crc: Specify correct build and runtime dependencies
+  * check-debug-crc: Move check-debug-crc.py to utils
+  * Makefile: Keep all tests together
+  * check-debuginfo: Adapt to bst2
+  * Update sdl2-ttf to release-2.22.0-0
+  * Update xdg-desktop-portal-base to 1.18.3-0
+  * libexif: Fix tracking
+  * libbytesize: Fix tracking
+  * libva: Fix tracking
+  * llvm: Fix tracking
+  * tzdata: Fix tracking
+  * libgcrypt: Fix tracking
+  * Backport bootstrap manual to make transitions from master
+  * Add configs that are present in master but missing from 22.08
+  * Update zenity to 3.44.4-0
+  * Update python3-typing-extensions to 4.11.0
+  * Update python3-hatchling to 1.22.5
+  * Update libxmlb to 0.3.17-0
+  * Finish git_repo transformation
+  * bst-plugins-experimental: Update to 1.98.0
+  * Switch ladspa-sdk to tar_https and update to 1.17
+  * rust-stage1: Fix rust stage-1 x86_64 element filename
+  * track-elements: Add flatpak-release-repo.bst to track list
+  * Drop `--bst1` flag to fix automatic updates
+  * Reapply udisks: Update to 2.10.0"
+  * Reapply libblockdev: Add e2fsprogs, keyutils and libnvme"
+  * Reapply libblockdev: Update to 3.1.0"
+  * Update man-pages to man-pages-6.7-0
+  * Update cmake to v3.29.1-0
+  * Update libxmlb to 0.3.16-0
+  * Update go to go1.21.9-0
+  * Update libseat to 0.8.0-0
+  * Update ABI image so we can do follow-up MR's normally
+  * [abi skip] Skip ABI checker
+  * ncurses: Fix patch paths
+  * Break bash so we get same binary as on BuildStream 1
+  * Fix VM checkout in Makefile
+  * Backport script fixes from master for desktop VM
+  * Backport internal junctions work from master
+  * Backport ABI checker changes
+  * Work on YAML API changes
+  * Switch to new URL validation mechanisms
+  * Fix Perl packages after plugin API change
+  * gcc-arch-opts.yml: add default empty value for conf-extra
+  * utils/url_manifest.py: port to buildstream 2
+  * flatpak-release.bst: Adapt to new API, specify the flatpak stack.
+  * *: port to the new script API
+  * snap elements: Fixed snap deployment scripts for new script plugin API
+  * test elements: Fixed testing scripts for new script plugin API
+  * vm elements: Fixed deployment scripts for new script plugin API
+  * bootstrap: Removed all of the `-build-deps.bst` elements
+  * Configure source cache
+  * .gitlab-ci.yml: Fix configuration of artifact cache servers
+  * Use `bst source track` and `bst artifact checkout`
+  * Use buildstream plugins using the junction origin
+  * Use buildstream 2 docker image
+  * Update project.conf for Buildstream 2
+  * plugins: port to buildstream 2
+  * Backport flatpak-minimal-image from master
+  * Revert "Remove deprecated conf-extra from autotools template"
+  * Revert "Optimize CI to not pull all components when they are all built in cache server"
+  * Revert "Reduce fetchers to try to get a passing build"
+
+freedesktop-sdk-22.08.24:
   * python3-faust-cchardet: correct project tracking
   * Update python3-lxml to 5.2.1
   * components/gnu-efi.bst: Freeze to 3.0.15 due to breaking EFI tests
