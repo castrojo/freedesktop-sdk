@@ -89,12 +89,18 @@ def prepare(args):
             cwd=git_dir,
         )
         changelog = generate_changelog(previous_tag, git_dir)
+        versions = []
         with fileinput.FileInput(git_dir / "NEWS", inplace=True, encoding="utf-8") as f:
             for line in f:
+                if re.search(r"^freedesktop-sdk-\d{2}\.08(?:beta|rc)?\.\d+(?:\.\d+)?:$", line):
+                    versions.append(line.strip().replace(":", ""))
                 if f.lineno() == 1:
                     line += f"\n{args.new_version}:\n{changelog}\n"
                 print(line, end="")
         message = f"NEWS: Update for {args.new_version}"
+        if f"{args.new_version}" in versions:
+            print(f"error: {args.new_version} already exists in NEWS", file=sys.stderr)
+            sys.exit(1)
         run_git(
             ["commit", "-m", message, "NEWS"],
             cwd=git_dir,
