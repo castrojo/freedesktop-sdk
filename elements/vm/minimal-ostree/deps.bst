@@ -14,6 +14,7 @@ depends:
 - vm/config/resolved.bst
 - vm/config/ostree.bst
 - vm/config/useradd-ostree.bst
+- vm/config/systemd-homed-firstboot.bst
 - vm/boot/efi-ostree.bst
 - components/gnupg.bst
 - components/linux-firmware.bst

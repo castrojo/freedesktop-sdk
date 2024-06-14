@@ -18,6 +18,7 @@ depends:
 - vm/config/networkd.bst
 - vm/config/resolved.bst
 - vm/config/useradd-default.bst
+- vm/config/systemd-homed-firstboot.bst
 - components/usbutils.bst
 - components/hosts.bst
 - components/bash-config.bst
