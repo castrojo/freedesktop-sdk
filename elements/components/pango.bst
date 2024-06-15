@@ -31,9 +31,8 @@ public:
 
 variables:
   meson-local: >-
-    -Ddocumentation=false
+    -Ddocumentation=true
     -Dintrospection=enabled
-    -Dinstall-tests=false
 
 sources:
 - kind: git_repo
