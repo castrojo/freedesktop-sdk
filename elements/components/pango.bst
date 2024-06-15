@@ -3,7 +3,7 @@ kind: meson
 build-depends:
 - components/gobject-introspection.bst
 - public-stacks/buildsystem-meson.bst
-- components/gtk-doc.bst
+- components/python3-gi-docgen.bst
 
 depends:
 - bootstrap-import.bst
@@ -29,10 +29,9 @@ public:
     ignored:
     - CVE-2019-1010238
 
-# Those are the defaults which we explicitly match.
 variables:
   meson-local: >-
-    -Dgtk_doc=false
+    -Ddocumentation=false
     -Dintrospection=enabled
     -Dinstall-tests=false
 
