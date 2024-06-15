@@ -16,14 +16,5 @@ variables:
     --disable-simd
     --disable-md2man
 
-config:
-  (?):
-  # FIXME: not needed in next release
-  - target_arch == "loongarch64":
-      configure-commands:
-        (<):
-        - |
-          cp -v %{datadir}/gnu-config/config* .
-
 (@):
 - elements/include/rsync-source.yml
