@@ -20,4 +20,4 @@ sources:
   track: man-pages-*
   exclude:
   - '*rc*'
-  ref: man-pages-6.8-0-g50b65afc74b33aba6683585553471881e01fd7d6
+  ref: man-pages-6.9-0-g975a91a4164f1601efcfab8ee165841d02d62990
