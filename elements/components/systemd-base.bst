@@ -15,9 +15,12 @@ build-depends:
 - components/libgcrypt.bst
 - components/libgpg-error.bst
 - components/libseccomp.bst
+- components/llvm.bst # # for compiling bpf
 - components/lz4.bst
 - components/zstd.bst
 - components/util-linux-full.bst
+- components/libarchive.bst
+- components/libbpf.bst
 - components/linux-pam.bst
 - components/kmod.bst
 - components/pyelftools.bst
