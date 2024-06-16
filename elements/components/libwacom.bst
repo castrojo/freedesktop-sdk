@@ -17,4 +17,4 @@ sources:
 - kind: git_repo
   url: github:linuxwacom/libwacom.git
   track: libwacom-*
-  ref: libwacom-2.12.0-0-g1e3783e2f2507e9f589b931c8e37fb4e22254d94
+  ref: libwacom-2.12.1-0-g8c375595acb939cfdefdd32380cb63c46f170941
