@@ -33,6 +33,8 @@ variables:
   meson-local: >-
     -Ddocumentation=true
     -Dintrospection=enabled
+    -Dbuild-testsuite=false
+    -Dbuild-examples=false
 
 sources:
 - kind: git_repo
