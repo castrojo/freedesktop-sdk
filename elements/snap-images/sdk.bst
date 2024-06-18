@@ -1,8 +1,5 @@
 kind: snap_image
 
-(@):
-- snap-version.yml
-
 config:
   directory: "/"
   exclude:
@@ -11,9 +8,9 @@ config:
     - locale
 
   metadata:
-    name: "freedesktop-sdk-sdk-%{snap-branch}"
-    version: "%{runtime-version}"
-    summary: "Freedesktop SDK %{snap-branch} SDK for snap"
+    name: "freedesktop-sdk-sdk-%{freedesktop-sdk-snap-branch}"
+    version: "%{freedesktop-sdk-snap-branch}"
+    summary: "Freedesktop SDK %{freedesktop-sdk-snap-branch} SDK for snap"
     description: >-
       The Freedesktop SDK project provides Platform and SDK runtimes
       for Flatpak apps and runtimes based on Freedesktop modules.  It

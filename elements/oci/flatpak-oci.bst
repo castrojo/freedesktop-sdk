@@ -1,7 +1,5 @@
 kind: script
 
-(@): flatpak-version.yml
-
 build-depends:
 - oci/oci-builder.bst
 - oci/layers/flatpak-init-script.bst
