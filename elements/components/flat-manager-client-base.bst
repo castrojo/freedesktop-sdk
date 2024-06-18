@@ -29,4 +29,4 @@ sources:
 - kind: git_repo
   url: github:flatpak/flat-manager.git
   track: '*.*.*'
-  ref: 0.4.2-0-gb07fe8652357ce16d9625f72f9acceaca94d860a
+  ref: 0.4.3-0-g13841c5a6667d6ab9d0849523c9e49ad5f34dda8
