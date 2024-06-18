@@ -82,7 +82,6 @@ before_script:
     if [ -n "$CI_COMMIT_TAG" ] && [ -n "$FLATHUB_REPO_TOKEN" ]; then
         export RELEASES_SERVER_ADDRESS=https://hub.flathub.org/
         export REPO_TOKEN="${FLATHUB_REPO_TOKEN}"
-        ./utils/generate-version flatpak-version.yml
         case "${CI_COMMIT_TAG}" in
           *rc*) ;&
           *beta*)
@@ -159,7 +158,6 @@ pylint:
     GIT_SUBMODULE_STRATEGY: none
   script:
     - git remote set-url origin "https://gitlab-ci-token:${FREEDESKTOP_API_KEY}@gitlab.com/freedesktop-sdk/freedesktop-sdk.git"
-    - git checkout -- snap-version.yml
     - git config user.name "freedesktop_sdk_updater"
     - git config user.email "freedesktop_sdk_updater@libreml.com"
     - git branch -f "${CI_COMMIT_REF_NAME}" "origin/${CI_COMMIT_REF_NAME}"
@@ -277,7 +275,6 @@ license_checker:
     - export FLATPAK_USER_DIR="${PWD}/tmp-flatpak"
     - make test-apps
 
-    - git checkout -- snap-version.yml
     - |
       ABI_SKIP=$(git log -n 1 | grep -E "\[abi skip\]|\[skip abi\]" || true)
       if [ "${STABLE_ABI}" != "false" ]; then

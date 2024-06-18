@@ -5,9 +5,6 @@
   <project_license>MIT</project_license>
   <name>Freedesktop Platform</name>
   <summary>Runtime platform for applications</summary>
-  <releases>
-    <release version="__RUNTIME_VERSION__" date="__RUNTIME_VERSION_DATE__"/>
-  </releases>
   <description>
     <p>
       The Freedesktop Platform is a basic runtime for flatpak application

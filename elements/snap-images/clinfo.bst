@@ -17,16 +17,16 @@ config:
   include-orphans: False
 
   metadata:
-    name: "freedesktop-sdk-clinfo-%{snap-branch}"
-    version: "%{runtime-version}"
-    summary: "clinfo for Freedesktop SDK %{branch}"
+    name: "freedesktop-sdk-clinfo-%{freedesktop-sdk-snap-branch}"
+    version: "%{freedesktop-sdk-snap-branch}"
+    summary: "clinfo for Freedesktop SDK %{freedesktop-sdk-snap-branch}"
     description: >-
       clinfo provides information on available OpenCL devices. This is
       targeted to run on Freedesktop SDK runtime.  This application is
       meant for troubleshooting issues with OpenCL when using
       Freedesktop SDK runtime.
     type: app
-    base: "freedesktop-sdk-runtime-%{snap-branch}"
+    base: "freedesktop-sdk-runtime-%{freedesktop-sdk-snap-branch}"
     architectures:
       - "%{snap_arch}"
     confinement: strict
