@@ -25,6 +25,8 @@ else
 TARGET_BRANCH=release/$(RUNTIME_VERSION)
 endif
 
+GIT_DESCRIBE := $(shell git describe --long --abbrev=40)
+
 SNAP_GRADE?=devel
 ARCH_OPTS=-o bootstrap_build_arch $(BOOTSTRAP_ARCH) -o target_arch $(ARCH) -o snap_grade $(SNAP_GRADE)
 TARBALLS=            \
@@ -68,7 +70,7 @@ export: clean-runtime
 
 	test -e $(REPO) || ostree init --repo=$(REPO) --mode=archive
 
-	flatpak build-commit-from --src-repo=$(CHECKOUT_ROOT)/flatpak-release-repo.bst $(REPO)
+	flatpak build-commit-from --src-repo=$(CHECKOUT_ROOT)/flatpak-release-repo.bst --subject $(GIT_DESCRIBE) $(REPO)
 
 	rm -rf $(CHECKOUT_ROOT)
 

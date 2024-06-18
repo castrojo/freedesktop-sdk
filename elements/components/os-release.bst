@@ -1,11 +1,9 @@
 kind: manual
 
-(@):
-- flatpak-version.yml
-
 variables:
   (@):
   - include/repo_branches.yml
+  release-limit: "1"
 
 build-depends:
 - bootstrap-import.bst
@@ -16,10 +14,11 @@ config:
   build-commands:
   - |
     for i in *.in; do
-      m4 -D__RUNTIME_VERSION__="%{runtime-version}" \
-      -D__RUNTIME_VERSION_DATE__="%{runtime-version-date}" \
-      -D__RUNTIME_BRANCH__="%{freedesktop-sdk-flatpak-branch}" \
+      m4 -D__RUNTIME_BRANCH__="%{freedesktop-sdk-flatpak-branch}" \
       "${i}" >"$(basename "${i}" .in)"
+    done
+    for metainfo in *.appdata.xml; do
+      appstreamcli news-to-metainfo --limit %{release-limit} NEWS.yml "${metainfo}"
     done
 
   install-commands:
@@ -39,4 +38,5 @@ config:
 sources:
 - kind: local
   path: files/os-release
-
+- kind: local
+  path: NEWS.yml

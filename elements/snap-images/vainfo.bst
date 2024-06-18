@@ -1,8 +1,5 @@
 kind: snap_image
 
-(@):
-- snap-version.yml
-
 variables:
   lib: lib
   prefix: /app
@@ -17,16 +14,16 @@ config:
   include-orphans: False
 
   metadata:
-    name: "freedesktop-sdk-vainfo-%{snap-branch}"
-    version: "%{runtime-version}"
-    summary: "vainfo for Freedesktop SDK %{branch}"
+    name: "freedesktop-sdk-vainfo-%{freedesktop-sdk-snap-branch}"
+    version: "%{freedesktop-sdk-snap-branch}"
+    summary: "vainfo for Freedesktop SDK %{freedesktop-sdk-snap-branch}"
     description: >-
       vainfo provides information from VA-API drivers
       This is targeted to run on Freedesktop SDK runtime.
       This application is meant for troubleshooting issues with VA-API
       when using Freedesktop SDK runtime.
     type: app
-    base: "freedesktop-sdk-runtime-%{snap-branch}"
+    base: "freedesktop-sdk-runtime-%{freedesktop-sdk-snap-branch}"
     architectures:
       - "%{snap_arch}"
     confinement: strict
