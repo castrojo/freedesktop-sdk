@@ -1,8 +1,7 @@
 kind: stack
 
 depends:
-- sdk.bst
-- components/os-release.bst
+- oci/layers/sdk-stack.bst
 - components/sudo.bst
 - components/shadow.bst
 - components/util-linux-full.bst
@@ -10,8 +9,6 @@ depends:
 public:
   bst:
     integration-commands:
-    - groupadd root -r -g 0
-    - useradd root -rm -u 0 -g 0 -d /root
     - groupadd -r wheel
     - |
       cat <<EOF >>/etc/sudoers

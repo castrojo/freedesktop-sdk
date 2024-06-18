@@ -1,7 +1,7 @@
 kind: stack
 
 depends:
-- sdk.bst
+- oci/layers/sdk-stack.bst
 - components/os-release.bst
 - components/flatpak.bst
 - components/flat-manager-client.bst
