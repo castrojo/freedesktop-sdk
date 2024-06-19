@@ -125,6 +125,7 @@ public:
       - '%{mandir}/man8/kernel-install.8'
       - '%{debugdir}%{bindir}/kernel-install.debug'
       ukify:
+      - '%{bindir}/ukify'
       - '%{indep-libdir}/systemd/ukify'
       - '%{mandir}/man1/ukify.1'
       systemd-libs:
