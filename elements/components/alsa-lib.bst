@@ -55,6 +55,6 @@ sources:
 - kind: git_repo
   url: github:alsa-project/alsa-lib.git
   track: v*.*.*
-  ref: v1.2.11-0-g7e3a3c2b0a092d0f568ba3c98365030dd91cc877
+  ref: v1.2.12-0-g34422861f5549aee3e9df9fd8240d10b530d9abd
 - kind: patch_queue
   path: patches/alsa-lib
