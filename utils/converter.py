@@ -30,7 +30,7 @@ def generate_documents(news):
                     block["Description"] = LS("\n".join(description))
                 yield block
             description.clear()
-            block.clear()
+            block = {}
         if line.startswith("freedesktop-sdk") and line.endswith(":"):
             line = line.strip(" :")
             block = {
