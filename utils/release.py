@@ -3,19 +3,24 @@
 
 import argparse
 from contextlib import contextmanager
-import fileinput
 from pathlib import Path
 import re
 import shlex
 import subprocess
-import sys
+import textwrap
 from tempfile import TemporaryDirectory
 
 import gitlab
+import ruamel.yaml
+from ruamel.yaml.scalarstring import LiteralScalarString
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 FD_SDK_ID = 4339844
+
+
+def LS(s):
+    return LiteralScalarString(textwrap.dedent(s))
 
 
 def release_version(value):
@@ -51,7 +56,7 @@ def generate_changelog(previous_tag, git_dir):
         ["log", "--no-merges", "--format=%s", f"{previous_tag}.."],
         cwd=git_dir,
     ).splitlines()
-    joined = "\n".join(f"  * {line}" for line in log_lines)
+    joined = "\n".join(f" * {line}" for line in log_lines)
     return re.sub(r"[^\s]+/(.*?)(?:-sources?)?.(?:bst|yml)", r"\1", joined)
 
 
@@ -89,20 +94,22 @@ def prepare(args):
             cwd=git_dir,
         )
         changelog = generate_changelog(previous_tag, git_dir)
-        versions = []
-        with fileinput.FileInput(git_dir / "NEWS", inplace=True, encoding="utf-8") as f:
-            for line in f:
-                if re.search(r"^freedesktop-sdk-\d{2}\.08(?:beta|rc)?\.\d+(?:\.\d+)?:$", line):
-                    versions.append(line.strip().replace(":", ""))
-                if f.lineno() == 1:
-                    line += f"\n{args.new_version}:\n{changelog}\n"
-                print(line, end="")
+
+        yaml = ruamel.yaml.YAML()
+        with open(git_dir / "NEWS.yml", encoding="utf-8") as news:
+            documents = list(yaml.load_all(news.read()))
+        for document in documents:
+            if document["Version"] == args.new_version:
+                raise SystemExit(f"error: {args.new_version} already exists in NEWS.yml")
+        documents.insert(0, {
+            "Version": args.new_version,
+            "Date": LS(f"Changes in {args.new_version}" + changelog)
+        })
+        with open(git_dir / "NEWS.yml", "w", encoding="utf-8") as news:
+            yaml.dump_all(documents, news)
         message = f"NEWS: Update for {args.new_version}"
-        if f"{args.new_version}" in versions:
-            print(f"error: {args.new_version} already exists in NEWS", file=sys.stderr)
-            sys.exit(1)
         run_git(
-            ["commit", "-m", message, "NEWS"],
+            ["commit", "-m", message, "NEWS.yml"],
             cwd=git_dir,
         )
         maybe_push(
@@ -117,22 +124,13 @@ def read_changelog(git_dir, new_version):
     allows us to validate that an entry has indeed been made matching the specified
     version.
     """
-    lines = []
-    reading = False
-    with open(git_dir / "NEWS", encoding="utf-8") as f:
-        for line in f:
-            if reading:
-                if line.strip() == "":
-                    break
-                lines.append(line[2:])
-            if line.startswith(new_version):
-                reading = True
-        else:
-            print(
-                f"error: Failed to find NEWS entry for {new_version}", file=sys.stderr
-            )
-            sys.exit(1)
-    return "".join(lines).strip()
+    with open(git_dir / "NEWS.yml", encoding="utf-8") as f:
+        yaml = ruamel.yaml.YAML()
+        documents = yaml.load_all(f)
+        for document in documents:
+            if document["Version"] == new_version:
+                return document["Description"]
+        raise RuntimeError(f"Version {new_version} does not exist in NEWS.yml")
 
 
 def publish(args):
