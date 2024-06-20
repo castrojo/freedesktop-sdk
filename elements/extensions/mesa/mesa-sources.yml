@@ -5,7 +5,7 @@ sources:
   exclude:
   - '*rc*'
   - '*branchpoint*'
-  ref: mesa-24.1.1-0-g6c377358a52b5dc32d57e2fa5395e3981afa2423
+  ref: mesa-24.1.2-0-g414057c05c3dff39674ad45855858af02e995c2b
 - kind: patch
   path: patches/mesa/clang_res_path.patch
 # Rust dependencies:
