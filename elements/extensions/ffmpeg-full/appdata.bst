@@ -9,7 +9,7 @@ config:
   - |
     appstreamcli compose --components org.freedesktop.Platform.ffmpeg-full \
     --prefix %{libdir}/ffmpeg --result-root %{install-root} \
-    --data-dir %{install-root}%{flatpak_xmldir} --origin=flatpak %{install-root}
+    --data-dir %{install-root}%{flatpak_xmldir} --origin=org.freedesktop.Platform.ffmpeg-full %{install-root}
 
 sources:
 - kind: local
