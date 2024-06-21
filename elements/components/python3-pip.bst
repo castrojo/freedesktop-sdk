@@ -13,6 +13,6 @@ sources:
 - kind: pypi
   name: pip
   ref:
-    sha256sum: ea9bd1a847e8c5774a5777bb398c19e80bcd4e2aa16a4b301b718fe6f593aba2
+    sha256sum: bdae551038c0ce6a83030b4aedef27fc95f0daa683593fea22fa05e55ed8e317
     suffix: 
-      94/59/6638090c25e9bc4ce0c42817b5a234e183872a1129735a9330c472cc2056/pip-24.0.tar.gz
+      df/60/7538a9cd4d76829c2f585b73d6e400c833a1769408451c813354c58de6cc/pip-24.1.tar.gz
