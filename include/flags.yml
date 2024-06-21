@@ -63,7 +63,9 @@ variables:
   target_riscv64_flags: >-
     -fasynchronous-unwind-tables
     -fstack-clash-protection
-  target_loongarch64_flags: ""
+  target_loongarch64_flags: >-
+    -fasynchronous-unwind-tables
+    -fstack-clash-protection
 
   # The final composition of `target_flags` includes `target_arch_flags`
   # which can be one of the preset arch specific definitions above
