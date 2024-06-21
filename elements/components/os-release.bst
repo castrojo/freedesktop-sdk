@@ -9,6 +9,7 @@ build-depends:
 - bootstrap-import.bst
 - components/m4.bst
 - components/appstream-glib.bst
+- components/appstream-minimal.bst
 
 config:
   build-commands:
