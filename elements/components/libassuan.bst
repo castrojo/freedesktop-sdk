@@ -31,4 +31,4 @@ sources:
   track: libassuan-*
   exclude:
   - '*-base'
-  ref: libassuan-2.5.7-0-gcc2f776904e0b5e56e2b81b2672ca98d7787ed1b
+  ref: libassuan-3.0.0-0-g0351ecfa4f35ad44684075abec153574986b11bd
