@@ -23,7 +23,7 @@ public:
 sources:
 - kind: git_repo
   url: nettle:nettle.git
-  track: nettle_*
+  track: nettle_3.9.*
   exclude:
   - nettle_*rc*
   ref: nettle_3.9.1_release_20230601-0-gd2cc9b95b50440c331ee143312309951a7e8d7ca

@@ -28,5 +28,5 @@ public:
 sources:
 - kind: git_repo
   url: gnome:json-glib.git
-  track: '*.*.*'
+  track: '1.6.*'
   ref: 1.6.6-0-g3cf2b53667a73376c852e08dcadd197a5f8325b9

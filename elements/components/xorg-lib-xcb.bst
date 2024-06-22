@@ -59,5 +59,5 @@ config:
 sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libxcb.git
-  track: libxcb-*
+  track: libxcb-1.16.*
   ref: libxcb-1.16.1-0-gc671b9b30aecada4e43cb48e0dee46d19fb5cb9c
