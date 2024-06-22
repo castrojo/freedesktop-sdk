@@ -9,6 +9,6 @@ sources:
 - kind: pypi
   name: setuptools
   ref:
-    sha256sum: f211a66637b8fa059bb28183da127d4e86396c991a942b028c6650d4319c3fd0
+    sha256sum: 01a1e793faa5bd89abc851fa15d0a0db26f160890c7102cd8dce643e886b47f5
     suffix: 
-      aa/60/5db2249526c9b453c5bb8b9f6965fcab0ddb7f40ad734420b3b421f7da44/setuptools-70.0.0.tar.gz
+      1c/1c/8a56622f2fc9ebb0df743373ef1a96c8e20410350d12f44ef03c588318c3/setuptools-70.1.0.tar.gz
