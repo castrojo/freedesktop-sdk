@@ -12,7 +12,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "a8daa39491a63498caf2982c246f6ac5f3967894"
+  DOCKER_IMAGE_ID: "d4e5a7b4138f2ebfbee7f412e325f3cfbda0da1c"
 
   # Generic variable for invoking buildstream
   BST: bst --colors
@@ -116,11 +116,9 @@ before_script:
             export SNAP_GRADE=stable
             ;;
         esac
-        ./utils/generate-version snap-version.yml
     elif [ -n "$SNAPCRAFT_LOGIN_FILE" ]; then
         export SNAP_RELEASE=edge
         export SNAP_GRADE=devel
-        ./utils/generate-version snap-version.yml
     else
         export SNAP_GRADE=devel
     fi
