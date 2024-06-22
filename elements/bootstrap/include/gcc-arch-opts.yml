@@ -10,7 +10,7 @@ variables:
         --with-fpmath=sse
   - target_arch == "loongarch64":
       conf-arch: >-
-        --with-arch=loongarch64
+        --with-arch=la64v1.0
         --with-tune=loongarch64
   - target_arch == "ppc64le":
       conf-arch: >-
