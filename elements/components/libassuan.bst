@@ -28,7 +28,7 @@ public:
 sources:
 - kind: git_repo
   url: gnupg:libassuan.git
-  track: libassuan-*
+  track: libassuan-2.*
   exclude:
   - '*-base'
   ref: libassuan-2.5.7-0-gcc2f776904e0b5e56e2b81b2672ca98d7787ed1b
