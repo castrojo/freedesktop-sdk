@@ -3,6 +3,7 @@
 
 import argparse
 from contextlib import contextmanager
+import datetime
 from pathlib import Path
 import re
 import shlex
@@ -103,7 +104,8 @@ def prepare(args):
                 raise SystemExit(f"error: {args.new_version} already exists in NEWS.yml")
         documents.insert(0, {
             "Version": args.new_version,
-            "Date": LS(f"Changes in {args.new_version}" + changelog)
+            "Date": datetime.date.today().isoformat(),
+            "Description": LS(f"Changes in {args.new_version}\n" + changelog)
         })
         with open(git_dir / "NEWS.yml", "w", encoding="utf-8") as news:
             yaml.dump_all(documents, news)
