@@ -2,6 +2,7 @@ kind: compose
 
 build-depends:
 - components/flatpak-minimal.bst
+- components/m4.bst
 
 config:
   exclude:
