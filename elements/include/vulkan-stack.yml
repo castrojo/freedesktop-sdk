@@ -37,9 +37,6 @@ sources:
   directory: vulkan-icd-loader
   track: vulkan-sdk-*
   ref: vulkan-sdk-1.3.283.0-0-g720be5198aad4696381d2e3eeadc131c9f56bdc6
-- kind: patch
-  directory: vulkan-icd-loader
-  path: patches/vulkan/vulkan-libdir-path.patch
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-Utility-Libraries.git
   directory: vulkan-utility-libraries

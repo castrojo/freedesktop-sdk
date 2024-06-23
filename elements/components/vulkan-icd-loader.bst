@@ -11,15 +11,18 @@ depends:
 - components/wayland.bst
 
 variables:
-  cmake-local: |
-    -DCMAKE_SKIP_RPATH:BOOL=yes \
-    -DCMAKE_INSTALL_SYSCONFDIR:PATH=%{sysconfdir} \
-    -DBUILD_TESTS=OFF \
-    -DBUILD_WSI_XCB_SUPPORT=On \
-    -DBUILD_WSI_XLIB_SUPPORT=On \
+  cmake-local: >-
+    -DCMAKE_SKIP_RPATH:BOOL=yes
+    -DCMAKE_INSTALL_SYSCONFDIR:PATH=%{sysconfdir}
+    -DEXTRASYSCONFDIR=%{vulkan-extra-dir}
+    -DBUILD_TESTS=OFF
+    -DBUILD_WSI_XCB_SUPPORT=On
+    -DBUILD_WSI_XLIB_SUPPORT=On
     -DBUILD_WSI_WAYLAND_SUPPORT=On
 
   command-subdir: vulkan-icd-loader
+  vulkan-extra-dir: |
+     %{libdir}/GL:%{libdir}:%{indep-libdir}/extension/vulkan/share
 
 public:
   bst:
