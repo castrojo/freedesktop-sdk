@@ -34,16 +34,13 @@ public:
   bst:
     integration-commands:
     - |
-      python3 << EOF
-      import importlib.metadata
-      importlib.metadata.requires('hotdoc')
-      EOF
+      hotdoc --version
 
 sources:
 # Building with source from github requires npm
 - kind: pypi
   name: hotdoc
   ref:
-    sha256sum: b95b747097ddd2b1a3b1f77afbea730c190786d18eee822ef322e3f5e781d59c
+    sha256sum: af1856d54f9dd23e0538a7dc4423b69d29dd7f54a4fe6e34844606ab51a3eab3
     suffix: 
-      79/3c/0e67779d84268f187a82b82d6261a4d2fd19d093b7611b3cc59683b5e629/hotdoc-0.17.tar.gz
+      ff/15/76b275a377784484e3a9e7a8e35f3d76b69b1a74f65868158ad43d96d304/hotdoc-0.16.tar.gz
