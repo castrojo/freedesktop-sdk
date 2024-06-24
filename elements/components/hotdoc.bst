@@ -16,6 +16,7 @@ depends:
 
 runtime-depends:
 - components/python3-appdirs.bst
+- components/python3-backports-entrypoints-selectable.bst
 - components/python3-dbus-deviation.bst
 - components/python3-lxml.bst
 - components/python3-pyyaml.bst
