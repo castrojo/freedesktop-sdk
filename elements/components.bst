@@ -237,6 +237,7 @@ depends:
 - components/libgsystemservice.bst
 - components/libgudev.bst
 - components/libgusb.bst
+- components/libheif.bst
 - components/libical.bst
 - components/libidn2.bst
 - components/libinput.bst

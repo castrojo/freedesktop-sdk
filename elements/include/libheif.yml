@@ -1,0 +1,52 @@
+build-depends:
+- public-stacks/buildsystem-cmake.bst
+- components/doxygen.bst
+
+depends:
+- bootstrap-import.bst
+- components/aom.bst
+- components/dav1d.bst
+- components/gdk-pixbuf.bst
+- components/libpng.bst
+- components/libwebp.bst
+- components/openjpeg.bst
+
+variables:
+
+  libheif-libde265-plugin: 'OFF'
+  libheif-libx265-plugin: 'OFF'
+
+  cmake-local: >-
+    -DENABLE_PLUGIN_LOADING=ON
+    -DPLUGIN_DIRECTORY="/usr/lib/%{gcc_triplet}/ffmpeg"
+    -DWITH_LIBDE265_PLUGIN="%{libheif-libde265-plugin}"
+    -DWITH_X265_PLUGIN="%{libheif-libx265-plugin}"
+    -DWITH_DAV1D=ON
+    -DWITH_DAV1D_PLUGIN=OFF
+    -DWITH_AOM_ENCODER=ON
+    -DWITH_AOM_ENCODER_PLUGIN=OFF
+    -DWITH_AOM_DECODER=ON
+    -DWITH_AOM_DECODER_PLUGIN=OFF
+    -DWITH_JPEG_DECODER=ON
+    -DWITH_JPEG_DECODER_PLUGIN=OFF
+    -DWITH_JPEG_ENCODER=ON
+    -DWITH_JPEG_ENCODER_PLUGIN=OFF
+    -DWITH_OpenJPEG_DECODER=ON
+    -DWITH_OpenJPEG_DECODER_PLUGIN=OFF
+    -DWITH_OpenJPEG_ENCODER=ON
+    -DWITH_OpenJPEG_ENCODER_PLUGIN=OFF
+    -DWITH_EXAMPLES=OFF
+    -DBUILD_TESTING=OFF
+
+  cmake-extra: ''
+
+config:
+  configure-commands:
+  - |
+    %{cmake} %{cmake-local} %{cmake-extra}
+
+sources:
+- kind: git_repo
+  url: github:strukturag/libheif.git
+  track: v*
+  ref: v1.17.6-0-g59b58566de0d8e2e9fea958abeba1d3346bda9de

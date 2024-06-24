@@ -3,6 +3,7 @@ kind: stack
 depends:
 - components/gdk-pixbuf.bst
 - components/libavif.bst
+- components/libheif.bst
 - components/libjxl.bst
 - components/webp-pixbuf-loader.bst
 
