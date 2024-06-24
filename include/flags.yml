@@ -8,7 +8,7 @@ variables:
   # To disable, these flags can be cleared on a per element basis
   #
   debug_flags: "-g"
-  target_flags_fortify_source: "-Wp,-D_FORTIFY_SOURCE=2"
+  target_flags_fortify_source: "-Wp,-D_FORTIFY_SOURCE=3"
   target_flags_glibcxx_assertions: "-Wp,-D_GLIBCXX_ASSERTIONS"
   target_flags_exceptions: "-fexceptions"
   target_flags_stack_protector_strong: "-fstack-protector-strong"
