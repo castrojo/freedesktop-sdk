@@ -8,10 +8,10 @@ depends:
 
 variables:
   cmake-local: >-
-    -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+    -DBUILD_SHARED_LIBS=ON
 
 sources:
 - kind: git_repo
   url: github:abseil/abseil-cpp.git
-  track: "*.*"
+  track: '[0-9]*.[0-9]'
   ref: 20240116.2-0-gd7aaad83b488fd62bd51c81ecf16cd938532cc0a
