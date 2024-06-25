@@ -38,4 +38,4 @@ sources:
   exclude:
   - "*-dev*"
   - "*-rc*"
-  ref: 1.48.0-0-g1852557a673773a2d565fe9296092c436c886d0b
+  ref: 1.48.2-0-ge73b4894e203f274cacec908704d59f9f61059b2
