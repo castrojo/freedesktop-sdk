@@ -80,7 +80,6 @@ bootstrap/build/tools-lib-path.bst
 components.bst
 components/clean-xml-catalog.bst
 components/cups-daemon.bst
-components/gdk-pixbuf-loaders.bst
 components/gnu-efi-maybe.bst
 components/go-stage1.bst
 components/libsmbios-maybe.bst

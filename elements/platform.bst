@@ -12,8 +12,8 @@ depends:
 - components/e2fsprogs.bst
 - components/expat.bst
 - components/frei0r.bst
+- components/gdk-pixbuf.bst
 - components/gdbm.bst
-- components/gdk-pixbuf-loaders.bst
 - components/gettext.bst
 - components/giflib.bst
 - components/glib.bst
@@ -32,6 +32,7 @@ depends:
 - components/less.bst
 - components/libarchive.bst
 - components/libassuan.bst
+- components/libavif.bst
 - components/libcap.bst
 - components/libexif.bst
 - components/libffi.bst
@@ -39,6 +40,8 @@ depends:
 - components/libflac.bst
 - components/libgcrypt.bst
 - components/libgpg-error.bst
+- components/libheif.bst
+- components/libjxl.bst
 - components/libksba.bst
 - components/libidn2.bst
 - components/libogg.bst
@@ -166,6 +169,7 @@ depends:
 - components/v4l-utils.bst
 - components/vulkan-icd-loader.bst
 - components/wayland.bst
+- components/webp-pixbuf-loader.bst
 - components/webrtc-audio-processing.bst
 - components/xcb-util-cursor.bst
 - components/xcb-util-image.bst
