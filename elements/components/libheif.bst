@@ -13,7 +13,3 @@ public:
       devel:
         (>):
         - '%{libdir}/libheif.so'
-        - '%{libdir}/cmake'
-        - '%{libdir}/cmake/**'
-
-
