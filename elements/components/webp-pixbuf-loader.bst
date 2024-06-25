@@ -7,12 +7,6 @@ depends:
 - components/gdk-pixbuf.bst
 - components/libwebp.bst
 
-public:
-  bst:
-    integration-commands:
-    - |
-      gdk-pixbuf-query-loaders --update-cache
-
 sources:
 - kind: git_repo
   url: github:aruiz/webp-pixbuf-loader.git

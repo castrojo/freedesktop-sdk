@@ -29,10 +29,6 @@ public:
         (>):
         - '%{libdir}/libavif.so'
 
-  integration-commands:
-  - |
-    gdk-pixbuf-query-loaders --update-cache
-
 sources:
 - kind: git_repo
   url: github:AOMediaCodec/libavif.git

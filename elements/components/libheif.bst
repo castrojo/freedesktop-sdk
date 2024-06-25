@@ -16,6 +16,4 @@ public:
         - '%{libdir}/cmake'
         - '%{libdir}/cmake/**'
 
-  integration-commands:
-  - |
-    gdk-pixbuf-query-loaders --update-cache
+

@@ -23,10 +23,6 @@ public:
         - '%{libdir}/libjxl_cms.so'
         - '%{libdir}/libjxl_threads.so'
 
-  integration-commands:
-  - |
-    gdk-pixbuf-query-loaders --update-cache
-
 variables:
   cmake-local: >-
     -DBUILD_SHARED_LIBS=ON
