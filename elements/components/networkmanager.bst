@@ -30,6 +30,7 @@ variables:
     -Dppp=false
     -Dmodem_manager=false
     -Dqt=false
+    -Dtests=no
 
 sources:
 - kind: git_repo
