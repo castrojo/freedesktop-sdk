@@ -9,6 +9,9 @@ depends:
   (>):
   - extensions/ffmpeg-full/libx265.bst
 
+environment:
+  PKG_CONFIG_PATH: "%{prefix}/pkgconfig"
+
 variables:
   conf-extra: >-
     --enable-encoders
@@ -16,3 +19,5 @@ variables:
     --disable-programs
     --enable-libx265
     --enable-gpl
+    --extra-cflags="-I%{prefix}/include"
+    --extra-ldflags="-L%{prefix}"
