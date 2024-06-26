@@ -22,4 +22,4 @@ sources:
   - '*head*'
   - '*rc*'
   - '*dev*'
-  ref: v27.1-0-g3d9f7c430a5ae1385512908801492d4421c3cdb7
+  ref: v27.2-0-g63def39e881afa496502d9c410f4ea948e59490d
