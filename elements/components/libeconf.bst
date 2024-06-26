@@ -6,6 +6,13 @@ build-depends:
 depends:
 - bootstrap-import.bst
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libeconf.so'
+
 config:
   install-commands:
     (>):
