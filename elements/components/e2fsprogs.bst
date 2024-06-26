@@ -64,5 +64,3 @@ sources:
   exclude:
   - v*rc*
   ref: v1.47.1-0-g950a0d69c82b585aba30118f01bf80151deffe8c
-- kind: patch
-  path: patches/e2fsprogs/reproducible.patch
