@@ -6,6 +6,12 @@ build-depends:
 depends:
 - bootstrap-import.bst
 
+config:
+  install-commands:
+    (>):
+    - |
+      find "%{install-root}" -name "lib*.a" -delete
+
 sources:
 - kind: git_repo
   url: github:openSUSE/libeconf.git
