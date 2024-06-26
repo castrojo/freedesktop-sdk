@@ -16,6 +16,7 @@ depends:
 
 runtime-depends:
 - components/python3-appdirs.bst
+- components/python3-backports-entrypoints-selectable.bst
 - components/python3-dbus-deviation.bst
 - components/python3-feedgen.bst
 - components/python3-lxml.bst
@@ -34,10 +35,7 @@ public:
   bst:
     integration-commands:
     - |
-      python3 << EOF
-      import importlib.metadata
-      importlib.metadata.requires('hotdoc')
-      EOF
+      hotdoc --version
 
 sources:
 # Building with source from github requires npm
