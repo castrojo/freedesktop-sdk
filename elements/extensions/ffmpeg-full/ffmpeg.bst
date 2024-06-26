@@ -14,3 +14,5 @@ variables:
     --enable-encoders
     --enable-decoders
     --disable-programs
+    --enable-libx265
+    --enable-gpl
