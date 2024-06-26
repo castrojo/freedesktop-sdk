@@ -79,7 +79,7 @@ variables:
     --enable-openal
     --enable-opengl
     --enable-sdl2
-    --disable-vulkan
+    --enable-vulkan
     --enable-zlib
     --enable-libv4l2
     --enable-libxcb
