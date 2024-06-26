@@ -5,6 +5,7 @@ kind: cmake
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/nasm.bst
+- components/git-minimal.bst
 
 depends:
 - bootstrap-import.bst
@@ -20,7 +21,6 @@ variables:
 config:
   install-commands:
     (>):
-    - cp -ra "%{build-root}/%{build-dir}/"*.so* "%{install-root}%{prefix}"
     - find "%{install-root}%{prefix}" -name "lib*.a" -delete
 
 sources:
