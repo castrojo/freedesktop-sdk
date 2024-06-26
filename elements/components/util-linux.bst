@@ -18,6 +18,8 @@ public:
       devel:
         (>):
         - '%{libdir}/libblkid.so'
+        - '%{libdir}/libeconf.so'
+        - '%{libdir}/liblastlog2.so'
         - '%{libdir}/libsmartcols.so'
         - '%{libdir}/libmount.so'
         - '%{libdir}/libuuid.so'
