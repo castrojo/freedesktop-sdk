@@ -5,6 +5,7 @@ build-depends:
 
 runtime-depends:
 - bootstrap-import.bst
+- components/libeconf.bst
 
 config:
   exclude:
@@ -17,6 +18,8 @@ public:
       devel:
         (>):
         - '%{libdir}/libblkid.so'
+        - '%{libdir}/libeconf.so'
+        - '%{libdir}/liblastlog2.so'
         - '%{libdir}/libsmartcols.so'
         - '%{libdir}/libmount.so'
         - '%{libdir}/libuuid.so'

@@ -12,6 +12,7 @@ public:
       devel:
         (>):
         - '%{libdir}/libcap-ng.so'
+        - '%{libdir}/libdrop_ambient.so'
 
 sources:
 - kind: git_repo

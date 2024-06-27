@@ -4,9 +4,13 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/asciidoctor.bst
 - components/bison.bst
+- components/flex.bst
 - components/git-minimal.bst
 - components/libcap-ng.bst
 - components/libeconf.bst
+
+depends:
+- components/sqlite.bst
 
 variables:
   conf-local: >-
@@ -84,4 +88,4 @@ sources:
   exclude:
   - v*-rc*
   - v*-devel*
-  ref: v2.39.3-0-g2da5c904e18fdcffd2b252d641e6f76374c7b406
+  ref: v2.40.1-0-gfaa3057dec713306a462924084e541af4a78e2fc
