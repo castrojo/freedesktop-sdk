@@ -140,6 +140,7 @@ before_script:
 
 pylint:
   stage: flatpak
+  timeout: 1h
   script:
     - find . -path 'files/oci' -prune -o -iname "*.py" -exec pylint {} +
     - pylint files/oci/oci_builder
@@ -189,6 +190,7 @@ pylint:
 daily_update_elements:
   extends:
     - .check_update_elements
+  timeout: 1h
   variables:
     TRACK_ELEMENTS: track-elements.bst
   rules:
@@ -197,6 +199,7 @@ daily_update_elements:
 weekly_update_elements:
   extends:
     - .check_update_elements
+  timeout: 1h
   variables:
     TRACK_ELEMENTS: track-elements-weekly.bst
     EXTRA_TRACK_ARGS: >-
@@ -206,6 +209,7 @@ weekly_update_elements:
 
 check_mirrors:
   stage: update
+  timeout: 1h
   before_script:
   # Configure Buildstream
   - mkdir -p ~/.config
