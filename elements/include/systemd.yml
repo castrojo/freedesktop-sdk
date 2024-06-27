@@ -4,6 +4,6 @@ sources:
   track: v254.*
   exclude:
   - '*rc*'
-  ref: v254.13-0-g10e36dbd66eb96e8b1bc8e71b48c8b2a8c7635c5
+  ref: v254.14-0-g1b12ecae544d565e94fe3ae40ddcaf8db3d97f67
 - kind: patch
   path: patches/systemd/0001-repart-Fix-a-check-for-CopyBlocks-on-data-partition.patch
