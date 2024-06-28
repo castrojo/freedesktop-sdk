@@ -20,6 +20,7 @@ variables:
     -Dbash_completion=false
     -Dlibcolordcompat=false
     -Dman=false
+    -Ddocs=false
     -Dvapi=true
 
 sources:
