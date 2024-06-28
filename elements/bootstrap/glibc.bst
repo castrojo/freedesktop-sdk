@@ -97,6 +97,13 @@ variables:
 public:
   bst:
     split-rules:
+      # Include 64-bit dynamic linkers in runtime. 
+      runtime:
+        (>):
+        - '/lib64'
+        - '%{prefix}/lib64'
+        - '%{prefix}/lib64/*'
+        - '%{libdir}/ld-*.so*'
       # We keep the debuginfo for the dynamic loader only because
       # valgrind needs it.
       debug:
