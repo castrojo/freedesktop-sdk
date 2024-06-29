@@ -8,4 +8,4 @@ sources:
 - kind: git_repo
   url: github:jpirko/libndp.git
   track: v*
-  ref: v1.8-0-g009ce9cd9b950ffa1f4f94c9436027b936850d0c
+  ref: v1.9-0-g2730638bf88984b09531813974f9bd14e1a50165
