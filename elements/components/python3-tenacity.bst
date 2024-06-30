@@ -11,4 +11,4 @@ sources:
 - kind: git_repo
   url: github:jd/tenacity.git
   track: '*.*.*'
-  ref: 8.3.0-0-gcb15300d9b4358d9bdb6cfd33d433368700b3abe
+  ref: 8.4.2-0-ga15fa645326ef776dbef81ee13e3833cd14bdced
