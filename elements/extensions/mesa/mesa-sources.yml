@@ -5,7 +5,7 @@ sources:
   exclude:
   - '*rc*'
   - '*branchpoint*'
-  ref: mesa-24.1.0-0-ge1e425449181859689aaa9e193df86fd0b56b18e
+  ref: mesa-24.1.2-0-g414057c05c3dff39674ad45855858af02e995c2b
 - kind: patch
   path: patches/mesa/clang_res_path.patch
 - kind: patch
