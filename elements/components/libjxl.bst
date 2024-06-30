@@ -59,4 +59,4 @@ sources:
   - "*rc*"
   - "*snapshot*"
   - "*base*"
-  ref: v0.10.2-0-ge1489592a770b989303b0edc5cc1dc447bbe0515
+  ref: v0.10.3-0-g4a3b22d2600f92d8706fb72d85d52bfee2acbd54
