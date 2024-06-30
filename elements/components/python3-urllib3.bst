@@ -15,4 +15,4 @@ sources:
   - '*a*'
   - '*b*'
   - '*rc*'
-  ref: 2.2.1-0-g54d6edf2a671510a5c029d3b76ffe71a5b07147a
+  ref: 2.2.2-0-g27e2a5c5a7ab6a517252cc8dcef3ffa6ffb8f61a
