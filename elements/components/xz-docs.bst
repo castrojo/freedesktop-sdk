@@ -12,7 +12,7 @@ config:
   build-commands: []
   install-commands:
   - |
-    make -C %{build-dir} install-data-local DESTDIR="%{install-root}"
+    make -C %{build-dir}/src/liblzma/api install-data-local DESTDIR="%{install-root}"
     for makefile in $(find "%{build-dir}" -name Makefile); do
       dir="$(dirname "${makefile}")"
       if grep install-data-hook: "${makefile}"; then
