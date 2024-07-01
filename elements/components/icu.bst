@@ -36,7 +36,7 @@ public:
 # See https://github.com/sdispater/tomlkit/issues/322
 sources:
 - kind: tar
-  url: github_files:unicode-org/icu/releases/download/release-74-1/icu4c-74_1-src.tgz
-  ref: 86ce8e60681972e60e4dcb2490c697463fcec60dd400a5f9bffba26d0b52b8d0
+  url: github_files:unicode-org/icu/releases/download/release-75-1/icu4c-75_1-src.tgz
+  ref: cb968df3e4d2e87e8b11c49a5d01c787bd13b9545280fc6642f826527618caef
 - kind: patch
   path: patches/icu/icu-fix-shared-linking.patch

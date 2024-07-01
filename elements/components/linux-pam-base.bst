@@ -38,5 +38,5 @@ public:
 
 sources:
 - kind: tar
-  url: github_files:linux-pam/linux-pam/releases/download/v1.5.3/Linux-PAM-1.5.3.tar.xz
-  ref: 7ac4b50feee004a9fa88f1dfd2d2fa738a82896763050cd773b3c54b0a818283
+  url: github_files:linux-pam/linux-pam/releases/download/v1.6.1/Linux-PAM-1.6.1.tar.xz
+  ref: f8923c740159052d719dbfc2a2f81942d68dd34fcaf61c706a02c9b80feeef8e
