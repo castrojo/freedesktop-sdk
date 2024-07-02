@@ -1,14 +1,14 @@
 kind: autotools
 
 build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/docbook-xsl.bst
 - components/flex.bst
 
 depends:
 - bootstrap-import.bst
-- components/util-linux.bst
-
-runtime-depends:
 - components/libxslt.bst
+- components/util-linux.bst
 
 config:
   configure-commands:
@@ -16,10 +16,7 @@ config:
     - rm xmlif/xmlif.c
 
 sources:
-- kind: tar
-  url: pagure_releases:xmlto/xmlto-0.0.28.tar.bz2
-  ref: 1130df3a7957eb9f6f0d29e4aa1c75732a7dfb6d639be013859b5c7ec5421276
-- kind: patch
-  path: patches/xmlto/xmlto-c99-1.patch
-- kind: patch
-  path: patches/xmlto/xmlto-c99-2.patch
+- kind: git_repo
+  url: pagure:xmlto.git
+  track: '*.*.*'
+  ref: 0.0.29-0-g635dcd5bc84a7b67a3a2050a179d96e1d3050b15
