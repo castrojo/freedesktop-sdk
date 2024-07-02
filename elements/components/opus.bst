@@ -1,11 +1,29 @@
-kind: autotools
+kind: cmake
+
+build-depends:
+- public-stacks/buildsystem-cmake.bst
+- components/git-minimal.bst
 
 depends:
-- filename: bootstrap-import.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/git-minimal.bst
-  type: build
+- bootstrap-import.bst
+
+variables:
+  arch-conf: ''
+  (?):
+  - target_arch in ["x86_64", "aarch64", "i686"]:
+      arch-conf: -DOPUS_DISABLE_INTRINSICS=OFF
+  - target_arch == "ppc64le":
+      arch-conf: -DOPUS_DISABLE_INTRINSICS=ON
+
+  cmake-local: >-
+    -DBUILD_SHARED_LIBS=ON
+    -DBUILD_TESTING=OFF
+    -DOPUS_DNN=OFF
+    -DOPUS_DEEP_PLC=OFF
+    -DOPUS_DRED=OFF
+    -DOPUS_OSCE=OFF
+    -DOPUS_CUSTOM_MODES=ON
+    %{arch-conf}
 
 public:
   bst:
@@ -20,4 +38,4 @@ sources:
 - kind: git_repo
   url: xiph:opus.git
   track: v*
-  ref: v1.4-0-g82ac57d9f1aaf575800cf17373348e45b7ce6c0d
+  ref: v1.5.2-0-gddbe48383984d56acd9e1ab6a090c54ca6b735a6
