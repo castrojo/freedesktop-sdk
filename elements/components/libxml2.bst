@@ -11,6 +11,9 @@ depends:
 variables:
   conf-local: >-
     --with-icu
+    --with-http
+    --with-zlib
+    --with-lzml
     --with-python=%{bindir}/python3
     CPPFLAGS="$(pkg-config --cflags-only-I python3)"
 
