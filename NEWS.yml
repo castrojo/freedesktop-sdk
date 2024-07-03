@@ -1,3 +1,111 @@
+Version: freedesktop-sdk-24.08beta.2
+Date: '2024-07-01'
+Description: |-
+  Changes in freedesktop-sdk-24.08beta.2
+   * libxml2: Restored http, zlib and lzma API's
+   * openssl: build optimised target for riscv64 and loongarch64
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-150
+   * Update json-glib to 1.9.2-0
+   * Update libva-utils to 2.22.0-0
+   * Update python3-protobuf to 5.27.2
+   * Update dictionaries to libreoffice-24.2.5.1-0
+   * Update networkmanager to 1.48.2-0
+   * Update libinput to 1.26.1-0
+   * mesa: Remove obsolete patches
+   * Update mesa to mesa-24.1.2-0
+   * python3-tpm2-pytss: Update to 2.3.0
+   * Update tpm2-tss to 4.1.3-0
+   * glib: Backport patches to fix build race condition
+   * Update wireplumber to 0.5.5-0
+   * Update mutool to 1.24.5-0
+   * Update cryptsetup-base to v2.7.3-0
+   * Update linux to v6.9.7-0
+   * Update aardvark-dns to v1.11.0-0
+   * Update passt to 2024_06_24.1ee2eca-0
+   * Update btrfs-progs to v6.9.2-0
+   * dictionaries: Fix typo in tracking exclude
+   * Update python3-tenacity to 8.4.2-0
+   * Update libksba to libksba-1.6.7-0
+   * Update libjxl to v0.10.3-0
+   * Update python3-urllib3 to 2.2.2-0
+   * Update libxslt to v1.1.41-0
+   * Update libgpg-error to libgpg-error-1.50-0
+   * Update llvm to llvmorg-18.1.8-0
+   * dictionaries: Ignore invalid tag
+   * Update python3-psutil to release-6.0.0-0
+   * Update spirv-llvm-translator to v18.1.1-1
+   * Update harfbuzz to 9.0.0-0
+   * Update fuse-overlayfs to v1.14-0
+   * Update cups-base to v2.4.10-0
+   * Update shadow to 4.16.0-0
+   * Update libndp to v1.9-0
+   * Update libva to 2.22.0-0
+   * networkmanager: disable build of tests which is slow and not needed
+   * colord: Temporarily disable documentation
+   * libxslt: Update to 1.1.40
+   * Update libxml2 to v2.13.1-0
+   * libheif: Ignore release candidates
+   * templates/buildstream.conf: don't use the local cas as source cache
+   * templates/buildstream.conf: update to the new local cas setup
+   * Update wireplumber to 0.5.4-0
+   * Update python3-pip to 24.1.1
+   * Update dav1d to 1.4.3-0
+   * linux: Remove obsolete patches
+   * Update linux to v6.9.6-0
+   * Include dynamic linker and symlinks in runtime domain
+   * Update libselinux to libselinux-3.7-0
+   * Update libproxy to 0.5.7-0
+   * Update libdrm to libdrm-2.4.122-0
+   * Update hotdoc to 0.17
+   * Add timeouts for some jobs we know should be fast
+   * libeconf: Split libeconf.so to devel
+   * libeconf: Delete static libraries
+   * libcap-ng: Add libdrop_ambient to devel split
+   * util-linux: Add libeconf and liblastlog to devel split
+   * Update to 2.40.1
+   * util-linux: Move econf runtime dependency from util-linux-full to util-linux
+   * util-linux-base: Add flex and sqlite dependencies
+   * Update util-linux-base to v2.40-0
+   * e2fsprogs: Remove unnecessary patch
+   * Update e2fsprogs to v1.47.1-0
+   * Update to bst-plugins-experimental 1.100.1
+   * Revert "ffmpeg: Disable Vulkan support"
+   * ffmpeg-full: Set pkg-config path, cflag and ldflag for locating libx265
+   * libx265: Add git so that it can detect tag version
+   * ffmpeg-full: Enable libx265
+   * ffmpeg-full: Ship libde265, libx265 and libheif-libde265 x265 plugins
+   * Update protobuf to v27.2-0
+   * Update mutool to 1.24.4-0
+   * Update mesa-sdk to mesa-24.1.2-0
+   * Update python3-setuptools to v70.1.1-0
+   * ffmpeg: Stop using special variables for prefix and libdir
+   * Add fixes for ffmpeg 7 for gstreamer-libav
+   * ffmpeg: Remove upstreamed patches
+   * Update ffmpeg to n7.0.1-0
+   * libheif: Remove duplicated split rules
+   * Remove gdk-pixbuf loader stack and add elements individually
+   * Remove duplicated integration commands
+   * Update python3-virtualenv to 20.26.3-0
+   * Update buildbox to 1.2.7-0
+   * Update pipewire-base to 1.1.83-0
+   * Update libassuan to libassuan-3.0.1-0
+   * Update vim to v9.1.0516-0
+   * hotdoc: Add backports-entrypoints-selectable as runtime dependency
+   * hotdoc: Verify dependencies through version query
+   * Update hotdoc to 0.17
+   * setuptools: Drop patch
+   * Update python3-setuptools to v70.1.0-0
+   * spirv-tools: Rebase hacky patch
+   * vulkan-icd-loader: Drop patch and use EXTRASYSCONFDIR
+   * Update vulkan-stack to vulkan-sdk-1.3.283.0-0
+   * Update glibc to glibc-2.39-75
+   * abseil-cpp: Build as shared
+   * Build with _FORTIFY_SOURCE=3
+   * Add gdk-pixbuf loader stack to license checker ignore list
+   * Add libheif
+   * alsa-lib: Remove obsolete downstream patch
+   * Update alsa-lib to v1.2.12-0
+---
 Version: freedesktop-sdk-24.08beta.1
 Date: '2024-06-23'
 Description: |-
