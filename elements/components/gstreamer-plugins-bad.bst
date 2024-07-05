@@ -24,6 +24,7 @@ depends:
 - components/webrtc-audio-processing.bst
 - components/noopenh264.bst
 - components/libsrtp2.bst
+- components/svt-av1.bst
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
@@ -59,6 +60,7 @@ variables:
     -Dwebp=enabled
     -Dopenh264=enabled
     -Dsrtp=enabled
+    -Dsvtav1=enabled
 
 public:
   bst:
