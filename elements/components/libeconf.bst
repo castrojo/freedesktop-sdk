@@ -6,6 +6,10 @@ build-depends:
 depends:
 - bootstrap-import.bst
 
+variables:
+  cmake-local: >-
+    -DBUILD_TESTING=OFF
+
 public:
   bst:
     split-rules:
