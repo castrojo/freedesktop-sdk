@@ -22,6 +22,7 @@ variables:
     --enable-usrdir-path
     --enable-setpriv
     --with-econf
+    --with-vendordir="%{indep-libdir}"
 
 public:
   initial-script:
