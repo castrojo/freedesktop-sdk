@@ -23,4 +23,6 @@ sources:
 - kind: git_repo
   url: git_https:gitlab.com/AOMediaCodec/SVT-AV1
   track: v*.*.*
+  exclude:
+  - "*rc*"
   ref: v2.1.2-0-gc949fe4f14fe288a9b2b47aa3e61335422a83645
