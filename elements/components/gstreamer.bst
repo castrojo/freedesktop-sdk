@@ -12,6 +12,7 @@ depends:
 - bootstrap-import.bst
 - components/glib.bst
 - components/libunwind.bst
+- components/svt-av1.bst
 
 variables:
   command-subdir: subprojects/gstreamer
