@@ -1,7 +1,7 @@
-kind: meson
+kind: cmake
 
 build-depends:
-- public-stacks/buildsystem-meson.bst
+- public-stacks/buildsystem-cmake.bst
 
 depends:
 - bootstrap-import.bst
@@ -16,12 +16,6 @@ public:
       devel:
         (>):
         - '%{libdir}/libeconf.so'
-
-config:
-  install-commands:
-    (>):
-    - |
-      find "%{install-root}" -name "lib*.a" -delete
 
 sources:
 - kind: git_repo
