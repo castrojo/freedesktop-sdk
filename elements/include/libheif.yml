@@ -10,6 +10,7 @@ depends:
 - components/libpng.bst
 - components/libwebp.bst
 - components/openjpeg.bst
+- components/svt-av1.bst
 
 variables:
 
@@ -37,6 +38,8 @@ variables:
     -DWITH_OpenJPEG_ENCODER_PLUGIN=OFF
     -DWITH_EXAMPLES=OFF
     -DBUILD_TESTING=OFF
+    -DWITH_SvtEnc=ON
+    -DWITH_SvtEnc_PLUGIN=OFF
 
   cmake-extra: ''
 
@@ -52,3 +55,5 @@ sources:
   exclude:
   - '*rc*'
   ref: v1.17.6-0-g59b58566de0d8e2e9fea958abeba1d3346bda9de
+- kind: patch
+  path: patches/libheif/fix-compilation-with-libsvtav1-2.patch
