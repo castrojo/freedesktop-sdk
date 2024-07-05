@@ -29,6 +29,7 @@ depends:
 - components/libvpx.bst
 - components/opus.bst
 - components/openjpeg.bst
+- components/svt-av1.bst
 - components/vulkan-icd-loader.bst
 - components/v4l-utils.bst
 - components/libwebp.bst
@@ -76,6 +77,7 @@ variables:
     --enable-libwebp
     --enable-libxml2
     --enable-libopenjpeg
+    --enable-libsvtav1
     --enable-openal
     --enable-opengl
     --enable-sdl2
