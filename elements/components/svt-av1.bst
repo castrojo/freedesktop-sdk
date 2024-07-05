@@ -10,6 +10,8 @@ depends:
 variables:
   cmake-local: >-
     -DREPRODUCIBLE_BUILDS=1
+    -DBUILD_SHARED_LIBS=ON
+    -DBUILD_TESTING=OFF
 
 public:
   bst:
