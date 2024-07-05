@@ -11,6 +11,6 @@ sources:
 - kind: pypi
   name: filelock
   ref:
-    sha256sum: 58a2549afdf9e02e10720eaa4d4470f56386d7a6f72edd7d0596337af8ed7ad8
+    sha256sum: 2207938cbc1844345cb01a5a95524dae30f0ce089eba5b00378295a17e3e90cb
     suffix: 
-      69/7d/73d36db6955bde2ed495ce40ce02c9a2533b8c7b64fd42a38b1ee879ea18/filelock-3.15.1.tar.gz
+      08/dd/49e06f09b6645156550fb9aee9cc1e59aba7efbc972d665a1bd6ae0435d4/filelock-3.15.4.tar.gz
