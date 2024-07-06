@@ -25,5 +25,5 @@ public:
 
 sources:
 - kind: tar
-  url: tar_https:download-mirror.savannah.gnu.org/releases/man-db/man-db-2.11.2.tar.xz
-  ref: cffa1ee4e974be78646c46508e6dd2f37e7c589aaab2938cc1064f058fef9f8d
+  url: tar_https:download-mirror.savannah.gnu.org/releases/man-db/man-db-2.12.1.tar.xz
+  ref: ddee249daeb78cf92bab794ccd069cc8b575992265ea20e239e887156e880265

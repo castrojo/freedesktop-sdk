@@ -17,6 +17,7 @@ variables:
     --disable-memconf
     --disable-schemas-compile
     --disable-gtk2
+    --disable-gtk4
     --disable-setup
     --disable-ui
     --disable-engine
@@ -53,5 +54,5 @@ public:
 
 sources:
 - kind: tar
-  url: github_files:ibus/ibus/releases/download/1.5.28/ibus-1.5.28.tar.gz
-  ref: 6c9ff3a7576c3d61264f386030f47ee467eb7298c8104367002986e008765667
+  url: github_files:ibus/ibus/releases/download/1.5.30/ibus-1.5.30.tar.gz
+  ref: 05b84d4a45139face161596e5ade8e6c5da55cfaf6f194861da66516190f5b96

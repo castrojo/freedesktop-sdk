@@ -6,5 +6,5 @@ depends:
 
 sources:
 - kind: tar
-  url: tar_https:bitmath.org/code/mtdev/mtdev-1.1.6.tar.gz
-  ref: 1325f389a2f25cd5f5a8ea4d29aad24aa7c3ec30401d679400dd79eb9c0a8dbb
+  url: tar_https:bitmath.org/code/mtdev/mtdev-1.1.7.tar.gz
+  ref: a55bd02a9af4dd266c0042ec608744fff3a017577614c057da09f1f4566ea32c

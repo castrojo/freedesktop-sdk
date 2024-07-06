@@ -78,5 +78,5 @@ public:
 
 sources:
 - kind: tar
-  url: tar_https:launchpad.net/apparmor/3.1/3.1.6/+download/apparmor-3.1.6.tar.gz
-  ref: d5d699fd43faffd924dd51bfb5781a5a7cbabb55c1c9cb4abfb8c2840a9e8fcd
+  url: tar_https:launchpad.net/apparmor/3.1/3.1.7/+download/apparmor-3.1.7.tar.gz
+  ref: c6c161d6dbd99c2f10758ff347cbc6848223c7381f311de62522f22b0a16de64
