@@ -13,7 +13,7 @@ config:
   - |
     mkdir %{build-dir}
     cd %{build-dir}
-    ../configure --prefix=%{prefix} --docdir=/share/doc/cmake
+    ../configure --prefix=%{prefix} --docdir=/share/doc/cmake --verbose
 
 sources:
 - kind: git_repo
