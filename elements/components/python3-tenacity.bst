@@ -12,6 +12,6 @@ sources:
 - kind: pypi
   name: tenacity
   ref:
-    sha256sum: cd80a53a79336edba8489e767f729e4f391c896956b57140b5d7511a64bbd3ef
+    sha256sum: 8bc6c0c8a09b31e6cad13c47afbed1a567518250a9a171418582ed8d9c20ca78
     suffix: 
-      9a/dc/7b9818743ab08d53245b777639b6c2d274be8e7eb09b1131885958a3f517/tenacity-8.4.2.tar.gz
+      a3/4d/6a19536c50b849338fcbe9290d562b52cbdcf30d8963d3588a68a4107df1/tenacity-8.5.0.tar.gz
