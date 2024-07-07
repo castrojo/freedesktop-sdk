@@ -17,3 +17,5 @@ sources:
   exclude:
   - '*.rc*'
   ref: 20240116.2-0-gd7aaad83b488fd62bd51c81ecf16cd938532cc0a
+- kind: patch
+  path: patches/abseil-cpp/avoid-export-of-testonly-target-in-cmake.patch
