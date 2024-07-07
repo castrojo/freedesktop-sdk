@@ -13,5 +13,5 @@ depends:
 sources:
 - kind: git_repo
   url: freedesktop:xorg/proto/xcbproto.git
-  track: xcb-proto-*
+  track: xcb-proto-1.15.*
   ref: xcb-proto-1.15.2-0-ged461f379b6cde5bea7bc99d253c270b37298401
