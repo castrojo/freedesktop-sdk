@@ -1,7 +1,7 @@
 sources:
 - kind: git_repo
   url: gnupg:gnupg.git
-  track: gnupg-*
+  track: gnupg-2.4.*
   exclude:
   - '*-base'
   ref: gnupg-2.4.5-0-gcbff323b3b24c50f2bdef9b209c94516571c4df0
