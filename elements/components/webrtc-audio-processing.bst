@@ -18,7 +18,7 @@ public:
       devel:
         (>):
         - "%{libdir}/libwebrtc-audio-coding-1.so"
-        - "%{libdir}//libwebrtc-audio-processing-1.so"
+        - "%{libdir}/libwebrtc-audio-processing-1.so"
 
 sources:
 - kind: git_repo
