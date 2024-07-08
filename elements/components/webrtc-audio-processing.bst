@@ -26,4 +26,4 @@ sources:
   track: v*
   ref: v1.3-0-g8e258a1933d405073c9e6465628a69ac7d2a1f13
 - kind: patch
-  path: patches/webrtc-audio-processing/Bring-arch.h-in-line-with-upstream-webrtc.patch
+  path: patches/webrtc-audio-processing/Add-generic-byte-order-and-pointer-size-detection.patch
