@@ -29,3 +29,5 @@ sources:
   path: patches/webrtc-audio-processing/Add-generic-byte-order-and-pointer-size-detection.patch
 - kind: patch
   path: patches/webrtc-audio-processing/webrtc-audio-processing-1.3-big-endian-support.patch
+- kind: patch
+  path: patches/webrtc-audio-processing/webrtc-audio-processing-1.3-x86-no-sse.patch
