@@ -41,7 +41,7 @@ sources:
 - kind: git_repo
   url: gitlab:gnutls/gnutls.git
   track: '*.*.*'
-  ref: 3.8.5-0-g49f4ae2109b7cc969539b90be92a5844bbe7b322
+  ref: 3.8.6-0-gcd953cfa483801a6b71bdf920bb534fb297fdfac
 - kind: git_module
   url: gitlab:gnutls/cligen.git
   path: cligen
@@ -59,4 +59,4 @@ sources:
 - kind: git_module
   path: devel/nettle
   url: gitlab:gnutls/nettle.git
-  ref: 236d79b8bc508ae089f63a75c16f87c7076babdf
+  ref: 40178e78ae73ec2a8cda8cd53664df9c73ac1961
