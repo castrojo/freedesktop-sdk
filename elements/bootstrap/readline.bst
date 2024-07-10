@@ -42,11 +42,11 @@ public:
 sources:
 - kind: git_repo
   url: savannah:readline.git
-  track: readline-*
-  exclude:
-  - '*-alpha*'
-  - '*-beta*'
-  - '*-rc*'
-  ref: readline-8.2-0-gf7a382fd09319b20ef4435b9b554183b605468c1
+  # readline doesn't provide patch releases, and just commits patches
+  # to git. We track master to get those latest fixes without having
+  # to backport them one by one.
+  # When reviewing an update, please review what patches it introduces
+  track: master
+  ref: readline-8.2-10-g5d4d92f221d6aac4be445bdd8cd9b48d9ac33f04
 - kind: patch
   path: patches/readline/readline-disable-rpath.patch
