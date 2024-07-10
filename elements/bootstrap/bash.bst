@@ -72,8 +72,10 @@ public:
 sources:
 - kind: git_repo
   url: savannah:bash.git
+  # bash doesn't provide patch releases, and just commits patches
+  # to git. We track master to get those latest fixes without having
+  # to backport them one by one.
+  # When reviewing an update, please review what patches it introduces
   track: master
-  exclude:
-  - "*alpha*"
   ref: bash-5.2-27-gf3b6bd19457e260b65d11f2712ec3da56cef463f
 
