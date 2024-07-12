@@ -17,4 +17,4 @@ sources:
 - kind: git_repo
   url: kernel:libs/ell/ell.git
   track: '*.*'
-  ref: 0.66-0-g602c60c6e1523858ffd2590f5fc6bf3f5f00f5e6
+  ref: 0.67-0-ge0204970482c1a09ad731dbc68e770a364b2d997
