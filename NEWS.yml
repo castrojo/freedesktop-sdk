@@ -1,3 +1,85 @@
+Version: freedesktop-sdk-24.08beta.3
+Date: '2024-07-11'
+Description: |-
+  Changes in freedesktop-sdk-24.08beta.3
+   * flatpak-builder-source: Bump to 1.4.4
+   * Add patch to fix NVK sabotaging NVIDIA proprietary driver
+   * Update fmtlib to 11.0.1-0
+   * Update grpc to v1.65.0-0
+   * Update libxml2 to v2.13.2-0
+   * Update perl-ssl to 2.087
+   * Update networkmanager to 1.48.4-0
+   * Update gnutls to 3.8.6-0
+   * Update systemd to v256.2-0
+   * Update buildbox to 1.2.10-0
+   * Update iwd to 2.19-0
+   * Update python3-pip to 24.1.2
+   * Update gdb to gdb-15.1-release-0
+   * Update gnupg to gnupg-2.5.0-0
+   * Update go to go1.22.5-0
+   * Update vim to v9.1.0545-0
+   * Update libdrm to libdrm-2.4.122-0
+   * Update linux to v6.9.8-0
+   * Update buildbox to 1.2.9-0
+   * webrtc-audio-processing: Disable PFFFT SIMD
+   * webrtc-audio-processing: Check availability of SSE through macro
+   * webrtc-audio-processing: Import big endian support patch from Debian
+   * webrtc-audio-processing: Replace arch.h patch with generic patch
+   * webrtc-audio-processing: Fix devel split rule
+   * webrtc-audio-processing: Update to v1.3
+   * Update glibc to glibc-2.39-81
+   * Update poppler to poppler-24.07.0-0
+   * Update jpeg to 3.0.3-0
+   * Update pipewire-base to 1.2.0-0
+   * Update util-linux-base to v2.40.2-0
+   * Update python3-trove-classifiers to 2024.7.2-0
+   * Update python3-tenacity to 8.5.0-0
+   * Update ccid to 1.6.1-0
+   * Update python3-certifi to 2024.7.4
+   * abseil-cpp: Add patch to fix build with newer cmake
+   * Update cmake to v3.30.0-0
+   * cmake: enable more verbosity in build logs
+   * cmake: fix doc install path
+   * Update sdl2 to release-2.30.5-0
+   * Update genimage to v18-0
+   * ccache: Add asciidoctor for docs
+   * ccache: Add patch to fix detection of FMT version
+   * ccache: Update to 4.10.1
+   * Update fmtlib to 11.0.0-0
+   * Update mesa-sdk to mesa-24.1.3-0
+   * Update tarballs urls
+   * libeconf: Switch to cmake
+   * libeconf: Disable tests
+   * util-linux: Set vendor dir to indep-libdir
+   * Update libeconf to v0.7.2-0
+   * Update libxslt to v1.1.42-0
+   * Update python3-filelock to 3.15.4
+   * Update mesa to mesa-24.1.3-0
+   * libheif: Enable svt-av1 support
+   * svt-av1: Explicitly disable tests and turn on shared libs
+   * svt-av1: Exclude rc tags
+   * svt-av1: Update to 2.1.2
+   * gstreamer: Enable SVT-AV1 support
+   * libavif: Enable svt-av1 support
+   * Update pinentry-ncurses to pinentry-1.3.1-0
+   * ffmpeg: Enable SVT-AV1 encoder
+   * Add recipe for the SVT-AV1 encoder
+   * p11-kit: Update to 0.25.5
+   * p11-kit: Remove obsolete patch
+   * Disable UI throttling
+   * Update libsepol to libsepol-3.7-0
+   * opus: Update to 1.5.2 and build without DNN
+   * xmlto: Build from git and update to 0.0.29
+   * Update open-iscsi to 2.1.10-0
+   * Update buildbox to 1.2.8-0
+   * Update glibc to glibc-2.39-76
+   * openssh: Update to 9.8
+   * xz-docs: install-data-local only exists for api docs
+   * xz: Update to 5.6.2
+   * xz: Restart xz tracking
+   * Rebase shaderc patch
+   * Update shaderc to v2024.1-0
+---
 Version: freedesktop-sdk-24.08beta.2
 Date: '2024-07-01'
 Description: |-
