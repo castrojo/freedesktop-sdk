@@ -25,7 +25,7 @@ sources:
 - kind: git_repo
   url: github:flatpak/flatpak-builder.git
   track: '1.*[02468]*'
-  ref: 1.4.3-0-g71495258a5df18367ac502b2a191f93cd7481f92
+  ref: 1.4.4-0-gf996a7949076ef1dc85c602da85b981b0a173a23
 - kind: git_module
   path: subprojects/libglnx
   url: gnome:libglnx.git
