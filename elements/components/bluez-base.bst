@@ -3,6 +3,7 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/python3-docutils.bst
+- components/python3-pygments.bst
 - components/systemd.bst
 - components/dbus.bst
 - components/libical.bst
