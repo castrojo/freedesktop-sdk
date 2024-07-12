@@ -25,4 +25,4 @@ sources:
 - kind: git_repo
   url: github:libbpf/libbpf.git
   track: v*
-  ref: v1.4.3-0-gf8c6e0393d4be665fc0b584266b2a1354a71835e
+  ref: v1.4.5-0-ga5086158dc90593b4e4b3ddbafab9bdaf9ec97ef
