@@ -18,7 +18,7 @@ config:
 sources:
 - kind: git_repo
   url: kitware:cmake.git
-  track: v*
+  track: v3.29.*
   exclude:
   - v*-rc*
   ref: v3.29.6-0-gcdc901797ac4ce0d1feeec454ecdd29e8ef5d4ff
