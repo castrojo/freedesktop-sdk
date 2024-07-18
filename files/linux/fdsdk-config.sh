@@ -7,6 +7,7 @@ arch=$1
 
 # Modify the kernel config for additional features
 
+# PinePhone Pro kernel configs
 case "$arch" in
     aarch64)
         module VIDEO_ROCKCHIP_ISP1
@@ -16,39 +17,27 @@ case "$arch" in
         module VIDEO_OV8858
         module VIDEO_IMX258
         module VIDEO_DW9714
-    ;;
-esac
 
-case "$arch" in
-    aarch64)
         module ROCKCHIP_SARADC
         enable ROCKCHIP_MBOX
         module ROCKCHIP_THERMAL
         enable ROCKCHIP_RGB
-    ;;
-esac
 
-case "$arch" in
-    aarch64)
         module CRYPTO_DEV_ROCKCHIP
-    ;;
-esac
 
-case "$arch" in
-    aarch64)
         module PHY_ROCKCHIP_DPHY_RX0
-    ;;
-esac
 
-case "$arch" in
-    aarch64)
         enable BACKLIGHT_CLASS_DEVICE
-    ;;
-esac
 
-case "$arch" in
-    aarch64)
         module V4L2_FLASH_LED_CLASS
+
+        module INPUT_GPIO_VIBRA
+        module KEYBOARD_PINEPHONE
+
+        module DRM_PANEL_HIMAX_HX8394
+
+        module LEDS_CLASS_FLASH
+        module LEDS_SGM3140
     ;;
 esac
 
@@ -270,10 +259,6 @@ module INPUT_MOUSEDEV
 case "$arch" in
     i686|x86_64)
         module KEYBOARD_APPLESPI
-    ;;
-    aarch64)
-        module INPUT_GPIO_VIBRA
-        module KEYBOARD_PINEPHONE
     ;;
 esac
 module KEYBOARD_GPIO
@@ -655,7 +640,6 @@ case "$arch" in
     ;;
     aarch64)
         module DRM_PANFROST
-        module DRM_PANEL_HIMAX_HX8394
     ;;
 esac
 
@@ -2062,10 +2046,6 @@ case "$arch" in
     x86_64|i686)
         module LEDS_APU
         module LEDS_INTEL_SS4200
-    ;;
-    aarch64)
-        module LEDS_CLASS_FLASH
-        module LEDS_SGM3140
     ;;
 esac
 
