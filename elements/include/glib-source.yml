@@ -7,5 +7,3 @@ sources:
   path: subprojects/gvdb
   url: gnome:gvdb.git
   ref: 0854af0fdb6d527a8d1999835ac2c5059976c210
-- kind: patch_queue
-  path: patches/glib
