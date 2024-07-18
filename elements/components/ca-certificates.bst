@@ -188,4 +188,4 @@ sources:
 - kind: git_repo
   url: fedora_rpms:ca-certificates.git
   track: rawhide
-  ref: ca-certificates-2010_63-3_fc14-150-g971799e6919961c664862da3910aa4f53b94d4de
+  ref: ca-certificates-2010_63-3_fc14-151-gdb453352b4c70a7a93418faf18d5b1fa176baa95
