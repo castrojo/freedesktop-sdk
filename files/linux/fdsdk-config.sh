@@ -36,7 +36,6 @@ case "$arch" in
 
         module DRM_PANEL_HIMAX_HX8394
 
-        module LEDS_CLASS_FLASH
         module LEDS_SGM3140
     ;;
 esac
