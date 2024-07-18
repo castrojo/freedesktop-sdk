@@ -8,8 +8,6 @@ sources:
   ref: mesa-24.1.4-0-g62a4558a5df9d43ee82f67bac35fa6713463a1c1
 - kind: patch
   path: patches/mesa/clang_res_path.patch
-- kind: patch
-  path: patches/mesa/nvk-should-not-break-nvidia-proprietary-driver.patch
 # Rust dependencies:
 - kind: tar
   directory: subprojects/packagecache/syn-2.0.39
