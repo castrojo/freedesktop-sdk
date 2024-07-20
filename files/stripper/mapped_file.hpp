@@ -26,28 +26,51 @@
 
 #include "fd.hpp"
 #include <sys/mman.h>
+#include <map>
+#include <vector>
+#include <utility>
+#include <unistd.h>
 
 class mapped_file {
 public:
-  mapped_file(): mem(MAP_FAILED) {
+  mapped_file(): fd(nullptr) {
   }
 
   explicit mapped_file(fd_t& fd);
 
-  void const* ptr(std::size_t offset) const {
-    return static_cast<char const*>(mem) + offset;
+  template <typename T>
+  T const* ptr(off_t offset, size_t n) {
+    return static_cast<T const*>(ptr_void(offset, n*sizeof(T)));
   }
 
-  size_t get_size() const {
-    return size;
+  template <typename T>
+  T const* ptr(off_t offset) {
+    return ptr<T>(offset, 1);
   }
 
-  ~mapped_file();
+  std::size_t get_size() const {
+    return file_size;
+  }
 
 private:
-  void *mem;
-  size_t size;
+  void* ptr_void(off_t offset, std::size_t n);
+  void* map_slice(off_t offset, std::size_t size);
+
+  struct slice {
+    void* mem;
+    std::size_t size;
+
+    slice(): mem(nullptr) {}
+    slice(void* mem, std::size_t size): mem(mem), size(size) {}
+    slice(slice const&) = delete;
+    slice(slice&& other) noexcept:
+      mem(std::exchange(other.mem, nullptr)), size(std::move(other.size)) {}
+    ~slice();
+  };
+
+  fd_t* fd;
+  std::map<std::size_t, std::vector<slice>> slices;
+  std::size_t file_size;
 };
 
 #endif //MAPPED_FILE_HPP
-

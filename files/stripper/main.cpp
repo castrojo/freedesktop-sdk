@@ -44,6 +44,26 @@ struct result_t {
   std::vector<std::string> source_files;
 };
 
+struct ensure_writable {
+  explicit ensure_writable(std::filesystem::path path): path(std::move(path)) {
+    auto st = status(this->path);
+    permissions = st.permissions();
+    if (0 != access(this->path.c_str(), W_OK)) {
+      chmod(this->path.c_str(), 0755);
+    }
+  }
+
+  ensure_writable(ensure_writable const&) = delete;
+  ensure_writable(ensure_writable&&) = delete;
+
+  ~ensure_writable() {
+    chmod(path.c_str(), (unsigned)permissions);
+  }
+
+private:
+  std::filesystem::path path;
+  std::filesystem::perms permissions;
+};
 
 struct script {
   script():
@@ -60,7 +80,7 @@ struct script {
       return nullptr;
     }
     mapped_file m(fd);
-    auto mm_header = static_cast<Elf32_Ehdr const*>(m.ptr(0));
+    auto mm_header = m.ptr<Elf32_Ehdr>(0);
     std::string magic(ELFMAG);
     if (magic.compare(0, SELFMAG, (char*)(mm_header->e_ident), SELFMAG) != 0) {
       return nullptr;
@@ -117,7 +137,7 @@ struct script {
   }
 
   bool classify() {
-    std::vector<std::tuple<std::filesystem::path, std::future<std::unique_ptr<result_t> > > > results;
+    std::vector<std::filesystem::path> paths;
 
     constexpr auto exec =
       std::filesystem::perms::owner_exec
@@ -134,11 +154,16 @@ struct script {
             || (name.rfind(".so") != std::string::npos)
             || ((name.length() >= 5) && (name.compare(name.length()-5, 5, ".cmxs") == 0))
             || ((name.length() >= 5) && (name.compare(name.length()-5, 5, ".node") == 0))) {
-          results.push_back
-            (std::make_tuple
-             (p, pool->post([&, p] { return preprocess_file(p); })));
+          paths.push_back(p);
         }
       }
+    }
+
+    std::vector<std::tuple<std::filesystem::path, std::future<std::unique_ptr<result_t> > > > results;
+    for (auto& p : paths) {
+      results.push_back
+        (std::make_tuple
+         (p, pool->post([&, p] { return preprocess_file(p); })));
     }
 
     bool has_error = false;
@@ -283,17 +308,12 @@ struct script {
        throw std::runtime_error("xz failed");
     }
 
-    auto st = status(binary);
-    if (0 != access(binary.c_str(), W_OK)) {
-      chmod(binary.c_str(), 0755);
-    }
+    ensure_writable e(binary);
 
     if (0 != run(std::vector<std::string>{(toolchain / "objcopy").string(),
                                           "--add-section", ".gnu_debugdata="+compressed.get_path(), binary})) {
       throw std::runtime_error("objcopy failed");
     }
-
-    chmod(binary.c_str(), (unsigned)st.permissions());
   }
 
   void strip_file(std::filesystem::path const& toolchain,
@@ -308,10 +328,8 @@ struct script {
     }
 
     chmod(debugfile.c_str(), 0644);
-    auto st = status(binary);
-    if (0 != access(binary.c_str(), W_OK)) {
-      chmod(binary.c_str(), 0755);
-    }
+
+    ensure_writable e(binary);
 
     if (0 != run(std::vector<std::string>{(toolchain / "strip").string(),
                                             "--remove-section=.comment",
@@ -321,8 +339,6 @@ struct script {
                                             binary})) {
       throw std::runtime_error("strip failed");
     }
-
-    chmod(binary.c_str(), (unsigned)st.permissions());
   }
 
   bool strip() {
@@ -385,6 +401,8 @@ struct script {
               throw std::runtime_error("eu-elfcompress failed");
             }
           }
+
+          ensure_writable e(binary);
 
           if (run(std::vector<std::string>{(toolchain / "objcopy").string(),
                                            "--add-gnu-debuglink", debugfile,

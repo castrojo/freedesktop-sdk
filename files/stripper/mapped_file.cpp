@@ -24,18 +24,46 @@
 #include "mapped_file.hpp"
 #include <sys/stat.h>
 
-mapped_file::mapped_file(fd_t& fd): mem(MAP_FAILED) {
+mapped_file::mapped_file(fd_t& fd): fd(&fd) {
   auto st = fd.get_stat();
-  size = st.st_size;
-  mem = mmap(nullptr, size, PROT_READ, MAP_PRIVATE,
-             fd.get(), 0);
+  file_size = st.st_size;
+}
+
+void* mapped_file::map_slice(off_t offset, std::size_t size) {
+  auto mem = mmap(nullptr, size, PROT_READ, MAP_PRIVATE,
+             fd->get(), offset);
   if (mem == MAP_FAILED) {
     throw std::system_error(errno, std::generic_category());
   }
+  slices[offset].push_back(slice(mem, size));
+
+  return mem;
 }
 
-mapped_file::~mapped_file() {
-  if (mem == MAP_FAILED) {
+namespace {
+  std::size_t page_size = getpagesize();
+}
+
+void* mapped_file::ptr_void(off_t offset, std::size_t size) {
+  off_t aligned_offset = offset & ~(page_size-1);
+  off_t diff = offset - aligned_offset;
+  std::size_t aligned_size = (diff + size + page_size - 1) & ~(page_size-1);
+
+  auto found = slices.find(aligned_offset);
+  if (found != slices.end()) {
+    for (auto& entry : found->second) {
+      if (entry.size >= aligned_size) {
+        return static_cast<void*>(static_cast<char*>(entry.mem)+diff);
+      }
+    }
+  }
+
+  auto allocated = map_slice(aligned_offset, aligned_size);
+  return static_cast<void*>(static_cast<char*>(allocated)+diff);
+}
+
+mapped_file::slice::~slice() {
+  if (mem != nullptr) {
     munmap(mem, size);
   }
 }
