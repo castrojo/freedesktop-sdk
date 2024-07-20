@@ -15,4 +15,4 @@ sources:
   url: github:asciidoc-py/asciidoc-py.git
   track: '*.*.*'
   ref-format: git-describe
-  ref: 10.2.0-0-g545b79b8d7dae70d12bf0657359bdd36de0c5c26
+  ref: 10.2.1-0-g21e33efe96ba9a51d99d1150691dae750afd6ed1
