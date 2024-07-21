@@ -55,5 +55,3 @@ sources:
   exclude:
   - '*rc*'
   ref: v1.18.0-0-g537d66852629e23ca778ef717343be8f657c0e79
-- kind: patch
-  path: patches/libheif/fix-compilation-with-libsvtav1-2.patch
