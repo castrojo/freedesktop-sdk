@@ -18,9 +18,9 @@ config:
 sources:
 - kind: git_repo
   url: kitware:cmake.git
-  track: v*
+  track: v3.29.*
   exclude:
   - v*-rc*
-  ref: v3.30.0-0-g0f88f57389fd636d76b7f726ac94933476d6c195
+  ref: v3.29.6-0-gcdc901797ac4ce0d1feeec454ecdd29e8ef5d4ff
 - kind: patch
   path: patches/cmake/cmake-nolib64.patch
