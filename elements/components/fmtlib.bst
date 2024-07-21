@@ -15,4 +15,4 @@ sources:
 - kind: git_repo
   url: github:fmtlib/fmt.git
   track: '*.*.*'
-  ref: 10.2.1-0-ge69e5f977d458f2650bb346dadf2ad30c5320281
+  ref: 11.0.2-0-g0c9fce2ffefecfdce794e1859584e25877b7b592
