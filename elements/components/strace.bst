@@ -18,4 +18,4 @@ sources:
 - kind: git_repo
   url: github:strace/strace.git
   track: v*
-  ref: v6.9-0-g990e1478663b610e9f626adb3b8619f31b308d0e
+  ref: v6.10-0-g922d2d5717c05b8feb17828ca57c1c470193cc1e
