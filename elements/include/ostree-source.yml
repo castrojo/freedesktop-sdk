@@ -4,7 +4,7 @@ sources:
   track: v*
   exclude:
   - v*.*.*
-  ref: v2024.6-0-gd4a7a8d94b22784f33f6e3928af7c8682fd768ac
+  ref: v2024.7-0-g4941d9cd0de9465ac41aaba27f18763da2cd6599
 - kind: git_module
   path: libglnx
   url: gnome:libglnx.git
