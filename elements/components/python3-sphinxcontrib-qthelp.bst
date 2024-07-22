@@ -11,6 +11,6 @@ sources:
 - kind: pypi
   name: sphinxcontrib-qthelp
   ref:
-    sha256sum: 053dedc38823a80a7209a80860b16b722e9e0209e32fea98c90e4e6624588ed6
+    sha256sum: db3f8fa10789c7a8e76d173c23364bdf0ebcd9449969a9e6a3dd31b8b7469f03
     suffix: 
-      ac/29/705cd4e93e98a8473d62b5c32288e6de3f0c9660d3c97d4e80d3dbbad82b/sphinxcontrib_qthelp-1.0.7.tar.gz
+      a6/67/f5c7df6457315877202f370450acb28626d033822eec1e8163600612b4ef/sphinxcontrib_qthelp-1.0.8.tar.gz
