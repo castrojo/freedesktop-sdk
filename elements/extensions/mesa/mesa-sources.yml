@@ -6,8 +6,6 @@ sources:
   - '*rc*'
   - '*branchpoint*'
   ref: mesa-24.1.4-0-g62a4558a5df9d43ee82f67bac35fa6713463a1c1
-- kind: patch
-  path: patches/mesa/clang_res_path.patch
 # Rust dependencies:
 - kind: tar
   directory: subprojects/packagecache/syn-2.0.39
@@ -29,3 +27,6 @@ sources:
   directory: subprojects/packagecache/paste-1.0.14
   url: tar_https:crates.io/api/v1/crates/paste/1.0.14/download
   ref: de3145af08024dea9fa9914f381a17b8fc6034dfb00f3a84013f7ff43f29ed4c
+# Patches need to be last so non-applying patches won't block updates
+- kind: patch
+  path: patches/mesa/clang_res_path.patch
