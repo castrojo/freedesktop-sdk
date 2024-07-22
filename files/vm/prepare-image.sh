@@ -82,13 +82,14 @@ touch "${sysroot}/etc/ld.so.conf"
 
 echo "Initial /etc/passwd and /etc/group" 1>&2
 
-cat <<EOF >"${sysroot}/etc/passwd"
-root:x:0:0:root:/root:/bin/bash
+systemd-sysusers --root "${sysroot}" - <<"EOF"
+u root 0 - /root /bin/bash
 EOF
 
-cat <<EOF >"${sysroot}/etc/group"
-root:x:0:
-EOF
+# The process likely doesn't have CAP_DAC_OVERRIDE, so systemd-firstboot will
+# fail when /etc/shadow and /etc/gshadow have mode 0400.
+echo "Temporary rights for /etc/shadow and /etc/gshadow" 1>&2
+chmod 0600 "${sysroot}/etc/shadow" "${sysroot}/etc/gshadow"
 
 for i in "${initial_scripts}"/*; do
     [[ -e "$i" ]] || break
@@ -111,9 +112,8 @@ systemctl --root "${sysroot}" preset-all
 echo "Running systemctl preset-all for all users" 1>&2
 systemctl --root "${sysroot}" --global preset-all
 
-echo "Fix rights for /etc/shadow" 1>&2
-touch "${sysroot}/etc/shadow"
-chmod 0400 "${sysroot}/etc/shadow"
+echo "Fix rights for /etc/shadow and /etc/gshadow" 1>&2
+chmod 0400 "${sysroot}/etc/shadow" "${sysroot}/etc/gshadow"
 
 echo "Creating /etc/fstab" 1>&2
 
