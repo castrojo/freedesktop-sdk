@@ -50,8 +50,6 @@ mirrors:
     - https://gitlab.com/freedesktop-sdk/mirrors/sourceforge/
     sourceware:
     - https://gitlab.com/freedesktop-sdk/mirrors/sourceware/
-    tukaani:
-    - https://gitlab.com/freedesktop-sdk/mirrors/tukaani/
     xiph:
     - https://gitlab.com/freedesktop-sdk/mirrors/xiph/
     git_https:
