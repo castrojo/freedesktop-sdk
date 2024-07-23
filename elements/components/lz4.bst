@@ -16,7 +16,7 @@ public:
 sources:
 - kind: git_repo
   url: github:lz4/lz4.git
-  track: v*
+  track: v1.9.*
   ref: v1.9.4-0-g5ff839680134437dbf4678f3d0c7b371d84f4964
 
 config:
