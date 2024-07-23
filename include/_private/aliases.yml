@@ -29,7 +29,6 @@ samba: https://git.samba.org/
 savannah: https://git.savannah.gnu.org/git/
 sourceforge_git: https://git.code.sf.net/p/
 sourceware: https://sourceware.org/git/
-tukaani: https://git.tukaani.org/
 xiph: https://gitlab.xiph.org/xiph/
 
 #Generic aliases (because mirroring requires some sort of alias)
