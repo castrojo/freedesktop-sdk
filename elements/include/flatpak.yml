@@ -4,12 +4,4 @@ sources:
   track: 1.*
   # track: 1.1[02468]*
   # We track development versions until 1.16
-  ref: 1.15.8-0-g925c80f913d69e7ca424428823e1431c4ffb0deb
-- kind: git_module
-  path: subprojects/libglnx
-  url: gnome:libglnx.git
-  ref: 202b294e6079e23242e65e0426f8639841d1210b
-- kind: git_module
-  path: subprojects/variant-schema-compiler
-  url: git_https:gitlab.gnome.org/alexl/variant-schema-compiler.git
-  ref: cfc356c38edfcf73c8ac240d215479b950f91b1f
+  ref: 1.15.9-0-gb026910d1c18900e9daf07c429f7e901eb1c3f20
