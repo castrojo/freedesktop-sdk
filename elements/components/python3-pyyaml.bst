@@ -2,16 +2,23 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
-# https://github.com/yaml/pyyaml/issues/601
-- components/cython-0.29.bst
+- components/cython.bst
 
 depends:
 - components/python3.bst
 - components/libyaml.bst
 
+config:
+  # FIXME: We need to skip build dependency check since pyyaml only allows building with
+  # Cython 3 on Python 3.13 or newer
+  build-commands:
+  - |
+    %{python} -mbuild %{build-args} --skip-dependency-check .
+
+
 sources:
 - kind: pypi
   name: pyyaml
   ref:
-    sha256sum: bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43
-    suffix: cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz
+    sha256sum: 826fb4d5ac2c48b9d6e71423def2669d4646c93b6c13612a71b3ac7bb345304b
+    suffix: ff/08/b6768d9f2da231c1396490e91471ffebb12b299a65cb369c27ec0e2a50c6/pyyaml-6.0.2rc1.tar.gz
