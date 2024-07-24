@@ -23,7 +23,7 @@ variables:
 
   command-subdir: vulkan-icd-loader
   vulkan-extra-dir: |
-     %{libdir}/GL:%{libdir}:%{indep-libdir}/extension/vulkan/share
+     %{libdir}/GL:%{libdir}:%{indep-libdir}/extensions/vulkan/share
 
 public:
   bst:
