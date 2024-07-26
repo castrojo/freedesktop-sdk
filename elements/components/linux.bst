@@ -7,6 +7,7 @@ depends:
 build-depends:
 - bootstrap-import.bst
 - components/bison.bst
+- components/cpio.bst  # loongarch64 build enabled CONFIG_IKHEADERS by default
 - components/flex.bst
 - components/bc.bst
 - components/gzip.bst
