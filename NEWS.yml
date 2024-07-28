@@ -1,3 +1,110 @@
+Version: freedesktop-sdk-24.08beta.4
+Date: '2024-07-28'
+Description: |-
+  Changes in freedesktop-sdk-24.08beta.4
+   * Update libtraceevent to libtraceevent-1.8.3-0
+   * Update libnftnl to libnftnl-1.2.7-0
+   * Update orc to 0.4.39-0
+   * Update wpa-supplicant to hostap_2_11-0
+   * Update dictionaries to libreoffice-24.8.0.2-0
+   * Update curl to curl-8_9_0-0
+   * Update buildbox to 1.2.11-0
+   * Update xfsprogs to v6.9.0-0
+   * Update networkmanager to 1.48.6-0
+   * Update glibc to 2.40-5
+   * Update libxml2 to v2.13.3-0
+   * Update ostree to v2024.7-0
+   * Update mutool to 1.24.8-0
+   * Update python3-sphinxcontrib-qthelp to 1.0.8
+   * pyyaml: Build with Cython 3
+   * linux: Add cpio to build depends since loongarch64 build enabled CONFIG_IKHEADERS by default
+   * loongarch64: align build flags with riscv64
+   * loongarch64: update default -march to la64v1.0
+   * .gitlab-ci.yml: add app_loongarch64
+   * pcre2: drop unneeded hack for loongarch64
+   * rsync: drop unneeded hack for loongarch64
+   * liburcu: use devel source for loongarch64
+   * ffmpeg: backport a patch to fix build for LoongArch
+   * fwupd: Add loongarch64 definition
+   * libglvnd: Add loongarch64 definition
+   * nspr: Add loongarch64 definition
+   * sdl2: Add loongarch64 definition
+   * mesa: Add loongarch64 definition
+   * nss: Add loongarch64 definition
+   * libvpx: Add loongarch64 definition
+   * libunwind: Add loongarch64 definition
+   * aom: Add loongarch64 definition
+   * rust: Add loongarch64 definition
+   * llvm: Add loongarch64 definition
+   * components/rust: Enable more tools
+   * flatpak: Update to 1.15.9 and remove submodules
+   * vulkan-icd-loader: Fix typo in extra-dir path
+   * vulkan-icd-loader: Pass EXTRASYSCONFDIR through CFLAGS
+   * Remove unused tukaani alias and mirror
+   * xz-source: Switch to GitHub repository
+   * flatpak: Remove compat arch patch
+   * vm/prepare-image.sh: Set root's initial password as unprovisioned
+   * mesa: Backport AV1 bug fix
+   * mesa: Move patch as last source
+   * Update python3-setuptools to v71.0.4-0
+   * libheif: Remove obsolete patch
+   * Update libheif to v1.18.0-0
+   * Update python3-sphinx to 7.4.7
+   * Update libproxy to 0.5.8-0
+   * python3-cryptography: Switch to maturin
+   * Add a public stack for maturin
+   * Add python3-maturin
+   * python3-cryptography: Update to 43.0.0
+   * Update python3-grpcio to 1.65.1
+   * Update v4l-utils to v4l-utils-1.28.0-0
+   * Update asciidoc to 10.2.1-0
+   * Update cmake to v3.30.1-0
+   * glib: Remove obsolete patches
+   * Update glib to 2.80.4-0
+   * Update python3-sphinx to 7.4.6
+   * Update gtk3 to 3.24.43-0
+   * Update libabigail to libabigail-2.5-49
+   * Update to image built against 23.08.21
+   * mesa: Remove obsolete patch
+   * Update mesa to mesa-24.1.4-0
+   * Update nano to v8.1-0
+   * Update linux-firmware to 20240709-0
+   * Update gsettings-desktop-schemas to 46.1-0
+   * desktop-file-utils: Add patch to fix validation with same group name
+   * Update flat-manager-client-base to 0.4.3.1-0
+   * Update python3-tomlkit to 0.13.0
+   * Update grpc to v1.65.1-0
+   * Update dracut to 103-0
+   * libavif: Fix typo in cmake argument
+   * libavif: Disable libyuv
+   * libavif: Update cmake arguments to avoid deprecation notices
+   * Update libavif to v1.1.0-0
+   * Update dictionaries to libreoffice-24.8.0.1-0
+   * Update xwayland to xwayland-24.1.1-0
+   * linux: Add python3 to build depends
+   * Update linux to v6.10-0
+   * Update extra-cmake-modules to v6.4.0-0
+   * Update vim to v9.1.0589-0
+   * Update cracklib to v2.10.0-0
+   * Update perl-ssl to 2.088
+   * Update libabigail to libabigail-2.5-32
+   * Update mutool to 1.24.6-0
+   * Update libwacom to libwacom-2.12.2-0
+   * Update lvm2 to v2_03_25-0
+   * Update meson to 1.5.0-0
+   * Update python3-pil to 10.4.0
+   * Update spirv-llvm-translator to v18.1.2-10
+   * Update librsvg to 2.58.2-0
+   * Update python3-setuptools to v70.3.0-0
+   * bluez-base: Add python-pygments to build depends
+   * Update bluez to 5.77-0
+   * Update pipewire-base to 1.2.1-0
+   * bash: add comment explaining the situation
+   * readline: track master
+   * Update podman to v5.1.2-0
+   * Update ell to 0.67-0
+   * Update libbpf to v1.4.5-0
+---
 Version: freedesktop-sdk-24.08beta.3
 Date: '2024-07-11'
 Description: |-
