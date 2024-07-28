@@ -183,6 +183,7 @@ pylint:
       --shuffle-branches \
       --gitlab_project="freedesktop-sdk/freedesktop-sdk" \
       --max_merge_requests=${MAX_MERGE_REQUESTS} \
+      --on_track_error continue \
       $EXTRA_TRACK_ARGS \
       $TRACK_ELEMENTS
   interruptible: false
