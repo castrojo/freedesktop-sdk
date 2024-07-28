@@ -7,10 +7,11 @@ variables:
   RUNTIME_VERSION: '22.08'
   STABLE_ABI: 'true'
   EXPIRED: '0'
+  MAX_MERGE_REQUESTS: '4'
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "279ee8e3659d842304412bf48075a905da768b22"
+  DOCKER_IMAGE_ID: "7b2be8f5c479a01ecf714ac4ebda0d1b6bef2776"
 
   # Generic variable for invoking buildstream
   BST: bst --colors
@@ -180,6 +181,8 @@ pylint:
       --shuffle-branches \
       --gitlab_project="freedesktop-sdk/freedesktop-sdk" \
       --max_merge_requests=4 \
+      --max_merge_requests=${MAX_MERGE_REQUESTS} \
+      --on_track_error continue \
       $EXTRA_TRACK_ARGS \
       $TRACK_ELEMENTS
   interruptible: false
