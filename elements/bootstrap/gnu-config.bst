@@ -36,4 +36,4 @@ sources:
 - kind: git_repo
   url: savannah:config.git
   track: master
-  ref: 948ae97ca5703224bd3eada06b7a69f40dd15a02
+  ref: 00b15927496058d23e6258a28d8996f87cf1f191
