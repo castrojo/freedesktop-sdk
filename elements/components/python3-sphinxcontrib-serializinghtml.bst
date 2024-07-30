@@ -11,6 +11,6 @@ sources:
 - kind: pypi
   name: sphinxcontrib-serializinghtml
   ref:
-    sha256sum: 93f3f5dc458b91b192fe10c397e324f262cf163d79f3282c158e8436a2c4511f
+    sha256sum: e9d912827f872c029017a53f0ef2180b327c3f7fd23c87229f7a8e8b70031d4d
     suffix: 
-      54/13/8dd7a7ed9c58e16e20c7f4ce8e4cb6943eb580955236d0c0d00079a73c49/sphinxcontrib_serializinghtml-1.1.10.tar.gz
+      3b/44/6716b257b0aa6bfd51a1b31665d1c205fb12cb5ad56de752dfa15657de2f/sphinxcontrib_serializinghtml-2.0.0.tar.gz
