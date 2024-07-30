@@ -241,7 +241,7 @@ check_mirrors:
 
 license_checker:
   extends:
-    - .builder-x86_64
+    - .builder-aarch64
   stage: update
   needs: []
   variables:
