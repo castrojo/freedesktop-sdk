@@ -8,6 +8,8 @@ depends:
 sources:
 - kind: pypi
   name: setuptools
+  include:
+  - "71.*.*"
   ref:
     sha256sum: 032d42ee9fb536e33087fb66cac5f840eb9391ed05637b3f2a76a7c8fb477936
     suffix: 
