@@ -77,6 +77,8 @@ sources:
   url: kernel:linux/kernel/git/jejb/efitools.git
   track: master
   ref: v1.9.2-0-g392836a46ce3c92b55dc88a1aebbcfdfc5dcddce
+- kind: patch
+  path: patches/efitools/c99.patch
 - kind: local
   path: files/boot-keys/PK.key
 - kind: local
