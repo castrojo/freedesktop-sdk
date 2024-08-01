@@ -5,7 +5,7 @@ build-depends:
 
 depends:
 - components/libva.bst
-- extensions/platform-vaapi-intel/gmmlib.bst
+- components/gmmlib.bst
 
 environment:
   PKG_CONFIG_PATH: "%{libdir}/dri/intel-vaapi-driver/lib/pkgconfig:"
