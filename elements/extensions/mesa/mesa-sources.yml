@@ -30,5 +30,4 @@ sources:
 # Patches need to be last so non-applying patches won't block updates
 - kind: patch
   path: patches/mesa/clang_res_path.patch
-- kind: patch
-  path: patches/mesa/av1-slice-data-offset.patch
+
