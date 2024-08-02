@@ -5,7 +5,7 @@ sources:
   exclude:
   - '*rc*'
   - '*branchpoint*'
-  ref: mesa-24.1.4-0-g62a4558a5df9d43ee82f67bac35fa6713463a1c1
+  ref: mesa-24.1.5-0-g5040c01c00b2033a0b3f9b3d980763f69939dbfc
 # Rust dependencies:
 - kind: tar
   directory: subprojects/packagecache/syn-2.0.39
@@ -30,5 +30,3 @@ sources:
 # Patches need to be last so non-applying patches won't block updates
 - kind: patch
   path: patches/mesa/clang_res_path.patch
-- kind: patch
-  path: patches/mesa/av1-slice-data-offset.patch
