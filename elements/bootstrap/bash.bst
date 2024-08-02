@@ -77,5 +77,5 @@ sources:
   # to backport them one by one.
   # When reviewing an update, please review what patches it introduces
   track: master
-  ref: bash-5.2-27-gf3b6bd19457e260b65d11f2712ec3da56cef463f
+  ref: bash-5.2-33-g142bbdd89e4d5bb62aea4469d1d2c24cf470afd8
 
