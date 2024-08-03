@@ -9,6 +9,7 @@ depends:
 variables:
   cmake-local: >-
     -DBUILD_SHARED_LIBS=ON
+    -DCMAKE_SKIP_INSTALL_RPATH=ON
 
 public:
   bst:
@@ -16,7 +17,6 @@ public:
       devel:
         (>):
         - '%{libdir}/libabsl_*.so'
-
 
 sources:
 - kind: git_repo
