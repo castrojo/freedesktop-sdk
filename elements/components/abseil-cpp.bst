@@ -22,6 +22,6 @@ sources:
 - kind: git_repo
   url: github:abseil/abseil-cpp.git
   track: '[0-9]*.[0-9]'
-  ref: 20240116.2-0-gd7aaad83b488fd62bd51c81ecf16cd938532cc0a
+  ref: 20240722.0-0-g4447c7562e3bc702ade25105912dce503f0c4010
 - kind: patch
   path: patches/abseil-cpp/avoid-export-of-testonly-target-in-cmake.patch
