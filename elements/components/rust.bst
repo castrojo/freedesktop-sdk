@@ -63,7 +63,7 @@ config:
     vendor = true
     verbose = 2
     extended = true
-    tools = ["cargo"]
+    tools = ["cargo", "rustdoc", "rustfmt", "analysis"]
     [install]
     prefix = "%{prefix}"
     sysconfdir = "%{sysconfdir}"
