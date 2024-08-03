@@ -10,6 +10,6 @@ sources:
 - kind: pypi
   name: sphinxcontrib-htmlhelp
   ref:
-    sha256sum: 0dc87637d5de53dd5eec3a6a01753b1ccf99494bd756aafecd74b4fa9e729015
+    sha256sum: c9e2916ace8aad64cc13a0d233ee22317f2b9025b9cf3295249fa985cc7082e9
     suffix: 
-      8a/03/2f9d699fbfdf03ecb3b6d0e2a268a8998d009f2a9f699c2dcc936899257d/sphinxcontrib_htmlhelp-2.0.5.tar.gz
+      43/93/983afd9aa001e5201eab16b5a444ed5b9b0a7a010541e0ddfbbfd0b2470c/sphinxcontrib_htmlhelp-2.1.0.tar.gz
