@@ -537,6 +537,18 @@ desktop_systemd_vm_aarch64:
     - job: app_aarch64
       artifacts: false
 
+desktop_systemd_vm_loongarch64:
+  extends:
+    - .vm_imageless_template
+    - .builder-loongarch64
+  variables:
+    VM_ARTIFACT_BOOT: vm/boot/virt.bst
+    VM_ARTIFACT_FILESYSTEM: vm/desktop/virt.bst
+  needs:
+    - job: app_loongarch64
+      artifacts: false
+  when: manual # skip loongarch64 VM tests by default; the runner is too slow
+
 .vm_efi_image_template:
   stage: vm
   script:
@@ -605,6 +617,16 @@ desktop_efi_vm_image_aarch64:
   - app_aarch64
   variables:
     VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
+  when: manual # skip desktop image VM tests by default to avoid significant disk I/O
+
+desktop_efi_vm_image_loongarch64:
+  extends:
+    - .vm_efi_image_template
+    - .builder-loongarch64
+  needs:
+  - app_loongarch64
+  variables:
+    VM_ARTIFACT_IMAGE: vm/desktop/efi.bst
   when: manual # skip desktop image VM tests by default to avoid significant disk I/O
 
 prepare_publish:
