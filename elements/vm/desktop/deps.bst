@@ -39,7 +39,7 @@ depends:
 - components/ccid.bst
 - components/openssh-systemd.bst
 - components/iproute2.bst
-- components/gamemode.bst
+- components/gamemode-daemon.bst
 - components/open-iscsi.bst
 - components/usbutils.bst
 - components/cups-daemon.bst

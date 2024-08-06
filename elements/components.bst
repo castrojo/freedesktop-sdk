@@ -120,7 +120,8 @@ depends:
 - components/fuse3.bst
 - components/fwupd.bst
 - components/fwupd-efi-maybe.bst
-- components/gamemode.bst
+- components/gamemode-daemon.bst
+- components/gamemode-manifest.bst
 - components/gcab.bst
 - components/gdb.bst
 - components/gdbm.bst
@@ -231,6 +232,7 @@ depends:
 - components/libfido2.bst
 - components/libfl.bst
 - components/libflac.bst
+- components/libgamemode.bst
 - components/libgcrypt.bst
 - components/libglvnd.bst
 - components/libgpg-error.bst

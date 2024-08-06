@@ -1,5 +1,9 @@
 kind: meson
 
+# This element is not be used directly. Use either:
+#  - components/libgamemode.bst
+#  - components/gamemode-daemon.bst
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/systemd.bst
@@ -25,12 +29,20 @@ config:
 public:
   bst:
     split-rules:
-      devel:
-        (>):
-        - "%{libdir}/libgamemodeauto.so"
-        - "%{libdir}/libgamemode.so"
-        - "%{libdir}/libinih.so"
-        - "%{libdir}/libINIReader.so"
+      libgamemode:
+      - '%{bindir}/gamemoderun'
+      - '%{libdir}/libgamemode.so*'
+      - '%{libdir}/libgamemodeauto.so*'
+      - '%{libdir}/pkgconfig/gamemode.pc'
+      - '%{libdir}/pkgconfig/libgamemodeauto.pc'
+      - '%{includedir}/gamemode_client.h'
+      - '%{debugdir}/dwz/%{stripdir-suffix}/*'
+      - '%{debugdir}%{libdir}/libgamemode.so*'
+      - '%{debugdir}%{libdir}/libgamemodeauto.so*'
+      - '%{sourcedir}/**'
+
+  cpe:
+    product: gamemode
 
 sources:
 - kind: git_repo

@@ -12,7 +12,7 @@ config:
   - components/ccid.bst
   - components/dracut.bst
   - components/ed.bst
-  - components/gamemode.bst
+  - components/gamemode-base.bst
   - components/glib-stage1.bst
   - components/iproute2.bst
   - components/libapparmor.bst
