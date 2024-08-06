@@ -14,6 +14,6 @@ sources:
 - kind: pypi
   name: setuptools-rust
   ref:
-    sha256sum: 704df0948f2e4cc60c2596ad6e840ea679f4f43e58ed4ad0c1857807240eab96
+    sha256sum: d79035fc54cdf9342e9edf4b009491ecab06c3a652b37c3c137c7ba85547d3e6
     suffix: 
-      9d/f1/2cb8887cad0726a5e429cc9c58e30767f58d22c34d55b075d2f845d4a2a5/setuptools-rust-1.9.0.tar.gz
+      b8/86/4f34594f21f529623b8650fe729548e3a2ad6c9ad81583391f03f74dd11a/setuptools_rust-1.10.1.tar.gz
