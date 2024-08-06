@@ -13,4 +13,4 @@ sources:
 - kind: git_repo
   url: github:pypa/setuptools.git
   track: v*
-  ref: v71.1.0-0-g08bd31115732ece3cca50bd93f338e1b90dead34
+  ref: v72.2.0-0-g76942cfe9ab14b6d30eac50b9b3dff8cc9241b76
