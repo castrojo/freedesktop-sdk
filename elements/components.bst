@@ -163,6 +163,7 @@ depends:
 - components/gstreamer-plugins-base.bst
 - components/gstreamer-plugins-good.bst
 - components/gstreamer-plugins-ugly.bst
+- components/gstreamer-plugins-rs.bst
 - components/gstreamer.bst
 - components/gtk-doc.bst
 - components/gtk3.bst
