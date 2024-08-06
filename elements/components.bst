@@ -40,6 +40,7 @@ depends:
 - components/buildbox.bst
 - components/ca-certificates.bst
 - components/cairo.bst
+- components/cargo-c.bst
 - components/catatonit.bst
 - components/ccache.bst
 - components/ccid.bst
