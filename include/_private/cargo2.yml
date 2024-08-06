@@ -1,0 +1,6 @@
+config:
+  url: "crates:crates/"
+  git-mirrors:
+    https://github.com/: "github:"
+    https://gitlab.com/: "gitlab:"
+    https://gitlab.freedesktop.org/: "freedesktop:"
