@@ -808,8 +808,8 @@ publish_snap_aarch64:
     [ -n "${DOCKER_HUB_ADDRESS}" ]
 
   - |
-    DOCKER_IMAGES=(platform sdk debug flatpak toolbox)
-    BST_ELEMENTS=$(printf 'oci/%q-docker.bst ' ${DOCKER_IMAGES[@]})
+    OCI_IMAGES=(platform sdk debug flatpak toolbox)
+    BST_ELEMENTS=$(printf 'oci/%q-oci.bst ' ${OCI_IMAGES[@]})
 
     ${BST} -o target_arch ${ARCH} build ${BST_ELEMENTS[@]}
     for element in ${BST_ELEMENTS[@]}; do
@@ -820,7 +820,7 @@ publish_snap_aarch64:
 
   - |
     set -eu
-    for name in ${DOCKER_IMAGES[@]}; do
+    for name in ${OCI_IMAGES[@]}; do
       full_name=freedesktopsdk/${name}
       podman push ${full_name}:latest docker://docker.io/${full_name}:"${DOCKER_VERSION}"-"${ARCH}" \
       --digestfile digest.txt
