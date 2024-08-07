@@ -22,7 +22,6 @@ config:
   - |
     cd "%{install-root}"
     build-oci <<EOF
-    mode: oci
     images:
     - os: linux
       architecture: "%{go-arch}"
