@@ -12,5 +12,6 @@ sources:
 - kind: pypi
   name: pyyaml
   ref:
-    sha256sum: bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43
-    suffix: cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz
+    sha256sum: d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e
+    suffix: 
+      54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz
