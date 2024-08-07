@@ -17,20 +17,19 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
 import sys
 import collections
 import os
 import yaml
-from .image_builder import build_images
+from .image_builder import build_images, Compression
 
-
-GlobalConf = collections.namedtuple('GlobalConf', ['gzip', 'output'])
-
+GlobalConf = collections.namedtuple('GlobalConf', ['compression', 'output'])
 
 def main():
     data = yaml.load(sys.stdin, Loader=yaml.CLoader)
-    enabled_gzip = data.get('gzip', True)
+    compression = data.get('gzip', Compression.gzip)
+    if compression not in Compression:
+        raise RuntimeError("Compression must be in " + ",".join(Compression))
 
-    global_conf = GlobalConf(enabled_gzip, os.getcwd())
+    global_conf = GlobalConf(compression, os.getcwd())
     build_images(global_conf, data.get('images', []), data.get('annotations'))

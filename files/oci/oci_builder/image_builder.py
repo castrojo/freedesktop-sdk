@@ -17,7 +17,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
+import enum
 import tempfile
 import tarfile
 import hashlib
@@ -30,6 +30,10 @@ from contextlib import ExitStack
 
 from .layer_builder import create_layer
 from .blob import Blob
+
+class Compression(enum.StrEnum):
+    gzip = enum.auto()
+    disabled = enum.auto()
 
 
 def get_gzip_opts():
@@ -73,7 +77,7 @@ def extract_oci_image_info(path, index, global_conf, os_value, new_layer, legacy
             }
             if legacy_parent:
                 legacy_config['parent'] = legacy_parent
-            if global_conf.gzip:
+            if global_conf.compression == Compression.gzip:
                 output_blob = Blob(global_conf,
                                    media_type='application/vnd.oci.image.layer.v1.tar+gzip')
             else:
@@ -84,13 +88,13 @@ def extract_oci_image_info(path, index, global_conf, os_value, new_layer, legacy
                 outp = stack.enter_context(output_blob.create())
                 inp = stack.enter_context(open(origfile, 'rb'))
                 if layer['mediaType'].endswith('+gzip'):
-                    if global_conf.gzip:
+                    if global_conf.compression == Compression.gzip:
                         shutil.copyfileobj(inp, outp)
                     else:
                         gzfile = stack.enter_context(gzip.open(filename=inp, mode='rb'))
                         shutil.copyfileobj(gzfile, outp)
                 else:
-                    if global_conf.gzip:
+                    if global_conf.compression == Compression.gzip:
                         gzfile = stack.enter_context(gzip.GzipFile(filename=diff_id, fileobj=outp,
                                                                    mode='wb', **get_gzip_opts()))
                         shutil.copyfileobj(inp, gzfile)
@@ -112,7 +116,7 @@ def build_layer(upper, lowers, legacy_config, global_conf):
         tfile = stack.enter_context(tempfile.TemporaryFile(mode='w+b'))
         tar = stack.enter_context(tarfile.open(fileobj=tfile, mode='w:'))
         lower_tars = []
-        read_mode = 'r:gz' if global_conf.gzip else 'r:'
+        read_mode = 'r:gz' if global_conf.compression == Compression.gzip else 'r:'
         for lower in lowers:
             lower_tars.append(stack.enter_context(tarfile.open(name=lower, mode=read_mode)))
         create_layer(tar, upper, lower_tars)
@@ -124,7 +128,7 @@ def build_layer(upper, lowers, legacy_config, global_conf):
                 break
             tar_hash.update(data)
         tfile.seek(0)
-        if global_conf.gzip:
+        if global_conf.compression == Compression.gzip:
             targz_blob = Blob(global_conf,
                               media_type='application/vnd.oci.image.layer.v1.tar+gzip')
             with targz_blob.create() as gzipfile:
