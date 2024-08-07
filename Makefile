@@ -54,7 +54,7 @@ build:
 	             components.bst \
 	             flatpak-release-repo.bst \
 	             public-stacks/buildsystems.bst \
-	             oci/layers/{bootstrap,debug,platform,sdk,flatpak}.bst
+	             oci/{bootstrap,debug,platform,sdk,flatpak}-oci.bst
 
 
 build-tar:
