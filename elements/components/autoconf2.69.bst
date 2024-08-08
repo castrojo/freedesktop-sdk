@@ -24,8 +24,7 @@ variables:
   conf-local: >-
     --program-suffix=2.69
 
-  make: make pkgdatadir='%{datadir}/autoconf2.69'
-  make-install: make -j1 install DESTDIR='%{install-root}' pkgdatadir='%{datadir}/autoconf2.69'
+  make-args: pkgdatadir='%{datadir}/autoconf2.69'
 
 config:
   install-commands:

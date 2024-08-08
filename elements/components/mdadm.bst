@@ -16,8 +16,7 @@ variables:
     CWFLAGS=""
     CHECK_RUN_DIR=0
 
-  make: make %{make-args}
-  make-install: make -j1 %{make-args} DESTDIR="%{install-root}" install install-systemd
+  make-install: make %{make-install-args} install-systemd
 
 config:
   install-commands:

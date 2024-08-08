@@ -16,7 +16,7 @@ variables:
     --disable-fsck
     --disable-uuidd
 
-  make-install: make -j1 DESTDIR="%{install-root}" install install-libs
+  make-install: make DESTDIR="%{install-root}" install install-libs
 
 config:
   install-commands:

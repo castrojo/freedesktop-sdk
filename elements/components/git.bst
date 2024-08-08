@@ -32,7 +32,7 @@ variables:
   # build-dir after running autogen
   build-dir: ''
   make: make all man
-  make-install: make -j1 install install-man DESTDIR='%{install-root}'
+  make-install: make %{make-install-args} install-man
 
 config:
   configure-commands:

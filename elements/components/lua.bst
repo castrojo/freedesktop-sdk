@@ -13,8 +13,6 @@ variables:
     MYCFLAGS="${CFLAGS}"
     INSTALL_TOP='%{install-root}%{prefix}'
     INSTALL_LIB='%{install-root}%{libdir}'
-  make: make %{make-args}
-  make-install: make -j1 install %{make-args}
 
 config:
   build-commands:

@@ -15,9 +15,6 @@ variables:
     INCLUDEDIR='%{includedir}'
     BINDIR='%{bindir}'
 
-  make: make %{make-args}
-  make-install: make -j1 DESTDIR='%{install-root}' %{make-args} install
-
 sources:
 - kind: git_repo
   url: github:rhboot/efivar.git

@@ -8,8 +8,6 @@ variables:
     -f Makefile.sharedlibrary
     INSTALL_PREFIX=%{prefix}
     LIBDIR=/%{lib}
-  make: make %{make-args}
-  make-install: make -j1 %{make-args} DESTDIR="%{install-root}" install
 
 sources:
 - kind: tar

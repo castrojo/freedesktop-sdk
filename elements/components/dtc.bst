@@ -12,8 +12,6 @@ variables:
   make-args: >-
     PREFIX="%{prefix}"
     LIBDIR="%{libdir}"
-  make: make %{make-args}
-  make-install: make %{make-args} DESTDIR="%{install-root}" -j1 install
 
 config:
   configure-commands:

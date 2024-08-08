@@ -12,9 +12,6 @@ variables:
     DATADIR="%{datadir}"
     MANDIR="%{mandir}"
 
-  make: make %{make-args}
-  make-install: make -j1 install DESTDIR="%{install-root}" %{make-args}
-
 sources:
 - kind: git_repo
   url: kernel:network/iproute2/iproute2.git
