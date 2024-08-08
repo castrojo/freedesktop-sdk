@@ -22,7 +22,6 @@ variables:
     --without-pam
     --without-opie
     --without-des
-  local_flags: -fpermissive
 
 config:
   build-commands:
@@ -52,3 +51,5 @@ sources:
   url: github:cyrusimap/cyrus-sasl.git
   track: cyrus-sasl-*
   ref: cyrus-sasl-2.1.28-0-g7a6b45b177070198fed0682bea5fa87c18abb084
+- kind: patch
+  path: patches/cyrus-sasl/c99.patch
