@@ -43,8 +43,6 @@ variables:
   - target_arch == "i686":
       ffmpeg-arch: x86
 
-  local_flags: -fpermissive
-
   conf-local: >-
     --prefix="%{prefix}"
     --libdir="%{libdir}"
