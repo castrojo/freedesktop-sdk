@@ -14,10 +14,12 @@ config:
   build-commands:
   - |
     go build -mod=vendor
+    ./go-md2man -in=go-md2man.1.md -out=go-md2man.1
 
   install-commands:
   - |
     install -Dm755 go-md2man -t "%{install-root}%{bindir}"
+    install -Dm644 go-md2man.1 "%{install-root}%{mandir}/man1/go-md2man.1"
 
 sources:
 - kind: git_repo
