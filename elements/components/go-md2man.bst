@@ -6,10 +6,6 @@ build-depends:
 depends:
 - bootstrap-import.bst
 
-environment:
-  GOPATH: "%{build-root}/go"
-  GO111MODULE: auto
-
 variables:
   optimize-debug: "false"
   compress-debug: "false"
@@ -17,18 +13,21 @@ variables:
 config:
   build-commands:
   - |
-    go build github.com/cpuguy83/go-md2man
+    go build -mod=vendor
 
   install-commands:
   - |
-    go install github.com/cpuguy83/go-md2man
-
-  - |
-    install -Dm755 -t "%{install-root}%{bindir}" "${GOPATH}/bin"/*
+    install -Dm755 go-md2man -t "%{install-root}%{bindir}"
 
 sources:
 - kind: git_repo
   url: github:cpuguy83/go-md2man.git
-  directory: go/src/github.com/cpuguy83/go-md2man
   track: v*
   ref: v2.0.4-0-gd6816bfbea7506064a28119f805fb79f9bc5aeec
+- kind: go_module
+  url: github:russross/blackfriday.git
+  module: github.com/russross/blackfriday/v2
+  ref:
+    go-version: v2.1.0
+    git-ref: v2.1.0-0-g4c9bf9512682b995722660a4196c0013228e2049
+    explicit: False
