@@ -16,7 +16,7 @@ depends:
 
 variables:
   meson-local: >-
-    -Dsession_tracking=libsystemd-login
+    -Dsession_tracking=logind
     -Djs_engine=duktape
   local_flags: -std=gnu++17
 
