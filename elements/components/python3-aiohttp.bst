@@ -18,6 +18,8 @@ runtime-depends:
 sources:
 - kind: pypi
   name: aiohttp
+  include:
+  - "3.9.*"
   ref:
     sha256sum: edea7d15772ceeb29db4aff55e482d4bcfb6ae160ce144f2682de02f6d693551
     suffix: 
