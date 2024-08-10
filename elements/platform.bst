@@ -38,6 +38,7 @@ depends:
 - components/libffi.bst
 - components/libfl.bst
 - components/libflac.bst
+- components/libgamemode.bst
 - components/libgcrypt.bst
 - components/libgpg-error.bst
 - components/libheif.bst
