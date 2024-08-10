@@ -1,9 +1,10 @@
 kind: meson
 
 build-depends:
-- components/rust.bst
 - public-stacks/buildsystem-meson.bst
 - components/cargo-c.bst
+- components/hotdoc.bst
+- components/rust.bst
 
 depends:
 - components/gstreamer-plugins-bad.bst
@@ -19,15 +20,9 @@ variables:
       webrtc_value: enabled
 
   meson-local: >-
-    -Ddoc=disabled
-    -Dexamples=disabled
-    -Dtests=disabled
-    -Dpng=enabled
-    -Dwebp=enabled
-    -Dgif=enabled
+    -Daws=%{aws_value}
     -Dgtk4=disabled
     -Dwebrtc=%{webrtc_value}
-    -Daws=%{aws_value}
 
 sources:
 - kind: git_repo
