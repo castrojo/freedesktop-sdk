@@ -120,6 +120,7 @@ depends:
 - components/gstreamer-plugins-base.bst
 - components/gstreamer-plugins-good.bst
 - components/gstreamer-plugins-ugly.bst
+- components/gstreamer-plugins-rs.bst
 - components/gstreamer.bst
 - components/gstreamer-libav.bst
 - components/gtk3.bst
