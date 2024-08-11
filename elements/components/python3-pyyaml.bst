@@ -17,8 +17,10 @@ config:
 
 
 sources:
-- kind: pypi
-  name: pyyaml
-  ref:
-    sha256sum: 826fb4d5ac2c48b9d6e71423def2669d4646c93b6c13612a71b3ac7bb345304b
-    suffix: ff/08/b6768d9f2da231c1396490e91471ffebb12b299a65cb369c27ec0e2a50c6/pyyaml-6.0.2rc1.tar.gz
+- kind: git_repo
+  url: github:yaml/pyyaml.git
+  track: '*.*.*'
+  exclude:
+  - "*rc*"
+  - "*b*"
+  ref: 6.0.2-0-g41309b0bcb4559edb1d691d47199035ef539d785
