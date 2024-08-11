@@ -32,4 +32,4 @@ sources:
   ref:
     go-version: v2.1.0
     git-ref: v2.1.0-0-g4c9bf9512682b995722660a4196c0013228e2049
-    explicit: False
+    explicit: True
