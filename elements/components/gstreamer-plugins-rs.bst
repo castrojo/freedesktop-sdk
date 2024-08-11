@@ -21,7 +21,9 @@ variables:
 
   meson-local: >-
     -Daws=%{aws_value}
+    -Dexamples=disabled
     -Dgtk4=disabled
+    -Dtests=disabled
     -Dwebrtc=%{webrtc_value}
 
 sources:
