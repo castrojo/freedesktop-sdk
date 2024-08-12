@@ -28,7 +28,8 @@ endif
 GIT_DESCRIBE := $(shell git describe --long --abbrev=40)
 
 SNAP_GRADE?=devel
-ARCH_OPTS=-o bootstrap_build_arch $(BOOTSTRAP_ARCH) -o target_arch $(ARCH) -o snap_grade $(SNAP_GRADE)
+MINIMAL_VM?=locale
+ARCH_OPTS=-o bootstrap_build_arch $(BOOTSTRAP_ARCH) -o target_arch $(ARCH) -o snap_grade $(SNAP_GRADE) -o minimal_vm ${MINIMAL_VM}
 TARBALLS=            \
 	sdk          \
 	platform

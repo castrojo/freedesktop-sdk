@@ -9,3 +9,8 @@ config:
   - devel
   - doc
   include-orphans: True
+  (?):
+  - ("locale" not in minimal_vm):
+      exclude:
+        (>):
+        - locale
