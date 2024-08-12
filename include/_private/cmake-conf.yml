@@ -5,3 +5,4 @@ variables:
     -DCMAKE_BUILD_TYPE=RelWithDebInfo
     -DCMAKE_C_FLAGS_RELWITHDEBINFO="-DNDEBUG"
     -DCMAKE_CXX_FLAGS_RELWITHDEBINFO="-DNDEBUG"
+  make-install: env DESTDIR="%{install-root}" cmake --install %{build-dir}
