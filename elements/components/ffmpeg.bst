@@ -139,4 +139,4 @@ variables:
     --enable-libfdk-aac
     --enable-encoder=%{encoders}
     --enable-decoder=%{decoders}
-    --disable-decoder="h264,hevc,vc1"
+    --disable-decoder="h264,hevc,vc1,vvc"
