@@ -1,3 +1,100 @@
+Version: freedesktop-sdk-24.08beta.5
+Date: '2024-08-11'
+Description: |-
+  Changes in freedesktop-sdk-24.08beta.5
+   * plugins/buildstream-plugins-community.bst: update to 2.0.1
+   * components/lz4.bst: use meson build system
+   * elements/components/gstreamer-plugins-rs.bst: re-disable examples and tests
+   * go-md2man: Fix explicit key
+   * mesa-sdk: Update to 24.1.5
+   * Revert "colord: Temporarily disable documentation"
+   * python3-pyyaml: Switch to git repo and update to 6.0.2
+   * buildstream-plugins-community: Pin the URL to a commit
+   * gstreamer-plugins-rs: Try to use upstream defaults
+   * Add gst-plugins-rs
+   * gamemode: Split into libgamemode and daemon
+   * aiohttp: Add runtime dependency aiohappyeyeballs
+   * Update python3-aiohttp to 3.10.1
+   * Update podman to v5.2.0-0
+   * Update cracklib to v2.10.2-0
+   * add cargo-c
+   * add cargo2 and change name bst-plugins-experimental to buildstream-plugins-community
+   * go-md2man: Build and install manpage
+   * go-md2man: Add russross/blackfriday module and modernise element
+   * Update go-md2man to v2.0.4-0
+   * Update crun to 1.16-0
+   * Update python3-attrs to 24.2.0-0
+   * polkit-base: Change session-tracking value to logind
+   * Update polkit-base to 125-0
+   * Update python3-tenacity to 9.0.0-0
+   * cyrus-sasl: Add patch to fix compilation with gcc 14
+   * Remove -fpermissive from ffmpeg
+   * Update readline to readline-8.2-13
+   * Update git to v2.46.0-0
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-153
+   * Update xorg-lib-xfont2 to libXfont2-2.0.7-0
+   * Update python3-cffi to 2
+   * ci-image: Switch to OCI images
+   * linux: Remove redundant LEDS_CLASS_FLASH module
+   * linux: Group PinePhone Pro configs
+   * Update python3-setuptools to v72.2.0-0
+   * Update linux to v6.10.3-0
+   * Update fwupd to 1.9.23-0
+   * Update python3-setuptools-rust to 1.10.1
+   * Update binutils to binutils-2_43-0
+   * Update glibc to glibc-2.40-16
+   * Update vim to v9.1.0661-0
+   * Update bash to bash-5.2-33
+   * Update pipewire-base to 1.2.2-0
+   * Update python3-sphinxcontrib-serializinghtml to 2.0.0
+   * Update netavark to v1.12.1-0
+   * Update grpc to v1.65.4-0
+   * .gitlab-ci.yml: add desktop jobs for loongarch64
+   * Update passt to 2024_07_26.57a21d2-0
+   * Update python3-protobuf to 5.27.3
+   * Update python3-attrs to 24.1.0-0
+   * abseil-cpp: Remove unnecessary rpath
+   * abseil-cpp: Drop obsolete patch
+   * Update abseil-cpp to 20240722.0-0
+   * Update python3-sphinxcontrib-htmlhelp to 2.1.0
+   * Update buildbox to 1.2.12-0
+   * Update ffmpeg to n7.0.2-0
+   * image: Update for BuildStream release snapshot
+   * Update python3-pip to 24.2
+   * Drop unused mesa patch
+   * mesa-sources: Remove obsolete patch
+   * Update mesa to mesa-24.1.5-0
+   * Update iproute2 to v6.10.0-0
+   * Update curl to curl-8_9_1-0
+   * Update cryptsetup-base to v2.7.4-0
+   * Update btrfs-progs to v6.10-0
+   * Update python3-sphinxcontrib-devhelp to 2.0.0
+   * Update protobuf to v27.3-0
+   * Update grpc to v1.65.2-0
+   * Update gnu-config to 00b1592
+   * efitools: Add patch to fix build with gcc 14
+   * Update cracklib to v2.10.1-0
+   * Update fwupd to 1.9.22-0
+   * Update fmtlib to 11.0.2-0
+   * Move license checker to aarch64 due to incompatibility with storage service
+   * gstreamer: Remove obsolete patch
+   * Update gstreamer to 1.24.6-0
+   * Update spirv-llvm-translator to v18.1.2-13
+   * Update systemd to v256.4-0
+   * Update meson to 1.5.1-0
+   * Update vim to v9.1.0641-0
+   * python3-sphinx: Update to 8.0.2
+   * Update python3-alabaster to 1.0.0
+   * Update glibc to glibc-2.40-9
+   * Update strace to v6.10-0
+   * Update xorg-lib-x11 to libX11-1.8.10-0
+   * Update mesa-sdk to mesa-24.1.4-0
+   * Update lz4 to v1.10.0-0
+   * Update python3-setuptools to v71.1.0-0
+   * Update libnl to libnl3_10_0-0
+   * Proceed with automatic updates despite tracking errors
+   * Update to docker image with latest gitlab-merge-request-generator
+---
 Version: freedesktop-sdk-24.08beta.4
 Date: '2024-07-28'
 Description: |-
