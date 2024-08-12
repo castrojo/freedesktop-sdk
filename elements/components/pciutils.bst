@@ -1,11 +1,9 @@
 kind: make
 
 depends:
-- filename: bootstrap-import.bst
-- filename: components/which.bst
-  type: build
-- filename: components/gzip.bst
-  type: build
+- bootstrap-import.bst
+- components/gzip.bst
+- components/curl.bst
 
 variables:
   make-args: >-
