@@ -15,7 +15,7 @@ sources:
   exclude:
   - "*beta*"
   ref: v1.7.0-0-g2061d01bf40ee4c753cc03b84e22ac226a962414
-- kind: cargo
+- kind: cargo2
   cargo-lock: Cargo.lock
   ref:
   - name: adler

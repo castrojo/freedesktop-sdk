@@ -39,7 +39,7 @@ sources:
   - '*beta*'
   - '*rc*'
   ref: 2.58.2-0-gef5c94d8362c35573d7eb651cf9a07c6df9df6da
-- kind: cargo
+- kind: cargo2
   ref:
   - name: adler
     version: 1.0.2

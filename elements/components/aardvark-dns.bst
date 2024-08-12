@@ -11,7 +11,7 @@ sources:
   url: github:containers/aardvark-dns.git
   track: v*
   ref: v1.11.0-0-g666d7b15b28ea913295b02b756c0a778a4f9b341
-- kind: cargo
+- kind: cargo2
   ref:
   - name: addr2line
     version: 0.22.0

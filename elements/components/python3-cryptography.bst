@@ -15,7 +15,7 @@ sources:
   url: github:pyca/cryptography.git
   track: '*.*.*'
   ref: 43.0.0-0-gebf14f2edc8536f36797979cb0e075e766d978c5
-- kind: cargo
+- kind: cargo2
   cargo-lock: src/rust/Cargo.lock
   ref:
   - name: asn1

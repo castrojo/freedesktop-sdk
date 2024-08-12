@@ -24,7 +24,7 @@ sources:
   track: v*
   url: github:mozilla/cbindgen.git
   ref: v0.26.0-0-g703b53c06f9fe2dbc0193d67626558cfa84a0f62
-- kind: cargo
+- kind: cargo2
   cargo-lock: Cargo.lock
   ref:
   - name: atty

@@ -23,7 +23,7 @@ sources:
   url: github:containers/netavark.git
   track: v*
   ref: v1.12.1-0-ga4e1359ee7fa036db2712f495d4afc95c63a32d8
-- kind: cargo
+- kind: cargo2
   ref:
   - name: addr2line
     version: 0.22.0
