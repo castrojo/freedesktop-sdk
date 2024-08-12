@@ -7,4 +7,5 @@ config:
   exclude:
   - debug
   - devel
+  - doc
   include-orphans: True
