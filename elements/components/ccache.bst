@@ -25,5 +25,3 @@ sources:
   url: github:ccache/ccache.git
   track: v*
   ref: v4.10.2-0-gcc653c59b715833f452cb9d696b35975fbc5952d
-- kind: patch
-  path: patches/ccache/0001-Fix-detection-of-Fmt-version.patch
