@@ -4,9 +4,9 @@ build-depends:
 - vm/deploy-tools.bst
 - vm/minimal/initial-scripts.bst
 - vm/prepare-image.bst
-- filename: vm/minimal/filesystem.bst
+- filename: vm/minimal/usr-image.bst
   config:
-    location: '/sysroot'
+    location: '/usr-image'
 - filename: vm/boot/efi.bst
   config:
     location: '/sysroot/efi'
@@ -21,18 +21,13 @@ variables:
 config:
   commands:
   - mkdir -p %{build-root}
-  - |
-    prepare-image.sh \
-       --sysroot /sysroot \
-       --seed "%{uuidnamespace}" \
-       --rootpasswd "root" > "%{build-root}/vars"
 
   - |
     efi_part_uuid="$(uuidgen -s --namespace "%{uuidnamespace}" --name partition-efi)"
     root_part_uuid="$(uuidgen -s --namespace "%{uuidnamespace}" --name partition-root)"
     disk_uuid="$(uuidgen -s --namespace "%{uuidnamespace}" --name disk)"
     hash_seed="$(uuidgen -s --namespace "%{uuidnamespace}" --name hash-seed)"
-    . "%{build-root}/vars"
+    . /usr-image/vars.txt
     cat > "%{build-root}/genimage.cfg" <<EOF
     image efi.img {
         vfat {
@@ -40,16 +35,6 @@ config:
         }
         mountpoint = "/efi"
         size = 105%
-        temporary = true
-    }
-    image root.img {
-        ext4  {
-            label = "root"
-            extraargs = "-U ${uuid_root} -E hash_seed=${hash_seed},no_copy_xattrs"
-            use-mke2fs = true
-            fs-timestamp = "${SOURCE_DATE_EPOCH}"
-        }
-        size = 110%
         temporary = true
     }
     image disk.img {
@@ -64,7 +49,7 @@ config:
             partition-uuid = "${efi_part_uuid}"
         }
         partition root {
-            image = "root.img"
+            image = "/usr-image/usr.squashfs"
             partition-type-uuid = "%{linux-root}"
             partition-uuid = "${root_part_uuid}"
         }
