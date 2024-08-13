@@ -66,7 +66,7 @@ config:
             extraargs = "-E no_copy_xattrs"
             use-mke2fs = true
         }
-        size = 2G
+        size = 1150M
     }
     image disk.img {
         hdimage {

@@ -58,13 +58,13 @@ config:
             image = "/usr-image/usr.squashfs"
             partition-type-uuid = "%{usr-uuid}"
             partition-uuid = "${usr_part_uuid}"
-            size = "1G"
+            size = 800M
         }
         partition fdsdk_usr_verity_${sdk_version} {
             partition-type-uuid = "%{usr-verity-uuid}"
             partition-uuid = "${usr_verity_part_uuid}"
             image = "/usr-image/usr.verity"
-            size = "10M"
+            size = 10M
         }
     }
     config {

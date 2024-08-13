@@ -49,7 +49,7 @@ config:
             use-mke2fs = true
             fs-timestamp = "${SOURCE_DATE_EPOCH}"
         }
-        size = 2G
+        size = 1000M
         temporary = true
     }
     image disk.img {
