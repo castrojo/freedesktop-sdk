@@ -39,7 +39,7 @@ public:
   explicit mapped_file(fd_t& fd);
 
   template <typename T>
-  T const* ptr(off_t offset, size_t n) {
+  T const* ptr(off_t offset, std::size_t n) {
     return static_cast<T const*>(ptr_void(offset, n*sizeof(T)));
   }
 
