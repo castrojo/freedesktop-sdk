@@ -15,6 +15,7 @@ variables:
     ZLIB=no
     SHARED=yes
     OPT="${CFLAGS}"
+    STRIP=""
   make-install: make %{make-args} DESTDIR="%{install-root}" install install-lib
 
 config:
