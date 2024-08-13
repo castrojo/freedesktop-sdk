@@ -40,6 +40,7 @@ config:
       #else
       # error "Unknown cross-compiler"
       #endif
+      EOF
 
 public:
   bst:
