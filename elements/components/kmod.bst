@@ -5,9 +5,7 @@ depends:
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/docbook-xsl.bst
-- components/docbook-xml.bst
-- components/libxslt.bst
+- components/scdoc.bst
 
 variables:
   conf-local: |
