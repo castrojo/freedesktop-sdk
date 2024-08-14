@@ -32,8 +32,8 @@ mirrors:
     - https://gitlab.com/freedesktop-sdk/mirrors/kitware/
     kernel:
     - https://gitlab.com/freedesktop-sdk/mirrors/kernel/
-    kennylevinsen:
-    - https://gitlab.com/freedesktop-sdk/mirrors/kennylevinsen/
+    sourcehut:
+    - https://gitlab.com/freedesktop-sdk/mirrors/sourcehut/
     libdaemon:
     - https://gitlab.com/freedesktop-sdk/mirrors/libdaemon/
     netfilter:
