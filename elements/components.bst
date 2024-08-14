@@ -401,6 +401,7 @@ depends:
 - components/rtkit.bst
 - components/ruby.bst
 - components/sbc.bst
+- components/scdoc.bst
 - components/sdl2-image.bst
 - components/sdl2-mixer.bst
 - components/sdl2-net.bst
