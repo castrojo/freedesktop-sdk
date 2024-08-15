@@ -7,6 +7,7 @@ build-depends:
 - components/python3-mako.bst
 - components/python3-ply.bst
 - components/python3-pycparser.bst
+- components/python3-pyyaml.bst
 - components/rust.bst
 - components/rust-bindgen.bst
 - components/rust-cbindgen.bst
