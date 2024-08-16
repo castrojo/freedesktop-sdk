@@ -241,6 +241,9 @@ test-apps: $(REPO)
 	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean app tests/org.gnu.Hello.json
 	flatpak-builder --arch=$(FLATPAK_ARCH) --run app tests/org.gnu.Hello.json hello
 
+	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean --user --install app tests/org.flatpak.GstreamerPlugins.json
+	flatpak --arch=$(FLATPAK_ARCH) run org.flatpak.GstreamerPlugins
+
 	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean app tests/org.flatpak.Readline.json
 
 	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean --user --install app tests/io.freedesktop_sdk.SimpleProject.json

@@ -1,0 +1,22 @@
+{
+  "id": "org.flatpak.GstreamerPlugins",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "24.08beta",
+  "sdk": "org.freedesktop.Sdk",
+  "command": "gstreamer-plugins-test",
+  "modules": [
+    {
+      "name": "gstreamer-plugins-test",
+      "buildsystem": "simple",
+      "build-commands": [
+        "install -D gstreamer-plugins-test.sh /app/bin/gstreamer-plugins-test"
+      ],
+      "sources": [
+        {
+          "type": "file",
+          "path": "gstreamer-plugins-test.sh"
+        }
+      ]
+    }
+  ]
+}
