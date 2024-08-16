@@ -40,7 +40,7 @@ config:
             extraargs = "--invariant -F32 -i${id_efi} -n EFI"
         }
         mountpoint = "/boot"
-        size = 500M
+        size = 105%
         temporary = true
     }
     image disk.img {
@@ -58,13 +58,13 @@ config:
             image = "/usr-image/usr.squashfs"
             partition-type-uuid = "%{usr-uuid}"
             partition-uuid = "${usr_part_uuid}"
-            size = 800M
+            size = 110%
         }
         partition fdsdk_usr_verity_${sdk_version} {
             partition-type-uuid = "%{usr-verity-uuid}"
             partition-uuid = "${usr_verity_part_uuid}"
             image = "/usr-image/usr.verity"
-            size = 10M
+            size = 110%
         }
     }
     config {
@@ -73,4 +73,6 @@ config:
     }
     EOF
 
+  - du -h --max-depth=3 /sysroot | grep '^[^0]' | sort -rh
   - genimage --config "%{build-root}/genimage.cfg" --rootpath /sysroot
+  - du -BM "%{install-root}/disk.img"
