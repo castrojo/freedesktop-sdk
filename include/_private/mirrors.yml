@@ -94,3 +94,9 @@ mirrors:
   aliases:
     ftp_gnu_org:
     - https://mirrors.kernel.org/gnu/
+
+# "Not real mirrors" for things under our control
+- name: freedestkop-sdk
+  aliases:
+    fdsdk_mirror:
+    - https://gitlab.com/freedesktop-sdk/mirrors/

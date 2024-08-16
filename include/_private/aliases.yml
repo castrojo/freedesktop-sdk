@@ -9,6 +9,7 @@ ffmpeg: https://git.ffmpeg.org/
 freedesktop_people: git://people.freedesktop.org/~wtay/
 freedesktop: https://gitlab.freedesktop.org/
 freedesktop-sdk-project: https://gitlab.com/freedesktop-sdk/
+fdsdk_mirror: https://gitlab.com/freedesktop-sdk/mirrors/
 ghostscript: https://git.ghostscript.com/
 github: https://github.com/
 gitlab: https://gitlab.com/
@@ -17,7 +18,6 @@ gnupg: https://dev.gnupg.org/source/
 sourcehut: https://git.sr.ht/
 kitware: https://gitlab.kitware.com/cmake/
 kernel: https://git.kernel.org/pub/scm/
-libdaemon: git://git.0pointer.de/
 netfilter: https://git.netfilter.org/
 nettle: https://git.lysator.liu.se/nettle/
 pagure: https://pagure.io/
