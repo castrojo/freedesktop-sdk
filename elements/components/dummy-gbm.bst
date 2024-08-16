@@ -11,7 +11,6 @@ build-depends:
 - extensions/mesa/libdrm.bst
 - components/python3.bst
 - components/python3-mako.bst
-- components/python3-pyyaml.bst
 - components/bison.bst
 - components/flex.bst
 
