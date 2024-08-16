@@ -34,8 +34,6 @@ mirrors:
     - https://gitlab.com/freedesktop-sdk/mirrors/kernel/
     kennylevinsen:
     - https://gitlab.com/freedesktop-sdk/mirrors/kennylevinsen/
-    libdaemon:
-    - https://gitlab.com/freedesktop-sdk/mirrors/libdaemon/
     liburcu:
     - https://gitlab.com/freedesktop-sdk/mirrors/liburcu/
     netfilter:
@@ -99,3 +97,5 @@ mirrors:
     - https://registry.gitlab.com/freedesktop-sdk/
     fdsdk_git:
     - https://gitlab.com/freedesktop-sdk/
+    fdsdk_mirror:
+    - https://gitlab.com/freedesktop-sdk/mirrors/
