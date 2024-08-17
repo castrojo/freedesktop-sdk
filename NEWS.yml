@@ -1,3 +1,95 @@
+Version: freedesktop-sdk-24.08rc.1
+Date: '2024-08-17'
+Description: |-
+  Changes in freedesktop-sdk-24.08rc.1
+   * Mark ABI as stable
+   * Update python3-sphinxcontrib-qthelp to 2.0.0
+   * Update python3-aiohappyeyeballs to v2.3.6-0
+   * Update libabigail to libabigail-2.5-61
+   * Update python3-sphinxcontrib-applehelp to 2.0.0
+   * Use freedesktop-sdk gitlab mirror for projects on git.0pointer.net
+   * stripper: change instance of size_t to std::size_t
+   * mesa: Remove symlink creation
+   * Reapply "dummy-gbm: Add build dependency on pyyaml"
+   * Reapply "Update dummy-gbm patch"
+   * Reapply "mesa: Add patch to correct header location"
+   * Reapply "mesa: Update and add new rust dependencies"
+   * Reapply "mesa: Add build dependency on pyyaml"
+   * Reapply "mesa: Remove dead kmsro option in gallium drivers"
+   * Reapply "mesa-sdk: Bump to 24.2.0"
+   * Reapply "Update mesa to mesa-24.2.0-0"
+   * Revert "Update mesa to mesa-24.2.0-0"
+   * Revert "mesa-sdk: Bump to 24.2.0"
+   * Revert "mesa: Remove dead kmsro option in gallium drivers"
+   * Revert "mesa: Add build dependency on pyyaml"
+   * Revert "mesa: Update and add new rust dependencies"
+   * Revert "mesa: Add patch to correct header location"
+   * Revert "Update dummy-gbm patch"
+   * Revert "dummy-gbm: Add build dependency on pyyaml"
+   * Revert "mesa: Replace swarst gallium driver with llvmpipe and softpipe"
+   * cargo-c: Concurrency should not affect artefact cache key calculation
+   * Use local cache as just local cache
+   * python3: Update to 3.12.5
+   * pkg-config-source: Update to 2.3.0
+   * python3-wheel: Update to 0.44.0
+   * doxygen: Update to 1_12_0
+   * cmake: Update to 3.30.2
+   * mesa: Replace swarst gallium driver with llvmpipe and softpipe
+   * dummy-gbm: Add build dependency on pyyaml
+   * Update dummy-gbm patch
+   * mesa: Add patch to correct header location
+   * mesa: Update and add new rust dependencies
+   * mesa: Add build dependency on pyyaml
+   * mesa: Remove dead kmsro option in gallium drivers
+   * mesa-sdk: Bump to 24.2.0
+   * Update mesa to mesa-24.2.0-0
+   * Update to bst-plugins-community 2.0.2
+   * audit: Update to 4.0.2
+   * bubblewrap: Update to 0.10.0
+   * crun: Update to 1.16.1
+   * erofs-utils: Update to 1.8.1
+   * exfat-progs: Update to 1.2.5
+   * libcamera: Update to 0.3.1
+   * libei: Update to 1.3.0
+   * passt: Update to 2024_08_14.61c0b0d
+   * poppler: Update to 24.08
+   * v4l-utils: Update to 1.28.1
+   * flatpak: Update to 1.15.10
+   * Update go to go1.22.6-0
+   * Decrease image sizes to fit minimum requirements more closely.
+   * Exclude doc from minimal vms
+   * kmod: Update to v33 and use scdoc for manpage generation
+   * Add an element for scdoc
+   * Add a generic alias for sourcehut
+   * Update python3-tomlkit to 0.13.1
+   * Update sqlite to version-3.46.1-0
+   * Update dictionaries to libreoffice-24.8.0.3-0
+   * Update glibc to glibc-2.40-21
+   * pcsc-lite: Update to 2.3.0
+   * xorg-lib-xtst: Update to 1.2.5
+   * xwayland: Update to 24.1.2
+   * sdl2: Update to 2.30.6
+   * libheif: Update to 1.18.2
+   * libavif: Update to 1.1.1
+   * freetype: Update to 2-13-3
+   * Update python3-babel to 2.16.0
+   * Update spirv-llvm-translator to v18.1.3-1
+   * ffmpeg: ensure vvc decoder is always disabled
+   * project.conf: Remove cargo plugin as It's not used
+   * Move from "cargo" to "cargo2" source element
+   * Update passt to 2024_08_06.ee36266-0
+   * Update vulkan-stack to vulkan-sdk-1.3.290.0-0
+   * Update vim to v9.1.0672-0
+   * Update libnvme to v1.10-0
+   * ccache: Remove obsolete patch
+   * Update ccache to v4.10.2-0
+   * cython: Update to 3.0.11
+   * Update python3-lxml to lxml-5.3.0-0
+   * pciutils: Add terminating EOF to silence warning
+   * pciutils: Prevent stripping before running our own stripper
+   * pciutils: Remove dependency on which and add curl, gzip to depends
+   * pciutils: Convert to a make element
+---
 Version: freedesktop-sdk-24.08beta.5
 Date: '2024-08-11'
 Description: |-
