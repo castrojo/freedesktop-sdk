@@ -34,8 +34,4 @@ variables:
 sources:
 - kind: git_repo
   url: freedesktop:NetworkManager/NetworkManager.git
-  track: '*.*.*'
-  exclude:
-  - "*-dev*"
-  - "*-rc*"
   ref: 1.48.6-0-g27f130ab0c3f39bbf36ed952cb24454e34a83708
