@@ -72,6 +72,12 @@ def get_parser():
         default=os.path.abspath(os.curdir),
         help='parent directory in which the archive directory is created'
     )
+    parser.add_argument(
+        '--full-abi-diff',
+        type=int,
+        default=False,
+        help="Force full ABI diff on",
+    )
 
     return parser
 
@@ -244,7 +250,15 @@ def create_header_archive(archive_directory, old_include_dir, new_include_dir):
         tar.add(new_include_dir)
 
 
-def compare_tree_abis(old_checkout, new_checkout, suppression_file_path, forward_compatible, archive_on_core, archive_directory):
+def compare_tree_abis(
+    old_checkout,
+    new_checkout,
+    suppression_file_path,
+    forward_compatible,
+    archive_on_core,
+    archive_directory,
+    full_abi_diff,
+):
     print(format_title('Comparing ABIs', level=1), end='\n\n')
     success = True
 
@@ -290,10 +304,10 @@ def compare_tree_abis(old_checkout, new_checkout, suppression_file_path, forward
         new_debug_dir = os.path.join(new_checkout, 'usr', 'lib', 'debug')
         new_include_dir = os.path.join(new_checkout, 'usr', 'include')
 
-        if fast_file_check(old_library, new_library):
+        if not full_abi_diff and fast_file_check(old_library, new_library):
             continue
 
-        if filecmp.cmp(old_library, new_library, shallow=False):
+        if not full_abi_diff and filecmp.cmp(old_library, new_library, shallow=False):
             # Full file equality, ABI cannot have changed
             continue
 
@@ -329,7 +343,15 @@ if __name__ == '__main__':
         print(f'Creating archive directory {archive_directory}')
         os.makedirs(archive_directory)
 
-    abi_compatible = compare_tree_abis(args.old, args.new, args.suppressions, args.forward_compatible, args.archive_on_core, archive_directory)
+    abi_compatible = compare_tree_abis(
+        args.old,
+        args.new,
+        args.suppressions,
+        args.forward_compatible,
+        args.archive_on_core,
+        archive_directory,
+        args.full_abi_diff,
+    )
 
     if abi_compatible:
         print(format_title(f'Hurray! {args.old} and {args.new} are ABI-compatible!', level=2))
