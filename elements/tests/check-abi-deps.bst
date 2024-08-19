@@ -1,8 +1,17 @@
 kind: compose
 
 build-depends:
-- utils/check-abi.bst
 - tests/check-abi-config.bst
+
+(?):
+- target_arch == "i686":
+    build-depends:
+      (>):
+      - abi/compat-x86_64.bst:utils/check-abi.bst
+- target_arch != "i686":
+    build-depends:
+      (>):
+      - utils/check-abi.bst
 
 config:
   exclude:
