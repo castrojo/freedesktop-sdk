@@ -23,7 +23,7 @@ sources:
 - kind: git_repo
   track: v*
   url: github:rust-lang/rust-bindgen.git
-  ref: v0.69.4-0-g62859b2c6108c1c0f60d16b9ffe7544a4fbce48b
+  ref: v0.70.0-0-g190ff2a6a4739f3a703125d9ed290dcd2dc9c808
 - kind: cargo
   ref:
   - name: aho-corasick
@@ -108,23 +108,14 @@ sources:
     version: 0.4.7
     sha: adcf93614601c8129ddf72e2d5633df827ba6551541c6d8c59520a371475be1f
   - name: itertools
-    version: 0.12.1
-    sha: ba291022dbbd398a455acf126c1e341954079855bc60dfdda641363bd6922569
-  - name: lazy_static
-    version: 1.4.0
-    sha: e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646
-  - name: lazycell
-    version: 1.3.0
-    sha: 830d08ce1d1d941e6b30645f1a0eb5643013d835ce3779a5fc208261dbe10f55
+    version: 0.13.0
+    sha: 413ee7dfc52ee1a4949ceeb7dbc8a33f2d6c088194d9f922fb8318faf1f01186
   - name: libc
-    version: 0.2.139
-    sha: 201de327520df007757c1f0adce6e827fe8562fbc28bfd9c15571c66ca1f5f79
+    version: 0.2.154
+    sha: ae743338b92ff9146ce83992f766a31066a91a8c84a45e0e9f21e7cf6de6d346
   - name: libloading
     version: 0.7.4
     sha: b67380fd3b2fbe7527a606e18729d21c6f3951633d0500574c4dc22d2d638b9f
-  - name: linux-raw-sys
-    version: 0.1.4
-    sha: f051f77a7c8e6957c0696eac88f26b0117e54f52d3fc682ab19397a8812846a4
   - name: linux-raw-sys
     version: 0.3.8
     sha: ef53942eb7bf7ff43a617b3e2c1c4a5ecf5944a7c1bc12d7ee39bbb15e5c1519
@@ -180,8 +171,8 @@ sources:
     version: 0.6.4
     sha: ec0be4795e2f6a28069bec0b5ff3e2ac9bafc99e6a9a7dc3547996c5c816922c
   - name: redox_syscall
-    version: 0.2.16
-    sha: fb5a58c1855b4b6819d59012155603f0b22ad30cad752600aadfcb695265519a
+    version: 0.3.5
+    sha: 567664f262709473930a4bf9e51bf2ebf3348f2e748ccc50dea20646858f8f29
   - name: regex
     version: 1.7.1
     sha: 48aaa5748ba571fb95cd2c85c09f629215d3a6ece942baa100950af03a34f733
@@ -192,11 +183,8 @@ sources:
     version: 1.1.0
     sha: 08d43f7aa6b08d49f382cde6a7982047c3426db949b1424bc4b7ec9ae12c6ce2
   - name: rustix
-    version: 0.36.16
-    sha: 6da3636faa25820d8648e0e31c5d519bbb01f72fdf57131f0f5f7da5fed36eab
-  - name: rustix
-    version: 0.37.3
-    sha: 62b24138615de35e32031d041a09032ef3487a616d901ca4db224e7d557efae2
+    version: 0.37.7
+    sha: 2aae838e49b3d63e9274e1c01833cc8139d3fec468c3b84688c628f44b1ae11d
   - name: shlex
     version: 1.3.0
     sha: 0fda2ff0d084019ba4d7c6f371c95d8fd75ce3524c3cb8fb653a3023f6323e64
@@ -213,8 +201,8 @@ sources:
     version: 2.0.18
     sha: 32d41677bcbe24c20c52e7c70b0d8db04134c5d1066bf98662e2871ad200ea3e
   - name: tempfile
-    version: 3.4.0
-    sha: af18f7ae1acd354b992402e9ec5864359d693cd8a79dcbef59f76891701c1e95
+    version: 3.5.0
+    sha: b9fbec84f381d5795b08656e4912bec604d162bff9291d6189a78f4c8ab87998
   - name: termcolor
     version: 1.2.0
     sha: be55cf8942feac5c765c2c993422806843c9a9a45d4d5c407ad6dd2ea95eb9b6
@@ -230,9 +218,6 @@ sources:
   - name: wasi
     version: 0.11.0+wasi-snapshot-preview1
     sha: 9c8d87e72b64a3b4db28d11ce29237c246188f4f51057d65a7eab63b7987e423
-  - name: which
-    version: 4.4.0
-    sha: 2441c784c52b289a054b7201fc93253e288f094e2f4be9058343127c4226a269
   - name: winapi
     version: 0.3.9
     sha: 5c839a674fcd7a98952e593242ea400abe93992746761e38641405d28b00f419
