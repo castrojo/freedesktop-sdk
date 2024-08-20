@@ -41,17 +41,17 @@ sources:
 - kind: git_repo
   url: gitlab:gnutls/gnutls.git
   track: '*.*.*'
-  ref: 3.8.6-0-gcd953cfa483801a6b71bdf920bb534fb297fdfac
+  ref: 3.8.7-0-g994d9392a607308e452ecae87caafd6ea81288f3
 - kind: git_module
   url: gitlab:gnutls/cligen.git
   path: cligen
-  ref: ed2ed7b19a5bcbc0f39505722058befc923eeeda
+  ref: 59911854af60377b045ec8db88ae969b5bad1f66
 - kind: patch
   path: patches/gnutls/cli-codegen-no-passwd.patch
 - kind: git_module
   path: gnulib
   url: gitlab:libidn/gnulib-mirror.git
-  ref: 41d5dae3b7d239f167f09e4398f3970845a0ddc0
+  ref: bd1e981434c98751b1106a1744e77a27317b52b3
 - kind: git_module
   path: devel/libtasn1
   url: gitlab:gnutls/libtasn1.git
