@@ -49,6 +49,7 @@ variables:
     -Dximagesrc-navigation=disabled
     -Damrnb=disabled
     -Damrwbdec=disabled
+    -Dximagesrc=disabled
 
 public:
   cpe:
