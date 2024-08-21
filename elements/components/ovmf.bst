@@ -73,11 +73,19 @@ sources:
 - kind: git_repo
   url: github:tianocore/edk2.git
   track: edk2-stable*
-  ref: edk2-stable202308-0-g819cfc6b42a68790a23509e4fcc58ceb70e1965e
+  ref: edk2-stable202408-0-gb158dad150bf02879668f72ce306445250838201
 - kind: git_module
   path: CryptoPkg/Library/OpensslLib/openssl
   url: github:openssl/openssl.git
   ref: de90e54bbe82e5be4fb9608b6f5c308bb837d355
+- kind: git_module
+  path: CryptoPkg/Library/MbedTlsLib/mbedtls
+  url: github:Mbed-TLS/mbedtls.git
+  ref: 8c89224991adff88d53cd380f42a2baa36f91454
+- kind: git_module
+  path: SecurityPkg/DeviceSecurity/SpdmLib/libspdm
+  url: github:DMTF/libspdm.git
+  ref: 50924a4c8145fc721e17208f55814d2b38766fe6
 - kind: git_module
   path: ArmPkg/Library/ArmSoftFloatLib/berkeley-softfloat-3
   url: github:ucb-bar/berkeley-softfloat-3.git
