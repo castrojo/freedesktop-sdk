@@ -58,7 +58,7 @@ config:
             extraargs = "-F32 -n EFI"
         }
         mountpoint = "/boot"
-        size = 500M
+        size = 105%
     }
     image root.img {
         ext4  {
@@ -66,7 +66,7 @@ config:
             extraargs = "-E no_copy_xattrs"
             use-mke2fs = true
         }
-        size = 1150M
+        size = 110%
     }
     image disk.img {
         hdimage {
@@ -90,3 +90,4 @@ config:
 
   - |
     install -Dm644 -t "%{install-root}" genimage/images/disk.img
+    du -BM "%{install-root}/disk.img"

@@ -39,7 +39,7 @@ config:
             extraargs = "--invariant -F32 -i${id_efi} -n EFI"
         }
         mountpoint = "/efi"
-        size = 125M
+        size = 105%
         temporary = true
     }
     image root.img {
@@ -49,7 +49,7 @@ config:
             use-mke2fs = true
             fs-timestamp = "${SOURCE_DATE_EPOCH}"
         }
-        size = 1000M
+        size = 110%
         temporary = true
     }
     image disk.img {
@@ -75,4 +75,6 @@ config:
     }
     EOF
 
+  - du -h --max-depth=3 /sysroot | grep '^[^0]' | sort -rh
   - genimage --config "%{build-root}/genimage.cfg" --rootpath /sysroot
+  - du -BM "%{install-root}/disk.img"
