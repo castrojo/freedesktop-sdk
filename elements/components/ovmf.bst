@@ -79,6 +79,14 @@ sources:
   url: github:openssl/openssl.git
   ref: de90e54bbe82e5be4fb9608b6f5c308bb837d355
 - kind: git_module
+  path: CryptoPkg/Library/MbedTlsLib/mbedtls
+  url: github:Mbed-TLS/mbedtls.git
+  ref: 8c89224991adff88d53cd380f42a2baa36f91454
+- kind: git_module
+  path: SecurityPkg/DeviceSecurity/SpdmLib/libspdm
+  url: github:DMTF/libspdm.git
+  ref: 828ef62524bcaeca4e90d0c021221e714872e2b5
+- kind: git_module
   path: ArmPkg/Library/ArmSoftFloatLib/berkeley-softfloat-3
   url: github:ucb-bar/berkeley-softfloat-3.git
   ref: b64af41c3276f97f0e181920400ee056b9c88037
