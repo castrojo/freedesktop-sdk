@@ -31,7 +31,8 @@ depends:
 - bootstrap/sed.bst
 - bootstrap/symlinks.bst
 - bootstrap/utf-locale.bst
-- bootstrap/bootstrap-base.bst
+- bootstrap/zlib.bst
+- bootstrap/libxcrypt.bst
 - components/autoconf.bst
 
 sources:
