@@ -23,7 +23,7 @@ sources:
 - kind: git_repo
   track: v*
   url: github:rust-lang/rust-bindgen.git
-  ref: v0.70.0-0-g190ff2a6a4739f3a703125d9ed290dcd2dc9c808
+  ref: v0.70.1-0-g21c60f473f4e824d4aa9b2b508056320d474b110
 - kind: cargo
   ref:
   - name: aho-corasick
