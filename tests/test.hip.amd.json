@@ -1,0 +1,30 @@
+{
+    "app-id": "test.hip.amd",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "24.08beta",
+    "sdk": "org.freedesktop.Sdk",
+    "add-extensions": {
+      "org.freedesktop.Platform.HIP.AMD": {
+        "version": "24.08beta",
+        "add-ld-path": "."
+      }
+    },
+    "command": "hip-test",
+    "modules": [
+      {
+        "name": "hip-test",
+        "buildsystem": "simple",
+        "build-commands": [
+          "mkdir -p /app/lib/rocm",
+          "install -D hip.sh /app/bin/hip-test"
+        ],
+        "sources": [
+          {
+            "type": "file",
+            "path": "hip.sh"
+          }
+        ]
+      }
+    ]
+  }
+  

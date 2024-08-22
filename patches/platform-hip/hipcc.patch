@@ -1,0 +1,31 @@
+diff --git a/amd/hipcc/CMakeLists.txt b/amd/hipcc/CMakeLists.txt
+index 484e8335329a..152c381f8407 100755
+--- a/amd/hipcc/CMakeLists.txt
++++ b/amd/hipcc/CMakeLists.txt
+@@ -18,9 +18,6 @@ option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
+ set(CMAKE_CXX_STANDARD 17)
+ set(CMAKE_CXX_STANDARD_REQUIRED True)
+ 
+-set(ADDITIONAL_SHARED_LIBRARIES_TO_LINK
+-  libstdc++fs.so)
+-
+ set(HIPCC_BIN
+   hipcc.bin)
+ set(HIPCC_SOURCES
+@@ -32,16 +29,8 @@ set(HIPCONFIG_SOURCES
+   src/hipBin.cpp)
+ 
+ add_executable(${HIPCC_BIN} ${HIPCC_SOURCES})
+-if(NOT WIN32)
+-  # C++17 does not require std lib linking.
+-  target_link_libraries(${HIPCC_BIN} ${ADDITIONAL_SHARED_LIBRARIES_TO_LINK})
+-endif()
+ 
+ add_executable(${HIPCONFIG_BIN} ${HIPCONFIG_SOURCES})
+-if(NOT WIN32)
+-  # C++17 does not require std lib linking.
+-  target_link_libraries(${HIPCONFIG_BIN} ${ADDITIONAL_SHARED_LIBRARIES_TO_LINK})
+-endif()
+ 
+ # Copy scripts and batch files to build directory.
+ file(COPY ${PROJECT_SOURCE_DIR}/bin/ DESTINATION ${PROJECT_BINARY_DIR})

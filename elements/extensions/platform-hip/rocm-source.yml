@@ -1,0 +1,7 @@
+sources:
+- kind: git_repo
+  url: github:ROCm/llvm-project.git
+  track: rocm-*.*.*
+  ref: rocm-6.2.0-0-g26466ce804ac523b398608f17388eb6d605a3f09
+- kind: patch
+  path: patches/platform-hip/hipcc.patch
