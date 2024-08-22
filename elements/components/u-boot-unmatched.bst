@@ -32,7 +32,7 @@ config:
 
 sources:
 - kind: git_repo
-  url: git_https:gitlab.denx.de/u-boot/u-boot.git
+  url: denx:u-boot/u-boot.git
   track: master
   exclude:
   - "*-rc*"
