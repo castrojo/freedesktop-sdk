@@ -357,6 +357,7 @@ build-efi-vm:
 	$(BST) build $(VM_ARTIFACT_IMAGE)
 
 run-efi-vm: build-efi-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img $(OVMF_VARS) $(OVMF_CODE)
+	du -BM $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img
 	$(QEMU)							\
 	    $(QEMU_COMMON_ARGS)					\
 	    $(QEMU_EFI_ARGS)					\
@@ -386,6 +387,7 @@ $(VM_CHECKOUT_ROOT)/ostree-vm/disk.img: files/vm/ostree-config/fdsdk.gpg ostree-
 	$(BST) artifact checkout vm/minimal-ostree/image.bst --directory $(dir $@)
 
 run-ostree-vm: $(VM_CHECKOUT_ROOT)/ostree-vm/disk.img  $(OVMF_VARS) $(OVMF_CODE)
+	du -BM $(VM_CHECKOUT_ROOT)/ostree-vm/disk.img
 	$(QEMU)							\
 	    $(QEMU_COMMON_ARGS)					\
 	    $(QEMU_EFI_ARGS)					\
@@ -429,6 +431,7 @@ $(VM_CHECKOUT_ROOT)/secure-vm/disk.img: $(BOOT_KEYS) secure-version.yml
 	truncate --size=+2G $@
 
 run-secure-vm: $(VM_CHECKOUT_ROOT)/secure-vm/disk.img $(OVMF_VARS) $(OVMF_CODE)
+	du -BM $(VM_CHECKOUT_ROOT)/secure-vm/disk.img
 	mkdir -p $(VM_CHECKOUT_ROOT)/tpm/state
 	swtpm socket								\
 		--tpm2								\
