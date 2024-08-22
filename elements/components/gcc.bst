@@ -39,6 +39,7 @@ depends:
 - bootstrap/utf-locale.bst
 
 (@):
+- elements/bootstrap/include/gcc-arch-opts.yml
 - elements/include/gcc-source.yml
 
 variables:
@@ -60,6 +61,7 @@ variables:
     --enable-linker-build-id
     --disable-libstdcxx-filesystem-ts
     --enable-cet
+    %{conf-arch}
   conf-link-args: |
     --enable-shared
 
