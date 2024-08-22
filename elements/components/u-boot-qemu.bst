@@ -34,8 +34,6 @@ sources:
   track: master
   exclude:
   - "*-rc*"
-  ref: v2021.04-0-gb46dd116ce03e235f2a7d4843c6278e1da44b5e1
+  ref: v2023.04-0-gfd4ed6b7e83ec3aea9a2ce21baea8ca9676f40dd
 - kind: patch
   path: patches/u-boot/riscv-pre-load-fdt.patch
-- kind: patch
-  path: patches/u-boot/efi-partition-signature.patch
