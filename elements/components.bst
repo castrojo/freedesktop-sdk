@@ -554,6 +554,8 @@ depends:
 - components/tpm2-tools.bst
 - components/tpm2-tss.bst
 - components/tzdata.bst
+- components/u-boot-qemu-maybe.bst
+- components/u-boot-unmatched-maybe.bst
 - components/udisks.bst
 - components/unzip.bst
 - components/usbutils.bst
