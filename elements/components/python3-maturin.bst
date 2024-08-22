@@ -14,7 +14,7 @@ sources:
   track: v*
   exclude:
   - "*beta*"
-  ref: v1.7.0-0-g2061d01bf40ee4c753cc03b84e22ac226a962414
+  ref: v1.7.1-0-gceb87f3c6a0e26b077e5087bc33a9bc2e41abaf8
 - kind: cargo
   cargo-lock: Cargo.lock
   ref:
@@ -121,8 +121,8 @@ sources:
     version: 0.26.0
     sha: da6bc11b07529f16944307272d5bd9b22530bc7d05751717c9d416586cedab49
   - name: cc
-    version: 1.0.104
-    sha: 74b6a57f98764a267ff415d50a25e6e166f3831a5071af4995296ea97d210490
+    version: 1.1.6
+    sha: 2aba8f4e9906c7ce3c73463f62a7f0c65183ada1a2d47e397cc8810827f9694f
   - name: cfb
     version: 0.9.0
     sha: b390793e912300f1aa713429f7fd0c391024e6c18b988962558bc4f96a349b1f
@@ -145,11 +145,11 @@ sources:
     version: 4.5.5
     sha: d2020fa13af48afc65a9a87335bda648309ab3d154cd03c7ff95b378c7ed39c4
   - name: clap_complete_command
-    version: 0.5.1
-    sha: 183495371ea78d4c9ff638bfc6497d46fed2396e4f9c50aebc1278a4a9919a3d
+    version: 0.6.1
+    sha: da8e198c052315686d36371e8a3c5778b7852fc75cc313e4e11eeb7a644a1b62
   - name: clap_complete_nushell
-    version: 0.1.11
-    sha: 5d02bc8b1a18ee47c4d2eec3fb5ac034dc68ebea6125b1509e9ccdffcddce66e
+    version: 4.5.2
+    sha: 1accf1b463dee0d3ab2be72591dccdab8bef314958340447c882c4c72acfe2a3
   - name: clap_derive
     version: 4.5.5
     sha: c780290ccf4fb26629baa7a1081e68ced113f1d3ec302fa5948f1c381ebf06c6
@@ -475,8 +475,8 @@ sources:
     version: 1.19.0
     sha: 3fdb12b2476b595f9358c5161aa467c2438859caa136dec86c26fdd2efe17b92
   - name: openssl
-    version: 0.10.64
-    sha: 95a0481286a310808298130d22dd1fef0fa571e05a8f44ec801801e84b216b1f
+    version: 0.10.66
+    sha: 9529f4786b70a3e8c61e11179af17ab6188ad8d0ded78c5529441ed39d4bd9c1
   - name: openssl-macros
     version: 0.1.1
     sha: a948666b637a0f465e8564c73e89d4dde00d72d4d473cc972f390fc3dcee7d9c
@@ -484,8 +484,8 @@ sources:
     version: 0.1.5
     sha: ff011a302c396a5197692431fc1948019154afc178baf7d8e37367442a4601cf
   - name: openssl-sys
-    version: 0.9.102
-    sha: c597637d56fbc83893a35eb0dd04b2b8e7a50c91e64e9493e398b5df4fb45fa2
+    version: 0.9.103
+    sha: 7f9e8deee91df40a943c71b917e5874b951d32a802526c85721ce3b776c929d6
   - name: option-ext
     version: 0.2.0
     sha: 04744f49eae99ab78e0d5c0b603ab218f515ea8cfe5a456d7629ad883a3b6e7d
@@ -508,11 +508,11 @@ sources:
     version: 0.2.1
     sha: 1e91099d4268b0e11973f036e885d652fb0b21fedcf69738c627f94db6a44f42
   - name: pep440_rs
-    version: 0.5.0
-    sha: 15efd4d885c29126cc93e12af3087896e2518bd5ca0fb328c19c4ef9cecfa8be
+    version: 0.6.0
+    sha: ca0a570e7ec9171250cac57614e901f62408094b54b3798bb920d3cf0d4a0e09
   - name: pep508_rs
-    version: 0.4.2
-    sha: 1455babf8edd3eedcdfcb39700e455a4bb189e71b4f1fa0eacc9b244cc5a55e6
+    version: 0.6.0
+    sha: 581c27e97a3f38c5d691962af7da93c2672b5227d59cf165b87a9b1fd53dd724
   - name: percent-encoding
     version: 2.3.1
     sha: e3148f5046208a5d56bcfc03053e3ca6334e51da8dfb19b6cdc8b306fae3283e
@@ -553,8 +553,8 @@ sources:
     version: 0.1.21
     sha: 5787f7cda34e3033a72192c018bc5883100330f362ef279a8cbccfce8bb4e874
   - name: pyproject-toml
-    version: 0.10.0
-    sha: 3b80f889b6d413c3f8963a2c7db03f95dd6e1d85e1074137cb2013ea2faa8898
+    version: 0.11.0
+    sha: ef7061023bcb58a0fc4a4bbe9819c13b0dca7c2abc14da14f5ecc1532ab3a36a
   - name: python-pkginfo
     version: 0.6.2
     sha: 4320ca452fe003f8a07afb8e30c315bbd813ae8105f454ddefebf15a24021e1f
@@ -745,8 +745,8 @@ sources:
     version: 0.4.41
     sha: cb797dad5fb5b76fcf519e702f4a589483b5ef06567f160c392832c1f5e44909
   - name: target-lexicon
-    version: 0.12.14
-    sha: e1fc403891a21bcfb7c37834ba66a547a8f402146eba7265b5a6d88059c9ff2f
+    version: 0.12.15
+    sha: 4873307b7c257eddcb50c9bedf158eb669578359fb28428bef438fec8e6ba7c2
   - name: tempfile
     version: 3.10.1
     sha: 85b77fafb263dd9d05cbeac119526425676db3784113aa9295c88498cbf8bff1
