@@ -665,6 +665,7 @@ publish_flatpak:
     - tags
   except:
     - schedules
+  when: manual
 
 publish_x86_64_tar:
   extends:
