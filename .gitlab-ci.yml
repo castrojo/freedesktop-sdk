@@ -766,6 +766,7 @@ finish_publish_failed:
     - tags
   except:
     - schedules
+  when: manual
 
 publish_x86_64:
   extends:
