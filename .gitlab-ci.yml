@@ -52,7 +52,6 @@ stages:
   - flatpak
   - snap
   - vm
-  - prepare-publish
   - publish
   - finish-publish
   - reproducible
@@ -588,82 +587,12 @@ desktop_efi_vm_image_aarch64:
     VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
   when: manual # skip desktop image VM tests by default to avoid significant disk I/O
 
-prepare_publish:
-  stage: prepare-publish
-  script:
-    - flat-manager-client -v create "$RELEASES_SERVER_ADDRESS" "${RELEASE_CHANNEL}" --build-log-url ${CI_PIPELINE_URL} > publish_build.txt
-  artifacts:
-    paths:
-      - publish_build.txt
-  except:
-    - schedules
-  when: delayed
-  start_in: 1 minute
-  interruptible: false
-  only:
-    - master
-    - '/^release\/.*/'
-    - tags
-
-finish_publish:
-  stage: finish-publish
-  script:
-    - |
-      if [ "${EXPIRED}" = "1" ]; then
-        EOL_MESSAGE=$(utils/eol-message.py ${RUNTIME_VERSION})
-        flat-manager-client -v commit --wait "$(cat publish_build.txt)" \
-          --end-of-life "${EOL_MESSAGE}"
-      else
-        flat-manager-client -v commit --wait "$(cat publish_build.txt)"
-      fi
-    - flat-manager-client -v publish --wait-update "$(cat publish_build.txt)"
-    - flat-manager-client -v purge "$(cat publish_build.txt)"
-    - make manifest
-  artifacts:
-     paths:
-      - "${CI_PROJECT_DIR}/platform-manifest/usr/"
-      - "${CI_PROJECT_DIR}/sdk-manifest/usr/"
-  only:
-    - tags
-    - master
-    - '/^release\/.*/'
-  except:
-    - schedules
-  needs:
-    - prepare_publish
-    - job: publish_x86_64
-      artifacts: false
-    - job: publish_i686
-      artifacts: false
-    - job: publish_aarch64
-      artifacts: false
-
-finish_publish_failed:
-  stage: finish-publish
-  script:
-    - flat-manager-client purge "$(cat publish_build.txt)"
-  only:
-    - tags
-    - master
-    - '/^release\/.*/'
-  except:
-    - schedules
-  when: on_failure
-  needs:
-    - prepare_publish
-    - job: publish_x86_64
-      artifacts: false
-    - job: publish_i686
-      artifacts: false
-    - job: publish_aarch64
-      artifacts: false
-
-.flatpak_publish_template:
+publish_flatpak:
   stage: publish
-  retry: 2
   script:
-    - test -f publish_build.txt
-    - make export
+    - make export ARCH=x86_64 BOOTSTRAP_ARCH=x86_64
+    - make export ARCH=i686 BOOTSTRAP_ARCH=x86_64
+    - make export ARCH=aarch64 BOOTSTRAP_ARCH=aarch64
 
     - |
       case "$RELEASES_SERVER_ADDRESS" in
@@ -695,23 +624,33 @@ finish_publish_failed:
       esac
 
     - flatpak build-update-repo --generate-static-deltas repo
+    - flat-manager-client -v create "$RELEASES_SERVER_ADDRESS" "${RELEASE_CHANNEL}" --build-log-url ${CI_PIPELINE_URL} > publish_build.txt
+    - test -f publish_build.txt
     - flat-manager-client push "$(cat publish_build.txt)" repo --build-log-url ${CI_PIPELINE_URL}
+    - |
+      if [ "${EXPIRED}" = "1" ]; then
+        EOL_MESSAGE=$(utils/eol-message.py ${RUNTIME_VERSION})
+        flat-manager-client -v commit --wait "$(cat publish_build.txt)" \
+          --end-of-life "${EOL_MESSAGE}"
+      else
+        flat-manager-client -v commit --wait "$(cat publish_build.txt)"
+      fi
+    - flat-manager-client -v publish --wait-update "$(cat publish_build.txt)"
+
+  after_script:
+    - flat-manager-client purge $(cat build.txt)
 
   artifacts:
     when: always
     paths:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule"'
-    when: never
-  - if: $CI_COMMIT_TAG
-    when: on_success
-  - if: '$CI_COMMIT_BRANCH =~ /^release\/.*/'
-    when: on_success
-  - if: '$CI_COMMIT_BRANCH == "master"'
-    when: on_success
-  needs:
-    - prepare_publish
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_COMMIT_REF_PROTECTED == "true"
+      when: delayed
+      start_in: 1 minute
+  interruptible: false
 
 .publish_tar_template:
   stage: publish
@@ -726,21 +665,6 @@ finish_publish_failed:
     - tags
   except:
     - schedules
-
-publish_x86_64:
-  extends:
-    - .flatpak_publish_template
-    - .builder-x86_64
-
-publish_i686:
-  extends:
-    - .flatpak_publish_template
-    - .builder-i686
-
-publish_aarch64:
-  extends:
-    - .flatpak_publish_template
-    - .builder-aarch64
 
 publish_x86_64_tar:
   extends:
