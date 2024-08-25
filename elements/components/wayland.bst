@@ -31,7 +31,7 @@ sources:
   track: '*.*.*'
   exclude:
   - '*.*.9*'
-  ref: 1.23.0-0-ga156431ea66fe67d69c9fbba8a8ad34dabbab81c
+  ref: 1.23.1-0-ga9fec8dd65977c57f4039ced34327204d9b9d779
 
 (@):
 - elements/include/cursorpath.yml
