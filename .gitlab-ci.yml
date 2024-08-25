@@ -69,73 +69,8 @@ before_script:
     python3 -mmako.cmd templates/buildstream.conf --output-file ~/.config/buildstream.conf
     cat ~/.config/buildstream.conf
 
-  # flat-manager tokens to upload the releases
   - |
-    if [ -z "$(grep BRANCH= Makefile | grep beta)" ]
-    then
-      export RELEASE_CHANNEL=stable
-    else
-      export RELEASE_CHANNEL=beta
-    fi
-
-    if [ -n "$CI_COMMIT_TAG" ] && [ -n "$FLATHUB_REPO_TOKEN" ]; then
-        export RELEASES_SERVER_ADDRESS=https://hub.flathub.org/
-        export REPO_TOKEN="${FLATHUB_REPO_TOKEN}"
-        case "${CI_COMMIT_TAG}" in
-          *rc*) ;&
-          *beta*)
-            test "$RELEASE_CHANNEL" = "beta"
-            ;;
-          *)
-            test "$RELEASE_CHANNEL" = "stable"
-            # Check we have enabled stable ABI before we do any stable release
-            [ "${STABLE_ABI}" = "true" ]
-            ;;
-        esac
-    elif [ -n "$RELEASES_REPO_TOKEN" ]; then
-        export REPO_TOKEN=$RELEASES_REPO_TOKEN
-        export RELEASES_SERVER_ADDRESS=https://releases.freedesktop-sdk.io/
-        # We always use "stable" here. This is all beta on this server.
-        export RELEASE_CHANNEL=stable
-    fi
-
-  - |
-    if [ -n "$CI_COMMIT_TAG" ] && [ -n "$SNAPCRAFT_LOGIN_FILE" ]; then
-        case "${CI_COMMIT_TAG}" in
-          *beta*)
-            export SNAP_RELEASE=beta
-            export SNAP_GRADE=devel
-            ;;
-          *rc*)
-            export SNAP_RELEASE=candidate
-            export SNAP_GRADE=stable
-            ;;
-          *)
-            export SNAP_RELEASE=stable
-            export SNAP_GRADE=stable
-            ;;
-        esac
-    elif [ -n "$SNAPCRAFT_LOGIN_FILE" ]; then
-        export SNAP_RELEASE=edge
-        export SNAP_GRADE=devel
-    else
-        export SNAP_GRADE=devel
-    fi
-
-  - |
-    if [ -n "$CI_COMMIT_TAG" ]; then
-        case "${CI_COMMIT_TAG}" in
-            *rc*) ;&
-            *beta*)
-                export DOCKER_VERSION="${RUNTIME_VERSION}-beta"
-                ;;
-            *)
-                export DOCKER_VERSION="${RUNTIME_VERSION}"
-                ;;
-        esac
-    else
-        export DOCKER_VERSION="${RUNTIME_VERSION}-devel"
-    fi
+    source utils/publisher_env.sh
 
 pylint:
   stage: flatpak
@@ -640,7 +575,9 @@ publish_flatpak:
     - flat-manager-client -v publish --wait-update "$(cat publish_build.txt)"
 
   after_script:
-    - flat-manager-client purge "$(cat publish_build.txt)"
+    - |
+      source utils/publisher_env.sh
+      flat-manager-client purge "$(cat publish_build.txt)"
 
   artifacts:
     when: always
