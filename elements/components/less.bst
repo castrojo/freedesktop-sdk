@@ -2,7 +2,7 @@ kind: autotools
 description: GNU less
 
 depends:
-- filename: bootstrap-import.bst
+- bootstrap-import.bst
 
 public:
   cpe:
@@ -17,5 +17,5 @@ config:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:less/less-643.tar.gz
-  ref: 2911b5432c836fa084c8a2e68f6cd6312372c026a58faaa98862731c8b6052e8
+  url: ftp_gnu_org:less/less-661.tar.gz
+  ref: 2b5f0167216e3ef0ffcb0c31c374e287eb035e4e223d5dae315c2783b6e738ed
