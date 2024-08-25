@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # flat-manager tokens to upload the releases
-if [ -z "$(grep BRANCH= Makefile | grep beta)" ]
+if ! grep -E "^BRANCH=.*beta$" Makefile
 then
   export RELEASE_CHANNEL=stable
 else
