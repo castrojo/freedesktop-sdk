@@ -640,7 +640,7 @@ publish_flatpak:
     - flat-manager-client -v publish --wait-update "$(cat publish_build.txt)"
 
   after_script:
-    - flat-manager-client purge $(cat build.txt)
+    - flat-manager-client purge "$(cat publish_build.txt)"
 
   artifacts:
     when: always
