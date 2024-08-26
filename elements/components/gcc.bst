@@ -37,6 +37,7 @@ depends:
 - bootstrap/sed.bst
 - bootstrap/symlinks.bst
 - bootstrap/utf-locale.bst
+- bootstrap/zlib.bst
 
 (@):
 - elements/bootstrap/include/gcc-arch-opts.yml
@@ -61,6 +62,7 @@ variables:
     --enable-linker-build-id
     --disable-libstdcxx-filesystem-ts
     --enable-cet
+    --with-system-zlib
     %{conf-arch}
   conf-link-args: |
     --enable-shared
