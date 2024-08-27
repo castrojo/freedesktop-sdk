@@ -19,6 +19,8 @@ variables:
     -Dselinux=disabled
     -Dman-pages=disabled
     -Ddocumentation=true
+    -Ddtrace=disabled
+    -Dsystemtap=disabled
 
 public:
   bst:
