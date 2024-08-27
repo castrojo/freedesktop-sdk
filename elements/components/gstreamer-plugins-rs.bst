@@ -2805,3 +2805,6 @@ sources:
     name: zeroize
     version: 1.8.1
     sha: ced3678a2879b30306d323f4542626697a464a97c0a07c9aebf7ebca65cd4dde
+- kind: patch
+  # adapted from https://build.opensuse.org/projects/openSUSE:Factory:RISCV/packages/gstreamer-plugins-rs/files/vendor.patch?expand=1
+  path: patches/gstreamer-plugins-rs/gst-plugins-rs-0.13.0-libsodium-sys-riscv64.patch
