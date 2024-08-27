@@ -11,20 +11,15 @@ depends:
 - components/dav1d.bst
 
 variables:
-  (?):
-  - target_arch == "i686":
-      aws_value: disabled
-      webrtc_value: disabled
-  - target_arch != "i686":
-      aws_value: enabled
-      webrtc_value: enabled
-
   meson-local: >-
-    -Daws=%{aws_value}
+    -Daws=disabled
     -Dexamples=disabled
     -Dgtk4=disabled
+    -Dspotify=disabled
     -Dtests=disabled
-    -Dwebrtc=%{webrtc_value}
+    -Dwebrtc=disabled
+    -Dwebrtchttp=disabled
+    -Dquinn=disabled
 
 sources:
 - kind: git_repo
