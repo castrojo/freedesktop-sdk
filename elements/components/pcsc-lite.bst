@@ -1,17 +1,14 @@
-kind: autotools
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 - components/systemd.bst
 - components/flex.bst
+- components/perl.bst
 
 depends:
 - components/polkit-gobject.bst
 - components/systemd-libs.bst
-
-variables:
-  conf-local: >-
-    LEXLIB=""
 
 sources:
 - kind: git_repo
