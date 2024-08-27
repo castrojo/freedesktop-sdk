@@ -18,7 +18,11 @@ variables:
   meson-local: >-
     -Dselinux=disabled
     -Dman-pages=disabled
-    -Ddocumentation=true
+    -Ddocumentation=false
+    -Ddtrace=disabled
+    -Dsystemtap=disabled
+    -Dglib_debug=disabled
+    -Dsysprof=disabled
 
 public:
   bst:
