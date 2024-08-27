@@ -22,6 +22,7 @@ variables:
     -Ddtrace=disabled
     -Dsystemtap=disabled
     -Dglib_debug=disabled
+    -Dsysprof=disabled
 
 public:
   bst:
