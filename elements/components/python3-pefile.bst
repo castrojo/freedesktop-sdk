@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:erocarrera/pefile.git
   track: v*
-  ref: v2023.2.7-0-g1ab2807c4eec16041e791d7a6acc68cc23fd5266
+  ref: v2024.8.26-0-g4b3b1e2e568a88d4f1897d694d684f23d9e270c4
