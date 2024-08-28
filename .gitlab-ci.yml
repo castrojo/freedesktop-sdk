@@ -11,7 +11,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "0244795444eb40c0c115455a5e8b087d018a007f"
+  DOCKER_IMAGE_ID: "6cc203b5617778e95ccee49bd87d51619d607f76"
 
   # Generic variable for invoking buildstream
   BST: bst --colors
@@ -554,6 +554,17 @@ publish_flatpak:
           done
           ;;
         https://releases.freedesktop-sdk.io/)
+          for ref in $(ostree --repo=repo refs --list); do
+            case "${ref}" in
+              */*/i386/*)
+                echo "Deleting ${ref}"
+                ostree --repo=repo refs --delete "${ref}"
+                ;;
+              */*/*/*)
+                echo "Keeping ${ref}"
+                ;;
+            esac
+          done
           ;;
         *)
           false
