@@ -104,7 +104,7 @@ variables:
     -Dbpf-framework=disabled
     -Dgnutls=disabled
     -Dglib=disabled
-    -Ddbus=disabled  # test dependency
+    -Ddbus=disabled
     -Dukify=%{efi}
     -Dkernel-install=true
 
