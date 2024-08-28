@@ -26,9 +26,9 @@ sources:
   - '*pre*'
   - '2.4.*'
   - '2.5.*'
-  ref: 1.5.7-0-gc9662e67d575299df2b87bc70f0e4865f04a8f01
+  ref: 1.5.8-0-gdd37cf76496b4b999509bd133657c1fc021e3a5f
 - kind: git_repo
   url: savannah:gnulib.git
   # Use the exact commit from variable GNULIB_REVISION in bootstrap.conf
   directory: gnulib-src
-  ref: 1eae0f7ea3c220d054025f2c9211700665f9f4a0
+  ref: 0ba13435a9362bec0ff5fd0830907b9fac723e41
