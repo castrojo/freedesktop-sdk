@@ -14,6 +14,5 @@ environment:
 sources:
 - kind: git_repo
   url: github:acpica/acpica.git
-  # Tags are in "RMM_DD_YY" format. git_repo failed to track.
-  track: R*_*_23
-  ref: R06_28_23-0-gf16a0b4d0f0edd7b78a332fcf507be2187fac21e
+  track: version-*
+  ref: version-20240827-0-ge80cbd7b52de20aa8c75bfba9845e9cb61f2e681
