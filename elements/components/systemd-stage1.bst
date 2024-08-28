@@ -21,8 +21,6 @@ depends:
 variables:
   meson-local: >-
     -Dauto_features=disabled
-    -Drootprefix=%{prefix}
-    -Drootlibdir=%{libdir}
     -Dsysvinit-path=%{sysconfdir}/init.d
     -Daudit=disabled
     -Dseccomp=disabled

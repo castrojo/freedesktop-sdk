@@ -61,8 +61,6 @@ variables:
   - target_arch in ["x86_64", "i686", "aarch64", "riscv64", "loongarch64"]:
       efi: 'true'
   meson-local: >-
-    -Drootprefix=%{prefix}
-    -Drootlibdir=%{libdir}
     -Dsysvinit-path=%{sysconfdir}/init.d
     -Daudit=enabled
     -Dseccomp=enabled
