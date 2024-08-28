@@ -14,6 +14,9 @@ variables:
   meson-local: >-
     -Daws=disabled
     -Dexamples=disabled
+    -Dffv1=disabled
+    -Dfile=disabled
+    -Dflavors=disabled
     -Dgtk4=disabled
     -Dspotify=disabled
     -Dtests=disabled
