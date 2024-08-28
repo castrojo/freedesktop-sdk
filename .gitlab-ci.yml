@@ -554,6 +554,17 @@ publish_flatpak:
           done
           ;;
         https://releases.freedesktop-sdk.io/)
+          for ref in $(ostree --repo=repo refs --list); do
+            case "${ref}" in
+              */*/i386/*)
+                echo "Deleting ${ref}"
+                ostree --repo=repo refs --delete "${ref}"
+                ;;
+              */*/*/*)
+                echo "Keeping ${ref}"
+                ;;
+            esac
+          done
           ;;
         *)
           false
