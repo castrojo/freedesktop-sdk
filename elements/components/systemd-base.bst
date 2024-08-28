@@ -64,13 +64,13 @@ variables:
     -Drootprefix=%{prefix}
     -Drootlibdir=%{libdir}
     -Dsysvinit-path=%{sysconfdir}/init.d
-    -Daudit=true
-    -Dseccomp=true
+    -Daudit=enabled
+    -Dseccomp=enabled
     -Dsystem-uid-max=999
     -Dsystem-gid-max=999
     -Dusers-gid=100
-    -Dopenssl=true
-    -Dpam=true
+    -Dopenssl=enabled
+    -Dpam=enabled
     -Dbootloader=%{efi}
     -Defi=%{efi}
     -Dfirstboot=true
