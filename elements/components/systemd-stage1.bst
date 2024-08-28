@@ -20,6 +20,7 @@ depends:
 
 variables:
   meson-local: >-
+    -Dmode=release
     -Dauto_features=disabled
     -Dsysvinit-path=%{sysconfdir}/init.d
     -Daudit=disabled

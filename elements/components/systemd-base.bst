@@ -61,6 +61,7 @@ variables:
   - target_arch in ["x86_64", "i686", "aarch64", "riscv64", "loongarch64"]:
       efi: 'true'
   meson-local: >-
+    -Dmode=release
     -Dsysvinit-path=%{sysconfdir}/init.d
     -Daudit=enabled
     -Dseccomp=enabled
