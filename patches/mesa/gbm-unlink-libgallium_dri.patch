@@ -1,15 +1,13 @@
 diff --git a/src/gbm/meson.build b/src/gbm/meson.build
-index 582f18385f0..b5a9d539a58 100644
+index 9cc9f7e8494..88c3a9fcb19 100644
 --- a/src/gbm/meson.build
 +++ b/src/gbm/meson.build
-@@ -40,8 +40,8 @@ libgbm = shared_library(
+@@ -39,7 +39,7 @@ libgbm = shared_library(
    include_directories : incs_gbm,
    c_args : [args_gbm],
    link_args : [ld_args_gc_sections],
 -  link_with : [libloader, libgallium_dri],
--  dependencies : [deps_gbm, dep_dl, dep_thread, idep_mesautil, idep_xmlconfig],
 +  link_with : [libloader],
-+  dependencies : [deps_gbm, dep_dl, dep_thread, idep_mesautil, idep_xmlconfig, dep_libdrm],
+   dependencies : [deps_gbm, dep_dl, dep_thread, dep_libdrm, idep_mesautil, idep_xmlconfig],
    gnu_symbol_visibility : 'hidden',
    version : '1.0.0',
-   install : true,

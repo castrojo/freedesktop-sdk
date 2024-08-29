@@ -54,4 +54,4 @@ config:
 sources:
   (>):
   - kind: patch
-    path: patches/mesa/mesa-gbm-force-libdrm-dep.patch
+    path: patches/mesa/gbm-unlink-libgallium_dri.patch
