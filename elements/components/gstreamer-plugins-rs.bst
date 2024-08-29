@@ -10,21 +10,23 @@ depends:
 - components/gstreamer-plugins-bad.bst
 - components/dav1d.bst
 
+# disable aws, spotify, webrtc, webrtchttp and quinn
+# because they're too big
+# diable ffv1, file and flavors because they aren't
+# officially released yet
 variables:
-  (?):
-  - target_arch == "i686":
-      aws_value: disabled
-      webrtc_value: disabled
-  - target_arch != "i686":
-      aws_value: enabled
-      webrtc_value: enabled
-
   meson-local: >-
-    -Daws=%{aws_value}
+    -Daws=disabled
     -Dexamples=disabled
+    -Dffv1=disabled
+    -Dfile=disabled
+    -Dflavors=disabled
     -Dgtk4=disabled
+    -Dspotify=disabled
     -Dtests=disabled
-    -Dwebrtc=%{webrtc_value}
+    -Dwebrtc=disabled
+    -Dwebrtchttp=disabled
+    -Dquinn=disabled
 
 sources:
 - kind: git_repo
@@ -2805,3 +2807,6 @@ sources:
     name: zeroize
     version: 1.8.1
     sha: ced3678a2879b30306d323f4542626697a464a97c0a07c9aebf7ebca65cd4dde
+- kind: patch
+  # adapted from https://build.opensuse.org/projects/openSUSE:Factory:RISCV/packages/gstreamer-plugins-rs/files/vendor.patch?expand=1
+  path: patches/gstreamer-plugins-rs/gst-plugins-rs-0.13.0-libsodium-sys-riscv64.patch
