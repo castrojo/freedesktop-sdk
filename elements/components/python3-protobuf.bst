@@ -13,6 +13,6 @@ sources:
   exclude:
   - '*rc*'
   ref:
-    sha256sum: eaa1016e353d8fc5bf08c8087e96eed15f5297aa52bb7ee1f533278bb3f3aad7
+    sha256sum: dde74af0fa774fa98892209992295adbfb91da3fa98c8f67a88afe8f5a349add
     suffix: 
-      27/7b/11d9fb99c0de4075b6064fa38997ccd6e7392619c1dcba85138cd528d84c/protobuf-5.27.4.tar.gz
+      5f/d7/331ee1f3b798c34d2257c79d5426ecbe95d46d2b40ba808a29da6947f6d8/protobuf-5.28.0.tar.gz
