@@ -43,3 +43,5 @@ sources:
   url: gnome:gobject-introspection.git
   track: "*.*[02468].*"
   ref: 1.80.1-0-g9cad2563baf4ddd5197ce8141afc0c0579050f74
+- kind: patch
+  path: patches/gobject-introspection/setuptools74.patch
