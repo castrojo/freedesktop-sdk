@@ -71,6 +71,4 @@ sources:
 - kind: patch
   path: patches/mesa/clang_res_path.patch
 - kind: patch
-  path: patches/mesa/header.patch
-- kind: patch
   path: patches/mesa/rusticl-rust-bindgen0_70.patch
