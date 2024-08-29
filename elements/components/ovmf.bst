@@ -73,7 +73,7 @@ sources:
 - kind: git_repo
   url: github:tianocore/edk2.git
   track: edk2-stable*
-  ref: edk2-stable202405-0-g3e722403cd16388a0e4044e705a2b34c841d76ca
+  ref: edk2-stable202408-0-gb158dad150bf02879668f72ce306445250838201
 - kind: git_module
   path: CryptoPkg/Library/OpensslLib/openssl
   url: github:openssl/openssl.git
@@ -85,7 +85,7 @@ sources:
 - kind: git_module
   path: SecurityPkg/DeviceSecurity/SpdmLib/libspdm
   url: github:DMTF/libspdm.git
-  ref: 828ef62524bcaeca4e90d0c021221e714872e2b5
+  ref: 50924a4c8145fc721e17208f55814d2b38766fe6
 - kind: git_module
   path: ArmPkg/Library/ArmSoftFloatLib/berkeley-softfloat-3
   url: github:ucb-bar/berkeley-softfloat-3.git
