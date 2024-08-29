@@ -20,18 +20,17 @@ depends:
 
 variables:
   meson-local: >-
+    -Dmode=release
     -Dauto_features=disabled
-    -Drootprefix=%{prefix}
-    -Drootlibdir=%{libdir}
     -Dsysvinit-path=%{sysconfdir}/init.d
-    -Daudit=false
-    -Dseccomp=false
+    -Daudit=disabled
+    -Dseccomp=disabled
     -Dsystem-uid-max=999
     -Dsystem-gid-max=999
     -Dusers-gid=100
     -Dopenssl=enabled
     -Dpam=enabled
-    -Dbootloader=false
+    -Dbootloader=disabled
     -Defi=false
     -Dfirstboot=true
     -Dzlib=enabled

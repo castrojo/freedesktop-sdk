@@ -61,16 +61,15 @@ variables:
   - target_arch in ["x86_64", "i686", "aarch64", "riscv64", "loongarch64"]:
       efi: 'true'
   meson-local: >-
-    -Drootprefix=%{prefix}
-    -Drootlibdir=%{libdir}
+    -Dmode=release
     -Dsysvinit-path=%{sysconfdir}/init.d
-    -Daudit=true
-    -Dseccomp=true
+    -Daudit=enabled
+    -Dseccomp=enabled
     -Dsystem-uid-max=999
     -Dsystem-gid-max=999
     -Dusers-gid=100
-    -Dopenssl=true
-    -Dpam=true
+    -Dopenssl=enabled
+    -Dpam=enabled
     -Dbootloader=%{efi}
     -Defi=%{efi}
     -Dfirstboot=true
@@ -104,7 +103,7 @@ variables:
     -Dbpf-framework=disabled
     -Dgnutls=disabled
     -Dglib=disabled
-    -Ddbus=disabled  # test dependency
+    -Ddbus=disabled
     -Dukify=%{efi}
     -Dkernel-install=true
 
