@@ -17,10 +17,15 @@ depends:
 - vm/config/systemd-homed-firstboot.bst
 - vm/boot/efi-ostree.bst
 - components/gnupg.bst
-- components/linux-firmware.bst
 - components/wireless-regdb-bin.bst
 - components/iproute2.bst
 - components/usbutils.bst
 - components/hosts.bst
 - components/bash-config.bst
 - components/bash-completion.bst
+
+(?):
+- ("firmware" in minimal_vm):
+    depends:
+      (>):
+      - components/linux-firmware.bst

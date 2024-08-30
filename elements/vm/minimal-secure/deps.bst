@@ -3,7 +3,6 @@ kind: stack
 depends:
 - bootstrap-import.bst
 - components/util-linux-full.bst
-- components/linux-firmware.bst
 - components/wireless-regdb-bin.bst
 - components/systemd.bst
 - components/dbus.bst
@@ -30,3 +29,9 @@ depends:
 - vm/minimal-secure/sysupdate-config.bst
 - vm/minimal-secure/enable-sysupdate.bst
 - components/keyutils.bst
+
+(?):
+- ("firmware" in minimal_vm):
+    depends:
+      (>):
+      - components/linux-firmware.bst

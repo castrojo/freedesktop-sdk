@@ -4,7 +4,6 @@ depends:
 - bootstrap-import.bst
 - components/util-linux-full.bst
 - components/linux.bst
-- components/linux-firmware.bst
 - components/wireless-regdb-bin.bst
 - components/systemd.bst
 - components/dbus.bst
@@ -23,3 +22,9 @@ depends:
 - components/hosts.bst
 - components/bash-config.bst
 - components/bash-completion.bst
+
+(?):
+- ("firmware" in minimal_vm):
+    depends:
+      (>):
+      - components/linux-firmware.bst
