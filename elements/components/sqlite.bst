@@ -17,11 +17,6 @@ variables:
     -DSQLITE_ENABLE_DBSTAT_VTAB=1"
 
 config:
-  configure-commands:
-    (>):
-    - sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' %{build-dir}/libtool
-    - sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' %{build-dir}/libtool
-
   (?):
   - target_arch == "loongarch64":
       configure-commands:
