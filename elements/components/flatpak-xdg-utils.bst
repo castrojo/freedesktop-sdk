@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:flatpak/flatpak-xdg-utils.git
   track: '*.*.*'
-  ref: 1.0.5-0-g5ba39872f81bf8d98d58c5f8acb86604645be468
+  ref: 1.0.6-0-g05abdd7421688be5835a6b12f2b068086c38d4aa
