@@ -25,14 +25,8 @@ public:
         (>):
         - '%{libdir}/libgnutls.so'
         - '%{libdir}/libgnutlsxx.so'
-  cpe:
-    patches:
-    - CVE-2024-0553
-    - CVE-2024-0567
 
 sources:
 - kind: tar
-  url: tar_https:www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.0.tar.xz
-  ref: 0ea0d11a1660a1e63f960f157b197abe6d0c8cb3255be24e1fb3815930b9bdc5
-- kind: patch_queue
-  path: patches/gnutls
+  url: tar_https:www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.7.tar.xz
+  ref: fe302f2b6ad5a564bcb3678eb61616413ed5277aaf8e7bf7cdb9a95a18d9f477
