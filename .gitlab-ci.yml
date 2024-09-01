@@ -124,7 +124,7 @@ pylint:
       $TRACK_ELEMENTS
   interruptible: false
 
-.daily_update_elements:
+daily_update_elements:
   extends:
     - .check_update_elements
   variables:
@@ -132,7 +132,7 @@ pylint:
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
 
-.weekly_update_elements:
+weekly_update_elements:
   extends:
     - .check_update_elements
   variables:
@@ -142,7 +142,7 @@ pylint:
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly"'
 
-.check_mirrors:
+check_mirrors:
   stage: update
   before_script:
   # Configure Buildstream
@@ -203,7 +203,7 @@ check_debuginfo_ppc64le:
   - .check_debuginfo
   - .builder-ppc64le
 
-.license_checker:
+license_checker:
   extends:
     - .builder-aarch64
   stage: update
@@ -692,7 +692,7 @@ markdown_manifest:
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly"'
 
-.reproducible_aarch64:
+reproducible_aarch64:
   extends:
     - .reproducible_template
     - .builder-aarch64
