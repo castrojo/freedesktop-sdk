@@ -263,7 +263,7 @@ license_checker:
   tags:
     - riscv
   variables:
-    ARCH: riscv64
+    ARCH: riscv64-native
     BUILD_TASKS: 2
     BUILD_CPU_MULTIPLIER: 2
 
