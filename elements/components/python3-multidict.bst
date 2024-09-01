@@ -8,9 +8,9 @@ depends:
 - components/python3.bst
 
 sources:
-- kind: pypi
-  name: multidict
-  ref:
-    sha256sum: 22ae2ebf9b0c69d206c003e2f6a914ea33f0a932d4aa16f236afc049d9958f4a
-    suffix: 
-      d6/be/504b89a5e9ca731cd47487e91c469064f8ae5af93b7259758dcfc2b9c848/multidict-6.1.0.tar.gz
+- kind: git_repo
+  url: github:aio-libs/multidict.git
+  track: v*
+  exclude:
+  - "*a*"
+  ref: v6.1.0-0-g4140e63780dc6dd600a1837cb9b4c5198c3dcd68

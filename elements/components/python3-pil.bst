@@ -8,9 +8,7 @@ depends:
 - components/jpeg.bst
 
 sources:
-- kind: pypi
-  name: Pillow
-  ref:
-    sha256sum: 166c1cd4d24309b30d61f79f4a9114b7b2313d7450912277855ff5dfd7cd4a06
-    suffix: 
-      cd/74/ad3d526f3bf7b6d3f408b73fde271ec69dfac8b81341a318ce825f2b3812/pillow-10.4.0.tar.gz
+- kind: git_repo
+  url: github:python-pillow/Pillow.git
+  track: "*.*.*"
+  ref: 10.4.0-0-g9b4fae77178e827ab17118fbc89c739ffd6a0fab

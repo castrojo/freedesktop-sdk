@@ -10,9 +10,7 @@ runtime-depends:
 - components/python3-pyasn1.bst
 
 sources:
-- kind: pypi
-  name: pyasn1-modules
-  ref:
-    sha256sum: c28e2dbf9c06ad61c71a075c7e0f9fd0f1b0bb2d2ad4377f240d33ac2ab60a7c
-    suffix: 
-      1d/67/6afbf0d507f73c32d21084a79946bfcfca5fbc62a72057e9c23797a737c9/pyasn1_modules-0.4.1.tar.gz
+- kind: git_repo
+  url: github:pyasn1/pyasn1-modules.git
+  track: v*
+  ref: v0.4.1-0-g36b036311a83c78175e92161f23afc5e9e56a6da

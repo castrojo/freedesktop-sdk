@@ -34,9 +34,7 @@ public:
       EOF
 
 sources:
-- kind: pypi
-  name: sphinx
-  ref:
-    sha256sum: 0cce1ddcc4fd3532cf1dd283bc7d886758362c5c1de6598696579ce96d8ffa5b
-    suffix: 
-      25/a7/3cc3d6dcad70aba2e32a3ae8de5a90026a0a2fdaaa0756925e3a120249b6/sphinx-8.0.2.tar.gz
+- kind: git_repo
+  url: github:sphinx-doc/sphinx.git
+  track: v*
+  ref: v8.0.2-0-g043750e406d8fe03953f5b565b36e05aef6866ec

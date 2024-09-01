@@ -18,8 +18,7 @@ config:
     - python3 -m compileall -o 0 -o 1 -o 2 "%{install-root}"
 
 sources:
-- kind: pypi
-  name: dbus-python
-  ref:
-    sha256sum: ad67819308618b5069537be237f8e68ca1c7fcc95ee4a121fe6845b1418248f8
-    suffix: c1/d3/6be85a9c772d6ebba0cc3ab37390dd6620006dcced758667e0217fb13307/dbus-python-1.3.2.tar.gz
+- kind: git_repo
+  url: freedesktop:dbus/dbus-python.git
+  track: dbus-python-*
+  ref: dbus-python-1.3.2-0-gb5c708a47ee175c8c009099b54cdea09e0c7c7a6
