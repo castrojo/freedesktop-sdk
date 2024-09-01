@@ -1,3 +1,177 @@
+Version: freedesktop-sdk-24.08rc.2
+Date: '2024-09-01'
+Description: |-
+  Changes in freedesktop-sdk-24.08rc.2
+   * Update python3-yarl to v1.9.6-0
+   * Update spirv-llvm-translator to v18.1.4-0
+   * Update wayland-protocols to 1.37-0
+   * sqlite: Build with default RPATH
+   * vim: Update to v9.1.0703
+   * python3-yarl: Update to v1.9.5
+   * python3-protobuf: Update to 5.28.0
+   * mutool: Update to 1.24.9
+   * json-glib: Update to 1.10.0
+   * flatpak-xdg-utils: Update to 1.0.6
+   * aom: Update to v3.10.0
+   * glibc-source: Update to 2.40-31
+   * Update cmake to v3.30.3-0
+   * Update perl-ssl to 2.089
+   * Update linux to v6.10.7-0
+   * Update python3-certifi to 2024.8.30
+   * Add option to exclude all firmware from minimal vms
+   * mesa: Drop obsolete header patch
+   * mesa: Update gbm libdrm patch and rename
+   * mesa-sdk: Update to 24.2.1
+   * mesa-sources: Update to 24.2.1
+   * iwd: Update to 2.20
+   * Update iwd to 0.68-0
+   * liburcu: Drop loongarch64-specific source
+   * gobject-introspection: Add patch to fix build with setuptools 74
+   * Rebase libdrm patch
+   * intel-media-driver: Update to 24.3.2
+   * mesa/libdrm: Update to 2.4.123
+   * vim: Update to v9.1.0702
+   * python3-setuptools: Update to v74.0.0
+   * python3-grpcio: Update to 1.66.1
+   * protobuf: Update to v28.0
+   * ovmf: Update to edk2-stable202408
+   * liburcu: Update to v0.14.1
+   * libnghttp2: Update to v1.63.0
+   * libdrm: Update to 2.4.123
+   * libabigail: Update to bcdb42782c5ba603fd5434606ac5f7347fbed663
+   * hotdoc: Update to 0.17.1
+   * gstreamer-plugins-rs: Update to 0.13.1
+   * grpc: Update to v1.66.1
+   * reference-abi: Bump after abi skip
+   * gstreamer-plugins-rs: add comment about disabled plugins
+   * gstreamer-plugins-rs: remove unreleased plugins
+   * gstreamer-plugins-rs: disable most heavy plugins
+   * gstreamer-plugins-rs: apply a patch to fix riscv64 build
+   * systemd-base: build in release mode
+   * systemd-base: remove depreciated options
+   * systemd-base: fix depreciated options syntax
+   * systemd-base: remove broken inline comment
+   * Stop publishing i386 to internal repo
+   * Image with even more patched flat-manager-client
+   * Update xfsprogs to v6.10.0-0
+   * Update protobuf to v27.4-0
+   * Update libpipeline to 1.5.8-0
+   * Update python3-pefile to v2024.8.26-0
+   * acpica-tools: Update to 20240827 and fix tracking
+   * pcsc-lite: switch to meson buildsystem
+   * Update spirv-llvm-translator to v18.1.3-4
+   * reference-abi: Bump after glib abi skip
+   * glib: Disable docs
+   * glib: Disable sysprof
+   * glib: Disable glib_debug
+   * glib: Disable dtrace and systemtap
+   * Update glib to 2.82.0-0
+   * Remove carriage returns from elements.
+   * Update networkmanager to 1.48.10-0
+   * Update python3-pyroaring to 1.0.0-0
+   * Update vim to v9.1.0698-0
+   * dulwich: Fix missing import
+   * Revert "Use local cache as just local cache"
+   * image: Provide flat-manager-client with retry patches
+   * Update python3-pyparsing to 3.1.4
+   * Exclude locale from minimal vms
+   * gcc: Use system zlib instead of compiling its own
+   * reference-abi: Bump after abi skip
+   * Update python3-idna to 3.8
+   * dracut: Remove riscv64 patch
+   * Update libsoup to 3.6.0-0
+   * gcc: backport patches of PR115464 to fix aom build failure
+   * Update gcc to releases/gcc-14.2.0-0
+   * publisher_env.sh: Directly use grep instead of empty string check
+   * less: Update to 661
+   * Update buildbox to 1.2.15-0
+   * Update wayland to 1.23.1-0
+   * Update passt to 2024_08_21.1d6142f-0
+   * Update python3-grpcio to 1.66.0
+   * ci: Fix order of if rules in check_mirror
+   * Put publisher env generation into script
+   * ci: Fix input filename to flat-manager-client purge
+   * Update to latest image
+   * xxhash: Fix compilation on x86_64_v3
+   * Add experimental option for x86-64-v3
+   * Update lvm2 to v2_03_26-0
+   * Update svt-av1 to v2.2.1-0
+   * Update xdg-dbus-proxy to 0.1.6-0
+   * Update dictionaries to libreoffice-24.8.1.1-0
+   * Publish from single job
+   * Update grpc to v1.66.0-0
+   * Update cunit to 3.4.1-0
+   * Update ell to 0.68-0
+   * Update pipewire-base to 1.2.3-0
+   * ci: Disable check_mirror job on tags
+   * ci: Mark tar upload jobs as manual
+   * binutils-source: Update to 2_43_1
+   * Update gstreamer to 1.24.7-0
+   * Run x86_64 libabigail on i686
+   * Add option to force full ABI diff
+   * reference-abi: Bump after ABI skip
+   * gcc: For consistency add conf-arch also to final GCC
+   * Print image size in Makefile for minimal vm builds
+   * Update podman to v5.2.2-0
+   * Update python3-maturin to v1.7.1-0
+   * Update fwupd to 1.9.24-0
+   * project.conf: Bump min-version to 2.3 format
+   * .gitlab-ci.yml: Use latest fdsdk container image (with bst 2.3)
+   * rust: Update to 1.80.1
+   * Use auto size in genimage and print fs/image sizes
+   * Update libabigail to libabigail-2.5-66
+   * Update spirv-llvm-translator to v18.1.3-2
+   * ovmf: Add new submodules
+   * mesa-sources: Add a patch to fix rusticl compilation issues
+   * vim: Update to v9.1.0686
+   * rust-bindgen: Update to v0.70.1
+   * python3-setuptools: Update to v73.0.1
+   * ovmf: Update to edk2-stable202405
+   * linux-firmware: Update to 20240811
+   * Properly remove bootstrap-base
+   * vim: Update to v9.1.0682
+   * linux: Update to v6.10.6
+   * platform-vaapi-intel/intel-media-driver: Update to 24.3.1
+   * platform-vaapi-intel/gmmlib: Update to 22.5.0
+   * svt-av1: Update to v2.2.0
+   * python3-setuptools: Update to v73.0
+   * python3-aiohttp: Update to 3.10.5
+   * python3-aiohappyeyeballs: Update to v2.4.0
+   * libinput: Update to 1.26.2
+   * libbytesize: Update to 2.11
+   * gamemode-base: Update to 1.8.2
+   * cmake: Backport install change from gnome-build-meta
+   * Update reference-abi to freedesktop-sdk-24.08rc.1-0
+   * Update netavark to v1.12.2-0
+   * Update gnutls to 3.8.7-0
+   * python3-grpcio: Update to 1.65.5
+   * python3-buildstream2: Update to 2.3.0
+   * btrfs-progs: Update to v6.10.1
+   * librsvg: Update to 2.58.3
+   * grpc: Update to v1.65.5
+   * extra-cmake-modules: Udpate to v6.5.0
+   * cups-filters: Update to 2.0.1
+   * composefs: Update to 1.0.5
+   * buildbox: Update to 1.2.14
+   * Update vim to v9.1.0680-0
+   * add GstreamerPlugins Tests
+   * Update glibc to glibc-2.40-24
+   * python3-aiohappyeyeballs: Update to v2.3.7
+   * python3-aiohttp: Update to 3.10.4
+   * python3-tomlkit: Update to 0.13.2
+   * valgrind: Remove obsolete patch
+   * systemd: Update to v256.5
+   * valgrind: Update to 3_23_0
+   * rust-cbindgen: Update to v0.27.0
+   * reference-abi: track freedesktop-sdk-24.08
+   * Update aardvark-dns to v1.12.1-0
+   * Update libabigail to libabigail-2.5-65
+   * Update networkmanager to 1.48.8-0
+   * Decompose bootstrap-base to elements needed to build GCC
+   * Update go to go1.23.0-0
+   * Update podman to v5.2.1-0
+   * Update foomatic-db to 20240504-2
+---
 Version: freedesktop-sdk-24.08rc.1
 Date: '2024-08-17'
 Description: |-
