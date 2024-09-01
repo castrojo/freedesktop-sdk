@@ -8,9 +8,7 @@ depends:
 - components/python3.bst
 
 sources:
-- kind: pypi
-  name: alabaster
-  ref:
-    sha256sum: c00dca57bca26fa62a6d7d0a9fcce65f3e026e9bfe33e9c538fd3fbb2144fd9e
-    suffix: 
-      a6/f8/d9c74d0daf3f742840fd818d69cfae176fa332022fd44e3469487d5a9420/alabaster-1.0.0.tar.gz
+- kind: git_repo
+  url: github:sphinx-doc/alabaster.git
+  track: "*.*.*"
+  ref: 1.0.0-0-gfba58a43980385019ceb593f88ab8821e17840c0

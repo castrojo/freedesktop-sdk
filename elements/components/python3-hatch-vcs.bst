@@ -10,9 +10,7 @@ depends:
 - components/python3-setuptools-scm.bst
 
 sources:
-- kind: pypi
-  name: hatch-vcs
-  ref:
-    sha256sum: 093810748fe01db0d451fabcf2c1ac2688caefd232d4ede967090b1c1b07d9f7
-    suffix: 
-      f5/c9/54bb4fa27b4e4a014ef3bb17710cdf692b3aa2cbc7953da885f1bf7e06ea/hatch_vcs-0.4.0.tar.gz
+- kind: git_repo
+  url: github:ofek/hatch-vcs.git
+  track: v*
+  ref: v0.4.0-0-ge186a8b5d97dd9c9f93ae6015139b55411d9011b

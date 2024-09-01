@@ -7,9 +7,7 @@ depends:
 - components/python3.bst
 
 sources:
-- kind: pypi
-  name: pycparser
-  ref:
-    sha256sum: 491c8be9c040f5390f5bf44a5b07752bd07f56edf992381b05c701439eec10f6
-    suffix: 
-      1d/b2/31537cf4b1ca988837256c910a668b553fceb8f069bedc4b1c826024b52c/pycparser-2.22.tar.gz
+- kind: git_repo
+  url: github:eliben/pycparser.git
+  track: release_v*
+  ref: release_v2.22-0-g129d32ef805d715d90a3b2035b13168c17ca63d2

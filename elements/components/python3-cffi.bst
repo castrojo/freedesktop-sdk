@@ -10,12 +10,9 @@ depends:
 - components/python3-pycparser.bst
 
 sources:
-- kind: pypi
-  name: cffi
+- kind: git_repo
+  url: github:python-cffi/cffi.git
+  track: v*
   exclude:
-  # cffi-1.0.2-2.tar.gz gets parsed as version 2 by packaging as non-canonical format
-  - '2'
-  ref:
-    sha256sum: 1c39c6016c32bc48dd54561950ebd6836e1670f2ae46128f67cf49e789c52824
-    suffix: 
-      fc/97/c783634659c2920c3fc70419e3af40972dbaf758daa229a7d6ea6135c90d/cffi-1.17.1.tar.gz
+  - "*rc*"
+  ref: v1.17.1-0-g38bd6be6b94a65182f4bffb45c78e230e9290f51
