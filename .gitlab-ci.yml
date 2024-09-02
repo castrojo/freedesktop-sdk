@@ -226,7 +226,6 @@ license_checker:
     paths:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
       - ${CI_PROJECT_DIR}/libabigail-tars
-      - ${CI_PROJECT_DIR}/mirror_problem_list.json
   except:
     - master
     - '/^release\/.*/'
