@@ -206,6 +206,7 @@ generate-cve-report: manifest
 		/buildstream-build/cve-reports/platform.md.html
 
 	mv cve/cve-reports/ .
+	find cve -mindepth 1 ! -name 'nvdcve-1.1-*' -exec rm -rvf {} +
 
 manifest:
 	rm -rf sdk-manifest/
