@@ -679,7 +679,7 @@ cve_report:
   cache:
     key: cve
     paths:
-      - "${XDG_CACHE_HOME}/cve"
+      - "${CI_PROJECT_DIR}/cve"
   script:
     - make generate-cve-report
 
