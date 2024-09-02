@@ -1,3 +1,21 @@
+Version: freedesktop-sdk-24.08.0
+Date: '2024-09-07'
+Description: |-
+  Changes in freedesktop-sdk-24.08.0
+   * ci: Remove mirror_problem_list.json from artifact path
+   * ci: Update docker image to latest
+   * Use custom config in reproducible test_reproducibility
+   * ci: Fix cache path to cve databases
+   * Cleanup platform manifests from cve directory
+   * ci: Revert "ci: Disable check_mirror job on tags"
+   * Update poppler to poppler-24.09.0-0
+   * flat-manager-client-base: Update to 0.4.3.2
+   * Update reference-abi to freedesktop-sdk-24.08rc.2-0
+   * Update sudo to SUDO_1_9_16-0
+   * Update python3-yarl to v1.9.7-0
+   * Update cairo to 1.18.2-0
+   * Use native builder for build testing
+---
 Version: freedesktop-sdk-24.08rc.2
 Date: '2024-09-01'
 Description: |-
