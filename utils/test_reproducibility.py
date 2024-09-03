@@ -44,9 +44,12 @@ def bst_build(
     bst_call.extend(["--deps", dependency_kind])
 
     if disallow_artifact_pull:
+        bst_call[bst_call.index("bst") + 1 : bst_call.index("bst")] = [
+            "--config",
+            "utils/buildstream-reprotest.conf",
+        ]
         bst_call.extend([
             "--ignore-project-artifact-remotes",
-            "--config", "utils/buildstream-reprotest.conf",
         ])
     print("BST BUILD RUNNING:", bst_call, file=sys.stderr)
     subprocess.run(bst_call, check=True)
