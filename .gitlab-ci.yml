@@ -11,7 +11,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "568bf6d5bfa469762382251c27fe56fd04233e33"
+  DOCKER_IMAGE_ID: "6dda1ca9220415f728a2c79742fc4484d33ac578"
 
   # Generic variable for invoking buildstream
   BST: bst --colors
@@ -93,6 +93,7 @@ pylint:
     - git config user.name "freedesktop_sdk_updater"
     - git config user.email "freedesktop_sdk_updater@libreml.com"
     - git branch -f "${CI_COMMIT_REF_NAME}" "origin/${CI_COMMIT_REF_NAME}"
+    - git fetch --prune
     - |
       case "${CI_COMMIT_REF_NAME}" in
         master)
