@@ -60,6 +60,9 @@ stages:
 before_script:
   - ulimit -n 1048576
   - export PATH=~/.local/bin:${PATH}
+  - |
+    cat > /etc/hosts << EOF
+    EOF
 
   - |
     # Force higher parallelity
