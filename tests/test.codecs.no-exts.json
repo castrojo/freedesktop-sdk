@@ -1,7 +1,7 @@
 {
   "app-id": "test.codecs.no-exts",
   "runtime": "org.freedesktop.Platform",
-  "runtime-version": "24.08beta",
+  "runtime-version": "24.08",
   "sdk": "org.freedesktop.Sdk",
   "command": "codec-list.sh",
   "modules": [

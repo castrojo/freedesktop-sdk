@@ -1,7 +1,7 @@
 {
   "id": "org.flatpak.GstreamerPlugins",
   "runtime": "org.freedesktop.Platform",
-  "runtime-version": "24.08beta",
+  "runtime-version": "24.08",
   "sdk": "org.freedesktop.Sdk",
   "command": "gstreamer-plugins-test",
   "modules": [
