@@ -4,6 +4,7 @@ build-depends:
 - public-stacks/buildsystem-cmake.bst
 
 depends:
+- components/abseil-cpp.bst
 - components/c-ares.bst
 - components/gflags.bst
 - components/protobuf.bst
@@ -15,6 +16,7 @@ variables:
     -DgRPC_ZLIB_PROVIDER=package
     -DgRPC_GFLAGS_PROVIDER=package
     -DgRPC_CARES_PROVIDER=package
+    -DgRPC_ABSL_PROVIDER=package
     -DgRPC_INSTALL_LIBDIR="%{lib}"
 
 sources:
