@@ -60,11 +60,6 @@ stages:
 before_script:
   - ulimit -n 1048576
   - export PATH=~/.local/bin:${PATH}
-  - |
-    cat > /etc/hosts << EOF
-    140.211.9.173 cache.freedesktop-sdk.io
-    140.211.9.173 releases.freedesktop-sdk.io
-    EOF
 
   - |
     # Force higher parallelity
