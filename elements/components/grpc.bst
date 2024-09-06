@@ -4,6 +4,7 @@ build-depends:
 - public-stacks/buildsystem-cmake.bst
 
 depends:
+- components/c-ares.bst
 - components/gflags.bst
 - components/protobuf.bst
 
@@ -13,6 +14,7 @@ variables:
     -DgRPC_PROTOBUF_PROVIDER=package
     -DgRPC_ZLIB_PROVIDER=package
     -DgRPC_GFLAGS_PROVIDER=package
+    -DgRPC_CARES_PROVIDER=package
     -DgRPC_INSTALL_LIBDIR="%{lib}"
 
 sources:
@@ -22,10 +24,6 @@ sources:
   exclude:
   - '*pre*'
   ref: v1.66.1-0-ge821cdc231bda9ee93139a6daab6311dd8953832
-- kind: git_module
-  url: github:c-ares/c-ares.git
-  path: third_party/cares/cares
-  ref: 6360e96b5cf8e5980c887ce58ef727e53d77243a
 - kind: git_module
   url: github:google/re2.git
   path: third_party/re2
