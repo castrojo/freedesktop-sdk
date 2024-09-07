@@ -1,3 +1,316 @@
+Version: freedesktop-sdk-23.08.22
+Date: |-
+  Changes in freedesktop-sdk-23.08.22
+   * openssl: Update to 3.1.7
+   * Migrate to buildstream-plugins-community 2.0.2
+   * Remove entire stanza
+   * Revert "Add workaround for CAS IP change"
+   * Update gamemode to 1.8.2-0
+   * Update python3-cffi to 2
+   * Update aardvark-dns to v1.12.2-0
+   * Update geoclue-base to 2.7.2-0
+   * Update libevdev to libevdev-1.13.3-0
+   * Add workaround for CAS IP change
+   * Write hosts file always to ensure there's nothing from previous run
+   * Bump docker image to latest
+   * ci: Run a prune before starting auto_updater
+   * ci: Bump docker image to latest
+   * ci: Remove mirror_problem_list.json from artifact path
+   * ci: Update docker image to latest
+   * Update libwacom to libwacom-2.13.0-0
+   * Update libabigail to libabigail-2.5-101
+   * ci: Revert "ci: Disable check_mirror job on tags"
+   * flat-manager-client-base: Update to 0.4.3.2
+   * Update glibc to glibc-2.38-102
+   * Update sudo to SUDO_1_9_16-0
+   * Update poppler to poppler-24.09.0-0
+   * Update python3-yarl to v1.9.7-0
+   * Update cairo to 1.18.2-0
+   * Update vim to v9.1.0708-0
+   * Update wayland-protocols to 1.37-0
+   * Update python3-yarl to v1.9.6-0
+   * reference-abi: Bump after abi skip
+   * Update python3-yarl to v1.9.5-0
+   * Update libabigail to libabigail-2.5-100
+   * Update flatpak-xdg-utils to 1.0.6-0
+   * Update python3-certifi to 2024.8.30
+   * Update mutool to 1.24.9-0
+   * gnutls: Update to 3.8.7
+   * Update perl-ssl to 2.089
+   * Update protobuf to v28.0-0
+   * Update aom to v3.10.0-0
+   * Update cmake to v3.29.8-0
+   * Update libabigail to libabigail-2.5-99
+   * Update linux to v6.10.7-0
+   * iwd: Update to 2.20
+   * Update iwd to 0.68-0
+   * mesa: Drop obsolete header patch
+   * mesa: Update gbm libdrm patch and rename
+   * mesa-sdk: Update to 24.2.1
+   * Update mesa to mesa-24.2.1-0
+   * Update liburcu to v0.14.1-0
+   * Update python3-grpcio to 1.66.1
+   * Update libabigail to libabigail-2.5-67
+   * Update python3-protobuf to 5.28.0
+   * Revert "Use local cache as just local cache"
+   * Stop publishing i386 to internal repo
+   * Image with even more patched flat-manager-client
+   * image: Provide flat-manager-client with retry patches
+   * Update libpipeline to 1.5.8-0
+   * Update hotdoc to 0.17.1
+   * Update python3-protobuf to 5.27.4
+   * Update protobuf to v27.4-0
+   * Update networkmanager to 1.48.10-0
+   * Rebase libdrm patch
+   * Update libdrm to libdrm-2.4.123-0
+   * Update python3-pyroaring to 1.0.0
+   * Update grpc to v1.66.1-0
+   * Update xfsprogs to v6.10.0-0
+   * Update libdrm to libdrm-2.4.123-0
+   * dulwich: Fix missing import
+   * publisher_env.sh: Directly use grep instead of empty string check
+   * Update python3-pyparsing to 3.1.4
+   * Update vim to v9.1.0696-0
+   * Put publisher env generation into script
+   * ci: Fix input filename to flat-manager-client purge
+   * Update to latest image
+   * ci: Disable check_mirror job on tags
+   * ci: Mark tar upload jobs as manual
+   * Publish from single job
+   * Update lvm2 to v2_03_26-0
+   * Update python3-idna to 3.8
+   * Update dictionaries to libreoffice-24.8.1.1-0
+   * Update buildbox to 1.2.15-0
+   * Update xdg-dbus-proxy to 0.1.6-0
+   * Update cunit to 3.4.1-0
+   * Update ell to 0.68-0
+   * Update grpc to v1.66.0-0
+   * Update python3-grpcio to 1.66.0
+   * Update fwupd to 1.9.24-0
+   * Update passt to 2024_08_21.1d6142f-0
+   * Update python3-maturin to v1.7.1-0
+   * Update podman to v5.2.2-0
+   * rust: Update to 1.80.1
+   * Update rust-bindgen to v0.70.1-0
+   * Update netavark to v1.12.2-0
+   * Update libabigail to libabigail-2.5-66
+   * Update libbytesize to 2.11-0
+   * mesa-sources: Add a patch to fix rusticl compilation issues
+   * Update rust-bindgen to v0.70.0-0
+   * Update gamemode to 1.8.2-0
+   * Update linux to v6.10.6-0
+   * Update python3-aiohttp to 3.10.5
+   * Update meson-mesa to 1.5.1-0
+   * Update systemd to v254.17-0
+   * Update python3-aiohappyeyeballs to v2.4.0-0
+   * mesa: Add a private meson for mesa
+   * mesa: Remove symlink creation
+   * mesa: Replace swarst gallium driver with llvmpipe and softpipe
+   * dummy-gbm: Add build dependency on pyyaml
+   * Update dummy-gbm patch
+   * mesa: Add patch to correct header location
+   * mesa: Update and add new rust dependencies
+   * mesa: Add build dependency on pyyaml
+   * mesa: Remove dead kmsro option in gallium drivers
+   * mesa-sdk: Bump to 24.2.0
+   * Update mesa to mesa-24.2.0-0
+   * Update libinput to 1.26.2-0
+   * Update vim to v9.1.0680-0
+   * Update glibc to glibc-2.38-95
+   * Update binutils to binutils-2_43_1-0
+   * Use local cache as just local cache
+   * Update python3-aiohttp to 3.10.4
+   * Update libabigail to libabigail-2.5-65
+   * Update python3-aiohappyeyeballs to v2.3.7-0
+   * Update python3-grpcio to 1.65.5
+   * Update grpc to v1.65.5-0
+   * Update python3-aiohappyeyeballs to v2.3.6-0
+   * Update passt to 2024_08_14.61c0b0d-0
+   * kmod: Use scdoc for manpage generation
+   * Add an element for scdoc
+   * Add a generic alias for sourcehut
+   * Update kmod to v33-0
+   * Update librsvg to 2.58.3-0
+   * Update python3-markdown to 3.7
+   * Update composefs to v1.0.5-0
+   * Use freedesktop-sdk gitlab mirror for projects on git.0pointer.net
+   * Update btrfs-progs to v6.10.1-0
+   * Update linux to v6.10.5-0
+   * Update python3-buildstream2 to 2.3.0-0
+   * Update podman to v5.2.1-0
+   * Update python3-tomlkit to 0.13.2
+   * Update libabigail to libabigail-2.5-61
+   * Update bubblewrap to v0.10.0-0
+   * Update flatpak to 1.15.10-0
+   * Update crun to 1.16.1-0
+   * Update foomatic-db to 20240504-2
+   * Update buildbox to 1.2.14-0
+   * Update fmtlib to 11.0.2-0
+   * fscrypt: Convert to go_module
+   * Update fscrypt to v0.3.5-0
+   * Update eos-metrics to Release_6.0.2-0
+   * Update eos-updater to Release_6.0.2-0
+   * pciutils: Add terminating EOF to silence warning
+   * pciutils: Prevent stripping before running our own stripper
+   * pciutils: Remove dependency on which and add curl, gzip to depends
+   * pciutils: Convert to a make element
+   * go-md2man: Build and install manpage
+   * go-md2man: Add russross/blackfriday module and modernise element
+   * Update go-md2man to v2.0.4-0
+   * Update linux to v6.10.4-0
+   * Update linux-firmware to 20240811-0
+   * Update vim to v9.1.0672-0
+   * Update glibc to glibc-2.38-94
+   * Enable go_module
+   * Update python3-aiohttp to 3.10.3
+   * Update python3-lxml to 5.3.0
+   * Update rust-cbindgen to v0.27.0-0
+   * Update erofs-utils to v1.8.1-0
+   * Update extra-cmake-modules to v6.5.0-0
+   * Update networkmanager to 1.48.8-0
+   * bst-plugins-experimental: Update to 1.100.1
+   * python3-aiohttp: Add element for aiohappyeyeballs
+   * Update python3-aiohttp to 3.10.2
+   * Update audit to v4.0.2-0
+   * Update erofs-utils to v1.8-0
+   * Update python3-babel to 2.16.0
+   * Update dictionaries to libreoffice-24.8.0.3-0
+   * Update libabigail to libabigail-2.5-50
+   * Update binutils to binutils-2_43-0
+   * Update libei to 1.3.0-0
+   * Update fwupd to 1.9.23-0
+   * Update buildbox to 1.2.13-0
+   * Update pkg-config to pkgconf-2.3.0-0
+   * Update xwayland to xwayland-24.1.2-0
+   * Update crun to 1.16-0
+   * Update doxygen to Release_1_12_0-0
+   * linux: Remove redundant LEDS_CLASS_FLASH module
+   * linux: Group PinePhone Pro configs
+   * Update python3-pyyaml to 6.0.2
+   * Update python3-cffi to 2
+   * Update passt to 2024_08_06.ee36266-0
+   * Update go to go1.21.13-0
+   * Update python3-attrs to 24.2.0-0
+   * ci-image: Switch to OCI images
+   * image: Update for BuildStream release snapshot
+   * Update cython-3 to 3.0.11-1-0
+   * Update poppler to poppler-24.08.0-0
+   * Update python3-setuptools-rust to 1.10.1
+   * Update python3-attrs to 24.1.0-0
+   * Update python3-wheel to 0.44.0-0
+   * Update readline to readline-8.2-13
+   * Update vim to v9.1.0660-0
+   * Update glibc to glibc-2.38-93
+   * Update curl to curl-8_9_1-0
+   * Update python3-setuptools-rust to 1.10.0
+   * Update pcsc-lite to 2.3.0-0
+   * Update linux to v6.10.3-0
+   * Update aardvark-dns to v1.12.1-0
+   * Update grpc to v1.65.4-0
+   * Update netavark to v1.12.1-0
+   * Update python3-grpcio to 1.65.4
+   * Update libnvme to v1.10-0
+   * Update buildbox to 1.2.12-0
+   * Update podman to v5.2.0-0
+   * abseil-cpp: Drop obsolete patch
+   * Update abseil-cpp to 20240722.0-0
+   * components/rust: Enable more tools
+   * Drop unused mesa patch
+   * mesa-sources: Remove obsolete patch
+   * Update mesa to mesa-24.1.5-0
+   * Update xorg-lib-xfont2 to libXfont2-2.0.7-0
+   * Update bash to bash-5.2-33
+   * Update grpc to v1.65.3-0
+   * Update xorg-lib-xtst to libXtst-1.2.5-0
+   * Update mesa-sdk to mesa-24.1.5-0
+   * Update protobuf to v27.3-0
+   * Update python3-protobuf to 5.27.3
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-153
+   * Update python3-grpcio to 1.65.2
+   * Update btrfs-progs to v6.10-0
+   * Update glibc to glibc-2.38-87
+   * python3-setuptools: Freeze to 71 due to API removal
+   * Update python3-sphinxcontrib-applehelp to 2.0.0
+   * Update python3-sphinx to 8.0.2
+   * Update python3-sphinxcontrib-serializinghtml to 2.0.0
+   * Update python3-sphinxcontrib-devhelp to 2.0.0
+   * Update cryptsetup-base to v2.7.4-0
+   * Update python3-alabaster to 1.0.0
+   * Move license checker to aarch64 due to incompatibility with storage service
+   * Update python3-sphinxcontrib-qthelp to 2.0.0
+   * Update git to v2.46.0-0
+   * Update python3-sphinxcontrib-htmlhelp to 2.1.0
+   * Update python3-tenacity to 9.0.0-0
+   * Update python3-sphinx to 8.0.1
+   * Update gnu-config to 00b1592
+   * Update python3-pip to 24.2
+   * Update vim to v9.1.0632-0
+   * Rename mesa to mesa-sdk
+   * Rename freedesktop-sdk.bst to reference-abi.bst
+   * Proceed with automatic updates despite tracking errors
+   * Update to docker image with latest gitlab-merge-request-generator
+   * Update linux to v6.10.2-0
+   * Update dictionaries to libreoffice-24.8.0.2-0
+   * Update grpc to v1.65.2-0
+   * Update fwupd to 1.9.22-0
+   * Update passt to 2024_07_26.57a21d2-0
+   * Update libxml2 to v2.11.9-0
+   * Update networkmanager to 1.48.6-0
+   * Update mutool to 1.24.8-0
+   * Update linux to v6.10.1-0
+   * Update systemd to v254.16-0
+   * Update ccache to v4.10.2-0
+   * Update buildbox to 1.2.11-0
+   * Update curl to curl-8_9_0-0
+   * Update libtraceevent to libtraceevent-1.8.3-0
+   * Update xfsprogs to v6.9.0-0
+   * flatpak: Update to 1.15.9 and remove submodules
+   * Remove unused tukaani alias and mirror
+   * xz-source: Switch to GitHub repository
+   * flatpak: Remove compat arch patch
+   * mesa: Backport AV1 bug fix
+   * mesa: Move patch as last source
+   * Update strace to v6.10-0
+   * Update python3-setuptools to v71.1.0-0
+   * Update python3-sphinx to 7.4.7
+   * Update glibc to glibc-2.38-85
+   * Update vim to v9.1.0608-0
+   * Update python3-sphinxcontrib-htmlhelp to 2.0.6
+   * Update ostree to v2024.7-0
+   * Update wpa-supplicant to hostap_2_11-0
+   * Update python3-sphinxcontrib-qthelp to 1.0.8
+   * python3-cryptography: Switch to maturin
+   * Add a public stack for maturin
+   * Add python3-maturin
+   * Update python3-cryptography to 43.0.0-0
+   * Update python3-setuptools to v71.0.4-0
+   * Update python3-grpcio to 1.65.1
+   * Update mutool to 1.24.7-0
+   * Update asciidoc to 10.2.1
+   * Update libnl to libnl3_10_0-0
+   * mesa: Remove obsolete NVK patch
+   * Update mesa to mesa-24.1.4-0
+   * Update python3-sphinx to 7.4.6
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-152
+   * Update mesa to mesa-24.1.4-0
+   * Update iproute2 to v6.10.0-0
+   * Update python3-setuptools to v71.0.3-0
+   * Update to image built against 23.08.21
+   * desktop-file-utils: Add patch to fix validation with same group name
+   * Update cmake to v3.29.7-0
+   * Update python3-sphinx to 7.4.5
+   * Update grpc to v1.65.1-0
+   * Update libabigail to libabigail-2.5-49
+   * linux: Add python3 to build depends
+   * Update linux to v6.10-0
+   * Update freedesktop-sdk to freedesktop-sdk-23.08.21-0
+   * Update python3-sphinx to 7.4.4
+   * Update libnftnl to libnftnl-1.2.7-0
+   * Update gsettings-desktop-schemas to 46.1-0
+   * Update python3-dbusmock to 0.32.1
+   * Update perl-ssl to 2.088
+   * Update vim to v9.1.0586-0
+---
 Version: freedesktop-sdk-23.08.21
 Date: '2024-07-14'
 Description: |-
