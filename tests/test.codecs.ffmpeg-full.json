@@ -1,12 +1,12 @@
 {
   "app-id": "test.codecs.ffmpeg-full",
   "runtime": "org.freedesktop.Platform",
-  "runtime-version": "24.08beta",
+  "runtime-version": "25.08beta",
   "sdk": "org.freedesktop.Sdk",
   "add-extensions": {
     "org.freedesktop.Platform.ffmpeg-full": {
       "directory": "lib/ffmpeg",
-      "version": "24.08beta",
+      "version": "25.08beta",
       "add-ld-path": "."
     }
   },

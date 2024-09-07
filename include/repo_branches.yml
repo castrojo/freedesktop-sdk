@@ -1,7 +1,7 @@
 # Versioning information related to our releases
 # is maintained here.
 #
-freedesktop-sdk-flatpak-branch: '24.08beta'
-freedesktop-sdk-flatpak-branch-extra: '24.08beta-extra'
-freedesktop-sdk-snap-branch: '2408'
+freedesktop-sdk-flatpak-branch: '25.08beta'
+freedesktop-sdk-flatpak-branch-extra: '25.08beta-extra'
+freedesktop-sdk-snap-branch: '2508'
 openh264-version: '2.4.1'
