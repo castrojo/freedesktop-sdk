@@ -126,7 +126,7 @@ def read_changelog(git_dir, new_version):
     allows us to validate that an entry has indeed been made matching the specified
     version.
     """
-    with open(git_dir / "NEWS.yml", encoding="utf-8") as f:
+    with open(git_dir / "NEWS.yml", encoding="utf-8", newline="\n") as f:
         yaml = ruamel.yaml.YAML()
         documents = yaml.load_all(f)
         for document in documents:
