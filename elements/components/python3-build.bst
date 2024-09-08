@@ -18,4 +18,4 @@ sources:
 - kind: git_repo
   url: github:pypa/build.git
   track: '*.*.*'
-  ref: 1.2.1-0-g1e67c062e9d1b1a6d5ffed621f4b29902bb764e5
+  ref: 1.2.2-0-g3b0b5d07077473f5da3f038cf7b74cd2b65d2a98
