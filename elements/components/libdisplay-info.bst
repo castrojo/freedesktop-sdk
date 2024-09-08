@@ -2,6 +2,7 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- components/hwdata.bst
 
 sources:
 - kind: git_repo

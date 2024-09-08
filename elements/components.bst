@@ -176,6 +176,7 @@ depends:
 - components/hosts.bst
 - components/hotdoc.bst
 - components/hunspell.bst
+- components/hwdata.bst
 - components/hyphen.bst
 - components/iana-config.bst
 - components/ibus.bst
