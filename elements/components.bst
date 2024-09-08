@@ -220,6 +220,7 @@ depends:
 - components/libdatrie.bst
 - components/libdbus.bst
 - components/libdecor.bst
+- components/libdisplay-info.bst
 - components/libdrm.bst
 - components/libeconf.bst
 - components/libei.bst
