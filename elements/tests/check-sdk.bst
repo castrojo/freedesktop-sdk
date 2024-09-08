@@ -17,6 +17,7 @@ config:
   - components/iproute2.bst
   - components/libapparmor.bst
   - components/libsoup2.bst
+  - components/libdisplay-info.bst
   - components/liburcu.bst
   - components/linux-firmware.bst
   - components/linux-pam.bst

@@ -216,6 +216,7 @@ depends:
 - components/libdatrie.bst
 - components/libdbus.bst
 - components/libdecor.bst
+- components/libdisplay-info.bst
 - components/libdrm.bst
 - components/libei.bst
 - components/libepoxy.bst
