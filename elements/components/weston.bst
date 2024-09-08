@@ -17,6 +17,7 @@ depends:
 - components/xorg-lib-xcb.bst
 - components/xorg-lib-xcursor.bst
 - components/mtdev.bst
+- components/libdisplay-info.bst
 - components/libinput.bst
 - components/dummy-gbm.bst
 - components/libwebp.bst
