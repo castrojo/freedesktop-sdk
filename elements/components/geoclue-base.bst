@@ -62,6 +62,6 @@ sources:
 - kind: git_repo
   url: freedesktop:geoclue/geoclue.git
   track: '*.*.*'
-  ref: 2.7.1-0-g8a24f60969d4c235d9918796c38a6a9c42e10131
+  ref: 2.7.2-0-gab0a7a447ac037d5043aa04df3030796bf47d94d
 - kind: local
   path: files/geoclue/sysusers.conf
