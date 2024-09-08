@@ -30,4 +30,4 @@ sources:
   track: libXi-*
   exclude:
   - libXi-*.*.99.*
-  ref: libXi-1.8.1-0-g3a7503ec7703f10de17c622ea22b7bff736cea74
+  ref: libXi-1.8.2-0-g3c2d5aedd7708c75710b39268631762de904c304

@@ -176,6 +176,7 @@ depends:
 - components/hosts.bst
 - components/hotdoc.bst
 - components/hunspell.bst
+- components/hwdata.bst
 - components/hyphen.bst
 - components/iana-config.bst
 - components/ibus.bst
@@ -220,6 +221,7 @@ depends:
 - components/libdatrie.bst
 - components/libdbus.bst
 - components/libdecor.bst
+- components/libdisplay-info.bst
 - components/libdrm.bst
 - components/libeconf.bst
 - components/libei.bst
