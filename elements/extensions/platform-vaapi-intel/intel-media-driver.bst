@@ -32,4 +32,4 @@ sources:
   exclude:
   - intel-media-*.pre*
   - intel-media-600*
-  ref: intel-media-24.3.2-0-gf40b45dd7355f5f739c75bfd793fa2f1ead30f02
+  ref: intel-media-24.3.3-0-g98760145aa7fb9a7f31c2e485f6e5b5233fe647b
