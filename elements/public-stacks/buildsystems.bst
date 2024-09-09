@@ -1,16 +1,11 @@
 kind: compose
 
-depends:
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: public-stacks/buildsystem-cmake.bst
-  type: build
-- filename: public-stacks/buildsystem-meson.bst
-  type: build
-- filename: components/python3.bst
-  type: build
-- filename: components/perl.bst
-  type: build
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-cmake.bst
+- public-stacks/buildsystem-meson.bst
+- components/python3.bst
+- components/perl.bst
 
 config:
   exclude:

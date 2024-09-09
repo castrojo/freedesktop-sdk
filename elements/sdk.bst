@@ -3,6 +3,7 @@ description: Stack of components in freedesktop SDK
 
 depends:
 - platform.bst           # Note that every element in platform is also included
+- public-stacks/buildsystem-make.bst
 - components/autoconf-archive.bst
 - components/autoconf.bst
 - components/automake.bst

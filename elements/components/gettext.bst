@@ -2,37 +2,19 @@ kind: autotools
 description: GNU gettext
 
 build-depends:
+- bootstrap/gawk.bst
 - bootstrap/gcc.bst
+- bootstrap/grep.bst
+- bootstrap/make.bst
+- bootstrap/sed.bst
+- bootstrap/stripper.bst
 
 depends:
-- bootstrap/acl.bst
-- bootstrap/attr.bst
-- bootstrap/bash.bst
-- bootstrap/bzip2.bst
-- bootstrap/binutils.bst
-- bootstrap/coreutils.bst
-- bootstrap/debugedit.bst
-- bootstrap/diffutils.bst
-- bootstrap/dwz.bst
-- bootstrap/elfutils.bst
-- bootstrap/file.bst
-- bootstrap/findutils.bst
-- bootstrap/gawk.bst
-- bootstrap/glibc.bst
-- bootstrap/gnu-config.bst
-- bootstrap/grep.bst
-- bootstrap/stripper.bst
-- bootstrap/linux-headers.bst
-- bootstrap/make.bst
-- bootstrap/ncurses.bst
-- bootstrap/pcre2.bst
-- bootstrap/readline.bst
-- bootstrap/sed.bst
-- bootstrap/symlinks.bst
-- bootstrap/utf-locale.bst
-- components/gzip.bst
+- public-stacks/runtime-minimal.bst 
 
 runtime-depends:
+- bootstrap/findutils.bst
+- components/gzip.bst
 - components/tar.bst
 
 public:

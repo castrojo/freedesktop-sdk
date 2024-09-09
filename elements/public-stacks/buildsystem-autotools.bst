@@ -1,10 +1,12 @@
 kind: stack
 
 depends:
-- filename: components/autoconf-archive.bst
-- filename: components/autoconf.bst
-- filename: components/automake.bst
-- filename: components/gettext.bst
-- filename: components/libtool.bst
-- filename: components/pkg-config.bst
-- filename: components/which.bst
+- public-stacks/buildsystem-make.bst
+- components/autoconf-archive.bst
+- components/autoconf.bst
+- components/automake.bst
+- components/gettext.bst
+- components/libtool.bst
+- components/pkg-config.bst
+- components/which.bst
+
