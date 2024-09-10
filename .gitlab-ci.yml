@@ -211,7 +211,14 @@ license_checker:
     - make check-debuginfo
 
     - export FLATPAK_USER_DIR="${PWD}/tmp-flatpak"
-    - make test-apps
+
+    - |
+      # https://github.com/flatpak/flatpak/issues/5045
+      if [ "${ARCH}" = "i686" ]; then
+        make export
+      else
+        make test-apps
+      fi
 
     - |
       ABI_SKIP=$(git log -n 1 | grep -E "\[abi skip\]|\[skip abi\]" || true)
