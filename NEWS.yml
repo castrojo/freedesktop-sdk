@@ -1,3 +1,262 @@
+Version: freedesktop-sdk-22.08.26
+Date: '2024-09-08'
+Description: |-
+  Changes in freedesktop-sdk-22.08.26
+   * Update elements/components/python3-virtualenv.bst to 20.26.4
+   * Update elements/components/python3-filelock.bst to 3.16.0
+   * Migrate to buildstream-plugins-community 2.0.2
+   * Update xorg-lib-xi to libXi-1.8.2-0
+   * Update python3-cffi to 1.17.1
+   * Update tzdata to 2024b-0
+   * Update cryptsetup-base to v2.7.5-0
+   * Update gamemode to 1.8.2-0
+   * Update python3-alabaster to 1.0.0
+   * Update libwacom to libwacom-2.13.0-0
+   * Update libevdev to libevdev-1.13.3-0
+   * ci: Revert "ci: Disable check_mirror job on tags"
+   * flat-manager-client-base: Update to 0.4.3.2
+   * Update poppler to poppler-24.09.0-0
+   * Update sudo to SUDO_1_9_16-0
+   * Revert ".gitlab-ci.yml: disable schedules for 22.08"
+   * Update glibc to glibc-2.35-349
+   * .gitlab-ci.yml: disable schedules for 22.08
+   * Update wayland-protocols to 1.37-0
+   * Update vim to v9.1.0707-0
+   * Update mutool to 1.24.9-0
+   * Update flatpak-xdg-utils to 1.0.6-0
+   * Update aom to v3.10.0-0
+   * Update python3-certifi to 2024.8.30
+   * Update cmake to v3.29.8-0
+   * iwd: Update to 2.20
+   * Update iwd to 0.68-0
+   * Image with even more patched flat-manager-client
+   * Stop publishing i386 to internal repo
+   * Revert "Use local cache as just local cache"
+   * Update libpipeline to 1.5.8-0
+   * Update hotdoc to 0.17.1
+   * Update libdrm to libdrm-2.4.123-0
+   * Rebase libdrm patch
+   * Update libdrm to libdrm-2.4.123-0
+   * .gitlab-ci.yml: separate python bytecode from actual sources
+   * Update python3-pyparsing to 3.1.4
+   * publisher_env.sh: Directly use grep instead of empty string check
+   * Put publisher env generation into script
+   * ci: Fix input filename to flat-manager-client purge
+   * Update vim to v9.1.0695-0
+   * Update to latest image
+   * ci: Disable check_mirror job on tags
+   * ci: Mark tar upload jobs as manual
+   * Publish from single job
+   * Update python3-idna to 3.8
+   * Update lvm2 to v2_03_26-0
+   * Update ell to 0.68-0
+   * Update fwupd to 1.9.24-0
+   * Update podman to v5.2.2-0
+   * Update libbytesize to 2.11-0
+   * Update gamemode to 1.8.2-0
+   * Update libinput to 1.26.2-0
+   * networkmanager: Freeze to 1.48.6
+   * weston: Freeze to 13.0.3
+   * Use local cache as just local cache
+   * Update vim to v9.1.0679-0
+   * Update composefs to v1.0.5-0
+   * Update python3-markdown to 3.7
+   * Update gnupg to gnupg-2.2.44-0
+   * Update btrfs-progs to v6.10.1-0
+   * Update podman to v5.2.1-0
+   * Update python3-tomlkit to 0.13.2
+   * Use freedesktop-sdk gitlab mirror for projects on git.0pointer.net
+   * flatpak: Update to 1.14.10
+   * Update bubblewrap to v0.10.0-0
+   * kmod: Use scdoc for manpage generation
+   * Add an element for scdoc
+   * Add a generic alias for sourcehut
+   * Update kmod to v33-0
+   * Update crun to 1.16.1-0
+   * Update python3-tomlkit to 0.13.1
+   * Update foomatic-db to 20240504-2
+   * Update eos-metrics to Release_6.0.2-0
+   * Update linux-firmware to 20240811-0
+   * Update python3-lxml to 5.3.0
+   * Update vim to v9.1.0668-0
+   * Update glibc to glibc-2.35-341
+   * python3-aiohttp: Freeze to 3.9
+   * Update extra-cmake-modules to v6.5.0-0
+   * Update audit to v4.0.2-0
+   * Update python3-babel to 2.16.0
+   * Update pkg-config to pkgconf-2.3.0-0
+   * Update doxygen to Release_1_12_0-0
+   * Update go to go1.21.13-0
+   * Update python3-pyyaml to 6.0.2
+   * Update python3-attrs to 24.2.0
+   * Update python3-cffi to 1.17.0
+   * ci-image: Switch to OCI images
+   * image: Update for BuildStream release snapshot
+   * Update fwupd to 1.9.23-0
+   * Update python3-wheel to 0.44.0
+   * Update python3-setuptools-rust to 1.10.1
+   * Update pcsc-lite to 2.3.0-0
+   * Update python3-setuptools-rust to 1.10.0
+   * Update python3-attrs to 24.1.0
+   * Update vim to v9.1.0658-0
+   * Update glibc to glibc-2.35-340
+   * Update libnvme to v1.10-0
+   * Update podman to v5.2.0-0
+   * Update xorg-lib-xfont2 to libXfont2-2.0.7-0
+   * Update poppler to poppler-24.08.0-0
+   * Update xorg-lib-xtst to libXtst-1.2.5-0
+   * Update python3-sphinx to 8.0.2
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-153
+   * Update cryptsetup-base to v2.7.4-0
+   * Update git to v2.46.0-0
+   * Update btrfs-progs to v6.10-0
+   * python3-setuptools: Freeze to 71 due to API removal
+   * Move license checker to aarch64 due to incompatibility with storage service
+   * Update python3-sphinxcontrib-htmlhelp to 2.1.0
+   * Update gnu-config to 00b1592
+   * Update python3-tenacity to 9.0.0
+   * Update python3-sphinxcontrib-serializinghtml to 2.0.0
+   * Update python3-sphinxcontrib-devhelp to 2.0.0
+   * Update python3-sphinxcontrib-applehelp to 2.0.0
+   * Update python3-sphinxcontrib-qthelp to 2.0.0
+   * Proceed with automatic updates despite tracking errors
+   * Make max merge requests a variable that can be set in scheduled
+   * Update to docker image with latest gitlab-merge-request-generator
+   * Update vim to v9.1.0631-0
+   * Update glibc to glibc-2.35-335
+   * Update fwupd to 1.9.22-0
+   * Update networkmanager to 1.48.6-0
+   * Update mutool to 1.24.8-0
+   * Remove unused tukaani alias and mirror
+   * xz-source: Switch to GitHub repository
+   * lz4: Freeze to 1.9 branch due to ABI break
+   * Update cmake to v3.29.7-0
+   * Update python3-setuptools to 71.1.0
+   * Update python3-setuptools to 71.0.4
+   * cracklib: Freeze to 2.9
+   * Update python3-sphinxcontrib-htmlhelp to 2.0.6
+   * Update ostree to v2024.7-0
+   * Update python3-sphinxcontrib-qthelp to 1.0.8
+   * Update strace to v6.10-0
+   * Update libnl to libnl3_10_0-0
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-152
+   * Update mutool to 1.24.7-0
+   * Update python3-sphinx to 7.4.7
+   * Update wpa-supplicant to hostap_2_11-0
+   * Update vim to v9.1.0608-0
+   * cmake: Freeze to 3.29
+   * Revert "Update cmake to v3.30.0-0"
+   * Update glibc to glibc-2.35-332
+   * stripper: Do not map the whole file
+   * stripper: .shstrtab section may be right at the end of file
+   * stripper: Fix writing non writable binaries
+   * stripper: Do not call debugedit while scanning directories
+   * Update to image built against 23.08.21
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-151
+   * Update asciidoc to 10.2.1
+   * Update python3-setuptools to 71.0.1
+   * Update python3-sphinx to 7.4.5
+   * Update iproute2 to v6.10.0-0
+   * Update python3-sphinx to 7.4.4
+   * Update gsettings-desktop-schemas to 46.1-0
+   * Update libnftnl to libnftnl-1.2.7-0
+   * Update python3-dbusmock to 0.32.1
+   * Update vim to v9.1.0580-0
+   * Update lvm2 to v2_03_25-0
+   * Update nano to v8.1-0
+   * Update extra-cmake-modules to v6.4.0-0
+   * bluez-base: Add pygments to build depends
+   * Update bluez to 5.77-0
+   * Update flat-manager-client-base to 0.4.3.1-0
+   * Update python3-tomlkit to 0.13.0
+   * Update podman to v5.1.2-0
+   * Update flatpak-builder-base to 1.4.4-0
+   * Update gtk3 to 3.24.43-0
+   * Update mutool to 1.24.6-0
+   * Update linux-firmware to 20240709-0
+   * Update python3-setuptools to 70.3.0
+   * Update ell to 0.67-0
+   * Update iwd to 2.19-0
+   * e2fsprogs: Freeze to 1.47 due to ABI change
+   * libassuan: Freeze to v2
+   * xorg-proto-xcb: Freeze to 1.15
+   * xorg-data-xkeyboard-config: Freeze on 2.41
+   * Update vim to v9.1.0538-0
+   * Update python3-tenacity to 8.5.0
+   * Update ccid to 1.6.1-0
+   * Update networkmanager to 1.48.4-0
+   * Update genimage to v18-0
+   * Disable UI throttling
+   * Update python3-trove-classifiers to 2024.7.2
+   * Update python3-certifi to 2024.7.4
+   * Update pinentry-ncurses to pinentry-1.3.1-0
+   * Update go to go1.21.12-0
+   * Update python3-trove-classifiers to 2024.7.1
+   * Update python3-setuptools to 70.2.0
+   * Update python3-pil to 10.4.0
+   * Update poppler to poppler-24.07.0-0
+   * Update openssh to V_9_8_P1-0
+   * Update cmake to v3.30.0-0
+   * Update mutool to 1.24.5-0
+   * Update vim to v9.1.0516-0
+   * templates/buildstream.conf: don't use the local cas as source cache
+   * templates/buildstream.conf: update to the new local cas setup
+   * Update fuse-overlayfs to v1.14-0
+   * Update libndp to v1.9-0
+   * Update libinput to 1.26.1-0
+   * Update python3-tpm2-pytss to 2.3.0
+   * Update libdrm to libdrm-2.4.122-0
+   * Update hotdoc to 0.17
+   * Update libdrm to libdrm-2.4.122-0
+   * Update btrfs-progs to v6.9.2-0
+   * hotdoc: Add backports-entrypoints-selectable as runtime dependency
+   * hotdoc: Verify dependencies through version query
+   * Update hotdoc to 0.17
+   * Update btrfs-progs to v6.9.1-0
+   * Update python3-setuptools to 70.1.1
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-150
+   * Update networkmanager to 1.48.2-0
+   * Update python3-tenacity to 8.4.2
+   * Update cni to v1.5.1-0
+   * Update libwacom to libwacom-2.12.2-0
+   * Update po4a to v0.73-0
+   * Update python3-hatchling to 1.25.0
+   * Backport more libappstream compose usage from master
+   * Update cups-base to v2.4.10-0
+   * Update mutool to 1.24.4-0
+   * Update mesa to mesa-24.0.9-0
+   * Update python3-filelock to 3.15.4
+   * Update vim to v9.1.0514-0
+   * Update libksba to libksba-1.6.7-0
+   * Update python3-setuptools to 70.1.0
+   * Update python3-virtualenv to 20.26.3
+   * mesa: Freeze to 24.0.x branch
+   * Remove leftovers of version generation in publishing
+   * Use image with buildbox remote asset proxy support
+   * Update libva-utils to 2.22.0-0
+   * Update cryptsetup-base to v2.7.3-0
+   * os-release: Add appstream-minimal to build sandbox
+   * Decommission not-that-reproducible tag version computation
+   * Convert to appstreamcli-compliant NEWS.yml
+   * Update python3-urllib3 to 2.2.2
+   * Update cmake to v3.29.6-0
+   * Update man-pages to man-pages-6.9.1-0
+   * Update python3-tenacity to 8.4.1
+   * Update vim to v9.1.0491-0
+   * Update libwacom to libwacom-2.12.1-0
+   * Update man-pages to man-pages-6.9-0
+   * Update freedesktop-sdk to freedesktop-sdk-22.08.25-0
+   * Update fwupd to 1.9.21-0
+   * Update poppler to poppler-24.06.1-0
+   * Update libfido2 to 1.15.0-0
+   * Update aom to v3.9.1-0
+   * Update eos-metrics to Release_6.0.1-0
+   * Update python3-filelock to 3.15.1
+   * Update alsa-plugins to v1.2.12-0
+   * Update linux-firmware to 20240610-0
+   * Update freeglut to v3.6.0-0
+   * Update cups-base to v2.4.9-0
+---
 Version: freedesktop-sdk-22.08.25
 Date: '2024-06-13'
 Description: |-
