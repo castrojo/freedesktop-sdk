@@ -12,7 +12,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "524196bf5c68d05044045d46bc4971fa51fadead"
+  DOCKER_IMAGE_ID: "f30b2e8a70601743aab685faefa2c1159f7519b7"
 
   # Generic variable for invoking buildstream
   BST: bst --colors
@@ -211,7 +211,14 @@ license_checker:
     - make check-debuginfo
 
     - export FLATPAK_USER_DIR="${PWD}/tmp-flatpak"
-    - make test-apps
+
+    - |
+      # https://github.com/flatpak/flatpak/issues/5045
+      if [ "${ARCH}" = "i686" ]; then
+        make export
+      else
+        make test-apps
+      fi
 
     - |
       ABI_SKIP=$(git log -n 1 | grep -E "\[abi skip\]|\[skip abi\]" || true)
