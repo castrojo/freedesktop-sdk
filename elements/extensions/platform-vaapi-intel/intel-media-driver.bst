@@ -31,4 +31,5 @@ sources:
   track: intel-media-*
   exclude:
   - 'intel-media-*.pre*'
+  - 'intel-media-600.*'
   ref: intel-media-23.2.1-0-g169aa0eedf35720ba1435f40113174b46841240d
