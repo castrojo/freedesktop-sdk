@@ -28,7 +28,7 @@ public:
 sources:
 - kind: git_repo
   url: github:intel/media-driver.git
-  track: intel-media-*
+  track: intel-media-23.*
   exclude:
   - 'intel-media-*.pre*'
   - 'intel-media-600.*'
