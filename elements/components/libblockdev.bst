@@ -7,6 +7,8 @@ depends:
 - components/cryptsetup.bst
 - components/e2fsprogs.bst
 - components/kmod.bst
+- components/json-glib.bst
+- components/libatasmart.bst
 - components/libbytesize.bst
 - components/libnvme.bst
 - components/libyaml.bst
