@@ -10,6 +10,10 @@ depends:
 - components/polkit-gobject.bst
 - components/systemd-libs.bst
 
+variables:
+  meson-local: >-
+    -Dsystemdunit="system"
+
 sources:
 - kind: git_repo
   url: debian_salsa:rousseau/PCSC.git
