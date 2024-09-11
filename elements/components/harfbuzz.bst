@@ -15,6 +15,7 @@ variables:
   meson-local: >-
     -Dcairo=disabled
     -Dchafa=disabled
+    -Dgraphite2=enabled
     -Dtests=disabled
 
   target_flags_exceptions: ''
