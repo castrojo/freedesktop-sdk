@@ -4,18 +4,21 @@ description: GNU less
 depends:
 - filename: bootstrap-import.bst
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/groff.bst
+
+variables:
+  # https://github.com/gwsw/less/blob/v661-rel/README#L35
+  autogen: make -f Makefile.aut distfiles
+
 public:
   cpe:
     vendor: 'gnu'
     version-match: '\d+'
 
-config:
-  configure-commands:
-    (<):
-    # workaround #1649 and https://github.com/python/cpython/issues/108254
-    - chmod +x configure mkinstalldirs
-
 sources:
-- kind: tar
-  url: ftp_gnu_org:less/less-643.tar.gz
-  ref: 2911b5432c836fa084c8a2e68f6cd6312372c026a58faaa98862731c8b6052e8
+- kind: git_repo
+  url: github:gwsw/less.git
+  track: v*-rel
+  ref: v661-rel-0-g55fa179597ceea96bb490817f9160ab29a8e4f11
