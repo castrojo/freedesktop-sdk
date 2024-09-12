@@ -24,13 +24,13 @@ with open(
 ) as md_file:
     for obj in json_data['modules']:
         if 'name' in obj:
-            md_file.write('## {obj["nam"]} \n')
+            md_file.write(f'## {obj["name"]} \n')
         if 'sources' in obj:
             for source in obj['sources']:
                 if source['type'] in ('archive', 'git', 'git_repo'):
-                    md_file.write('  - {source["url"]} \n')
+                    md_file.write(f'  - {source["url"]} \n')
                 if 'sha256' in source:
-                    md_file.write('  - {source["sha256"]} \n')
+                    md_file.write(f'  - {source["sha256"]} \n')
                 if 'commit' in source:
-                    md_file.write('  - {source["commit"]} \n')
+                    md_file.write(f'  - {source["commit"]} \n')
         md_file.write('\n')
