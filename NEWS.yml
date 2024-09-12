@@ -1,3 +1,74 @@
+Version: freedesktop-sdk-24.08.1
+Date: '2024-09-12'
+Description: |-
+  Changes in freedesktop-sdk-24.08.1
+   * linux: Update to 6.10.10
+   * [ABI BREAK] harfbuzz: Enable graphite2
+   * components/pcsc-lite: Install services under system
+   * jsontomd: Use f-strings
+   * Update bluez to 5.78-0
+   * Update linux-firmware to 20240909-0
+   * Update cunit to 3.4.3-0
+   * Update buildbox to 1.2.18-0
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-154
+   * Update iwd to 2.21-0
+   * Update python3-pyasn1 to 0.6.1
+   * Update ell to 0.69-0
+   * Update crun to 1.17-0
+   * Update dictionaries to libreoffice-24.8.1.2-0
+   * Update python3-yarl to v1.11.1-0
+   * ci: Disable building test-apps target on i686
+   * ci: Bump docker image to latest commit
+   * Update xcb-util-image to xcb-util-image-0.4.1-gitlab-0
+   * Update linux to v6.10.9-0
+   * Update vim to v9.1.0722-0
+   * Update reference-abi to freedesktop-sdk-24.08.0-0
+   * Update xcb-util to xcb-util-0.4.1-gitlab-0
+   * Update python3-yarl to v1.11.0-0
+   * .gitlab-ci.yml: Use "riscv-native" in runner tag, not as "ARCH"
+   * Add element for hwdata needed by libdisplay-info
+   * Add element for libdisplay-info
+   * mesa: Rebase clang_res_path patch
+   * python3: Update to v3.12.6
+   * spirv-llvm-translator: Update to 43fb73fe120e854eddc2e1df9b4bfdc1efd92cd5
+   * python3-filelock: Update to 3.16.0
+   * libwacom: Update to 2.13.0
+   * mesa-sdk: Update to 24.2.2
+   * linux: Update to v6.10.8
+   * go-source: Update to 1.23.1
+   * intel-media-driver: Update to 24.3.3
+   * gmmlib: Update to 22.5.1
+   * mesa-sources: Update to 24.2.2
+   * xorg-lib-xi: Update to 1.8.2
+   * xfsprogs: Update to v6.10.1
+   * python3-yarl: Update to v1.10.0
+   * pycairo: Update to v1.27
+   * weston: Update to 14.0.0
+   * wireplumber: Update to 0.5.6
+   * vim: Update to v9.1.0720
+   * tzdata: Update to 2024b
+   * sdl2: Update to release-2.30.7
+   * python3-virtualenv: Update to 20.26.4
+   * python3-setuptools: Update to v74.1.2
+   * python3-cryptography: Update to 43.0.1
+   * python3-cffi: Update to 1.17.1
+   * python3-build: Update to 1.2.2
+   * passt: Update to 2024_09_06.6b38f07
+   * openssl: Update to 3.3.2
+   * nano: Update to v8.2
+   * libevdev: Update to 1.13.3
+   * libbpf: Update to v1.4.6
+   * libabigail: Update to 0a6f55aabcbd03121ddb070ebb10e58e6f6fb64b
+   * iputils: Update to 20240905
+   * geoclue-base: Update to 2.7.2
+   * gamemode-base: Update to 1.8.2
+   * expat: Update to R_2_6_3
+   * cryptsetup-base: Update to v2.7.5
+   * aardvark-dns: Update to v1.12.2
+   * Force NEWS.yml to be written out with unix newlines
+   * Remove entire stanza
+   * test_reproducibility: Pass config to bst correctly
+---
 Version: freedesktop-sdk-24.08.0
 Date: '2024-09-07'
 Description: |-
