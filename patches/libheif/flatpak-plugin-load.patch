@@ -1,0 +1,24 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 041f3b8e..ffd96174 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -67,6 +67,7 @@ LIST (APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/modules")
+ 
+ option(ENABLE_PLUGIN_LOADING "Support loading of plugins" ON)
+ set(PLUGIN_DIRECTORY "${CMAKE_INSTALL_FULL_LIBDIR}/libheif" CACHE STRING "Plugin install directory")
++set(PLUGIN_SEARCH_DIRECTORY "${CMAKE_INSTALL_FULL_LIBDIR}/libheif" CACHE STRING "Plugin search directory")
+ 
+ if (ENABLE_PLUGIN_LOADING)
+     set(PLUGIN_LOADING_SUPPORTED_AND_ENABLED TRUE)
+diff --git a/libheif/api/libheif/heif_version.h.in b/libheif/api/libheif/heif_version.h.in
+index fae2cb81..ddc112d0 100644
+--- a/libheif/api/libheif/heif_version.h.in
++++ b/libheif/api/libheif/heif_version.h.in
+@@ -33,6 +33,6 @@
+ /* Version string */
+ #define LIBHEIF_VERSION "@PROJECT_VERSION_MAJOR@.@PROJECT_VERSION_MINOR@.@PROJECT_VERSION_PATCH@"
+ 
+-#define LIBHEIF_PLUGIN_DIRECTORY "@PLUGIN_DIRECTORY@"
++#define LIBHEIF_PLUGIN_DIRECTORY "@PLUGIN_SEARCH_DIRECTORY@"
+ 
+ #endif  // LIBHEIF_HEIF_VERSION_H
