@@ -23,7 +23,7 @@ config:
     - rm -v "%{install-root}%{prefix}/libheif.so"
     - rm -v "%{install-root}%{prefix}/"libheif.so.*
     - |
-      for f in "%{install-root}%{prefix}/"libheif-{libde265,x265}.so; do
+      for f in "%{install-root}%{prefix}/libheif/"libheif-{libde265,x265}.so; do
         if [ ! -e "${f}" ]; then
            echo "Expected ${f} to be present"
            exit 1

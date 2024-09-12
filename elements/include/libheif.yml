@@ -19,7 +19,8 @@ variables:
 
   cmake-local: >-
     -DENABLE_PLUGIN_LOADING=ON
-    -DPLUGIN_DIRECTORY="/usr/lib/%{gcc_triplet}/ffmpeg"
+    -DPLUGIN_INSTALL_DIRECTORY="/usr/lib/%{gcc_triplet}/ffmpeg/libheif"
+    -DPLUGIN_DIRECTORY="/app/lib/ffmpeg/libheif"
     -DWITH_LIBDE265_PLUGIN="%{libheif-libde265-plugin}"
     -DWITH_X265_PLUGIN="%{libheif-libx265-plugin}"
     -DWITH_DAV1D=ON
@@ -55,3 +56,5 @@ sources:
   exclude:
   - '*rc*'
   ref: v1.18.2-0-gbf35e9eb25af8f2b7917996ad9ba849d922f8d15
+- kind: patch
+  path: patches/libheif/flatpak-plugin-load.patch
