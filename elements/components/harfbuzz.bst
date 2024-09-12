@@ -16,6 +16,7 @@ variables:
     -Dcairo=disabled
     -Dchafa=disabled
     -Dtests=disabled
+    -Dgraphite2=enabled
 
   target_flags_exceptions: ''
 
