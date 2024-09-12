@@ -7,6 +7,8 @@ depends:
 - components/cryptsetup.bst
 - components/e2fsprogs.bst
 - components/kmod.bst
+- components/json-glib.bst
+- components/libatasmart.bst
 - components/libbytesize.bst
 - components/libnvme.bst
 - components/libyaml.bst
@@ -28,4 +30,4 @@ sources:
 - kind: git_repo
   url: github:storaged-project/libblockdev.git
   track: '*.*'
-  ref: 3.1.1-1-0-g68aaff5556afe26be749c29a2b7cbd714dce3050
+  ref: 3.2.0-0-g27881cb6e57eb0146c51d032ea72fbb3cd6bda7e
