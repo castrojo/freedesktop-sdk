@@ -1,6 +1,5 @@
-variables:
-  version_short: "3"
-  version_long: "%{version_short}.12"
+(@):
+- elements/include/python3-variables.yml
 
 sources:
 - kind: git_repo

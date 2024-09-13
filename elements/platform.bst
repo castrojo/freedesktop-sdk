@@ -78,6 +78,7 @@ depends:
 - components/python3.bst
 - components/python3-setuptools.bst
 - components/python3-six.bst
+- components/python3-tkinter.bst
 - components/tar.bst
 - components/sndfile.bst
 - components/sqlite.bst
