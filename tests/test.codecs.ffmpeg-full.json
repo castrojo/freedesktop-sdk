@@ -10,19 +10,19 @@
       "add-ld-path": "."
     }
   },
-  "command": "codec-list.sh",
+  "command": "ffmpeg-test",
   "modules": [
     {
       "name": "codec-list",
       "buildsystem": "simple",
       "build-commands": [
         "mkdir -p /app/lib/ffmpeg",
-        "install -D codec-list.sh /app/bin/codec-list.sh"
+        "install -Dm0755 ffmpeg-test.py /app/bin/ffmpeg-test"
       ],
       "sources": [
         {
           "type": "file",
-          "path": "codec-list.sh"
+          "path": "ffmpeg-test.py"
         }
       ]
     }
