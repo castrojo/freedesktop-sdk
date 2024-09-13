@@ -410,7 +410,6 @@ depends:
 - components/python3-build.bst
 - components/python3-buildstream2.bst
 - components/python3-cachecontrol.bst
-- components/python3-cachy.bst
 - components/python3-calver.bst
 - components/python3-certifi.bst
 - components/python3-cffi.bst
