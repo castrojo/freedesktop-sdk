@@ -475,7 +475,6 @@ depends:
 - components/python3-setuptools-rust.bst
 - components/python3-setuptools-scm.bst
 - components/python3-setuptools.bst
-- components/python3-shellingham.bst
 - components/python3-sitecustomize.bst
 - components/python3-six.bst
 - components/python3-smartypants.bst
