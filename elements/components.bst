@@ -414,7 +414,6 @@ depends:
 - components/python3-cffi.bst
 - components/python3-chardet.bst
 - components/python3-charset-normalizer.bst
-- components/python3-cleo.bst
 - components/python3-click.bst
 - components/python3-clikit.bst
 - components/python3-contextlib2.bst
