@@ -432,7 +432,6 @@ depends:
 - components/python3-hatch-fancy-pypi-readme.bst
 - components/python3-hatch-vcs.bst
 - components/python3-hatchling.bst
-- components/python3-html5lib.bst
 - components/python3-idna.bst
 - components/python3-imagesize.bst
 - components/python3-installer.bst
