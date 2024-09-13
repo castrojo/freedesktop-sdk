@@ -460,7 +460,6 @@ depends:
 - components/python3-pyasn1.bst
 - components/python3-pycparser.bst
 - components/python3-pyelftools.bst
-- components/python3-pyexpect.bst
 - components/python3-pygments.bst
 - components/python3-pyparsing.bst
 - components/python3-pyproject-hooks.bst
