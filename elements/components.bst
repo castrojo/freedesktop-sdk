@@ -466,7 +466,6 @@ depends:
 - components/python3-pyroaring.bst
 - components/python3-pytz.bst
 - components/python3-pyyaml.bst
-- components/python3-requests-toolbelt.bst
 - components/python3-requests.bst
 - components/python3-ruamel-yaml-clib.bst
 - components/python3-ruamel-yaml.bst
