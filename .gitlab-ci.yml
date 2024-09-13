@@ -238,7 +238,7 @@ license_checker:
       if [ "${ARCH}" = "i686" ]; then
         make export
       else
-        make test-apps
+        make test-apps test-codecs
       fi
 
     - |
