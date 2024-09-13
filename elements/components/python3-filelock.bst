@@ -2,7 +2,6 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-hatchling.bst
-- components/python3-hatch-vcs.bst
 
 depends:
 - components/python3.bst
