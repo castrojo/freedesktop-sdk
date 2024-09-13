@@ -3,18 +3,18 @@
   "runtime": "org.freedesktop.Platform",
   "runtime-version": "24.08",
   "sdk": "org.freedesktop.Sdk",
-  "command": "codec-list.sh",
+  "command": "ffmpeg-test",
   "modules": [
     {
       "name": "codec-list",
       "buildsystem": "simple",
       "build-commands": [
-        "install -D codec-list.sh /app/bin/codec-list.sh"
+        "install -Dm0755 ffmpeg-test.py /app/bin/ffmpeg-test"
       ],
       "sources": [
         {
           "type": "file",
-          "path": "codec-list.sh"
+          "path": "ffmpeg-test.py"
         }
       ]
     }
