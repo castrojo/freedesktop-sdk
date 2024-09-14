@@ -7,9 +7,7 @@ depends:
 - components/python3.bst
 
 sources:
-- kind: pypi
-  name: distlib
-  ref:
-    sha256sum: 1530ea13e350031b6312d8580ddb6b27a104275a31106523b8f123787f494f64
-    suffix: 
-      c4/91/e2df406fb4efacdf46871c25cde65d3c6ee5e173b7e5a4547a47bae91920/distlib-0.3.8.tar.gz
+- kind: git_repo
+  url: github:pypa/distlib.git
+  track: "*.*.*"
+  ref: 0.3.8-0-gab5f8e797fbc56a0e3488bba68d05e7a602cb63f

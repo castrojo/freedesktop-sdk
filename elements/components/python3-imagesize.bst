@@ -7,8 +7,7 @@ depends:
 - components/python3.bst
 
 sources:
-- kind: pypi
-  name: imagesize
-  ref:
-    sha256sum: 69150444affb9cb0d5cc5a92b3676f0b2fb7cd9ae39e947a5e11a36b4497cd4a
-    suffix: a7/84/62473fb57d61e31fef6e36d64a179c8781605429fd927b5dd608c997be31/imagesize-1.4.1.tar.gz
+- kind: git_repo
+  url: github:shibukawa/imagesize_py.git
+  track: "*.*.*"
+  ref: 1.4.1-0-g8d88ec6b646d6184b5633604551d6fc154783073

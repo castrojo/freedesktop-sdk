@@ -7,8 +7,7 @@ depends:
 - components/python3.bst
 
 sources:
-- kind: pypi
-  name: sphinxcontrib-jsmath
-  ref:
-    sha256sum: a9925e4a4587247ed2191a22df5f6970656cb8ca2bd6284309578f2153e0c4b8
-    suffix: b2/e8/9ed3830aeed71f17c026a07a5097edcf44b692850ef215b161b8ad875729/sphinxcontrib-jsmath-1.0.1.tar.gz
+- kind: git_repo
+  url: github:sphinx-doc/sphinxcontrib-jsmath.git
+  track: "*.*.*"
+  ref: 1.0.1-0-ge4c69dd2180c7f18330d5c3fb9300ea0e8461911
