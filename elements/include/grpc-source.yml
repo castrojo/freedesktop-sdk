@@ -13,3 +13,5 @@ sources:
   url: github:census-instrumentation/opencensus-proto.git
   path: third_party/opencensus-proto
   ref: 4aa53e15cbf1a47bc9087e6cfdca214c1eea4e89
+- kind: patch
+  path: patches/grpc/absl.patch
