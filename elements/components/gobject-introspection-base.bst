@@ -43,3 +43,7 @@ sources:
   url: gnome:gobject-introspection.git
   track: "*.*[02468].*"
   ref: 1.82.0-0-ge30c00acab2d7216e742d602988c935f787755d4
+- kind: git_module
+  url: gnome:gobject-introspection-tests.git
+  path: gobject-introspection-tests
+  ref: 7adb7396928a0964a9d3ef7626f8d2b9639be50d
