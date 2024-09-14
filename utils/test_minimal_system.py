@@ -118,7 +118,7 @@ async def await_line(stream, marker):
     buf = b""
 
     while not stream.at_eof():
-        chunk = await stream.read(BUFFER_SIZE)
+        chunk = await asyncio.wait_for(stream.read(BUFFER_SIZE), FAILURE_TIMEOUT)
         sys.stdout.buffer.write(chunk)
         buf += chunk
         lines = buf.split(b'\n')
@@ -174,7 +174,7 @@ def main():
         result = asyncio.run(task)
     except asyncio.TimeoutError:
         print(
-            f"Test failed as timeout of {FAILURE_TIMEOUT} seconds was reached.",
+            "VM was considered inresponsive and test was aborted",
             file=sys.stderr
         )
         return 1
