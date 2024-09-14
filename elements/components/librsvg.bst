@@ -5,6 +5,7 @@ depends:
 - components/gdk-pixbuf.bst
 - components/pango.bst
 - components/cairo.bst
+- components/dav1d.bst
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
