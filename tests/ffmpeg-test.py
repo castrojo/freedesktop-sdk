@@ -17,19 +17,26 @@ def get_stdout(command):
 
 def get_codecs():
     output = get_stdout([ffprobe, "-hide_banner", "-codecs"])
-    codecs = {l.group(2): l.group(1) for l in CODECS_REG.finditer(output)}
+    codecs = {l.group(2): (l.group(1), l.group(3)) for l in CODECS_REG.finditer(output)}
     decoders_only = set()
     encoders_only = set()
     decoders_and_encoders = set()
+    codecs_dict = {}
     for codec, desc in codecs.items():
-        if desc[0] == "D" and "E" not in desc:
+        decoders_impl = DECODERS_REG.search(desc[1])
+        encoders_impl = ENCODERS_REG.search(desc[1])
+        codecs_dict[codec] = {
+            "decoders": decoders_impl and decoders_impl.group(1).split(),
+            "encoders": encoders_impl and encoders_impl.group(1).split(),
+        }
+        if desc[0][0] == "D" and "E" not in desc[0]:
             decoders_only.add(codec)
-        if desc[0] == "D" and desc[1] == "E":
+        if desc[0][0] == "D" and desc[0][1] == "E":
             decoders_and_encoders.add(codec)
-        if desc[0] == "." and desc[1] == "E" and "D" not in desc:
+        if desc[0][0] == "." and desc[0][1] == "E" and "D" not in desc[0]:
             encoders_only.add(codec)
 
-    return decoders_only, encoders_only, decoders_and_encoders
+    return decoders_only, encoders_only, decoders_and_encoders, codecs_dict
 
 
 def get_hwaccels():
@@ -40,7 +47,7 @@ def get_hwaccels():
     )
 
 
-dec_only, enc_only, dec_and_enc = get_codecs()
+dec_only, enc_only, dec_and_enc, codecs_dict = get_codecs()
 
 check_hw = {"vdpau", "vaapi", "drm", "vulkan"}
 check_common = {
@@ -75,6 +82,9 @@ assert len(dec_and_enc) > 0
 assert len(dec_only) > 0
 assert len(enc_only) > 0
 assert len(get_hwaccels()) > 0
+assert len(codecs_dict) > 0
+
+# Common to both ffmpeg-full and platform ffmpeg
 
 try:
     assert check_hw.issubset(get_hwaccels())
@@ -88,8 +98,62 @@ except AssertionError as e:
     print(f"check_common != dec_and_enc: {check_common - dec_and_enc}")
     raise e
 
+# Only platform ffmpeg
+
+if os.path.exists("/.flatpak-info") and not os.path.exists("/app/lib/ffmpeg"):
+    try:
+        assert codecs_dict["h264"]["decoders"] == ["libopenh264"]
+    except AssertionError as e:
+        print(f'{codecs_dict["h264"]["decoders"]}')
+        raise e
+    try:
+        assert codecs_dict["h264"]["encoders"] == [
+            "libopenh264",
+            "h264_v4l2m2m",
+            "h264_vaapi",
+        ]
+    except AssertionError as e:
+        print(f'{codecs_dict["h264"]["encoders"]}')
+        raise e
+    try:
+        assert all(x not in dec_and_enc for x in ["hevc", "vvc", "vc1"])
+    except AssertionError as e:
+        print(f"{dec_and_enc}")
+        raise e
+    try:
+        assert all(x not in dec_only for x in ["hevc", "vvc", "vc1"])
+    except AssertionError as e:
+        print(f"{dec_only}")
+        raise e
+    try:
+        assert all(x not in enc_only for x in ["vvc", "vc1"])
+    except AssertionError as e:
+        print(f"{enc_only}")
+        raise e
+    try:
+        assert codecs_dict["hevc"]["encoders"] == ["hevc_v4l2m2m", "hevc_vaapi"]
+    except AssertionError as e:
+        print(f'{codecs_dict["hevc"]["encoders"]}')
+        raise e
+    try:
+        assert codecs_dict["hevc"]["decoders"] is None
+    except AssertionError as e:
+        print(f'{codecs_dict["hevc"]["decoders"]}')
+        raise e
+
+# Only ffmpeg-full extension
 
 if os.path.exists("/.flatpak-info") and os.path.exists("/app/lib/ffmpeg"):
+    try:
+        assert codecs_dict["h264"]["decoders"] == ["h264", "h264_v4l2m2m"]
+    except AssertionError as e:
+        print(f'{codecs_dict["h264"]["decoders"]}')
+        raise e
+    try:
+        assert codecs_dict["h264"]["encoders"] == ["h264_v4l2m2m", "h264_vaapi"]
+    except AssertionError as e:
+        print(f'{codecs_dict["h264"]["encoders"]}')
+        raise e
     try:
         assert check_ext_only.issubset(dec_and_enc)
     except AssertionError as e:
