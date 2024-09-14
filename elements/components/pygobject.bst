@@ -9,6 +9,10 @@ depends:
 - components/libffi.bst
 - components/pycairo.bst
 
+variables:
+  meson-local: >-
+    -Dtests=false
+
 sources:
 - kind: git_repo
   url: gnome:pygobject.git
