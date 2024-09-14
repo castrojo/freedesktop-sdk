@@ -1,4 +1,4 @@
-kind: autotools
+kind: meson
 
 depends:
 - bootstrap-import.bst
@@ -7,7 +7,7 @@ depends:
 - components/cairo.bst
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 - components/rust.bst
 - components/vala.bst
 - components/gtk-doc.bst
@@ -16,9 +16,8 @@ build-depends:
 - components/python3-gi-docgen.bst
 
 variables:
-  conf-local: >-
-    --enable-gtk-doc
-    --enable-vala
+  meson-local: >-
+    -Dtests=false
 
 public:
   bst:
