@@ -237,6 +237,7 @@ test-codecs: $(REPO)
 
 	# Expect full codecs
 	flatpak install -y --arch=$(FLATPAK_ARCH) --user fdo-sdk-test-repo test.codecs.ffmpeg-full
+	flatpak install -y --arch=$(FLATPAK_ARCH) --user fdo-sdk-test-repo test.codecs.no-exts
 	flatpak run test.codecs.ffmpeg-full
 
 	# Expect default codecs
