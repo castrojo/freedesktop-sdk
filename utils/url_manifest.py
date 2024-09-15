@@ -74,12 +74,8 @@ def get_source_locations(sources):
                     'raw_url': raw_cargo_url + rest_of_url,
                     'source_url': base_cargo_url + rest_of_url,
                 })
+        #skip over sources that don't have source URLs, like patch sources
         if source_kind in ['git', 'git_repo', 'git_module', 'ostree', 'tar', 'zip', 'remote', 'pypi']:
-            #skip over sources that don't have source URLs, like patch sources
-            if source_kind in ['tar', 'zip', 'remote', 'ostree', 'pypi']:
-                source_url = source.url
-                raw_url = source.original_url
-
             if source_kind == 'git_repo':
                 source_url = source.translate_url(
                     source.url,
@@ -88,12 +84,16 @@ def get_source_locations(sources):
                 )
                 raw_url = source.url
 
-            if source_kind in ['git', 'git_module']:
+            elif source_kind in ['git', 'git_module']:
                 source_url = source.translate_url(
                     source.original_url,
                     alias_override=None,
                     primary=source.mirror.primary
                 )
+                raw_url = source.original_url
+
+            else:
+                source_url = source.url
                 raw_url = source.original_url
 
             if source_url == raw_url:

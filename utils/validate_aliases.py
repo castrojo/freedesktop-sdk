@@ -21,8 +21,7 @@ parser.add_argument("mirrors", type=yaml_argument)
 
 def mirror_keys(mirrors):
     for item in mirrors["mirrors"]:
-        for alias in item["aliases"]:
-            yield alias
+        yield from item["aliases"]
 
 
 def validate(aliases, mirrors):
