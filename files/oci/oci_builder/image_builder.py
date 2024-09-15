@@ -47,8 +47,7 @@ def extract_docker_image_info(path, index, global_conf, os_value, legacy_parent)
     with open(os.path.join(path, manifest['Config']), 'r', encoding='utf-8') as config_file:
         image_config = json.load(config_file)
     diff_ids = image_config['rootfs']['diff_ids']
-    if 'history' in image_config:
-        history = image_config['history']
+    history = image_config.get('history', [])
 
     layer_descs = []
     layer_files = []
@@ -93,8 +92,7 @@ def extract_oci_image_info(path, index, global_conf, os_value, new_layer, legacy
     with open(os.path.join(path, 'blobs', algo, digest), 'r', encoding='utf-8') as config_file:
         image_config = json.load(config_file)
     diff_ids = image_config['rootfs']['diff_ids']
-    if 'history' in image_config:
-        history = image_config['history']
+    history = image_config.get('history', [])
 
     layer_descs = []
     layer_files = []
