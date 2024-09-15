@@ -49,7 +49,7 @@ def get_hwaccels():
 
 dec_only, enc_only, dec_and_enc, codecs_dict = get_codecs()
 
-check_hw = {"vdpau", "vaapi", "drm", "vulkan"}
+check_hw = {"vdpau", "vaapi", "vulkan"}
 check_common = {
     "y41p",
     "h264",
