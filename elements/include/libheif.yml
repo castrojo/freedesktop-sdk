@@ -19,8 +19,8 @@ variables:
 
   cmake-local: >-
     -DENABLE_PLUGIN_LOADING=ON
-    -DPLUGIN_DIRECTORY="/usr/lib/%{gcc_triplet}/ffmpeg/libheif"
-    -DPLUGIN_SEARCH_DIRECTORY="/app/lib/ffmpeg/libheif"
+    -DPLUGIN_INSTALL_DIRECTORY="/usr/lib/%{gcc_triplet}/ffmpeg/libheif"
+    -DPLUGIN_DIRECTORY="/app/lib/ffmpeg/libheif"
     -DWITH_LIBDE265_PLUGIN="%{libheif-libde265-plugin}"
     -DWITH_X265_PLUGIN="%{libheif-libx265-plugin}"
     -DWITH_DAV1D=ON

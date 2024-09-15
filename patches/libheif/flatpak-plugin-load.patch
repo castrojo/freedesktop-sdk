@@ -1,24 +1,50 @@
+From 3a043d97ce65773eef7473e26f89f71cb86a1808 Mon Sep 17 00:00:00 2001
+From: Dirk Farin <dirk.farin@gmail.com>
+Date: Fri, 13 Sep 2024 00:12:59 +0200
+Subject: [PATCH] add option to set plugin install directory independently from
+ search path (#1307)
+
+---
+ CMakeLists.txt                 | 12 ++++++++++--
+ libheif/plugins/CMakeLists.txt |  2 +-
+ 2 files changed, 11 insertions(+), 3 deletions(-)
+
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 041f3b8e..ffd96174 100644
+index 041f3b8e7e..d5ac5c66a8 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -67,6 +67,7 @@ LIST (APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/modules")
+@@ -66,11 +66,19 @@ LIST (APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/modules")
+ # --- codec plugins
  
  option(ENABLE_PLUGIN_LOADING "Support loading of plugins" ON)
- set(PLUGIN_DIRECTORY "${CMAKE_INSTALL_FULL_LIBDIR}/libheif" CACHE STRING "Plugin install directory")
-+set(PLUGIN_SEARCH_DIRECTORY "${CMAKE_INSTALL_FULL_LIBDIR}/libheif" CACHE STRING "Plugin search directory")
+-set(PLUGIN_DIRECTORY "${CMAKE_INSTALL_FULL_LIBDIR}/libheif" CACHE STRING "Plugin install directory")
++set(PLUGIN_DIRECTORY "${CMAKE_INSTALL_FULL_LIBDIR}/libheif" CACHE STRING "Plugin directory")
++set(PLUGIN_INSTALL_DIRECTORY "" CACHE STRING "Plugin install directory (leaving it empty will use PLUGIN_DIRECTORY)")
  
  if (ENABLE_PLUGIN_LOADING)
      set(PLUGIN_LOADING_SUPPORTED_AND_ENABLED TRUE)
-diff --git a/libheif/api/libheif/heif_version.h.in b/libheif/api/libheif/heif_version.h.in
-index fae2cb81..ddc112d0 100644
---- a/libheif/api/libheif/heif_version.h.in
-+++ b/libheif/api/libheif/heif_version.h.in
-@@ -33,6 +33,6 @@
- /* Version string */
- #define LIBHEIF_VERSION "@PROJECT_VERSION_MAJOR@.@PROJECT_VERSION_MINOR@.@PROJECT_VERSION_PATCH@"
+-    install(DIRECTORY DESTINATION ${PLUGIN_DIRECTORY} DIRECTORY_PERMISSIONS
++
++    if (PLUGIN_INSTALL_DIRECTORY STREQUAL "")
++        set(COMPUTED_PLUGIN_INSTALL_DIRECTORY ${PLUGIN_DIRECTORY})
++    else ()
++        set(COMPUTED_PLUGIN_INSTALL_DIRECTORY ${PLUGIN_INSTALL_DIRECTORY})
++    endif ()
++
++    install(DIRECTORY DESTINATION ${COMPUTED_PLUGIN_INSTALL_DIRECTORY} DIRECTORY_PERMISSIONS
+         OWNER_WRITE OWNER_READ OWNER_EXECUTE
+         GROUP_READ GROUP_EXECUTE
+         WORLD_READ WORLD_EXECUTE)
+diff --git a/libheif/plugins/CMakeLists.txt b/libheif/plugins/CMakeLists.txt
+index 58418d9983..18e4bdb158 100644
+--- a/libheif/plugins/CMakeLists.txt
++++ b/libheif/plugins/CMakeLists.txt
+@@ -22,7 +22,7 @@ macro(plugin_compilation name varName foundName optionName defineName)
+             target_link_libraries(heif-${name} PRIVATE ${${varName}_LIBRARIES} heif)
  
--#define LIBHEIF_PLUGIN_DIRECTORY "@PLUGIN_DIRECTORY@"
-+#define LIBHEIF_PLUGIN_DIRECTORY "@PLUGIN_SEARCH_DIRECTORY@"
- 
- #endif  // LIBHEIF_HEIF_VERSION_H
+             install(TARGETS heif-${name}
+-                    LIBRARY DESTINATION ${PLUGIN_DIRECTORY}
++                    LIBRARY DESTINATION ${COMPUTED_PLUGIN_INSTALL_DIRECTORY}
+                     )
+         else ()
+             message("Compiling '" ${name} "' as built-in backend")
