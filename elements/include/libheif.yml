@@ -58,3 +58,5 @@ sources:
   ref: v1.18.2-0-gbf35e9eb25af8f2b7917996ad9ba849d922f8d15
 - kind: patch
   path: patches/libheif/flatpak-plugin-load.patch
+- kind: patch
+  path: patches/libheif/disable-werror.patch
