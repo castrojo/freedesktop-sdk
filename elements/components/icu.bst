@@ -4,7 +4,7 @@ depends:
 - bootstrap-import.bst
 
 build-depends:
-- components/python3.bst
+- components/python3-minimal.bst
 
 config:
   configure-commands:

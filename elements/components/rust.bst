@@ -9,7 +9,7 @@ depends:
 build-depends:
 - components/rust-stage1.bst
 - public-stacks/buildsystem-cmake.bst
-- components/python3.bst
+- components/python3-minimal.bst
 
 variables:
   optimize-debug: "false"
