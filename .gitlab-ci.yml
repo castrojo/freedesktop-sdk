@@ -429,6 +429,7 @@ minimal_systemd_vm_x86_64:
   variables:
     VM_ARTIFACT_BOOT: vm/boot/virt.bst
     VM_ARTIFACT_FILESYSTEM: vm/minimal/virt.bst
+    VM_MACHINE_ID: a1b2c3d4-e5f6-7890-abcd-ef1234567890
     DIALOG: root-login
   needs:
     - job: app_x86_64
@@ -442,6 +443,7 @@ minimal_systemd_vm_aarch64:
   variables:
     VM_ARTIFACT_BOOT: vm/boot/virt.bst
     VM_ARTIFACT_FILESYSTEM: vm/minimal/virt.bst
+    VM_MACHINE_ID: a1b2c3d4-e5f6-7890-abcd-ef1234567890
     DIALOG: root-login
   allow_failure: true
   needs:

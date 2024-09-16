@@ -18,6 +18,7 @@ VM_CHECKOUT_ROOT=checkout/$(ARCH)
 VM_ARTIFACT_FILESYSTEM?=vm/minimal/virt.bst
 VM_ARTIFACT_BOOT?=vm/boot/virt.bst
 VM_ARTIFACT_IMAGE?=vm/minimal/efi.bst
+VM_MACHINE_ID?=
 RUNTIME_VERSION?=master
 ifeq ($(RUNTIME_VERSION),master)
 TARGET_BRANCH=master
@@ -120,6 +121,11 @@ QEMU_COMMON_ARGS=										\
 	-smp 4											\
 	-object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0	\
 	-nographic
+
+ifdef VM_MACHINE_ID
+QEMU_COMMON_ARGS += 								\
+	-uuid $(VM_MACHINE_ID)
+endif
 
 QEMU_VIRTFS_ARGS=													\
 	-kernel $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/vmlinuz								\
