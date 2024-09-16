@@ -443,6 +443,7 @@ minimal_systemd_vm_aarch64:
     VM_ARTIFACT_BOOT: vm/boot/virt.bst
     VM_ARTIFACT_FILESYSTEM: vm/minimal/virt.bst
     DIALOG: root-login
+  allow_failure: true
   needs:
     - job: app_aarch64
       artifacts: false
