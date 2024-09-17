@@ -7,6 +7,10 @@ build-depends:
 depends:
 - bootstrap-import.bst
 
+variables:
+  meson-local: >-
+    -Dfuse=disabled
+
 sources:
 - kind: git_repo
   url: github:containers/composefs.git
