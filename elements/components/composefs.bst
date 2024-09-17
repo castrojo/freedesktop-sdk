@@ -6,6 +6,8 @@ build-depends:
 
 depends:
 - bootstrap-import.bst
+- components/openssl.bst
+- components/fuse3.bst
 
 sources:
 - kind: git_repo
