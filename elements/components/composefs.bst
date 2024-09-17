@@ -2,6 +2,7 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- components/go-md2man.bst
 
 depends:
 - bootstrap-import.bst
