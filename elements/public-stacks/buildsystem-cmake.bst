@@ -1,7 +1,8 @@
 kind: stack
 
 depends:
-- filename: components/cmake.bst
-- filename: components/gettext.bst
-- filename: components/ninja.bst
-- filename: components/pkg-config.bst
+- public-stacks/buildsystem-make.bst
+- components/cmake.bst
+- components/gettext.bst
+- components/ninja.bst
+- components/pkg-config.bst

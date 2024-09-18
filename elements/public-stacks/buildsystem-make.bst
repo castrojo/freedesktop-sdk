@@ -14,7 +14,6 @@ depends:
 - bootstrap/file.bst
 - bootstrap/findutils.bst
 - bootstrap/gawk.bst
-- bootstrap/gcc.bst
 - bootstrap/glibc.bst
 - bootstrap/gnu-config.bst
 - bootstrap/grep.bst
@@ -29,3 +28,5 @@ depends:
 - bootstrap/utf-locale.bst
 - bootstrap/zlib.bst
 - bootstrap/libxcrypt.bst
+- components/gcc.bst
+
