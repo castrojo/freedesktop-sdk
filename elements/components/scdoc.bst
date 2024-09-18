@@ -14,5 +14,5 @@ variables:
 sources:
 - kind: git_repo
   track: '*.*.*'
-  url: sourcehut:~sircmpwn/scdoc
+  url: sourcehut:sircmpwn/scdoc
   ref: 1.11.3-0-g0528bcb993cac6c412acd3ae2e09539e994c0a59
