@@ -24,4 +24,4 @@ sources:
 - kind: git_repo
   url: kernel:utils/dtc/dtc.git
   track: v*
-  ref: v1.7.0-0-g039a99414e778332d8f9c04cbd3072e1dcc62798
+  ref: v1.7.1-0-g99031e3a4a6e479466ae795790b44727434ca27d
