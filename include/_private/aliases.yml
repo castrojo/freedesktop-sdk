@@ -16,7 +16,8 @@ github: https://github.com/
 gitlab: https://gitlab.com/
 gnome: https://gitlab.gnome.org/GNOME/
 gnupg: https://dev.gnupg.org/source/
-sourcehut: https://git.sr.ht/
+# The ~ here is intentional, as our mirrors can't have ~ in their name
+sourcehut: https://git.sr.ht/~
 kitware: https://gitlab.kitware.com/cmake/
 kernel: https://git.kernel.org/pub/scm/
 liburcu: https://git.liburcu.org/
