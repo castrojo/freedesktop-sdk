@@ -15,6 +15,10 @@ runtime-depends:
 (@):
 - elements/include/python3-variables.yml
 
+variables:
+  # Upstream default is -O3 and we should not override this
+  local_flags: "-O3"
+
 config:
   exclude:
   - tkinter

@@ -14,3 +14,6 @@ variables:
   conf-local: >-
     --enable-static
     --disable-shared
+
+  # Upstream default is -O3 and we should not override this
+  local_flags: "-O3"
