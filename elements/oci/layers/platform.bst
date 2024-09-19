@@ -1,9 +1,7 @@
 kind: compose
 
 build-depends:
-- platform.bst
-- components/os-release.bst
-- integration/ldconfig.bst
+- oci/layers/platform-stack.bst
 
 config:
   exclude:

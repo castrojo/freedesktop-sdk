@@ -1,8 +1,7 @@
 kind: compose
 
-depends:
-- filename: bootstrap-import.bst
-  type: build
+build-depends:
+- oci/layers/bootstrap-stack.bst
 
 config:
   exclude:

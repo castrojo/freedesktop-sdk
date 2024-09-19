@@ -1,7 +1,7 @@
 kind: collect_initial_scripts
 
 build-depends:
-- bootstrap-import.bst
+- oci/layers/bootstrap-stack.bst
 
 config:
   path: /initial_scripts

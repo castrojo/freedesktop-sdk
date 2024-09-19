@@ -2,7 +2,6 @@ kind: compose
 
 build-depends:
 - oci/layers/flatpak-stack.bst
-- integration/ldconfig.bst
 
 config:
   exclude:
