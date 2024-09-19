@@ -26,6 +26,9 @@ variables:
     --with-lto \
     --with-conf-includedir="%{includedir}/%{gcc_triplet}"
 
+  # Upstream default is -O3 and we should not override this
+  local_flags: "-O3"
+
 config:
   install-commands:
   - |
