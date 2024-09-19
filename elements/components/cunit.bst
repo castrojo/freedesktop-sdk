@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: gitlab:cunity/cunit.git
   track: '*.*.*'
-  ref: 3.4.3-0-gab1c558dcd452983a67903fb4bde1dfbedab86ea
+  ref: 3.4.4-0-gdba8150c5ea350a960bb9126c8d1aa589e42832e
