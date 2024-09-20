@@ -13,7 +13,7 @@ variables:
   - target_arch == "x86_64":
       board: qemu-x86_64
   - target_arch == "aarch64":
-      board: qemu-arm64
+      board: qemu_arm64
   - target_arch == "riscv64":
       board: qemu-riscv64_smode
 
