@@ -14,6 +14,7 @@ depends:
 variables:
   meson-local: >-
     -Dauto_features=disabled
+    -Dglib_debug=disabled
 
 public:
   bst:
