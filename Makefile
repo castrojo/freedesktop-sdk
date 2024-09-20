@@ -291,7 +291,10 @@ clean-test:
 	rm -rf .flatpak-builder/
 	rm -rf runtime/
 
-clean: clean-repo clean-runtime clean-test clean-vm clean-efi-vm
+clean-oci:
+	rm -f debug-oci.tar flatpak-oci.tar platform-oci.tar sdk-oci.tar toolbox-oci.tar
+
+clean: clean-repo clean-runtime clean-test clean-vm clean-efi-vm clean-oci
 
 export-snap:
 	bst $(ARCH_OPTS) build "snap-images/images.bst"
@@ -480,7 +483,7 @@ secure-images-serve: secure-images/SHA256SUMS
 	python3 -m http.server 8080 --directory secure-images
 
 .PHONY:									\
-	build check-dev-files clean clean-test clean-repo clean-runtime	\
+	build check-dev-files clean clean-oci clean-test clean-repo clean-runtime	\
 	export test-apps manifest markdown-manifest check-rpath		\
 	build-tar export-tar clean-vm build-vm run-vm export-snap	\
 	export-oci export-docker bootstrap test-codecs			\
