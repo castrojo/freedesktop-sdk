@@ -8,6 +8,7 @@ depends:
 
 variables:
   conf-local: >-
+    runstatedir=/run
     --without-python
     --without-python3
     --without-golang
