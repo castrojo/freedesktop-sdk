@@ -16,6 +16,9 @@ depends:
 variables:
   install-conf: COMPILEALL_OPTS=-j1  # Used for deterministic compiling
 
+  # Upstream default is -O3 and we should not override this
+  local_flags: "-O3"
+
 config:
   install-commands:
   - |
