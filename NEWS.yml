@@ -1,3 +1,98 @@
+Version: freedesktop-sdk-24.08.2
+Date: '2024-09-21'
+Description: |-
+  Changes in freedesktop-sdk-24.08.2
+   * Update curl to curl-8_10_1-0
+   * Update meson to 1.5.2-0
+   * Update openssh to V_9_9_P1-0
+   * Update ostree to v2024.8-0
+   * Update btrfs-progs to v6.11-0
+   * Update glib to 2.82.1-0
+   * glib: Disable debug explicitly also in stage1 glib
+   * mesa-sources: Remove obsolete patch
+   * Update mesa to mesa-24.2.3-0
+   * Update libeconf to v0.7.3-0
+   * Update libxml2 to v2.13.4-0
+   * Update pipewire-base to 1.2.4-0
+   * Update cunit to 3.4.4-0
+   * Fix issue templates
+   * Update gawk to gawk-5.3.1-0
+   * Update python3-idna to v3.10-0
+   * Update mesa-sdk to mesa-24.2.3-0
+   * Update python3-protobuf to 5.28.2
+   * Update protobuf to v28.2-0
+   * vm-test: Support using fixed machine-id
+   * {libseat,scdoc}: move ~ to the alias definition
+   * composefs: Disable fuse explicitly as it is an auto feature
+   * composefs: Build man pages
+   * composefs: Switch to meson
+   * Update composefs to v1.0.6-0
+   * Update git to v2.46.1-0
+   * Update dtc to v1.7.1-0
+   * Update python3-virtualenv to 20.26.5-0
+   * Update python3-filelock to 3.16.1-0
+   * check-abi: Suppress abi change in libc
+   * Update glibc to glibc-2.40-36
+   * Update python3-setuptools to v75.1.0-0
+   * Update go-md2man to v2.0.5-0
+   * Update buildbox to 1.2.20-0
+   * Update orc to 0.4.40-0
+   * Update json-c to json-c-0.18-20240915-0
+   * Update vim to v9.1.0733-0
+   * Update strace to v6.11-0
+   * Update python3-setuptools to v75.0.0-0
+   * Update linux to v6.11-0
+   * Update gsettings-desktop-schemas to 47.1-0
+   * Update libabigail to libabigail-2.5-108
+   * Update iproute2 to v6.11.0-0
+   * Convert python packages to use git sources
+   * libheif: Replace with upstream provided patch
+   * Provide hatch-vcs in buildsystem-python-hatchling
+   * tests: Add postive, negative and codec implementation tests
+   * Add a test to check common ffmpeg codec support is present
+   * ci: Actually install test.codecs.no-exts before running
+   * ci: Run test-codecs
+   * tests: Add a small test to check libheif plugin paths
+   * libheif: Disable werror via patch
+   * ffmpeg: Add patch to fix build with libx265 4.0
+   * Update libx265 to 4.0-0
+   * ci: Allow aarch64 minimal systemd vm jobs to fail
+   * Make VM test have timeouts between read chunks instead of global timeout
+   * Update iso-codes to v4.17.0-0
+   * Update tk to core-8-6-15-0
+   * Update libpng to v1.6.44-0
+   * Update at-spi2-core to AT_SPI2_CORE_2_54_0-0
+   * Update flat-manager-client-base to 0.4.3.3-0
+   * Update jpeg to 3.0.4-0
+   * Update buildbox to 1.2.19-0
+   * python3-grpcio: add patch to fix linking to abseil
+   * python3-grpcio: build with system abseil and c-ares
+   * grpc: Fix warning about abseil
+   * grpc: Build c-ares separately from grpc and update to 1.33.1
+   * Update reference-abi to freedesktop-sdk-24.08.1-0
+   * Update extra-cmake-modules to v6.6.0-0
+   * Update python3-trove-classifiers to 2024.9.12-0
+   * pygobject: Disable tests
+   * gobject-introspection-base: Add submodule
+   * gobject-introspection-base: Remove applied patches
+   * Update gobject-introspection-base to 1.82.0-0
+   * Update shaderc to v2024.2-0
+   * Update pygobject to 3.50.0-0
+   * Update python3-pytz to 2024.2
+   * Update python3-multidict to 6.1.0
+   * python3-urllib3: Add build dependency on hatch-vcs
+   * Update python3-urllib3 to 2.2.3-0
+   * Update gnupg to gnupg-2.5.1-0
+   * curl: Add CURLINFO_LASTONE to suppressed enumerator values
+   * Update curl to curl-8_10_0-0
+   * Update iwd to 2.22-0
+   * Update python3-pyasn1-modules to 0.4.1
+   * Update protobuf to v28.1-0
+   * Update systemd to v256.6-0
+   * Update python3-protobuf to 5.28.1
+   * libblockdev: Add dependency on json-glib and libatasmart
+   * Update libblockdev to 3.2.0-0
+---
 Version: freedesktop-sdk-24.08.1
 Date: '2024-09-12'
 Description: |-
