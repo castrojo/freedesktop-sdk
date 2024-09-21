@@ -6,10 +6,14 @@ build-depends:
 - bootstrap/stripper.bst
 
 depends:
-- public-stacks/runtime-minimal.bst
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/gawk.bst
+- bootstrap/glibc.bst
 - bootstrap/grep.bst
 - bootstrap/sed.bst
+- bootstrap/symlinks.bst
+- components/utf-locale.bst
 - components/m4.bst
 - components/perl.bst
 

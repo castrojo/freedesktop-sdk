@@ -10,7 +10,11 @@ build-depends:
 - components/m4.bst
 
 depends:
-- public-stacks/runtime-minimal.bst
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
+- bootstrap/glibc.bst
+- bootstrap/symlinks.bst
+- components/utf-locale.bst
 - components/perl.bst
 
 sources:
