@@ -3,6 +3,7 @@ kind: pip
 build-depends:
 - public-stacks/buildsystem-python.bst
 - components/python3-hatchling.bst
+- components/python3-hatch-vcs.bst
 
 depends:
 - components/python3.bst
