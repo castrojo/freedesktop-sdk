@@ -6,7 +6,7 @@ variables:
   GET_SOURCES_ATTEMPTS: 3
   RUNTIME_VERSION: '22.08'
   STABLE_ABI: 'true'
-  EXPIRED: '0'
+  EXPIRED: '1'
   MAX_MERGE_REQUESTS: '4'
 
   # Docker Images
