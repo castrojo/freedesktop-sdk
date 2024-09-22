@@ -1,3 +1,116 @@
+Version: freedesktop-sdk-23.08.23
+Date: '2024-09-22'
+Description: |-
+  Changes in freedesktop-sdk-23.08.23
+   * Update openssh to V_9_9_P1-0
+   * Update meson-mesa to 1.5.2-0
+   * Update ostree to v2024.8-0
+   * Update ghostscript to ghostpdl-10.04.0-0
+   * mesa-sources: Remove obsolete patch
+   * Update mesa to mesa-24.2.3-0
+   * Update curl to curl-8_10_1-0
+   * Update mesa-sdk to mesa-24.2.3-0
+   * Fix issue templates
+   * Update gawk to gawk-5.3.1-0
+   * Update cunit to 3.4.4-0
+   * Update python3-protobuf to 5.28.2
+   * Update protobuf to v28.2-0
+   * Update btrfs-progs to v6.11-0
+   * vm-test: Support using fixed machine-id
+   * {libseat,scdoc}: move ~ to the alias definition
+   * Update linux to v6.11-0
+   * Update gsettings-desktop-schemas to 47.1-0
+   * Update libabigail to libabigail-2.5-108
+   * Update python3-filelock to 3.16.1
+   * Update buildbox to 1.2.20-0
+   * Update python3-virtualenv to 20.26.5-0
+   * Update go-md2man to v2.0.5-0
+   * Update iproute2 to v6.11.0-0
+   * composefs: Disable fuse explicitly as it is an auto feature
+   * composefs: Build man pages
+   * composefs: Switch to meson
+   * Update composefs to v1.0.6-0
+   * Update curl to curl-8_10_0-0
+   * Update python3-idna to 3.10
+   * Update dtc to v1.7.1-0
+   * Update strace to v6.11-0
+   * Update json-c to json-c-0.18-20240915-0
+   * Update git to v2.46.1-0
+   * Update cunit to 3.4.3-0
+   * Update eos-metrics to Release_6.0.3-0
+   * Update vim to v9.1.0733-0
+   * Update glibc to glibc-2.38-103
+   * Make VM test have timeouts between read chunks instead of global timeout
+   * ci: Allow aarch64 minimal systemd vm jobs to fail
+   * Update linux to v6.10.10-0
+   * Update jpeg to 3.0.4-0
+   * Update python3-protobuf to 5.28.1
+   * Update extra-cmake-modules to v6.6.0-0
+   * Update flat-manager-client-base to 0.4.3.3-0
+   * Update python3-pytz to 2024.2
+   * tests: Adjust hwaccels list for 23.08
+   * python3-urllib3: Update to to 2.2.3
+   * Provide hatch-vcs in buildsystem-python-hatchling
+   * tests: Add postive, negative and codec implementation tests
+   * Add a test to check common ffmpeg codec support is present
+   * ci: Actually install test.codecs.no-exts before running
+   * ci: Run test-codecs
+   * Update libpng to v1.6.44-0
+   * Update bluez to 5.78-0
+   * Update iso-codes to v4.17.0-0
+   * Update pygobject to 3.50.0-0
+   * Update buildbox to 1.2.19-0
+   * Update xcb-util to xcb-util-0.4.1-gitlab-0
+   * Update eos-updater to Release_6.0.3-0
+   * Update python3-pyasn1-modules to 0.4.1
+   * Update iwd to 2.22-0
+   * Update systemd to v254.18-0
+   * Update python3-trove-classifiers to 2024.9.12-0
+   * Update protobuf to v28.1-0
+   * Update python3-multidict to 6.1.0
+   * Update ell to 0.69-0
+   * libblockdev: Add dependency on json-glib and libatasmart
+   * Update libblockdev to 3.2.0-0
+   * Update shaderc to v2024.2-0
+   * Update xcb-util-image to xcb-util-image-0.4.1-gitlab-0
+   * Update iwd to 2.21-0
+   * jsontomd: Use f-strings
+   * Update dictionaries to libreoffice-24.8.1.2-0
+   * Update reference-abi to freedesktop-sdk-23.08.22-0
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-154
+   * Update buildbox to 1.2.18-0
+   * Update python3-yarl to v1.11.1-0
+   * Update python3-pyasn1 to 0.6.1
+   * Update linux-firmware to 20240909-0
+   * Update crun to 1.17-0
+   * Add element for hwdata needed by libdisplay-info
+   * Add element for libdisplay-info
+   * Update weston to 14.0.0-0
+   * ci: Disable building test-apps target on i686
+   * ci: Bump docker image to latest commit
+   * intel-media-driver: Freeze to 23.x.y
+   * Update python3 to v3.11.10-0
+   * Update xorg-lib-xi to libXi-1.8.2-0
+   * Update iputils to 20240905-0
+   * Update linux to v6.10.9-0
+   * mesa: Rebase clang_res_path patch
+   * gmmlib: Update to 22.5.1
+   * mesa-sdk: Update to 24.2.2
+   * mesa: Update to 24.2.2
+   * xfsprogs: Update to v6.10.1
+   * vim: Update to v9.1.0722
+   * tzdata: Update to 2024b
+   * python3-yarl: Update to v1.11.0
+   * python3-virtualenv: Update to 20.26.4
+   * python3-filelock: Update to 3.16.0
+   * python3-cryptography: Update to 43.0.1
+   * python3-build: Update to 1.2.2
+   * pycairo: Update to 1.27.0
+   * passt: Update to 2024_09_06.6b38f07
+   * nano: Update to v8.2
+   * libabigail: Update to 0a6f55aabcbd03121ddb070ebb10e58e6f6fb64b
+   * cryptsetup-base: Update to v2.7.5
+---
 Version: freedesktop-sdk-23.08.22
 Date: |-
   Changes in freedesktop-sdk-23.08.22
