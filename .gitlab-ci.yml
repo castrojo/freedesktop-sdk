@@ -85,6 +85,14 @@ pylint:
     - schedules
   needs: []
 
+validate-news:
+  stage: flatpak
+  script:
+    - python utils/news_validator.py validate --path NEWS.yml
+  except:
+    - schedules
+  needs: []
+
 .check_update_elements:
   stage: update
   variables:
