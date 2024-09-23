@@ -21,7 +21,7 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libxcb-util.git
   track: xcb-util-*
-  ref: xcb-util-0.4.1-0-g3a157762578a2e4253a7cb40d2854a3444d5a9df
+  ref: xcb-util-0.4.1-gitlab-0-gbffd8df1725c0fae9105a097e75b466e2f49d7bd
 - kind: git_module
   path: m4
   url: freedesktop:xorg/util/xcb-util-m4.git
