@@ -3386,6 +3386,8 @@ Description: |-
 ---
 Version: freedesktop-sdk-22.08beta.1
 Date: '2022-06-27'
+Description: |-
+  Changes in freedesktop-sdk-22.08beta.1
 ---
 Version: freedesktop-sdk-21.08rc.1
 Date: '2021-08-12'
@@ -3534,54 +3536,88 @@ Description: |-
 ---
 Version: freedesktop-sdk-21.08beta.1
 Date: '2021-07-11'
+Description: |-
+  Changes in freedesktop-sdk-21.08beta.1
 ---
 Version: freedesktop-sdk-20.08.0
 Date: '2020-08-31'
+Description: |-
+  Changes in freedesktop-sdk-20.08.0
 ---
 Version: freedesktop-sdk-20.08rc.2
 Date: '2020-08-23'
+Description: |-
+  Changes in freedesktop-sdk-20.08rc.2
 ---
 Version: freedesktop-sdk-20.08rc.1
 Date: '2020-08-15'
+Description: |-
+  Changes in freedesktop-sdk-20.08rc.1
 ---
 Version: freedesktop-sdk-20.08beta.6
 Date: '2020-08-10'
+Description: |-
+  Changes in freedesktop-sdk-20.08beta.6
 ---
 Version: freedesktop-sdk-20.08beta.5
 Date: '2020-07-27'
+Description: |-
+  Changes in freedesktop-sdk-20.08beta.5
 ---
 Version: freedesktop-sdk-20.08beta.4
 Date: '2020-07-24'
+Description: |-
+  Changes in freedesktop-sdk-20.08beta.4
 ---
 Version: freedesktop-sdk-20.08beta.3
 Date: '2020-07-13'
+Description: |-
+  Changes in freedesktop-sdk-20.08beta.3
 ---
 Version: freedesktop-sdk-20.08beta.2
 Date: '2020-07-07'
+Description: |-
+  Changes in freedesktop-sdk-20.08beta.2
 ---
 Version: freedesktop-sdk-20.08beta.1
 Date: '2020-06-30'
+Description: |-
+  Changes in freedesktop-sdk-20.08beta.1
 ---
 Version: freedesktop-sdk-19.08.11
 Date: '2020-06-01'
+Description: |-
+  Changes in freedesktop-sdk-19.08.11
 ---
 Version: freedesktop-sdk-19.08.10
 Date: '2020-05-02'
+Description: |-
+  Changes in freedesktop-sdk-19.08.10
 ---
 Version: freedesktop-sdk-19.08.9
 Date: '2020-03-19'
+Description: |-
+  Changes in freedesktop-sdk-19.08.9
 ---
 Version: freedesktop-sdk-19.08.8
 Date: '2020-03-03'
+Description: |-
+  Changes in freedesktop-sdk-19.08.8
 ---
 Version: freedesktop-sdk-19.08.7
 Date: '2020-02-05'
+Description: |-
+  Changes in freedesktop-sdk-19.08.7
 ---
 Version: freedesktop-sdk-19.08.6
 Date: '2020-01-14'
+Description: |-
+  Changes in freedesktop-sdk-19.08.6
 ---
 Version: freedesktop-sdk-19.08.5
 Date: '2019-12-09'
+Description: |-
+  Changes in freedesktop-sdk-19.08.5
 ---
 Version: freedesktop-sdk-19.08.4
 Date: '2019-11-20'
@@ -3799,12 +3835,18 @@ Description: |-
 ---
 Version: freedesktop-sdk-19.08beta.2
 Date: '2019-07-25'
+Description: |-
+  Changes in freedesktop-sdk-19.08beta.2
 ---
 Version: freedesktop-sdk-19.08beta.1.1
 Date: '2019-07-13'
+Description: |-
+  Changes in freedesktop-sdk-19.08beta.1.1
 ---
 Version: freedesktop-sdk-19.08beta.1
 Date: '2019-07-12'
+Description: |-
+  Changes in freedesktop-sdk-19.08beta.1
 ---
 Version: freedesktop-sdk-19.08beta.0
 Date: '2019-06-23'
