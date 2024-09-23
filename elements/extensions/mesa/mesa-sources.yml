@@ -5,7 +5,7 @@ sources:
   exclude:
   - '*rc*'
   - '*branchpoint*'
-  ref: mesa-24.2.2-0-g3f77b0ded932156d6f5920d845276688ecd61ea4
+  ref: mesa-24.2.3-0-gb235da6781a0ae85b694e848158eefaefc9ce0d1
 # Rust dependencies:
 - kind: tar
   directory: subprojects/packagecache/syn-2.0.68
@@ -70,5 +70,3 @@ sources:
   # Patches need to be last so non-applying patches won't block updates
 - kind: patch
   path: patches/mesa/clang_res_path.patch
-- kind: patch
-  path: patches/mesa/rusticl-rust-bindgen0_70.patch
