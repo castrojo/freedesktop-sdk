@@ -64,12 +64,9 @@ def generate_changelog(previous_tag, git_dir):
 def maybe_push(push, git_dir, message, remote, stable_branch, news_branch):
     push_args = [
         "push",
-        "-o",
-        "merge_request.create",
-        "-o",
-        f"merge_request.target={stable_branch}",
-        "-o",
-        f"merge_request.title=Draft: {message}",
+        "--push-option=merge_request.create",
+        f"--push-option=merge_request.target={stable_branch}",
+        f"--push-option=merge_request.title=Draft: {message}",
         remote,
         news_branch,
     ]
