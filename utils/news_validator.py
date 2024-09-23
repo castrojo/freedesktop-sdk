@@ -10,13 +10,6 @@ import ruamel.yaml
 FD_SDK_TAG_FORMAT = r"^freedesktop-sdk-\d{2}\.08(?:beta|rc)?\.\d+(?:\.\d+)?$"
 
 
-def validate_date(date_text):
-    try:
-        datetime.date.fromisoformat(date_text)
-    except ValueError as err:
-        raise ValueError("Incorrect date format") from err
-
-
 def validate(args):
     yaml = ruamel.yaml.YAML()
     tag_list = []
@@ -35,7 +28,7 @@ def validate(args):
             tag_date = news_dict["Date"]
             desc = [i.strip() for i in news_dict["Description"].split("\n")]
             assert re.match(FD_SDK_TAG_FORMAT, tag)
-            validate_date(tag_date)
+            datetime.datetime.strptime(tag_date, "%Y-%m-%d")
             assert len(desc) >= 1
             assert desc[0].startswith(f"Changes in {tag}")
     assert len(tag_list) == len(set(tag_list))
