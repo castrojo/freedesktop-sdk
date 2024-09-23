@@ -10,6 +10,7 @@ import shlex
 import subprocess
 import textwrap
 from tempfile import TemporaryDirectory
+from packaging.version import Version
 
 import gitlab
 import ruamel.yaml
@@ -85,6 +86,18 @@ def prepare(args):
     news_branch = f"news/{args.new_version}"
     stable_branch = f"{args.remote}/{args.stable_branch}"
 
+    if args.stable_branch.startswith("release/"):
+        branch_version = args.stable_branch.removeprefix("release/")
+        input_version = args.new_version.removeprefix("freedesktop-sdk-")
+        if any(i in input_version for i in ("rc", "beta")):
+            raise SystemExit(
+                f"error: Tag is for release branch but uses rc or beta: {args.new_version}"
+            )
+        if not input_version.startswith(branch_version):
+            raise SystemExit(
+                f"error: Incorrect tag version {args.new_version} for branch {args.stable_branch}"
+            )
+
     run_git(["fetch", "--prune", args.remote])
     with git_workdir(stable_branch, branch=news_branch) as git_dir:
         previous_tag = run_git(
@@ -104,6 +117,10 @@ def prepare(args):
             "Date": datetime.date.today().isoformat(),
             "Description": LS(f"Changes in {args.new_version}\n" + changelog)
         })
+        version0 = documents[0]["Version"].removeprefix("freedesktop-sdk-")
+        version1 = documents[1]["Version"].removeprefix("freedesktop-sdk-")
+        if Version(version0) < Version(version1):
+            raise SystemExit(f"error: {version0} not newer than {version1}")
         with open(git_dir / "NEWS.yml", "w", encoding="utf-8") as news:
             yaml.dump_all(documents, news)
         message = f"NEWS: Update for {args.new_version}"
