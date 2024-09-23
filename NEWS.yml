@@ -112,7 +112,8 @@ Description: |-
    * cryptsetup-base: Update to v2.7.5
 ---
 Version: freedesktop-sdk-23.08.22
-Date: |-
+Date: '2024-09-07'
+Description: |-
   Changes in freedesktop-sdk-23.08.22
    * openssl: Update to 3.1.7
    * Migrate to buildstream-plugins-community 2.0.2
