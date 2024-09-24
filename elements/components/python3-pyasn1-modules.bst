@@ -13,4 +13,4 @@ sources:
 - kind: git_repo
   url: github:pyasn1/pyasn1-modules.git
   track: v*
-  ref: v0.4.0-0-g98b1e268a30be4b2d6efa5c69eae772edc442c7e
+  ref: v0.4.1-0-g36b036311a83c78175e92161f23afc5e9e56a6da
