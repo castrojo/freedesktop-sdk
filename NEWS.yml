@@ -1,3 +1,53 @@
+Version: freedesktop-sdk-22.08.27
+Date: '2024-09-23'
+Description: |-
+  Changes in freedesktop-sdk-22.08.27
+   * Update gawk to gawk-5.3.1-0
+   * urllib3: Add hatch-vcs build dependency
+   * Update python3-urllib3 to 2.2.3
+   * Update eos-metrics to Release_6.0.3-0
+   * Update openssh to V_9_9_P1-0
+   * Update iso-codes to v4.17.0-0
+   * Update python3-virtualenv to 20.26.5
+   * Update libpng to v1.6.44-0
+   * Update iwd to 2.22-0
+   * Update extra-cmake-modules to v6.6.0-0
+   * Update python3-trove-classifiers to 2024.9.12
+   * Update bluez to 5.78-0
+   * Update iproute2 to v6.11.0-0
+   * Update ostree to v2024.8-0
+   * Update btrfs-progs to v6.11-0
+   * Update python3-pytz to 2024.2
+   * Update python3-idna to 3.10
+   * Update python3-filelock to 3.16.1
+   * Update flat-manager-client-base to 0.4.3.3-0
+   * Update git to v2.46.1-0
+   * Update strace to v6.11-0
+   * jsontomd: Use f-strings
+   * gmmlib: Update to 22.5.2
+   * intel-media-driver: Freeze to v23
+   * intel-media-driver: Exclude old tags
+   * abi/freedesktop-sdk: Update to 22.08.26
+   * valgrind: Remove obsolete patch
+   * valgrind: Update to 3_23_0
+   * xcb-util: Update to 0.4.1-gitlab
+   * vim: Update to v9.1.0727
+   * python3-pyasn1: Update to 0.6.1
+   * python3-pyasn1-modules: Update to 0.4.1
+   * python3-multidict: Update to 6.1.0
+   * openssl: Update to 3.0.15
+   * nano: Update to v8.2
+   * linux-firmware: Update to 20240909
+   * iwd: Update to 2.21
+   * iputils: Update to 20240905
+   * ell: Update to 0.69
+   * ca-certificates: Update to 9df6df0fd553fe3fe003720fecf6defa13bb2d10
+   * geoclue: Freeze to 2.7.1
+   * ci: Disable building test-apps target on i686
+   * ci: Bump docker image to latest commit
+   * Update xcb-util-image to xcb-util-image-0.4.1-gitlab-0
+   * Update python3 to v3.10.15-0
+---
 Version: freedesktop-sdk-22.08.26
 Date: '2024-09-08'
 Description: |-
