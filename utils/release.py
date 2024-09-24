@@ -111,12 +111,17 @@ def prepare(args):
             documents = list(yaml.load_all(news.read()))
         for document in documents:
             if document["Version"] == args.new_version:
-                raise SystemExit(f"error: {args.new_version} already exists in NEWS.yml")
-        documents.insert(0, {
-            "Version": args.new_version,
-            "Date": datetime.date.today().isoformat(),
-            "Description": LS(f"Changes in {args.new_version}\n" + changelog)
-        })
+                raise SystemExit(
+                    f"error: {args.new_version} already exists in NEWS.yml"
+                )
+        documents.insert(
+            0,
+            {
+                "Version": args.new_version,
+                "Date": datetime.date.today().isoformat(),
+                "Description": LS(f"Changes in {args.new_version}\n" + changelog),
+            },
+        )
         version0 = documents[0]["Version"].removeprefix("freedesktop-sdk-")
         version1 = documents[1]["Version"].removeprefix("freedesktop-sdk-")
         if Version(version0) < Version(version1):
