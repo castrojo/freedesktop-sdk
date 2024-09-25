@@ -9,4 +9,4 @@ sources:
 - kind: git_repo
   url: github:json-c/json-c.git
   track: json-c-*
-  ref: json-c-0.17-20230812-0-gb4c371fa0cbc4dcbaccc359ce9e957a22988fb34
+  ref: json-c-0.18-20240915-0-g41a55cfcedb54d9c1874f2f0eb07b504091d7e37
