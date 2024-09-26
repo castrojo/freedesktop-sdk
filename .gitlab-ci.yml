@@ -89,6 +89,9 @@ validate-news:
   script:
     - python utils/news_validator.py validate --path NEWS.yml
   except:
+    - master
+    - '/^release\/.*/'
+    - tags
     - schedules
   needs: []
 
