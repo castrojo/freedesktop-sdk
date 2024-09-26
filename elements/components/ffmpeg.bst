@@ -6,7 +6,6 @@ description: Base ffmpeg we ship in the SDK, no patented codecs
 
 depends:
   (>):
-  - components/noopenh264.bst
   - components/libfdk-aac.bst
 
 variables:
@@ -135,7 +134,6 @@ variables:
     zlib,zmbv,%{extra-decoders}
 
   conf-extra: >-
-    --enable-libopenh264
     --enable-libfdk-aac
     --enable-encoder=%{encoders}
     --enable-decoder=%{decoders}
