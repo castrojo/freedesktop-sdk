@@ -162,6 +162,16 @@ if os.path.exists("/.flatpak-info") and not os.path.exists("/app/lib/ffmpeg"):
     except AssertionError as e:
         print(get_codec_info("decoder", "h264"))
         raise e
+    try:
+        assert get_codec_info("encoder", "h264") == [
+            "Encoder libopenh264",
+            "Encoder h264_v4l2m2m",
+            "Encoder h264_vaapi",
+        ]
+    except AssertionError as e:
+        print(get_codec_info("encoder", "h264"))
+        raise e
+
 
 # Only ffmpeg-full extension
 
@@ -185,4 +195,12 @@ if os.path.exists("/.flatpak-info") and os.path.exists("/app/lib/ffmpeg"):
         assert get_codec_info("decoder", "h264") == ["Decoder h264"]
     except AssertionError as e:
         print(get_codec_info("decoder", "h264"))
+        raise e
+    try:
+        assert get_codec_info("encoder", "h264") == [
+            "Encoder h264_v4l2m2m",
+            "Encoder h264_vaapi",
+        ]
+    except AssertionError as e:
+        print(get_codec_info("encoder", "h264"))
         raise e
