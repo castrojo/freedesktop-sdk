@@ -167,7 +167,11 @@ if os.path.exists("/.flatpak-info") and not os.path.exists("/app/lib/ffmpeg"):
 
 if os.path.exists("/.flatpak-info") and os.path.exists("/app/lib/ffmpeg"):
     try:
-        assert codecs_dict["h264"]["decoders"] == ["h264", "h264_v4l2m2m"]
+        assert codecs_dict["h264"]["decoders"] == [
+            "h264",
+            "h264_v4l2m2m",
+            "libopenh264",
+        ]
     except AssertionError as e:
         print(f'{codecs_dict["h264"]["decoders"]}')
         raise e
