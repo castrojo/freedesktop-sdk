@@ -4,6 +4,14 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/hwdata.bst
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{bindir}/di-edid-decode'
+        - '%{libdir}/libdisplay-info.so'
+
 sources:
 - kind: git_repo
   track: '*.*.*'
