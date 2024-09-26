@@ -39,4 +39,4 @@ sources:
 - kind: git_repo
   url: git_https:git.libcamera.org/libcamera/libcamera.git
   track: v*.*
-  ref: v0.3.1-0-g9c403207632cd5fa4cb22be83e3f56ac5425b7fe
+  ref: v0.3.2-0-g8bcec687344e5cc2ccef1361c03b87f0fd2cc59b
