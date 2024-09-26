@@ -61,3 +61,6 @@ public:
         - '%{datadir}/zsh/**'
         - '%{sysconfdir}/**'
         - '%{localstatedir}/**'
+      devel:
+        (>):
+        - '%{indep-libdir}/udev/hwdb.d/**'
