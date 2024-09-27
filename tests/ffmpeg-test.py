@@ -208,6 +208,9 @@ if os.path.exists("/.flatpak-info") and os.path.exists("/app/lib/ffmpeg"):
         raise e
     try:
         assert get_codec_info("encoder", "h264") == [
+            "Encoder libx264",
+            "Encoder libx264rgb",
+            "Encoder libopenh264",
             "Encoder h264_v4l2m2m",
             "Encoder h264_vaapi",
         ]
