@@ -830,7 +830,7 @@ publish_snap_aarch64:
   - |
     DOCKER_IMAGES=(platform sdk debug flatpak toolbox)
     BST_ELEMENTS=$(printf 'oci/%q-docker.bst ' ${DOCKER_IMAGES[@]})
-    
+
     ${BST} -o target_arch ${ARCH} build ${BST_ELEMENTS[@]}
     for element in ${BST_ELEMENTS[@]}; do
        ${BST} -o target_arch ${ARCH} artifact checkout ${element} --tar - | podman load
@@ -902,9 +902,9 @@ publish_docker_finish:
 
   - |
     set -eu
-    
+
     LATEST_RELEASE=$(./utils/detect_latest.py)
-    
+
     for name in platform sdk debug flatpak; do
       for dir in docker-pushed-digests/*; do
         DOCKER_VERSION="$(basename "${dir}")"
