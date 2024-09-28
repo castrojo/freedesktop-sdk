@@ -54,7 +54,7 @@ variables:
 sources:
 - kind: git_repo
   url: github:libjxl/libjxl.git
-  track: v*
+  track: v0.10.*
   exclude:
   - "*rc*"
   - "*snapshot*"
