@@ -33,7 +33,7 @@ environment:
 sources:
 - kind: git_repo
   url: gnome:librsvg.git
-  track: '*.*.*'
+  track: '2.58.*'
   exclude:
   - '*.*.9[0-9]'
   - '*beta*'
