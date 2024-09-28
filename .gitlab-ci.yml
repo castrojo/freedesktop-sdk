@@ -77,22 +77,16 @@ pylint:
   script:
     - find . -path 'files/oci' -prune -o -iname "*.py" -exec pylint {} +
     - pylint files/oci/oci_builder
-  except:
-    - master
-    - '/^release\/.*/'
-    - tags
-    - schedules
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
   needs: []
 
 validate-news:
   stage: flatpak
   script:
     - python utils/news_validator.py validate --path NEWS.yml
-  except:
-    - master
-    - '/^release\/.*/'
-    - tags
-    - schedules
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
   needs: []
 
 .check_update_elements:
@@ -266,11 +260,8 @@ license_checker:
     paths:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
       - ${CI_PROJECT_DIR}/libabigail-tars
-  except:
-    - master
-    - '/^release\/.*/'
-    - tags
-    - schedules
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 
 .builder-x86_64:
   tags:
@@ -375,13 +366,10 @@ app_ppc64:
     when: always
     paths:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
-  when: manual
   allow_failure: true
-  except:
-    - master
-    - '/^release\/.*/'
-    - tags
-    - schedules
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    when: manual
 
 check_snap_x86_64:
   extends:
@@ -401,17 +389,18 @@ check_snap_i686:
     when: always
     paths:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
-  except:
-    - '/^release\/.*/'
-    - tags
-    - schedules
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    when: never
+  - if: '$CI_COMMIT_TAG || $CI_COMMIT_BRANCH =~ /^release\/.*/'
+    when: never
+  - when: manual
 
 bootstrap_ppc64:
   extends:
     - .bootstrap_template
     - .builder-x86_64
   allow_failure: true
-  when: manual
   variables:
     ARCH: ppc64
 
@@ -427,11 +416,8 @@ bootstrap_ppc64:
     when: always
     paths:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
-  except:
-    - master
-    - '/^release\/.*/'
-    - tags
-    - schedules
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 
 minimal_systemd_vm_x86_64:
   extends:
@@ -496,11 +482,8 @@ desktop_systemd_vm_aarch64:
     when: always
     paths:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
-  except:
-    - master
-    - '/^release\/.*/'
-    - tags
-    - schedules
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 
 minimal_efi_vm_image_x86_64:
   extends:
@@ -630,11 +613,9 @@ publish_flatpak:
           s3 cp --recursive --acl public-read \
                 "${CI_PROJECT_DIR}/tarballs" \
                 "s3://freedesktop-sdk-tarballs/$(git describe)"
-  only:
-    - tags
-  except:
-    - schedules
-  when: manual
+  rules:
+  - if: '$CI_COMMIT_TAG && $CI_PIPELINE_SOURCE != "schedule"'
+    when: manual
 
 publish_x86_64_tar:
   extends:
@@ -682,11 +663,10 @@ markdown_manifest:
     paths:
       - "${CI_PROJECT_DIR}/platform-manifest/usr/"
       - "${CI_PROJECT_DIR}/sdk-manifest/usr/"
-  only:
-    - master
-    - '/^release\/.*/'
-  except:
-    - schedules
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    when: never
+  - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_BRANCH =~ /^release\/.*/'
   needs: []
 
 .reproducible_template:
@@ -752,11 +732,10 @@ reproducible_x86_64:
     when: always
     paths:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
-  only:
-    - tags
-    - master
-  except:
-    - schedules
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    when: never
+  - if: '$CI_COMMIT_TAG || $CI_COMMIT_BRANCH == "master"'
 
 publish_snap_x86_64:
   extends:
@@ -815,10 +794,8 @@ publish_snap_aarch64:
     paths:
     - ${CI_PROJECT_DIR}/cache/buildstream/logs
     - docker-pushed-digests
-  only:
-  - tags
-  except:
-  - schedules
+  rules:
+  - if: '$CI_COMMIT_TAG && $CI_PIPELINE_SOURCE != "schedule"'
 
 publish_docker_x86_64:
   extends:
@@ -882,10 +859,8 @@ publish_docker_finish:
       done
     done
 
-  only:
-  - tags
-  except:
-  - schedules
+  rules:
+  - if: '$CI_COMMIT_TAG && $CI_PIPELINE_SOURCE != "schedule"'
   needs:
   - publish_docker_aarch64
   - publish_docker_x86_64
