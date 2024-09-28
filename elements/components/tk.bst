@@ -33,7 +33,7 @@ public:
 sources:
 - kind: git_repo
   url: github:tcltk/tk.git
-  track: core-*
+  track: core-8-6-*
   exclude:
   - "*-a*"
   - "*-b*"
