@@ -12,4 +12,4 @@ sources:
 - kind: git_repo
   url: github:pypa/pyproject-hooks.git
   track: '*.*.*'
-  ref: v1.0.0-0-g4c9325f4e594bfc7178452d0d01eb8da6c3dbbdb
+  ref: v1.2.0-0-g4b7c6d113fb89b755d762a88712c8a6873cddd47
