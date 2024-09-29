@@ -31,6 +31,7 @@ savannah: https://git.savannah.gnu.org/git/
 sourceforge_git: https://git.code.sf.net/p/
 sourceware: https://sourceware.org/git/
 xiph: https://gitlab.xiph.org/xiph/
+videolan: https://code.videolan.org/videolan/
 
 #Generic aliases (because mirroring requires some sort of alias)
 git_https: https://

@@ -7,6 +7,7 @@ description: ffmpeg shipped in the ffmpeg-full extension, has more codecs enable
 
 depends:
   (>):
+  - extensions/ffmpeg-full/libx264.bst
   - extensions/ffmpeg-full/libx265.bst
 
 environment:
@@ -17,6 +18,7 @@ variables:
     --enable-encoders
     --enable-decoders
     --disable-programs
+    --enable-libx264
     --enable-libx265
     --enable-gpl
     --extra-cflags="-I%{prefix}/include"
