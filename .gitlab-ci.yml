@@ -55,7 +55,6 @@ stages:
   - publish
   - finish-publish
   - reproducible
-  - check_debuginfo
 
 before_script:
   - ulimit -n 1048576
@@ -175,35 +174,6 @@ check_mirrors:
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
 
-
-.check_debuginfo:
-  stage: check_debuginfo
-  needs: []
-  script:
-  - make check-debuginfo
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly"'
-
-check_debuginfo_aarch64:
-  extends:
-  - .check_debuginfo
-  - .builder-aarch64
-
-check_debuginfo_x86_64:
-  extends:
-  - .check_debuginfo
-  - .builder-x86_64
-
-check_debuginfo_i686:
-  extends:
-  - .check_debuginfo
-  - .builder-i686
-
-check_debuginfo_ppc64le:
-  extends:
-  - .check_debuginfo
-  - .builder-ppc64le
-
 license_checker:
   extends:
     - .builder-aarch64
@@ -235,6 +205,8 @@ license_checker:
     - test -x arch-test && arch-test
     - ./utils/validate_aliases.py include/_private/aliases.yml include/_private/mirrors.yml
     - test "${ARCH}" != "i686" && make build
+
+    - make check-debuginfo
 
     - export FLATPAK_USER_DIR="${PWD}/tmp-flatpak"
 
