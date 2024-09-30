@@ -272,6 +272,7 @@ depends:
 - components/libsamplerate.bst
 - components/libseat.bst
 - components/libseccomp.bst
+- components/libsecret.bst
 - components/libslirp.bst
 - components/libsmbios-maybe.bst
 - components/libsoup.bst

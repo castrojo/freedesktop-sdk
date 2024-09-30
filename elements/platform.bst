@@ -44,6 +44,7 @@ depends:
 - components/libheif.bst
 - components/libjxl.bst
 - components/libksba.bst
+- components/libsecret.bst
 - components/libidn2.bst
 - components/libogg.bst
 - components/libnice.bst
