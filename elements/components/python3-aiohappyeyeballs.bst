@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:aio-libs/aiohappyeyeballs.git
   track: v*
-  ref: v2.4.2-0-g04dbbe5be7c38bdbf8ec9e31491fe4d052d15908
+  ref: v2.4.3-0-ge3519bbebf2069eee0aff0dfde50689c742ba97f
