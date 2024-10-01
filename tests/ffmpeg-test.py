@@ -232,6 +232,7 @@ if os.path.exists("/.flatpak-info") and os.path.exists("/app/lib/ffmpeg"):
             "libopenh264",
             "h264_v4l2m2m",
             "h264_vaapi",
+            "h264_vulkan",
         ]
     except AssertionError as e:
         print(f'{codecs_dict["h264"]["encoders"]}')
@@ -253,6 +254,7 @@ if os.path.exists("/.flatpak-info") and os.path.exists("/app/lib/ffmpeg"):
             "Encoder libopenh264",
             "Encoder h264_v4l2m2m",
             "Encoder h264_vaapi",
+            "Encoder h264_vulkan",
         ]
     except AssertionError as e:
         print(get_codec_info("encoder", "h264"))
