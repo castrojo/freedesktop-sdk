@@ -171,7 +171,47 @@ if os.path.exists("/.flatpak-info") and not os.path.exists("/app/lib/ffmpeg"):
     except AssertionError as e:
         print(get_codec_info("encoder", "h264"))
         raise e
-
+    try:
+        assert get_codec_info("decoder", "av1") == ["Decoder av1"]
+    except AssertionError as e:
+        print(get_codec_info("decoder", "av1"))
+        raise e
+    try:
+        assert get_codec_info("encoder", "av1") == [
+            "Encoder libaom-av1",
+            "Encoder libsvtav1",
+            "Encoder av1_vaapi",
+        ]
+    except AssertionError as e:
+        print(get_codec_info("encoder", "av1"))
+        raise e
+    try:
+        assert get_codec_info("encoder", "vp8") == [
+            "Encoder libvpx",
+            "Encoder vp8_v4l2m2m",
+            "Encoder vp8_vaapi",
+        ]
+    except AssertionError as e:
+        print(get_codec_info("encoder", "vp8"))
+        raise e
+    try:
+        assert get_codec_info("decoder", "vp8") == ["Decoder vp8"]
+    except AssertionError as e:
+        print(get_codec_info("decoder", "vp8"))
+        raise e
+    try:
+        assert get_codec_info("encoder", "vp9") == [
+            "Encoder libvpx-vp9",
+            "Encoder vp9_vaapi",
+        ]
+    except AssertionError as e:
+        print(get_codec_info("encoder", "vp9"))
+        raise e
+    try:
+        assert get_codec_info("decoder", "vp9") == ["Decoder vp9"]
+    except AssertionError as e:
+        print(get_codec_info("decoder", "vp9"))
+        raise e
 
 # Only ffmpeg-full extension
 
@@ -216,4 +256,45 @@ if os.path.exists("/.flatpak-info") and os.path.exists("/app/lib/ffmpeg"):
         ]
     except AssertionError as e:
         print(get_codec_info("encoder", "h264"))
+        raise e
+    try:
+        assert get_codec_info("decoder", "av1") == ["Decoder av1"]
+    except AssertionError as e:
+        print(get_codec_info("decoder", "av1"))
+        raise e
+    try:
+        assert get_codec_info("encoder", "av1") == [
+            "Encoder libaom-av1",
+            "Encoder libsvtav1",
+            "Encoder av1_vaapi",
+        ]
+    except AssertionError as e:
+        print(get_codec_info("encoder", "av1"))
+        raise e
+    try:
+        assert get_codec_info("encoder", "vp8") == [
+            "Encoder libvpx",
+            "Encoder vp8_v4l2m2m",
+            "Encoder vp8_vaapi",
+        ]
+    except AssertionError as e:
+        print(get_codec_info("encoder", "vp8"))
+        raise e
+    try:
+        assert get_codec_info("decoder", "vp8") == ["Decoder vp8"]
+    except AssertionError as e:
+        print(get_codec_info("decoder", "vp8"))
+        raise e
+    try:
+        assert get_codec_info("encoder", "vp9") == [
+            "Encoder libvpx-vp9",
+            "Encoder vp9_vaapi",
+        ]
+    except AssertionError as e:
+        print(get_codec_info("encoder", "vp9"))
+        raise e
+    try:
+        assert get_codec_info("decoder", "vp9") == ["Decoder vp9"]
+    except AssertionError as e:
+        print(get_codec_info("decoder", "vp9"))
         raise e
