@@ -25,8 +25,7 @@ depends:
 - bootstrap/readline.bst
 - bootstrap/sed.bst
 - bootstrap/symlinks.bst
-- bootstrap/utf-locale.bst
 - bootstrap/zlib.bst
 - bootstrap/libxcrypt.bst
 - components/gcc.bst
-
+- components/utf-locale.bst

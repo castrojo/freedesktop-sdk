@@ -18,6 +18,7 @@ depends:
 - bootstrap/glibc.bst
 - bootstrap/gnu-config.bst
 - bootstrap/grep.bst
+- bootstrap/gzip.bst
 - bootstrap/stripper.bst
 - bootstrap/linux-headers.bst
 - bootstrap/make.bst
@@ -26,6 +27,5 @@ depends:
 - bootstrap/readline.bst
 - bootstrap/sed.bst
 - bootstrap/symlinks.bst
-- bootstrap/utf-locale.bst
 - bootstrap/zlib.bst
 - bootstrap/libxcrypt.bst
