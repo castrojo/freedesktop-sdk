@@ -90,213 +90,122 @@ check_common = {
     "av1",
 }
 
-assert len(dec_and_enc) > 0
-assert len(dec_only) > 0
-assert len(enc_only) > 0
-assert len(get_hwaccels()) > 0
-assert len(codecs_dict) > 0
+# Sanity checks
+print("Performing sanity checks...")
+assert len(dec_and_enc) > 0, dec_and_enc
+assert len(dec_only) > 0, dec_only
+assert len(enc_only) > 0, enc_only
+assert len(get_hwaccels()) > 0, get_hwaccels()
+assert len(codecs_dict) > 0, codecs_dict
+
+h264_decoders = get_codec_info("decoder", "h264")
+h264_encoders = get_codec_info("encoder", "h264")
+exp_h264_decoder_platform = ["Decoder libopenh264"]
+exp_h264_decoder_ext = ["Decoder h264"]
+exp_h264_encoder_platform = [
+    "Encoder libopenh264",
+    "Encoder h264_v4l2m2m",
+    "Encoder h264_vaapi",
+]
+exp_h264_encoder_ext = [
+    "Encoder libx264",
+    "Encoder libx264rgb",
+    "Encoder libopenh264",
+    "Encoder h264_v4l2m2m",
+    "Encoder h264_vaapi",
+    "Encoder h264_vulkan",
+]
+
+hevc_decoders = get_codec_info("decoder", "hevc")
+hevc_encoders = get_codec_info("encoder", "hevc")
+exp_hevc_decoder_platform = []
+exp_hevc_decoder_ext = ["Decoder hevc"]
+exp_hevc_encoder_platform = ["Encoder hevc_v4l2m2m", "Encoder hevc_vaapi"]
+exp_hevc_encoder_ext = [
+    "Encoder libx265",
+    "Encoder hevc_v4l2m2m",
+    "Encoder hevc_vaapi",
+    "Encoder hevc_vulkan",
+]
+
+libx265_encoders = get_codec_info("encoder", "libx265")
+exp_libx265_encoder_platform = []
+exp_libx265_encoder_ext = ["Encoder libx265"]
+
+av1_decoders = get_codec_info("decoder", "av1")
+av1_encoders = get_codec_info("encoder", "av1")
+exp_av1_decoder = ["Decoder av1"]
+exp_av1_encoder = [
+    "Encoder libaom-av1",
+    "Encoder libsvtav1",
+    "Encoder av1_vaapi",
+]
+
+vp8_decoders = get_codec_info("decoder", "vp8")
+vp8_encoders = get_codec_info("encoder", "vp8")
+exp_vp8_decoder = ["Decoder vp8"]
+exp_vp8_encoder = [
+    "Encoder libvpx",
+    "Encoder vp8_v4l2m2m",
+    "Encoder vp8_vaapi",
+]
+
+vp9_decoders = get_codec_info("decoder", "vp9")
+vp9_encoders = get_codec_info("encoder", "vp9")
+exp_vp9_decoder = ["Decoder vp9"]
+exp_vp9_encoder = [
+    "Encoder libvpx-vp9",
+    "Encoder vp9_vaapi",
+]
+
 
 # Common to both ffmpeg-full and platform ffmpeg
 
-try:
-    assert check_hw.issubset(get_hwaccels())
-except AssertionError as e:
-    print(f"{check_hw} != {get_hwaccels()}")
-    raise e
+print("Performing common checks...")
 
-try:
-    assert check_common.issubset(dec_and_enc)
-except AssertionError as e:
-    print(f"check_common != dec_and_enc: {check_common - dec_and_enc}")
-    raise e
+assert check_hw.issubset(get_hwaccels()), get_hwaccels()
+assert check_common.issubset(dec_and_enc), check_common - dec_and_enc
+
+assert av1_decoders == exp_av1_decoder, av1_decoders
+assert av1_encoders == exp_av1_encoder, av1_encoders
+
+assert vp8_decoders == exp_vp8_decoder, vp8_decoders
+assert vp8_encoders == exp_vp8_encoder, vp8_encoders
+
+assert vp9_decoders == exp_vp9_decoder, vp9_decoders
+assert vp9_encoders == exp_vp9_encoder, vp9_encoders
 
 # Only platform ffmpeg
 
 if os.path.exists("/.flatpak-info") and not os.path.exists("/app/lib/ffmpeg"):
-    try:
-        assert codecs_dict["h264"]["decoders"] == ["libopenh264"]
-    except AssertionError as e:
-        print(f'{codecs_dict["h264"]["decoders"]}')
-        raise e
-    try:
-        assert codecs_dict["h264"]["encoders"] == [
-            "libopenh264",
-            "h264_v4l2m2m",
-            "h264_vaapi",
-        ]
-    except AssertionError as e:
-        print(f'{codecs_dict["h264"]["encoders"]}')
-        raise e
-    try:
-        assert all(x not in dec_and_enc for x in ["hevc", "vvc", "vc1"])
-    except AssertionError as e:
-        print(f"{dec_and_enc}")
-        raise e
-    try:
-        assert all(x not in dec_only for x in ["hevc", "vvc", "vc1"])
-    except AssertionError as e:
-        print(f"{dec_only}")
-        raise e
-    try:
-        assert all(x not in enc_only for x in ["vvc", "vc1"])
-    except AssertionError as e:
-        print(f"{enc_only}")
-        raise e
-    try:
-        assert codecs_dict["hevc"]["encoders"] == ["hevc_v4l2m2m", "hevc_vaapi"]
-    except AssertionError as e:
-        print(f'{codecs_dict["hevc"]["encoders"]}')
-        raise e
-    try:
-        assert codecs_dict["hevc"]["decoders"] is None
-    except AssertionError as e:
-        print(f'{codecs_dict["hevc"]["decoders"]}')
-        raise e
-    try:
-        assert len(get_codec_info("encoder", "libx265")) == 0
-    except AssertionError as e:
-        print(get_codec_info("encoder", "libx265"))
-        raise e
-    try:
-        assert get_codec_info("decoder", "h264") == ["Decoder libopenh264"]
-    except AssertionError as e:
-        print(get_codec_info("decoder", "h264"))
-        raise e
-    try:
-        assert get_codec_info("encoder", "h264") == [
-            "Encoder libopenh264",
-            "Encoder h264_v4l2m2m",
-            "Encoder h264_vaapi",
-        ]
-    except AssertionError as e:
-        print(get_codec_info("encoder", "h264"))
-        raise e
-    try:
-        assert get_codec_info("decoder", "av1") == ["Decoder av1"]
-    except AssertionError as e:
-        print(get_codec_info("decoder", "av1"))
-        raise e
-    try:
-        assert get_codec_info("encoder", "av1") == [
-            "Encoder libaom-av1",
-            "Encoder libsvtav1",
-            "Encoder av1_vaapi",
-        ]
-    except AssertionError as e:
-        print(get_codec_info("encoder", "av1"))
-        raise e
-    try:
-        assert get_codec_info("encoder", "vp8") == [
-            "Encoder libvpx",
-            "Encoder vp8_v4l2m2m",
-            "Encoder vp8_vaapi",
-        ]
-    except AssertionError as e:
-        print(get_codec_info("encoder", "vp8"))
-        raise e
-    try:
-        assert get_codec_info("decoder", "vp8") == ["Decoder vp8"]
-    except AssertionError as e:
-        print(get_codec_info("decoder", "vp8"))
-        raise e
-    try:
-        assert get_codec_info("encoder", "vp9") == [
-            "Encoder libvpx-vp9",
-            "Encoder vp9_vaapi",
-        ]
-    except AssertionError as e:
-        print(get_codec_info("encoder", "vp9"))
-        raise e
-    try:
-        assert get_codec_info("decoder", "vp9") == ["Decoder vp9"]
-    except AssertionError as e:
-        print(get_codec_info("decoder", "vp9"))
-        raise e
+
+    print("Performing platform ffmpeg checks...")
+
+    assert all(x not in dec_and_enc for x in ["hevc", "vvc", "vc1"]), dec_and_enc
+    assert all(x not in dec_only for x in ["hevc", "vvc", "vc1"]), dec_only
+    assert all(x not in enc_only for x in ["vvc", "vc1"]), enc_only
+
+    assert h264_decoders == exp_h264_decoder_platform, h264_decoders
+    assert h264_encoders == exp_h264_encoder_platform, h264_encoders
+
+    assert hevc_decoders == exp_hevc_decoder_platform, hevc_decoders
+    assert hevc_encoders == exp_hevc_encoder_platform, hevc_encoders
+
+    assert libx265_encoders == exp_libx265_encoder_platform, libx265_encoders
 
 # Only ffmpeg-full extension
 
 if os.path.exists("/.flatpak-info") and os.path.exists("/app/lib/ffmpeg"):
-    try:
-        assert codecs_dict["h264"]["decoders"] == [
-            "h264",
-            "h264_v4l2m2m",
-            "libopenh264",
-        ]
-    except AssertionError as e:
-        print(f'{codecs_dict["h264"]["decoders"]}')
-        raise e
-    try:
-        assert codecs_dict["h264"]["encoders"] == [
-            "libx264",
-            "libx264rgb",
-            "libopenh264",
-            "h264_v4l2m2m",
-            "h264_vaapi",
-            "h264_vulkan",
-        ]
-    except AssertionError as e:
-        print(f'{codecs_dict["h264"]["encoders"]}')
-        raise e
-    try:
-        assert get_codec_info("encoder", "libx265") == ["Encoder libx265"]
-    except AssertionError as e:
-        print(get_codec_info("encoder", "libx265"))
-        raise e
-    try:
-        assert get_codec_info("decoder", "h264") == ["Decoder h264"]
-    except AssertionError as e:
-        print(get_codec_info("decoder", "h264"))
-        raise e
-    try:
-        assert get_codec_info("encoder", "h264") == [
-            "Encoder libx264",
-            "Encoder libx264rgb",
-            "Encoder libopenh264",
-            "Encoder h264_v4l2m2m",
-            "Encoder h264_vaapi",
-            "Encoder h264_vulkan",
-        ]
-    except AssertionError as e:
-        print(get_codec_info("encoder", "h264"))
-        raise e
-    try:
-        assert get_codec_info("decoder", "av1") == ["Decoder av1"]
-    except AssertionError as e:
-        print(get_codec_info("decoder", "av1"))
-        raise e
-    try:
-        assert get_codec_info("encoder", "av1") == [
-            "Encoder libaom-av1",
-            "Encoder libsvtav1",
-            "Encoder av1_vaapi",
-        ]
-    except AssertionError as e:
-        print(get_codec_info("encoder", "av1"))
-        raise e
-    try:
-        assert get_codec_info("encoder", "vp8") == [
-            "Encoder libvpx",
-            "Encoder vp8_v4l2m2m",
-            "Encoder vp8_vaapi",
-        ]
-    except AssertionError as e:
-        print(get_codec_info("encoder", "vp8"))
-        raise e
-    try:
-        assert get_codec_info("decoder", "vp8") == ["Decoder vp8"]
-    except AssertionError as e:
-        print(get_codec_info("decoder", "vp8"))
-        raise e
-    try:
-        assert get_codec_info("encoder", "vp9") == [
-            "Encoder libvpx-vp9",
-            "Encoder vp9_vaapi",
-        ]
-    except AssertionError as e:
-        print(get_codec_info("encoder", "vp9"))
-        raise e
-    try:
-        assert get_codec_info("decoder", "vp9") == ["Decoder vp9"]
-    except AssertionError as e:
-        print(get_codec_info("decoder", "vp9"))
-        raise e
+
+    print("Performing ffmpeg-full checks...")
+
+    assert "hevc" in dec_and_enc, dec_and_enc
+    assert all(x in dec_only for x in ["vvc", "vc1"]), dec_only
+
+    assert h264_decoders == exp_h264_decoder_ext, h264_decoders
+    assert h264_encoders == exp_h264_encoder_ext, h264_encoders
+
+    assert hevc_decoders == exp_hevc_decoder_ext, hevc_decoders
+    assert hevc_encoders == exp_hevc_encoder_ext, hevc_encoders
+
+    assert libx265_encoders == exp_libx265_encoder_ext, libx265_encoders
