@@ -34,17 +34,13 @@ sources:
   track: '*.*'
   exclude:
   - "gstreamer-*"
-  ref: 0.13.1-0-g0bc57b8a0a6ccc8d3b8e9127b4021cbf98f3be39
+  ref: 0.13.2-0-gf0f33692ac620a5f75da5c2a0b54e33388ba4cf5
 - kind: cargo2
   ref:
   - kind: registry
     name: addr2line
-    version: 0.22.0
-    sha: 6e4503c46a5c0c7844e948c9a4d6acd9f50cccb4de1c48eb9e291ea17470c678
-  - kind: registry
-    name: adler
-    version: 1.0.2
-    sha: f26201604c87b1e01bd3d98f8d5d9a8fcbb815e8cedb41ffccbeb4bf593a35fe
+    version: 0.24.1
+    sha: f5fb1d8e4442bd405fdfd1dacb42792696b0cf9cb15882e5d097b742a676d375
   - kind: registry
     name: adler2
     version: 2.0.0
@@ -111,8 +107,8 @@ sources:
     sha: 5bf74e1b6e971609db8ca7a9ce79fd5768ab6ae46441c572e46cf596f59e57f8
   - kind: registry
     name: anyhow
-    version: 1.0.86
-    sha: b3d1d046238990b9cf5bcde22a3fb3584ee5cf65fb2765f454ed428c7a0063da
+    version: 1.0.89
+    sha: 86fdf8605db99b54d3cd748a44c6d04df638eb5dafb219b135d0149bd0db01f6
   - kind: registry
     name: arbitrary
     version: 1.3.2
@@ -151,8 +147,8 @@ sources:
     sha: 8b75356056920673b02621b35afd0f7dda9306d03c79a30f5c56c44cf256e3de
   - kind: registry
     name: async-trait
-    version: 0.1.81
-    sha: 6e0c28dcc82d7c8ead5cb13beb15405b57b8546e93215673ff8ca0349a028107
+    version: 0.1.83
+    sha: 721cae7de5c34fbb2acd27e21e6d2cf7b886dce0c27388d46c4e6c47ea4318dd
   - kind: registry
     name: async-tungstenite
     version: 0.26.2
@@ -166,17 +162,13 @@ sources:
     version: 0.1.13
     sha: 41e67cd8309bbd06cd603a9e693a784ac2e5d1e955f11286e355089fcab3047c
   - kind: registry
-    name: atty
-    version: 0.2.14
-    sha: d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8
-  - kind: registry
     name: autocfg
-    version: 1.3.0
-    sha: 0c4b4d0bd25bd0b74681c0ad21497610ce1b7c91b1022cd21c80c6fbdd9476b0
+    version: 1.4.0
+    sha: ace50bade8e6234aa140d9a2f552bbee1db4d353f69b8217bc503490fc1a9f26
   - kind: registry
     name: av-data
-    version: 0.4.2
-    sha: d75b98a3525d00f920df9a2d44cc99b9cc5b7dc70d7fbb612cd755270dbe6552
+    version: 0.4.3
+    sha: 124ae24335161b3d2226594640a67903da0866e2591312591fc8ddad64c1b38c
   - kind: registry
     name: av1-grain
     version: 0.2.3
@@ -275,8 +267,8 @@ sources:
     sha: 5a43b56df2c529fe44cb4d92bd64d0479883fb9608ff62daede4df5405381814
   - kind: registry
     name: backtrace
-    version: 0.3.73
-    sha: 5cc23269a4f8976d0a4d2e7109211a419fe30e8d88d677cd60b6bc79c5732e0a
+    version: 0.3.74
+    sha: 8d82cb332cdfaed17ae235a638438ac4d4839913cc2af585c3c6746e8f8bee1a
   - kind: registry
     name: base16ct
     version: 0.1.1
@@ -355,38 +347,38 @@ sources:
     sha: c3ac9f8b63eca6fd385229b3675f6cc0dc5c8a5c8a54a59d4f52ffd670d87b0c
   - kind: registry
     name: bytemuck
-    version: 1.17.1
-    sha: 773d90827bc3feecfb67fab12e24de0749aad83c74b9504ecde46237b5cd24e2
+    version: 1.18.0
+    sha: 94bbb0ad554ad961ddc5da507a12a29b14e4ae5bda06b19f575a3e6079d2e2ae
   - kind: registry
     name: byteorder
     version: 1.5.0
     sha: 1fd0f2584146f6f2ef48085050886acf353beff7305ebd1ae69500e27c67f64b
   - kind: registry
     name: bytes
-    version: 1.7.1
-    sha: 8318a53db07bb3f8dca91a600466bdb3f2eaadeedfdbcf02e1accbad9271ba50
+    version: 1.7.2
+    sha: 428d9aa8fbc0670b7b8d6030a7fadd0f86151cae55e4dbbece15f3780a3dfaf3
   - kind: registry
     name: bytes-utils
     version: 0.1.4
     sha: 7dafe3a8757b027e2be6e4e5601ed563c55989fcf1546e933c66c8eb3a058d35
   - kind: git
-    commit: 7467a89bed3309bb398309ed26c4044ce3a6b2f5
+    commit: 3d32a011adc7c1642d3396ec526d2b2a5af1ca1d
     repo: https://github.com/gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: cairo-rs
-    version: 0.20.2
+    version: 0.20.4
   - kind: git
-    commit: 7467a89bed3309bb398309ed26c4044ce3a6b2f5
+    commit: 3d32a011adc7c1642d3396ec526d2b2a5af1ca1d
     repo: https://github.com/gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: cairo-sys-rs
-    version: 0.20.2
+    version: 0.20.4
   - kind: registry
     name: cc
-    version: 1.1.15
-    sha: 57b6a275aa2903740dc87da01c62040406b8812552e97129a63ea8850a17c6e6
+    version: 1.1.22
+    sha: 9540e661f81799159abee814118cc139a2004b3a3aa3ea37724a1b66530b90e0
   - kind: registry
     name: cdg
     version: 0.1.0
@@ -413,8 +405,8 @@ sources:
     sha: d067ad48b8650848b989a59a86c6c36a995d02d2bf778d45c3c5d57bc2718f02
   - kind: registry
     name: cfg-expr
-    version: 0.16.0
-    sha: 345c78335be0624ed29012dc10c49102196c6882c12dde65d9f35b02da2aada8
+    version: 0.17.0
+    sha: d0890061c4d3223e7267f3bad2ec40b997d64faac1c2815a4a9d95018e2b9e9c
   - kind: registry
     name: cfg-if
     version: 1.0.0
@@ -501,8 +493,8 @@ sources:
     sha: 773648b94d0e5d620f64f280777445740e61fe701025087ec8b57f45c791888b
   - kind: registry
     name: cpufeatures
-    version: 0.2.13
-    sha: 51e852e6dc9a5bed1fae92dd2375037bf2b768725bf3be87811edee3249d09ad
+    version: 0.2.14
+    sha: 608697df725056feaccfa42cffdaeeec3fccc4ffc38358ecd19b243e716a78e0
   - kind: registry
     name: crc
     version: 1.8.1
@@ -573,8 +565,8 @@ sources:
     sha: d336a2a514f6ccccaa3e09b02d41d35330c07ddf03a62165fcec10bb561c7806
   - kind: registry
     name: dash-mpd
-    version: 0.17.1
-    sha: d31301f78cca02c3c368726ae0e296ca62248c99421dce751600bd538c2a76dc
+    version: 0.17.2
+    sha: 97f463c2566a9469a93206848c54e1c77ffa01bce1bc4aecaf7f63de9f851252
   - kind: registry
     name: dasp_frame
     version: 0.11.0
@@ -652,10 +644,6 @@ sources:
     version: 0.11.5
     sha: e13fa619b91fb2381732789fc5de83b45675e882f66623b7d8cb4f643017018d
   - kind: registry
-    name: env_logger
-    version: 0.9.3
-    sha: a12e6657c4c97ebab115a42dcee77225f7f482cdd841cf7088c657a42e9e00e7
-  - kind: registry
     name: equivalent
     version: 1.0.1
     sha: 5443807d6dff69373d433ab9ef5378ad8df50ca6298caf15de6e52e24aaf54d5
@@ -681,8 +669,8 @@ sources:
     sha: e8c02a5121d4ea3eb16a80748c74f5549a5665e4c21333c6098f283870fbdea6
   - kind: registry
     name: fdeflate
-    version: 0.3.4
-    sha: 4f9bfee30e4dedf0ab8b422f03af778d9612b63f502710fc500a334ebe2de645
+    version: 0.3.5
+    sha: d8090f921a24b04994d9929e204f50b498a33ea6ba559ffaa05e04f7ee7fb5ab
   - kind: registry
     name: ff
     version: 0.12.1
@@ -704,8 +692,8 @@ sources:
     sha: 0ce7134b9999ecaf8bcd65542e436736ef32ddca1b3e06094cb6ec5755203b80
   - kind: registry
     name: flate2
-    version: 1.0.33
-    sha: 324a1be68054ef05ad64b861cc9eaf1d623d2d8cb25b4bf2cb9cdd902b4bf253
+    version: 1.0.34
+    sha: a1b589b4dc103969ad3cf85c950899926ec64300a1a46d76c03a6072957036f0
   - kind: git
     commit: 833508af656d298c269f2397c8541a084264d992
     repo: https://github.com/rust-av/flavors
@@ -776,83 +764,79 @@ sources:
     version: 0.3.30
     sha: 3d6401deb83407ab3da39eba7e33987a73c3df0c82b4bb5813ee871c19c41d48
   - kind: git
-    commit: 7467a89bed3309bb398309ed26c4044ce3a6b2f5
+    commit: 3d32a011adc7c1642d3396ec526d2b2a5af1ca1d
     repo: https://github.com/gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: gdk-pixbuf
-    version: 0.20.2
+    version: 0.20.4
   - kind: git
-    commit: 7467a89bed3309bb398309ed26c4044ce3a6b2f5
+    commit: 3d32a011adc7c1642d3396ec526d2b2a5af1ca1d
     repo: https://github.com/gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: gdk-pixbuf-sys
-    version: 0.20.2
+    version: 0.20.4
   - kind: git
-    commit: 5cc704fbe0f9d1928ef3a0dcb2d4d587e56fb974
+    commit: 0ff3cfe1b2cde5d458ae68923c55750846acd187
     repo: https://github.com/gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gdk4
-    version: 0.9.1
+    version: 0.9.2
   - kind: git
-    commit: 5cc704fbe0f9d1928ef3a0dcb2d4d587e56fb974
+    commit: 0ff3cfe1b2cde5d458ae68923c55750846acd187
     repo: https://github.com/gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gdk4-sys
-    version: 0.9.1
+    version: 0.9.2
   - kind: git
-    commit: 5cc704fbe0f9d1928ef3a0dcb2d4d587e56fb974
+    commit: 0ff3cfe1b2cde5d458ae68923c55750846acd187
     repo: https://github.com/gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gdk4-wayland
-    version: 0.9.1
+    version: 0.9.2
   - kind: git
-    commit: 5cc704fbe0f9d1928ef3a0dcb2d4d587e56fb974
+    commit: 0ff3cfe1b2cde5d458ae68923c55750846acd187
     repo: https://github.com/gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gdk4-wayland-sys
-    version: 0.9.1
+    version: 0.9.2
   - kind: git
-    commit: 5cc704fbe0f9d1928ef3a0dcb2d4d587e56fb974
+    commit: 0ff3cfe1b2cde5d458ae68923c55750846acd187
     repo: https://github.com/gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gdk4-win32
-    version: 0.9.1
+    version: 0.9.2
   - kind: git
-    commit: 5cc704fbe0f9d1928ef3a0dcb2d4d587e56fb974
+    commit: 0ff3cfe1b2cde5d458ae68923c55750846acd187
     repo: https://github.com/gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gdk4-win32-sys
-    version: 0.9.1
+    version: 0.9.2
   - kind: git
-    commit: 5cc704fbe0f9d1928ef3a0dcb2d4d587e56fb974
+    commit: 0ff3cfe1b2cde5d458ae68923c55750846acd187
     repo: https://github.com/gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gdk4-x11
-    version: 0.9.1
+    version: 0.9.2
   - kind: git
-    commit: 5cc704fbe0f9d1928ef3a0dcb2d4d587e56fb974
+    commit: 0ff3cfe1b2cde5d458ae68923c55750846acd187
     repo: https://github.com/gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gdk4-x11-sys
-    version: 0.9.1
+    version: 0.9.2
   - kind: registry
     name: generic-array
     version: 0.14.7
     sha: 85649ca51fd72272d7821adaf274ad91c288277713d9c18820d8499a7ff69e9a
-  - kind: registry
-    name: getopts
-    version: 0.2.21
-    sha: 14dbbfd5c71d70241ecf9e6f13737f7b5ce823821063188d7e46c41d371eebd5
   - kind: registry
     name: getrandom
     version: 0.2.15
@@ -863,338 +847,338 @@ sources:
     sha: 3fb2d69b19215e18bb912fa30f7ce15846e301408695e44e0ef719f1da9e19f2
   - kind: registry
     name: gimli
-    version: 0.29.0
-    sha: 40ecd4077b5ae9fd2e9e169b102c6c330d0605168eb0e8bf79952b256dbefffd
+    version: 0.31.0
+    sha: 32085ea23f3234fc7846555e85283ba4de91e21016dc0455a16286d87a292d64
   - kind: git
-    commit: 7467a89bed3309bb398309ed26c4044ce3a6b2f5
+    commit: 3d32a011adc7c1642d3396ec526d2b2a5af1ca1d
     repo: https://github.com/gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: gio
-    version: 0.20.2
+    version: 0.20.4
   - kind: git
-    commit: 7467a89bed3309bb398309ed26c4044ce3a6b2f5
+    commit: 3d32a011adc7c1642d3396ec526d2b2a5af1ca1d
     repo: https://github.com/gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: gio-sys
-    version: 0.20.2
+    version: 0.20.4
   - kind: git
-    commit: 7467a89bed3309bb398309ed26c4044ce3a6b2f5
+    commit: 3d32a011adc7c1642d3396ec526d2b2a5af1ca1d
     repo: https://github.com/gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: glib
-    version: 0.20.2
+    version: 0.20.4
   - kind: git
-    commit: 7467a89bed3309bb398309ed26c4044ce3a6b2f5
+    commit: 3d32a011adc7c1642d3396ec526d2b2a5af1ca1d
     repo: https://github.com/gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: glib-macros
-    version: 0.20.2
+    version: 0.20.4
   - kind: git
-    commit: 7467a89bed3309bb398309ed26c4044ce3a6b2f5
+    commit: 3d32a011adc7c1642d3396ec526d2b2a5af1ca1d
     repo: https://github.com/gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: glib-sys
-    version: 0.20.2
+    version: 0.20.4
   - kind: registry
     name: glob
     version: 0.3.1
     sha: d2fabcfbdc87f4758337ca535fb41a6d701b65693ce38287d856d1674551ec9b
   - kind: git
-    commit: 7467a89bed3309bb398309ed26c4044ce3a6b2f5
+    commit: 3d32a011adc7c1642d3396ec526d2b2a5af1ca1d
     repo: https://github.com/gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: gobject-sys
-    version: 0.20.2
+    version: 0.20.4
   - kind: git
-    commit: 7467a89bed3309bb398309ed26c4044ce3a6b2f5
+    commit: 3d32a011adc7c1642d3396ec526d2b2a5af1ca1d
     repo: https://github.com/gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: graphene-rs
-    version: 0.20.2
+    version: 0.20.4
   - kind: git
-    commit: 7467a89bed3309bb398309ed26c4044ce3a6b2f5
+    commit: 3d32a011adc7c1642d3396ec526d2b2a5af1ca1d
     repo: https://github.com/gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: graphene-sys
-    version: 0.20.2
+    version: 0.20.4
   - kind: registry
     name: group
     version: 0.12.1
     sha: 5dfbfb3a6cfbd390d5c9564ab283a0349b9b9fcd46a706c1eb10e0db70bfbac7
   - kind: git
-    commit: 5cc704fbe0f9d1928ef3a0dcb2d4d587e56fb974
+    commit: 0ff3cfe1b2cde5d458ae68923c55750846acd187
     repo: https://github.com/gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gsk4
-    version: 0.9.1
+    version: 0.9.2
   - kind: git
-    commit: 5cc704fbe0f9d1928ef3a0dcb2d4d587e56fb974
+    commit: 0ff3cfe1b2cde5d458ae68923c55750846acd187
     repo: https://github.com/gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gsk4-sys
-    version: 0.9.1
+    version: 0.9.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-allocators
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-allocators-sys
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-app
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-app-sys
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-audio
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-audio-sys
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-base
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-base-sys
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-check
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-check-sys
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-gl
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-gl-egl
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-gl-egl-sys
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-gl-sys
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-gl-wayland
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-gl-wayland-sys
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-gl-x11
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-gl-x11-sys
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-net
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-net-sys
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-pbutils
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-pbutils-sys
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-rtp
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-rtp-sys
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-sdp
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-sdp-sys
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-sys
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-utils
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-video
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-video-sys
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-webrtc
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 500499827d11c07ca4d5dad9786bac308225fd71
+    commit: bbbcda32e8d253d1bce56ac31427adb6b057bd53
     repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-webrtc-sys
-    version: 0.23.1
+    version: 0.23.2
   - kind: git
-    commit: 5cc704fbe0f9d1928ef3a0dcb2d4d587e56fb974
+    commit: 0ff3cfe1b2cde5d458ae68923c55750846acd187
     repo: https://github.com/gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gtk4
-    version: 0.9.1
+    version: 0.9.2
   - kind: git
-    commit: 5cc704fbe0f9d1928ef3a0dcb2d4d587e56fb974
+    commit: 0ff3cfe1b2cde5d458ae68923c55750846acd187
     repo: https://github.com/gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gtk4-macros
-    version: 0.9.1
+    version: 0.9.2
   - kind: git
-    commit: 5cc704fbe0f9d1928ef3a0dcb2d4d587e56fb974
+    commit: 0ff3cfe1b2cde5d458ae68923c55750846acd187
     repo: https://github.com/gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gtk4-sys
-    version: 0.9.1
+    version: 0.9.2
   - kind: registry
     name: h2
     version: 0.3.26
@@ -1237,10 +1221,6 @@ sources:
     sha: 2304e00983f87ffb38b55b444b5e3b60a884b5d30c0fca7d82fe33449bbe55ea
   - kind: registry
     name: hermit-abi
-    version: 0.1.19
-    sha: 62b467343b94ba476dcb2500d242dadbb39557df889310ac77c5d99100aaac33
-  - kind: registry
-    name: hermit-abi
     version: 0.3.9
     sha: d231dfb89cfffdbc30e7fc41579ed6066ad03abda9e567ccafae602b97ec5024
   - kind: registry
@@ -1259,10 +1239,6 @@ sources:
     name: hmac
     version: 0.12.1
     sha: 6c49c37c09c17a53d937dfbb742eb3a961d65a994e6bcdcf37e7399d0cc8ab5e
-  - kind: registry
-    name: hostname
-    version: 0.3.1
-    sha: 3c731c3e10504cc8ed35cfe2f1db4c9274c3d35fa486e3b31df46f068ef3e867
   - kind: registry
     name: hrtf
     version: 0.8.1
@@ -1321,8 +1297,8 @@ sources:
     sha: ec3efd23720e2049821a693cbc7e65ea87c72f1c58ff2f9522ff332b1491e590
   - kind: registry
     name: hyper-rustls
-    version: 0.27.2
-    sha: 5ee4be2c948921a1a5320b629c4193916ed787a7f7f293fd3f7f5a6c9de74155
+    version: 0.27.3
+    sha: 08afdbb5c31130e3034af566421053ab03787c640246a446327f550d11bcb333
   - kind: registry
     name: hyper-tls
     version: 0.5.0
@@ -1333,8 +1309,8 @@ sources:
     sha: 70206fc6890eaca9fde8a0bf71caa2ddfc9fe045ac9e5c70df101a7dbde866e0
   - kind: registry
     name: hyper-util
-    version: 0.1.7
-    sha: cde7055719c54e36e95e8719f95883f22072a48ede39db7fc17a4e1d5281e9b9
+    version: 0.1.9
+    sha: 41296eb09f183ac68eec06e03cdbea2e759633d4067b2f6552fc2e009bcad08b
   - kind: registry
     name: hyphenation
     version: 0.8.4
@@ -1345,8 +1321,8 @@ sources:
     sha: 5febe7a2ade5c7d98eb8b75f946c046b335324b06a14ea0998271504134c05bf
   - kind: registry
     name: iana-time-zone
-    version: 0.1.60
-    sha: e7ffbb5a1b541ea2561f8c41c087286cc091e21e556a4f09a8f6cbf17b69b141
+    version: 0.1.61
+    sha: 235e081f3925a06703c2d0117ea8b91f042756fd6e7a6e5d901e8ca1a996b220
   - kind: registry
     name: iana-time-zone-haiku
     version: 0.1.2
@@ -1363,10 +1339,6 @@ sources:
     name: idna
     version: 0.5.0
     sha: 634d9b1461af396cad843f47fdba5597a4f9e6ddd4bfb6ff5d85028c25cb12f6
-  - kind: registry
-    name: if-addrs
-    version: 0.7.0
-    sha: cbc0fa01ffc752e9dbc72818cdb072cd028b86be5e09dd04c5a643704fe101a9
   - kind: registry
     name: image
     version: 0.24.9
@@ -1385,16 +1357,16 @@ sources:
     sha: bd070e393353796e801d209ad339e89596eb4c8d430d18ede6a1cced8fafbd99
   - kind: registry
     name: indexmap
-    version: 2.4.0
-    sha: 93ead53efc7ea8ed3cfb0c79fc8023fbb782a5432b52830b6518941cebe6505c
+    version: 2.5.0
+    sha: 68b900aa2f7301e21c36462b170ee99994de34dff39a4a6a528e80e7376d07e5
   - kind: registry
     name: interpolate_name
     version: 0.2.4
     sha: c34819042dc3d3971c46c2190835914dfbe0c3c13f61449b2997f4e9722dfa60
   - kind: registry
     name: ipnet
-    version: 2.9.0
-    sha: 8f518f335dce6725a761382244631d86cf0ccb2863413590b31338feb467f9c3
+    version: 2.10.0
+    sha: 187674a687eed5fe42285b40c6291f9a01517d415fad1c3cbc6a9f778af7fcd4
   - kind: registry
     name: is_terminal_polyfill
     version: 1.70.1
@@ -1453,8 +1425,8 @@ sources:
     sha: 777b48df9aaab155475a83a7df3070395ea1ac6902f5cd062b8f2b028075c030
   - kind: registry
     name: libc
-    version: 0.2.158
-    sha: d8adc4bb1803a324070e64a98ae98f38934d91957a99cfb3a43dcbc01bc56439
+    version: 0.2.159
+    sha: 561d97a539a36e26a9a5fad1ea11a3039a67714694aaa379433e580854bc3dc5
   - kind: registry
     name: libfuzzer-sys
     version: 0.4.7
@@ -1468,29 +1440,13 @@ sources:
     version: 0.2.8
     sha: 4ec2a862134d2a7d32d7983ddcdd1c4923530833c9f2ea1a44fc5fa473989058
   - kind: registry
-    name: libmdns
-    version: 0.7.5
-    sha: 0b04ae6b56b3b19ade26f0e7e7c1360a1713514f326c5ed0797cf2c109c9e010
-  - kind: registry
-    name: librespot
-    version: 0.4.2
-    sha: ea4c9952ef48968f8184a4a87f8576982426ebe623342d5a28f7d9c4978e4a44
-  - kind: registry
     name: librespot-audio
     version: 0.4.2
     sha: c176a31355e1ea8e0b9c4ced19df4947bfe4770661c25c142b6fba2365940d9d
   - kind: registry
-    name: librespot-connect
-    version: 0.4.2
-    sha: 4ffafb6a443e9445ccb3d5d591573b5b1da3c89a9b8846c63ba2c3710210d3ec
-  - kind: registry
     name: librespot-core
     version: 0.4.2
     sha: 046349f25888e644bf02d9c5de0164b2a493d29aa4ce18e1ad0b756da9b55d6d
-  - kind: registry
-    name: librespot-discovery
-    version: 0.4.2
-    sha: 2aa877d18f6150364012cb4be5682d62d7c712c88bae2d0d01720fd7c15e2f06
   - kind: registry
     name: librespot-metadata
     version: 0.4.2
@@ -1540,10 +1496,6 @@ sources:
     version: 5.0.5
     sha: 0c1d7ba86f7ea62f17f4310c55e93244619ddc7dadfc7e565de1967e4e41e6e7
   - kind: registry
-    name: match_cfg
-    version: 0.1.0
-    sha: ffbee8634e0d45d258acb448e7eaab3fce7a0a467395d4d9f228e3c1f01fb2e4
-  - kind: registry
     name: matchers
     version: 0.1.0
     sha: 8263075bb86c5a1b1427b5ae862e8889656f126e9f77c484496e8b47cf5c5558
@@ -1561,10 +1513,6 @@ sources:
     sha: 78ca9ab1a0babb1e7d5695e3530886289c18cf2f87ec19a575a0abdce112e3a3
   - kind: registry
     name: memoffset
-    version: 0.6.5
-    sha: 5aa361d4faea93603064a027415f07bd8e1d5c88c9fbf68bf56a285428fd79ce
-  - kind: registry
-    name: memoffset
     version: 0.9.1
     sha: 488016bfae457b036d996092f6cb448677611ce4449e970ceaf42695203f218a
   - kind: registry
@@ -1579,10 +1527,6 @@ sources:
     name: minimal-lexical
     version: 0.2.1
     sha: 68354c5c6bd36d73ff3feceb05efa59b6acb7626617f4962be322a825e61f79a
-  - kind: registry
-    name: miniz_oxide
-    version: 0.7.4
-    sha: b8a240ddb74feaf34a79a7add65a741f3167852fba007066dcac1ca548d89c08
   - kind: registry
     name: miniz_oxide
     version: 0.8.0
@@ -1608,10 +1552,6 @@ sources:
     version: 0.10.0
     sha: defc4c55412d89136f966bbb339008b474350e5e6e78d2714439c386b3137a03
   - kind: registry
-    name: multimap
-    version: 0.8.3
-    sha: e5ce46fe64a9d73be07dcbe690a38ce1b293be448fd8ce1e6c1b8062c9f72c6a
-  - kind: registry
     name: nanorand
     version: 0.7.0
     sha: 6a51313c5820b0b02bd422f4b44776fbf47961755c74ce64afc73bfad10226c3
@@ -1627,10 +1567,6 @@ sources:
     name: new_debug_unreachable
     version: 1.0.6
     sha: 650eef8c711430f1a879fdd01d4745a7deea475becfb90269c06775983bbf086
-  - kind: registry
-    name: nix
-    version: 0.23.2
-    sha: 8f3790c00a0150112de0f4cd161e3d7fc4b2d8a5542ffc35f099a2562aecb35c
   - kind: registry
     name: nix
     version: 0.29.0
@@ -1685,8 +1621,8 @@ sources:
     sha: 4161fcb6d602d4d2081af7c3a45852d875a03dd337a6bfdd6e06407b61342a43
   - kind: registry
     name: object
-    version: 0.36.3
-    sha: 27b64972346851a39438c60b341ebc01bba47464ae329e55cf343eb93964efd9
+    version: 0.36.4
+    sha: 084f1a5821ac4c651660a94a7153d27ac9d8a53736203f58b31945ded098070a
   - kind: registry
     name: ogg
     version: 0.8.0
@@ -1732,37 +1668,37 @@ sources:
     version: 0.11.1
     sha: 51f44edd08f51e2ade572f141051021c5af22677e42b7dd28a88155151c33594
   - kind: git
-    commit: 7467a89bed3309bb398309ed26c4044ce3a6b2f5
+    commit: 3d32a011adc7c1642d3396ec526d2b2a5af1ca1d
     repo: https://github.com/gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: pango
-    version: 0.20.2
+    version: 0.20.4
   - kind: git
-    commit: 7467a89bed3309bb398309ed26c4044ce3a6b2f5
+    commit: 3d32a011adc7c1642d3396ec526d2b2a5af1ca1d
     repo: https://github.com/gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: pango-sys
-    version: 0.20.2
+    version: 0.20.4
   - kind: git
-    commit: 7467a89bed3309bb398309ed26c4044ce3a6b2f5
+    commit: 3d32a011adc7c1642d3396ec526d2b2a5af1ca1d
     repo: https://github.com/gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: pangocairo
-    version: 0.20.2
+    version: 0.20.4
   - kind: git
-    commit: 7467a89bed3309bb398309ed26c4044ce3a6b2f5
+    commit: 3d32a011adc7c1642d3396ec526d2b2a5af1ca1d
     repo: https://github.com/gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: pangocairo-sys
-    version: 0.20.2
+    version: 0.20.4
   - kind: registry
     name: parking
-    version: 2.2.0
-    sha: bb813b8af86854136c6922af0598d719255ecb2179515e6e7730d468f05c9cae
+    version: 2.2.1
+    sha: f38d5652c16fde515bb1ecef450ab0f6a219d619a7274976324d5e377f7dceba
   - kind: registry
     name: parking_lot
     version: 0.12.3
@@ -1829,12 +1765,12 @@ sources:
     sha: 9eca2c590a5f85da82668fa685c09ce2888b9430e83299debf1f34b65fd4a4ba
   - kind: registry
     name: pkg-config
-    version: 0.3.30
-    sha: d231b230927b5e4ad203db57bbcbee2802f6bce620b1e4a9024a07d94e2907ec
+    version: 0.3.31
+    sha: 953ec861398dccce10c670dfeaf3ec4911ca479e9c02154b3a215178c5f566f2
   - kind: registry
     name: png
-    version: 0.17.13
-    sha: 06e4b0d3d1312775e782c86c91a111aa1f910cbb65e1337f9975b5f9a554b5e1
+    version: 0.17.14
+    sha: 52f9d46a34a05a6a57566bc2bfae066ef07585a6e3fa30fbbdff5936380623f0
   - kind: registry
     name: pocket-resources
     version: 0.3.2
@@ -1853,8 +1789,8 @@ sources:
     sha: 77957b295656769bb8ad2b6a6b09d897d94f05c41b069aede1fcdaa675eaea04
   - kind: registry
     name: pretty_assertions
-    version: 1.4.0
-    sha: af7cee1a6c8a5b9208b3cb1061f10c0cb689087b3d8ce85fb9d2dd7a29b6ba66
+    version: 1.4.1
+    sha: 3ae130e2f271fbc2ac3a40fb1d07180839cdbbe443c7a27e1e3c13c5cac0116d
   - kind: registry
     name: prettyplease
     version: 0.2.22
@@ -1933,20 +1869,20 @@ sources:
     sha: 1004a344b30a54e2ee58d66a71b32d2db2feb0a31f9a2d302bf0536f15de2a33
   - kind: registry
     name: quick-xml
-    version: 0.36.1
-    sha: 96a05e2e8efddfa51a84ca47cec303fac86c8541b686d37cac5efc0e094417bc
+    version: 0.36.2
+    sha: f7649a7b4df05aed9ea7ec6f628c67c9953a43869b8bc50929569b2999d443fe
   - kind: registry
     name: quinn
-    version: 0.11.3
-    sha: b22d8e7369034b9a7132bc2008cac12f2013c8132b45e0554e6e20e2617f2156
+    version: 0.11.5
+    sha: 8c7c5fdde3cdae7203427dc4f0a68fe0ed09833edc525a03456b153b79828684
   - kind: registry
     name: quinn-proto
-    version: 0.11.6
-    sha: ba92fb39ec7ad06ca2582c0ca834dfeadcaf06ddfc8e635c80aa7e1c05315fdd
+    version: 0.11.8
+    sha: fadfaed2cd7f389d0161bb73eeb07b7b78f8691047a6f3e73caaeae55310a4a6
   - kind: registry
     name: quinn-udp
-    version: 0.5.4
-    sha: 8bffec3605b73c6f1754535084a85229fa8a30f86014e6c81aeec4abb68b0285
+    version: 0.5.5
+    sha: 4fe68c2e9e1a1234e218683dbdf9f9dfcb094113c5ac2b938dfcb9bab4c4140b
   - kind: registry
     name: quote
     version: 1.0.37
@@ -1989,12 +1925,12 @@ sources:
     sha: 54077e1872c46788540de1ea3d7f4ccb1983d12f9aa909b234468676c1a36779
   - kind: registry
     name: realfft
-    version: 3.3.0
-    sha: 953d9f7e5cdd80963547b456251296efc2626ed4e3cbf36c869d9564e0220571
+    version: 3.4.0
+    sha: 390252372b7f2aac8360fc5e72eba10136b166d6faeed97e6d0c8324eb99b2b1
   - kind: registry
     name: redox_syscall
-    version: 0.5.3
-    sha: 2a908a6e00f1fdd0dfd9c0eb08ce85126f6d8bbda50017e74bc4a4b7d4a926a4
+    version: 0.5.6
+    sha: 355ae415ccd3a04315d3f8246e86d67689ea74d88d915576e1589a351062a13b
   - kind: registry
     name: regex
     version: 1.10.6
@@ -2033,16 +1969,12 @@ sources:
     sha: 7743f17af12fa0b03b803ba12cd6a8d9483a587e89c69445e3909655c0b9fabb
   - kind: registry
     name: rgb
-    version: 0.8.48
-    sha: 0f86ae463694029097b846d8f99fd5536740602ae00022c0c50c5600720b2f71
+    version: 0.8.50
+    sha: 57397d16646700483b67d2dd6511d79318f9d057fdbd21a4066aeac8b41d310a
   - kind: registry
     name: ring
     version: 0.17.8
     sha: c17fa4cb658e3583423e915b9f3acc01cceaee1860e33d59ebae66adc3a2dc0d
-  - kind: registry
-    name: rpassword
-    version: 6.0.1
-    sha: 2bf099a1888612545b683d2661a1940089f6c2e5a8e38979b2159da876bfd956
   - kind: registry
     name: rtcp-types
     version: 0.1.0
@@ -2053,8 +1985,8 @@ sources:
     sha: e01b38bb7fd9425628876786934ade84ec5cb63905804f073583e6554d33f9af
   - kind: registry
     name: rtsp-types
-    version: 0.1.2
-    sha: d9eda23daacde59c9e182db0a25e03f51f0108707169c09b4e5d931885470c5c
+    version: 0.1.3
+    sha: f47bf238c3da7994ef66a71724f385cb1ee25dcf04a156402d2727ad84dc1433
   - kind: registry
     name: rubato
     version: 0.14.1
@@ -2069,8 +2001,8 @@ sources:
     sha: 583034fd73374156e66797ed8e5b0d5690409c9226b22d87cb7f19821c05d152
   - kind: registry
     name: rustc_version
-    version: 0.4.0
-    sha: bfa0f585226d2e68097d4f95d113b15b83a82e819ab25717ec0590d9584ef366
+    version: 0.4.1
+    sha: cfcb3a22ef46e85b45de6ee7e79d063319ebb6594faafcf1c225ea92ab6e9b92
   - kind: registry
     name: rustdct
     version: 0.7.1
@@ -2081,24 +2013,24 @@ sources:
     sha: 43806561bc506d0c5d160643ad742e3161049ac01027b5e6d7524091fd401d86
   - kind: registry
     name: rustix
-    version: 0.38.34
-    sha: 70dc5ec042f7a43c4a73241207cecc9873a06d45debb38b329f8541d85c2730f
+    version: 0.38.37
+    sha: 8acb788b847c24f28525660c4d7758620a7210875711f79e7f663cc152726811
   - kind: registry
     name: rustls
     version: 0.21.12
     sha: 3f56a14d1f48b391359b22f731fd4bd7e43c97f3c50eee276f3aa09c94784d3e
   - kind: registry
     name: rustls
-    version: 0.23.12
-    sha: c58f8c84392efc0a126acce10fa59ff7b3d2ac06ab451a33f2741989b806b044
+    version: 0.23.13
+    sha: f2dabaac7466917e566adb06783a81ca48944c6898a1b08b9374106dd671f4c8
   - kind: registry
     name: rustls-native-certs
     version: 0.6.3
     sha: a9aace74cb666635c918e9c12bc0d348266037aa8eb599b5cba565709a8dff00
   - kind: registry
     name: rustls-native-certs
-    version: 0.7.2
-    sha: 04182dffc9091a404e0fc069ea5cd60e5b866c3adf881eff99a32d048242dffa
+    version: 0.7.3
+    sha: e5bfb394eeed242e909609f56089eecfe5fda225042e8b171791b9c95f5931e5
   - kind: registry
     name: rustls-pemfile
     version: 1.0.4
@@ -2109,8 +2041,8 @@ sources:
     sha: 196fe16b00e106300d3e45ecfcb764fa292a535d7326a29a5875c579c7417425
   - kind: registry
     name: rustls-pki-types
-    version: 1.8.0
-    sha: fc0a2ce646f8655401bb81e7927b812614bd5d91dbc968696be50603510fcaf0
+    version: 1.9.0
+    sha: 0e696e35370c65c9c541198af4543ccd580cf17fc25d8e05c5a242b202488c55
   - kind: registry
     name: rustls-platform-verifier
     version: 0.3.4
@@ -2125,8 +2057,8 @@ sources:
     sha: 8b6275d1ee7a1cd780b64aca7726599a1dbc893b1e64144529e55c3c2f745765
   - kind: registry
     name: rustls-webpki
-    version: 0.102.7
-    sha: 84678086bd54edf2b415183ed7a94d0efb049f1b646a33e22a36f3794be6ae56
+    version: 0.102.8
+    sha: 64ca1bc8749bd4cf37b5ce386cc146580777b4e8572c7b97baf22c83f444bee9
   - kind: registry
     name: ryu
     version: 1.0.18
@@ -2137,12 +2069,12 @@ sources:
     sha: 93fc1dc3aaa9bfed95e02e6eadabb4baf7e3078b0bd1b4d7b6b0b68378900502
   - kind: registry
     name: scc
-    version: 2.1.16
-    sha: aeb7ac86243095b70a7920639507b71d51a63390d1ba26c4f60a552fbb914a37
+    version: 2.1.17
+    sha: 0c947adb109a8afce5fc9c7bf951f87f146e9147b3a6a58413105628fb1d1e66
   - kind: registry
     name: schannel
-    version: 0.1.23
-    sha: fbc91545643bcf3a0bbb6569265615222618bdf33ce4ffbbd13c4bbd4c093534
+    version: 0.1.24
+    sha: e9aaafd5a2b6e3d657ff009d82fbd630b6bd54dd4eb06f21693925cdf80f9b8b
   - kind: registry
     name: scoped-tls
     version: 1.0.1
@@ -2157,12 +2089,12 @@ sources:
     sha: da046153aa2352493d6cb7da4b6e5c0c057d8a1d0a9aa8560baffdd945acd414
   - kind: registry
     name: sdd
-    version: 3.0.2
-    sha: 0495e4577c672de8254beb68d01a9b62d0e8a13c099edecdbedccce3223cd29f
+    version: 3.0.3
+    sha: 60a7b59a5d9b0099720b417b6325d91a52cbf5b3dcb5041d864be53eefa58abc
   - kind: registry
     name: sdp-types
-    version: 0.1.6
-    sha: 3bc1e17b07a224c21a31b5f7ed74cbbb189d26a0b8cdbfc8b57fa5940c89f086
+    version: 0.1.7
+    sha: 9ce72d627cd766d36f6e959e3add7277146cbc0853bc0699c925ba15138e93ee
   - kind: registry
     name: sec1
     version: 0.3.0
@@ -2173,36 +2105,36 @@ sources:
     sha: 897b2245f0b511c87893af39b033e5ca9cce68824c4d7e7630b5a1d339658d02
   - kind: registry
     name: security-framework-sys
-    version: 2.11.1
-    sha: 75da29fe9b9b08fe9d6b22b5b4bcbc75d8db3aa31e639aa56bb62e9d46bfceaf
+    version: 2.12.0
+    sha: ea4a292869320c0272d7bc55a5a6aafaff59b4f63404a003887b679a2e05b4b6
   - kind: registry
     name: semver
     version: 1.0.23
     sha: 61697e0a1c7e512e84a621326239844a24d8207b4669b41bc18b32ea5cbf988b
   - kind: registry
     name: serde
-    version: 1.0.209
-    sha: 99fce0ffe7310761ca6bf9faf5115afbc19688edd00171d81b1bb1b116c63e09
+    version: 1.0.210
+    sha: c8e3592472072e6e22e0a54d5904d9febf8508f65fb8552499a1abc7d1078c3a
   - kind: registry
     name: serde_bytes
     version: 0.11.15
     sha: 387cc504cb06bb40a96c8e04e951fe01854cf6bc921053c954e4a606d9675c6a
   - kind: registry
     name: serde_derive
-    version: 1.0.209
-    sha: a5831b979fd7b5439637af1752d535ff49f4860c0f341d1baeb6faf0f4242170
+    version: 1.0.210
+    sha: 243902eda00fad750862fc144cea25caca5e20d615af0a81bee94ca738f1df1f
   - kind: registry
     name: serde_json
-    version: 1.0.127
-    sha: 8043c06d9f82bd7271361ed64f415fe5e12a77fdb52e573e7f06a516dea329ad
+    version: 1.0.128
+    sha: 6ff5456707a1de34e7e37f2a6fd3d3f808c318259cbd01ab6377795054b483d8
   - kind: registry
     name: serde_path_to_error
     version: 0.1.16
     sha: af99884400da37c88f5e9146b7f1fd0fbcae8f6eec4e9da38b67d05486f814a6
   - kind: registry
     name: serde_spanned
-    version: 0.6.7
-    sha: eb5b1b31579f3811bf615c144393417496f152e12ac8b7663bf664f4a815306d
+    version: 0.6.8
+    sha: 87607cb1398ed59d48732e575a4c28a7a8ebf2454b964fe3f224f2afc07909e1
   - kind: registry
     name: serde_urlencoded
     version: 0.7.1
@@ -2285,10 +2217,6 @@ sources:
     sha: b7c388c1b5e93756d0c740965c41e8822f866621d41acbdf6336a6a168f8840c
   - kind: registry
     name: socket2
-    version: 0.4.10
-    sha: 9f7916fc008ca5542385b89a3d3ce689953c143e9304a9bf8beec1de48994c0d
-  - kind: registry
-    name: socket2
     version: 0.5.7
     sha: ce305eb0b4296696835b71df73eb912e0f1ffd2556a501fcede6e0c50349191c
   - kind: registry
@@ -2333,8 +2261,8 @@ sources:
     sha: 72b64191b275b66ffe2469e8af2c1cfe3bafa67b529ead792a6d0160888b4237
   - kind: registry
     name: syn
-    version: 2.0.76
-    sha: 578e081a14e0cefc3279b0472138c513f37b41a08d5a3cca9b6e4e8ceb6cd525
+    version: 2.0.79
+    sha: 89132cd0bf050864e1d38dc3bbc07a0eb8e7530af26344d3d2bbbef83499f590
   - kind: registry
     name: sync_wrapper
     version: 0.1.2
@@ -2365,8 +2293,8 @@ sources:
     sha: a3e535eb8dded36d55ec13eddacd30dec501792ff23a0b1682c38601b8cf2349
   - kind: registry
     name: system-deps
-    version: 7.0.2
-    sha: 070a0a5e7da2d24be457809c4b3baa57a835fd2829ad8b86f9a049052fe71031
+    version: 7.0.3
+    sha: 66d23aaf9f331227789a99e8de4c91bf46703add012bdfd45fdecdfb2975a005
   - kind: registry
     name: target-lexicon
     version: 0.12.16
@@ -2375,10 +2303,6 @@ sources:
     name: tempfile
     version: 3.12.0
     sha: 04cbcdd0c794ebb0d4cf35e88edd2f7d2c4c3e9a5a6dab322839b321c6a87a64
-  - kind: registry
-    name: termcolor
-    version: 1.4.1
-    sha: 06794f8f6c5c898b3275aebefa6b8a1cb24cd2c6c79397ab15774837a0bc5755
   - kind: registry
     name: test-log
     version: 0.2.16
@@ -2397,12 +2321,12 @@ sources:
     sha: 23d434d3f8967a09480fb04132ebe0a3e088c173e6d0ee7897abbdf4eab0f8b9
   - kind: registry
     name: thiserror
-    version: 1.0.63
-    sha: c0342370b38b6a11b6cc11d6a805569958d54cfa061a29969c3b5ce2ea405724
+    version: 1.0.64
+    sha: d50af8abc119fb8bb6dbabcfa89656f46f84aa0ac7688088608076ad2b459a84
   - kind: registry
     name: thiserror-impl
-    version: 1.0.63
-    sha: a4558b58466b9ad7ca0f102865eccc95938dca1a74a856f2b57b6629050da261
+    version: 1.0.64
+    sha: 08904e7672f5eb876eaaf87e0ce17857500934f4981c4a0ab2b4aa98baac7fc3
   - kind: registry
     name: thread-id
     version: 4.2.2
@@ -2433,8 +2357,8 @@ sources:
     sha: 1f3ccbac311fea05f86f61904b462b55fb3df8837a366dfc601a0161d0532f20
   - kind: registry
     name: tokio
-    version: 1.39.3
-    sha: 9babc99b9923bfa4804bd74722ff02c0381021eafa4db9949217e3be8e84fff5
+    version: 1.40.0
+    sha: e2b070231665d27ad9ec9b8df639893f46727666c6767db40317fbe920a5d998
   - kind: registry
     name: tokio-macros
     version: 2.4.0
@@ -2453,8 +2377,8 @@ sources:
     sha: 0c7bc40d0e5a97695bb96e27995cd3a08538541b0a846f65bba7a359f36700d4
   - kind: registry
     name: tokio-stream
-    version: 0.1.15
-    sha: 267ac89e0bec6e691e5813911606935d77c476ff49024f98abcea3e7b15e37af
+    version: 0.1.16
+    sha: 4f4e6ce100d0eb49a2734f8c0812bcd324cf357d21810932c5df6b96ef2b86f1
   - kind: registry
     name: tokio-tungstenite
     version: 0.20.1
@@ -2465,8 +2389,8 @@ sources:
     sha: c83b561d025642014097b66e6c1bb422783339e0909e4429cde4749d1990bc38
   - kind: registry
     name: tokio-util
-    version: 0.7.11
-    sha: 9cf6b47b3771c49ac75ad09a6162f53ad4b8088b76ac60e8ec1455b31a189fe1
+    version: 0.7.12
+    sha: 61e7c3654c13bcd040d4a03abee2c75b1d14a37b423cf5a813ceae1cc903ec6a
   - kind: registry
     name: toml
     version: 0.8.19
@@ -2477,16 +2401,8 @@ sources:
     sha: 0dd7358ecb8fc2f8d014bf86f6f638ce72ba252a2c3a2572f2a795f1d23efb41
   - kind: registry
     name: toml_edit
-    version: 0.22.20
-    sha: 583c44c02ad26b0c3f3066fe629275e50627026c51ac2e595cca4c230ce1ce1d
-  - kind: registry
-    name: tower
-    version: 0.4.13
-    sha: b8fa9be0de6cf49e536ce1851f987bd21a43b771b09473c3549a6c853db37c1c
-  - kind: registry
-    name: tower-layer
-    version: 0.3.3
-    sha: 121c2a6cda46980bb0fcd1647ffaf6cd3fc79a013de288782836f6df9c48780e
+    version: 0.22.22
+    sha: 4ae48d6208a266e853d946088ed816055e556cc6028c5e8e2b84d9fa5dd7c7f5
   - kind: registry
     name: tower-service
     version: 0.3.3
@@ -2545,20 +2461,20 @@ sources:
     sha: 08f95100a766bf4f8f28f90d77e0a5461bbdb219042e7679bebe79004fed8d75
   - kind: registry
     name: unicode-ident
-    version: 1.0.12
-    sha: 3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b
+    version: 1.0.13
+    sha: e91b56cd4cadaeb79bbf1a5645f6b4f8dc5bde8834ad5894a8db35fda9efa1fe
   - kind: registry
     name: unicode-linebreak
     version: 0.1.5
     sha: 3b09c83c3c29d37506a3e260c08c03743a6bb66a9cd432c6934ab501a190571f
   - kind: registry
     name: unicode-normalization
-    version: 0.1.23
-    sha: a56d1686db2308d901306f92a263857ef59ea39678a5458e7cb17f01415101f5
+    version: 0.1.24
+    sha: 5033c97c4262335cded6d6fc3e5c18ab755e1a3dc96376350f3d8e9f009ad956
   - kind: registry
     name: unicode-width
-    version: 0.1.13
-    sha: 0336d538f7abc86d282a4189614dfaa90810dfc2c6f6427eaf88e16311dd225d
+    version: 0.1.14
+    sha: 7dd6e30e90baa6f72411720665d41d89b9a3d039dc45b8faea1ddd07f617f6af
   - kind: registry
     name: untrusted
     version: 0.9.0
@@ -2669,8 +2585,8 @@ sources:
     sha: 26fdeaafd9bd129f65e7c031593c24d62186301e0c72c8978fa1678be7d532c0
   - kind: registry
     name: webpki-roots
-    version: 0.26.3
-    sha: bd7c23921eeb1713a4e851530e9b9756e4fb0e89978582942612524cf09f01cd
+    version: 0.26.6
+    sha: 841c67bff177718f1d4dfefde8d8f0e78f9b6589319ba88312f567fc5841a958
   - kind: registry
     name: weezl
     version: 0.1.8
@@ -2789,8 +2705,8 @@ sources:
     sha: 589f6da84c646204747d1270a2a5661ea66ed1cced2631d546fdfb155959f9ec
   - kind: registry
     name: winnow
-    version: 0.6.18
-    sha: 68a9bda4691f099d435ad181000724da8e5899daa10713c2d432552b9ccd3a6f
+    version: 0.6.20
+    sha: 36c1fec1a2bb5866f07c25f68c26e565c4c200aebb96d7e55710c19d3e8ac49b
   - kind: registry
     name: winreg
     version: 0.50.0
@@ -2801,8 +2717,8 @@ sources:
     sha: 8da84f1a25939b27f6820d92aed108f83ff920fdf11a7b19366c27c4cda81d4f
   - kind: registry
     name: xml-rs
-    version: 0.8.21
-    sha: 539a77ee7c0de333dcc6da69b177380a0b81e0dacfa4f7344c465a36871ee601
+    version: 0.8.22
+    sha: af4e2e2f7cba5a093896c1e150fbfe177d1883e7448200efb81d40b9d339ef26
   - kind: registry
     name: xmlparser
     version: 0.13.6
@@ -2813,8 +2729,8 @@ sources:
     sha: d7d8a75eaf6557bb84a65ace8609883db44a29951042ada9b393151532e41fcb
   - kind: registry
     name: yansi
-    version: 0.5.1
-    sha: 09041cd90cf85f7f8b2df60c646f853b7f535ce68f85244eb6731cf89fa498ec
+    version: 1.0.1
+    sha: cfe53a6657fd280eaa890a3bc59152892ffa3e30101319d168b781ed6529b049
   - kind: registry
     name: yasna
     version: 0.5.2
