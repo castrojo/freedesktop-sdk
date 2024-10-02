@@ -116,7 +116,7 @@ config:
 sources:
 - kind: git_repo
   url: ffmpeg:ffmpeg.git
-  track: n*
+  track: n7.0.*
   exclude:
   - '*-dev'
   ref: n7.0.2-0-ge3a61e91030696348b56361bdf80ea358aef4a19
