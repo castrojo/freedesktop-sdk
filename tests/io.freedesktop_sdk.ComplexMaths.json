@@ -1,0 +1,23 @@
+{
+    "app-id": "io.freedesktop_sdk.ComplexMaths",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "24.08",
+    "sdk": "org.freedesktop.Sdk",
+    "command": "hello",
+    "modules": [
+        {
+            "name": "hello",
+            "buildsystem": "simple",
+            "build-commands": [
+                "mkdir -p /app/bin",
+                "g++ -std=c++20 complexmaths.cc -o /app/bin/hello"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "path": "complexmaths.cc"
+                }
+            ]
+        }
+    ]
+}
