@@ -257,6 +257,9 @@ test-apps: $(REPO)
 	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean --user --install app tests/io.freedesktop_sdk.SimpleProject.json
 	flatpak --arch=$(FLATPAK_ARCH) run io.freedesktop_sdk.SimpleProject
 
+	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean --user --install app tests/io.freedesktop_sdk.ComplexMaths.json
+	flatpak --arch=$(FLATPAK_ARCH) run io.freedesktop_sdk.ComplexMaths
+
 
 test-codecs: export XDG_DATA_HOME=$(CURDIR)/runtime
 test-codecs: $(REPO)
