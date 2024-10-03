@@ -10,7 +10,6 @@ runtime-depends:
 - components/systemd.bst
 
 - components/libdaemon.bst
-- components/xmltoman.bst
 
 - components/avahi-manifest.bst
 
