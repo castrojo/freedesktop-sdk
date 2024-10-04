@@ -28,4 +28,4 @@ sources:
 - kind: git_repo
   url: gnome:libsecret.git
   track: '*.*.*'
-  ref: 0.21.4-18-gf41bb4e8f0dc61fa832f984c15c65f8f168ce442
+  ref: 0.21.4-0-g6b5a6c28afc6dd93c232a4907a87c881079ff91b
