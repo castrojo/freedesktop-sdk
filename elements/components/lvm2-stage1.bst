@@ -1,7 +1,7 @@
 kind: autotools
 
 build-depends:
-- components/pkg-config.bst
+- public-stacks/buildsystem-autotools.bst
 
 depends:
 - bootstrap-import.bst
