@@ -91,7 +91,7 @@ public:
       - '%{sourcedir}/%{element-name}/libgcc/**'
 
       libstdc++:
-      - '%{multiarch_libdir}/libstdc++*'
+      - '%{multiarch_libdir}/libstdc++.so*'
       - '%{debugdir}%{multiarch_libdir}/libstdc++*'
       - '%{sourcedir}/%{element-name}/libstdc++*'
       - '%{sourcedir}/%{element-name}/libstdc++*/**'
