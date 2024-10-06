@@ -6,7 +6,7 @@ description: |
   actual SDK
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 public:
   bst:

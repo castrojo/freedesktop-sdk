@@ -2,7 +2,7 @@ kind: manual
 description: Adds a link from /etc/mtab -> /proc/self/mounts
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   install-commands:

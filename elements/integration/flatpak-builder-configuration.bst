@@ -2,7 +2,7 @@ kind: manual
 description: Adds a default file to be passed to flatpak-builder
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/jq.bst
 
 config:

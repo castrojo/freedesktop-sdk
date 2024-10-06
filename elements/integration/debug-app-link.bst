@@ -3,7 +3,7 @@ description: Creates a debug directory, links the debug data of /app to a subdir
   of it
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   install-commands:

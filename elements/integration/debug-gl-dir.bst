@@ -2,7 +2,7 @@ kind: manual
 description: Creates a GL subdirectory, needed for GL debug extensions
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   install-commands:

@@ -2,7 +2,7 @@ kind: manual
 description: Creates VAAPI subdirectories, needed for VAAPI compat extensions
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   install-commands:

@@ -5,7 +5,7 @@ description: |
   extension, and not ship localisation data in the main SDK
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 public:
   bst:
