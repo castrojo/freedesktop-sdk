@@ -19,7 +19,6 @@ depends:
 - components/libxmlb.bst
 - components/libjcat.bst
 - components/libarchive.bst
-- components/libsoup.bst
 - components/gcab.bst
 - components/efivar.bst
 - components/tpm2-tss.bst
@@ -46,16 +45,24 @@ variables:
       plugin_uefi_capsule: 'enabled'
       efi_binary: 'true'
 
+  # FIXME: consider adding dependencies for passim and all plugins
   meson-local: >-
-    -Dauto_features=disabled
     -Ddocs=enabled
     -Dplugin_msr=%{plugin_msr}
     -Dplugin_uefi_capsule=%{plugin_uefi_capsule}
     -Defi_binary=%{efi_binary}
     -Dpolkit=enabled
+    -Dpassim=disabled
+    -Dlaunchd=disabled
+    -Dplugin_flashrom=disabled
+    -Dplugin_amdgpu=disabled
+    -Dplugin_logitech_bulkcontroller=disabled
+    -Dplugin_modem_manager=disabled
+    -Dvendor_ids_dir="%{datadir}/hwdata"
+    -Dumockdev_tests=disabled
 
 sources:
 - kind: git_repo
   url: github:fwupd/fwupd.git
   track: '*.*.*'
-  ref: 1.9.25-0-g27221283d513ec79526db0dbc741402b1628753f
+  ref: 2.0.0-0-g0e6970fcb73f467549d3fff97939a86fc0601c41
