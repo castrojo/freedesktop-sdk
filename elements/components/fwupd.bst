@@ -58,6 +58,7 @@ variables:
     -Dplugin_amdgpu=disabled
     -Dplugin_logitech_bulkcontroller=disabled
     -Dplugin_modem_manager=disabled
+    -Dvendor_ids_dir="%{datadir}/hwdata"
 
 sources:
 - kind: git_repo
