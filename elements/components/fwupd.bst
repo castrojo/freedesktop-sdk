@@ -56,8 +56,8 @@ variables:
     -Dlaunchd=disabled
     -Dplugin_flashrom=disabled
     -Dplugin_amdgpu=disabled
-    -Dplugin_logitech_bulkcontroller=false
-    -Dplugin_modem_manager=false
+    -Dplugin_logitech_bulkcontroller=disabled
+    -Dplugin_modem_manager=disabled
 
 sources:
 - kind: git_repo
