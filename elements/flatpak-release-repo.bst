@@ -40,10 +40,3 @@ config:
         dest: runtime/org.freedesktop.Platform.GL32.default/x86_64/%{branch-extra}
       - src: runtime/org.freedesktop.Platform.GL.Debug.default/%{flatpak_arch}/%{branch-extra}
         dest: runtime/org.freedesktop.Platform.GL32.Debug.default/x86_64/%{branch-extra}
-
-  - target_arch == 'aarch64':
-      copy-refs:
-      - src: runtime/org.freedesktop.Sdk.Compat.%{flatpak_arch}/%{flatpak_arch}/%{branch}
-        dest: runtime/org.freedesktop.Sdk.Compat.%{flatpak_arch}/x86_64/%{branch}
-      - src: runtime/org.freedesktop.Sdk.Compat.%{flatpak_arch}.Debug/%{flatpak_arch}/%{branch}
-        dest: runtime/org.freedesktop.Sdk.Compat.%{flatpak_arch}.Debug/x86_64/%{branch}
