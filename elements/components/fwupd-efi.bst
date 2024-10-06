@@ -15,4 +15,4 @@ sources:
 - kind: git_repo
   url: github:fwupd/fwupd-efi.git
   track: '*.*'
-  ref: 1.6-0-g58a2928f778278ab1f7f8fcddbab81ba587a8962
+  ref: 1.7-0-gcfd0be286a9b050c1aa4bfa3f0820256903a264a
