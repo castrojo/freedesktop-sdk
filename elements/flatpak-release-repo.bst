@@ -41,26 +41,6 @@ config:
       - src: runtime/org.freedesktop.Platform.GL.Debug.default/%{flatpak_arch}/%{branch-extra}
         dest: runtime/org.freedesktop.Platform.GL32.Debug.default/x86_64/%{branch-extra}
 
-  - target_arch == 'arm':
-      copy-refs:
-      - src: runtime/org.freedesktop.Platform.Compat.%{flatpak_arch}/%{flatpak_arch}/%{branch}
-        dest: runtime/org.freedesktop.Platform.Compat.%{flatpak_arch}/aarch64/%{branch}
-      - src: runtime/org.freedesktop.Platform.Compat.%{flatpak_arch}.Debug/%{flatpak_arch}/%{branch}
-        dest: runtime/org.freedesktop.Platform.Compat.%{flatpak_arch}.Debug/aarch64/%{branch}
-      - src: runtime/org.freedesktop.Platform.GL.default/%{flatpak_arch}/%{branch}
-        dest: runtime/org.freedesktop.Platform.GL32.default/aarch64/%{branch}
-      - src: runtime/org.freedesktop.Platform.GL.Debug.default/%{flatpak_arch}/%{branch}
-        dest: runtime/org.freedesktop.Platform.GL32.Debug.default/aarch64/%{branch}
-      - src: runtime/org.freedesktop.Sdk.Compat.%{flatpak_arch}/%{flatpak_arch}/%{branch}
-        dest: runtime/org.freedesktop.Sdk.Compat.%{flatpak_arch}/x86_64/%{branch}
-      - src: runtime/org.freedesktop.Sdk.Compat.%{flatpak_arch}.Debug/%{flatpak_arch}/%{branch}
-        dest: runtime/org.freedesktop.Sdk.Compat.%{flatpak_arch}.Debug/x86_64/%{branch}
-
-      - src: runtime/org.freedesktop.Platform.GL.default/%{flatpak_arch}/%{branch-extra}
-        dest: runtime/org.freedesktop.Platform.GL32.default/aarch64/%{branch-extra}
-      - src: runtime/org.freedesktop.Platform.GL.Debug.default/%{flatpak_arch}/%{branch-extra}
-        dest: runtime/org.freedesktop.Platform.GL32.Debug.default/aarch64/%{branch-extra}
-
   - target_arch == 'aarch64':
       copy-refs:
       - src: runtime/org.freedesktop.Sdk.Compat.%{flatpak_arch}/%{flatpak_arch}/%{branch}
