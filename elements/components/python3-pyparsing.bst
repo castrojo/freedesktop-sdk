@@ -12,4 +12,5 @@ sources:
   track: "*.*.*"
   exclude:
   - "*b*"
+  - "*rc*"
   ref: 3.1.4-0-gb846e4a71416dbf2d801bfe1859aa8e3f3afbe47
