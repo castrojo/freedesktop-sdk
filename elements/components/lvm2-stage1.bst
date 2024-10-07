@@ -1,5 +1,8 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
 - bootstrap-import.bst
 - components/libaio.bst
