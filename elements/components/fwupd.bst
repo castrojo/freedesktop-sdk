@@ -19,6 +19,7 @@ depends:
 - components/libxmlb.bst
 - components/libjcat.bst
 - components/libarchive.bst
+- components/libcbor.bst
 - components/gcab.bst
 - components/efivar.bst
 - components/tpm2-tss.bst
