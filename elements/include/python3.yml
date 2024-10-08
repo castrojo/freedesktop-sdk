@@ -4,7 +4,7 @@ variables:
 
 sources:
 - kind: git_repo
-  track: v*
+  track: v3.12.*
   exclude:
   - v*a*
   - v*b*
