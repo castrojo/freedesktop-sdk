@@ -18,7 +18,7 @@ open_mrs = project.mergerequests.list(state="opened", iterator=True)
 
 branch_names = {branch.name for branch in branches}
 open_mr_branches = {
-    mr.source_branch for mr in open_mrs if re.match(mr.source_branch, branch_regex)
+    mr.source_branch for mr in open_mrs if re.match(branch_regex, mr.source_branch)
 }
 branches_without_open_mrs = branch_names - open_mr_branches
 
