@@ -20,6 +20,7 @@ variables:
     -Dqvidcap=disabled
     -Dqv4l2=disabled
     -Dgconv=disabled
+    -Dv4l2-tracer=disabled
 
 config:
   install-commands:
