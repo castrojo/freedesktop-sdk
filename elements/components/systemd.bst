@@ -28,7 +28,6 @@ runtime-depends:
 - components/curl.bst
 - components/libqrencode.bst
 - components/iptables.bst
-- components/libxkbcommon.bst
 - components/libmicrohttpd.bst
 
 config:
