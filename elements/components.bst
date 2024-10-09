@@ -452,6 +452,7 @@ depends:
 - components/python3-pluggy.bst
 - components/python3-pluginbase.bst
 - components/python3-poetry-core.bst
+- components/python3-propcache.bst
 - components/python3-protobuf.bst
 - components/python3-psutil.bst
 - components/python3-pyasn1-modules.bst
@@ -490,6 +491,7 @@ depends:
 - components/python3-sphinxcontrib-serializinghtml.bst
 - components/python3-sphinx-rtd-theme.bst
 - components/python3-tenacity.bst
+- components/python3-tomli.bst
 - components/python3-tomlkit.bst
 - components/python3-toposort.bst
 - components/python3-tpm2-pytss.bst
