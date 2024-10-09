@@ -4,7 +4,7 @@ build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
 - components/python3-expandvars.bst
 - components/python3-tomli.bst
-- components/cython.bst
+- components/cython-3.bst
 
 runtime-depends:
 - components/python3.bst
