@@ -1,3 +1,109 @@
+Version: freedesktop-sdk-24.08.3
+Date: '2024-10-08'
+Description: |-
+  Changes in freedesktop-sdk-24.08.3
+   * python3: Suppress private types and variables from ABI check
+   * Update python3-build to 1.2.2.post1-0
+   * Update glibc to glibc-2.40-49
+   * python3-pyparsing: Exclude rc tags
+   * Update vim to v9.1.0759-0
+   * Update python3-setuptools-rust to v1.10.2-0
+   * fwupd: Disable umockdev tests
+   * fwupd: Set vendors_id_dir
+   * fwupd: Fix meson arguments
+   * Update fwupd to 2.0.0-0
+   * Fix indentation
+   * Define aliases for junctions
+   * Update libabigail to libabigail-2.5-119
+   * Update buildbox to 1.2.22-0
+   * Update python3-aiohttp to 3.10.9
+   * Update xorg-data-xkeyboard-config to xkeyboard-config-2.43-0
+   * Update linux to v6.11.2-0
+   * lvm2-stage1: Add missing build-dep on pkgconfig
+   * Update lvm2 to v2_03_27-0
+   * udisks: Exclude singular pre-release tag
+   * avahi: Don't runtime-depend on xmltoman
+   * Update mutool to 1.24.10-0
+   * Update xwayland to xwayland-24.1.3-0
+   * Update mesa-sdk to mesa-24.2.4-0
+   * Update libproxy to 0.5.9-0
+   * Update mesa to mesa-24.2.4-0
+   * Update libnftnl to libnftnl-1.2.8-0
+   * ffmpeg: Sync codec list with Fedora
+   * ffmpeg: Freeze to 7.0 due to ABI break
+   * Update networkmanager to 1.50.0-0
+   * Update hwdata to v0.388-0
+   * Update xz to v5.6.3-0
+   * ffmpeg-test: Use assert expression-info syntax instead of try-except
+   * Update go to go1.23.2-0
+   * Update spirv-llvm-translator to v18.1.5-1
+   * Update libabigail to libabigail-2.5-116
+   * Update sdl2 to release-2.30.8-0
+   * ffmpeg-test: Add tests for av1, vp8 and vp9 codecs
+   * Update libabigail to libabigail-2.5-112
+   * Update linux to v6.11.1-0
+   * Update python3-aiohappyeyeballs to v2.4.3-0
+   * Update spirv-llvm-translator to v18.1.5-0
+   * systemd: Move hwdb.d files to the devel domain
+   * Update gstreamer-plugins-rs to 0.13.2-0
+   * Update gdb to gdb-15.2-release-0
+   * ffmpeg-test: Adjust tests for libx264 and libopenh264 inclusion
+   * ffmpeg: Provide libopenh264 support in all ffmpeg builds
+   * libx264: Add patch to fix build on ppc
+   * ffmpeg-full: Add libx264
+   * Add an alias for videolan git repository
+   * Update python3-pyproject-hooks to v1.2.0
+   * Update vim to v9.1.0744-0
+   * Update cmake to v3.30.4-0
+   * Update glibc to glibc-2.40-48
+   * Update librsvg to 2.58.5-0
+   * Update python3-aiohttp to 3.10.8
+   * Update python3-virtualenv to 20.26.6-0
+   * Update grpc to v1.66.2-0
+   * tk: Freeze to 8-6 branch
+   * libjxl: Freeze to 0.10 due to soname bump
+   * librsvg: Freeze to 2.58
+   * ci: Replace deprecated only-except with rules
+   * ci: Fix whitespace
+   * Update python3-yarl to v1.13.1-0
+   * Update libabigail to libabigail-2.5-111
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-162
+   * Update python3-maturin to v1.7.4-0
+   * Update python3-yarl to v1.13.0-0
+   * Update python3-aiohappyeyeballs to v2.4.2-0
+   * Update buildbox to 1.2.21-0
+   * Update libeconf to v0.7.4-0
+   * ffmpeg-test: Add tests to get information about a specific codec lib
+   * ci: Exclude validate-news from branch pipelines
+   * libdisplay-info: Split to devel
+   * Use python-minimal to build Rust, LLVM and their deps
+   * Update erofs-utils to v1.8.2-0
+   * Update python3-maturin to v1.7.3-0
+   * Update fribidi to v1.0.16-0
+   * Update fwupd to 1.9.25-0
+   * Update libcamera to v0.3.2-0
+   * Update tpm2-pkcs11 to 1.9.1-0
+   * Update podman to v5.2.3-0
+   * Update dictionaries to libreoffice-24.8.2.1-0
+   * Update python3-aiohttp to 3.10.6
+   * python3: Build with -O3 as this is upstream default
+   * Fix pylint warnings
+   * Update CI image
+   * news_validator: Add stricter date validation
+   * release.py: Reformat with ruff
+   * release.py: Add more validation of version inputs
+   * release: Use push-option instead of short argument
+   * Update bash to bash-5.2-39
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-160
+   * Update shaderc to v2024.3-0
+   * Update python3-yarl to v1.12.1-0
+   * Update git to v2.46.2-0
+   * NEWS.yml: Add placeholder descriptions
+   * ci: Add a NEWS.yml validator and run it in CI
+   * Update reference-abi to freedesktop-sdk-24.08.2-0
+   * Update ghostscript to ghostpdl-10.04.0-0
+   * audit: Set runstatedir to /run
+---
 Version: freedesktop-sdk-24.08.2
 Date: '2024-09-21'
 Description: |-
