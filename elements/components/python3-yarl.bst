@@ -8,6 +8,7 @@ runtime-depends:
 - components/python3.bst
 - components/python3-idna.bst
 - components/python3-multidict.bst
+- components/python3-propcache.bst
 
 environment:
   YARL_NO_EXTENSIONS: '1'
