@@ -5,11 +5,16 @@ build-depends:
 
 runtime-depends:
 - bootstrap-import.bst
-- components/libaio.bst
 - components/systemd-libs.bst
-- components/libdevmapper.bst
 
 config:
-  exclude:
+  include:
   - libdevmapper
-  include-orphans: True
+  include-orphans: False
+
+public:
+  bst:
+    split-rules:
+      devel:
+        - '%{libdir}/libdevmapper.so'
+
