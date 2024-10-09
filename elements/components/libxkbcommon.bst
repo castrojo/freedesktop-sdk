@@ -1,20 +1,19 @@
 kind: meson
 
+build-depends:
+ - public-stacks/buildsystem-meson.bst
+ - components/bison.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/wayland.bst
-- filename: components/wayland-protocols.bst
-  type: build
-- filename: components/xorg-data-xkeyboard-config.bst
-- filename: public-stacks/buildsystem-meson.bst
-  type: build
-- filename: components/bison.bst
-  type: build
+- bootstrap-import.bst
+- components/libxml2.bst
+- components/xorg-data-xkeyboard-config.bst
 
 variables:
-  meson-local: |
-    -Denable-docs=false \
+  meson-local: >-
+    -Denable-docs=false
     -Denable-x11=true
+    -Denable-tools=false
 
 public:
   bst:
