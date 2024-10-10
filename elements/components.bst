@@ -491,7 +491,6 @@ depends:
 - components/python3-sphinxcontrib-serializinghtml.bst
 - components/python3-sphinx-rtd-theme.bst
 - components/python3-tenacity.bst
-- components/python3-tomli.bst
 - components/python3-tomlkit.bst
 - components/python3-toposort.bst
 - components/python3-tpm2-pytss.bst
