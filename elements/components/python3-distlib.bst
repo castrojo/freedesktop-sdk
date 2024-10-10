@@ -10,6 +10,6 @@ sources:
 - kind: pypi
   name: distlib
   ref:
-    sha256sum: 1530ea13e350031b6312d8580ddb6b27a104275a31106523b8f123787f494f64
+    sha256sum: a60f20dea646b8a33f3e7772f74dc0b2d0772d2837ee1342a00645c81edf9403
     suffix: 
-      c4/91/e2df406fb4efacdf46871c25cde65d3c6ee5e173b7e5a4547a47bae91920/distlib-0.3.8.tar.gz
+      0d/dd/1bec4c5ddb504ca60fc29472f3d27e8d4da1257a854e1d96742f15c1d02d/distlib-0.3.9.tar.gz
