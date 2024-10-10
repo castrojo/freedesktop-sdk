@@ -459,6 +459,7 @@ depends:
 - components/python3-pluginbase.bst
 - components/python3-ply.bst
 - components/python3-poetry-core.bst
+- components/python3-propcache.bst
 - components/python3-protobuf.bst
 - components/python3-psutil.bst
 - components/python3-pyasn1-modules.bst
