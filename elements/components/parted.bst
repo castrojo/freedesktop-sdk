@@ -3,7 +3,7 @@ kind: autotools
 depends:
 - bootstrap-import.bst
 - components/util-linux-full.bst
-- components/lvm2.bst
+- components/libdevmapper.bst
 
 sources:
 - kind: tar
