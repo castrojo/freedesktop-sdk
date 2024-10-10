@@ -8,5 +8,5 @@ runtime-depends:
 - components/json-c.bst
 - components/pwquality.bst
 - components/util-linux-full.bst
-- components/lvm2.bst
+- components/libdevmapper.bst
 - components/popt.bst
