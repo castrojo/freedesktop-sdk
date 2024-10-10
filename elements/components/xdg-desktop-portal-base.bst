@@ -19,6 +19,8 @@ variables:
   meson-local: >-
     -Dlibportal=disabled
     -Dpytest=disabled
+    -Ddocumentation=disabled
+    -Dman-pages=disabled
 
 public:
   bst:
