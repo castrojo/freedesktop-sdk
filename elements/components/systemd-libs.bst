@@ -7,7 +7,6 @@ runtime-depends:
 - bootstrap-import.bst
 - components/libcap.bst
 - components/libgcrypt.bst
-- components/util-linux.bst
 - components/systemd-manifest.bst
 - components/lz4.bst
 - components/zstd.bst
