@@ -26,6 +26,7 @@ depends:
 - components/wavpack.bst
 - components/v4l-utils.bst
 - components/libgudev.bst
+- components/taglib.bst
 
 variables:
   command-subdir: subprojects/gst-plugins-good
@@ -42,7 +43,6 @@ variables:
     -Dqt5=disabled
     -Dqt6=disabled
     -Dshout2=disabled
-    -Dtaglib=disabled
     -Dtwolame=disabled
     -Dexamples=disabled
     -Drpicamsrc=disabled

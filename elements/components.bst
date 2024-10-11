@@ -550,6 +550,7 @@ depends:
 - components/systemd-ukify.bst
 - components/systemd.bst
 - components/tar.bst
+- components/taglib.bst
 - components/tcl.bst
 - components/tex-gyre-fonts.bst
 - components/texinfo.bst
@@ -562,6 +563,7 @@ depends:
 - components/udisks.bst
 - components/unzip.bst
 - components/usbutils.bst
+- components/utf8cpp.bst 
 - components/util-linux-base.bst
 - components/util-linux-full.bst
 - components/util-linux.bst
