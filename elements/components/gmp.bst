@@ -6,8 +6,9 @@ depends:
   type: build
 
 variables:
-  conf-local: |
+  conf-local: >-
     --enable-cxx
+    --enable-fat
 
 config:
   install-commands:
