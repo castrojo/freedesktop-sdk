@@ -26,6 +26,11 @@ class BuildstreamConfiguration:
     def __init__(self):
         bst_binary_call = os.environ.get("BST", "bst")
         self.bst_call = bst_binary_call.split(" ")
+        self.bst_call[self.bst_call.index("bst") + 1 : self.bst_call.index("bst")] = [
+            "--config",
+            "utils/buildstream-reprotest.conf",
+        ]
+
 
 
 def bst_build(
@@ -44,10 +49,6 @@ def bst_build(
     bst_call.extend(["--deps", dependency_kind])
 
     if disallow_artifact_pull:
-        bst_call[bst_call.index("bst") + 1 : bst_call.index("bst")] = [
-            "--config",
-            "utils/buildstream-reprotest.conf",
-        ]
         bst_call.extend([
             "--ignore-project-artifact-remotes",
         ])
