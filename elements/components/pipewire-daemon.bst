@@ -14,6 +14,7 @@ runtime-depends:
 - components/webrtc-audio-processing.bst
 - components/wireplumber.bst
 - components/libcamera.bst
+- components/liblc3.bst
 - components/libpulse.bst
 - components/libfdk-aac.bst
 

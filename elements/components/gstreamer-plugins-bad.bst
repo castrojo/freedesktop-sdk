@@ -25,6 +25,7 @@ depends:
 - components/noopenh264.bst
 - components/libsrtp2.bst
 - components/svt-av1.bst
+- components/liblc3.bst
 
 build-depends:
 - public-stacks/buildsystem-meson.bst

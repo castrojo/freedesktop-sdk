@@ -16,6 +16,7 @@ build-depends:
 - components/libcamera.bst
 - components/libfdk-aac.bst
 - components/libusb.bst
+- components/liblc3.bst
 - components/libpulse.bst
 - components/libmysofa.bst
 - components/patchelf.bst
@@ -44,7 +45,6 @@ variables:
     -Dlibcamera=enabled
     -Dpipewire-v4l2=disabled
     -Dlibcanberra=disabled
-    -Dbluez5-codec-lc3=disabled
     -Dbluez5-codec-lc3plus=disabled
     -Dlv2=disabled
     -Dlibjack-path=%{libdir}

@@ -249,6 +249,7 @@ depends:
 - components/libjcat.bst
 - components/libjxl.bst
 - components/libksba.bst
+- components/liblc3.bst
 - components/libmicrohttpd.bst
 - components/libmnl.bst
 - components/libmysofa.bst
