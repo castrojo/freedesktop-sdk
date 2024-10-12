@@ -1,94 +1,26 @@
-kind: autotools
+kind: filter
 
 build-depends:
-- bootstrap/diffutils.bst
-- bootstrap/gcc.bst
-- bootstrap/make.bst
-- bootstrap/stripper.bst
-- components/autoconf2.69.bst
-- components/automake.bst
-- components/flex.bst
-- components/gettext.bst
-- components/libtool.bst
-- components/python3-minimal.bst
-- components/tar.bst
-- components/texinfo.bst
+- components/gcc-base.bst
 
-depends:
+runtime-depends:
+- bootstrap/binutils.bst
+- bootstrap/libxcrypt.bst
+- components/gcc-manifest.bst
+- components/libstdc++.bst
 - public-stacks/runtime-minimal.bst
 
-(@):
-- elements/bootstrap/include/gcc-arch-opts.yml
-- elements/include/gcc-source.yml
-
-variables:
-  # gcc installs correctly libraries in the multiarch library
-  # directory, but needs to be provided /usr/lib for --libdir.
-  lib: lib
-  multiarch_libdir: '%{prefix}/lib/%{gcc_triplet}'
-
-  conf-local:
-    --target=%{triplet}
-    --disable-multilib
-    --enable-multiarch
-    --disable-bootstrap
-    --enable-languages=c,c++,fortran,objc,obj-c++
-    --enable-default-pie
-    --enable-default-ssp
-    --with-isl
-    --disable-libssp
-    --enable-linker-build-id
-    --disable-libstdcxx-filesystem-ts
-    --enable-cet
-    --with-system-zlib
-    %{conf-arch}
-  conf-link-args: |
-    --enable-shared
-
-  optimize-debug: "false"
-
 config:
-  install-commands:
-    (>):
-    - |
-      ln -s gcc %{install-root}%{bindir}/cc
-
-    - |
-      rm "%{install-root}%{bindir}/%{triplet}-c++"
-      ln -s "%{triplet}-g++" "%{install-root}%{bindir}/%{triplet}-c++"
-
-    - |
-      rm "%{install-root}%{bindir}/%{triplet}-gcc"
-      ln -s "%{triplet}-gcc-$(cat gcc/BASE-VER)" "%{install-root}%{bindir}/%{triplet}-gcc"
-
-    - |
-      for f in "%{install-root}%{bindir}/"*; do
-        base="$(basename "${f}")"
-        case "${base}" in
-          %{triplet}-*)
-            continue
-          ;;
-          *)
-            if [ -f "%{install-root}%{bindir}/%{triplet}-${base}" ]; then
-              rm "${f}"
-              ln -s "%{triplet}-${base}" "${f}"
-            fi
-          ;;
-        esac
-      done
-
-    - |
-      rm "%{install-root}%{infodir}/dir"
-
-    - |
-      mkdir -p "%{install-root}%{datadir}/gdb/auto-load%{multiarch_libdir}"
-      mv -f %{install-root}%{multiarch_libdir}/libstdc++.so.*-gdb.py "%{install-root}%{datadir}/gdb/auto-load%{multiarch_libdir}/"
+  exclude:
+  - libgcc-s
+  - libstdc++
+  include-orphans: true
 
 public:
   bst:
     split-rules:
       runtime:
-        - '%{multiarch_libdir}/lib*.so.*'
+        - '%{libdir}/lib*.so.*'
 
       devel:
         (>):
@@ -101,52 +33,46 @@ public:
         - '%{datadir}/info/**'
         - '%{datadir}/locale'
         - '%{datadir}/locale/**'
-        - '%{datadir}/gcc-*/python'
-        - '%{datadir}/gcc-*/python/**'
-        - '%{datadir}/gdb'
-        - '%{datadir}/gdb/**'
         - '%{indep-libdir}/gcc'
         - '%{indep-libdir}/gcc/**'
         - '%{libdir}/gcc'
         - '%{libdir}/gcc/**'
-        - '%{multiarch_libdir}/lib*.a'
-        - '%{multiarch_libdir}/lib*_preinit.o'
-        - '%{multiarch_libdir}/liblsan.so'
-        - '%{multiarch_libdir}/libstdc++.so'
-        - '%{multiarch_libdir}/libgomp.so'
-        - '%{multiarch_libdir}/libatomic.so'
-        - '%{multiarch_libdir}/libubsan.so'
-        - '%{multiarch_libdir}/libquadmath.so'
-        - '%{multiarch_libdir}/libitm.so'
-        - '%{multiarch_libdir}/libtsan.so'
-        - '%{multiarch_libdir}/libmpxwrappers.so'
-        - '%{multiarch_libdir}/libmpx.so'
-        - '%{multiarch_libdir}/libcilkrts.so'
-        - '%{multiarch_libdir}/libasan.so'
-        - '%{multiarch_libdir}/libgfortran.so'
-        - '%{multiarch_libdir}/libcc1.so'
-        - '%{multiarch_libdir}/libgcc_s.so'
-        - '%{multiarch_libdir}/lib*.spec'
-        - '%{multiarch_libdir}/libobjc.so'
-        - '%{multiarch_libdir}/libhwasan.so'
+        - '%{libdir}/lib*.a'
+        - '%{libdir}/lib*_preinit.o'
+        - '%{libdir}/liblsan.so'
+        - '%{libdir}/libstdc++.so'
+        - '%{libdir}/libgomp.so'
+        - '%{libdir}/libatomic.so'
+        - '%{libdir}/libubsan.so'
+        - '%{libdir}/libquadmath.so'
+        - '%{libdir}/libitm.so'
+        - '%{libdir}/libtsan.so'
+        - '%{libdir}/libmpxwrappers.so'
+        - '%{libdir}/libmpx.so'
+        - '%{libdir}/libcilkrts.so'
+        - '%{libdir}/libasan.so'
+        - '%{libdir}/libgfortran.so'
+        - '%{libdir}/libcc1.so'
+        - '%{libdir}/lib*.spec'
+        - '%{libdir}/libobjc.so'
+        - '%{libdir}/libhwasan.so'
 
       static-blocklist:
         (=):
-        - '%{multiarch_libdir}/libasan.a'
-        - '%{multiarch_libdir}/libatomic.a'
-        - '%{multiarch_libdir}/libgfortran.a'
-        - '%{multiarch_libdir}/libgomp.a'
-        - '%{multiarch_libdir}/libitm.a'
-        - '%{multiarch_libdir}/liblsan.a'
-        - '%{multiarch_libdir}/libquadmath.a'
-        - '%{multiarch_libdir}/libsupc++.a'
-        - '%{multiarch_libdir}/libstdc++exp.a'
-        - '%{multiarch_libdir}/libtsan.a'
-        - '%{multiarch_libdir}/libubsan.a'
-        - '%{multiarch_libdir}/libobjc.a'
-        - '%{multiarch_libdir}/libhwasan.a'
+        - '%{libdir}/libasan.a'
+        - '%{libdir}/libatomic.a'
+        - '%{libdir}/libgfortran.a'
+        - '%{libdir}/libgomp.a'
+        - '%{libdir}/libitm.a'
+        - '%{libdir}/liblsan.a'
+        - '%{libdir}/libquadmath.a'
+        - '%{libdir}/libsupc++.a'
+        - '%{libdir}/libstdc++exp.a'
+        - '%{libdir}/libtsan.a'
+        - '%{libdir}/libubsan.a'
+        - '%{libdir}/libobjc.a'
+        - '%{libdir}/libhwasan.a'
 
       # Not actually used, included for completeness
       static-allowlist:
-        - '%{multiarch_libdir}/libstdc++.a'
         - '%{indep-libdir}/gcc/**/*.a'

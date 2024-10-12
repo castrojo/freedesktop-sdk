@@ -7,7 +7,11 @@ build-depends:
 - components/perl.bst
 
 depends:
-- public-stacks/runtime-minimal.bst
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
+- bootstrap/glibc.bst
+- bootstrap/symlinks.bst
+- components/utf-locale.bst
 
 variables:
   openssl-target: linux-%{target_arch}

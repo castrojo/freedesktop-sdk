@@ -9,8 +9,12 @@ build-depends:
 - bootstrap/stripper.bst
 
 depends:
-- public-stacks/runtime-minimal.bst
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
+- bootstrap/glibc.bst
 - bootstrap/libxcrypt.bst
+- bootstrap/symlinks.bst
+- components/utf-locale.bst
 
 environment:
   BSTARCH: '%{bootstrap_build_arch}'
