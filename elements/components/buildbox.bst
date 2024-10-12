@@ -38,5 +38,3 @@ sources:
   url: gitlab:BuildGrid/buildbox/buildbox.git
   track: '*.*.*'
   ref: 1.2.24-0-g292386ce24b38f7a38831504a59a5637f3830b21
-- kind: patch
-  path: patches/buildbox/gcc14.patch
