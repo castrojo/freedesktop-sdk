@@ -7,6 +7,10 @@ depends:
 - bootstrap-import.bst
 - components/wayland.bst
 
+variables:
+  meson-local: >-
+    -Dtests=false
+
 sources:
 - kind: git_repo
   url: freedesktop:wayland/wayland-protocols.git
