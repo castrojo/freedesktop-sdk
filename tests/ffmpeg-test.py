@@ -62,7 +62,7 @@ def get_codec_info(codec_type, codec_name):
 
 dec_only, enc_only, dec_and_enc, codecs_dict = get_codecs()
 
-check_hw = {"vdpau", "vaapi", "drm", "vulkan"}
+check_hw = {"vdpau", "vaapi", "drm", "vulkan", "cuda"}
 check_common = {
     "y41p",
     "h264",
@@ -104,13 +104,16 @@ exp_h264_decoder_platform = ["Decoder libopenh264"]
 exp_h264_decoder_ext = ["Decoder h264"]
 exp_h264_encoder_platform = [
     "Encoder libopenh264",
+    "Encoder h264_nvenc",
     "Encoder h264_v4l2m2m",
     "Encoder h264_vaapi",
 ]
+
 exp_h264_encoder_ext = [
     "Encoder libx264",
     "Encoder libx264rgb",
     "Encoder libopenh264",
+    "Encoder h264_nvenc",
     "Encoder h264_v4l2m2m",
     "Encoder h264_vaapi",
     "Encoder h264_vulkan",
@@ -120,9 +123,14 @@ hevc_decoders = get_codec_info("decoder", "hevc")
 hevc_encoders = get_codec_info("encoder", "hevc")
 exp_hevc_decoder_platform = []
 exp_hevc_decoder_ext = ["Decoder hevc"]
-exp_hevc_encoder_platform = ["Encoder hevc_v4l2m2m", "Encoder hevc_vaapi"]
+exp_hevc_encoder_platform = [
+    "Encoder hevc_nvenc",
+    "Encoder hevc_v4l2m2m",
+    "Encoder hevc_vaapi",
+]
 exp_hevc_encoder_ext = [
     "Encoder libx265",
+    "Encoder hevc_nvenc",
     "Encoder hevc_v4l2m2m",
     "Encoder hevc_vaapi",
     "Encoder hevc_vulkan",
@@ -138,6 +146,7 @@ exp_av1_decoder = ["Decoder av1"]
 exp_av1_encoder = [
     "Encoder libaom-av1",
     "Encoder libsvtav1",
+    "Encoder av1_nvenc",
     "Encoder av1_vaapi",
 ]
 

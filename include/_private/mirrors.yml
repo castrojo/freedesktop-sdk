@@ -58,6 +58,8 @@ mirrors:
     - https://gitlab.com/freedesktop-sdk/mirrors/xiph/
     videolan:
     - https://gitlab.com/freedesktop-sdk/mirrors/videolan/
+    git_videolan:
+    - https://gitlab.com/freedesktop-sdk/mirrors/git_videolan/
     git_https:
     - https://gitlab.com/freedesktop-sdk/mirrors/git_https/
     # (Not currently used, uncomment if needed)

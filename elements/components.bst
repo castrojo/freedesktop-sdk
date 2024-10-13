@@ -340,6 +340,7 @@ depends:
 - components/nss.bst
 - components/nsswitch-config-bootable.bst
 - components/nsswitch-config.bst
+- components/nv-codec-headers.bst
 - components/open-iscsi.bst
 - components/open-isns.bst
 - components/openal.bst

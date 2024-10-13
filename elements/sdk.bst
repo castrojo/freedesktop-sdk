@@ -29,6 +29,7 @@ depends:
 - components/meson.bst
 - components/nasm.bst
 - components/ninja.bst
+- components/nv-codec-headers.bst
 - components/perl.bst
 - components/perl-xml-parser.bst
 - components/patch.bst

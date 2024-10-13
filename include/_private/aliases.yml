@@ -32,6 +32,7 @@ sourceforge_git: https://git.code.sf.net/p/
 sourceware: https://sourceware.org/git/
 xiph: https://gitlab.xiph.org/xiph/
 videolan: https://code.videolan.org/videolan/
+git_videolan: https://git.videolan.org/
 
 #Generic aliases (because mirroring requires some sort of alias)
 git_https: https://

@@ -1,6 +1,7 @@
 build-depends:
 - components/nasm.bst
 - components/vulkan-headers.bst
+- components/nv-codec-headers.bst
 - public-stacks/buildsystem-autotools.bst
 
 depends:
@@ -88,6 +89,7 @@ variables:
     --enable-vaapi
     --enable-pthreads
     --enable-libopenh264
+    --enable-ffnvcodec
     --arch="%{ffmpeg-arch}"
 
   conf-extra: ''
