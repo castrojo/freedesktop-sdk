@@ -6,14 +6,13 @@ build-depends:
 runtime-depends:
 - bootstrap/binutils.bst
 - bootstrap/libxcrypt.bst
+- components/gcc-libs.bst
 - components/gcc-manifest.bst
-- components/libstdc++.bst
 - public-stacks/runtime-minimal.bst
 
 config:
   exclude:
-  - libgcc-s
-  - libstdc++
+  - gcc-libs
   include-orphans: true
 
 public:
@@ -39,23 +38,8 @@ public:
         - '%{libdir}/gcc/**'
         - '%{libdir}/lib*.a'
         - '%{libdir}/lib*_preinit.o'
-        - '%{libdir}/liblsan.so'
-        - '%{libdir}/libstdc++.so'
-        - '%{libdir}/libgomp.so'
-        - '%{libdir}/libatomic.so'
-        - '%{libdir}/libubsan.so'
-        - '%{libdir}/libquadmath.so'
-        - '%{libdir}/libitm.so'
-        - '%{libdir}/libtsan.so'
-        - '%{libdir}/libmpxwrappers.so'
-        - '%{libdir}/libmpx.so'
-        - '%{libdir}/libcilkrts.so'
-        - '%{libdir}/libasan.so'
-        - '%{libdir}/libgfortran.so'
-        - '%{libdir}/libcc1.so'
         - '%{libdir}/lib*.spec'
-        - '%{libdir}/libobjc.so'
-        - '%{libdir}/libhwasan.so'
+        - '%{libdir}/libcc1.so'
 
       static-blocklist:
         (=):

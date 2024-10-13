@@ -6,4 +6,4 @@ depends:
 - bootstrap/glibc.bst
 - bootstrap/symlinks.bst
 - components/utf-locale.bst
-- components/libgcc-s.bst
+- components/gcc-libs.bst
