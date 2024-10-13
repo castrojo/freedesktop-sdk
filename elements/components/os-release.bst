@@ -30,6 +30,8 @@ config:
     mkdir -p "%{install-root}%{datadir}/metainfo"
     install org.freedesktop.Platform.metainfo.xml "%{install-root}%{datadir}/metainfo"
     install org.freedesktop.Sdk.metainfo.xml "%{install-root}%{datadir}/metainfo"
+    appstreamcli validate --no-net "%{install-root}%{datadir}/metainfo/org.freedesktop.Platform.metainfo.xml"
+    appstreamcli validate --no-net "%{install-root}%{datadir}/metainfo/org.freedesktop.Sdk.metainfo.xml"
     appstreamcli compose --components=org.freedesktop.Platform --result-root=%{install-root} --data-dir %{install-root}%{flatpak_xmldir} --origin=org.freedesktop.Platform  %{install-root}
     appstreamcli compose --components=org.freedesktop.Sdk --result-root=%{install-root} --data-dir %{install-root}%{flatpak_xmldir} --origin=org.freedesktop.Sdk %{install-root}
 
