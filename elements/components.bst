@@ -584,6 +584,7 @@ depends:
 - components/weston.bst
 - components/wget2.bst
 - components/which.bst
+- components/wildmidi.bst
 - components/wireless-regdb-bin.bst
 - components/wireplumber.bst
 - components/wpa-supplicant.bst

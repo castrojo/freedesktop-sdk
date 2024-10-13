@@ -26,6 +26,7 @@ depends:
 - components/libsrtp2.bst
 - components/svt-av1.bst
 - components/liblc3.bst
+- components/wildmidi.bst
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
@@ -62,6 +63,7 @@ variables:
     -Dopenh264=enabled
     -Dsrtp=enabled
     -Dsvtav1=enabled
+    -Dwildmidi=enabled
 
 public:
   bst:
