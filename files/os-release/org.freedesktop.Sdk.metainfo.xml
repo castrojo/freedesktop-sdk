@@ -5,6 +5,9 @@
   <project_license>MIT</project_license>
   <name>Freedesktop SDK</name>
   <summary>Tools and headers for developing applications</summary>
+  <developer id="io.freedesktop_sdk">
+    <name>Freedesktop SDK</name>
+  </developer>
   <description>
     <p>
       The Freedesktop Sdk is the development runtime that you can use to produce applications using
