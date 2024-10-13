@@ -5,6 +5,9 @@
   <project_license>MIT</project_license>
   <name>__VARIANT_NAME__</name>
   <summary>Mesa - The 3D Graphics Library</summary>
+  <developer id="io.freedesktop_sdk">
+    <name>Freedesktop SDK</name>
+  </developer>
   <releases>
     <release version="__VERSION__" date="__VERSION_DATE__"/>
   </releases>
@@ -18,5 +21,6 @@
     __VARIANT_TEXT__
   </description>
   <url type="homepage">https://freedesktop-sdk.gitlab.io/</url>
+  <url type="contact">https://matrix.to/#/#freedesktop-sdk:matrix.org</url>
 </component>
 

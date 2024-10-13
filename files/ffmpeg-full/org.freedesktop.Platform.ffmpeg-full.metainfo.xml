@@ -3,10 +3,12 @@
   <id>org.freedesktop.Platform.ffmpeg-full</id>
   <extends>org.freedesktop.Platform</extends>
   <name>FFmpeg extension with extra codecs</name>
-  <summary>FFmpeg "full" extension contains codecs not included in
-  FFmpeg provided by Freedesktop SDK. These extra codecs may be
-  restricted by patents.</summary>
-  <url type="homepage">https://ffmpeg.org/</url>
+  <summary>FFmpeg-full extension contains patent-restricted codecs not in runtime FFmpeg</summary>
+  <developer id="io.freedesktop_sdk">
+    <name>Freedesktop SDK</name>
+  </developer>
+  <url type="homepage">https://freedesktop-sdk.gitlab.io</url>
+  <url type="contact">https://matrix.to/#/#freedesktop-sdk:matrix.org</url>
   <metadata_license>FSFAP</metadata_license>
   <project_license>LGPL-2.1</project_license>
 </component>
