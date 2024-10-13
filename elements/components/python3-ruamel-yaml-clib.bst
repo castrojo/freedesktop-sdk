@@ -7,9 +7,6 @@ build-depends:
 depends:
 - components/python3.bst
 
-variables:
-  local_flags: -fpermissive
-
 config:
   build-commands:
     (<):
@@ -27,3 +24,5 @@ sources:
   url: github:ruamel/yaml.clib.git
   track: '*.*.*'
   ref: 0.2.8-0-gb6bb6474da4a410cc4baac31ac48a38ba25d3d38
+- kind: patch
+  path: patches/ruamel-yaml-clib/ruamel-yaml-clib-0.2.7_cython_pointer_types.patch
