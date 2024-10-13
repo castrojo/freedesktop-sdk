@@ -15,7 +15,7 @@ config:
       m4 -D__RUNTIME_BRANCH__="%{freedesktop-sdk-flatpak-branch}" \
       "${i}" >"$(basename "${i}" .in)"
     done
-    for metainfo in *.appdata.xml; do
+    for metainfo in *.metainfo.xml; do
       appstreamcli news-to-metainfo --limit %{release-limit} NEWS.yml "${metainfo}"
     done
 
@@ -28,8 +28,8 @@ config:
     install issue "%{install-root}%{sysconfdir}"
     install issue.net "%{install-root}%{sysconfdir}"
     mkdir -p "%{install-root}%{datadir}/metainfo"
-    install org.freedesktop.Platform.appdata.xml "%{install-root}%{datadir}/metainfo"
-    install org.freedesktop.Sdk.appdata.xml "%{install-root}%{datadir}/metainfo"
+    install org.freedesktop.Platform.metainfo.xml "%{install-root}%{datadir}/metainfo"
+    install org.freedesktop.Sdk.metainfo.xml "%{install-root}%{datadir}/metainfo"
     appstreamcli compose --components=org.freedesktop.Platform --result-root=%{install-root} --data-dir %{install-root}%{flatpak_xmldir} --origin=org.freedesktop.Platform  %{install-root}
     appstreamcli compose --components=org.freedesktop.Sdk --result-root=%{install-root} --data-dir %{install-root}%{flatpak_xmldir} --origin=org.freedesktop.Sdk %{install-root}
 
