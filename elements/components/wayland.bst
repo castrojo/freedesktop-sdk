@@ -13,6 +13,7 @@ variables:
   local_flags: -DXCURSORPATH='"%{cursorpath}"'
   meson-local: >-
     -Ddocumentation=false
+    -Dtests=false
 
 public:
   bst:
