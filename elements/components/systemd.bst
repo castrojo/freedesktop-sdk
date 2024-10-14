@@ -8,7 +8,6 @@ runtime-depends:
 - components/systemd-hwdb.bst
 - components/audit.bst
 - components/libapparmor.bst
-- components/libarchive.bst
 - components/libgpg-error.bst
 - components/linux-pam.bst
 - components/kmod.bst
