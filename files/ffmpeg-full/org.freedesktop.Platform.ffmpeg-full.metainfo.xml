@@ -7,6 +7,13 @@
   <developer id="io.freedesktop_sdk">
     <name>Freedesktop SDK</name>
   </developer>
+  <description>
+    <p>
+      This is a application extension shipped as part of the Freedesktop runtime
+      containing support for patent encumbered FFmpeg codecs and additional
+      libraries.
+    </p>
+  </description>
   <url type="homepage">https://freedesktop-sdk.gitlab.io</url>
   <url type="contact">https://matrix.to/#/#freedesktop-sdk:matrix.org</url>
   <metadata_license>FSFAP</metadata_license>
