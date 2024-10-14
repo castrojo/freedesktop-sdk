@@ -33,6 +33,8 @@ config:
         dest: runtime/org.freedesktop.Sdk.Compat.%{flatpak_arch}.Debug/x86_64/%{branch}
       - src: runtime/org.freedesktop.Platform.VAAPI.Intel/%{flatpak_arch}/%{branch}
         dest: runtime/org.freedesktop.Platform.VAAPI.Intel.%{flatpak_arch}/x86_64/%{branch}
+      - src: runtime/org.freedesktop.Platform.VAAPI.nvidia/%{flatpak_arch}/%{branch}
+        dest: runtime/org.freedesktop.Platform.VAAPI.nvidia.%{flatpak_arch}/x86_64/%{branch}
       - src: runtime/org.freedesktop.Platform.ffmpeg-full/%{flatpak_arch}/%{branch}
         dest: runtime/org.freedesktop.Platform.ffmpeg_full.%{flatpak_arch}/x86_64/%{branch}
 

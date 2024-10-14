@@ -92,6 +92,14 @@ config:
       download-if: have-intel-gpu
       autoprune-unless: have-intel-gpu
 
+    Extension org.freedesktop.Platform.VAAPI.nvidia:
+      directory: '%{lib}/dri/nvidia-vaapi-driver'
+      autodelete: 'false'
+      no-autodownload: 'true'
+      add-ld-path: lib
+      download-if: have-kernel-module-nvidia
+      autoprune-unless: have-kernel-module-nvidia
+
     Extension org.freedesktop.Platform.openh264:
       directory: '%{lib}/openh264'
       versions: '%{openh264-version}beta;%{openh264-version}'

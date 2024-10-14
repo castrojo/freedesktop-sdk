@@ -22,6 +22,7 @@ depends:
 - flatpak-images/vdpauinfo.bst
 - flatpak-images/mesa.bst
 - flatpak-images/mesa-debug.bst
+- flatpak-images/platform-vaapi-nvidia.bst
 
 (?):
 - target_arch == "x86_64":
