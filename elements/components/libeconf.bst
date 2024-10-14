@@ -1,14 +1,16 @@
-kind: cmake
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-cmake.bst
+- public-stacks/buildsystem-meson.bst
 
 depends:
 - bootstrap-import.bst
 
-variables:
-  cmake-local: >-
-    -DBUILD_TESTING=OFF
+config:
+  install-commands:
+    (>):
+    - |
+      rm %{install-root}%{libdir}/libeconf.a
 
 public:
   bst:

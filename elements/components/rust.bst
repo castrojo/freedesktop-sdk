@@ -2,6 +2,7 @@ kind: manual
 
 depends:
 - bootstrap-import.bst
+- components/curl.bst
 - components/llvm.bst
 - components/libxml2.bst
 - components/openssl.bst
