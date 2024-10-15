@@ -5,7 +5,8 @@ build-depends:
 
 config:
   install-commands:
-  - install -Dm644 -t "%{install-root}%{datadir}/metainfo" org.freedesktop.Platform.ffmpeg-full.appdata.xml
+  - install -Dm644 -t "%{install-root}%{datadir}/metainfo" org.freedesktop.Platform.ffmpeg-full.metainfo.xml
+  - appstreamcli validate --no-net "%{install-root}%{datadir}/metainfo/org.freedesktop.Platform.ffmpeg-full.metainfo.xml"
   - |
     appstreamcli compose --components org.freedesktop.Platform.ffmpeg-full \
     --prefix %{prefix} --result-root %{install-root} \
@@ -13,7 +14,7 @@ config:
 
 sources:
 - kind: local
-  path: files/ffmpeg-full/org.freedesktop.Platform.ffmpeg-full.appdata.xml
+  path: files/ffmpeg-full/org.freedesktop.Platform.ffmpeg-full.metainfo.xml
 
 (@):
 - elements/extensions/ffmpeg-full/config.yml
