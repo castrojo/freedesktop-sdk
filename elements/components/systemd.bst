@@ -17,7 +17,6 @@ runtime-depends:
 - components/shadow.bst
 - components/util-linux-full.bst
 - components/libidn2.bst
-- components/libbpf.bst
 - components/libseccomp.bst
 - components/kbd.bst
 - components/cryptsetup.bst
@@ -29,7 +28,6 @@ runtime-depends:
 - components/curl.bst
 - components/libqrencode.bst
 - components/iptables.bst
-- components/libxkbcommon.bst
 - components/libmicrohttpd.bst
 
 config:
