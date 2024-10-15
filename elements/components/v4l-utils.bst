@@ -10,8 +10,9 @@ depends:
 - components/jpeg.bst
 
 variables:
-  conf-local: |
+  conf-local: >-
     --with-udevdir=$(pkg-config --variable=udevdir udev)
+    --disable-v4l2-tracer
 
 public:
   bst:
