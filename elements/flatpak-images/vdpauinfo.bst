@@ -2,6 +2,7 @@ kind: flatpak_image
 
 build-depends:
 - extensions/vdpauinfo/vdpauinfo.bst
+- extensions/vdpauinfo/appdata.bst
 
 variables:
   lib: lib

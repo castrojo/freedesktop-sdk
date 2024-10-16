@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>org.freedesktop.Platform.VAAPI.nvidia</id>
+  <extends>org.freedesktop.Platform</extends>
+  <name>Nvidia VAAPI driver</name>
+  <summary>VA-API implementation that uses NVDEC as a backend</summary>
+  <developer id="io.freedesktop_sdk">
+    <name>Freedesktop SDK</name>
+  </developer>
+  <description>
+    <p>
+      This is an VA-API implementation that uses NVDEC as a backend. This
+      implementation is specifically designed to be used by Firefox for
+      accelerated decode of web content.
+    </p>
+  </description>
+  <url type="homepage">https://freedesktop-sdk.gitlab.io</url>
+  <url type="contact">https://matrix.to/#/#freedesktop-sdk:matrix.org</url>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>MIT</project_license>
+</component>

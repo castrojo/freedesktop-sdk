@@ -27,6 +27,6 @@ config:
       autodelete: 'true'
       no-autodownload: 'true'
 
-depends:
-- filename: extensions/vainfo/libva-utils.bst
-  type: build
+build-depends:
+- extensions/vainfo/libva-utils.bst
+- extensions/vainfo/appdata.bst
