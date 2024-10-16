@@ -20,7 +20,6 @@ runtime-depends:
 - components/kbd.bst
 - components/cryptsetup.bst
 - components/p11-kit.bst
-- components/libfido2.bst
 - components/openssl.bst
 - components/libapparmor.bst
 - components/curl.bst
