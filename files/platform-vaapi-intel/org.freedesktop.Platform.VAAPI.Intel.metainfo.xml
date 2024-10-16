@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>org.freedesktop.Platform.VAAPI.Intel</id>
+  <extends>org.freedesktop.Platform</extends>
+  <name>Intel VAAPI driver</name>
+  <summary>VA-API implementation for Intel G45 and HD Graphics family</summary>
+  <developer id="io.freedesktop_sdk">
+    <name>Freedesktop SDK</name>
+  </developer>
+  <description>
+    <p>
+      This is an extension shipped as part of the Freedesktop runtime
+      containing Intel VAAPI drivers.
+    </p>
+  </description>
+  <url type="homepage">https://freedesktop-sdk.gitlab.io</url>
+  <url type="contact">https://matrix.to/#/#freedesktop-sdk:matrix.org</url>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>MIT</project_license>
+</component>
