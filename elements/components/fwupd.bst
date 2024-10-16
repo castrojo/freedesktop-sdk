@@ -61,6 +61,7 @@ variables:
     -Dplugin_modem_manager=disabled
     -Dvendor_ids_dir="%{datadir}/hwdata"
     -Dumockdev_tests=disabled
+    -Dlibdrm=disabled
 
 sources:
 - kind: git_repo
