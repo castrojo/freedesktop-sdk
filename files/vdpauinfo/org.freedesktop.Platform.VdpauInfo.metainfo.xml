@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="console-application">
+  <id>org.freedesktop.Platform.VdpauInfo</id>
+  <name>VdpauInfo</name>
+  <summary>Command line utility for querying the capabilities of a VDPAU device</summary>
+  <developer id="io.freedesktop_sdk">
+    <name>Freedesktop SDK</name>
+  </developer>
+  <description>
+    <p>
+    VDPAU is the Video Decode and Presentation API for UNIX. It provides
+    an interface to video decode acceleration and presentation hardware
+    present in modern GPUs. 
+    </p>
+  </description>
+  <provides>
+    <binary>vdpauinfo</binary>
+  </provides>
+  <content_rating type="oars-1.1" />
+  <url type="homepage">https://freedesktop-sdk.gitlab.io</url>
+  <url type="contact">https://matrix.to/#/#freedesktop-sdk:matrix.org</url>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>MIT</project_license>
+</component>

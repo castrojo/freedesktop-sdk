@@ -21,6 +21,6 @@ config:
       sockets: "x11;wayland;"
       devices: "dri;"
 
-depends:
-  - filename: extensions/vulkaninfo/vulkan-tools.bst
-    type: build
+build-depends:
+- extensions/vulkaninfo/vulkan-tools.bst
+- extensions/vulkaninfo/appdata.bst
