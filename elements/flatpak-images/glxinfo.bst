@@ -27,6 +27,6 @@ config:
       autodelete: 'true'
       no-autodownload: 'true'
 
-depends:
-- filename: extensions/glxinfo/mesa-demos.bst
-  type: build
+build-depends:
+- extensions/glxinfo/mesa-demos.bst
+- extensions/glxinfo/appdata.bst

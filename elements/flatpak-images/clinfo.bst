@@ -21,6 +21,6 @@ config:
       sockets: "x11;wayland;"
       devices: "dri;"
 
-depends:
-  - filename: extensions/clinfo/clinfo.bst
-    type: build
+build-depends:
+- extensions/clinfo/clinfo.bst
+- extensions/clinfo/appdata.bst

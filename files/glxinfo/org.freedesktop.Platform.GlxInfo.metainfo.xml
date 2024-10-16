@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="console-application">
+  <id>org.freedesktop.Platform.GlxInfo</id>
+  <name>Glxinfo</name>
+  <summary>Glxinfo is a command-line tool to diagnose problems with 3D acceleration setup</summary>
+  <developer id="io.freedesktop_sdk">
+    <name>Freedesktop SDK</name>
+  </developer>
+  <description>
+    <p>
+      Glxinfo is a command-line tool that can help you diagnose problems
+      with your 3D acceleration setup. It can also provide additional
+      helpful information for developers.
+    </p>
+  </description>
+  <provides>
+    <binary>glxinfo</binary>
+  </provides>
+  <content_rating type="oars-1.1" />
+  <url type="homepage">https://freedesktop-sdk.gitlab.io</url>
+  <url type="contact">https://matrix.to/#/#freedesktop-sdk:matrix.org</url>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>MIT</project_license>
+</component>

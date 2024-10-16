@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="console-application">
+  <id>org.freedesktop.Platform.ClInfo</id>
+  <name>Clinfo</name>
+  <summary>Print all known information about all available OpenCL platforms and devices in the system</summary>
+  <developer id="io.freedesktop_sdk">
+    <name>Freedesktop SDK</name>
+  </developer>
+  <description>
+    <p>
+    Clinfo is a simple command-line application that enumerates all
+    possible (known) properties of the OpenCL platform and devices 
+    available on the system.
+    </p>
+  </description>
+  <provides>
+    <binary>clinfo</binary>
+  </provides>
+  <content_rating type="oars-1.1" />
+  <url type="homepage">https://freedesktop-sdk.gitlab.io</url>
+  <url type="contact">https://matrix.to/#/#freedesktop-sdk:matrix.org</url>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>CC0</project_license>
+</component>
