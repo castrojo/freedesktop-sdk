@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="console-application">
+  <id>org.freedesktop.Platform.VulkanInfo</id>
+  <name>VulkanInfo</name>
+  <summary>Vulkan Utilities and Tools</summary>
+  <developer id="io.freedesktop_sdk">
+    <name>Freedesktop SDK</name>
+  </developer>
+  <description>
+    <p>
+    Vulkan Info is a program which outputs various types of Vulkan
+    information such as device properties of identified GPUs, 
+    Vulkan extensions supported by each GPU, recognized layers and
+    supported image formats and format properties.
+    </p>
+  </description>
+  <provides>
+    <binary>vulkaninfo</binary>
+  </provides>
+  <content_rating type="oars-1.1" />
+  <url type="homepage">https://freedesktop-sdk.gitlab.io</url>
+  <url type="contact">https://matrix.to/#/#freedesktop-sdk:matrix.org</url>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license> Apache-2.0</project_license>
+</component>
