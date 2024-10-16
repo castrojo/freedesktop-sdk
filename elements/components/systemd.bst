@@ -25,7 +25,6 @@ runtime-depends:
 - components/libapparmor.bst
 - components/tpm2-tss.bst
 - components/curl.bst
-- components/iptables.bst
 - components/libmicrohttpd.bst
 
 config:
