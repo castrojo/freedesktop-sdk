@@ -60,9 +60,10 @@ variables:
     -Dplugin_modem_manager=disabled
     -Dvendor_ids_dir="%{datadir}/hwdata"
     -Dumockdev_tests=disabled
+    -Dlibdrm=disabled
 
 sources:
 - kind: git_repo
   url: github:fwupd/fwupd.git
   track: '*.*.*'
-  ref: 2.0.0-0-g0e6970fcb73f467549d3fff97939a86fc0601c41
+  ref: 2.0.1-0-gf96cd611f92727bad2477199b154928117051e91
