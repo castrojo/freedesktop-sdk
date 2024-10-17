@@ -20,4 +20,7 @@
   <url type="contact">https://matrix.to/#/#freedesktop-sdk:matrix.org</url>
   <metadata_license>FSFAP</metadata_license>
   <project_license>MIT</project_license>
+  <releases>
+    <release version="2.22.0" date="2024-07-01" />
+  </releases>
 </component>

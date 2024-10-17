@@ -21,5 +21,8 @@
   <url type="homepage">https://freedesktop-sdk.gitlab.io</url>
   <url type="contact">https://matrix.to/#/#freedesktop-sdk:matrix.org</url>
   <metadata_license>FSFAP</metadata_license>
-  <project_license> Apache-2.0</project_license>
+  <project_license>Apache-2.0</project_license>
+  <releases>
+    <release version="1.3.261" date="2023-08-05" />
+  </releases>
 </component>
