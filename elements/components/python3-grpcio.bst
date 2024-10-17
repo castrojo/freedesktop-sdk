@@ -21,6 +21,6 @@ sources:
 - kind: pypi
   name: grpcio
   ref:
-    sha256sum: 563588c587b75c34b928bc428548e5b00ea38c46972181a4d8b75ba7e3f24231
+    sha256sum: e090b2553e0da1c875449c8e75073dd4415dd71c9bde6a406240fdf4c0ee467c
     suffix: 
-      71/d1/49a96df4eb1d805cf546247df40636515416d2d5c66665e5129c8b4162a8/grpcio-1.66.2.tar.gz
+      ec/ae/3c47d71ab4abd4bd60a7e2806071fe0a4b6937b9eabe522291787087ea1f/grpcio-1.67.0.tar.gz
