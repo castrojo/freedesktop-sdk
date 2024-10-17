@@ -21,4 +21,7 @@
   <url type="contact">https://matrix.to/#/#freedesktop-sdk:matrix.org</url>
   <metadata_license>FSFAP</metadata_license>
   <project_license>CC0</project_license>
+  <releases>
+    <release version="3.0.23.01.25" date="2024-01-26" />
+  </releases>
 </component>

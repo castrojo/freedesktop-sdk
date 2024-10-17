@@ -21,4 +21,7 @@
   <url type="contact">https://matrix.to/#/#freedesktop-sdk:matrix.org</url>
   <metadata_license>FSFAP</metadata_license>
   <project_license>MIT</project_license>
+    <releases>
+    <release version="9.0.0" date="2023-04-07" />
+  </releases>
 </component>
