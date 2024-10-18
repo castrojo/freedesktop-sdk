@@ -21,6 +21,6 @@ sources:
 - kind: git_repo
   url: github:gwsw/less.git
   track: v*-rel
-  ref: v661-rel-0-g55fa179597ceea96bb490817f9160ab29a8e4f11
+  ref: v668-rel-0-ge77e1176c80cca989694818866ae6cd7e7707161
 - kind: patch
   path: patches/less/less-reproducible.patch
