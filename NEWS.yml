@@ -1,3 +1,97 @@
+Version: freedesktop-sdk-24.08.4
+Date: '2024-10-18'
+Description: |-
+  Changes in freedesktop-sdk-24.08.4
+   * python3-dulwich: Drop patch
+   * Update python3-dulwich to 0.22.3
+   * Update c-ares to v1.34.2-0
+   * Update buildbox to 1.2.25-0
+   * Update mesa to mesa-24.2.5-0
+   * Update python3-setuptools to v75.2.0-0
+   * Update poppler to poppler-24.10.0-0
+   * Add release data for apps
+   * Add metainfo to intel-vaapi-driver
+   * Add metainfo files to all apps
+   * fwupd: Disable librm integration
+   * Update fwupd to 2.0.1-0
+   * Update libjcat to 0.2.2-0
+   * Update python3-pil to 11.0.0-0
+   * Update libxmlb to 0.3.21-0
+   * Update python3-setuptools to v75.1.1-0
+   * Update python3-yarl to v1.15.2-0
+   * Update python3-trove-classifiers to 2024.10.14-0
+   * Update dracut to 105-0
+   * reference-abi: Bump after abi skip
+   * v4l-utils: Disable v4l2-tracer
+   * systemd-libs: Remove util-linux runtime dependency
+   * fwupd: Add missing libcbor dependency
+   * systemd: Don't runtime-depend on libxkbcommon
+   * systemd-base: Remove libbpf dependencies
+   * Add a description to ffmpeg metainfo
+   * Fix some validation errors and standardise urls
+   * Validate generated appdata after installing
+   * Migrate to metainfo file extension
+   * python3-pyparsing: Update to 3.2.0
+   * python3-pyparsing: Exclude docs tag
+   * reproducible: Always use custom config
+   * u-boot-qemu: Fix arm64 board filename
+   * u-boot: Update riscv preload fdt patch
+   * Add maybe elements for u-boot
+   * u-boot-qemu: Update to v2023.04
+   * u-boot-unmatched: Use denx alias
+   * u-boot-qemu: Add missing swig and setuptools build dependencies
+   * lvm2: Add dependency on public-stacks/buildsystem-autotools
+   * gcc: Add regression test for GCC
+   * Makefile: Add a target to clean oci exports
+   * python3-ruamel-yaml-clib: Add patch to build without fpermissive
+   * python3-ruamel-yaml-clib: Use public-stacks/buildsystem-python-setuptools
+   * python3-ruamel-yaml-clib: Convert to git_repo and cythonise
+   * Update python3-poetry-core to 1.9.1-0
+   * Update libtraceevent to libtraceevent-1.8.4-0
+   * less: Remove timestamp generation to make it reproducible
+   * less: switch to git_repo source
+   * vulkan-stack: Freeze to 1.3.290
+   * ci: Make license checker job manual
+   * wayland: Disable tests
+   * wayland-protocols: Disable tests
+   * Update vim to v9.1.0777-0
+   * Update python3-yarl to v1.15.1-0
+   * Update xorg-lib-xtrans to xtrans-1.5.1-0
+   * Update python3-poetry-core to 1.9.1-0
+   * Update wayland-protocols to 1.38-0
+   * Update python3-trove-classifiers to 2024.10.12-0
+   * buildbox: Remove upstreamed patch
+   * Update buildbox to 1.2.24-0
+   * Update extra-cmake-modules to v6.7.0-0
+   * Update python3-trove-classifiers to 2024.10.11-0
+   * Update python3-yarl to v1.15.0-0
+   * Update python3-networkx to networkx-3.4.1-0
+   * Update python3-sphinx-rtd-theme to 3.0.1-0
+   * Update c-ares to v1.34.1-0
+   * Update linux to v6.11.3-0
+   * Update python3-aiohttp to 3.10.10
+   * buildbox: Backport fix for GCC14
+   * Update buildbox to 1.2.23-0
+   * gnu-hello: Add mirrors.edge.kernel.org as fallback mirror
+   * xdg-desktop-portal-base: Disable docs
+   * Update xdg-desktop-portal-base to 1.19.0-0
+   * Update python3-distlib to 0.3.9-0
+   * Update reference-abi to freedesktop-sdk-24.08.3-0
+   * Update python3-charset-normalizer to 3.4.0-0
+   * Update dracut to 104-0
+   * Update systemd to v256.7-0
+   * python3-yarl: Add new elements for propcache
+   * Update python3-yarl to v1.14.0-0
+   * Update python3-markupsafe to 3.0.1-0
+   * Update cmake to v3.30.5-0
+   * Update grpc to v1.67.0-0
+   * Update fwupd-efi to 1.7-0
+   * python3: Freeze on 3.12
+   * Update git to v2.47.0-0
+   * Update podman to v5.2.4-0
+   * Update python3-sphinx-rtd-theme to 3.0.0-0
+   * Update python3 to v3.12.7-0
+---
 Version: freedesktop-sdk-24.08.3
 Date: '2024-10-08'
 Description: |-
