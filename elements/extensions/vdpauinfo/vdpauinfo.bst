@@ -14,6 +14,6 @@ variables:
 sources:
 - kind: git_repo
   url: freedesktop:vdpau/vdpauinfo.git
-  track: vdpauinfo-*
-  ref: vdpauinfo-1.3-0-g0bc58c03e61e038ba3b81dfff36cc35cadfae447
+  track: "*.*"
+  ref: 1.5-0-gd3c5bd63bf8878d59b22d618d2bb5116db392d28
 
