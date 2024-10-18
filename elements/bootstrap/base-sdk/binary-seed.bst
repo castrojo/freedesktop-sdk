@@ -16,6 +16,9 @@ kind: compose
 - bootstrap_build_arch == "riscv64":
     build-depends:
     - bootstrap/base-sdk/binary-seed-riscv64.bst
+- bootstrap_build_arch == "loongarch64":
+    build-depends:
+    - bootstrap/base-sdk/binary-seed-loongarch64.bst
 
 config:
   exclude:
