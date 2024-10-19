@@ -284,6 +284,7 @@ depends:
 - components/libtiff.bst
 - components/libtirpc.bst
 - components/libtool.bst
+- components/libtree.bst
 - components/libunistring.bst
 - components/libunwind.bst
 - components/liburcu.bst
