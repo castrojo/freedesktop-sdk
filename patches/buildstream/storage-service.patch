@@ -1,0 +1,67 @@
+From 3d85708035a33f7bc0815824046121fc6bf167c7 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?J=C3=BCrg=20Billeter?= <j@bitron.ch>
+Date: Fri, 11 Oct 2024 16:20:18 +0200
+Subject: [PATCH] _scheduler: Disable log files for cache query jobs
+
+When a storage service is configured, cache query is performed in
+scheduled jobs. These cache query jobs also created log files but
+without any useful messages. This disables the creation of such log
+files to remove unnecessary I/O load.
+---
+ src/buildstream/_scheduler/jobs/job.py               | 8 ++++++--
+ src/buildstream/_scheduler/queues/cachequeryqueue.py | 1 +
+ src/buildstream/_scheduler/queues/queue.py           | 3 ++-
+ 3 files changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/src/buildstream/_scheduler/jobs/job.py b/src/buildstream/_scheduler/jobs/job.py
+index e2eade993..3ca76aafe 100644
+--- a/src/buildstream/_scheduler/jobs/job.py
++++ b/src/buildstream/_scheduler/jobs/job.py
+@@ -319,8 +319,12 @@ def child_action(self):
+             timeinfo = stack.enter_context(self._messenger.timed_suspendable())
+ 
+             try:
+-                filename = stack.enter_context(
+-                    self._messenger.recorded_messages(self._logfile, self._scheduler.context.logdir)
++                filename = (
++                    stack.enter_context(
++                        self._messenger.recorded_messages(self._logfile, self._scheduler.context.logdir)
++                    )
++                    if self._logfile
++                    else None
+                 )
+             except Exception as e:  # pylint: disable=broad-except
+                 elapsed = datetime.datetime.now() - timeinfo.start_time
+diff --git a/src/buildstream/_scheduler/queues/cachequeryqueue.py b/src/buildstream/_scheduler/queues/cachequeryqueue.py
+index 5251dc9bb..9870535c9 100644
+--- a/src/buildstream/_scheduler/queues/cachequeryqueue.py
++++ b/src/buildstream/_scheduler/queues/cachequeryqueue.py
+@@ -25,6 +25,7 @@ class CacheQueryQueue(Queue):
+     action_name = "Cache-query"
+     complete_name = "Cache queried"
+     resources = [ResourceType.PROCESS, ResourceType.CACHE]
++    log_to_file = False
+ 
+     def __init__(self, scheduler, *, sources=False, sources_if_cached=False):
+         super().__init__(scheduler)
+diff --git a/src/buildstream/_scheduler/queues/queue.py b/src/buildstream/_scheduler/queues/queue.py
+index 2b5445e55..badb5399d 100644
+--- a/src/buildstream/_scheduler/queues/queue.py
++++ b/src/buildstream/_scheduler/queues/queue.py
+@@ -61,6 +61,7 @@ class Queue:
+     complete_name = None  # type: Optional[str]
+     # Resources this queues' jobs want
+     resources = []  # type: List[int]
++    log_to_file = True
+ 
+     def __init__(self, scheduler, *, imperative=False):
+ 
+@@ -238,7 +239,7 @@ def harvest_jobs(self):
+             ElementJob(
+                 self._scheduler,
+                 self.action_name,
+-                self._element_log_path(element),
++                self._element_log_path(element) if self.log_to_file else None,
+                 element=element,
+                 queue=self,
+                 action_cb=self.get_process_func(),

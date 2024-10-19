@@ -30,3 +30,5 @@ sources:
   exclude:
   - '*.dev*'
   ref: 2.3.0-0-g5e88ea720442c61ec675e31fbce197f06201681d
+- kind: patch
+  path: patches/buildstream/storage-service.patch
