@@ -1,8 +1,36 @@
-kind: autotools
+kind: manual
+
+build-depends:
+- components/gcc.bst
+- components/ninja.bst
 
 depends:
 - bootstrap-import.bst
+- components/curl.bst
+- components/expat.bst
+- components/libarchive.bst
 - components/openssl.bst
+
+environment:
+  JOBS: "%{max-jobs}"
+
+environment-nocache:
+- JOBS
+
+variables:
+  bootstrap-flags: >-
+    --prefix=%{prefix}
+    --docdir=/share/doc/cmake
+    --generator=Ninja
+    --verbose
+    --system-libs
+    --no-system-cppdap
+    --no-system-librhash
+    --no-system-libuv
+    --no-system-jsoncpp
+    --parallel=${JOBS}
+
+  build-dir: _build_dir
 
 config:
   configure-commands:
@@ -13,7 +41,15 @@ config:
   - |
     mkdir %{build-dir}
     cd %{build-dir}
-    ../configure --prefix=%{prefix} --docdir=/share/doc/cmake --verbose
+    ../bootstrap %{bootstrap-flags}
+
+  build-commands:
+  - |
+    ninja -v -j ${JOBS} -C %{build-dir}
+
+  install-commands:
+  - |
+    env DESTDIR="%{install-root}" ninja install -v -j ${JOBS} -C %{build-dir}
 
 sources:
 - kind: git_repo
