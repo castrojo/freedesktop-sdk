@@ -17,10 +17,14 @@ variables:
 
   debug_flags: "-g1"
   optimize-debug: "false"
+  enabled-projects: "clang;compiler-rt;lld"
 
   (?):
   - target_arch == "i686":
       targets: X86;AMDGPU;NVPTX;BPF
+      # Our binutils doesn't cope with lld on i686 so
+      # skip building it completely.
+      enabled-projects: "clang;compiler-rt"
   - target_arch == "x86_64":
       targets: X86;AMDGPU;NVPTX;BPF
   - target_arch == "aarch64":
@@ -33,7 +37,7 @@ variables:
       targets: LoongArch;AMDGPU;BPF
 
   cmake-local: >-
-    -DLLVM_ENABLE_PROJECTS='clang;compiler-rt'
+    -DLLVM_ENABLE_PROJECTS='%{enabled-projects}'
     -DLLVM_ENABLE_ASSERTIONS:BOOL=OFF
     -DBUILD_SHARED_LIBS:BOOL=OFF
     -DLLVM_BUILD_LLVM_DYLIB:BOOL=ON

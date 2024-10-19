@@ -18,9 +18,12 @@ variables:
   debuginfo-level-std: '1'
   rust-target: '%{host-triplet}'
   build-docs: 'true'
+  use-lld: 'true'
   (?):
   - target_arch == "i686":
       llvm-targets: 'X86'
+      # binutils can't cope with lld binaries on i686
+      use-lld: 'false'
   - target_arch == "x86_64":
       llvm-targets: 'X86'
   - target_arch == "aarch64":
@@ -79,6 +82,7 @@ config:
     backtrace = true
     rpath = false
     lto = "off"
+    use-lld = %{use-lld}
     default-linker = "/usr/bin/gcc"
     [target.%{rust-target}]
     cc = "/usr/bin/%{host-triplet}-gcc"
