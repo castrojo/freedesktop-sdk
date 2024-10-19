@@ -14,7 +14,7 @@ sources:
 - kind: git_repo
   url: github:pyca/cryptography.git
   track: '*.*.*'
-  ref: 43.0.1-0-ga7733878281ca261c4ada04022fc706ba5de9d8b
+  ref: 43.0.3-0-gc2afb4ffd2d65cc2e1a28c0af3fb52efb6cc688b
 - kind: cargo
   cargo-lock: src/rust/Cargo.lock
   ref:
@@ -61,14 +61,14 @@ sources:
     version: 1.19.0
     sha: 3fdb12b2476b595f9358c5161aa467c2438859caa136dec86c26fdd2efe17b92
   - name: openssl
-    version: 0.10.66
-    sha: 9529f4786b70a3e8c61e11179af17ab6188ad8d0ded78c5529441ed39d4bd9c1
+    version: 0.10.68
+    sha: 6174bc48f102d208783c2c84bf931bb75927a617866870de8a4ea85597f871f5
   - name: openssl-macros
     version: 0.1.1
     sha: a948666b637a0f465e8564c73e89d4dde00d72d4d473cc972f390fc3dcee7d9c
   - name: openssl-sys
-    version: 0.9.103
-    sha: 7f9e8deee91df40a943c71b917e5874b951d32a802526c85721ce3b776c929d6
+    version: 0.9.104
+    sha: 45abf306cbf99debc8195b66b7346498d7b10c210de50418b5ccd7ceba08c741
   - name: pem
     version: 3.0.4
     sha: 8e459365e590736a54c3fa561947c84837534b8e9af6fc5bf781307e82658fae
