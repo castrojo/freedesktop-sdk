@@ -7,6 +7,7 @@ build-depends:
 depends:
 - bootstrap-import.bst
 - components/libffi.bst
+- components/zstd.bst
 
 environment:
   # Work-around issue building compiler-rt with multiarch
@@ -45,6 +46,7 @@ variables:
     -DLLVM_LIBDIR_SUFFIX="/%{gcc_triplet}"
     -DLLVM_ENABLE_LIBCXX:BOOL=OFF
     -DLLVM_ENABLE_ZLIB:BOOL=ON
+    -DLLVM_ENABLE_ZSTD=ON
     -DLLVM_ENABLE_FFI:BOOL=ON
     -DLLVM_ENABLE_RTTI:BOOL=ON
     -DLLVM_INCLUDE_TESTS:BOOL=OFF
