@@ -196,9 +196,10 @@ license_checker:
       - ${WORK_DIR}
   script:
     - bst_license_checker --deps "${DEPS}" -w ${WORK_DIR} -o ${OUTPUT_DIR} --ignorelist ${IGNORE_LIST} ${TARGETS}
+  when: manual
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "license_check"'
-    when: manual
+  - when: never
 
 .flatpak_template:
   stage: flatpak
@@ -586,9 +587,10 @@ publish_flatpak:
           s3 cp --recursive --acl public-read \
                 "${CI_PROJECT_DIR}/tarballs" \
                 "s3://freedesktop-sdk-tarballs/$(git describe)"
+  when: manual
   rules:
   - if: '$CI_COMMIT_TAG && $CI_PIPELINE_SOURCE != "schedule"'
-    when: manual
+  - when: never
 
 publish_x86_64_tar:
   extends:
@@ -607,7 +609,6 @@ publish_aarch64_tar:
     - .publish_tar_template
     - .builder-aarch64
   needs: []
-  when: manual
 
 cve_report:
   stage: finish-publish
