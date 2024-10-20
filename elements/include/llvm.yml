@@ -6,3 +6,5 @@ sources:
   - llvmorg-*-rc*
   - llvmorg-*-init*
   ref: llvmorg-18.1.8-0-g3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff
+- kind: patch
+  path: patches/llvm/lld-build-id.patch
