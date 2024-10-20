@@ -16,6 +16,7 @@ build-depends:
   - bootstrap/glibc.bst
   - bootstrap/zlib.bst
   - bootstrap/elfutils.bst
+  - bootstrap/zstd.bst
   config:
     location: "%{sysroot}"
 
@@ -23,6 +24,7 @@ runtime-depends:
 - bootstrap/elfutils.bst
 - bootstrap/glibc.bst
 - bootstrap/zlib.bst
+- bootstrap/zstd.bst
 
 (@):
 - elements/bootstrap/include/target.yml
@@ -49,6 +51,7 @@ variables:
     --enable-lto
     --with-system-zlib
     --with-debuginfod
+    --with-zstd
     %{disable-source}
     host_configargs='lt_cv_sys_lib_dlsearch_path_spec="/usr/lib/%{gcc_triplet}"'
 

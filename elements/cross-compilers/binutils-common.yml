@@ -17,6 +17,7 @@ variables:
     --with-lib-path="/usr/lib/%{cross_gcc_triplet}"
     --with-system-zlib
     --with-sysroot=/
+    --with-zstd
 
 config:
   install-commands:

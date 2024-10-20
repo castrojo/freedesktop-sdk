@@ -11,10 +11,9 @@ build-depends:
 - bootstrap/build/binutils-stage1.bst
 - bootstrap/build/python3.bst
 - bootstrap/gnu-config.bst
-- filename: bootstrap/glibc.bst
-  config:
-    location: "%{sysroot}"
-- filename: bootstrap/libxcrypt.bst
+- filename:
+  - bootstrap/glibc.bst
+  - bootstrap/libxcrypt.bst
   config:
     location: "%{sysroot}"
 
