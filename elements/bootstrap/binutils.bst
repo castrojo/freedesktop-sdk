@@ -2,7 +2,22 @@ kind: autotools
 description: GNU Binutils
 
 build-depends:
-- bootstrap/binutils-build-deps.bst
+- bootstrap/base-sdk/automake.bst
+- bootstrap/base-sdk/bison.bst
+- bootstrap/base-sdk/flex.bst
+- bootstrap/base-sdk/pkg-config.bst
+- bootstrap/base-sdk/gettext.bst
+- bootstrap/base-sdk/texinfo.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/build/debug-utils.bst
+- bootstrap/gnu-config.bst
+- bootstrap/build/libgcc_s.bst
+- filename:
+  - bootstrap/glibc.bst
+  - bootstrap/zlib.bst
+  - bootstrap/elfutils.bst
+  config:
+    location: "%{sysroot}"
 
 runtime-depends:
 - bootstrap/elfutils.bst

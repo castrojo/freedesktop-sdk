@@ -21,7 +21,6 @@ build-depends:
 runtime-depends:
 - bootstrap/build/binutils-stage1.bst
 
-
 (@):
 - elements/bootstrap/include/build.yml
 - elements/bootstrap/include/gcc-arch-opts.yml
