@@ -11,7 +11,7 @@ sources:
   track: '*.*.*'
   exclude:
   - '*rc*'
-  ref: 1.5.2-0-g187ef425f96b9ba091edce56e9491373c51b2a34
+  ref: 1.6.0-0-g4c6c89ca7afa6244ba888ce08936acb470e126aa
 - kind: patch
   path: patches/meson/meson-no-lib64.patch
   strip-level: 0
