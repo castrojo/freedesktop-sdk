@@ -16,6 +16,10 @@ config:
   - |
     install -D -m 0755 ninja %{install-root}%{bindir}/ninja
 
+public:
+  cpe:
+    vendor: ninja_build
+
 sources:
 - kind: git_repo
   url: github:ninja-build/ninja.git
