@@ -17,6 +17,12 @@ depends:
 - components/poppler.bst
 - components/qpdf.bst
 
+config:
+  build-commands:
+    (<):
+    - |
+      ln -s "%{build-dir}/config.h" "config.h"
+
 sources:
 - kind: git_repo
   url: github:OpenPrinting/libcupsfilters.git
