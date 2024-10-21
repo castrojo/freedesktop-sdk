@@ -17,8 +17,7 @@ variables:
     PKG_ROOT_SBIN_DIR='%{sbindir}'
     PKG_ROOT_LIB_DIR='%{libdir}'
     PKG_LIB_DIR='%{libdir}'
-  make: make %{make-args}
-  make-install: make %{make-args} -j1 install install-dev DESTDIR='%{install-root}'
+  make-install: make -j1 %{make-install-args} install-dev
 
 public:
   bst:

@@ -16,7 +16,7 @@ variables:
   conf-link-args: --enable-shared --enable-static
   conf-cmd: ./configure
   make: make -C libraries/libapparmor
-  make-install: make -C libraries/libapparmor -j1 install DESTDIR='%{install-root}'
+  make-install: make -j1 -C libraries/libapparmor install DESTDIR='%{install-root}'
   autogen: "true"
 
   other-make-args: >-
@@ -27,7 +27,7 @@ variables:
     BINDIR='%{install-root}%{bindir}'
 
   other-make: make %{other-make-args}
-  other-make-install: make %{other-make-args} -j1 install DESTDIR='%{install-root}'
+  other-make-install: make -j1 %{other-make-args} install DESTDIR='%{install-root}'
   subdirs: >-
     binutils
     parser

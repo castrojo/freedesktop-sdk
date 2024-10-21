@@ -22,9 +22,6 @@ variables:
     ESPROOTDIR=boot/
     VENDOR_CERT_FILE=boot-keys/VENDOR.cer
 
-  make: make %{make-args}
-  make-install: make -j1 install %{make-args} DESTDIR='%{install-root}'
-
 config:
   configure-commands:
   - |

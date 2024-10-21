@@ -17,8 +17,7 @@ variables:
     --enable-tools
     --enable-ofono
     --enable-sim-hardcoded
-  make: make -C iwd
-  make-install: make -C iwd -j1 DESTDIR="%{install-root}" install
+  make-args: "-C iwd"
 
 config:
   configure-commands:

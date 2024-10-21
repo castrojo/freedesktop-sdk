@@ -7,7 +7,7 @@ depends:
 - bootstrap-import.bst
 
 variables:
-  make-install: make -j1 install install_hdrs install_lib DESTDIR="%{install-root}"
+  make-install: make %{make-install-args} install_hdrs install_lib
   local_flags: >-
     -Wno-error
 

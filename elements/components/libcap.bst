@@ -1,9 +1,10 @@
 kind: make
 
+build-depends:
+- components/perl.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/perl.bst
-  type: build
+- bootstrap-import.bst
 
 variables:
   make-args: >-
@@ -12,9 +13,6 @@ variables:
     lib="%{lib}"
     SBINDIR="%{sbindir}"
     RAISE_SETFCAP=no
-
-  make: make %{make-args}
-  make-install: make -j1 install %{make-args} DESTDIR="%{install-root}"
 
 config:
   install-commands:

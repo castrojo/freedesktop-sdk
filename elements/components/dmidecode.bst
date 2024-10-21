@@ -8,8 +8,6 @@ variables:
     prefix="%{prefix}"
     sbindir="%{sbindir}"
     mandir="%{mandir}"
-  make: make %{make-args}
-  make-install: make -j1 %{make-args} DESTDIR="%{install-root}" install
 
 sources:
 - kind: git_repo
