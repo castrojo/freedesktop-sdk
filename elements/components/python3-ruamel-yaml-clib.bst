@@ -26,5 +26,3 @@ sources:
   url: github:ruamel/yaml.clib.git
   track: '*.*.*'
   ref: 0.2.12-0-gb2b8d47b4294e74c4cc5685c6937022ac71276cb
-- kind: patch
-  path: patches/ruamel-yaml-clib/ruamel-yaml-clib-0.2.7_cython_pointer_types.patch
