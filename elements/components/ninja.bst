@@ -11,6 +11,10 @@ variables:
     -DBUILD_TESTING:BOOL=OFF
   generator: Unix Makefiles
 
+public:
+  cpe:
+    vendor: ninja_build
+
 sources:
 - kind: git_repo
   url: github:ninja-build/ninja.git
