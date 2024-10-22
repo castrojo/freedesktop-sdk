@@ -1,3 +1,201 @@
+Version: freedesktop-sdk-23.08.24
+Date: '2024-10-20'
+Description: |-
+  Changes in freedesktop-sdk-23.08.24
+   * ci: Remove duplicate manual from publish_aarch64_tar
+   * ci: Use when manual at job level instead of rule level
+   * Update libmysofa to v1.3.3-0
+   * Update python3-markupsafe to 3.0.2
+   * Update python3-cryptography to 43.0.3-0
+   * Update python3-virtualenv to 20.27.0-0
+   * Update podman to v5.2.5-0
+   * Update python3-yarl to v1.15.5-0
+   * Update buildbox to 1.2.27-0
+   * Update linux to v6.11.4-0
+   * Update python3-psutil to release-6.1.0-0
+   * Update mesa to mesa-24.2.5-0
+   * Update less to v668-rel-0
+   * Fix vdpauinfo track and update to 1.5
+   * python3-dulwich: Drop patch
+   * Update python3-dulwich to 0.22.3
+   * Update poppler to poppler-24.10.0-0
+   * Update python3-grpcio to 1.67.0
+   * Update python3-trove-classifiers to 2024.10.14-0
+   * Update mesa-sdk to mesa-24.2.5-0
+   * Update python3-yarl to v1.15.4-0
+   * Add release data for apps
+   * Add metainfo to intel-vaapi-driver
+   * Add metainfo files to all apps
+   * fwupd: Disable librm integration
+   * Update fwupd to 2.0.1-0
+   * Drop depracated podman network stack
+   * Update buildbox to 1.2.25-0
+   * Update python3-pil to 11.0.0
+   * Update libxmlb to 0.3.21-0
+   * Update python3-yarl to v1.15.3-0
+   * Update vim to v9.1.0787-0
+   * reference-abi: Bump after abi skip
+   * v4l-utils: Disable v4l2-tracer
+   * Update libjcat to 0.2.2-0
+   * Update python3-trove-classifiers to 2024.10.13-0
+   * reproducible: Always use custom config
+   * test_reproducibility: Pass config to bst correctly
+   * Use custom config in reproducible test_reproducibility
+   * Makefile: Add a target to clean oci exports
+   * u-boot-qemu: Fix arm64 board filename
+   * u-boot: Update riscv preload fdt patch
+   * Add maybe elements for u-boot
+   * u-boot-qemu: Update to v2023.04
+   * u-boot-unmatched: Use denx alias
+   * u-boot-qemu: Add missing swig and setuptools build dependencies
+   * lvm2: Add dependency on public-stacks/buildsystem-autotools
+   * python3-ruamel-yaml-clib: Use public-stacks/buildsystem-python-setuptools
+   * python3-ruamel-yaml-clib: Convert to git_repo and cythonise
+   * less: Remove timestamp generation to make it reproducible
+   * less: switch to git_repo source and update to v661
+   * Update python3-poetry-core to 1.9.1-0
+   * Update python3-yarl to v1.15.2-0
+   * Update python3-pyparsing to 3.2.0
+   * Update python3-sphinx to 8.1.3
+   * Add a description to ffmpeg metainfo
+   * Fix some validation errors and standardise urls
+   * Validate generated appdata after installing
+   * Migrate to metainfo file extension
+   * ffmpeg: Stop using special variables for prefix and libdir
+   * ci: Make license checker job manual
+   * buildbox: Remove obsolete patch
+   * Update buildbox to 1.2.24-0
+   * wayland: Disable tests
+   * wayland-protocols: Disable tests
+   * Update wayland-protocols to 1.38-0
+   * Update xorg-lib-xtrans to xtrans-1.5.1-0
+   * Update python3-trove-classifiers to 2024.10.12-0
+   * Update python3-yarl to v1.15.1-0
+   * Update python3-poetry-core to 1.9.1-0
+   * Update python3-sphinx to 8.1.2
+   * Update extra-cmake-modules to v6.7.0-0
+   * Update python3-yarl to v1.15.0-0
+   * Update libtraceevent to libtraceevent-1.8.4-0
+   * Update python3-sphinx to 8.1.1
+   * Update linux to v6.11.3-0
+   * Update python3-sphinx to 8.1.0
+   * Update python3-aiohttp to 3.10.10
+   * buildbox: Backport fix for GCC14
+   * Update buildbox to 1.2.23-0
+   * gnu-hello: Add mirrors.edge.kernel.org as fallback mirror
+   * xdg-desktop-portal-base: Disable docs
+   * Update xdg-desktop-portal-base to 1.19.0-0
+   * python3-propcache: Remove tomli
+   * Update python3-distlib to 0.3.9
+   * Update python3-charset-normalizer to 3.4.0
+   * Update systemd to v254.19-0
+   * Update python3-sphinx-rtd-theme to 3.0.1-0
+   * valgrind: Remove obsolete patch
+   * Update valgrind to VALGRIND_3_23_0-0
+   * Update python3-markupsafe to 3.0.1
+   * ovmf: Update to edk2-stable202408
+   * python3-propcache: Adjust cython3 element name
+   * components: Add propcache and tomli
+   * python3-yarl: Add new elements for propcache and tomli
+   * Update python3-yarl to v1.14.0-0
+   * Update grpc to v1.67.0-0
+   * Update vim to v9.1.0766-0
+   * Update python3-build to 1.2.2.post1-0
+   * Update git to v2.47.0-0
+   * Update podman to v5.2.4-0
+   * Update python3-sphinx-rtd-theme to 3.0.0-0
+   * Update python3-markupsafe to 3.0.0
+   * gnu-efi: Update to 3.0.18
+   * fwupd-efi: Update to 1.7
+   * fwupd: Update to 2.0.0
+   * fwupd: Disable umockdev tests
+   * fwupd: Set vendors_id_dir
+   * fwupd: Fix meson arguments
+   * fwupd: Make it more explicit what plugins we disabled
+   * Update python3-aiohttp to 3.10.9
+   * Update linux to v6.11.2-0
+   * lvm2-stage1: Add missing build-dep on pkgconfig
+   * Update lvm2 to v2_03_27-0
+   * udisks: Exclude singular pre-release tag
+   * Update mesa to mesa-24.2.4-0
+   * Update hwdata to v0.388-0
+   * Update python3-dbusmock to 0.32.2
+   * Update libabigail to libabigail-2.5-119
+   * Update mesa-sdk to mesa-24.2.4-0
+   * Update xwayland to xwayland-24.1.3-0
+   * Update python3-setuptools-rust to 1.10.2
+   * Update libnftnl to libnftnl-1.2.8-0
+   * Update networkmanager to 1.50.0-0
+   * Update mutool to 1.24.10-0
+   * ffmpeg-test: Use assert expression-info syntax instead of try-except
+   * Update libabigail to libabigail-2.5-116
+   * Update buildbox to 1.2.22-0
+   * Update xorg-data-xkeyboard-config to xkeyboard-config-2.43-0
+   * Update vim to v9.1.0754-0
+   * Update glibc to glibc-2.38-104
+   * ffmpeg-test: Add tests for av1, vp8 and vp9 codecs
+   * ffmpeg-test: Add tests for h264 encoder
+   * ffmpeg-test: Add tests to get information about a specific codec lib
+   * Update python3-aiohappyeyeballs to v2.4.3-0
+   * Update libabigail to libabigail-2.5-112
+   * Update linux to v6.11.1-0
+   * systemd: Move hwdb.d files to the devel domain
+   * Update gdb to gdb-15.2-release-0
+   * Update python3-pyproject-hooks to v1.2.0
+   * Revert "Move check debuginfo into weekly"
+   * Update librsvg to 2.58.5-0
+   * Update python3-grpcio to 1.66.2
+   * Update grpc to v1.66.2-0
+   * Update python3-aiohttp to 3.10.8
+   * librsvg: Freeze to 2.58
+   * ci: Replace deprecated only-except with rules
+   * ci: Fix whitespace
+   * Update python3-aiohttp to 3.10.7
+   * Update python3-virtualenv to 20.26.6-0
+   * Update libabigail to libabigail-2.5-111
+   * Update python3-yarl to v1.13.1-0
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-162
+   * Update python3-maturin to v1.7.4-0
+   * Update python3-aiohappyeyeballs to v2.4.2-0
+   * Update buildbox to 1.2.21-0
+   * Update python3-yarl to v1.13.0-0
+   * ci: Exclude validate-news from branch pipelines
+   * libdisplay-info: Split to devel
+   * Update python3-maturin to v1.7.3-0
+   * Update fwupd to 1.9.25-0
+   * Update fribidi to v1.0.16-0
+   * Update python3-aiohttp to 3.10.6
+   * Update podman to v5.2.3-0
+   * Update python3-maturin to v1.7.2-0
+   * Update erofs-utils to v1.8.2-0
+   * Update shaderc to v2024.3-0
+   * Fix pylint warnings
+   * Update CI image
+   * news_validator: Add stricter date validation
+   * Force NEWS.yml to be written out with unix newlines
+   * release.py: Reformat with ruff
+   * Fixes to generation of new version
+   * release.py: Add more validation of version inputs
+   * release: Use push-option instead of short argument
+   * Update reference-abi to freedesktop-sdk-23.08.23-0
+   * Update tpm2-pkcs11 to 1.9.1-0
+   * Update dictionaries to libreoffice-24.8.2.1-0
+   * Update python3-yarl to v1.12.1-0
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-160
+   * Update git to v2.46.2-0
+   * Update bash to bash-5.2-39
+   * ci: Add a NEWS.yml validator and run it in CI
+   * NEWS.yml: Add placeholder descriptions
+   * News.yml: Fix missing date field in 23.08.22 release
+   * ci: Fix cache path to cve databases
+   * Cleanup platform manifests from cve directory
+   * .gitlab-ci.yml: Use 'generate-cve-report' Makefile target to generate CVE reports
+   * Makfile: Add 'generate-cve-report' rule
+   * Add elements for libversion
+   * Add Shebangs to set python interpreter version in utilities
+   * Add element for generate_cve_report.py utility
+   * utils/generate_cve_report.py: Add tables of unversioned elements of git/archive sources
+---
 Version: freedesktop-sdk-23.08.23
 Date: '2024-09-22'
 Description: |-
