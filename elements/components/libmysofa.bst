@@ -7,6 +7,11 @@ build-depends:
 depends:
 - bootstrap-import.bst
 
+variables:
+  cmake-local: >-
+    -DBUILD_TESTS=OFF
+    -DBUILD_STATIC_LIBS=OFF
+
 sources:
 - kind: git_repo
   url: github:hoene/libmysofa.git
