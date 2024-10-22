@@ -12,6 +12,13 @@ variables:
     -DBUILD_TESTS=OFF
     -DBUILD_STATIC_LIBS=OFF
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libmysofa.so'
+
 sources:
 - kind: git_repo
   url: github:hoene/libmysofa.git
