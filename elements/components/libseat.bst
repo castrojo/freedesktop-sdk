@@ -19,4 +19,4 @@ sources:
 - kind: git_repo
   url: sourcehut:kennylevinsen/seatd
   track: '*.*.*'
-  ref: 0.8.0-0-g3e9ef69f14f630a719dd464f3c90a7932f1c8296
+  ref: 0.9.0-0-g5d2b3e95d82490dd6c1013752996c1ed43247820
