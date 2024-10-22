@@ -72,19 +72,12 @@ before_script:
   - |
     source utils/publisher_env.sh
 
-pylint:
+lint:
   stage: flatpak
   timeout: 1h
   script:
     - find . -path 'files/oci' -prune -o -iname "*.py" -exec pylint {} +
     - pylint files/oci/oci_builder
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-  needs: []
-
-validate-news:
-  stage: flatpak
-  script:
     - python utils/news_validator.py validate --path NEWS.yml
   rules:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
@@ -180,7 +173,7 @@ check_mirrors:
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
 
-license_checker:
+.license_checker:
   extends:
     - .builder-aarch64
   stage: update
@@ -333,7 +326,7 @@ app_ppc64le:
     - .builder-ppc64le
   needs: []
 
-app_ppc64:
+.app_ppc64:
   extends:
     - .flatpak_template
     - .builder-ppc64
@@ -342,7 +335,7 @@ app_ppc64:
   needs:
   - bootstrap_ppc64
 
-app_loongarch64:
+.app_loongarch64:
   extends:
     - .flatpak_template
     - .builder-loongarch64
@@ -369,12 +362,12 @@ app_loongarch64:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
     when: manual
 
-check_snap_x86_64:
+.check_snap_x86_64:
   extends:
     - .check-snap
     - .builder-x86_64
 
-check_snap_i686:
+.check_snap_i686:
   extends:
     - .check-snap
     - .builder-i686
@@ -444,7 +437,7 @@ minimal_systemd_vm_aarch64:
     - job: app_aarch64
       artifacts: false
 
-minimal_systemd_vm_loongarch64:
+.minimal_systemd_vm_loongarch64:
   extends:
     - .vm_imageless_template
     - .builder-loongarch64
@@ -481,7 +474,7 @@ desktop_systemd_vm_aarch64:
     - job: app_aarch64
       artifacts: false
 
-desktop_systemd_vm_loongarch64:
+.desktop_systemd_vm_loongarch64:
   extends:
     - .vm_imageless_template
     - .builder-loongarch64
@@ -529,7 +522,7 @@ minimal_efi_vm_image_aarch64:
     VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
     DIALOG: root-login
 
-minimal_efi_vm_image_loongarch64:
+.minimal_efi_vm_image_loongarch64:
   extends:
     - .vm_efi_image_template
     - .builder-loongarch64
@@ -560,7 +553,7 @@ desktop_efi_vm_image_aarch64:
     VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
   when: manual # skip desktop image VM tests by default to avoid significant disk I/O
 
-desktop_efi_vm_image_loongarch64:
+.desktop_efi_vm_image_loongarch64:
   extends:
     - .vm_efi_image_template
     - .builder-loongarch64
@@ -734,7 +727,7 @@ reproducible_aarch64:
     - .reproducible_template
     - .builder-aarch64
 
-reproducible_x86_64:
+.reproducible_x86_64:
   extends:
     - .reproducible_template
     - .builder-x86_64
