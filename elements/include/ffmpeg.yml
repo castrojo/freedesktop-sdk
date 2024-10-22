@@ -36,6 +36,7 @@ depends:
 - components/libwebp.bst
 - components/xorg-lib-xcb.bst
 - components/noopenh264.bst
+- components/libmysofa.bst
 
 variables:
   optimize-debug: "false"
@@ -90,6 +91,7 @@ variables:
     --enable-pthreads
     --enable-libopenh264
     --enable-ffnvcodec
+    --enable-libmysofa
     --arch="%{ffmpeg-arch}"
 
   conf-extra: ''
