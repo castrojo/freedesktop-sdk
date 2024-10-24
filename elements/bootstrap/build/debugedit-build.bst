@@ -11,3 +11,6 @@ depends:
 (@):
 - elements/bootstrap/include/build.yml
 - elements/bootstrap/include/debugedit-source.yml
+
+variables:
+  local_ldflags: "-Wl,-rpath,%{tools}/lib"

@@ -16,3 +16,5 @@ variables:
   conf-local: >-
     --disable-debuginfod
     --disable-libdebuginfod
+
+  local_ldflags: "-Wl,-rpath,%{tools}/lib"
