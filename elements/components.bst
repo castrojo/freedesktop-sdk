@@ -524,6 +524,7 @@ depends:
 - components/shaderc.bst
 - components/shadow.bst
 - components/shared-mime-info.bst
+- components/shim-maybe.bst
 - components/sign-file.bst
 - components/slang.bst
 - components/slirp4netns.bst
