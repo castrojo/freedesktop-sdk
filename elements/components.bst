@@ -88,6 +88,7 @@ depends:
 - components/e2fsprogs.bst
 - components/ed.bst
 - components/efivar.bst
+- components/efitools-maybe.bst
 - components/ell.bst
 - components/erofs-utils.bst
 - components/expat.bst
