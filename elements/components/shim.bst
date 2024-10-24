@@ -4,6 +4,7 @@ build-depends:
 - bootstrap-import.bst
 - components/git-minimal.bst
 - components/openssl.bst
+- components/boot-keys.bst
 
 variables:
   (?):
@@ -27,6 +28,7 @@ variables:
 
 config:
   configure-commands:
+  - cp -ra /boot-keys .
   - |
     openssl x509 -inform PEM -outform DER -in "boot-keys/VENDOR.crt" -out "boot-keys/VENDOR.cer"
 
@@ -39,6 +41,3 @@ sources:
   url: github:rhboot/gnu-efi.git
   path: gnu-efi
   ref: acc5371207f3041450e1d8ae5b24f6df3e82b152
-- kind: local
-  path: files/boot-keys/VENDOR.crt
-  directory: boot-keys
