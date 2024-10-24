@@ -93,6 +93,7 @@ lint:
     - git config user.email "freedesktop_sdk_updater@libreml.com"
     - git branch -f "${CI_COMMIT_REF_NAME}" "origin/${CI_COMMIT_REF_NAME}"
     - git fetch --prune
+    - make generate-test-keys
     - |
       case "${CI_COMMIT_REF_NAME}" in
         master)
@@ -207,7 +208,6 @@ check_mirrors:
     - test -x arch-test && arch-test
     - ./utils/validate_aliases.py include/_private/aliases.yml include/_private/mirrors.yml
     - test "${ARCH}" != "i686" && make build
-
     - make check-debuginfo
 
     - export FLATPAK_USER_DIR="${PWD}/tmp-flatpak"
@@ -708,6 +708,7 @@ markdown_manifest:
 .reproducible_template:
   stage: reproducible
   script:
+    - make generate-test-keys
     - ./utils/test_reproducibility.py tests/reproducible-test.bst result_folder
   needs: []
   variables:
