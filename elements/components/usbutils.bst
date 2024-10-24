@@ -6,6 +6,12 @@ build-depends:
 depends:
 - components/libusb.bst
 
+config:
+  install-commands:
+    (>):
+    - |
+      rm -v "%{install-root}%{bindir}/lsusb.py" "%{install-root}%{mandir}/man1/lsusb.py.1"
+
 sources:
 - kind: git_repo
   url: kernel:linux/kernel/git/gregkh/usbutils.git
