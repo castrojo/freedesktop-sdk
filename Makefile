@@ -47,7 +47,7 @@ QEMU=qemu-system-$(QEMU_ARCH)
 
 all: build
 
-build:
+build: generate-test-keys
 	$(BST) build tests/check-platform.bst \
 	             tests/check-sdk.bst \
 	             components.bst \
@@ -63,7 +63,7 @@ build-tar:
 bootstrap:
 	$(BST) build bootstrap/bootstrap.bst
 
-export: clean-runtime
+export: clean-runtime generate-test-keys
 	$(BST) build flatpak-release-repo.bst
 
 	mkdir -p $(CHECKOUT_ROOT)
@@ -294,7 +294,10 @@ clean-test:
 clean-oci:
 	rm -f debug-oci.tar flatpak-oci.tar platform-oci.tar sdk-oci.tar toolbox-oci.tar
 
-clean: clean-repo clean-runtime clean-test clean-vm clean-efi-vm clean-oci
+clean-boot-keys:
+	find files/boot-keys -maxdepth 2 ! -path "files/boot-keys/modules/.keep" ! -path "files/boot-keys/modules" ! -path "files/boot-keys" -exec rm -rvf {} +
+
+clean: clean-repo clean-runtime clean-test clean-vm clean-efi-vm clean-oci clean-boot-keys
 
 export-snap:
 	bst $(ARCH_OPTS) build "snap-images/images.bst"
@@ -482,6 +485,9 @@ secure-images/SHA256SUMS:
 secure-images-serve: secure-images/SHA256SUMS
 	python3 -m http.server 8080 --directory secure-images
 
+generate-test-keys: clean-boot-keys
+	cp -ra files/boot-keys-test/* files/boot-keys
+
 .PHONY:									\
 	build check-dev-files clean clean-oci clean-test clean-repo clean-runtime	\
 	export test-apps manifest markdown-manifest check-rpath		\
@@ -490,7 +496,7 @@ secure-images-serve: secure-images/SHA256SUMS
 	track-mesa-git							\
 	clean-efi-vm build-efi-vm run-efi-vm				\
 	update-ostree ostree-serve run-ostree-vm			\
-	test-runtime-inheritance generate-keys clean-ostree-vm		\
+	test-runtime-inheritance generate-keys generate-test-keys clean-ostree-vm		\
 	download-microsoft-keys						\
 	run-secure-vm clean-secure-vm clean-ostree-vm			\
 	export-secure-images secure-images-serve update-secure-version
