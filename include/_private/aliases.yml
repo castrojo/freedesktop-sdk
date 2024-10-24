@@ -4,7 +4,7 @@
 #Git source aliases
 chromium: https://chromium.googlesource.com/
 debian_salsa: https://salsa.debian.org/
-denx: https://gitlab.denx.de/
+denx: https://source.denx.de/
 fedora_rpms: https://src.fedoraproject.org/rpms/
 ffmpeg: https://git.ffmpeg.org/
 freedesktop: https://gitlab.freedesktop.org/

@@ -7,6 +7,8 @@ build-depends:
 - components/bc.bst
 - components/swig.bst
 - components/python3-setuptools.bst
+- components/util-linux.bst
+- components/gnutls.bst
 
 variables:
   (?):
@@ -34,6 +36,6 @@ sources:
   track: master
   exclude:
   - "*-rc*"
-  ref: v2023.04-0-gfd4ed6b7e83ec3aea9a2ce21baea8ca9676f40dd
+  ref: v2024.10-0-gf919c3a889f0ec7d63a48b5d0ed064386b0980bd
 - kind: patch
   path: patches/u-boot/riscv-pre-load-fdt.patch
