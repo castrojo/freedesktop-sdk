@@ -307,8 +307,7 @@ check_mirrors:
 
 .builder-riscv64:
   tags:
-    - riscv-native
-    - riscv-big
+    - riscv-runner-1
   variables:
     ARCH: riscv64
 
