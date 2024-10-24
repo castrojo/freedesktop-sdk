@@ -4,6 +4,7 @@ build-depends:
 - components/gnu-efi.bst
 - components/help2man.bst
 - components/perl-slurp.bst
+- components/boot-keys.bst
 
 depends:
 - bootstrap-import.bst
@@ -26,6 +27,7 @@ variables:
 config:
   build-commands:
     (>):
+    - cp -ra /boot-keys/* .
     - |
       for type in kek db; do
         regen=0
@@ -81,21 +83,3 @@ sources:
   path: patches/efitools/c99.patch
 - kind: patch
   path: patches/efitools/gnu-efi.patch
-- kind: local
-  path: files/boot-keys/PK.key
-- kind: local
-  path: files/boot-keys/PK.crt
-- kind: local
-  path: files/boot-keys/KEK.key
-- kind: local
-  path: files/boot-keys/KEK.crt
-- kind: local
-  path: files/boot-keys/DB.key
-- kind: local
-  path: files/boot-keys/DB.crt
-- kind: local
-  path: files/boot-keys/extra-kek
-  directory: extra-kek
-- kind: local
-  path: files/boot-keys/extra-db
-  directory: extra-db
