@@ -33,9 +33,9 @@ config:
 sources:
 - kind: git_repo
   url: denx:u-boot/u-boot.git
-  track: master
+  track: v*
   exclude:
-  - "*-rc*"
+  - "*rc*"
   ref: v2024.10-0-gf919c3a889f0ec7d63a48b5d0ed064386b0980bd
 - kind: patch
   path: patches/u-boot/riscv-pre-load-fdt.patch
