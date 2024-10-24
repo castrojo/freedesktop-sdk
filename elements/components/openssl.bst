@@ -85,7 +85,9 @@ public:
 sources:
 - kind: git_repo
   url: github:openssl/openssl.git
-  track: refs/tags/openssl-3.*
+  # 3.3 supported until 2026-04-09
+  # https://openssl-library.org/policies/releasestrat/index.html
+  track: refs/tags/openssl-3.3.*
   exclude:
   - openssl*alpha*
   - openssl*beta*
