@@ -1,17 +1,10 @@
-kind: autotools
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 
 depends:
 - components/libusb.bst
-
-variables:
-  autogen: |
-    cd usbhid-dump
-    ./bootstrap
-    cd ..
-    autoreconf --install --symlink
 
 sources:
 - kind: git_repo
