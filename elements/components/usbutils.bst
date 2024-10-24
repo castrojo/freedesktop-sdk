@@ -5,6 +5,7 @@ build-depends:
 
 depends:
 - components/libusb.bst
+- components/systemd-libs.bst
 
 config:
   install-commands:
