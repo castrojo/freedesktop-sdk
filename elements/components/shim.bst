@@ -35,9 +35,11 @@ config:
 sources:
 - kind: git_repo
   url: github:rhboot/shim.git
-  track: main
-  ref: 15.5-0-gf2c598bb2218da966872ba3e0c6e7e830dca6ef0
+  track: "*.*"
+  exclude:
+  - "*rc*"
+  ref: 15.8-0-g5914984a1ffeab841f482c791426d7ca9935a5e6
 - kind: git_module
   url: github:rhboot/gnu-efi.git
   path: gnu-efi
-  ref: acc5371207f3041450e1d8ae5b24f6df3e82b152
+  ref: 328951d3dcb5ff97f5a7c7a362b006626fada000
