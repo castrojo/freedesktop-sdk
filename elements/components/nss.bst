@@ -143,10 +143,10 @@ config:
 sources:
 - kind: git_repo
   url: github:nss-dev/nss.git
-  # https://wiki.mozilla.org/NSS:Release_Versions
+  # https://firefox-source-docs.mozilla.org/security/nss/releases/index.html
   # Next ESR is unknown
-  track: NSS_3_92*_RTM
-  ref: NSS_3_92_RTM-0-g9f609fe89b23c41b5a2f06090b9fe6145d6f8b60
+  track: NSS_3_101*_RTM
+  ref: NSS_3_101_2_RTM-0-g8d84779d9526ea6cebbfda440d73b6e3b58c34b7
   directory: nss
 - kind: patch
   path: patches/nss/pkg-config-libdir.patch
