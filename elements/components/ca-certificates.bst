@@ -27,6 +27,15 @@ runtime-depends:
 
 config:
   build-commands:
+  # Install the pinned copy of update-ca-trust
+  - |
+    install -p -m 755 -D scripts/update-ca-trust %{install-root}%{bindir}/update-ca-trust
+    asciidoc -v -d manpage -b docbook scripts/update-ca-trust.8.txt
+    xsltproc --nonet "%{manpage-xsl}" scripts/update-ca-trust.8.xml
+    mkdir -p -m 755 %{install-root}%{mandir}/man8
+    install -p -m 644 update-ca-trust.8 %{install-root}%{mandir}/man8
+    rm -rf scripts
+
   - |
     mkdir certs
     cd certs
@@ -100,9 +109,6 @@ config:
     fi
 
   - |
-    asciidoc -v -d manpage -b docbook update-ca-trust.8.txt
-    xsltproc --nonet "%{manpage-xsl}" update-ca-trust.8.xml
-
     asciidoc -v -d manpage -b docbook ca-legacy.8.txt
     xsltproc --nonet "%{manpage-xsl}" ca-legacy.8.xml
 
@@ -126,9 +132,7 @@ config:
     mkdir -p -m 755 %{install-root}%{datadir}/pki/ca-trust-source/blocklist
     mkdir -p -m 755 %{install-root}%{datadir}/pki/ca-trust-legacy
     mkdir -p -m 755 %{install-root}%{bindir}
-    mkdir -p -m 755 %{install-root}%{mandir}/man8
 
-    install -p -m 644 update-ca-trust.8 %{install-root}%{mandir}/man8
     install -p -m 644 ca-legacy.8 %{install-root}%{mandir}/man8
     install -p -m 644 README.usr %{install-root}%{datadir}/pki/ca-trust-source/README
     install -p -m 644 README.etc %{install-root}%{catrustdir}/README
@@ -151,8 +155,6 @@ config:
 
     touch -r %{legacy_default_bundle} %{install-root}%{datadir}/pki/ca-trust-legacy/%{legacy_default_bundle}
     touch -r %{legacy_disable_bundle} %{install-root}%{datadir}/pki/ca-trust-legacy/%{legacy_disable_bundle}
-
-    install -p -m 755 update-ca-trust %{install-root}%{bindir}/update-ca-trust
 
     install -p -m 755 ca-legacy %{install-root}%{bindir}/ca-legacy
 
@@ -189,3 +191,11 @@ sources:
   url: fedora_rpms:ca-certificates.git
   track: rawhide
   ref: ca-certificates-2010_63-3_fc14-162-ga3407acb8618b44bc484cd794be14e7cf3490497
+- kind: git_repo
+  url: fedora_rpms:ca-certificates.git
+  # Manually update: This is only used for update-ca-trust and its man
+  # page and pinned to a working version. Verify that this is still
+  # compatible with our packaging commands above and creates proper
+  # symlinks etc.
+  ref: 91af9300e9ca630b72f466b317bc489446838db8
+  directory: scripts
