@@ -18,5 +18,3 @@ sources:
   url: freedesktop:xdg/desktop-file-utils.git
   track: '*.*'
   ref: 0.28-0-gbc403b7e9ea4847b1590c41eb1581aa3f1d24b36
-- kind: patch
-  path: patches/desktop-file-utils/mr21.patch
