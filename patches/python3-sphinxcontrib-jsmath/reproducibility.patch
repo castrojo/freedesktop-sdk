@@ -1,0 +1,24 @@
+From 5eb42692d8e06942c029d9defb61bcd460b139f2 Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Sat, 26 Oct 2024 20:25:29 +0530
+Subject: [PATCH] Make jsmath reproducible
+
+---
+ setup.cfg | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.cfg b/setup.cfg
+index 821a6c9..b1f1da5 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -1,6 +1,6 @@
+ [egg_info]
+ tag_build = .dev
+-tag_date = true
++tag_date = false
+ 
+ [aliases]
+ release = egg_info -Db ''
+-- 
+2.47.0
+
