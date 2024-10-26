@@ -4,6 +4,7 @@ description: Fedora CA certificates
 variables:
   p11_format_bundle: ca-bundle.trust.p11-kit
   classic_tls_bundle: ca-bundle.crt
+  openssl_format_trust_bundle: ca-bundle.trust.crt
   legacy_default_bundle: ca-bundle.legacy.default.crt
   legacy_disable_bundle: ca-bundle.legacy.disable.crt
   java_bundle: java/cacerts
@@ -171,6 +172,8 @@ config:
     %{install-root}%{pkidir}/tls/cert.pem
     ln -s %{catrustdir}/extracted/pem/tls-ca-bundle.pem \
     %{install-root}%{pkidir}/tls/certs/%{classic_tls_bundle}
+    ln -s %{catrustdir}/extracted/openssl/%{openssl_format_trust_bundle} \
+    %{install-root}%{pkidir}/tls/certs/%{openssl_format_trust_bundle}
     ln -s %{catrustdir}/extracted/%{java_bundle} \
     %{install-root}%{pkidir}/%{java_bundle}
 
