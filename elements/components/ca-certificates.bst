@@ -183,12 +183,6 @@ public:
     - |
       update-ca-trust extract -o %{catrustdir}/extracted
       chmod -R u+w %{catrustdir}/extracted
-      # Provide legacy symlinks that update-ca-trust stopped creating
-      # This has to be here as catrustdir/extracted is overwritten above
-      ln -s %{catrustdir}/extracted/pem/tls-ca-bundle.pem \
-      %{catrustdir}/extracted/pem/directory-hash/ca-certificates.crt
-      ln -s %{catrustdir}/extracted/pem/tls-ca-bundle.pem \
-      %{catrustdir}/extracted/pem/directory-hash/ca-bundle.crt
 
 sources:
 - kind: git_repo
