@@ -8,7 +8,6 @@ depends:
 
 variables:
   optimize-debug: "false"
-  compress-debug: "false"
 
 config:
   build-commands:

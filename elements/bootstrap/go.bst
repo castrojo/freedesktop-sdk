@@ -12,7 +12,6 @@ runtime-depends:
 
 variables:
   optimize-debug: "false"
-  compress-debug: "false"
 
 environment:
   GOARCH: "%{go-arch}"
