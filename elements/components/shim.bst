@@ -22,6 +22,7 @@ variables:
     EFIDIR=freedesktopsdk
     ESPROOTDIR=boot/
     VENDOR_CERT_FILE=boot-keys/VENDOR.cer
+  make-install: make -j1 DESTDIR="%{install-root}" %{make-args} install
 
 config:
   configure-commands:
