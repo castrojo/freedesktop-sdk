@@ -10,6 +10,9 @@ depends:
 - components/kmod.bst
 - components/systemd-libs.bst
 
+environment:
+  KBUILD_BUILD_TIMESTAMP: 'Thu Nov 10 15:00:00 UTC 2011'
+
 variables:
   meson-local: >-
     -Discsi_sbindir="%{sbindir}"
