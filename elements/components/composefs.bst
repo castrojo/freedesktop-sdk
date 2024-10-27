@@ -9,6 +9,11 @@ depends:
 - components/openssl.bst
 - components/fuse3.bst
 
+config:
+  install-commands:
+    (>):
+    - find "%{install-root}" -name "lib*.a" -delete
+
 sources:
 - kind: git_repo
   url: github:containers/composefs.git
