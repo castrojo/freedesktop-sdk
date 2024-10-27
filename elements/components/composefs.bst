@@ -11,6 +11,11 @@ variables:
   meson-local: >-
     -Dfuse=disabled
 
+config:
+  install-commands:
+    (>):
+    - find "%{install-root}" -name "lib*.a" -delete
+
 sources:
 - kind: git_repo
   url: github:containers/composefs.git
