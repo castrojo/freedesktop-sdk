@@ -2,9 +2,13 @@ kind: autotools
 
 build-depends:
 - bootstrap-import.bst
-- components/texinfo.bst
 - components/bison.bst
 - components/flex.bst
+- components/pkg-config.bst
+- components/texinfo.bst
+
+depends:
+- components/zstd.bst
 
 (@):
 - elements/cross-compilers/riscv64-vars.yml

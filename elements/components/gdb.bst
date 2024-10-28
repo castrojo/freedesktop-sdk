@@ -7,6 +7,7 @@ depends:
 - components/debuginfod.bst
 - components/gmp.bst
 - components/mpfr.bst
+- components/zstd.bst
 
 build-depends:
 - components/pkg-config.bst
@@ -37,6 +38,7 @@ variables:
     --disable-install-libiberty
     --with-debuginfod
     --with-separate-debug-dir="%{debugdir}"
+    --with-zstd
 
 config:
   install-commands:

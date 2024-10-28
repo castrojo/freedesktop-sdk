@@ -390,7 +390,7 @@ app_ppc64le:
 bootstrap_ppc64:
   extends:
     - .bootstrap_template
-    - .builder-x86_64
+    - .builder-ppc64le
   allow_failure: true
   variables:
     ARCH: ppc64

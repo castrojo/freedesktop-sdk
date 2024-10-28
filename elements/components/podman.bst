@@ -35,7 +35,6 @@ environment-nocache:
 variables:
   ldflags_defaults: ""
   optimize-debug: "false"
-  compress-debug: "false"
   command-subdir: src/github.com/containers/podman
 
 sources:

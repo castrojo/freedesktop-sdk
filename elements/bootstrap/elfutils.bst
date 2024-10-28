@@ -7,19 +7,18 @@ build-depends:
 - bootstrap/gnu-config.bst
 - bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
-- filename: bootstrap/zlib.bst
-  config:
-    location: "%{sysroot}"
-- filename: bootstrap/bzip2.bst
-  config:
-    location: "%{sysroot}"
-- filename: bootstrap/xz.bst
+- filename:
+  - bootstrap/bzip2.bst
+  - bootstrap/zlib.bst
+  - bootstrap/zstd.bst
+  - bootstrap/xz.bst
   config:
     location: "%{sysroot}"
 
 runtime-depends:
-- bootstrap/zlib.bst
 - bootstrap/bzip2.bst
+- bootstrap/zlib.bst
+- bootstrap/zstd.bst
 - bootstrap/xz.bst
 
 (@):

@@ -5,10 +5,12 @@ build-depends:
 - bootstrap/base-sdk/automake.bst
 - bootstrap/base-sdk/bison.bst
 - bootstrap/base-sdk/flex.bst
+- bootstrap/base-sdk/pkg-config.bst
 - bootstrap/gnu-config.bst
 
 depends:
 - bootstrap/base-sdk/binary-seed.bst
+- bootstrap/base-sdk/zstd.bst
 
 (@):
 - elements/bootstrap/include/build.yml
@@ -30,6 +32,7 @@ variables:
     %{disable-source}
     --with-lib-path="%{sysroot}/usr/lib/%{gcc_triplet}:%{sysroot}/usr/lib:/usr/lib/%{gcc_triplet}:/usr/lib"
     --with-system-zlib
+    --with-zstd
   make-args: >-
     MAKEINFO=true
 

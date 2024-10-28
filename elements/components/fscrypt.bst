@@ -13,7 +13,6 @@ depends:
 variables:
   ldflags_defaults: ""
   optimize-debug: "false"
-  compress-debug: "false"
 
 sources:
 - kind: git_repo

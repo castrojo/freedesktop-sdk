@@ -2,7 +2,11 @@ kind: autotools
 
 build-depends:
 - bootstrap/base-sdk/m4.bst
+- bootstrap/base-sdk/pkg-config.bst
 - bootstrap/gnu-config.bst
+
+depends:
+- bootstrap/base-sdk/zstd.bst
 
 (@):
 - elements/bootstrap/include/build.yml
@@ -12,3 +16,5 @@ variables:
   conf-local: >-
     --disable-debuginfod
     --disable-libdebuginfod
+
+  local_ldflags: "-Wl,-rpath,%{tools}/lib"

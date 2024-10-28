@@ -390,14 +390,8 @@ struct script {
         auto do_compress = [&, toolchain, binary] {
           auto debugfile = get_debugfile(binary);
 
-          if (run(std::vector<std::string>{(toolchain / "objcopy").string(),
-                                           "--compress-debug-sections",
-                                           debugfile})) {
-            throw std::runtime_error("objcopy failed");
-          }
-
           if (compress) {
-            if (run(std::vector<std::string>{"eu-elfcompress", debugfile})) {
+            if (run(std::vector<std::string>{"eu-elfcompress", "--type=zstd", debugfile})) {
               throw std::runtime_error("eu-elfcompress failed");
             }
           }
