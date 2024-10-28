@@ -709,7 +709,7 @@ markdown_manifest:
   stage: reproducible
   script:
     - make generate-test-keys
-    - ./utils/test_reproducibility.py tests/reproducible-test.bst result_folder
+    - buildstream-reprotest tests/reproducible-test.bst result_folder
   needs: []
   variables:
     DISABLE_REMOTE_CACHE: "1"
