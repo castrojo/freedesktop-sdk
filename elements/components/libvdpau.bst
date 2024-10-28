@@ -33,7 +33,7 @@ public:
         - '%{libdir}/vdpau/libvdpau_*.so'
 
       extra:
-      - "%{libdir}/GL"	
+      - "%{libdir}/GL"
       - "%{libdir}/GL/**"
       
 
