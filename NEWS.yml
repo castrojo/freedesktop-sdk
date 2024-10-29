@@ -1,3 +1,54 @@
+Version: freedesktop-sdk-23.08.25
+Date: '2024-10-28'
+Description: |-
+  Changes in freedesktop-sdk-23.08.25
+   * open-iscsi: Set a fixed KBUILD_BUILD_TIMESTAMP
+   * composefs: Mark binaries as devel
+   * composefs: Delete static library
+   * Update libcap to libcap-2.71-0
+   * ca-certificates: Use a pinned copy of update-ca-trust script
+   * Revert "ca-certificates: Provide legacy symlinks to tls-ca-bundle.pem"
+   * Revert "ca-certificates: Drop empty symlink to ca-bundle.trust.crt"
+   * desktop-file-utils: Drop patch
+   * Update desktop-file-utils to 0.28-0
+   * ca-certificates: Drop empty symlink to ca-bundle.trust.crt
+   * ca-certificates: Provide legacy symlinks to tls-ca-bundle.pem
+   * shim: Fix track and update to 15.8
+   * shim: Add maybe element and build in CI
+   * efitools: Add maybe element and build in CI
+   * Seperate boot key handling out of target element
+   * Add test keys to git and add makefile targets to generate and clean
+   * efitools: Fix build with newer gnu-efi
+   * Update zenity to 3.44.5-0
+   * Update python3-yarl to v1.16.0-0
+   * Update python3-protobuf to 5.28.3
+   * u-boot-qemu: Fix track and exclusion pattern
+   * u-boot-qemu: Update denx alias and update to v2024.10
+   * python3-yarl: Exclude rc tags
+   * usbutils: Add explicit dependency on systemd-libs for libudev
+   * usbutils: Stop providing lsusb.py
+   * usbutils: Switch to meson
+   * Update usbutils to v018-0
+   * Update buildbox to 1.2.28-0
+   * Update eos-metrics to Release_6.0.4-0
+   * Update eos-updater to Release_6.0.4-0
+   * Update python3-frozenlist to 1.5.0
+   * Update linux to v6.11.5-0
+   * Update reference-abi to freedesktop-sdk-23.08.24-0
+   * Update crun to 1.18-0
+   * Update protobuf to v28.3-0
+   * Update vim to v9.1.0798-0
+   * Update python3-trove-classifiers to 2024.10.21.16-0
+   * Update python3-mako to 1.3.6
+   * Update weston to 14.0.1-0
+   * Update libseat to 0.9.0-0
+   * ci: Reduce the number of jobs in MR pipelines
+   * ninja: Use vendor to get rid of bogus reports
+   * Update iwd to 3.0-0
+   * Update meson-mesa to 1.6.0-0
+   * Update python3-ruamel-yaml-clib to 0.2.12-0
+   * Update xfsprogs to v6.11.0-0
+---
 Version: freedesktop-sdk-23.08.24
 Date: '2024-10-20'
 Description: |-
