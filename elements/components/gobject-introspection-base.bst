@@ -12,8 +12,6 @@ depends:
 - components/python3.bst
 - components/python3-mako.bst
 - components/python3-markdown.bst
-
-runtime-depends:
 - components/python3-setuptools.bst # https://gitlab.gnome.org/GNOME/gobject-introspection/-/issues/395
 
 variables:
