@@ -8,14 +8,6 @@ depends:
 - components/python3.bst
 - components/libyaml.bst
 
-config:
-  # FIXME: We need to skip build dependency check since pyyaml only allows building with
-  # Cython 3 on Python 3.13 or newer
-  build-commands:
-  - |
-    %{python} -mbuild %{build-args} --skip-dependency-check .
-
-
 sources:
 - kind: git_repo
   url: github:yaml/pyyaml.git
