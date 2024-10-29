@@ -1,3 +1,85 @@
+Version: freedesktop-sdk-24.08.5
+Date: '2024-10-28'
+Description: |-
+  Changes in freedesktop-sdk-24.08.5
+   * open-iscsi: Set a fixed KBUILD_BUILD_TIMESTAMP
+   * composefs: Mark binaries as devel
+   * composefs: Delete static library
+   * Update glibc to glibc-2.40-50
+   * Update vim to v9.1.0814-0
+   * Update libcap to libcap-2.71-0
+   * python3-sphinxcontrib-jsmath: Make the build reproducible
+   * ca-certificates: Use a pinned copy of update-ca-trust script
+   * Revert "ca-certificates: Provide legacy symlinks to tls-ca-bundle.pem"
+   * Revert "ca-certificates: Drop empty symlink to ca-bundle.trust.crt"
+   * Update buildbox to 1.2.28-0
+   * Update zenity to 3.44.5-0
+   * Update spirv-llvm-translator to v18.1.5-7
+   * desktop-file-utils: Drop patch
+   * Update desktop-file-utils to 0.28-0
+   * ca-certificates: Drop empty symlink to ca-bundle.trust.crt
+   * ca-certificates: Provide legacy symlinks to tls-ca-bundle.pem
+   * shim: Fix track and update to 15.8
+   * shim: Add maybe element and build in CI
+   * efitools: Add maybe element and build in CI
+   * Seperate boot key handling out of target element
+   * Add test keys to git and add makefile targets to generate and clean
+   * efitools: Fix build with newer gnu-efi
+   * Update protobuf to v28.3-0
+   * Update python3-mako to rel_1_3_6-0
+   * Update python3-yarl to v1.16.0-0
+   * Update weston to 14.0.1-0
+   * u-boot-qemu: Fix track and exclusion pattern
+   * u-boot-qemu: Update denx alias and update to v2024.10
+   * openssl: Change track to 3.3
+   * python3-yarl: Exclude rc tags
+   * Update linux to v6.11.5-0
+   * Update python3-protobuf to 5.28.3
+   * Update python3-frozenlist to v1.5.0-0
+   * usbutils: Add explicit dependency on systemd-libs for libudev
+   * usbutils: Stop providing lsusb.py
+   * usbutils: Switch to meson
+   * Update usbutils to v018-0
+   * Update crun to 1.18-0
+   * Update libnghttp2 to v1.64.0-0
+   * Update libseat to 0.9.0-0
+   * Update python3-networkx to networkx-3.4.2-0
+   * Update python3-trove-classifiers to 2024.10.21.16-0
+   * ci: Reduce the number of jobs in MR pipelines
+   * Update spirv-llvm-translator to v18.1.5-2
+   * ninja: Use vendor to get rid of bogus reports
+   * libcupsfilters: Hack to fix header path
+   * Update libcupsfilters to 2.1.0-0
+   * Update xfsprogs to v6.11.0-0
+   * Update iwd to 3.0-0
+   * python3-ruamel-yaml-clib: Drop patch
+   * Update python3-ruamel-yaml-clib to 0.2.12-0
+   * ci: Use when manual at job level instead of rule level
+   * ci: Remove duplicate manual from publish_aarch64_tar
+   * Update vim to v9.1.0793-0
+   * Update reference-abi to freedesktop-sdk-24.08.4-0
+   * Update linux to v6.11.4-0
+   * Update python3-markupsafe to 3.0.2-0
+   * Update libmysofa to v1.3.3-0
+   * Update libppd to 2.1.0-0
+   * buildstream: backport storage service logging patch
+   * Update dav1d to 1.5.0-0
+   * Update python3-yarl to v1.15.5-0
+   * Update mesa-sdk to mesa-24.2.5-0
+   * Update podman to v5.2.5-0
+   * Update buildbox to 1.2.27-0
+   * Update python3-cryptography to 43.0.3-0
+   * systemd: Don't runtime-depend on libfido2
+   * systemd: Don't runtime-depend on tpm2-tss
+   * systemd: Don't runtime-depend on iptables
+   * systemd: Don't runtime-depend on libqrencode
+   * systemd: Don't runtime-depend on libarchive
+   * Update less to v668-rel-0
+   * Update python3-virtualenv to 20.27.0-0
+   * Update glib to 2.82.2-0
+   * Update python3-psutil to release-6.1.0-0
+   * Fix vdpauinfo track and update to 1.5
+---
 Version: freedesktop-sdk-24.08.4
 Date: '2024-10-18'
 Description: |-
