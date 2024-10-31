@@ -2,6 +2,7 @@ kind: manual
 
 build-depends:
 - bootstrap/base-sdk/binary-seed.bst
+- bootstrap/build/binutils-stage1.bst
 - bootstrap/build/debug-utils.bst
 
 runtime-depends:
