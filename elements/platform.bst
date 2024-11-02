@@ -103,6 +103,7 @@ depends:
 - components/dejavu-fonts.bst
 - components/dictionaries.bst
 - components/fcitx5.bst
+- components/fmtlib.bst
 - components/ffmpeg.bst
 - components/fftw.bst
 - components/flatpak-xdg-utils.bst
