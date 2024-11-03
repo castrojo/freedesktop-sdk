@@ -1,0 +1,151 @@
+From 0700e1bb1fce819d79dd706bbea4b1183833a155 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?J=C3=BCrg=20Billeter?= <j@bitron.ch>
+Date: Fri, 18 Oct 2024 17:32:51 +0200
+Subject: [PATCH] casd: Implement LocalCAS.UploadTree
+
+---
+ casd/buildboxcasd_localcasinstance.cpp      | 13 ++++
+ casd/buildboxcasd_localcasinstance.h        |  3 +
+ casd/buildboxcasd_localcasproxyinstance.cpp | 79 +++++++++++++++++++++
+ casd/buildboxcasd_localcasproxyinstance.h   |  3 +
+ 4 files changed, 98 insertions(+)
+
+diff --git a/casd/buildboxcasd_localcasinstance.cpp b/casd/buildboxcasd_localcasinstance.cpp
+index 9742d6afa..223f258c5 100644
+--- a/casd/buildboxcasd_localcasinstance.cpp
++++ b/casd/buildboxcasd_localcasinstance.cpp
+@@ -1018,3 +1018,16 @@ Status LocalCasInstance::FetchTree(const FetchTreeRequest &request,
+             "The tree is not available in the local CAS or incomplete.");
+     }
+ }
++
++Status LocalCasInstance::UploadTree(const UploadTreeRequest &request,
++                                    UploadTreeResponse *)
++{
++    if (treeIsAvailableLocally(request.root_digest(), true)) {
++        return grpc::Status::OK;
++    }
++    else {
++        return grpc::Status(
++            grpc::StatusCode::NOT_FOUND,
++            "The tree is not available in the local CAS or incomplete.");
++    }
++}
+diff --git a/casd/buildboxcasd_localcasinstance.h b/casd/buildboxcasd_localcasinstance.h
+index e3c19173f..46dc9bede 100644
+--- a/casd/buildboxcasd_localcasinstance.h
++++ b/casd/buildboxcasd_localcasinstance.h
+@@ -60,6 +60,9 @@ class LocalCasInstance
+     grpc::Status FetchTree(const FetchTreeRequest &request,
+                            FetchTreeResponse *response) override;
+ 
++    grpc::Status UploadTree(const UploadTreeRequest &request,
++                            UploadTreeResponse *response) override;
++
+     grpc::Status
+     StageTree(const StageTreeRequest &stage_request,
+               ServerReaderWriter<StageTreeResponse, StageTreeRequest> *stream)
+diff --git a/casd/buildboxcasd_localcasproxyinstance.cpp b/casd/buildboxcasd_localcasproxyinstance.cpp
+index 220f3d2b3..03fcfcfa2 100644
+--- a/casd/buildboxcasd_localcasproxyinstance.cpp
++++ b/casd/buildboxcasd_localcasproxyinstance.cpp
+@@ -996,3 +996,82 @@ Status LocalCasProxyInstance::FetchTree(const FetchTreeRequest &request,
+ 
+     return status;
+ }
++
++Status LocalCasProxyInstance::UploadTree(const UploadTreeRequest &request,
++                                         UploadTreeResponse *response)
++{
++    if (d_read_only_remote) {
++        return LocalCasInstance::UploadTree(request, response);
++    }
++
++    // Collect digests of the directory tree
++    std::deque<Digest> directoryQueue;
++    std::vector<Digest> digests;
++    directoryQueue.push_back(request.root_digest());
++    while (!directoryQueue.empty()) {
++        const auto directoryDigest = directoryQueue[0];
++        directoryQueue.pop_front();
++
++        if (!this->d_storage->hasBlob(directoryDigest)) {
++            return grpc::Status(grpc::StatusCode::NOT_FOUND,
++                                "Directory " + toString(directoryDigest) +
++                                    " not found in local cache");
++        }
++
++        digests.push_back(directoryDigest);
++
++        Directory directory;
++        if (!directory.ParseFromString(
++                *d_storage->readBlob(directoryDigest))) {
++            BUILDBOXCOMMON_THROW_EXCEPTION(
++                std::runtime_error, "Error parsing Directory with digest "
++                                        << toString(directoryDigest));
++        }
++
++        for (const FileNode &file : directory.files()) {
++            digests.push_back(file.digest());
++        }
++
++        // Add subdirectories to the processing queue
++        for (const DirectoryNode &subdir : directory.directories()) {
++            directoryQueue.push_back(subdir.digest());
++        }
++    }
++
++    // Determine which blobs are missing in the remote CAS
++    std::vector<Digest> missingDigests;
++    const auto findMissingBlobsStatus =
++        findMissingBlobsInRemoteCas(digests, &missingDigests);
++    if (!findMissingBlobsStatus.ok()) {
++        return findMissingBlobsStatus;
++    }
++
++    // Upload missing blobs from local cache to the remote CAS
++    std::vector<buildboxcommon::CASClient::UploadRequest> uploadRequests;
++    for (const Digest &digest : missingDigests) {
++        try {
++            std::string path = d_storage->path(digest);
++            uploadRequests.emplace_back(
++                buildboxcommon::CASClient::UploadRequest::from_path(digest,
++                                                                    path));
++        }
++        catch (const BlobNotFoundException &) {
++            return grpc::Status(grpc::StatusCode::NOT_FOUND,
++                                "Blob " + toString(digest) +
++                                    " not found in local cache");
++        }
++        catch (const std::runtime_error &e) {
++            return grpc::Status(grpc::StatusCode::INTERNAL, e.what());
++        }
++    }
++
++    const std::unordered_map<Digest, grpc::Status> digestsNotUploaded =
++        batchUpdateRemoteCas(uploadRequests);
++
++    // If upload failed, return the first error
++    for (const auto &digestStatusPair : digestsNotUploaded) {
++        return digestStatusPair.second;
++    }
++
++    return grpc::Status::OK;
++}
+diff --git a/casd/buildboxcasd_localcasproxyinstance.h b/casd/buildboxcasd_localcasproxyinstance.h
+index 2c95c6d7a..4e4d85cfb 100644
+--- a/casd/buildboxcasd_localcasproxyinstance.h
++++ b/casd/buildboxcasd_localcasproxyinstance.h
+@@ -86,6 +86,9 @@ class
+     grpc::Status FetchTree(const FetchTreeRequest &request,
+                            FetchTreeResponse *response) override;
+ 
++    grpc::Status UploadTree(const UploadTreeRequest &request,
++                            UploadTreeResponse *response) override;
++
+   protected:
+     /*
+      * Store digests locally, and upload to remote CAS.
+-- 
+GitLab
+
