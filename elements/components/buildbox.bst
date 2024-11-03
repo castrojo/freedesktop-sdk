@@ -33,3 +33,5 @@ sources:
   url: gitlab:BuildGrid/buildbox/buildbox.git
   track: '*.*.*'
   ref: 1.2.29-0-gb652871e879f5de2041ddd0339684c0b862810f3
+- kind: patch
+  path: patches/buildbox/uploadtree.patch
