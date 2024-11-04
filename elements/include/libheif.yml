@@ -52,7 +52,7 @@ config:
 sources:
 - kind: git_repo
   url: github:strukturag/libheif.git
-  track: v*
+  track: v1.18.*
   exclude:
   - '*rc*'
   ref: v1.18.2-0-gbf35e9eb25af8f2b7917996ad9ba849d922f8d15
