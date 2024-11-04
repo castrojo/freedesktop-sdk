@@ -1,14 +1,8 @@
 kind: flatpak_image
 
 build-depends:
-- extensions/platform-vaapi-intel/intel-vaapi-driver.bst
 - extensions/platform-vaapi-intel/intel-media-driver.bst
 - extensions/platform-vaapi-intel/appdata.bst
-
-(?):
-- target_arch == "i686":
-    build-depends:
-    - extensions/platform-vaapi-intel/intel-vaapi-driver.bst
 
 config:
   directory: '%{libdir}/dri/intel-vaapi-driver'
