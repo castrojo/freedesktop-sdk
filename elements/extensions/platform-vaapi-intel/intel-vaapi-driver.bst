@@ -20,3 +20,5 @@ sources:
   url: github:intel/intel-vaapi-driver.git
   track: '*.*.*'
   ref: 2.4.1-0-g9a1f0c64174f970a26380d4957583c71372fbb7c
+- kind: patch
+  path: patches/vaapi-intel/0001-Make-wl_drm-optional.patch
