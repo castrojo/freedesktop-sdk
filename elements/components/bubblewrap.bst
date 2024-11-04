@@ -2,6 +2,8 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- components/docbook-xsl.bst
+- components/libxslt.bst
 
 depends:
 - bootstrap-import.bst
