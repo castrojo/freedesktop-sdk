@@ -11,4 +11,4 @@ sources:
 - kind: git_repo
   url: github:projectatomic/bubblewrap.git
   track: v*
-  ref: v0.10.0-0-gdc63ec667e6546f34e0b6c088cdf8ae7c7dea0f3
+  ref: v0.11.0-0-g9ca3b05ec787acfb4b17bed37db5719fa777834f
