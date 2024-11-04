@@ -18,6 +18,7 @@ variables:
   libheif-libx265-plugin: 'OFF'
 
   cmake-local: >-
+    -DCMAKE_COMPILE_WARNING_AS_ERROR=OFF
     -DENABLE_PLUGIN_LOADING=ON
     -DPLUGIN_INSTALL_DIRECTORY="/usr/lib/%{gcc_triplet}/ffmpeg/libheif"
     -DPLUGIN_DIRECTORY="/app/lib/ffmpeg/libheif"
