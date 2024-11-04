@@ -56,7 +56,4 @@ sources:
   exclude:
   - '*rc*'
   ref: v1.19.1-0-gbf8c7fb115aebc288d379c1b190eb615574f22f0
-- kind: patch
-  path: patches/libheif/flatpak-plugin-load.patch
-- kind: patch
-  path: patches/libheif/disable-werror.patch
+
