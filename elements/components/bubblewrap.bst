@@ -7,6 +7,10 @@ depends:
 - bootstrap-import.bst
 - components/libcap.bst
 
+variables:
+  meson-local: >-
+    -Dtests=false
+
 sources:
 - kind: git_repo
   url: github:projectatomic/bubblewrap.git
