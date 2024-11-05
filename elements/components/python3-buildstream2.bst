@@ -34,3 +34,5 @@ sources:
   path: patches/buildstream/storage-service.patch
 - kind: patch
   path: patches/buildstream/uploadtree.patch
+- kind: patch
+  path: patches/buildstream/less-query-calls.patch
