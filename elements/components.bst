@@ -540,6 +540,7 @@ depends:
 - components/spirv-llvm-translator.bst
 - components/spirv-tools.bst
 - components/sqlite.bst
+- components/squashfs-tools.bst
 - components/steam-devices.bst
 - components/strace.bst
 - components/sudo.bst

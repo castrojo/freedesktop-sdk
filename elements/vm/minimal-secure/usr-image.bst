@@ -2,7 +2,7 @@ kind: script
 
 build-depends:
 - vm/deploy-tools.bst
-- snap-images/squashfs-tools.bst
+- components/squashfs-tools.bst
 - vm/minimal-secure/initial-scripts.bst
 - vm/prepare-image.bst
 - filename: vm/minimal-secure/filesystem.bst

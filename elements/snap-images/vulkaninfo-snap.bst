@@ -1,7 +1,7 @@
 kind: script
 
 build-depends:
-- snap-images/squashfs-tools.bst
+- components/squashfs-tools.bst
 - filename: snap-images/vulkaninfo.bst
   config:
     location: '%{build-root}'
