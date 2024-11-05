@@ -11,10 +11,18 @@ environment:
   PKG_CONFIG_PATH: "%{libdir}/dri/intel-vaapi-driver/lib/pkgconfig:"
 
 variables:
+  local_flags: -D_FILE_OFFSET_BITS=64
+
+  arch-conf: ''
+  (?):
+  - target_arch == "i686":
+      arch-conf: -DARCH:STRING=32
+
   cmake-local: >-
     -DCMAKE_INSTALL_LIBDIR="%{libdir}/dri/intel-vaapi-driver/lib"
     -DLIBVA_DRIVERS_PATH="%{libdir}/dri/intel-vaapi-driver"
     -DMEDIA_BUILD_FATAL_WARNINGS=OFF
+    %{arch-conf}
 
 public:
   bst:
