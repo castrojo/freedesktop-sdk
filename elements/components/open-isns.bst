@@ -5,6 +5,7 @@ build-depends:
 
 depends:
 - bootstrap-import.bst
+- components/openssl.bst
 
 variables:
   meson-local: >-
