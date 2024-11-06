@@ -1,15 +1,15 @@
-kind: autotools
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 
 depends:
 - bootstrap-import.bst
 
 variables:
-  make-install: make -j1 install install_hdrs install_lib DESTDIR="%{install-root}"
-  local_flags: >-
-    -Wno-error
+  meson-local: >-
+    -Dslp=disabled
+    -Dsystemddir="%{indep-libdir}/systemd"
 
 sources:
 - kind: git_repo
