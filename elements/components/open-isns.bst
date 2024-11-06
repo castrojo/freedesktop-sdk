@@ -11,6 +11,13 @@ variables:
     -Dslp=disabled
     -Dsystemddir="%{indep-libdir}/systemd"
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libisns.so'
+
 sources:
 - kind: git_repo
   url: github:open-iscsi/open-isns.git
