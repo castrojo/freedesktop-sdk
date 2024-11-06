@@ -1,3 +1,47 @@
+Version: freedesktop-sdk-24.08.6
+Date: '2024-11-06'
+Description: |-
+  Changes in freedesktop-sdk-24.08.6
+   * [ABI BREAK] Add fmt to platform
+   * Update ostree to v2024.9-0
+   * Update grpc to v1.67.1-0
+   * Update libnvme to v1.11-0
+   * Update pixman to pixman-0.44.0-0
+   * Update python3-flit-core to 3.10.1-0
+   * Backport BuildStream optimization to query cache only when needed
+   * Update python3-cachecontrol to 0.14.1
+   * Update mesa-sdk to mesa-24.2.6-0
+   * Update netavark to v1.13.0-0
+   * Update to new image that supports UploadTree in bst and buildbox
+   * libheif: Freeze to 1.18
+   * Update poppler to poppler-24.11.0-0
+   * intel-vaapi-driver: Add patch to fix vaapi driver with newer libEGL
+   * Update mesa to mesa-24.2.6-0
+   * libtiff: Freeze to 4.6
+   * Update crun to 1.18.2-0
+   * python3-hatch-fancy-pypi-readme: Use hatchling buildsystem
+   * Backport BuildStream uploadtree feature
+   * ci: Bump image to fix tracking errors related to dulwich
+   * reference-abi: Bump after abi skip
+   * Revert "Update python3-dulwich to 0.22.3"
+   * Revert "python3-dulwich: Drop patch"
+   * ci: Bump image
+   * python3-setuptools-git: setuptools-git depends on setuptools at runtime
+   * Update libseat to 0.9.1-0
+   * Update spirv-llvm-translator to v18.1.5-10
+   * Update python3-pip to 24.3.1-0
+   * Update reference-abi to freedesktop-sdk-24.08.5-0
+   * Update xwayland to xwayland-24.1.4-0
+   * Update aardvark-dns to v1.13.0-0
+   * Update to latest image
+   * buildbox: Stop creating buildbox-run symlink
+   * Update buildbox to 1.2.29-0
+   * Update python3-yarl to v1.17.0-0
+   * Update spirv-llvm-translator to v18.1.5-8
+   * libvdpau: Remove tab character from element
+   * Update python3-pip to 24.3-0
+   * Update dictionaries to libreoffice-24.8.3.1-0
+---
 Version: freedesktop-sdk-24.08.5
 Date: '2024-10-28'
 Description: |-
