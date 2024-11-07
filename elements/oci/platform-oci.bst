@@ -3,7 +3,7 @@ kind: script
 build-depends:
 - oci/oci-builder.bst
 - oci/layers/platform-init-script.bst
-- filename: oci/bootstrap-oci.bst
+- filename: oci/minimal-oci.bst
   config:
     location: /parent
 - filename: oci/layers/platform.bst

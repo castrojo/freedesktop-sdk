@@ -1,7 +1,7 @@
 kind: stack
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/os-release.bst
 - integration/extra-fs.bst
 - integration/ldconfig.bst

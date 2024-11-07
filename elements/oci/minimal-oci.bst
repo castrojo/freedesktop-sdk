@@ -2,8 +2,8 @@ kind: script
 
 build-depends:
 - oci/oci-builder.bst
-- oci/layers/bootstrap-init-script.bst
-- filename: oci/layers/bootstrap.bst
+- oci/layers/minimal-init-script.bst
+- filename: oci/layers/minimal.bst
   config:
     location: /layer
 
@@ -23,5 +23,5 @@ config:
     - os: linux
       architecture: '%{go-arch}'
       layer: /layer
-      comment: 'Import bootstrap layer from Freedesktop SDK'
+      comment: 'Import minimal layer from Freedesktop SDK'
     EOF
