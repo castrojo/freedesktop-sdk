@@ -10,7 +10,7 @@ sources:
 - kind: git_repo
   url: github:containers/aardvark-dns.git
   track: v*
-  ref: v1.13.0-0-g8bb480684adede6b30aa57541fc3bebe7ec8228f
+  ref: v1.13.1-0-g966017cf9252d09b0608ccb3ac7faf22e9bc847d
 - kind: cargo
   ref:
   - name: addr2line
@@ -190,6 +190,9 @@ sources:
   - name: memchr
     version: 2.7.4
     sha: 78ca9ab1a0babb1e7d5695e3530886289c18cf2f87ec19a575a0abdce112e3a3
+  - name: memoffset
+    version: 0.9.1
+    sha: 488016bfae457b036d996092f6cb448677611ce4449e970ceaf42695203f218a
   - name: miniz_oxide
     version: 0.8.0
     sha: e2d80299ef12ff69b16a84bb182e3b9df68b5a91574d3d4fa6e41b65deec4df1
