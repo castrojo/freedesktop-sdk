@@ -1,7 +1,10 @@
-kind: autotools
+kind: cmake
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- components/cmake-stage1.bst
+- components/gettext.bst
+- components/ninja.bst
+- components/pkg-config.bst
 
 depends:
 - bootstrap-import.bst

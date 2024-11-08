@@ -1,16 +1,19 @@
 kind: manual
 
+build-depends:
+- components/cmake-stage1.bst
+- components/gettext.bst
+- components/ninja.bst
+- components/pkg-config.bst
+- components/python3-minimal.bst
+- components/rust-stage1.bst
+
 depends:
 - bootstrap-import.bst
 - components/curl.bst
 - components/llvm.bst
 - components/libxml2.bst
 - components/openssl.bst
-
-build-depends:
-- components/rust-stage1.bst
-- public-stacks/buildsystem-cmake.bst
-- components/python3-minimal.bst
 
 variables:
   optimize-debug: "false"

@@ -1,7 +1,10 @@
 kind: cmake
 
 build-depends:
-- public-stacks/buildsystem-cmake.bst
+- components/cmake-stage1.bst
+- components/gettext.bst
+- components/ninja.bst
+- components/pkg-config.bst
 - components/python3-minimal.bst
 
 depends:
