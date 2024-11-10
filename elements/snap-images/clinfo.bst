@@ -1,8 +1,5 @@
 kind: snap_image
 
-(@):
-- snap-version.yml
-
 variables:
   lib: lib
   prefix: /app
