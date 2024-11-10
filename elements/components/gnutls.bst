@@ -41,7 +41,7 @@ sources:
 - kind: git_repo
   url: gitlab:gnutls/gnutls.git
   track: '*.*.*'
-  ref: 3.8.7-0-g994d9392a607308e452ecae87caafd6ea81288f3
+  ref: 3.8.8-0-g40267b5e16b5b418d7781c1c92d160a9bb12925b
 - kind: git_module
   url: gitlab:gnutls/cligen.git
   path: cligen
