@@ -1,4 +1,7 @@
-kind: manual
+kind: pyproject
+
+build-depends:
+- components/python3-build-bootstrap.bst
 
 depends:
 - components/python3.bst
@@ -9,8 +12,9 @@ variables:
 
 config:
   build-commands:
-  - rm -r flit_core/vendor
-  - python -m flit_core.wheel
+    # Unvendoring
+    (<):
+    - rm -r flit_core/vendor
   install-commands:
   - |
     python bootstrap_install.py dist/*.whl --install-root "%{install-root}"

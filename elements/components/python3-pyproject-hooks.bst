@@ -1,12 +1,12 @@
 kind: pyproject
 
 build-depends:
+- components/python3-build-bootstrap.bst
 - components/python3-flit-core.bst
 - components/python3-installer.bst
 
-config:
-  build-commands:
-  - python3 -mflit_core.wheel
+depends:
+- components/python3.bst
 
 sources:
 - kind: git_repo

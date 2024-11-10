@@ -1,6 +1,7 @@
 kind: pyproject
 
 build-depends:
+- components/python3-build-bootstrap.bst
 - components/python3-flit-core.bst
 
 depends:
@@ -8,11 +9,6 @@ depends:
 
 environment:
   PYTHONPATH: "%{build-root}/src"
-
-config:
-  build-commands:
-  - |
-    python3 -mflit_core.wheel
 
 sources:
 - kind: git_repo
