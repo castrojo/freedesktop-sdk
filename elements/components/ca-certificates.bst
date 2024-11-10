@@ -27,9 +27,6 @@ build-depends:
 depends:
 - components/p11-kit.bst
 
-runtime-depends:
-- components/util-linux.bst  # Integration command depends on this
-
 config:
   build-commands:
   # Install the pinned copy of update-ca-trust
