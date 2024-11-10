@@ -10,5 +10,9 @@ sources:
 - kind: git_repo
   url: github:cython/cython.git
   track: '*.*.*'
+  exclude:
+  - "*a*"
+  - "*rc*"
+  - "*b*"
   ref-format: git-describe
   ref: 3.0.11-1-0-gc17427b59cad234fa54a1a28404c4b542077215b
