@@ -4,12 +4,14 @@ build-depends:
 - bootstrap/diffutils.bst
 - bootstrap/gcc.bst
 - bootstrap/make.bst
+- bootstrap/zstd.bst
 - bootstrap/stripper.bst
 - components/autoconf2.69.bst
 - components/automake.bst
 - components/flex.bst
 - components/gettext.bst
 - components/libtool.bst
+- components/pkg-config.bst
 - components/python3-minimal.bst
 - components/tar.bst
 - components/texinfo.bst
@@ -38,6 +40,7 @@ variables:
     --disable-libstdcxx-filesystem-ts
     --enable-cet
     --with-system-zlib
+    --with-zstd
     %{conf-arch}
   conf-link-args: |
     --enable-shared

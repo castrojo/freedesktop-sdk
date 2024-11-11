@@ -6,6 +6,7 @@ build-depends:
 runtime-depends:
 - bootstrap/binutils.bst
 - bootstrap/libxcrypt.bst
+- bootstrap/zstd.bst
 - components/gcc-libs.bst
 - components/gcc-manifest.bst
 - public-stacks/runtime-minimal.bst
