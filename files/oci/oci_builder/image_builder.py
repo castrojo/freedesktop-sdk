@@ -95,8 +95,15 @@ def extract_oci_image_info(path, index, global_conf, os_value, new_layer, legacy
                         shutil.copyfileobj(gzfile, outp)
                 else:
                     if global_conf.compression == Compression.gzip:
-                        gzfile = stack.enter_context(gzip.GzipFile(filename=diff_id, fileobj=outp,
-                                                                   mode='wb', **get_gzip_opts()))
+                        gzfile = stack.enter_context(
+                            gzip.GzipFile(
+                                filename=diff_id,
+                                fileobj=outp,
+                                mode='wb',
+                                compresslevel=global_conf.compression_level,
+                                **get_gzip_opts(),
+                            )
+                        )
                         shutil.copyfileobj(inp, gzfile)
                     else:
                         shutil.copyfileobj(inp, outp)
@@ -132,8 +139,13 @@ def build_layer(upper, lowers, legacy_config, global_conf):
             targz_blob = Blob(global_conf,
                               media_type='application/vnd.oci.image.layer.v1.tar+gzip')
             with targz_blob.create() as gzipfile:
-                with gzip.GzipFile(filename=tar_hash.hexdigest(), fileobj=gzipfile,
-                                   mode='wb', **get_gzip_opts()) as gzip_file:
+                with gzip.GzipFile(
+                    filename=tar_hash.hexdigest(),
+                    fileobj=gzipfile,
+                    mode='wb',
+                    compresslevel=global_conf.compression_level,
+                    **get_gzip_opts(),
+                ) as gzip_file:
                     shutil.copyfileobj(tfile, gzip_file)
             new_layer_descs.append(targz_blob.descriptor)
         else:

@@ -17,24 +17,32 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-import sys
 import dataclasses
 import os
+import sys
+from typing import Optional
+
 import yaml
+
 from .image_builder import build_images, Compression
 
 
 @dataclasses.dataclass
 class GlobalConfig:
     compression: Compression
+    compression_level: Optional[int]
     output: str
 
 
 def main():
     data = yaml.load(sys.stdin, Loader=yaml.CLoader)
     compression = data.get('gzip', Compression.gzip)
+    compression_level = data.get('compression-level')
+    if compression_level is None:
+        if compression == Compression.gzip:
+            compression_level = 5
     if compression not in Compression:
         raise RuntimeError("Compression must be in " + ",".join(Compression))
 
-    global_conf = GlobalConfig(compression, os.getcwd())
+    global_conf = GlobalConfig(compression, compression_level, os.getcwd())
     build_images(global_conf, data.get('images', []), data.get('annotations'))
