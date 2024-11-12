@@ -443,6 +443,7 @@ depends:
 - components/python3-imagesize.bst
 - components/python3-installer.bst
 - components/python3-jinja2.bst
+- components/python3-libversion.bst
 - components/python3-lxml.bst
 - components/python3-mako.bst
 - components/python3-markdown.bst
