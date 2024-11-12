@@ -4,6 +4,8 @@ kind: pyproject
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
 - components/cython.bst
+- components/gcc.bst
+- components/stripper.bst
 
 depends:
 - components/abseil-cpp.bst
@@ -21,4 +23,6 @@ environment:
   GRPC_PYTHON_BUILD_WITH_CYTHON: "1"
   GRPC_PYTHON_CFLAGS: "%{target_flags}"
 
-(@): elements/include/grpc-source.yml
+(@):
+- elements/include/grpc-source.yml
+- include/strip.yml

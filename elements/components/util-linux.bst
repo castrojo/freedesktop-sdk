@@ -4,7 +4,7 @@ build-depends:
 - components/util-linux-base.bst
 
 runtime-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/libeconf.bst
 
 config:

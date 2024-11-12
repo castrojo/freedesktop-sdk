@@ -5,7 +5,7 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/xorg-lib-x11.bst
 - components/xorg-lib-xext.bst
 

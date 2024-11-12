@@ -1,14 +1,17 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/libtiff.bst
-- filename: components/jpeg.bst
+- public-stacks/runtime-minimal.bst
+- components/libtiff.bst
+- components/jpeg.bst
 
 variables:
-  conf-local: |
-    --with-threads \
-    --with-tiff \
+  conf-local: >-
+    --with-threads
+    --with-tiff
     --with-jpeg
 
 public:

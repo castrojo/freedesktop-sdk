@@ -1,7 +1,7 @@
 kind: meson
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - public-stacks/buildsystem-meson.bst
 - components/wayland-protocols.bst
 - extensions/mesa/libdrm.bst

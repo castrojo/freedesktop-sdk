@@ -4,7 +4,7 @@ build-depends:
 - components/bluez-base.bst
 
 runtime-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/bluez-manifest.bst
 
 public:

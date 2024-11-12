@@ -2,11 +2,13 @@ kind: manual
 
 (@): elements/extensions/include/app.yml
 
+build-depends:
+- extensions/clinfo/khronos-headers.bst
+- public-stacks/buildsystem-make.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/opencl.bst
-- filename: extensions/clinfo/khronos-headers.bst
-  type: build
+- public-stacks/runtime-minimal.bst
+- components/opencl.bst
 
 config:
   build-commands:

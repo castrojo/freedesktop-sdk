@@ -2,8 +2,8 @@ kind: autotools
 
 (@): elements/extensions/ffmpeg-full/config.yml
 
-depends:
-- bootstrap-import.bst
+build-depends:
+- public-stacks/buildsystem-autotools.bst
 - components/nasm.bst
 
 variables:

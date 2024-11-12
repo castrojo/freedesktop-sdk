@@ -6,6 +6,9 @@ build-depends:
 depends:
 - components/systemd.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - |

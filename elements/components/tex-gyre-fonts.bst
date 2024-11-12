@@ -1,11 +1,12 @@
 kind: manual
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   fontdir: '%{install-root}%{datadir}/fonts'
   confdir: '%{install-root}%{sysconfdir}/fonts'
+  strip-binaries: ''
 
 # PostScript font replacements available under the GUST Font License
 # which is approved as Libre by the Fedora Project.

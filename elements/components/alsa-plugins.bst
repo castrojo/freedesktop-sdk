@@ -1,7 +1,7 @@
 kind: autotools
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/alsa-lib.bst
 - filename: components/libpulse.bst
 - filename: public-stacks/buildsystem-autotools.bst

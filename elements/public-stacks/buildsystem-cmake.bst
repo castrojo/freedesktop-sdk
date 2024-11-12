@@ -1,7 +1,8 @@
 kind: stack
 
 depends:
-- public-stacks/buildsystem-make.bst
+- components/gcc.bst
+- components/stripper.bst
 - components/cmake.bst
 - components/gettext.bst
 - components/ninja.bst

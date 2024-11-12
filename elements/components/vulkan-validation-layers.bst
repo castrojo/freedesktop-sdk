@@ -8,7 +8,7 @@ build-depends:
 - components/vulkan-utility-libraries.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/wayland.bst
 - components/vulkan-headers.bst
 - components/xorg-lib-x11.bst

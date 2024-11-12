@@ -9,6 +9,7 @@ build-depends:
 
 variables:
   kernel_arch: '%{arch}'
+  strip-binaries: ''
   (?):
   - target_arch == "aarch64":
       kernel_arch: arm64

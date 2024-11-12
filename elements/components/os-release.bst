@@ -4,6 +4,7 @@ variables:
   (@):
   - include/repo_branches.yml
   release-limit: "1"
+  strip-binaries: ''
 
 build-depends:
 - components/flatpak-minimal-image.bst

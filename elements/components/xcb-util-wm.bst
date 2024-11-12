@@ -2,7 +2,7 @@ kind: autotools
 description: X.org xcb-util-wm
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/xorg-lib-xcb.bst
 - filename: public-stacks/buildsystem-autotools.bst
   type: build

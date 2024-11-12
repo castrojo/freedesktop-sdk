@@ -5,6 +5,7 @@ build-depends:
 
 variables:
   prefix: "/usr/lib/%{gcc_triplet}/dri/intel-vaapi-driver"
+  strip-binaries: ''
 
 config:
   install-commands:

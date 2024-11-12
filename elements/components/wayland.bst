@@ -2,9 +2,10 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- bootstrap/sed.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/expat.bst
 - components/libxml2.bst
 - components/libffi.bst

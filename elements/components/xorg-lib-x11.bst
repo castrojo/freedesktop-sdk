@@ -2,7 +2,7 @@ kind: autotools
 description: X.org lib x11
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/xorg-lib-xtrans.bst
 - filename: components/xorg-lib-xcb.bst
 - filename: components/perl.bst

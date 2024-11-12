@@ -1,10 +1,11 @@
 kind: autotools
 
 build-depends:
+- public-stacks/buildsystem-autotools.bst
 - components/tcl.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   conf-local: >-

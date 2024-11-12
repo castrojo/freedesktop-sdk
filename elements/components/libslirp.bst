@@ -2,6 +2,7 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- bootstrap/sed.bst
 - components/git-minimal.bst
 
 depends:

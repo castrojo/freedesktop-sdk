@@ -4,7 +4,9 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
+- bootstrap/zlib.bst
+- bootstrap/libxcrypt.bst
 - components/libffi.bst
 - components/gdbm.bst
 - components/libyaml.bst

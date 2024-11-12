@@ -2,9 +2,11 @@ kind: manual
 
 build-depends:
 - components/go.bst
+- components/gcc.bst
+- components/stripper.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   optimize-debug: "false"

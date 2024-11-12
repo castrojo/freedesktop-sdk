@@ -1,10 +1,13 @@
 kind: manual
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 runtime-depends:
 - components/pipewire-daemon.bst
+
+variables:
+  strip-binaries: ''
 
 config:
   install-commands:

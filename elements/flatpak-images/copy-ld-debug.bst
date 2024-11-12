@@ -4,7 +4,7 @@ description: |
     appear in the SDK.
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   linker-pattern: ld-linux*.so*.debug

@@ -9,7 +9,7 @@ build-depends:
 - kernel-conf-utils/debian-config.bst
 - kernel-conf-utils/conf-dirs.bst
 - components/linux.bst
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   commands:

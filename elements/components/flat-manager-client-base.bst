@@ -1,7 +1,7 @@
 kind: manual
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 runtime-depends:
 - components/python3.bst
@@ -11,6 +11,9 @@ runtime-depends:
 - components/python3-chardet.bst
 - components/pygobject.bst
 - components/python3-tenacity.bst
+
+variables:
+  strip-binaries: ''
 
 config:
   install-commands:

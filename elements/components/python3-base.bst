@@ -5,7 +5,7 @@ build-depends:
 - components/bluez-headers.bst
 - public-stacks/buildsystem-autotools.bst
 # depends: add these to filters
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/expat.bst
 - components/libffi.bst
 - components/gdbm.bst

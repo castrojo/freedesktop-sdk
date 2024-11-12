@@ -1,7 +1,7 @@
 kind: autotools
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/libgcrypt.bst
 - components/libassuan.bst
 - components/libksba.bst

@@ -4,7 +4,7 @@ build-depends:
 - components/systemd-base.bst
 
 runtime-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/libcap.bst
 - components/libgcrypt.bst
 - components/systemd-manifest.bst

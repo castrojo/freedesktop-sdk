@@ -22,15 +22,20 @@ kind: manual
 #
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/nspr.bst
 - components/sqlite.bst
 - components/p11-kit.bst
 
 build-depends:
+- bootstrap/gawk.bst
+- bootstrap/grep.bst
+- bootstrap/sed.bst
+- components/gcc.bst
 - components/gyp.bst
-- components/pkg-config.bst
 - components/perl.bst
+- components/pkg-config.bst
+- components/stripper.bst
 
 variables:
   (?):

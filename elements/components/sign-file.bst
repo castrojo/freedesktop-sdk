@@ -1,7 +1,11 @@
 kind: manual
 
+build-depends:
+- bootstrap/stripper.bst
+- components/gcc.bst
+
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/openssl.bst
 
 config:

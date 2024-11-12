@@ -4,10 +4,10 @@ build-depends:
 - components/lvm2-base.bst
 
 runtime-depends:
-- bootstrap-import.bst
 - components/libaio.bst
-- components/systemd-libs.bst
 - components/libdevmapper.bst
+- components/systemd-libs.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   exclude:

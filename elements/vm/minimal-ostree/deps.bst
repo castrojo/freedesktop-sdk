@@ -1,7 +1,7 @@
 kind: stack
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/util-linux-full.bst
 - components/systemd.bst
 - components/dbus.bst

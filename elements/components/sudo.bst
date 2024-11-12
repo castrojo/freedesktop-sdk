@@ -1,12 +1,13 @@
 kind: autotools
 
 build-depends:
+- public-stacks/buildsystem-autotools.bst
 - components/git-minimal.bst
 - components/perl.bst
 
 depends:
-- bootstrap-import.bst
 - components/linux-pam-base.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   install-commands:

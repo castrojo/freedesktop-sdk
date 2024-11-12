@@ -5,7 +5,7 @@ build-depends:
 - components/gtk-doc.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/pixman.bst
 - components/xorg-lib-x11.bst
 - components/xorg-lib-xext.bst

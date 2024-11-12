@@ -1,7 +1,12 @@
 kind: make
 
+build-depends:
+- public-stacks/buildsystem-make.bst
+- bootstrap/grep.bst
+- bootstrap/sed.bst
+
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   command-subdir: src

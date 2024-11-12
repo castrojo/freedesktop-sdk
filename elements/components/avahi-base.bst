@@ -1,7 +1,7 @@
 kind: autotools
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - public-stacks/buildsystem-autotools.bst
 - components/dbus.bst
 - components/glib.bst

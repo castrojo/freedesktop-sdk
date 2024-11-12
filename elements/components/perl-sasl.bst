@@ -1,10 +1,12 @@
 kind: makemaker
 
-depends:
-- bootstrap-import.bst
-- components/perl.bst
 build-depends:
+- bootstrap/make.bst
 - components/perl-module-install.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
+- components/perl.bst
 
 sources:
 - kind: cpan

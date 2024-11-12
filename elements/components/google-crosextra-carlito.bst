@@ -1,12 +1,13 @@
 kind: manual
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   fontdir: '%{install-root}%{datadir}/fonts'
   confdir: '%{install-root}%{sysconfdir}/fonts'
   fontname: google-crosextra-carlito
+  strip-binaries: ''
 
 config:
   install-commands:

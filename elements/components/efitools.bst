@@ -1,13 +1,15 @@
 kind: make
 
 build-depends:
+- public-stacks/buildsystem-make.bst
 - components/gnu-efi.bst
 - components/help2man.bst
 - components/perl-slurp.bst
 - components/boot-keys.bst
+- bootstrap/sed.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/openssl.bst
 - components/sbsigntools.bst
 

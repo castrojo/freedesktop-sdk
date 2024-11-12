@@ -8,7 +8,7 @@ build-depends:
 - components/python3-gi-docgen.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/glib-networking.bst
 - components/libxml2.bst
 - components/libnghttp2.bst

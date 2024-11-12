@@ -1,7 +1,10 @@
 kind: makemaker
 
+build-depends:
+- bootstrap/make.bst
+
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/perl.bst
 - components/perl-ssleay.bst
 

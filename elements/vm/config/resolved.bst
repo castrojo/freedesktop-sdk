@@ -5,6 +5,7 @@ depends:
 
 variables:
   resolved-config: "%{install-root}%{sysconfdir}/systemd/"
+  strip-binaries: ''
 
 config:
   install-commands:

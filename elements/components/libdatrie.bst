@@ -1,7 +1,7 @@
 kind: autotools
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/git-minimal.bst
   type: build
 - filename: public-stacks/buildsystem-autotools.bst

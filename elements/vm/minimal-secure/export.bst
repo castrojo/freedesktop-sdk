@@ -7,7 +7,7 @@ build-depends:
 - filename: vm/minimal-secure/signed-boot.bst
   config:
     location: /signed-boot
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 environment:
   XZFLAGS: '-T%{max-jobs}'

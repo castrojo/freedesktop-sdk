@@ -5,8 +5,12 @@ kind: meson
 #  - components/systemd-libs.bst
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - public-stacks/buildsystem-meson.bst
+- bootstrap/sed.bst
+- bootstrap/gawk.bst
+- bootstrap/grep.bst
+- bootstrap/diffutils.bst
 - components/audit.bst
 - components/gperf.bst
 - components/m4.bst

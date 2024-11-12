@@ -1,7 +1,8 @@
 kind: manual
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
+- public-stacks/buildsystem-make.bst
 - components/acpica-tools.bst
 - components/util-linux.bst
 - components/python3.bst

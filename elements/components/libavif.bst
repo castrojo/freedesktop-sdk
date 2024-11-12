@@ -4,7 +4,7 @@ build-depends:
 - public-stacks/buildsystem-cmake.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/aom.bst
 - components/dav1d.bst
 - components/jpeg.bst

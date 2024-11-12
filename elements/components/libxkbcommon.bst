@@ -5,7 +5,7 @@ build-depends:
  - components/bison.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/libxml2.bst
 - components/xorg-data-xkeyboard-config.bst
 

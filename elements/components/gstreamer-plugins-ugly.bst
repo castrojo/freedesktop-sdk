@@ -4,7 +4,7 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/gstreamer.bst
 - components/gstreamer-plugins-base.bst
 - components/orc.bst

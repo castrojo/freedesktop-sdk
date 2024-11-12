@@ -1,8 +1,11 @@
 kind: autotools
 description: TCL
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   conf-cmd: ./unix/configure

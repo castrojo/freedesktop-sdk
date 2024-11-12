@@ -1,6 +1,7 @@
 kind: make
 
 build-depends:
+- public-stacks/buildsystem-make.bst
 - components/pkg-config.bst
 - components/git-minimal.bst
 - components/go.bst

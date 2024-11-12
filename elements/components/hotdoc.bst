@@ -3,6 +3,7 @@ kind: pyproject
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
 - public-stacks/buildsystem-cmake.bst
+- bootstrap/make.bst
 - components/pkg-config.bst
 - components/flex.bst
 
@@ -29,6 +30,8 @@ runtime-depends:
 
 environment:
   HOTDOC_BUILD_C_EXTENSION: enabled
+
+(@): include/strip.yml
 
 public:
   bst:

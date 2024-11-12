@@ -1,7 +1,7 @@
 kind: manual
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 runtime-depends:
 - components/linux-pam-base.bst
@@ -9,6 +9,7 @@ runtime-depends:
 
 variables:
   pamconfdir: "%{sysconfdir}/pam.d"
+  strip-binaries: ''
 
 config:
   build-commands:

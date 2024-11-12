@@ -1,10 +1,13 @@
 kind: manual
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 runtime-depends:
 - components/python3.bst
+
+variables:
+  strip-binaries: ''
 
 config:
   install-commands:

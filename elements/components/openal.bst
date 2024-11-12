@@ -1,7 +1,7 @@
 kind: cmake
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/libpulse.bst
 - filename: public-stacks/buildsystem-cmake.bst
   type: build

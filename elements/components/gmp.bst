@@ -1,9 +1,10 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/m4.bst
-  type: build
+- public-stacks/runtime-minimal.bst
 
 variables:
   conf-local: >-

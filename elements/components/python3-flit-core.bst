@@ -5,6 +5,7 @@ depends:
 
 variables:
   command-subdir: flit_core
+  strip-binaries: ''
 
 config:
   build-commands:

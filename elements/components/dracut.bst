@@ -1,13 +1,13 @@
 kind: autotools
 
 build-depends:
-- components/pkg-config.bst
+- public-stacks/buildsystem-autotools.bst
 - components/asciidoc.bst
 - components/libxslt.bst
 - components/docbook-xsl.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/kmod.bst
 - components/e2fsprogs.bst
 

@@ -2,12 +2,13 @@ kind: autotools
 description: pkg-config
 
 build-depends:
+- public-stacks/buildsystem-make.bst
 - components/autoconf.bst
 - components/automake.bst
 - components/libtool.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   install-commands:

@@ -7,7 +7,7 @@ build-depends:
 - components/wayland-protocols.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/libsamplerate.bst
 - components/libdbus.bst
 - components/libdecor.bst

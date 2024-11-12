@@ -5,7 +5,7 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/brotli.bst
 - components/libpng.bst
 - components/harfbuzz.bst

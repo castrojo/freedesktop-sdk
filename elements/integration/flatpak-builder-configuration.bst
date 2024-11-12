@@ -5,6 +5,9 @@ build-depends:
 - public-stacks/runtime-minimal.bst
 - components/jq.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   build-commands:
   - |

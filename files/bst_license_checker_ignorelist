@@ -73,7 +73,7 @@ cross-compilers/freedesktop-sdk-arm.bst:bootstrap/build/debug-utils.bst
 cross-compilers/freedesktop-sdk-arm.bst:bootstrap/glibc-build-deps.bst
 
 # stack elements
-bootstrap-import.bst
+minimal.bst
 bootstrap/bootstrap.bst
 bootstrap/build/debug-utils.bst
 bootstrap/build/tools-lib-path.bst

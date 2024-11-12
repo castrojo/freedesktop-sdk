@@ -4,7 +4,7 @@ build-depends:
 - filename: public-stacks/buildsystem-cmake.bst
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   cmake-local: >-

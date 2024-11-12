@@ -7,7 +7,7 @@ build-depends:
 - components/gtk3.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/glib.bst
 - components/gdk-pixbuf.bst
 

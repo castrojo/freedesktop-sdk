@@ -1,7 +1,6 @@
 kind: stack
 
 depends:
-- public-stacks/buildsystem-make.bst
 - components/python3-build.bst
 - components/python3-installer.bst
 - components/python3-poetry-core.bst

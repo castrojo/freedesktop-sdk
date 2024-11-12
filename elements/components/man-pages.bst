@@ -1,7 +1,14 @@
 kind: manual
 
+build-depends:
+- public-stacks/buildsystem-make.bst
+- bootstrap/findutils.bst
+- bootstrap/grep.bst
+- bootstrap/sed.bst
+- components/git-minimal.bst
+
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   install-commands:

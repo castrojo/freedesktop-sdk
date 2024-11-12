@@ -2,7 +2,7 @@ kind: autotools
 description: X.org lib xi
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/xorg-lib-x11.bst
 - filename: components/xorg-lib-xext.bst
 - filename: components/xorg-lib-xfixes.bst

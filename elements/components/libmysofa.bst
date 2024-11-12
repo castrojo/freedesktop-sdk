@@ -5,7 +5,7 @@ build-depends:
 - components/cunit.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   cmake-local: >-

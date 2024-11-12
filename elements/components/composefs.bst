@@ -5,7 +5,7 @@ build-depends:
 - components/go-md2man.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/openssl.bst
 - components/fuse3.bst
 

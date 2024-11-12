@@ -1,7 +1,7 @@
 kind: manual
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 runtime-depends:
 - extensions/mesa/mesa.bst
@@ -9,6 +9,7 @@ runtime-depends:
 
 variables:
   ld_so_conf_d: "%{sysconfdir}/ld.so.conf.d"
+  strip-binaries: ''
 
 config:
   install-commands:

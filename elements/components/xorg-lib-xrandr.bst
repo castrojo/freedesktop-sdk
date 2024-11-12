@@ -1,7 +1,7 @@
 kind: autotools
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/xorg-lib-xext.bst
 - filename: components/xorg-lib-xrender.bst
 - filename: public-stacks/buildsystem-autotools.bst

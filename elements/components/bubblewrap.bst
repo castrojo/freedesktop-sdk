@@ -6,7 +6,7 @@ build-depends:
 - components/libxslt.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/libcap.bst
 
 variables:

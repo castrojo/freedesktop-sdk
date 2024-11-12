@@ -5,7 +5,7 @@ build-depends:
 - components/utf8cpp.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   cmake-local: >-

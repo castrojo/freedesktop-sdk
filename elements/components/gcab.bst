@@ -6,7 +6,7 @@ build-depends:
 - components/vala.bst
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/glib.bst
 
 public:

@@ -1,8 +1,7 @@
 kind: meson
 
 depends:
-- filename: bootstrap-import.bst
-  type: build
+- public-stacks/runtime-minimal.bst
 - filename: public-stacks/buildsystem-meson.bst
   type: build
 - filename: components/libpng.bst

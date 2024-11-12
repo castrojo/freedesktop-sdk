@@ -1,7 +1,7 @@
 kind: manual
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/libxml2.bst
 
 runtime-depends:
@@ -10,6 +10,7 @@ runtime-depends:
 
 variables:
   data: '%{datadir}/xml/docbook/xml/xsl-stylesheets'
+  strip-binaries: ''
 
 config:
   install-commands:

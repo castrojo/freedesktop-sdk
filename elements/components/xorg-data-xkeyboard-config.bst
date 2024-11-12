@@ -8,7 +8,7 @@ build-depends:
 - components/perl.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/xorg-app-xkbcomp.bst
 
 variables:

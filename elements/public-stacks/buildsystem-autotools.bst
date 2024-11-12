@@ -9,4 +9,3 @@ depends:
 - components/libtool.bst
 - components/pkg-config.bst
 - components/which.bst
-

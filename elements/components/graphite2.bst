@@ -1,7 +1,7 @@
 kind: cmake
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/xorg-lib-x11.bst
 - filename: components/xorg-lib-xrandr.bst
 - filename: components/wayland.bst

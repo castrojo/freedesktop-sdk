@@ -1,8 +1,14 @@
 kind: make
 
 build-depends:
+- public-stacks/buildsystem-make.bst
+- bootstrap/sed.bst
+- bootstrap/grep.bst
 - components/bison.bst
 - components/flex.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
 
 variables:
   make-args: >-

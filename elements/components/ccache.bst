@@ -9,7 +9,7 @@ build-depends:
 - components/perl.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/zstd.bst
 - components/fmtlib.bst
 
@@ -18,7 +18,6 @@ variables:
     -DREDIS_STORAGE_BACKEND=OFF
     -DCCACHE_DEV_MODE=OFF
     -DENABLE_TESTING=OFF
-
 
 sources:
 - kind: git_repo

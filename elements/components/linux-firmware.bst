@@ -1,12 +1,16 @@
 kind: manual
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 build-depends:
+- bootstrap/make.bst
 - components/python3.bst
 - components/which.bst
 - components/rdfind.bst
+
+variables:
+  strip-binaries: ''
 
 config:
   build-commands:

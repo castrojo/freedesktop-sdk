@@ -1,7 +1,7 @@
 kind: script
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 (?):
 - target_arch == "i686":

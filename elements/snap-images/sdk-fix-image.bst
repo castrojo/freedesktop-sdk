@@ -1,6 +1,6 @@
 kind: script
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: snap-images/sdk-snap-image.bst
   config:
     location: "%{install-root}"

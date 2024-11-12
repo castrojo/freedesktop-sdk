@@ -5,7 +5,7 @@ build-depends:
 - components/git-minimal.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/libnghttp2.bst
 - components/libpsl.bst
 - components/openssl.bst

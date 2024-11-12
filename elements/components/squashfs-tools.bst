@@ -7,7 +7,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/gzip.bst
+- bootstrap/xz.bst
+- bootstrap/zlib.bst
 - components/lzo.bst
 - components/zstd.bst
 

@@ -6,3 +6,4 @@ kind: manual
 variables:
   variant_name: "Mesa"
   variant_text:
+  strip-binaries: ''

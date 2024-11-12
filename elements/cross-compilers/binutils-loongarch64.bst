@@ -1,10 +1,10 @@
 kind: autotools
 
 build-depends:
-- bootstrap-import.bst
-- components/texinfo.bst
+- public-stacks/buildsystem-autotools.bst
 - components/bison.bst
 - components/flex.bst
+- components/texinfo.bst
 
 (@):
 - elements/cross-compilers/loongarch64-vars.yml

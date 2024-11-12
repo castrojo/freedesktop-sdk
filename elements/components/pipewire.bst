@@ -4,7 +4,7 @@ build-depends:
 - components/pipewire-base.bst
 
 runtime-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/gstreamer-plugins-base.bst
 - components/alsa-lib.bst
 - components/libdbus.bst

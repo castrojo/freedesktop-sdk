@@ -6,7 +6,7 @@ build-depends:
 - components/texinfo.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 public:
   bst:

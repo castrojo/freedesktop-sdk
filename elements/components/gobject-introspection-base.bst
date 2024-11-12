@@ -8,7 +8,7 @@ build-depends:
 - components/gtk-doc.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/python3.bst
 - components/python3-mako.bst
 - components/python3-markdown.bst

@@ -1,9 +1,12 @@
 kind: make
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 build-depends:
+- public-stacks/buildsystem-make.bst
+- bootstrap/sed.bst
+- bootstrap/diffutils.bst
 - components/bison.bst
 - components/flex.bst
 - components/pkg-config.bst

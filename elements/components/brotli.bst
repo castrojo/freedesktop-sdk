@@ -1,8 +1,11 @@
 kind: cmake
 
 build-depends:
-- bootstrap-import.bst
 - public-stacks/buildsystem-cmake.bst
+- components/bc.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
 
 public:
   bst:

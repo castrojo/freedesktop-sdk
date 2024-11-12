@@ -7,7 +7,7 @@ build-depends:
 - components/gobject-introspection.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/libdbus.bst
 - components/glib.bst
 

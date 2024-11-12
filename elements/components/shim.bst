@@ -1,7 +1,9 @@
 kind: make
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/buildsystem-make.bst
+- bootstrap/sed.bst
+- bootstrap/grep.bst
 - components/git-minimal.bst
 - components/openssl.bst
 - components/boot-keys.bst

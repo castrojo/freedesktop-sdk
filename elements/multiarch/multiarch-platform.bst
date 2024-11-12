@@ -1,10 +1,11 @@
 kind: manual
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - multiarch/multiarch-platform-arches.bst
 
 variables:
+  strip-binaries: ''
   arches: ''
   (?):
   - target_arch == "x86_64":

@@ -1,11 +1,14 @@
 kind: manual
 
+build-depends:
+- components/python3.bst
+- components/perl.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/python3.bst
-  type: build
-- filename: components/perl.bst
-  type: build
+- public-stacks/runtime-minimal.bst
+
+variables:
+  strip-binaries: ''
 
 config:
   install-commands:

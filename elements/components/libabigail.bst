@@ -4,7 +4,9 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
+- bootstrap/elfutils.bst
+- bootstrap/binutils.bst
 - components/libxml2.bst
 
 sources:

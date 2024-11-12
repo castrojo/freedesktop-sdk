@@ -1,6 +1,10 @@
 kind: manual
+
 depends:
 - components/python3.bst
+
+variables:
+  strip-binaries: ''
 
 config:
   install-commands:

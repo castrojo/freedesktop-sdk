@@ -5,7 +5,8 @@ build-depends:
 - components/groff.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
+- bootstrap/libxcrypt.bst
 - components/gdbm.bst
 - components/sqlite.bst
 - components/openssl.bst

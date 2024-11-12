@@ -2,7 +2,7 @@ kind: autotools
 description: X.org lib xshmfence
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/xorg-proto-xorgproto.bst
 - filename: public-stacks/buildsystem-autotools.bst
   type: build

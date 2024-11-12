@@ -7,6 +7,7 @@ build-depends:
 - components/gobject-introspection.bst
 
 depends:
+- public-stacks/runtime-minimal.bst
 - components/glib.bst
 - components/icu.bst
 - components/graphite2.bst

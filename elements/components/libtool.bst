@@ -14,6 +14,7 @@ build-depends:
 depends:
 - bootstrap/bash.bst
 - bootstrap/coreutils.bst
+- bootstrap/file.bst
 - bootstrap/glibc.bst
 - bootstrap/sed.bst
 - bootstrap/symlinks.bst

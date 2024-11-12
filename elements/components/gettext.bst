@@ -17,6 +17,7 @@ depends:
 - components/utf-locale.bst
 
 runtime-depends:
+- bootstrap/diffutils.bst
 - bootstrap/findutils.bst
 - components/gzip.bst
 - components/tar.bst

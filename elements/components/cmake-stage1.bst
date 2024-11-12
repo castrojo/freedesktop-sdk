@@ -1,11 +1,14 @@
 kind: manual
 
 build-depends:
+- bootstrap/grep.bst
+- bootstrap/sed.bst
 - components/gcc.bst
 - components/ninja.bst
+- components/stripper.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/openssl.bst
 
 environment:

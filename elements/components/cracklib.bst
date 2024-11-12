@@ -5,7 +5,11 @@ build-depends:
 - components/curl.bst
 
 depends:
-- bootstrap-import.bst
+- bootstrap/zlib.bst
+- public-stacks/runtime-minimal.bst
+
+runtime-depends:
+- bootstrap/grep.bst # needed for create-cracklib-dict
 
 variables:
   conf-local: >-

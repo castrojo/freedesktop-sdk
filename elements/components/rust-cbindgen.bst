@@ -1,10 +1,12 @@
 kind: manual
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 build-depends:
 - components/rust.bst
+- components/gcc.bst
+- components/stripper.bst
 
 environment:
   MAXJOBS: "%{max-jobs}"

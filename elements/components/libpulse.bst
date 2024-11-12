@@ -6,7 +6,7 @@ build-depends:
 - components/perl-xml-parser.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/glib.bst
 - components/libtool.bst
 - components/sndfile.bst

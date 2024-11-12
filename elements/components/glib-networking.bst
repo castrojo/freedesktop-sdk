@@ -1,7 +1,7 @@
 kind: meson
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: components/libproxy.bst
 - filename: components/glib.bst
 - filename: components/gnutls.bst

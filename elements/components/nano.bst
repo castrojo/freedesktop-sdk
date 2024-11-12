@@ -1,12 +1,15 @@
 kind: autotools
 description: GNU nano
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/groff.bst
+- components/texinfo.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/texinfo.bst
-  type: build
+- bootstrap/file.bst
+- bootstrap/ncurses.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   install-commands:

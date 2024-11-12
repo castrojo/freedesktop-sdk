@@ -5,7 +5,7 @@ build-depends:
 - components/texinfo.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/libassuan.bst
 - components/libgpg-error.bst
 

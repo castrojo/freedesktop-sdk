@@ -9,7 +9,7 @@ build-depends:
 - components/texinfo.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/gettext.bst
 - components/m4.bst
 - components/perl.bst

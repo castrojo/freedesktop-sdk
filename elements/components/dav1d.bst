@@ -5,7 +5,7 @@ build-depends:
 - components/nasm.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   meson-local: >-

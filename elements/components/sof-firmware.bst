@@ -1,7 +1,10 @@
 kind: manual
 
 build-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
+
+variables:
+  strip-binaries: ''
 
 config:
   install-commands:

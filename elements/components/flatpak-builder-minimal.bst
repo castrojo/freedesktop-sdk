@@ -4,7 +4,7 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/curl.bst
 - components/flatpak-minimal.bst
 - components/fuse3.bst

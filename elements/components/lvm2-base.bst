@@ -4,9 +4,9 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 
 depends:
-- bootstrap-import.bst
 - components/libaio.bst
 - components/systemd-libs.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   conf-local: >-

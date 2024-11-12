@@ -8,7 +8,7 @@ build-depends:
 
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/nettle.bst
 - components/libtirpc.bst
 - components/libdrm.bst

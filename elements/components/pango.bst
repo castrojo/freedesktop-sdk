@@ -6,7 +6,7 @@ build-depends:
 - components/python3-gi-docgen.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/cairo.bst
 - components/harfbuzz.bst
 - components/fontconfig.bst

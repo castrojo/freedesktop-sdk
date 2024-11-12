@@ -3,9 +3,10 @@ description: X.org lib pciaccess
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- bootstrap/sed.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 public:
   bst:

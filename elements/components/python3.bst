@@ -4,7 +4,10 @@ build-depends:
 - components/python3-base.bst
 
 runtime-depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
+- bootstrap/zlib.bst
+- bootstrap/bzip2.bst
+- bootstrap/xz.bst
 - components/expat.bst
 - components/libffi.bst
 - components/gdbm.bst

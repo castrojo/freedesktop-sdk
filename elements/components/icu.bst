@@ -1,10 +1,11 @@
 kind: autotools
 
-depends:
-- bootstrap-import.bst
-
 build-depends:
+- public-stacks/buildsystem-autotools.bst
 - components/python3-minimal.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
 
 config:
   configure-commands:

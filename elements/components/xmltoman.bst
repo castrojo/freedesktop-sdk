@@ -1,9 +1,12 @@
 kind: manual
 
+build-depends:
+- public-stacks/buildsystem-make.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/perl.bst
-- filename: components/perl-xml-parser.bst
+- public-stacks/runtime-minimal.bst
+- components/perl.bst
+- components/perl-xml-parser.bst
 
 variables:
   make-vars: >-

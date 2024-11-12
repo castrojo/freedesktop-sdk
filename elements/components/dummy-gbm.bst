@@ -17,7 +17,7 @@ build-depends:
 - components/flex.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/libdrm.bst
 
 (@):

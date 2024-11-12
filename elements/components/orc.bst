@@ -1,7 +1,7 @@
 kind: meson
 
 depends:
-- filename: bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - filename: public-stacks/buildsystem-meson.bst
   type: build
 - filename: components/gtk-doc.bst

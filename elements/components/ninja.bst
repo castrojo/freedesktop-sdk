@@ -1,11 +1,13 @@
 kind: manual
 
 build-depends:
+- bootstrap/sed.bst
 - components/gcc.bst
 - components/python3-minimal.bst
+- components/stripper.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   build-commands:

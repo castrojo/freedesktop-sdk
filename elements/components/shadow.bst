@@ -8,7 +8,7 @@ build-depends:
 - components/itstool.bst
 
 depends:
-- bootstrap-import.bst
+- public-stacks/runtime-minimal.bst
 - components/linux-pam.bst
 
 variables:
