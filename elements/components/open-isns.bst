@@ -15,4 +15,4 @@ sources:
 - kind: git_repo
   url: github:open-iscsi/open-isns.git
   track: v*
-  ref: v0.102-0-gc0e6d9fedc5a7041260de477fe1a8455fa074113
+  ref: v0.103-0-g3e053e2a2c83293db7167f336940fec51f32fed7
