@@ -2,8 +2,6 @@ kind: make
 
 build-depends:
 - public-stacks/buildsystem-make.bst
-- bootstrap/gawk.bst
-- bootstrap/sed.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

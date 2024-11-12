@@ -1,9 +1,6 @@
 kind: make
 
 build-depends:
-- bootstrap/findutils.bst
-- bootstrap/grep.bst
-- bootstrap/sed.bst
 - components/pkg-config.bst
 - components/go.bst
 - components/go-md2man.bst

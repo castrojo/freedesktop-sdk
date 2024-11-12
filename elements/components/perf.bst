@@ -2,10 +2,6 @@ kind: make
 
 build-depends:
 - public-stacks/buildsystem-make.bst
-- bootstrap/diffutils.bst
-- bootstrap/gawk.bst
-- bootstrap/grep.bst
-- bootstrap/sed.bst
 - components/audit.bst
 - components/bc.bst
 - components/bison.bst

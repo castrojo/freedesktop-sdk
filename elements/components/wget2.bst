@@ -2,7 +2,6 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- bootstrap/diffutils.bst
 - components/flex.bst
 - components/gperf.bst
 - components/texinfo.bst

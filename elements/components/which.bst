@@ -2,9 +2,6 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-make.bst
-- bootstrap/gawk.bst
-- bootstrap/grep.bst
-- bootstrap/sed.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

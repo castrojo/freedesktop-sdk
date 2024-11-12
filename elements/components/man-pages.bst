@@ -2,9 +2,6 @@ kind: manual
 
 build-depends:
 - public-stacks/buildsystem-make.bst
-- bootstrap/findutils.bst
-- bootstrap/grep.bst
-- bootstrap/sed.bst
 - components/git-minimal.bst
 
 depends:

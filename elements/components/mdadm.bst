@@ -2,8 +2,6 @@ kind: make
 
 build-depends:
 - public-stacks/buildsystem-make.bst
-- bootstrap/sed.bst
-- bootstrap/grep.bst
 - components/git-minimal.bst
 - components/pkg-config.bst
 - components/systemd.bst

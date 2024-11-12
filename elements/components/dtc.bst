@@ -5,8 +5,6 @@ depends:
 
 build-depends:
 - public-stacks/buildsystem-make.bst
-- bootstrap/sed.bst
-- bootstrap/diffutils.bst
 - components/bison.bst
 - components/flex.bst
 - components/pkg-config.bst

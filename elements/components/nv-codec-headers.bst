@@ -2,7 +2,6 @@ kind: make
 
 build-depends:
 - public-stacks/buildsystem-make.bst
-- bootstrap/sed.bst
 
 variables:
   make-args: >-

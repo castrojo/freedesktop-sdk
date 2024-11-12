@@ -2,8 +2,6 @@ kind: make
 
 build-depends:
 - public-stacks/buildsystem-make.bst
-- bootstrap/grep.bst
-- bootstrap/sed.bst
 - components/which.bst
 - components/gzip.bst
 

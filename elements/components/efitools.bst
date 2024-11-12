@@ -6,7 +6,6 @@ build-depends:
 - components/help2man.bst
 - components/perl-slurp.bst
 - components/boot-keys.bst
-- bootstrap/sed.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

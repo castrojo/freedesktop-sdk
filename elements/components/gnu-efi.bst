@@ -2,7 +2,6 @@ kind: manual
 
 build-depends:
 - public-stacks/buildsystem-make.bst
-- bootstrap/sed.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
