@@ -24,6 +24,6 @@ variables:
 public:
   bst:
     split-rules:
-      runtime: []
       devel:
-      - /**
+      - '%{bindir}/find-debuginfo'
+      - '%{bindir}/sepdebugcrcfix'

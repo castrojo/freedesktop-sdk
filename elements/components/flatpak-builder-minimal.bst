@@ -5,6 +5,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- bootstrap/debugedit.bst
 - components/curl.bst
 - components/flatpak-minimal.bst
 - components/fuse3.bst
