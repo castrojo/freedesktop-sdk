@@ -7,34 +7,22 @@ build-depends:
 - vm/minimal/initial-scripts.bst
 - vm/prepare-image.bst
 - vm/deploy-tools.bst
-- vm/minimal/filesystem.bst
+- filename: vm/minimal/filesystem.bst
+  config:
+    location: '/sysroot'
 - vm/boot/u-boot.bst
-- vm/minimal/qemu-firmware.bst
+- filename: vm/minimal/qemu-firmware.bst
+  config:
+    location: '/firmware'
 
 variables:
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
   uuid-boot: 10bf4857-5261-46d4-a178-cca1a9b5b997
 
 config:
-  layout:
-  - element: ''
-    destination: '/genimage'
-  - element: ''
-    destination: '/tmp'
-  - element: 'components/linux.bst'
-    destination: '/'
-  - element: 'vm/deploy-tools.bst'
-    destination: '/'
-  - element: 'vm/minimal/filesystem.bst'
-    destination: '/sysroot'
-  - element: 'vm/boot/u-boot.bst'
-    destination: '/sysroot/boot'
-  - element: 'vm/minimal/initial-scripts.bst'
-    destination: '/'
-  - element: 'vm/minimal/qemu-firmware.bst'
-    destination: '/firmware'
 
   commands:
+  - mkdir -p /genimage
   - |
     prepare-image.sh \
        --sysroot /sysroot \
