@@ -1,0 +1,56 @@
+From 3fe7728b63b5c14e1ecdd75f25863c2afd0e410c Mon Sep 17 00:00:00 2001
+From: Matteo Martelli <matteo.martelli@codethink.co.uk>
+Date: Thu, 30 Jan 2025 16:04:45 +0100
+Subject: [PATCH 1/4] spacemit-k1: check bootfs in nvme before mmc
+
+---
+ board/spacemit/k1-x/k1x.c | 19 ++++++++++++++-----
+ 1 file changed, 14 insertions(+), 5 deletions(-)
+
+diff --git a/board/spacemit/k1-x/k1x.c b/board/spacemit/k1-x/k1x.c
+index 2c3ac759f78a..0cd0af584d50 100644
+--- a/board/spacemit/k1-x/k1x.c
++++ b/board/spacemit/k1-x/k1x.c
+@@ -517,6 +517,9 @@ char* parse_mtdparts_and_find_bootfs(void) {
+ void import_env_from_bootfs(void)
+ {
+ 	u32 boot_mode = get_boot_mode();
++        struct blk_desc *dev_desc;
++        char *blk_name;
++        int blk_index;
+ 
+ #ifdef CONFIG_ENV_IS_IN_NFS
+ 	// Check if local bootfs exists
+@@ -571,10 +574,6 @@ void import_env_from_bootfs(void)
+ #endif
+ 		break;
+ 	case BOOT_MODE_NOR:
+-		struct blk_desc *dev_desc;
+-		char *blk_name;
+-		int blk_index;
+-
+ 		if (get_available_boot_blk_dev(&blk_name, &blk_index)){
+ 			printf("can not get available blk dev\n");
+ 			return;
+@@ -587,7 +586,17 @@ void import_env_from_bootfs(void)
+ 	case BOOT_MODE_EMMC:
+ 	case BOOT_MODE_SD:
+ #ifdef CONFIG_MMC
+-		int dev;
++                /* First try to boot from blk dev defined in FASTBOOT_SUPPORT_BLOCK_DEV_NAME */
++                if (get_available_boot_blk_dev(&blk_name, &blk_index) == 0) {
++                    dev_desc = blk_get_dev(blk_name, blk_index);
++                    if (dev_desc) {
++                        _load_env_from_blk(dev_desc, blk_name, blk_index);
++                        return;
++                    }
++                }
++
++                /* Fallback to mmc (SD or eMMC) */
++                int dev;
+ 		struct mmc *mmc;
+ 
+ 		dev = mmc_get_env_dev();
+-- 
+2.48.1
+

@@ -1,0 +1,68 @@
+From b5eda7d61be99d8de95af47f7f8e97e8b9a6c362 Mon Sep 17 00:00:00 2001
+From: Matteo Martelli <matteo.martelli@codethink.co.uk>
+Date: Fri, 7 Feb 2025 12:54:08 +0100
+Subject: [PATCH] spacemit-k1: EFI: disable DT memory reservation
+
+While booting through the EFI loader, U-Boot reserves memory areas based
+on reserved-memory nodes specified in the provided device tree. This is
+likely done to avoid the EFI loader use those special memory areas.
+Linux kernel's DT for spacemit-k1 defines two reserved areas in the
+2GB-4GB address spaces as that range is reserved for IO memory mapped
+devices and so those areas cannot be used for normal memory operations.
+However after U-Boot reserve those memory areas, the linux kernel fails
+to initialize PCI controllers reporting they are conflicting with those
+reserved memory areas. If otherwise U-Boot does not take charge of
+reserving memory areas based on DT, the linux kernel will then do it,
+but it will skip those two IO memory mapped areas and the PCI
+controllers initialize properly.
+
+As a workaround, disable memory reservation based on DT when booting
+through EFI, letting the kernel take charge of it. Note that this is not
+a proper long-term solution as the EFI loader might use memory areas
+reserved for special use.
+---
+ configs/k1_defconfig          | 1 +
+ lib/efi_loader/Kconfig        | 7 +++++++
+ lib/efi_loader/efi_dt_fixup.c | 3 +++
+ 3 files changed, 11 insertions(+)
+
+diff --git a/configs/k1_defconfig b/configs/k1_defconfig
+index 92652c0ba1c6..ac78348d377d 100644
+--- a/configs/k1_defconfig
++++ b/configs/k1_defconfig
+@@ -285,3 +285,4 @@ CONFIG_PRINT_TIMESTAMP=y
+ # CONFIG_SPL_SHA1 is not set
+ # CONFIG_SPL_SHA256 is not set
+ CONFIG_ZSTD=y
++CONFIG_EFI_DT_RESERVE_MEMORY_DISABLE=y
+diff --git a/lib/efi_loader/Kconfig b/lib/efi_loader/Kconfig
+index b8fb2701a74e..d82b7ee74432 100644
+--- a/lib/efi_loader/Kconfig
++++ b/lib/efi_loader/Kconfig
+@@ -413,3 +413,10 @@ config EFI_RISCV_BOOT_PROTOCOL
+ 	  possible on systems using ACPI.
+ 
+ endif
++
++config EFI_DT_RESERVE_MEMORY_DISABLE
++	bool "Disable reservation of memory areas based on device tree"
++	depends on EFI_LOADER
++	help
++          Enabling this option will prevent U-Boot to create memory
++          reservations as indicated by the device tree when booting with EFI
+diff --git a/lib/efi_loader/efi_dt_fixup.c b/lib/efi_loader/efi_dt_fixup.c
+index d3923e5dba1b..c4bebd471daf 100644
+--- a/lib/efi_loader/efi_dt_fixup.c
++++ b/lib/efi_loader/efi_dt_fixup.c
+@@ -88,6 +88,9 @@ void efi_carve_out_dt_rsv(void *fdt)
+ 	u64 addr, size;
+ 	int nodeoffset, subnode;
+ 
++        if (IS_ENABLED(CONFIG_EFI_DT_RESERVE_MEMORY_DISABLE))
++            return;
++
+ 	nr_rsv = fdt_num_mem_rsv(fdt);
+ 
+ 	/* Look for an existing entry and add it to the efi mem map. */
+-- 
+2.48.1

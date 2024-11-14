@@ -15,6 +15,10 @@ depends:
 - components/ovmf.bst
 - components/u-boot-qemu.bst
 - components/u-boot-unmatched.bst
+- components/u-boot-spacemit-k1.bst
+- components/opensbi-spacemit-k1.bst
+- components/linux-spacemit-k1.bst
+- components/linux-firmware-spacemit-k1.bst
 - components/bpf.bst
 - components/efitools-bin.bst
 - components/fwupd-efi.bst

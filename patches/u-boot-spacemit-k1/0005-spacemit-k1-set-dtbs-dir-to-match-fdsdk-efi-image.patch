@@ -1,0 +1,25 @@
+From a7aa59de88dc0e589a15f96306727e269da17c35 Mon Sep 17 00:00:00 2001
+From: Matteo Martelli <matteo.martelli@codethink.co.uk>
+Date: Thu, 30 Jan 2025 14:34:05 +0100
+Subject: [PATCH 4/4] spacemit-k1: set dtbs dir to match fdsdk efi image
+
+---
+ board/spacemit/k1-x/k1-x.env | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/board/spacemit/k1-x/k1-x.env b/board/spacemit/k1-x/k1-x.env
+index ee6a5b0a6861..a763a7328b74 100644
+--- a/board/spacemit/k1-x/k1-x.env
++++ b/board/spacemit/k1-x/k1-x.env
+@@ -57,7 +57,7 @@ ramdisk_size=-
+ ramdisk_combo=-
+ knl_name=Image.itb
+ ramdisk_name=initramfs-generic.img
+-dtb_dir=
++dtb_dir=dtbs/spacemit
+ dtb_name=k1-x_evb.dtb
+ splashfile=bianbu.bmp
+ efi_file=EFI/BOOT/BOOTRISCV64.EFI
+-- 
+2.48.1
+

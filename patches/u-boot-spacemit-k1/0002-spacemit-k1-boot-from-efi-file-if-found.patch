@@ -1,0 +1,70 @@
+From b579ae9f8d798d99f3a43be87b1c3fe044029b5b Mon Sep 17 00:00:00 2001
+From: Matteo Martelli <matteo.martelli@codethink.co.uk>
+Date: Thu, 30 Jan 2025 12:59:08 +0100
+Subject: [PATCH 2/4] spacemit-k1: boot from efi file if found
+
+---
+ board/spacemit/k1-x/k1-x.env | 25 ++++++++++++++++++++-----
+ 1 file changed, 20 insertions(+), 5 deletions(-)
+
+diff --git a/board/spacemit/k1-x/k1-x.env b/board/spacemit/k1-x/k1-x.env
+index 210bb993574f..c94aff14f1e1 100644
+--- a/board/spacemit/k1-x/k1-x.env
++++ b/board/spacemit/k1-x/k1-x.env
+@@ -60,6 +60,7 @@ ramdisk_name=initramfs-generic.img
+ dtb_dir=
+ dtb_name=k1-x_evb.dtb
+ splashfile=bianbu.bmp
++efi_file=EFI/BOOT/BOOTRISCV64.EFI
+ mdio_intf=
+ phyaddr0=1
+ phy_link_time=10000
+@@ -95,6 +96,9 @@ detect_dtb=echo "product_name: ${product_name}"; run dtb_env; echo "select ${dtb
+ loadknl=echo "Loading kernel..."; \
+             load ${bootfs_devname} ${boot_devnum}:${bootfs_part} ${kernel_addr_r} ${knl_name};
+ 
++loadefi=echo "Loading EFI bootloader..."; \
++            load ${bootfs_devname} ${boot_devnum}:${bootfs_part} ${kernel_addr_r} ${efi_file};
++
+ loadramdisk=echo "Loading ramdisk ..."; \
+             if load ${bootfs_devname} ${boot_devnum}:${bootfs_part} ${ramdisk_addr} ${ramdisk_name}; then \
+                 size ${bootfs_devname} ${boot_devnum}:${bootfs_part} ${ramdisk_name}; \
+@@ -119,10 +123,15 @@ nor_boot=echo "Try to boot from ${bootfs_devname}${boot_devnum} ..."; \
+          run set_nor_root; \
+          run set_nor_args; \
+          run detect_dtb; \
+-         run loadknl; \
+          run loaddtb; \
+-         run loadramdisk; \
+-         bootm ${kernel_addr_r} ${ramdisk_combo} ${dtb_addr}; \
++         if test -e ${bootfs_devname} ${boot_devnum}:${bootfs_part} ${efi_file} ; then \
++             run loadefi; \
++             bootefi ${kernel_addr_r} ${dtb_addr}; \
++         else \
++             run loadknl; \
++             run loadramdisk; \
++             bootm ${kernel_addr_r} ${ramdisk_combo} ${dtb_addr}; \
++         fi; \
+          echo "########### boot kernel failed by default config, check your boot config #############"
+ 
+ //##############################################################################
+@@ -137,8 +146,14 @@ mmc_boot=echo "Try to boot from ${bootfs_devname}${boot_devnum} ..."; \
+          run detect_dtb; \
+          run loadknl; \
+          run loaddtb; \
+-         run loadramdisk; \
+-         bootm ${kernel_addr_r} ${ramdisk_combo} ${dtb_addr}; \
++         if test -e ${bootfs_devname} ${boot_devnum}:${bootfs_part} ${efi_file} ; then \
++             run loadefi; \
++             bootefi ${kernel_addr_r} ${dtb_addr}; \
++         else \
++             run loadknl; \
++             run loadramdisk; \
++             bootm ${kernel_addr_r} ${ramdisk_combo} ${dtb_addr}; \
++         fi; \
+          echo "########### boot kernel failed by default config, check your boot config #############"
+ 
+ nfs_boot=echo "Try to boot from NFS ..."; \
+-- 
+2.48.1
+

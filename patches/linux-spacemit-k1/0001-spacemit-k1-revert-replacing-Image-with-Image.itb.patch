@@ -1,0 +1,49 @@
+From 8b91ce7b1351c123d2e115ba61cafb83df6c47dc Mon Sep 17 00:00:00 2001
+From: Matteo Martelli <matteo.martelli@codethink.co.uk>
+Date: Wed, 5 Feb 2025 10:19:09 +0100
+Subject: [PATCH] spacemit-k1: revert replacing Image with Image.itb
+
+The BPI-F3 downstream kernel adds a change to force the generation of
+kernel images in a FIT format (.itb). Such change breaks the generation
+of the more widely used images Image and Image.gz. Revert it to align
+with the upstream image generation method.
+---
+ arch/riscv/Makefile | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
+
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 7b7cee89f6b7..a7c2bf4d7d7a 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -155,7 +155,7 @@ ifeq ($(CONFIG_RISCV_M_MODE)$(CONFIG_ARCH_CANAAN),yy)
+ KBUILD_IMAGE := $(boot)/loader.bin
+ else
+ ifeq ($(CONFIG_EFI_ZBOOT),)
+-KBUILD_IMAGE := $(boot)/Image.gz.itb
++KBUILD_IMAGE := $(boot)/Image.gz
+ else
+ KBUILD_IMAGE := $(boot)/vmlinuz.efi
+ endif
+@@ -169,7 +169,7 @@ BOOT_TARGETS := Image Image.gz loader loader.bin xipImage vmlinuz.efi
+ include $(srctree)/arch/riscv/generic/Platform
+ bootvars-y	= ITS_INPUTS="$(its-y)"
+ 
+-all:	$(notdir $(KBUILD_IMAGE)) Image.itb Image.gz.itb
++all:	$(notdir $(KBUILD_IMAGE))
+ 
+ $(BOOT_TARGETS): vmlinux
+ 	$(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
+@@ -178,9 +178,7 @@ $(BOOT_TARGETS): vmlinux
+ Image.%: Image Image.gz
+ 	$(Q)$(MAKE) $(build)=$(boot) $(bootvars-y) $(boot)/$@
+ 
+-#BPI
+-#install: KBUILD_IMAGE := $(boot)/Image
+-install: KBUILD_IMAGE := $(boot)/Image.itb
++install: KBUILD_IMAGE := $(boot)/Image
+ zinstall: KBUILD_IMAGE := $(boot)/Image.gz
+ install zinstall:
+ 	$(call cmd,install)
+-- 
+2.48.1
+

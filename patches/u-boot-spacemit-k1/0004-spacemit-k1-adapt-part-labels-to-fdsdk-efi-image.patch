@@ -1,0 +1,39 @@
+From fc6cf681371c57b5d9047929aa4084dc204d03f1 Mon Sep 17 00:00:00 2001
+From: Matteo Martelli <matteo.martelli@codethink.co.uk>
+Date: Thu, 30 Jan 2025 16:03:50 +0100
+Subject: [PATCH 3/4] spacemit-k1: adapt part labels to fdsdk efi image
+
+---
+ board/spacemit/k1-x/k1-x.env | 2 +-
+ include/configs/k1-x.h       | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/board/spacemit/k1-x/k1-x.env b/board/spacemit/k1-x/k1-x.env
+index c94aff14f1e1..ee6a5b0a6861 100644
+--- a/board/spacemit/k1-x/k1-x.env
++++ b/board/spacemit/k1-x/k1-x.env
+@@ -32,7 +32,7 @@ set_rootfs_env=if test "${bootfs_devname}" = mmc; then \
+                     setenv blk_root "/dev/nvme${boot_devnum}n1p${rootfs_part}"; \
+                 else echo "not define rootfs part at this blk device, add to env"; \
+                 fi;
+-get_rootfs_env=part number ${bootfs_devname} ${boot_devnum} rootfs rootfs_part; \
++get_rootfs_env=part number ${bootfs_devname} ${boot_devnum} root rootfs_part; \
+              setexpr rootfs_part ${rootfs_part} + 0; \
+              if test ${rootfs_part} > 9 ; then run rootfs_part_to_ul;fi; \
+              echo "get rootfs_part index:${rootfs_part}";
+diff --git a/include/configs/k1-x.h b/include/configs/k1-x.h
+index 8d27fe9d9d70..817dd6a8c413 100644
+--- a/include/configs/k1-x.h
++++ b/include/configs/k1-x.h
+@@ -135,7 +135,7 @@ struct boot_storage_op
+ 
+ #define MMC_DEV_SD	(0)
+ 
+-#define BOOTFS_NAME	("bootfs")
++#define BOOTFS_NAME	("efi")
+ 
+ /* Environment options */
+ 
+-- 
+2.48.1
+

@@ -308,9 +308,11 @@ depends:
 - components/libxslt.bst
 - components/libyaml.bst
 - components/linux-firmware.bst
+- components/linux-firmware-spacemit-k1-maybe.bst
 - components/linux-module-cert.bst
 - components/linux-pam.bst
 - components/linux.bst
+- components/linux-spacemit-k1-maybe.bst
 - components/llvm.bst
 - components/locales.bst
 - components/lua.bst
@@ -355,6 +357,7 @@ depends:
 - components/openssh-systemd.bst
 - components/openssh.bst
 - components/openssl.bst
+- components/opensbi-spacemit-k1-maybe.bst
 - components/opus.bst
 - components/opusfile.bst
 - components/orc.bst
@@ -569,6 +572,7 @@ depends:
 - components/tpm2-tss.bst
 - components/tzdata.bst
 - components/u-boot-qemu-maybe.bst
+- components/u-boot-spacemit-k1-maybe.bst
 - components/u-boot-unmatched-maybe.bst
 - components/udisks.bst
 - components/unzip.bst
