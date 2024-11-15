@@ -17,6 +17,8 @@ variables:
   - target_arch == 'riscv64':
       efi-arch: riscv64
 
+  notparallel: true
+
   make-args: >-
     DEFAULT_LOADER='\\EFI\\systemd\\systemd-boot%{efi-arch}.efi'
     EFIDIR=freedesktopsdk
@@ -24,7 +26,7 @@ variables:
     VENDOR_CERT_FILE=boot-keys/VENDOR.cer
 
   make: make %{make-args}
-  make-install: make -j1 install %{make-args} DESTDIR='%{install-root}'
+  make-install: make install %{make-args} DESTDIR='%{install-root}'
 
 config:
   configure-commands:
