@@ -27,6 +27,8 @@ default:
   image: "${DOCKER_REGISTRY}/bst2:${DOCKER_IMAGE_ID}"
   interruptible: true
   after_script:
+  - timeout 30 du -sh "${CI_PROJECT_DIR}/repo" 2>/dev/null || true
+  - timeout 60 du -chd 1 "${XDG_CACHE_HOME}/buildstream/" 2>/dev/null || true
   - make clean
   - rm -rf "${XDG_CACHE_HOME}/buildstream/artifacts"
   - rm -rf "${XDG_CACHE_HOME}/buildstream/build"
