@@ -21,5 +21,3 @@ sources:
     sha256sum: 15af5feeaaf8fc89f26abc0d9a1518785b66f1801c3101506400775f2da921d4
     suffix: 
       af/e7/0fcda52b698ea8667279560cd7945021cd18974d650954f2ae16fedeef33/dulwich-0.22.5.tar.gz
-- kind: patch
-  path: patches/dulwich/fix-missing-import.patch
