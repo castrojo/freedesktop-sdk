@@ -1,15 +1,14 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/git-minimal.bst
+- components/python3-minimal.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/libidn2.bst
-- filename: components/libunistring.bst
-- filename: components/git-minimal.bst
-  type: build
-- filename: components/python3.bst
-  type: build
+- components/libidn2.bst
+- components/libunistring.bst
 
 public:
   bst:

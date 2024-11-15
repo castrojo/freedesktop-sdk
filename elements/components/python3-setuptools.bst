@@ -3,7 +3,6 @@ kind: pyproject
 build-depends:
 - components/python3-build.bst
 - components/python3-installer.bst
-- components/python3-wheel.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
