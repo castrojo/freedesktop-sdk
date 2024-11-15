@@ -48,7 +48,7 @@ public:
 sources:
 - kind: git_repo
   url: git_https:aomedia.googlesource.com/aom.git
-  track: v*.*.*
+  track: v3.10.*
   exclude:
   - "*-rc*"
   ref: v3.10.0-0-gc2fe6bf370f7c14fbaf12884b76244a3cfd7c5fc
