@@ -54,7 +54,7 @@ build: generate-test-keys
 	             components.bst \
 	             flatpak-release-repo.bst \
 	             public-stacks/buildsystems.bst \
-	             oci/{minimal,debug,platform,sdk,flatpak}-oci.bst
+	             oci/layers/{minimal,debug,platform,sdk,flatpak}.bst
 
 
 build-tar:
