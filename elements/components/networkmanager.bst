@@ -1,17 +1,18 @@
 kind: meson
 
 build-depends:
+- public-stacks/buildsystem-meson.bst
 - bootstrap/grep.bst
 - bootstrap/sed.bst
 - components/gobject-introspection.bst
 - components/libxslt.bst
 - components/perl.bst
-- public-stacks/buildsystem-meson.bst
+- components/systemd.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
 - components/util-linux-full.bst
-- components/systemd.bst
+- components/systemd-libs.bst
 - components/dbus.bst
 - components/glib.bst
 - components/gnutls.bst

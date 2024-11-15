@@ -2,10 +2,10 @@ kind: meson
 
 depends:
 - components/libcap.bst
-- components/systemd.bst
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- components/systemd.bst
 
 sources:
 - kind: git_repo

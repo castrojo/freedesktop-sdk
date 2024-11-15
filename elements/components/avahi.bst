@@ -7,10 +7,7 @@ runtime-depends:
 - public-stacks/runtime-minimal.bst
 - components/dbus.bst
 - components/glib.bst
-- components/systemd.bst
-
 - components/libdaemon.bst
-
 - components/avahi-manifest.bst
 
 config:

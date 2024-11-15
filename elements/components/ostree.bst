@@ -5,6 +5,7 @@ build-depends:
 - components/git-minimal.bst
 - components/gobject-introspection.bst
 - components/bison.bst
+- components/systemd.bst
 
 depends:
 - components/composefs.bst
@@ -13,7 +14,7 @@ depends:
 - components/gpgme.bst
 - components/e2fsprogs.bst
 - components/fuse3.bst
-- components/systemd.bst
+- components/systemd-libs.bst
 - components/libarchive.bst
 - components/avahi.bst
 - components/gnupg.bst

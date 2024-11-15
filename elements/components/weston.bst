@@ -13,7 +13,7 @@ depends:
 - components/cairo.bst
 - components/libdrm.bst
 - components/wayland.bst
-- components/systemd.bst
+- components/systemd-libs.bst
 - components/xorg-lib-xcb.bst
 - components/xorg-lib-xcursor.bst
 - components/mtdev.bst

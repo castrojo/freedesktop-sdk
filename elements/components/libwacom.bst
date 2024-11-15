@@ -5,7 +5,6 @@ build-depends:
 
 depends:
 - components/glib.bst
-- components/systemd.bst
 - components/libevdev.bst
 - components/libgudev.bst
 

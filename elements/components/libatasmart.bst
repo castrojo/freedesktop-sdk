@@ -4,8 +4,8 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 
 depends:
-- components/systemd.bst
 - public-stacks/runtime-minimal.bst
+- components/systemd-libs.bst
 
 sources:
 - kind: git_repo

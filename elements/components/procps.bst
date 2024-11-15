@@ -2,7 +2,6 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/systemd.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

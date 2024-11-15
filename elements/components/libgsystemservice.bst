@@ -7,7 +7,7 @@ build-depends:
 depends:
 - components/glib.bst
 - components/polkit.bst
-- components/systemd.bst
+- components/systemd-libs.bst
 
 sources:
 - kind: git_repo

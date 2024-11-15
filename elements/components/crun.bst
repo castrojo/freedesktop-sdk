@@ -2,7 +2,6 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/systemd.bst
 - components/python3.bst
 - components/git-minimal.bst
 - components/gperf.bst

@@ -7,7 +7,7 @@ build-depends:
 depends:
 - components/jpeg.bst
 - components/libpng.bst
-- components/systemd.bst
+- components/systemd-libs.bst
 - components/mtdev.bst
 - components/libevdev.bst
 - components/libwacom.bst

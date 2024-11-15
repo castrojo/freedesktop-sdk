@@ -6,7 +6,6 @@ build-depends:
 - components/xorg-util-macros.bst
 - components/wayland-protocols.bst
 
-
 depends:
 - public-stacks/runtime-minimal.bst
 - components/nettle.bst
@@ -23,7 +22,7 @@ depends:
 - components/xorg-app-xkbcomp.bst
 - components/xorg-font-util.bst
 - components/wayland.bst
-- components/systemd.bst
+- components/systemd-libs.bst
 - components/libei.bst
 
 variables:
