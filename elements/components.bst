@@ -247,7 +247,6 @@ depends:
 - components/libgcrypt.bst
 - components/libglvnd.bst
 - components/libgpg-error.bst
-- components/libgsystemservice.bst
 - components/libgudev.bst
 - components/libgusb.bst
 - components/libheif.bst
@@ -329,7 +328,6 @@ depends:
 - components/mdadm.bst
 - components/mesa-headers.bst
 - components/meson.bst
-- components/mogwai.bst
 - components/mpfr.bst
 - components/mpg123.bst
 - components/mtdev.bst
