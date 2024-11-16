@@ -36,4 +36,4 @@ sources:
 - kind: git_repo
   url: sourceware:valgrind.git
   track: VALGRIND_*
-  ref: VALGRIND_3_23_0-0-gc54d3161248f302ff04becd08418f3f44b891581
+  ref: VALGRIND_3_24_0-0-gfcdaa474260a54af9c4b241bac9c1e9775081f78
