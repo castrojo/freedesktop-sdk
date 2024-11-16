@@ -34,3 +34,7 @@ sources:
   url: github:census-instrumentation/opencensus-proto.git
   path: third_party/opencensus-proto
   ref: 4aa53e15cbf1a47bc9087e6cfdca214c1eea4e89
+- kind: git_module
+  url: github:cncf/xds.git
+  path: third_party/xds
+  ref: 3a472e524827f72d1ad621c4983dd5af54c46776
