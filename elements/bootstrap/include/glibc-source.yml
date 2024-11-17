@@ -2,6 +2,6 @@ sources:
 - kind: git_repo
   url: sourceware:glibc.git
   track: release/2.40/master
-  ref: glibc-2.40-53-gefb710034e4c5e734d100cc4ef1b1e27d4315825
+  ref: glibc-2.40-54-g626c048f32a979f77662bdcb1cca477c11d3f9c1
 - kind: patch_queue
   path: patches/glibc
