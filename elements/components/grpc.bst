@@ -38,3 +38,15 @@ sources:
   url: github:cncf/xds.git
   path: third_party/xds
   ref: 3a472e524827f72d1ad621c4983dd5af54c46776
+- kind: git_module
+  url: github:envoyproxy/data-plane-api.git
+  path: third_party/envoy-api
+  ref: f8b75d1efa92bbf534596a013d9ca5873f79dd30
+- kind: git_module
+  url: github:googleapis/googleapis.git
+  path: third_party/googleapis
+  ref: fe8ba054ad4f7eca946c2d14a63c3f07c0b586a0
+- kind: git_module
+  path: third_party/protoc-gen-validate
+  url: github:envoyproxy/protoc-gen-validate.git
+  ref: 32c2415389a3538082507ae537e7edd9578c64ed
