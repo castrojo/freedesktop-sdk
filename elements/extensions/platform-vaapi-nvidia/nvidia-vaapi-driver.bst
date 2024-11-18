@@ -17,6 +17,6 @@ sources:
 - kind: git_repo
   url: github:elFarto/nvidia-vaapi-driver.git
   track: v*
-  ref: v0.0.12-0-gfc5ce861fdbb9b4a67a702ba7d08e5b963584418
+  ref: v0.0.13-0-g68efa33131745f1b2d530c64f6692f3993f3d53c
 - kind: patch
   path: patches/platform-vaapi-nvidia/driverdir.patch
