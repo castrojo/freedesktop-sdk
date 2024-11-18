@@ -14,6 +14,9 @@ config:
     # For reproducible builds
     - rm setup.cfg
 
+variables:
+  strip-binaries: ''
+
 sources:
 - kind: git_repo
   url: github:pypa/setuptools.git

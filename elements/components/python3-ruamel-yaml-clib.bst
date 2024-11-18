@@ -2,11 +2,9 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
-- bootstrap/grep.bst
-- bootstrap/findutils.bst
+- components/grep.bst
+- components/findutils.bst
 - components/cython.bst
-- components/gcc.bst
-- components/stripper.bst
 
 depends:
 - components/python3.bst
@@ -22,8 +20,6 @@ config:
       cythonize -3 ruamel.yaml.clib/*.pyx
       mv ruamel.yaml.clib/* .
       rmdir ruamel.yaml.clib
-
-(@): include/strip.yml
 
 sources:
 - kind: git_repo

@@ -14,6 +14,7 @@ depends:
 
 variables:
   command-subdir: backend
+  strip-binaries: ''
 
 sources:
 - kind: git_repo

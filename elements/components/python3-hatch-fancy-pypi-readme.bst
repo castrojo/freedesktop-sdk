@@ -6,6 +6,9 @@ build-depends:
 depends:
 - components/python3-hatchling.bst
 
+variables:
+  strip-binaries: ''
+
 sources:
 - kind: git_repo
   url: github:hynek/hatch-fancy-pypi-readme.git

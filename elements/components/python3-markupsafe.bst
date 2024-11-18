@@ -2,14 +2,10 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
-- bootstrap/findutils.bst
-- components/gcc.bst
-- components/stripper.bst
+- components/findutils.bst
 
 depends:
 - components/python3.bst
-
-(@): include/strip.yml
 
 config:
   install-commands:

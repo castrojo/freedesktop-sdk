@@ -5,14 +5,13 @@ build-depends:
 - components/python3-setuptools.bst
 - components/rust.bst
 - components/pkg-config.bst
-- components/gcc.bst
-- components/stripper.bst
 
 depends:
 - components/python3.bst
 - components/python3-cffi.bst
 
-(@): include/strip.yml
+variables:
+  strip-binaries: ''
 
 sources:
 - kind: git_repo

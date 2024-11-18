@@ -2,14 +2,10 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
-- components/gcc.bst
-- components/stripper.bst
 
 depends:
 - components/python3-setuptools.bst
 - components/jpeg.bst
-
-(@): include/strip.yml
 
 sources:
 - kind: git_repo

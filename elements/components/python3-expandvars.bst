@@ -3,6 +3,9 @@ kind: pyproject
 build-depends:
 - public-stacks/buildsystem-python-hatchling.bst
 
+variables:
+  strip-binaries: ''
+
 sources:
 - kind: git_repo
   url: github:sayanarijit/expandvars.git

@@ -12,6 +12,9 @@ runtime-depends:
 - components/python3-filelock.bst
 - components/python3-pathlib2.bst
 
+variables:
+  strip-binaries: ''
+
 sources:
 - kind: git_repo
   url: github:pypa/virtualenv.git

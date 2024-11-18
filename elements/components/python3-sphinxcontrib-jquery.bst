@@ -6,6 +6,9 @@ build-depends:
 depends:
 - components/python3-sphinx.bst
 
+variables:
+  strip-binaries: ''
+
 sources:
 - kind: git_repo
   url: github:sphinx-contrib/jquery.git

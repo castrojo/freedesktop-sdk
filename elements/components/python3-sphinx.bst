@@ -24,6 +24,9 @@ runtime-depends:
 - components/python3-sphinxcontrib-qthelp.bst
 - components/python3-sphinxcontrib-serializinghtml.bst
 
+variables:
+  strip-binaries: ''
+
 public:
   bst:
     integration-commands:

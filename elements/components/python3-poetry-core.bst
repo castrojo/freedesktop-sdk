@@ -7,6 +7,9 @@ build-depends:
 depends:
 - components/python3.bst
 
+variables:
+  strip-binaries: ''
+
 sources:
 - kind: git_repo
   url: github:python-poetry/poetry-core.git
