@@ -25,8 +25,6 @@ runtime-depends:
 - components/python3-ruamel-yaml.bst
 - components/python3-ujson.bst
 
-(@): include/strip.yml
-
 sources:
 - kind: git_repo
   url: github:apache/buildstream.git

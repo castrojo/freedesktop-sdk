@@ -12,6 +12,9 @@ runtime-depends:
 - components/python3-packaging.bst
 - components/python3-pyproject-hooks.bst
 
+variables:
+  strip-binaries: ''
+
 sources:
 - kind: git_repo
   url: github:pypa/build.git

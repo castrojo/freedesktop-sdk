@@ -8,8 +8,6 @@ build-depends:
 runtime-depends:
 - components/python3.bst
 
-(@): include/strip.yml
-
 sources:
 - kind: git_repo
   url: github:cython/cython.git

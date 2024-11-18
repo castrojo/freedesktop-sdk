@@ -11,8 +11,6 @@ depends:
 - components/python3.bst
 - components/python3-pycparser.bst
 
-(@): include/strip.yml
-
 sources:
 - kind: git_repo
   url: github:python-cffi/cffi.git

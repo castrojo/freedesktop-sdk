@@ -17,8 +17,6 @@ depends:
 - components/python3-packaging.bst
 - components/python3-asn1crypto.bst
 
-(@): include/strip.yml
-
 sources:
 - kind: git_repo
   url: github:tpm2-software/tpm2-pytss.git

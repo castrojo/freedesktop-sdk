@@ -8,8 +8,6 @@ build-depends:
 depends:
 - components/python3.bst
 
-(@): include/strip.yml
-
 sources:
 # requires pypi tarball specifically
 - kind: pypi

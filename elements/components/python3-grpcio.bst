@@ -25,4 +25,3 @@ environment:
 
 (@):
 - elements/include/grpc-source.yml
-- include/strip.yml

@@ -9,6 +9,9 @@ depends:
 - components/python3-hatchling.bst
 - components/python3-setuptools-scm.bst
 
+variables:
+  strip-binaries: ''
+
 sources:
 - kind: git_repo
   url: github:ofek/hatch-vcs.git

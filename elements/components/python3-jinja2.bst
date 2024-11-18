@@ -7,6 +7,9 @@ runtime-depends:
 - components/python3.bst
 - components/python3-markupsafe.bst
 
+variables:
+  strip-binaries: ''
+
 sources:
 - kind: git_repo
   url: github:pallets/jinja.git

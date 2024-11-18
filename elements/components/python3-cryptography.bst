@@ -12,7 +12,8 @@ depends:
 - components/python3.bst
 - components/python3-cffi.bst
 
-(@): include/strip.yml
+variables:
+  strip-binaries: ''
 
 sources:
 - kind: git_repo

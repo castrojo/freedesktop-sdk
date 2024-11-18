@@ -10,7 +10,6 @@ depends:
 - components/python3.bst
 - components/libversion.bst
 
-(@): include/strip.yml
 
 sources:
 - kind: git_repo
