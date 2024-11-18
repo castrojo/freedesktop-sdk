@@ -25,3 +25,5 @@ sources:
 - kind: tar
   url: ftp_gnu_org:findutils/findutils-4.10.0.tar.xz
   ref: 1387e0b67ff247d2abde998f90dfbf70c1491391a59ddfecb8ae698789f0a4f5
+- kind: patch
+  path: patches/findutils/no-locate.patch
