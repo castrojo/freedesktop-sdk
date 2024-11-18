@@ -50,6 +50,8 @@ mirrors:
     - https://gitlab.com/freedesktop-sdk/mirrors/samba/
     savannah:
     - https://gitlab.com/freedesktop-sdk/mirrors/savannah/
+    sesse:
+    - https://gitlab.com/freedesktop-sdk/mirrors/sesse/
     sourceforge_git:
     - https://gitlab.com/freedesktop-sdk/mirrors/sourceforge_git/
     sourceware:
