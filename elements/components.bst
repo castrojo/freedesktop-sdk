@@ -414,7 +414,6 @@ depends:
 - components/python3-appdirs.bst
 - components/python3-arpy.bst
 - components/python3-asn1crypto.bst
-- components/python3-async-timeout.bst
 - components/python3-attrs.bst
 - components/python3-babel.bst
 - components/python3-blessings.bst
