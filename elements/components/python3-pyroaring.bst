@@ -4,8 +4,6 @@ build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
 - components/cython.bst
 - components/git-minimal.bst
-- components/gcc.bst
-- components/stripper.bst
 
 depends:
 - components/python3.bst

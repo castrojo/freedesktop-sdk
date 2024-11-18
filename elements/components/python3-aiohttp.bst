@@ -5,8 +5,6 @@ build-depends:
 - bootstrap/grep.bst
 - bootstrap/findutils.bst
 - components/cython.bst
-- components/gcc.bst
-- components/stripper.bst
 
 runtime-depends:
 - components/python3.bst

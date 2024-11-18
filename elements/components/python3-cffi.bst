@@ -3,8 +3,6 @@ kind: pyproject
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
 - components/pkg-config.bst
-- components/gcc.bst
-- components/stripper.bst
 
 depends:
 - components/libffi.bst

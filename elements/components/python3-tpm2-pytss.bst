@@ -7,8 +7,6 @@ build-depends:
 - components/python3-pycparser.bst
 - components/python3-setuptools-scm.bst
 - components/tpm2-tss.bst
-- components/gcc.bst
-- components/stripper.bst
 
 depends:
 - components/python3.bst

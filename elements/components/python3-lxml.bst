@@ -5,8 +5,6 @@ build-depends:
 - bootstrap/grep.bst
 - bootstrap/findutils.bst
 - components/cython.bst
-- components/gcc.bst
-- components/stripper.bst
 
 depends:
 - components/libxml2.bst
