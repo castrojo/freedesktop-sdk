@@ -2,7 +2,7 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
-- bootstrap/findutils.bst
+- components/findutils.bst
 
 depends:
 - components/python3.bst

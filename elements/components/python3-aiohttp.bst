@@ -2,8 +2,8 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
-- bootstrap/grep.bst
-- bootstrap/findutils.bst
+- components/grep.bst
+- components/findutils.bst
 - components/cython.bst
 
 runtime-depends:
