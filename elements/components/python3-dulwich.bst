@@ -18,6 +18,6 @@ sources:
 - kind: pypi
   name: dulwich
   ref:
-    sha256sum: 7e65c31d90a159a9e4d0e18c36c36d2bef4494f623f2560973d8e1cc296049a3
+    sha256sum: c1f44d599fa5dc59ca43e0789f835b8689b4d831d8de5ae009c442192a1408b5
     suffix: 
-      83/56/5f1fb0cc82f8e85fa4f77645fd4d18540046366e947dd3895c107e7ea9ac/dulwich-0.22.4.tar.gz
+      90/b2/13367fe4b4cb187cf13823040403b37d167c967675d543451caa9e9d2589/dulwich-0.22.6.tar.gz
