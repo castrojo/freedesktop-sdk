@@ -308,7 +308,7 @@ app_aarch64:
     - .builder-aarch64
   needs: []
 
-.app_riscv64:
+app_riscv64:
   extends:
     - .flatpak_template
     - .builder-riscv64
