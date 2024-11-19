@@ -1,3 +1,72 @@
+Version: freedesktop-sdk-24.08.7
+Date: '2024-11-19'
+Description: |-
+  Changes in freedesktop-sdk-24.08.7
+   * audit: backport upstream patch
+   * Update python3-yarl to v1.17.2-0
+   * linux: update to 6.12
+   * python3-async-timeout: Remove in favour of standard library
+   * Hardcode gomp threads to reasonably low limit
+   * Remove cert leftovers from template
+   * Use token authentication
+   * Update mesa-sdk to mesa-24.2.7-0
+   * Update vim to v9.1.0867-0
+   * Update glibc to glibc-2.40-54
+   * Update python3-wheel to 0.45.0-0
+   * Update buildbox to 1.2.33-0
+   * Update python3-sphinx-rtd-theme to 3.0.2-0
+   * Update iptables to v1.8.11-0
+   * libabigail: Use 2.6 tag
+   * libabigail: Track tags
+   * Update c-ares to v1.34.3-0
+   * Update libnvme to v1.11.1-0
+   * Update systemd to v256.8-0
+   * Update valgrind to VALGRIND_3_24_0-0
+   * ci: Print cache sizes before cleaning them up
+   * aom: Freeze to 3.10
+   * Update gstreamer-plugins-rs to 0.13.3-0
+   * Update dtc to v1.7.2-0
+   * Reapply "python3-dulwich: Drop patch"
+   * Update python3-dulwich to 0.22.5
+   * Add python3-libversion to components
+   * Update libnl to libnl3_11_0-0
+   * Update mesa to mesa-24.2.7-0
+   * Update xorg-util-macros to util-macros-1.20.2-0
+   * Update podman to v5.3.0-0
+   * Update libxml2 to v2.13.5-0
+   * Update hwdata to v0.389-0
+   * Update libblockdev to 3.2.1-0
+   * open-isns: Mark devel
+   * open-isns: Convert to meson
+   * Update open-isns to v0.103-0
+   * Update python3-yarl to v1.17.1-0
+   * Update dictionaries to libreoffice-24.8.3.2-0
+   * Update iwd to 3.1-0
+   * Update xorg-lib-xtrans to xtrans-1.5.2-0
+   * Update python3-packaging to 24.2-0
+   * Update python3-wheezy-template to 3.2.3-0
+   * Update ell to 0.70-0
+   * cython: Exclude alpha beta and rc refs
+   * Update glibc to glibc-2.40-53
+   * Update python3-virtualenv to 20.27.1-0
+   * Update vim to v9.1.0848-0
+   * Update extra-cmake-modules to v6.8.0-0
+   * Update go to go1.23.3-0
+   * Update composefs to v1.0.7-0
+   * Update expat to R_2_6_4-0
+   * Update sdl2 to release-2.30.9-0
+   * buildbox: Drop obsolete patch
+   * Update buildbox to 1.2.31-0
+   * Update reference-abi to freedesktop-sdk-24.08.6-0
+   * Update aardvark-dns to v1.13.1-0
+   * Update bluez to 5.79-0
+   * Update to latest image
+   * platform-vaapi-intel: Add media driver on i686 too
+   * intel-media-driver: Try building for i686
+   * Update cmake to v3.31.0-0
+   * gstreamer-source: Update to to 1.24.9
+   * Suppress abi change in libgstwayland
+---
 Version: freedesktop-sdk-24.08.6
 Date: '2024-11-06'
 Description: |-
