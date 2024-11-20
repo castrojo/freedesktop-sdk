@@ -1,0 +1,35 @@
+diff --git a/Makefile.in b/Makefile.in
+index 3316afe..abc4a5f 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -2617,11 +2617,11 @@ EXTRA_DIST = COPYING ChangeLog README-hacking THANKS TODO \
+ DISTCLEANFILES = tool-versions.txt
+ 
+ # "gnulib-tests" is the gnulib unit test dir.
+-SUBDIRS = gl build-aux lib find xargs locate doc po m4 gnulib-tests
++SUBDIRS = gl build-aux lib find xargs doc po m4 gnulib-tests
+ ALL_RECURSIVE_TARGETS = check-root
+ ACLOCAL_AMFLAGS = -I gl/m4 -I m4
+ TESTFILE_SUFFIXES = .exp .xo .xe .xi
+-built_programs = find xargs frcode locate updatedb
++built_programs = find xargs frcode
+ 
+ # Indirections required so that we'll still be able to know the
+ # complete list of our tests even if the user overrides TESTS
+diff --git a/doc/Makefile.in b/doc/Makefile.in
+index a71d4b2..534c0ff 100644
+--- a/doc/Makefile.in
++++ b/doc/Makefile.in
+@@ -2361,11 +2361,9 @@ top_srcdir = @top_srcdir@
+ AM_CFLAGS = $(WARN_CFLAGS)
+ info_TEXINFOS = find.texi find-maint.texi
+ find_TEXINFOS = perm.texi parse-datetime.texi regexprops.texi fdl.texi
+-BUILT_SOURCES = dblocation.texi
+-nodist_find_TEXINFOS = dblocation.texi
+ find_maint_TEXINFOS = fdl.texi
+ MOSTLYCLEANFILES = find.cps
+-CLEANFILES = find.txt find_mono.html findutils.texi_html_node.tar.gz dblocation.texi \
++CLEANFILES = find.txt find_mono.html findutils.texi_html_node.tar.gz \
+ 	find_mono.html findutils.texi_html_node.tar.gz \
+ 	find-info.tar.gz find.texi.tar.gz \
+ 	find.txt  tmp-doc-install find_mono.html.gz
