@@ -19,4 +19,4 @@ sources:
 - kind: git_repo
   url: kernel:network/iproute2/iproute2.git
   track: v*
-  ref: v6.11.0-0-gb19d4d6eef2f97e55d03eb7f1f2e528def72296d
+  ref: v6.12.0-0-g742fb8a25c8740a1b93251ed33da08a60b8353aa
