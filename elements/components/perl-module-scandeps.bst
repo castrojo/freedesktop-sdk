@@ -10,5 +10,5 @@ depends:
 sources:
 - kind: cpan
   name: Module::ScanDeps
-  suffix: authors/id/R/RS/RSCHUPP/Module-ScanDeps-1.35.tar.gz
-  sha256sum: e5beb3adf55be3dab71f9a1416d4bad57b14e5e05c96370741b9d8f96a51b612
+  suffix: authors/id/R/RS/RSCHUPP/Module-ScanDeps-1.37.tar.gz
+  sha256sum: 1f5e119cade1466c39c71e5bc35a8d4f4e672635db03d79a5a0dcf08c4e2b5a3
