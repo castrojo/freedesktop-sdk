@@ -1,18 +1,18 @@
 kind: cmake
 
+build-depends:
+- public-stacks/buildsystem-cmake.bst
+- components/extra-cmake-modules.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: public-stacks/buildsystem-cmake.bst
-  type: build
-- filename: components/extra-cmake-modules.bst
-  type: build
-- filename: components/gtk3.bst
+- components/gtk3.bst
 
 variables:
-  cmake-local: |
-    -DENABLE_GTK3_IM_MODULE=On \
-    -DENABLE_GTK2_IM_MODULE=Off \
-    -DENABLE_GIR=Off \
+  cmake-local: >-
+    -DENABLE_GTK3_IM_MODULE=On
+    -DENABLE_GTK2_IM_MODULE=Off
+    -DENABLE_GIR=Off
     -DENABLE_GTK4_IM_MODULE=Off
 
 public:

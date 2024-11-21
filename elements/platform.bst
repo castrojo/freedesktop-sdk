@@ -102,7 +102,7 @@ depends:
 - components/dbus-tools.bst
 - components/dejavu-fonts.bst
 - components/dictionaries.bst
-- components/fcitx5.bst
+- components/fcitx5-gtk.bst
 - components/fmtlib.bst
 - components/ffmpeg.bst
 - components/fftw.bst
