@@ -95,7 +95,6 @@ variables:
     -Dandroid-libbacktrace=disabled
     -Dosmesa=false
     -Dplatforms=x11,wayland
-    -Dselinux=false
     -Dshared-glapi=enabled
     -Dvalgrind=disabled
     -Dvulkan-layers=device-select,overlay
