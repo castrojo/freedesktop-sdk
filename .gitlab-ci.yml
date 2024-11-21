@@ -64,7 +64,6 @@ before_script:
   - export PATH=~/.local/bin:${PATH}
 
   - |
-    # Force higher parallelity
     mkdir -p ~/.config
     echo $CACHE_TOKEN > ~/.config/freedesktop-sdk.token
     [ -S /run/casd/casd.sock ] && export LOCAL_CAS=true
