@@ -75,7 +75,6 @@ variables:
     -Degl=enabled
     -Dgallium-drivers=%{gallium_drivers}
     -Dgallium-nine=true
-    -Dgallium-omx=disabled
     -Dgallium-opencl=icd
     -Dgallium-rusticl=true
     -Dgallium-va=enabled
