@@ -2,13 +2,14 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/libpng.bst
 
 depends:
 - bootstrap-import.bst
 
 variables:
   meson-local: >-
+    -Dtests=disabled
+    -Ddemos=disabled
     -Dauto_features=auto
 
 public:
