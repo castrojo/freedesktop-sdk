@@ -1,12 +1,11 @@
 kind: meson
 
+build-depends:
+- public-stacks/buildsystem-meson.bst
+- components/libpng.bst
+
 depends:
-- filename: bootstrap-import.bst
-  type: build
-- filename: public-stacks/buildsystem-meson.bst
-  type: build
-- filename: components/libpng.bst
-  type: build
+- bootstrap-import.bst
 
 variables:
   meson-local: >-
