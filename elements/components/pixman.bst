@@ -2,13 +2,14 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/libpng.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
 
 variables:
   meson-local: >-
+    -Dtests=disabled
+    -Ddemos=disabled
     -Dauto_features=auto
 
 public:
