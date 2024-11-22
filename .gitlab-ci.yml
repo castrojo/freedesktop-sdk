@@ -167,6 +167,7 @@ check_mirrors:
     EOF
 
   script:
+    - make generate-test-keys
     - |
       ${BST} source fetch --deps all flatpak-release-repo.bst components.bst \
              components/rust-stage1-{x86_64,i686,aarch64,powerpc64le}.bst \
