@@ -27,6 +27,6 @@ sources:
 - kind: git_repo
   url: github:sudo-project/sudo.git
   track: SUDO_*
-  ref: SUDO_1_9_16-0-gc1a6140608d591b6992c6f8674ee2ce684a0481a
+  ref: SUDO_1_9_16p1-0-g7b41190db66e2006d03cf317224f9f751b2b28cc
 - kind: local
   path: files/sudo/pam.conf
