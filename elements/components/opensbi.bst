@@ -8,15 +8,7 @@ variables:
   make-args: >-
     O=build-generic
     PLATFORM=generic
-
-config:
-  build-commands:
-  - |
-    make %{make-args}
-
-  install-commands:
-  - |
-    make -j1 install %{make-args} install_root_dir="%{install-root}%{prefix}"
+  make-install: make -j1 %{make-args} install_root_dir="%{install-root}%{prefix}" install
 
 sources:
 - kind: git_repo
