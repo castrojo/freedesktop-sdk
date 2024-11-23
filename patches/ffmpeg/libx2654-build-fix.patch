@@ -1,5 +1,18 @@
+From f6f2531e989ea3f3019703522b3d390bbd2577fc Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Sat, 23 Nov 2024 11:16:01 +0530
+Subject: [PATCH] Fix build with libx265 >=4.0
+
+Backport of
+
+https://github.com/FFmpeg/FFmpeg/commit/1f801dfdb5066aadf0ade9cb5e94d620f33eacdc
+https://github.com/FFmpeg/FFmpeg/commit/099f88b8641dfc299f3896d17d9addc5b9ae7799
+---
+ libavcodec/libx265.c | 41 +++++++++++++++++++++++++++++++----------
+ 1 file changed, 31 insertions(+), 10 deletions(-)
+
 diff --git a/libavcodec/libx265.c b/libavcodec/libx265.c
-index d3e74eaacf..d4750e5f0e 100644
+index d3e74eaacf..afe187552e 100644
 --- a/libavcodec/libx265.c
 +++ b/libavcodec/libx265.c
 @@ -646,7 +646,13 @@ static int libx265_encode_frame(AVCodecContext *avctx, AVPacket *pkt,
@@ -7,7 +20,7 @@ index d3e74eaacf..d4750e5f0e 100644
      libx265Context *ctx = avctx->priv_data;
      x265_picture x265pic;
 -    x265_picture x265pic_out = { 0 };
-+#if X265_BUILD >= 210
++#if (X265_BUILD >= 210) && (X265_BUILD < 213)
 +    x265_picture x265pic_layers_out[MAX_SCALABLE_LAYERS];
 +    x265_picture* x265pic_lyrptr_out[MAX_SCALABLE_LAYERS];
 +#else
@@ -21,7 +34,7 @@ index d3e74eaacf..d4750e5f0e 100644
          }
      }
  
-+#if X265_BUILD >= 210
++#if (X265_BUILD >= 210) && (X265_BUILD < 213)
 +    for (i = 0; i < MAX_SCALABLE_LAYERS; i++)
 +        x265pic_lyrptr_out[i] = &x265pic_layers_out[i];
 +
@@ -42,7 +55,7 @@ index d3e74eaacf..d4750e5f0e 100644
  
 -    pkt->pts = x265pic_out.pts;
 -    pkt->dts = x265pic_out.dts;
-+#if X265_BUILD >= 210
++#if (X265_BUILD >= 210) && (X265_BUILD < 213)
 +    x265pic_out = x265pic_lyrptr_out[0];
 +#else
 +    x265pic_out = &x265pic_solo_out;
@@ -78,3 +91,6 @@ index d3e74eaacf..d4750e5f0e 100644
          ReorderedData *rd = &ctx->rd[idx];
  
          pkt->duration           = rd->duration;
+-- 
+2.47.0
+
