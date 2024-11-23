@@ -1,6 +1,7 @@
 kind: manual
 
 build-depends:
+- public-stacks/buildsystem-make.bst
 - components/bison.bst
 - components/flex.bst
 - components/gzip.bst
