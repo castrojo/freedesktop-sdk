@@ -7,5 +7,5 @@ kind: manual
 sources:
 - kind: tar
   url: 
-    tar_https:static.rust-lang.org/dist/rust-1.79.0-riscv64gc-unknown-linux-gnu.tar.xz
-  ref: acfb935d96986b05d6f8071a75ecc62f404d64faa65b81b1bb025821cfd3507b
+    tar_https:static.rust-lang.org/dist/rust-1.81.0-riscv64gc-unknown-linux-gnu.tar.xz
+  ref: bc4c50240344882e1c192038cc04daea760792c6aaafa928ae1058f6f4cda437
