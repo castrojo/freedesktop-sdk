@@ -1939,6 +1939,13 @@ fi
 # ZSWAP
 enable ZSWAP
 
+# ZRAM
+module ZRAM
+enable ZRAM_WRITEBACK
+enable ZRAM_MEMORY_TRACKING
+enable ZRAM_MULTI_COMP
+value_str ZRAM_DEF_COMP "zstd"
+
 # Secure boot
 enable SYSTEM_BLACKLIST_KEYRING
 enable SYSTEM_TRUSTED_KEYRING
