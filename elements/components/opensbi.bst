@@ -1,7 +1,7 @@
 kind: make
 
 build-depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/buildsystem-make.bst
 - components/python3.bst
 
 variables:
