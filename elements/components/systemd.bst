@@ -26,6 +26,7 @@ runtime-depends:
 - components/libapparmor.bst
 - components/curl.bst
 - components/libmicrohttpd.bst
+- components/libbpf.bst
 
 config:
   exclude:
