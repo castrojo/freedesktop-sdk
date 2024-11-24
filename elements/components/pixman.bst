@@ -11,6 +11,7 @@ variables:
     -Dtests=disabled
     -Ddemos=disabled
     -Dauto_features=auto
+    -Drvv=disabled
 
 public:
   bst:
