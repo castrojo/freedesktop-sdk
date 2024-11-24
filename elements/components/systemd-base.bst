@@ -38,6 +38,9 @@ build-depends:
 - components/iptables.bst
 - components/libxkbcommon.bst
 - components/libmicrohttpd.bst
+- components/bpf-maybe.bst
+- components/libbpf.bst
+- components/llvm.bst
 
 config:
   install-commands:
@@ -55,9 +58,13 @@ config:
 
 variables:
   efi: 'false'
+  bpf-framework: 'disabled'
   (?):
   - target_arch in ["x86_64", "i686", "aarch64", "riscv64", "loongarch64"]:
       efi: 'true'
+  - target_arch in ["x86_64", "aarch64"]:
+      bpf-framework: 'enabled'
+
   meson-local: >-
     -Dmode=release
     -Dsysvinit-path=%{sysconfdir}/init.d
@@ -98,7 +105,7 @@ variables:
     -Dlibidn2=enabled
     -Dlibiptc=enabled
     -Dxenctrl=disabled
-    -Dbpf-framework=disabled
+    -Dbpf-framework=%{bpf-framework}
     -Dgnutls=disabled
     -Dglib=disabled
     -Ddbus=disabled
