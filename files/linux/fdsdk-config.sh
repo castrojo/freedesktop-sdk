@@ -2213,3 +2213,8 @@ case "$arch" in
         module INTEL_RAPL
     ;;
 esac
+
+# Needed for installation ISO on some VMs like Parallels. This is
+# already available built-in on x84. But other architectures now need
+# it.
+module BLK_DEV_SR
