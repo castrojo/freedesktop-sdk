@@ -64,7 +64,7 @@ public:
 sources:
 - kind: git_repo
   url: gitlab:gnuwget/wget2.git
-  track: v*
+  track: v2.1.*
   ref: v2.1.0-0-g657e3d22c488a2d1f173e208e253995e15f8b6db
 - kind: git_module
   path: gnulib
