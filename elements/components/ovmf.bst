@@ -74,11 +74,11 @@ sources:
 - kind: git_repo
   url: github:tianocore/edk2.git
   track: edk2-stable*
-  ref: edk2-stable202408.01-0-g4dfdca63a93497203f197ec98ba20e2327e4afe4
+  ref: edk2-stable202411-0-g0f3867fa6ef0553e26c42f7d71ff6bdb98429742
 - kind: git_module
   path: CryptoPkg/Library/OpensslLib/openssl
   url: github:openssl/openssl.git
-  ref: de90e54bbe82e5be4fb9608b6f5c308bb837d355
+  ref: c523121f902fde2929909dc7f76b13ceb4961efe
 - kind: git_module
   path: CryptoPkg/Library/MbedTlsLib/mbedtls
   url: github:Mbed-TLS/mbedtls.git
