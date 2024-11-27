@@ -4,6 +4,12 @@ build-depends:
 - components/nv-codec-headers.bst
 - public-stacks/buildsystem-autotools.bst
 
+(?):
+- target_arch in ["x86_64", "i686", "aarch64", "ppc64le"]:
+    build-depends:
+      (>):
+      - components/nv-codec-headers.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
 - components/dav1d.bst
@@ -40,11 +46,14 @@ depends:
 
 variables:
   optimize-debug: "false"
-
+  arch-conf: ''
   ffmpeg-arch: '%{arch}'
   (?):
   - target_arch == "i686":
       ffmpeg-arch: x86
+  - target_arch in ["x86_64", "i686", "aarch64", "ppc64le"]:
+      arch-conf: >-
+        --enable-ffnvcodec
 
   conf-local: >-
     --prefix="%{prefix}"
@@ -90,7 +99,6 @@ variables:
     --enable-vaapi
     --enable-pthreads
     --enable-libopenh264
-    --enable-ffnvcodec
     --enable-libmysofa
     --arch="%{ffmpeg-arch}"
 
@@ -115,7 +123,7 @@ public:
 # ffmpeg is not using autotools, but a configure and Makefile files
 config:
   configure-commands:
-  - ./configure %{conf-local} %{conf-extra}
+  - ./configure %{conf-local} %{conf-extra} %{arch-conf}
 
 sources:
 - kind: git_repo
