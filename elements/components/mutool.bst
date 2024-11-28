@@ -39,11 +39,11 @@ sources:
   track: '*.*.*'
   exclude:
   - '*-*'
-  ref: 1.24.11-0-gef3f9b1c21331ac6cd2949c9a84cee1822695192
+  ref: 1.25.0-0-g2882659784ca558c2199f3916900d2ab80fa0737
 - kind: git_module
   path: thirdparty/mujs
   url: ghostscript:mujs.git
-  ref: 57e3f01d5f29c5823be725d96284488edf5f8ae1
+  ref: 0df0707f2f10187127e36acfbc3ba9b9ca5b5cf0
 - kind: git_module
   path: thirdparty/jbig2dec
   url: ghostscript:jbig2dec.git
