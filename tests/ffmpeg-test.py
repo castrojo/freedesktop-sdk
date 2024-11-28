@@ -4,6 +4,7 @@ import re
 import subprocess
 import os
 import sys
+import configparser
 
 CODECS_REG = re.compile(r"^ ([A-Z.]{6}) ([^ \=]+) +(.+)$", re.M)
 DECODERS_REG = re.compile(r" \(decoders: ([^)]+)\)")
@@ -68,6 +69,21 @@ def is_flatpaked():
 if not is_flatpaked():
     print("Error: This script must be run inside Flatpak", file=sys.stderr)
     sys.exit(1)
+
+
+# ideally this should be parsed with glib.keyfile but test needs to be
+# light on dependencies and it is fine for getting simple values
+def get_runtime_arch():
+    config = configparser.ConfigParser()
+    try:
+        with open("/.flatpak-info", encoding="utf-8") as f:
+            config.read_file(f)
+        runtime = config.get("Application", "runtime")
+    except (OSError, configparser.Error) as e:
+        raise e
+
+    return runtime.split("/")[2]
+
 
 dec_only, enc_only, dec_and_enc, codecs_dict = get_codecs()
 
@@ -175,6 +191,14 @@ exp_vp9_encoder = [
     "Encoder libvpx-vp9",
     "Encoder vp9_vaapi",
 ]
+
+if get_runtime_arch() == "riscv64":
+    check_hw.remove("cuda")
+    exp_h264_encoder_platform.remove("Encoder h264_nvenc")
+    exp_h264_encoder_ext.remove("Encoder h264_nvenc")
+    exp_hevc_encoder_platform.remove("Encoder hevc_nvenc")
+    exp_hevc_encoder_ext.remove("Encoder hevc_nvenc")
+    exp_av1_encoder.remove("Encoder av1_nvenc")
 
 # Common to both ffmpeg-full and platform ffmpeg
 
