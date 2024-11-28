@@ -14,22 +14,22 @@ sources:
 - kind: git_repo
   url: github:pyca/cryptography.git
   track: '*.*.*'
-  ref: 43.0.3-0-gc2afb4ffd2d65cc2e1a28c0af3fb52efb6cc688b
+  ref: 44.0.0-0-gf299a48153650f2dd87716343f2daa7cd39a1f59
 - kind: cargo2
-  cargo-lock: src/rust/Cargo.lock
+  cargo-lock: Cargo.lock
   ref:
   - kind: registry
     name: asn1
-    version: 0.16.2
-    sha: 532ceda058281b62096b2add4ab00ab3a453d30dee28b8890f62461a0109ebbd
+    version: 0.20.0
+    sha: 2d8b84b4ea1de2bf1dcd2a759737ddb328fb6695b2a95eb7e44fed67e3406f32
   - kind: registry
     name: asn1_derive
-    version: 0.16.2
-    sha: 56e6076d38cc17cc22b0f65f31170a2ee1975e6b07f0012893aefd86ce19c987
+    version: 0.20.0
+    sha: a200809d0138620b3dba989f1d08d0620e76248bc1e62a2ec1b2df5eb1ee08ad
   - kind: registry
     name: autocfg
-    version: 1.3.0
-    sha: 0c4b4d0bd25bd0b74681c0ad21497610ce1b7c91b1022cd21c80c6fbdd9476b0
+    version: 1.4.0
+    sha: ace50bade8e6234aa140d9a2f552bbee1db4d353f69b8217bc503490fc1a9f26
   - kind: registry
     name: base64
     version: 0.22.1
@@ -40,8 +40,8 @@ sources:
     sha: b048fb63fd8b5923fc5aa7b340d8e156aec7ec02f0c78fa8a6ddc2613f6f71de
   - kind: registry
     name: cc
-    version: 1.1.6
-    sha: 2aba8f4e9906c7ce3c73463f62a7f0c65183ada1a2d47e397cc8810827f9694f
+    version: 1.2.1
+    sha: fd9de9f2205d5ef3fd67e685b0df337994ddd4495e2a28d185500d0e1edfea47
   - kind: registry
     name: cfg-if
     version: 1.0.0
@@ -63,17 +63,21 @@ sources:
     version: 2.0.5
     sha: b248f5224d1d606005e02c97f5aa4e88eeb230488bcc03bc9ca4d7991399f2b5
   - kind: registry
+    name: itoa
+    version: 1.0.14
+    sha: d75a2a4b1b190afb6f5425f10f6a8f959d2ea0b9c2b1d79553551850539e4674
+  - kind: registry
     name: libc
-    version: 0.2.155
-    sha: 97b3888a4aecf77e811145cadf6eef5901f4782c53886191b2f693f24761847c
+    version: 0.2.166
+    sha: c2ccc108bbc0b1331bd061864e7cd823c0cab660bbe6970e66e2c0614decde36
   - kind: registry
     name: memoffset
     version: 0.9.1
     sha: 488016bfae457b036d996092f6cb448677611ce4449e970ceaf42695203f218a
   - kind: registry
     name: once_cell
-    version: 1.19.0
-    sha: 3fdb12b2476b595f9358c5161aa467c2438859caa136dec86c26fdd2efe17b92
+    version: 1.20.2
+    sha: 1261fe7e33c73b354eab43b1273a57c8f967d0391e80353e51f764ac02cf6775
   - kind: registry
     name: openssl
     version: 0.10.68
@@ -92,56 +96,60 @@ sources:
     sha: 8e459365e590736a54c3fa561947c84837534b8e9af6fc5bf781307e82658fae
   - kind: registry
     name: pkg-config
-    version: 0.3.30
-    sha: d231b230927b5e4ad203db57bbcbee2802f6bce620b1e4a9024a07d94e2907ec
+    version: 0.3.31
+    sha: 953ec861398dccce10c670dfeaf3ec4911ca479e9c02154b3a215178c5f566f2
   - kind: registry
     name: portable-atomic
-    version: 1.7.0
-    sha: da544ee218f0d287a911e9c99a39a8c9bc8fcad3cb8db5959940044ecfc67265
+    version: 1.10.0
+    sha: 280dc24453071f1b63954171985a0b0d30058d287960968b9b2aca264c8d4ee6
   - kind: registry
     name: proc-macro2
-    version: 1.0.86
-    sha: 5e719e8df665df0d1c8fbfd238015744736151d4445ec0836b8e628aae103b77
+    version: 1.0.92
+    sha: 37d3544b3f2748c54e147655edb5025752e2303145b5aefb3c3ea2c78b973bb0
   - kind: registry
     name: pyo3
-    version: 0.22.2
-    sha: 831e8e819a138c36e212f3af3fd9eeffed6bf1510a805af35b0edee5ffa59433
+    version: 0.23.2
+    sha: f54b3d09cbdd1f8c20650b28e7b09e338881482f4aa908a5f61a00c98fba2690
   - kind: registry
     name: pyo3-build-config
-    version: 0.22.2
-    sha: 1e8730e591b14492a8945cdff32f089250b05f5accecf74aeddf9e8272ce1fa8
+    version: 0.23.2
+    sha: 3015cf985888fe66cfb63ce0e321c603706cd541b7aec7ddd35c281390af45d8
   - kind: registry
     name: pyo3-ffi
-    version: 0.22.2
-    sha: 5e97e919d2df92eb88ca80a037969f44e5e70356559654962cbb3316d00300c6
+    version: 0.23.2
+    sha: 6fca7cd8fd809b5ac4eefb89c1f98f7a7651d3739dfb341ca6980090f554c270
   - kind: registry
     name: pyo3-macros
-    version: 0.22.2
-    sha: eb57983022ad41f9e683a599f2fd13c3664d7063a3ac5714cae4b7bee7d3f206
+    version: 0.23.2
+    sha: 34e657fa5379a79151b6ff5328d9216a84f55dc93b17b08e7c3609a969b73aa0
   - kind: registry
     name: pyo3-macros-backend
-    version: 0.22.2
-    sha: ec480c0c51ddec81019531705acac51bcdbeae563557c982aa8263bb96880372
+    version: 0.23.2
+    sha: 295548d5ffd95fd1981d2d3cf4458831b21d60af046b729b6fd143b0ba7aee2f
   - kind: registry
     name: quote
-    version: 1.0.36
-    sha: 0fa76aaf39101c457836aec0ce2316dbdc3ab723cdda1c6bd4e6ad4208acaca7
+    version: 1.0.37
+    sha: b5b9d34b8991d19d98081b46eacdd8eb58c6f2b201139f7c5f643cc155a633af
   - kind: registry
     name: self_cell
     version: 1.0.4
     sha: d369a96f978623eb3dc28807c4852d6cc617fed53da5d3c400feff1ef34a714a
   - kind: registry
+    name: shlex
+    version: 1.3.0
+    sha: 0fda2ff0d084019ba4d7c6f371c95d8fd75ce3524c3cb8fb653a3023f6323e64
+  - kind: registry
     name: syn
-    version: 2.0.71
-    sha: b146dcf730474b4bcd16c311627b31ede9ab149045db4d6088b3becaea046462
+    version: 2.0.89
+    sha: 44d46482f1c1c87acd84dea20c1bf5ebff4c757009ed6bf19cfd36fb10e92c4e
   - kind: registry
     name: target-lexicon
-    version: 0.12.15
-    sha: 4873307b7c257eddcb50c9bedf158eb669578359fb28428bef438fec8e6ba7c2
+    version: 0.12.16
+    sha: 61c41af27dd6d1e27b1b16b489db798443478cef1f06a660c96db617ba5de3b1
   - kind: registry
     name: unicode-ident
-    version: 1.0.12
-    sha: 3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b
+    version: 1.0.14
+    sha: adb9e6ca4f869e1180728b7950e35922a7fc6397f7b641499e8f3ef06e50dc83
   - kind: registry
     name: unindent
     version: 0.2.3
