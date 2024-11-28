@@ -3,6 +3,7 @@
 import re
 import subprocess
 import os
+import sys
 
 CODECS_REG = re.compile(r"^ ([A-Z.]{6}) ([^ \=]+) +(.+)$", re.M)
 DECODERS_REG = re.compile(r" \(decoders: ([^)]+)\)")
@@ -59,6 +60,14 @@ def get_codec_info(codec_type, codec_name):
         if re.match(codec_type, i, re.I)
     ]
 
+
+def is_flatpaked():
+    return os.path.exists("/.flatpak-info")
+
+
+if not is_flatpaked():
+    print("Error: This script must be run inside Flatpak", file=sys.stderr)
+    sys.exit(1)
 
 dec_only, enc_only, dec_and_enc, codecs_dict = get_codecs()
 
@@ -167,7 +176,6 @@ exp_vp9_encoder = [
     "Encoder vp9_vaapi",
 ]
 
-
 # Common to both ffmpeg-full and platform ffmpeg
 
 print("Performing common checks...")
@@ -186,7 +194,7 @@ assert vp9_encoders == exp_vp9_encoder, vp9_encoders
 
 # Only platform ffmpeg
 
-if os.path.exists("/.flatpak-info") and not os.path.exists("/app/lib/ffmpeg"):
+if not os.path.exists("/app/lib/ffmpeg"):
 
     print("Performing platform ffmpeg checks...")
 
@@ -204,7 +212,7 @@ if os.path.exists("/.flatpak-info") and not os.path.exists("/app/lib/ffmpeg"):
 
 # Only ffmpeg-full extension
 
-if os.path.exists("/.flatpak-info") and os.path.exists("/app/lib/ffmpeg"):
+if os.path.exists("/app/lib/ffmpeg"):
 
     print("Performing ffmpeg-full checks...")
 
