@@ -35,7 +35,7 @@ sources:
 - kind: git_repo
   url: github:git-lfs/git-lfs.git
   track: v*
-  ref: v3.5.1-0-ge237bb3a364603cbb92cabc34b8401d1ad5d795b
+  ref: v3.6.0-0-g6340befc60876f4f039f215479d9d5a945f817e1
 - kind: go_module
   url: github:alexbrainman/sspi.git
   module: github.com/alexbrainman/sspi
@@ -250,15 +250,15 @@ sources:
   url: git_https:go.googlesource.com/crypto
   module: golang.org/x/crypto
   ref:
-    go-version: v0.17.0
-    git-ref: v0.17.0-0-g9d2ee975ef9fe627bf0a6f01c1f69e8ef1d4f05d
+    go-version: v0.21.0
+    git-ref: v0.21.0-0-g7067223927c4e3f3bb91a5c6e0d2aae83df74e7a
     explicit: True
 - kind: go_module
   url: git_https:go.googlesource.com/net
   module: golang.org/x/net
   ref:
-    go-version: v0.17.0
-    git-ref: v0.17.0-0-gb225e7ca6dde1ef5a5ae5ce922861bda011cfabd
+    go-version: v0.23.0
+    git-ref: v0.23.0-0-gc48da131589f122489348be5dfbcb6457640046f
     explicit: True
 - kind: go_module
   url: git_https:go.googlesource.com/sync
@@ -271,8 +271,8 @@ sources:
   url: git_https:go.googlesource.com/sys
   module: golang.org/x/sys
   ref:
-    go-version: v0.15.0
-    git-ref: v0.15.0-0-g13b15b780d9013988b1fb0e79e30b2528a877638
+    go-version: v0.18.0
+    git-ref: v0.18.0-0-g360f961f8978a4c9a7c2e849bb482780cd6bb553
     explicit: True
 - kind: go_module
   url: git_https:go.googlesource.com/text
