@@ -18,4 +18,4 @@ sources:
 - kind: git_repo
   url: sesse:plocate
   track: refs/tags/*
-  ref: 1.1.22-0-gcc95fed7a22f464dc84950a47b26a24f70b0b216
+  ref: 1.1.23-0-gfd7e1f0a1a3836b62438cdfce0b272e7c548e61a
