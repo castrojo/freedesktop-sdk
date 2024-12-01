@@ -14,7 +14,7 @@ sources:
   track: v*
   exclude:
   - "*beta*"
-  ref: v1.7.5-0-g33160937eba82f870d9671292e6042cd5871daf8
+  ref: v1.7.6-0-gd896c62f31ded33adca2f58819913e29b7950299
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
@@ -144,8 +144,8 @@ sources:
     sha: 2d886547e41f740c616ae73108f6eb70afe6d940c7bc697cb30f13daec073037
   - kind: registry
     name: cbindgen
-    version: 0.26.0
-    sha: da6bc11b07529f16944307272d5bd9b22530bc7d05751717c9d416586cedab49
+    version: 0.27.0
+    sha: 3fce8dd7fcfcbf3a0a87d8f515194b49d6135acab73e18bd380d1d93bb1a15eb
   - kind: registry
     name: cc
     version: 1.2.1
@@ -432,10 +432,6 @@ sources:
     sha: 53ab3f32d1d77146981dea5d6b1e8fe31eedcb7013e5e00d6ccd1259a4b4d923
   - kind: registry
     name: hashbrown
-    version: 0.12.3
-    sha: 8a9ee70c43aaf417c914396645a0fa852624801b24ebb7ae78fe8272889ac888
-  - kind: registry
-    name: hashbrown
     version: 0.14.5
     sha: e5274423e17b7c9fc20b6e7e208532f9b19825d82dfd615708b70edd83df41f1
   - kind: registry
@@ -510,10 +506,6 @@ sources:
     name: ignore
     version: 0.4.23
     sha: 6d89fd380afde86567dfba715db065673989d6253f42b88179abd3eae47bda4b
-  - kind: registry
-    name: indexmap
-    version: 1.9.3
-    sha: bd070e393353796e801d209ad339e89596eb4c8d430d18ede6a1cced8fafbd99
   - kind: registry
     name: indexmap
     version: 2.5.0
@@ -616,8 +608,8 @@ sources:
     sha: 4192263c238a5f0d0c6bfd21f336a313a4ce1c450542449ca191bb657b4642ef
   - kind: registry
     name: minijinja
-    version: 1.0.21
-    sha: 55e877d961d4f96ce13615862322df7c0b6d169d40cab71a7ef3f9b9e594451e
+    version: 2.5.0
+    sha: 2c37e1b517d1dcd0e51dc36c4567b9d5a29262b3ec8da6cb5d35e27a8fb529b5
   - kind: registry
     name: minimal-lexical
     version: 0.2.1
@@ -1086,10 +1078,6 @@ sources:
     name: tinystr
     version: 0.7.6
     sha: 9117f5d4db391c1cf6927e7bea3db74b9a1c1add8f7eda9ffd5364f40f57b82f
-  - kind: registry
-    name: toml
-    version: 0.5.11
-    sha: f4f7f0dd8d50a853a531c426359045b1998f04219d88799810762cd4ad314234
   - kind: registry
     name: toml
     version: 0.8.15
