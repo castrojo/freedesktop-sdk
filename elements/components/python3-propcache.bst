@@ -12,4 +12,4 @@ sources:
 - kind: git_repo
   url: github:aio-libs/propcache.git
   track: v*
-  ref: v0.2.0-0-gf157b0a7b0b3a3c755764b9f03f4d90c43ee5cda
+  ref: v0.2.1-0-g24fd58a10551ec8e8db66d8612e10455774ca3aa
