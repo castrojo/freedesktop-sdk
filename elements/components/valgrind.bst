@@ -1,13 +1,14 @@
 kind: autotools
 description: Tool to help find memory-management problems in programs
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/perl.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/gdb.bst
-- filename: components/perl.bst
-  type: build
+- components/gdb.bst
+- components/zstd.bst
 
 variables:
   # valgrind does not like the strong stack protector flag
@@ -37,3 +38,5 @@ sources:
   url: sourceware:valgrind.git
   track: VALGRIND_*
   ref: VALGRIND_3_24_0-0-gfcdaa474260a54af9c4b241bac9c1e9775081f78
+- kind: patch
+  path: patches/valgrind/zstd-support.patch
