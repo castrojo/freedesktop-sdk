@@ -1945,6 +1945,7 @@ enable ZRAM_WRITEBACK
 enable ZRAM_MEMORY_TRACKING
 enable ZRAM_MULTI_COMP
 value_str ZRAM_DEF_COMP "zstd"
+module CRYPTO_ZSTD
 
 # Secure boot
 enable SYSTEM_BLACKLIST_KEYRING
