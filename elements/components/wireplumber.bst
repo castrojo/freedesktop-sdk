@@ -27,7 +27,7 @@ sources:
 - kind: git_repo
   url: freedesktop:pipewire/wireplumber.git
   track: '*.*.*'
-  ref: 0.5.6-0-g141b2d5d3f793e20f94421c554d8d9c51143ce0d
+  ref: 0.5.7-0-g3e7c87a84c30125717eaf8adb1aca3d4dedbb70e
 - kind: git_repo
   url: github:skystrife/cpptoml.git
   directory: subprojects/cpptoml
