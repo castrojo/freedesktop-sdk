@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:benjaminp/six.git
   track: "*.*.*"
-  ref: 1.16.0-0-g65486e4383f9f411da95937451205d3c7b61b9e1
+  ref: 1.17.0-0-gebd9b3af90247b8858d415a05e96e9ee61e48d07
