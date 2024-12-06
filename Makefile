@@ -63,9 +63,11 @@ build-tar:
 bootstrap:
 	$(BST) build bootstrap/bootstrap.bst
 
-export: clean-runtime
+build-repo:
 	$(BST) build flatpak-release-repo.bst
 
+# Export means extracting from CAS. If content is not in CAS (local or remote), you need to build separately
+export: clean-runtime
 	mkdir -p $(CHECKOUT_ROOT)
 	$(BST) artifact checkout flatpak-release-repo.bst --directory $(CHECKOUT_ROOT)/flatpak-release-repo.bst
 

@@ -149,7 +149,8 @@ freedesktop-sdk. The table below outlines them and their uses.
 | Build tarballs of freedesktop-sdk                 | `make build-tar`         |
 | Build VM images of freedesktop-sdk                | `make build-vm`          |
 | Build and checkout the bootstrap                  | `make bootstrap`         |
-| Build and checkout as a flatpak repo              | `make export`            |
+| Build the flatpak repo                            | `make build-repo`        |
+| Checkout the flatpak repo                         | `make export`            |
 | Build and export snap images                      | `make export-snap`       |
 | Build and export tarballs of freedesktop-sdk      | `make export-tar`        |
 | Build and export OCI images of freedesktop-sdk    | `make export-oci`        |
@@ -159,11 +160,11 @@ freedesktop-sdk. The table below outlines them and their uses.
 | Convert manifests to human-readable format        | `make markdown-manifest` |
 | Check for dev files in the Platform               | `make check-dev-files`   |
 | Check for components using rpath                  | `make check-rpath`       |
-| Test some basic apps                              | `make test-apps`         |
+| Test some basic apps.                             | `make test-apps`         |
 | Test the codec extensions behave as intended      | `make test-codecs`       |
 | Track the mesa-git extension                      | `make track-mesa-git`    |
 
-**NOTE:** You must run `make export` *before* running `make test-apps`
+**NOTE:** You must run `make build-repo` *before* running `make test-apps`
 
 There are additionally several variables a user can define to customise the
 build, below is a selection of the more useful ones, as most are just building
