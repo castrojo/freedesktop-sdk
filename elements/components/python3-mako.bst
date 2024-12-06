@@ -11,4 +11,4 @@ sources:
 - kind: git_repo
   url: github:sqlalchemy/mako.git
   track: "rel_*"
-  ref: rel_1_3_6-0-g366d26f6e75a0a5ca6d14583fff740d462bd38c3
+  ref: rel_1_3_7-0-gf7f669d8a1b45129903854afb74a432216bd6ab0
