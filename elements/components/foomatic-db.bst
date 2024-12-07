@@ -21,4 +21,4 @@ sources:
 - kind: git_repo
   url: github:OpenPrinting/foomatic-db.git
   track: master
-  ref: 20240504-2-g359508733741039b65c86e7a1318a89862e03b13
+  ref: 20240504-3-g9a7a08318598fea569cf073489709899c9af6143
