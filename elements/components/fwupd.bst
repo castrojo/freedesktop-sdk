@@ -61,6 +61,7 @@ variables:
     -Dvendor_ids_dir="%{datadir}/hwdata"
     -Dumockdev_tests=disabled
     -Dlibdrm=disabled
+    -Dvalgrind=disabled
 
 sources:
 - kind: git_repo
