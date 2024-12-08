@@ -51,8 +51,3 @@ config:
     (>):
     - |
       rm -rf "%{install-root}%{datadir}"
-
-sources:
-  (>):
-  - kind: patch
-    path: patches/mesa/gbm-unlink-libgallium_dri.patch
