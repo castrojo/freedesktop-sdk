@@ -12,6 +12,6 @@ sources:
 - kind: pypi
   name: python-dbusmock
   ref:
-    sha256sum: 357c269d53a5bb3f87983bec7ff700a0c4d071481f7cf7221ec8376224fc4316
+    sha256sum: 04efd311dd1063ac2b8f7baa79a026b5c0aa3ed4ef18cd9226f52a273fa6193a
     suffix: 
-      d2/b1/240ad35502c356f9f6e30ca246b66df6ff44b01a115920da27bf7a8d4ea7/python-dbusmock-0.32.2.tar.gz
+      31/94/96f76e84e909222f54b4a9fe6c45bce8409c5916e5d45d27c536df4d92be/python-dbusmock-0.33.0.tar.gz
