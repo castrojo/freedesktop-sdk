@@ -39,7 +39,7 @@ sources:
   track: '*.*.*'
   exclude:
   - '*-*'
-  ref: 1.25.1-0-g5d61c9df9c5d72520335898ce53046aa53a4e8a7
+  ref: 1.25.2-0-g53e13b2d0b629d7114f51f26ab6e0a2ed39641f2
 - kind: git_module
   path: thirdparty/mujs
   url: ghostscript:mujs.git
