@@ -8,6 +8,7 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/lz4.bst
 - components/openssl.bst
+- components/libxml2.bst
 
 public:
   bst:
