@@ -6,6 +6,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/lz4.bst
 
 public:
   bst:
