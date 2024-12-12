@@ -6,6 +6,7 @@ build-depends:
 
 depends:
 - bootstrap-import.bst
+- components/lz4.bst
 
 public:
   bst:
