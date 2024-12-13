@@ -1,3 +1,224 @@
+Version: freedesktop-sdk-23.08.26
+Date: '2024-12-13'
+Description: |-
+  Changes in freedesktop-sdk-23.08.26
+   * Update passt to 2024_12_11.09478d5-0
+   * Update dictionaries to libreoffice-24.8.4.2-0
+   * Update lvm2 to v2_03_29-0
+   * Update hotdoc to 0.17.2
+   * Update glibc to glibc-2.38-107
+   * Update mutool to 1.25.2-0
+   * Update openjpeg to v2.5.3-0
+   * Update buildbox to 1.2.35-0
+   * Update python3-dbusmock to 0.33.0
+   * Update vim to v9.1.0918-0
+   * Update kbd to v2.7-0
+   * Update linux to v6.12.4-0
+   * Update crun to 1.19-0
+   * Update linux to v6.12.3-0
+   * Update python3-mako to 1.3.8
+   * Update libdrm to libdrm-2.4.124-0
+   * fwupd: Disable valgrind support
+   * Update fwupd to 2.0.3-0
+   * Update buildbox to 1.2.34-0
+   * Update mesa-sdk to mesa-24.3.1-0
+   * Update libwacom to libwacom-2.14.0-0
+   * Update foomatic-db to 20240504-3
+   * Update netavark to v1.13.1-0
+   * Collect only build logs when uploading artifacts for Flatpak pipelines
+   * ci: Check if publish_build.txt exists before running flat-manager purge
+   * Update grpc to v1.68.2-0
+   * Update python3-maturin to v1.7.8-0
+   * Update python3-aiohttp to 3.11.10
+   * Update efitools to v1.9.2-4
+   * Increase after script timeout from 5 minutes to 30 minutes
+   * Update python3-protobuf to 5.29.1
+   * Update python3-six to 1.17.0
+   * Update mesa to mesa-24.3.1-0
+   * Update libdrm to libdrm-2.4.124-0
+   * noto-emoji: Update to 2.047
+   * Update python3 to v3.11.11-0
+   * Update hwdata to v0.390-0
+   * Update protobuf to v29.1-0
+   * Update python3-mako to 1.3.7
+   * Update xfsprogs to v6.12.0-0
+   * Update vim to v9.1.0901-0
+   * Update python3-maturin to v1.7.7-0
+   * Update poppler to poppler-24.12.0-0
+   * Update python3-grpcio to 1.68.1
+   * Update python3-propcache to v0.2.1-0
+   * Update python3-aiohttp to 3.11.9
+   * Update python3-yarl to v1.18.3-0
+   * Update protobuf to v29.0-0
+   * Update python3-aiohappyeyeballs to v2.4.4-0
+   * Update systemd to v254.21-0
+   * Update python3-yarl to v1.18.2-0
+   * Update python3-aiohttp to 3.11.8
+   * Update mutool to 1.25.1-0
+   * Update python3-protobuf to 5.29.0
+   * Update btrfs-progs to v6.12-0
+   * Update python3-maturin to v1.7.6-0
+   * Update flatpak to 1.15.12-0
+   * Update dictionaries to libreoffice-24.8.4.1-0
+   * python3-cryptography: Fix cargo lockfile path and update to 44.0.0
+   * Update passt to 2024_11_27.c0fbc7e-0
+   * Update mutool to 1.25.0-0
+   * Update python3-virtualenv to 20.28.0-0
+   * Update grpc to v1.68.1-0
+   * Update iwd to 3.2-0
+   * Update flatpak to 1.15.11-0
+   * Update ell to 0.71-0
+   * mesa: Use crates alias for crates
+   * Update vim to v9.1.0889-0
+   * Update fwupd to 2.0.2-0
+   * Update git to v2.47.1-0
+   * Update sudo to SUDO_1_9_16p2-0
+   * Update gnupg to gnupg-2.4.7-0
+   * Update bash-completion to 2.15.0-0
+   * Update libsoup to 3.4.5-0
+   * Update python3-wheel to 0.45.1-0
+   * Update ovmf to edk2-stable202411-0
+   * Update gmmlib to intel-gmmlib-22.5.4-0
+   * Update intel-media-driver to intel-media-23.4.3-0
+   * Update linux to v6.12.1-0
+   * Update python3-yarl to v1.18.0-0
+   * Drop gbm patch
+   * mesa-sdk: Update to 24.3.0
+   * mesa: Enable Asahi vulkan driver
+   * mesa: Remove gallium omx
+   * mesa: Drop dri meson option
+   * mesa: Drop selinux option
+   * Update mesa to mesa-24.3.0-0
+   * ci: Populate test keys before trying to fetch element sources
+   * pixman: Disable tests
+   * pixman: Switch to new dependency layout and bootstrap-import to depends
+   * podman: Freeze to 5.2
+   * Update passt to 2024_11_21.238c69f-0
+   * Update python3-aiohttp to 3.11.7
+   * Update valgrind to VALGRIND_3_24_0-0
+   * Update cmake to v3.29.9-0
+   * Remove misleading comment
+   * Simplify max-jobs computation
+   * Update perl-module-scandeps to 1.37
+   * Update libinput to 1.27.0-0
+   * Update strace to v6.12-0
+   * Update python3-aiohttp to 3.11.6
+   * Update python3-dulwich to 0.22.6
+   * Update mutool to 1.24.11-0
+   * Update xorg-util-macros to util-macros-1.20.2-0
+   * Update iproute2 to v6.12.0-0
+   * Update vim to v9.1.0873-0
+   * audit: backport upstream patch
+   * Update systemd to v254.20-0
+   * Update python3-yarl to v1.17.2-0
+   * Update sudo to SUDO_1_9_16p1-0
+   * linux: update to 6.12
+   * Update linux to v6.11.7-0
+   * Hardcode gomp threads to reasonably low limit
+   * Remove cert leftovers from template
+   * Use token authentication
+   * grpc: add more missing submodules
+   * grpc: Add xds submodule
+   * Update grpc to v1.68.0-0
+   * Update mesa to mesa-24.2.7-0
+   * Update python3-grpcio to 1.68.0
+   * Update libnvme to v1.11.1-0
+   * Update libabigail to libabigail-2.6-0
+   * Update gmmlib to intel-gmmlib-22.5.3-0
+   * Update ovmf to edk2-stable202408.01-0
+   * libabigail: Downgrade to 2.6 tag
+   * libabigail: Track tags
+   * Update buildbox to 1.2.33-0
+   * Update python3-wheel to 0.45.0-0
+   * Update python3-hatchling to hatchling-v1.26.3-0
+   * Update python3-aiohttp to 3.11.2
+   * Update python3-sphinx-rtd-theme to 3.0.2-0
+   * Add python3-libversion to components
+   * Update python3-packaging to 24.2-0
+   * Update mesa-sdk to mesa-24.2.7-0
+   * Update vim to v9.1.0857-0
+   * ci: Print cache sizes before cleaning them up
+   * aom: Freeze to 3.10
+   * Update dictionaries to libreoffice-24.8.3.2-0
+   * Update lvm2 to v2_03_28-0
+   * Update python3-wheezy-template to 3.2.3-0
+   * lz4: Convert to make
+   * xorg-lib-x11: Fix accidentally exposed ABI
+   * xorg-lib-x11: Update to 1.8.10
+   * xorg-proto-xcb: Freeze to 1.16
+   * xorg-lib-xcursor: Freeze to 1.2.2
+   * lz4: Freeze to 1.9
+   * pcre2: Freeze to 10.42
+   * Update extra-cmake-modules to v6.8.0-0
+   * python3-packaging: Update to 24.2
+   * Update python3-hatchling to hatchling-v1.26.1-0
+   * Update xorg-lib-xtrans to xtrans-1.5.2-0
+   * cython-3: Exclude alpha beta and rc refs
+   * Update python3-cachecontrol to 0.14.1
+   * Update libblockdev to 3.2.1-0
+   * Update mesa to mesa-24.2.6-0
+   * Update ell to 0.70-0
+   * Update ostree to v2024.9-0
+   * Update dtc to v1.7.2-0
+   * Update iptables to v1.8.11-0
+   * Update iwd to 3.1-0
+   * Update python3-dulwich to 0.22.5
+   * Update poppler to poppler-24.11.0-0
+   * Update bluez to 5.79-0
+   * Update to latest image
+   * Update hwdata to v0.389-0
+   * Update aardvark-dns to v1.13.1-0
+   * Update python3-async-timeout to 5.0.1
+   * open-isns: Mark devel
+   * open-isns: Convert to meson
+   * Update open-isns to v0.103-0
+   * Update xwayland to xwayland-24.1.4-0
+   * Update passt to 2024_10_30.ee7d0b6-0
+   * Update vim to v9.1.0842-0
+   * Update libabigail to libabigail-2.6-3
+   * Update buildbox to 1.2.30-0
+   * Update to new image that supports UploadTree in bst and buildbox
+   * bubblewrap: Build docs
+   * bubblewrap: Disable tests
+   * bubblewrap: Switch to meson
+   * Update bubblewrap to v0.11.0-0
+   * Update crun to 1.18.2-0
+   * Update netavark to v1.13.0-0
+   * e2fsprogs: Freeze due to ABI break
+   * libsoup: Freeze to 3.4
+   * freetype: Freeze due to ABI break
+   * libtiff: Freeze to 4.6
+   * Update python3-dulwich to 0.22.4
+   * Update python3-flit-core to 3.10.1-0
+   * Update python3-yarl to v1.17.1-0
+   * Update libnvme to v1.11-0
+   * Update python3-async-timeout to 5.0.0
+   * Update libabigail to libabigail-2.6-2
+   * Update composefs to v1.0.7-0
+   * ci: Bump image to fix tracking errors related to dulwich
+   * python3-setuptools-git: setuptools-git depends on setuptools at runtime
+   * ci: Bump image
+   * podman: attempt to fix reproducibility
+   * Update libseat to 0.9.1-0
+   * Update mesa-sdk to mesa-24.2.6-0
+   * Update crun to 1.18.1-0
+   * Update libnl to libnl3_11_0-0
+   * Update reference-abi to freedesktop-sdk-23.08.25-0
+   * Update gnupg to gnupg-2.4.6-0
+   * Update aardvark-dns to v1.13.0-0
+   * Update python3-grpcio to 1.67.1
+   * Update grpc to v1.67.1-0
+   * Update vim to v9.1.0821-0
+   * Update glibc to glibc-2.38-105
+   * Update to latest image
+   * Update python3-virtualenv to 20.27.1-0
+   * Update python3-yarl to v1.17.0-0
+   * buildbox: Stop creating buildbox-run symlink
+   * Update buildbox to 1.2.29-0
+   * libvdpau: Remove tab character from element
+   * Update dictionaries to libreoffice-24.8.3.1-0
+   * Update python3-pip to 24.3.1
+---
 Version: freedesktop-sdk-23.08.25
 Date: '2024-10-28'
 Description: |-
