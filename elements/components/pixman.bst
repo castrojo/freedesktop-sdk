@@ -24,4 +24,4 @@ sources:
 - kind: git_repo
   url: freedesktop:pixman/pixman.git
   track: pixman-*
-  ref: pixman-0.44.0-0-gae6646f1594b94ff781186ba744d89fefe16778f
+  ref: pixman-0.44.2-0-g46655e15671e1ca62d699821d75a85d341d7229c
