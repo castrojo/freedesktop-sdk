@@ -26,5 +26,4 @@ public:
 sources:
 - kind: git_repo
   url: gnupg:libgpg-error.git
-  track: libgpg-error-*
   ref: libgpg-error-1.50-0-gbb732615daad9bba9026354ae90f0f5292ea4908

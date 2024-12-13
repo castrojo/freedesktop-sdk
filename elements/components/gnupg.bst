@@ -41,9 +41,6 @@ variables:
 sources:
 - kind: git_repo
   url: gnupg:gnupg.git
-  track: gnupg-*
-  exclude:
-  - '*-base'
   ref: gnupg-2.5.1-0-g72ef316aab22cf9ec22c432747564cba7120ac86
 - kind: patch
   path: patches/gnupg/gnupg-don-t-include-tests-with-tarred-data.patch
