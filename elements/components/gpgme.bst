@@ -41,7 +41,7 @@ config:
 sources:
 - kind: git_repo
   url: gnupg:gpgme.git
-  track: gpgme-*
+  track: gpgme-1.23.*
   exclude:
   - "*-base"
   ref: gpgme-1.23.2-0-g1a26db717575068f0ab0d00a437ae870a93e1bb8
