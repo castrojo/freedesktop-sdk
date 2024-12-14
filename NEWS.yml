@@ -1,3 +1,157 @@
+Version: freedesktop-sdk-24.08.8
+Date: '2024-12-13'
+Description: |-
+  Changes in freedesktop-sdk-24.08.8
+   * npth: Freeze to 1.7
+   * xorg-lib-xcursor: Freeze to 1.2.2
+   * harfbuzz: Freeze to v9
+   * libvpx: Freeze to 1.14
+   * libbpf: Freeze to 1.4
+   * libarchive: Freeze to 3.7.4
+   * alsa-lib: Freeze to 1.2.12
+   * gpgme: Freeze to 1.23
+   * openal: Freeze to 1.23
+   * pango: Freeze to 1.54
+   * pipewire: Freeze to 1.2.4
+   * Freeze gnupg and libgpg-error
+   * Update passt to 2024_12_11.09478d5-0
+   * Update pixman to pixman-0.44.2-0
+   * Update python3-protobuf to 5.29.1
+   * Update linux to v6.12.4-0
+   * Update tk to core-8-6-16-0
+   * Update hotdoc to 0.17.2
+   * fwupd: Disable valgrind support
+   * Update fwupd to 2.0.3-0
+   * Update python3-aiohttp to 3.11.10
+   * Update rust-bindgen to v0.71.1-0
+   * Update buildbox to 1.2.35-0
+   * Update gmmlib to intel-gmmlib-22.5.5-0
+   * Update openjpeg to v2.5.3-0
+   * Update grpc to v1.68.2-0
+   * Update crun to 1.19-0
+   * linux: Drop libbpf patch
+   * Update linux to v6.12.3-0
+   * Update gstreamer to 1.24.10-0
+   * Update foomatic-db to 20240504-3
+   * Update mesa to mesa-24.3.1-0
+   * Update glibc to glibc-2.40-56
+   * Update vim to v9.1.0912-0
+   * Update netavark to v1.13.1-0
+   * Update python3-mako to rel_1_3_8-0
+   * Update go to go1.23.4-0
+   * Update libwacom to libwacom-2.14.0-0
+   * Update poppler to poppler-24.12.0-0
+   * Update cmake to v3.31.2-0
+   * Collect only build logs when uploading artifacts for Flatpak pipelines
+   * ci: Check if publish_build.txt exists before running flat-manager purge
+   * Update gmmlib to intel-gmmlib-22.5.4-0
+   * Update python3-six to 1.17.0-0
+   * Update libdrm to libdrm-2.4.124-0
+   * noto-emoji: Update to 2.047
+   * Increase after script timeout from 5 minutes to 30 minutes
+   * Update python3-aiohttp to 3.11.9
+   * Update mesa-sdk to mesa-24.3.1-0
+   * Update python3-maturin to v1.7.8-0
+   * Update llvm to llvmorg-19.1.5-0
+   * Update xfsprogs to v6.12.0-0
+   * Update hwdata to v0.390-0
+   * Update python3 to v3.12.8-0
+   * Update protobuf to v29.1-0
+   * Update iwd to 3.2-0
+   * Update python3-maturin to v1.7.7-0
+   * Update wireplumber to 0.5.7-0
+   * Update python3-propcache to v0.2.1-0
+   * Update systemd to v256.9-0
+   * Update python3-yarl to v1.18.3-0
+   * Update dictionaries to libreoffice-24.8.4.1-0
+   * Update vim to v9.1.0898-0
+   * Update python3-virtualenv to 20.28.0-0
+   * Update btrfs-progs to v6.12-0
+   * Update python3-aiohappyeyeballs to v2.4.4-0
+   * Update flatpak to 1.15.12-0
+   * Update fwupd to 2.0.2-0
+   * Update python3-protobuf to 5.29.0
+   * squashfs-tools: Move to components and update to 4.6.1
+   * Update grpc to v1.68.1-0
+   * Update protobuf to v29.0-0
+   * perf: Explicitly set kernel_arch on riscv64
+   * perf: Backport libbpf include path fix
+   * python3-cryptography: Fix cargo lockfile path and update to 44.0.0
+   * Update mutool to 1.25.0-0
+   * Update libjxl to v0.10.4-0
+   * Update python3-maturin to v1.7.5-0
+   * Update passt to 2024_11_27.c0fbc7e-0
+   * Update ovmf to edk2-stable202411-0
+   * Update sudo to SUDO_1_9_16p2-0
+   * Update flatpak to 1.15.11-0
+   * Update ell to 0.71-0
+   * mesa: Use crates alias for crates
+   * rust-stage1-riscv64: Bootstrap using 1.82
+   * Update git to v2.47.1-0
+   * Update cmake to v3.31.1-0
+   * wget2: Freeze to 2.1 due to soversion bump
+   * Update linux to v6.12.1-0
+   * Update bash-completion to 2.15.0-0
+   * Update libsoup to 3.6.1-0
+   * python3-libversion: Add .git to url
+   * shim: Use notparallel
+   * pixman: Force disabling RISC-V Vector Intrinsic Support
+   * fcitx5: Convert to newer element layout
+   * opensbi: Use make-install variable
+   * rust: Update to 1.82.0
+   * rust-stage1: Update to 1.81.0
+   * spirv-llvm-translator: Update to v19.1.1 and track v19 tags
+   * llvm: Update to 19.1.4
+   * Update vim to v9.1.0882-0
+   * Update python3-wheel to 0.45.1-0
+   * Update python3-aiohttp to 3.11.7
+   * linux: Enable ZRAM
+   * Update intel-media-driver to intel-media-24.4.3-0
+   * ffmpeg: Update ffmpeg libx265 build fix patch
+   * Update libx265 to 4.1-0
+   * Drop gbm patch
+   * Update mesa-sdk to mesa-24.3.0-0
+   * ci: Populate test keys before trying to fetch element sources
+   * pixman: Disable tests and demos
+   * pixman: Switch to new dependency layout and bootstrap-import to depends
+   * shim-maybe: Stop building on i686 and riscv64
+   * Update reference-abi to freedesktop-sdk-24.08.7-0
+   * mesa: Enable Asahi vulkan driver
+   * mesa: Remove gallium omx
+   * mesa: Drop dri meson option
+   * mesa: Drop selinux option
+   * Update mesa to mesa-24.3.0-0
+   * Update podman to v5.3.1-0
+   * spirv-llvm-translator: Use 18.1.6 tag
+   * spirv-llvm-translator: Track v18 tags
+   * python3-yarl: Update to 1.18.0
+   * lvm2: Update to 2.03.28
+   * intel-media-driver: Update to 24.4.2
+   * gmmlib: Update to 22.5.3
+   * vim: Update to 9.1.0880
+   * sudo: Update to 1.9.16p1
+   * strace: Update to 6.12
+   * python3-setuptools: Update to 75.6
+   * passt: Update to 2024_11_21.238c69f
+   * mutool: Update to 1.24.11
+   * libabigail: Fix commit for 2.6 tag again
+   * exfat-progs: Update to 1.2.6
+   * Remove misleading comment
+   * Simplify max-jobs computation
+   * grpc: Add missing submodules
+   * Update grpc to v1.68.0-0
+   * aiohttp: Update to 3.11.6
+   * Update git-lfs to v3.6.0-0
+   * Update python3-dulwich to 0.22.6
+   * Update perl-module-scandeps to 1.37
+   * Update python3-hatchling to hatchling-v1.26.3-0
+   * bubblewrap: Build docs
+   * bubblewrap: Disable tests
+   * bubblewrap: Switch to meson
+   * Update bubblewrap to v0.11.0-0
+   * Update libinput to 1.27.0-0
+   * Update iproute2 to v6.12.0-0
+---
 Version: freedesktop-sdk-24.08.7
 Date: '2024-11-19'
 Description: |-
