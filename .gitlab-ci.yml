@@ -81,6 +81,7 @@ lint:
     - find . -path 'files/oci' -prune -o -iname "*.py" -exec pylint {} +
     - pylint files/oci/oci_builder
     - python utils/news_validator.py validate --path NEWS.yml
+    - python utils/flatpak_branch_validator.py validate --path include/repo_branches.yml
   rules:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
   needs: []
