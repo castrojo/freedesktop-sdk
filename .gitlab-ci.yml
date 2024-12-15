@@ -157,7 +157,7 @@ check_mirrors:
     cat > ~/.config/buildstream.conf << EOF
     # Get a lot of output in case of errors
     logging:
-      message-format: '[%{wallclock}][%{elapsed}][%{key}][%{element}] %{action} %{message}'
+      message-format: '[%{elapsed}][%{key}][%{element}] %{action} %{message}'
       error-lines: 80
     scheduler:
       network-retries: 4
