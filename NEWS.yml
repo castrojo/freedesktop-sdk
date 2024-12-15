@@ -1,3 +1,13 @@
+Version: freedesktop-sdk-24.08.9
+Date: '2024-12-15'
+Description: |-
+  Changes in freedesktop-sdk-24.08.9
+   * mesa-sources: Backport patch to fix crash with 24.3.1
+   * libarchive: add zstd support
+   * libarchive: add libxml2 support
+   * libarchive: add openssl support
+   * libarchive: add lz4 support
+---
 Version: freedesktop-sdk-24.08.8
 Date: '2024-12-13'
 Description: |-
