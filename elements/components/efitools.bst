@@ -78,7 +78,7 @@ sources:
 - kind: git_repo
   url: kernel:linux/kernel/git/jejb/efitools.git
   track: master
-  ref: v1.9.2-0-g392836a46ce3c92b55dc88a1aebbcfdfc5dcddce
+  ref: v1.9.2-4-gb988d20a7f8373cf19c30d5c9c459f3e87f28da2
 - kind: patch
   path: patches/efitools/c99.patch
 - kind: patch
