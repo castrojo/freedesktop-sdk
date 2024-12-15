@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:openSUSE/catatonit.git
   track: 'v*.*.*'
-  ref: v0.2.0-0-g7f0c9bb45d3490c3e7f579833c9b0689f78c8923
+  ref: v0.2.1-0-gbb3b96b99668e544618c5aec427c1f4b6b9ee9bb
