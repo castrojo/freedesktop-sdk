@@ -34,6 +34,22 @@ def release_version(value):
     return value
 
 
+def validate_version_increment(first_ver, second_ver):
+    try:
+        v1_parts = list(map(int, first_ver.split(".")))
+        v2_parts = list(map(int, second_ver.split(".")))
+
+        if not all(len(v) == 3 for v in (v1_parts, v2_parts)):
+            return False
+
+        if v1_parts[:2] != v2_parts[:2]:
+            return False
+
+        return abs(v1_parts[2] - v2_parts[2]) == 1
+    except ValueError:
+        return False
+
+
 def run_git(cmd, **kwargs):
     return subprocess.check_output(["git", *cmd], text=True, **kwargs).rstrip()
 
@@ -126,6 +142,12 @@ def prepare(args):
         version1 = documents[1]["Version"].removeprefix("freedesktop-sdk-")
         if Version(version0) < Version(version1):
             raise SystemExit(f"error: {version0} not newer than {version1}")
+        if all(
+            not any(s in v for s in ("rc", "beta")) for v in (version0, version1)
+        ) and not validate_version_increment(version0, version1):
+            raise SystemExit(
+                f"error: Version increment is not 1, prevous version: {version1} current version: {version0}"
+            )
         with open(git_dir / "NEWS.yml", "w", encoding="utf-8") as news:
             yaml.dump_all(documents, news)
         message = f"NEWS: Update for {args.new_version}"
