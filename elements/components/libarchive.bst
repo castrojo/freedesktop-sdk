@@ -6,6 +6,10 @@ build-depends:
 
 depends:
 - bootstrap-import.bst
+- components/lz4.bst
+- components/openssl.bst
+- components/libxml2.bst
+- components/zstd.bst
 
 public:
   bst:
