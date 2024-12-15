@@ -11,6 +11,8 @@ variables:
 
   RUNNER_AFTER_SCRIPT_TIMEOUT: 30m
 
+  FF_TIMESTAMPS: 1
+
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
   DOCKER_IMAGE_ID: "41a9e52d9ed2950096d86d9e4b8ad0fb5898558c"
