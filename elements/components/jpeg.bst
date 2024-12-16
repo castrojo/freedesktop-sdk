@@ -32,7 +32,7 @@ public:
 sources:
 - kind: git_repo
   url: github:libjpeg-turbo/libjpeg-turbo.git
-  track: '*.*.*'
+  track: '3.0.*'
   exclude:
   - '*.*.9*'
   ref: 3.0.4-0-gf29eda648547b36aa594c4116c7764a6c8a079b9
