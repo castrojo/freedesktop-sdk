@@ -1,5 +1,5 @@
-# This element should be overriden in the junction by downstream
-# projects.
+# Production boot keys, pass -o prod_keys true to use after
+# generating
 kind: import
 
 config:
