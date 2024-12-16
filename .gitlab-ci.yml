@@ -11,9 +11,11 @@ variables:
 
   RUNNER_AFTER_SCRIPT_TIMEOUT: 30m
 
+  FF_TIMESTAMPS: 1
+
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "41a9e52d9ed2950096d86d9e4b8ad0fb5898558c"
+  DOCKER_IMAGE_ID: "e2b7c2b64b03bc0de247f1ec1671246868b30dea"
 
   # Generic variable for invoking buildstream
   BST: bst --colors
@@ -151,7 +153,7 @@ check_mirrors:
     cat > ~/.config/buildstream.conf << EOF
     # Get a lot of output in case of errors
     logging:
-      message-format: '[%{wallclock}][%{elapsed}][%{key}][%{element}] %{action} %{message}'
+      message-format: '[%{elapsed}][%{key}][%{element}] %{action} %{message}'
       error-lines: 80
     scheduler:
       network-retries: 4
