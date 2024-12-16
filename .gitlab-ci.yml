@@ -204,7 +204,12 @@ check_mirrors:
   script:
     - test -x arch-test && arch-test
     - ./utils/validate_aliases.py include/_private/aliases.yml include/_private/mirrors.yml
-    - test "${ARCH}" != "i686" && make build
+    - |
+      if [ "${ARCH}" != "i686" ];then
+        make build
+      else
+        make build-repo
+      fi
     - make check-debuginfo
 
     - export FLATPAK_USER_DIR="${PWD}/tmp-flatpak"
