@@ -4,7 +4,16 @@ build-depends:
 - public-stacks/buildsystem-make.bst
 - components/git-minimal.bst
 - components/openssl.bst
-- components/boot-keys.bst
+
+(?):
+- not prod_keys:
+    build-depends:
+      (>):
+      - components/boot-keys-test.bst
+- prod_keys:
+    build-depends:
+      (>):
+        - components/boot-keys-prod.bst
 
 variables:
   (?):

@@ -5,7 +5,16 @@ build-depends:
 - components/gnu-efi.bst
 - components/help2man.bst
 - components/perl-slurp.bst
-- components/boot-keys.bst
+
+(?):
+- not prod_keys:
+    build-depends:
+      (>):
+      - components/boot-keys-test.bst
+- prod_keys:
+    build-depends:
+      (>):
+        - components/boot-keys-prod.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
