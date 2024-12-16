@@ -48,7 +48,7 @@ QEMU=qemu-system-$(QEMU_ARCH)
 
 all: build
 
-build: generate-test-keys
+build:
 	$(BST) build tests/check-platform.bst \
 	             tests/check-sdk.bst \
 	             components.bst \
@@ -64,7 +64,7 @@ build-tar:
 bootstrap:
 	$(BST) build bootstrap/bootstrap.bst
 
-export: clean-runtime generate-test-keys
+export: clean-runtime
 	$(BST) build flatpak-release-repo.bst
 
 	mkdir -p $(CHECKOUT_ROOT)
@@ -499,9 +499,6 @@ secure-images/SHA256SUMS:
 secure-images-serve: secure-images/SHA256SUMS
 	python3 -m http.server 8080 --directory secure-images
 
-generate-test-keys: clean-boot-keys
-	cp -ra files/boot-keys-test/* files/boot-keys
-
 .PHONY:									\
 	build check-dev-files clean clean-oci clean-test clean-repo clean-runtime	\
 	export test-apps manifest markdown-manifest check-rpath		\
@@ -510,7 +507,7 @@ generate-test-keys: clean-boot-keys
 	track-mesa-git							\
 	clean-efi-vm build-efi-vm run-efi-vm				\
 	update-ostree ostree-serve run-ostree-vm			\
-	test-runtime-inheritance generate-keys generate-test-keys clean-ostree-vm		\
+	test-runtime-inheritance generate-keys clean-ostree-vm		\
 	download-microsoft-keys						\
 	run-secure-vm clean-secure-vm clean-ostree-vm			\
 	export-secure-images secure-images-serve update-secure-version

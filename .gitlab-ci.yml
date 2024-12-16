@@ -97,7 +97,6 @@ lint:
     - git config user.email "freedesktop_sdk_updater@libreml.com"
     - git branch -f "${CI_COMMIT_REF_NAME}" "origin/${CI_COMMIT_REF_NAME}"
     - git fetch --prune
-    - make generate-test-keys
     - |
       case "${CI_COMMIT_REF_NAME}" in
         master)
@@ -169,7 +168,6 @@ check_mirrors:
     EOF
 
   script:
-    - make generate-test-keys
     - |
       ${BST} source fetch --deps all flatpak-release-repo.bst components.bst \
              components/rust-stage1-{x86_64,i686,aarch64,powerpc64le}.bst \
@@ -700,7 +698,6 @@ markdown_manifest:
 .reproducible_template:
   stage: reproducible
   script:
-    - make generate-test-keys
     - ./utils/test_reproducibility.py tests/reproducible-test.bst result_folder
   needs: []
   variables:
