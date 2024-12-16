@@ -101,7 +101,6 @@ lint:
     - git branch -f "${CI_COMMIT_REF_NAME}" "origin/${CI_COMMIT_REF_NAME}"
     - git fetch --prune
     - if [[ "$CI_COMMIT_BRANCH" == "master" ]]; then python utils/cleanup_leftover_branches.py; fi
-    - make generate-test-keys
     - |
       case "${CI_COMMIT_REF_NAME}" in
         master)
@@ -173,7 +172,6 @@ check_mirrors:
     EOF
 
   script:
-    - make generate-test-keys
     - |
       ${BST} source fetch --deps all flatpak-release-repo.bst components.bst \
              components/rust-stage1-{x86_64,i686,aarch64,powerpc64le}.bst \
@@ -711,7 +709,6 @@ markdown_manifest:
 .reproducible_template:
   stage: reproducible
   script:
-    - make generate-test-keys
     - buildstream-reprotest tests/reproducible-test.bst result_folder
   needs: []
   variables:
