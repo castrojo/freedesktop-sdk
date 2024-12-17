@@ -13,11 +13,11 @@ depends:
 - components/libseccomp.bst
 - public-stacks/runtime-minimal.bst
 
-environment:
+variables:
   (?):
   - target_arch == "riscv64":
       # incredibly racy on riscv64
-      MAKEFLAGS: "-j1"
+      notparallel: true
 
 sources:
 - kind: git_repo
