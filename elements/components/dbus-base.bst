@@ -17,6 +17,10 @@ variables:
     -Dqt_help=disabled
     -Dmodular_tests=disabled
     -Drelocation=disabled
+    -Dselinux=disabled
+    -Dkqueue=disabled
+    -Dlaunchd=disabled
+    -Dx11_autolaunch=disabled
 
 config:
   install-commands:
