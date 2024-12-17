@@ -27,8 +27,12 @@ def validate(args):
         assert re.match(r"^\d{2}08", snap_br) is not None, snap_br
     else:
         assert re.match(r"^\d{2}\.08$", flatpak_br) is not None, flatpak_br
+        # validate against the wrong pattern because this got tagged with
+        # the wrong branch name and it is too late to fix this
+        # https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/issues/1821
+        # DO NOT backport
         assert (
-            re.match(r"^\d{2}\.08-extra$", flatpak_extra_br) is not None
+            re.match(r"^\d{2}\.08extra$", flatpak_extra_br) is not None
         ), flatpak_extra_br
         assert re.match(r"^\d{2}08", snap_br) is not None, snap_br
 
