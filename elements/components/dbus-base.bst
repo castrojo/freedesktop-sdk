@@ -13,6 +13,8 @@ variables:
     -Dlibaudit=disabled
     -Dsystem_socket="/run/dbus/system_bus_socket"
     -Duser_session=true
+    -Dducktype_docs=disabled
+    -Dqt_help=disabled
 
 config:
   install-commands:
