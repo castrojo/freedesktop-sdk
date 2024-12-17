@@ -16,6 +16,7 @@ variables:
     -Dducktype_docs=disabled
     -Dqt_help=disabled
     -Dmodular_tests=disabled
+    -Drelocation=disabled
 
 config:
   install-commands:
