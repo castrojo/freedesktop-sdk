@@ -7,13 +7,14 @@ build-depends:
 - components/gperf.bst
 
 depends:
-- components/yajl.bst
 - components/systemd-libs.bst
 - components/libcap.bst
 - components/libseccomp.bst
 - public-stacks/runtime-minimal.bst
 
 variables:
+  conf-local: >-
+    --enable-embedded-yajl
   (?):
   - target_arch == "riscv64":
       # incredibly racy on riscv64
