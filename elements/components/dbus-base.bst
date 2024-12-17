@@ -7,6 +7,9 @@ build-depends:
 - components/python3.bst
 - components/systemd.bst
 - components/libapparmor.bst
+- components/doxygen.bst
+- components/docbook-xsl.bst
+- components/xmlto.bst
 
 variables:
   meson-local: >-
@@ -21,6 +24,8 @@ variables:
     -Dkqueue=disabled
     -Dlaunchd=disabled
     -Dx11_autolaunch=disabled
+    -Ddoxygen_docs=enabled
+    -Dxml_docs=enabled
 
 config:
   install-commands:
