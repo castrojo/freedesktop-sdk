@@ -15,6 +15,7 @@ variables:
     -Duser_session=true
     -Dducktype_docs=disabled
     -Dqt_help=disabled
+    -Dmodular_tests=disabled
 
 config:
   install-commands:
