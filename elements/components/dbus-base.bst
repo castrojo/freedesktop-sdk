@@ -1,7 +1,7 @@
-kind: autotools
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 - components/expat.bst
 - components/systemd-libs.bst
 - components/python3.bst
@@ -9,11 +9,10 @@ build-depends:
 - components/libapparmor.bst
 
 variables:
-  conf-local: >-
-    runstatedir=/run
-    --with-system-socket=/run/dbus/system_bus_socket
-    --enable-user-session
-    --disable-libaudit
+  meson-local: >-
+    -Dlibaudit=disabled
+    -Dsystem_socket="/run/dbus/system_bus_socket"
+    -Duser_session=true
 
 config:
   install-commands:
