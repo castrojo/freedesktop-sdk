@@ -20,4 +20,4 @@ sources:
 - kind: git_repo
   url: kernel:linux/kernel/git/xiang/erofs-utils.git
   track: v*.*
-  ref: v1.8.2-0-g8bedd862edfbb9a5e54dd37abede29020dd8fdfb
+  ref: v1.8.3-0-g8d6c5d48615e23cd47cf9eb793904aedbb93ff4e
