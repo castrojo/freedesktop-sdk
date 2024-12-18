@@ -18,6 +18,8 @@ sources:
 - kind: pypi
   name: dulwich
   ref:
-    sha256sum: c1f44d599fa5dc59ca43e0789f835b8689b4d831d8de5ae009c442192a1408b5
+    sha256sum: e36d85967cfbf25da1c7bc3d6921adc5baa976969d926aaf1582bd5fd7e94758
     suffix: 
-      90/b2/13367fe4b4cb187cf13823040403b37d167c967675d543451caa9e9d2589/dulwich-0.22.6.tar.gz
+      cf/ac/cf6420b90832c4ffbc88b92962dd0167c58632c2b8d508d5baf4ecb0c61d/dulwich-0.22.1.tar.gz
+- kind: patch
+  path: patches/dulwich/fix-missing-import.patch
