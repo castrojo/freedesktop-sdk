@@ -3,10 +3,10 @@ kind: pyproject
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
 - components/python3-setuptools-rust.bst
-- components/rust.bst
 
 depends:
 - components/python3.bst
+- components/rust.bst
 
 sources:
 - kind: git_repo
