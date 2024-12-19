@@ -611,7 +611,6 @@ publish_flatpak:
 
     - flatpak build-update-repo --generate-static-deltas repo
     - flat-manager-client -v create "$RELEASES_SERVER_ADDRESS" "${RELEASE_CHANNEL}" --build-log-url ${CI_PIPELINE_URL} > publish_build.txt
-    - test -f publish_build.txt
     - flat-manager-client push "$(cat publish_build.txt)" repo --build-log-url ${CI_PIPELINE_URL}
     - |
       if [ "${EXPIRED}" = "1" ]; then
@@ -625,7 +624,7 @@ publish_flatpak:
 
   after_script:
     - |
-      test -f publish_build.txt
+      test -s publish_build.txt
       source utils/publisher_env.sh
       flat-manager-client purge "$(cat publish_build.txt)"
 
