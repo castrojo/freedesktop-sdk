@@ -1,30 +1,38 @@
-kind: autotools
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 - components/expat.bst
 - components/systemd-libs.bst
 - components/python3.bst
 - components/systemd.bst
 - components/libapparmor.bst
+- components/doxygen.bst
+- components/docbook-xsl.bst
+- components/xmlto.bst
 
 variables:
-  conf-local: >-
-    runstatedir=/run
-    --with-system-socket=/run/dbus/system_bus_socket
-    --enable-user-session
-    --disable-libaudit
+  meson-local: >-
+    -Dlibaudit=disabled
+    -Dsystem_socket="/run/dbus/system_bus_socket"
+    -Duser_session=true
+    -Dducktype_docs=disabled
+    -Dqt_help=disabled
+    -Dmodular_tests=disabled
+    -Drelocation=disabled
+    -Dselinux=disabled
+    -Dkqueue=disabled
+    -Dlaunchd=disabled
+    -Dx11_autolaunch=disabled
+    -Dtraditional_activation=false
+    -Ddoxygen_docs=enabled
+    -Dxml_docs=enabled
 
 config:
   install-commands:
     (>):
     - |
       rm -rf %{install-root}%{localstatedir}/run
-
-# TODO: replace with --disable-traditional-activation
-# https://gitlab.freedesktop.org/dbus/dbus/commit/94b5b236aa0743bacb2139c62d5a6e0143845634
-    - |
-      rm %{install-root}%{libexecdir}/dbus-daemon-launch-helper
 
 public:
   bst:
@@ -56,4 +64,4 @@ sources:
 - kind: git_repo
   url: freedesktop:dbus/dbus.git
   track: dbus-[0-9].*[02468].*[02468]
-  ref: dbus-1.14.10-0-gfa05c11a0047f2927e76d08f9fcf6638ded7ff50
+  ref: dbus-1.16.0-0-g69e79b896a48ede68fb67b34719656a231c0647b
