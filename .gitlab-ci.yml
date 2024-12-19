@@ -308,12 +308,14 @@ app_aarch64:
     - .builder-aarch64
   needs: []
 
-.app_riscv64:
+app_riscv64:
   extends:
     - .flatpak_template
     - .builder-riscv64
   allow_failure: true
-  when: manual
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
+    - when: manual
   needs: []
 
 app_ppc64le:
