@@ -40,6 +40,10 @@ public:
   bst:
     overlap-whitelist:
     - "%{openssl_conf}"
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libpkcs11.so'
 
 sources:
 - kind: git_repo
