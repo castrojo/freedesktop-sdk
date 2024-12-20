@@ -55,5 +55,5 @@ public:
 sources:
 - kind: git_repo
   url: freedesktop:dbus/dbus.git
-  track: dbus-[0-9].*[02468].*[02468]
+  track: dbus-1.14.*
   ref: dbus-1.14.10-0-gfa05c11a0047f2927e76d08f9fcf6638ded7ff50
