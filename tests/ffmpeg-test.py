@@ -19,7 +19,7 @@ def get_stdout(command):
 
 def get_codecs():
     output = get_stdout([ffprobe, "-hide_banner", "-codecs"])
-    codecs = {l.group(2): (l.group(1), l.group(3)) for l in CODECS_REG.finditer(output)}
+    codecs = {codec.group(2): (codec.group(1), codec.group(3)) for codec in CODECS_REG.finditer(output)}
     decoders_only = set()
     encoders_only = set()
     decoders_and_encoders = set()
