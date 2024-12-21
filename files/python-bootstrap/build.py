@@ -19,8 +19,6 @@ if __name__ == "__main__":
         backend_path = config["build-system"].get("backend-path")
         if backend_path:
             sys.path.extend(backend_path)
-        module = importlib.import_module(
-            config["build-system"]["build-backend"]
-        )
+        module = importlib.import_module(config["build-system"]["build-backend"])
         os.makedirs(arguments.outdir)
         module.build_wheel(arguments.outdir)

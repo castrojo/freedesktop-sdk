@@ -36,8 +36,8 @@ class GlobalConfig:
 
 def main():
     data = yaml.load(sys.stdin, Loader=yaml.CLoader)
-    compression = data.get('gzip', Compression.gzip)
-    compression_level = data.get('compression-level')
+    compression = data.get("gzip", Compression.gzip)
+    compression_level = data.get("compression-level")
     if compression_level is None:
         if compression == Compression.gzip:
             compression_level = 5
@@ -45,4 +45,4 @@ def main():
         raise RuntimeError("Compression must be in " + ",".join(Compression))
 
     global_conf = GlobalConfig(compression, compression_level, os.getcwd())
-    build_images(global_conf, data.get('images', []), data.get('annotations'))
+    build_images(global_conf, data.get("images", []), data.get("annotations"))

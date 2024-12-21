@@ -26,68 +26,65 @@ import signal
 import subprocess
 
 
-QEMU = 'qemu-system-x86_64'
-QEMU_EXTRA_ARGS = ['-m', '256']
+QEMU = "qemu-system-x86_64"
+QEMU_EXTRA_ARGS = ["-m", "256"]
 
 FAILURE_TIMEOUT = 300  # seconds
 BUFFER_SIZE = 80  # how many characters to read at once
 
 DIALOGS = {
-    'minimal':
-    [
-        "Started '/init' script from initramfs.",
-        '\nuname -a',
-        "Linux"
+    "minimal": ["Started '/init' script from initramfs.", "\nuname -a", "Linux"],
+    "systemd-firstboot": [
+        "-- Press any key to proceed --",
+        "",
+        "Please enter system locale name or number",
+        "1",
+        "Please enter system message locale name or number",
+        "",
+        "Please enter timezone name or number",
+        "1",
+        "Please enter a new root password",
+        "root",
+        "Please enter new root password again",
+        "root",
+        "localhost login",
+        "root",
+        "Password",
+        "root",
+        "#",
+        "uname -a",
+        "Linux",
+        "systemctl poweroff",
+        "Power down",
     ],
-    'systemd-firstboot':
-    [
-        '-- Press any key to proceed --',
-        '',
-        'Please enter system locale name or number',
-        '1',
-        'Please enter system message locale name or number',
-        '',
-        'Please enter timezone name or number',
-        '1',
-        'Please enter a new root password',
-        'root',
-        'Please enter new root password again',
-        'root',
-        'localhost login',
-        'root',
-        'Password',
-        'root',
-        '#',
-        'uname -a',
-        'Linux',
-        'systemctl poweroff',
-        'Power down'
+    "root-login": [
+        "localhost login:",
+        "root",
+        "Password:",
+        "root",
+        "#",
+        "uname -a",
+        "#",
+        "systemctl poweroff",
+        "Power down",
     ],
-    'root-login':
-    [
-        'localhost login:',
-        'root',
-        'Password:',
-        'root',
-        '#',
-        'uname -a',
-        '#',
-        'systemctl poweroff',
-        'Power down'
-    ]
 }
 
 
 def build_qemu_image_command(args):
     kvm_args = []
     try:
-        out = subprocess.check_output([QEMU, '-accel', 'help'], encoding='ascii')
-        if 'kvm' in out.splitlines():
-            kvm_args = ['-enable-kvm']
+        out = subprocess.check_output([QEMU, "-accel", "help"], encoding="ascii")
+        if "kvm" in out.splitlines():
+            kvm_args = ["-enable-kvm"]
     except subprocess.CalledProcessError:
-        sys.stderr.write('Cannot query qemu for accelerator. Not using it.\n')
+        sys.stderr.write("Cannot query qemu for accelerator. Not using it.\n")
 
-    return [QEMU, '-drive', f'file={args.sda},format=raw', '-nographic'] + QEMU_EXTRA_ARGS + kvm_args
+    return (
+        [QEMU, "-drive", f"file={args.sda},format=raw", "-nographic"]
+        + QEMU_EXTRA_ARGS
+        + kvm_args
+    )
 
 
 def build_command(args):
@@ -96,16 +93,21 @@ def build_command(args):
 
 def argument_parser():
     parser = argparse.ArgumentParser(
-        description="Test that a minimal-system VM image works as expected")
-    parser.add_argument('--dialog', dest='dialog', default='root-login',
-                        help=f'dialog to follow (valid values {DIALOGS.keys()}, default: root-login)')
+        description="Test that a minimal-system VM image works as expected"
+    )
+    parser.add_argument(
+        "--dialog",
+        dest="dialog",
+        default="root-login",
+        help=f"dialog to follow (valid values {DIALOGS.keys()}, default: root-login)",
+    )
 
     subparsers = parser.add_subparsers()
-    image_parser = subparsers.add_parser('image')
+    image_parser = subparsers.add_parser("image")
     image_parser.set_defaults(get_command=build_qemu_image_command)
     image_parser.add_argument("sda", help="Path to disk image file")
 
-    command_parser = subparsers.add_parser('command')
+    command_parser = subparsers.add_parser("command")
     command_parser.set_defaults(get_command=build_command)
     command_parser.add_argument("command", help="Command to run")
 
@@ -121,7 +123,7 @@ async def await_line(stream, marker):
         chunk = await asyncio.wait_for(stream.read(BUFFER_SIZE), FAILURE_TIMEOUT)
         sys.stdout.buffer.write(chunk)
         buf += chunk
-        lines = buf.split(b'\n')
+        lines = buf.split(b"\n")
         for line in lines:
             if marker in line:
                 try:
@@ -139,15 +141,18 @@ async def run_test(command, dialog):
     try:
         logging.debug("Starting process: {}", command)
         process = await asyncio.create_subprocess_exec(
-            *command, stdin=asyncio.subprocess.PIPE, stdout=asyncio.subprocess.PIPE,
-            start_new_session=True)
+            *command,
+            stdin=asyncio.subprocess.PIPE,
+            stdout=asyncio.subprocess.PIPE,
+            start_new_session=True,
+        )
 
         while dialog:
             prompt = await await_line(process.stdout, dialog.pop(0))
 
             assert prompt is not None
             if dialog:
-                process.stdin.write(dialog.pop(0).encode('ascii') + b'\n')
+                process.stdin.write(dialog.pop(0).encode("ascii") + b"\n")
 
         print("Test successful")
         success = True
@@ -173,10 +178,7 @@ def main():
     try:
         result = asyncio.run(task)
     except asyncio.TimeoutError:
-        print(
-            "VM was considered inresponsive and test was aborted",
-            file=sys.stderr
-        )
+        print("VM was considered inresponsive and test was aborted", file=sys.stderr)
         return 1
 
     if result:

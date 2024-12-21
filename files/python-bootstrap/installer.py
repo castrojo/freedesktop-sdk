@@ -9,8 +9,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--destdir", required=True)
 parser.add_argument("wheels", nargs="+")
 
-if __name__  == "__main__":
-    site_packages = sysconfig.get_path('purelib').lstrip("/")
+if __name__ == "__main__":
+    site_packages = sysconfig.get_path("purelib").lstrip("/")
     arguments = parser.parse_args()
     full_path = os.path.join(arguments.destdir, site_packages)
     for wheel in arguments.wheels:

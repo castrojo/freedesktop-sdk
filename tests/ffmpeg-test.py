@@ -19,7 +19,10 @@ def get_stdout(command):
 
 def get_codecs():
     output = get_stdout([ffprobe, "-hide_banner", "-codecs"])
-    codecs = {codec.group(2): (codec.group(1), codec.group(3)) for codec in CODECS_REG.finditer(output)}
+    codecs = {
+        codec.group(2): (codec.group(1), codec.group(3))
+        for codec in CODECS_REG.finditer(output)
+    }
     decoders_only = set()
     encoders_only = set()
     decoders_and_encoders = set()
@@ -219,7 +222,6 @@ assert vp9_encoders == exp_vp9_encoder, vp9_encoders
 # Only platform ffmpeg
 
 if not os.path.exists("/app/lib/ffmpeg"):
-
     print("Performing platform ffmpeg checks...")
 
     assert all(x not in dec_and_enc for x in ["hevc", "vvc", "vc1"]), dec_and_enc
@@ -237,7 +239,6 @@ if not os.path.exists("/app/lib/ffmpeg"):
 # Only ffmpeg-full extension
 
 if os.path.exists("/app/lib/ffmpeg"):
-
     print("Performing ffmpeg-full checks...")
 
     assert "hevc" in dec_and_enc, dec_and_enc

@@ -39,41 +39,40 @@ class Blob:
 
     @contextmanager
     def create(self):
-        with tempfile.NamedTemporaryFile(mode='w+b',
-                                         dir=self.global_conf.output,
-                                         delete=False) as file:
+        with tempfile.NamedTemporaryFile(
+            mode="w+b", dir=self.global_conf.output, delete=False
+        ) as file:
             filename = file.name
             try:
                 if self.text:
-                    yield codecs.getwriter('utf-8')(file)
+                    yield codecs.getwriter("utf-8")(file)
                 else:
                     yield file
                 self.descriptor = {}
                 if self.media_type:
-                    self.descriptor['mediaType'] = self.media_type
+                    self.descriptor["mediaType"] = self.media_type
                 file.seek(0, 2)
-                self.descriptor['size'] = file.tell()
+                self.descriptor["size"] = file.tell()
                 file.seek(0)
                 file_hash = hashlib.sha256()
                 while True:
-                    data = file.read(16*1204)
+                    data = file.read(16 * 1204)
                     if len(data) == 0:
                         break
                     file_hash.update(data)
                 hexdigest = file_hash.hexdigest()
-                self.descriptor['digest'] = f'sha256:{hexdigest}'
-                os.makedirs(os.path.join(self.global_conf.output,
-                                         'blobs',
-                                         'sha256'),
-                            exist_ok=True)
-                self.filename = os.path.join(self.global_conf.output,
-                                             'blobs',
-                                             'sha256',
-                                             file_hash.hexdigest())
+                self.descriptor["digest"] = f"sha256:{hexdigest}"
+                os.makedirs(
+                    os.path.join(self.global_conf.output, "blobs", "sha256"),
+                    exist_ok=True,
+                )
+                self.filename = os.path.join(
+                    self.global_conf.output, "blobs", "sha256", file_hash.hexdigest()
+                )
                 os.rename(filename, self.filename)
             except:
                 try:
                     os.unlink(filename)
-                except: # noqa: E722
+                except:  # noqa: E722
                     pass
                 raise
