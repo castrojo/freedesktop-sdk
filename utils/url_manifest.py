@@ -48,6 +48,7 @@ import sys
 from buildstream._frontend.app import App
 from buildstream.types import _PipelineSelection
 
+
 def get_source_locations(sources):
     """
     Returns a list of source URLs and refs, currently for
@@ -60,35 +61,44 @@ def get_source_locations(sources):
     source_locations = []
     for source in sources:
         source_kind = source.get_kind()
-        if source_kind == 'cargo':
+        if source_kind == "cargo":
             raw_cargo_url = source.url
-            cargo_alias = raw_cargo_url.split(':', 1)[0]
+            cargo_alias = raw_cargo_url.split(":", 1)[0]
             base_cargo_url = source.translate_url(source.url)
             for crate in source.ref:
                 name = crate["name"]
                 version = crate["version"]
-                rest_of_url = f'/{name}/{name}-{version}.crate'
-                source_locations.append({
-                    'kind': 'cargo',
-                    'alias': cargo_alias,
-                    'raw_url': raw_cargo_url + rest_of_url,
-                    'source_url': base_cargo_url + rest_of_url,
-                })
-        #skip over sources that don't have source URLs, like patch sources
-        if source_kind in ['git', 'git_repo', 'git_module', 'ostree', 'tar', 'zip', 'remote', 'pypi']:
-            if source_kind == 'git_repo':
+                rest_of_url = f"/{name}/{name}-{version}.crate"
+                source_locations.append(
+                    {
+                        "kind": "cargo",
+                        "alias": cargo_alias,
+                        "raw_url": raw_cargo_url + rest_of_url,
+                        "source_url": base_cargo_url + rest_of_url,
+                    }
+                )
+        # skip over sources that don't have source URLs, like patch sources
+        if source_kind in [
+            "git",
+            "git_repo",
+            "git_module",
+            "ostree",
+            "tar",
+            "zip",
+            "remote",
+            "pypi",
+        ]:
+            if source_kind == "git_repo":
                 source_url = source.translate_url(
-                    source.url,
-                    alias_override=None,
-                    primary=source.mirror.primary
+                    source.url, alias_override=None, primary=source.mirror.primary
                 )
                 raw_url = source.url
 
-            elif source_kind in ['git', 'git_module']:
+            elif source_kind in ["git", "git_module"]:
                 source_url = source.translate_url(
                     source.original_url,
                     alias_override=None,
-                    primary=source.mirror.primary
+                    primary=source.mirror.primary,
                 )
                 raw_url = source.original_url
 
@@ -103,49 +113,59 @@ def get_source_locations(sources):
                 # the system must have recognised an alias, therefore...
                 # ...everything before the first colon is the alias
                 # This would be easier if source._get_alias() wasn't a protected part of the class
-                alias = raw_url.split(':', 1)[0]
-
+                alias = raw_url.split(":", 1)[0]
 
             source_dict = {
-                'kind': source_kind,
-                'alias' : alias,
-                'raw_url' : raw_url,
-                'source_url' : source_url,
+                "kind": source_kind,
+                "alias": alias,
+                "raw_url": raw_url,
+                "source_url": source_url,
             }
-            if source_kind == 'ostree':
-                source_dict['ref'] = source.ref
-            if source_kind in ['git', 'git_repo', 'git_module']:
-                source_dict['ref'] = source.mirror.ref
-                m = re.match(r'(?P<tag>.*)-[0-9]+-g(?P<ref>.*)', source.mirror.ref)
+            if source_kind == "ostree":
+                source_dict["ref"] = source.ref
+            if source_kind in ["git", "git_repo", "git_module"]:
+                source_dict["ref"] = source.mirror.ref
+                m = re.match(r"(?P<tag>.*)-[0-9]+-g(?P<ref>.*)", source.mirror.ref)
                 if m:
-                    source_dict['tag'] = m.group('tag')
+                    source_dict["tag"] = m.group("tag")
                 else:
-                    source_dict['tag'] = None
+                    source_dict["tag"] = None
             source_locations.append(source_dict)
 
     return source_locations
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     manifest_file = sys.argv[1]
     elements = sys.argv[2:]
 
     manifest = []
     visited_names_list = set()
 
-    app = App.create({'no_interactive': True, 'colors': True, 'directory': '', 'config': '', 'log_file': '', 'option':''})
+    app = App.create(
+        {
+            "no_interactive": True,
+            "colors": True,
+            "directory": "",
+            "config": "",
+            "log_file": "",
+            "option": "",
+        }
+    )
 
     with app.initialized():
-        for dep in app.stream.load_selection(elements, selection=_PipelineSelection.ALL):
+        for dep in app.stream.load_selection(
+            elements, selection=_PipelineSelection.ALL
+        ):
             if dep.name in visited_names_list:
                 continue
             visited_names_list.add(dep.name)
 
             sources = get_source_locations(dep.sources())
             if sources:
-                manifest.append({'element': dep.name, 'sources': sources})
+                manifest.append({"element": dep.name, "sources": sources})
 
     os.makedirs(os.path.dirname(manifest_file), exist_ok=True)
 
-    with open(sys.argv[1], 'w', encoding="utf-8") as f:
+    with open(sys.argv[1], "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)

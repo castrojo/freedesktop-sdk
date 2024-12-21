@@ -26,7 +26,20 @@ for root, dirs, files in os.walk(args.sysroot):
                 continue
 
         with tempfile.NamedTemporaryFile() as tmp:
-            subprocess.run(["objcopy", "-O", "binary", "--set-section-flags", ".gnu_debuglink=alloc", "-j", ".gnu_debuglink", obj, tmp.name], check=True)
+            subprocess.run(
+                [
+                    "objcopy",
+                    "-O",
+                    "binary",
+                    "--set-section-flags",
+                    ".gnu_debuglink=alloc",
+                    "-j",
+                    ".gnu_debuglink",
+                    obj,
+                    tmp.name,
+                ],
+                check=True,
+            )
             data = tmp.read()
 
         if len(data) == 0:
@@ -36,11 +49,13 @@ for root, dirs, files in os.walk(args.sysroot):
 
         name, crc = data.split(b"\0", 1)
 
-        crc = crc[len(crc)-4:]
+        crc = crc[len(crc) - 4 :]
         crc = int.from_bytes(crc, byteorder=sys.byteorder, signed=False)
         name = name.decode("utf-8")
 
-        debugpath = os.path.join("/usr/lib/debug", os.path.relpath(os.path.dirname(obj), args.sysroot), name)
+        debugpath = os.path.join(
+            "/usr/lib/debug", os.path.relpath(os.path.dirname(obj), args.sysroot), name
+        )
         full_debugpath = os.path.join(args.sysroot, os.path.relpath(debugpath, "/"))
 
         if not os.path.exists(full_debugpath):
