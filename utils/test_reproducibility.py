@@ -12,7 +12,7 @@ from yattag import Doc, indent
 
 
 class ElementInfo:
-    """ Represents a line of parsed information from bst show """
+    """Represents a line of parsed information from bst show"""
 
     def __init__(self, name, ref=None, status=None):
         self.name = name  # the element.bst
@@ -21,7 +21,7 @@ class ElementInfo:
 
 
 class BuildstreamConfiguration:
-    """ Represents the user specified configuration for buildstream """
+    """Represents the user specified configuration for buildstream"""
 
     def __init__(self):
         bst_binary_call = os.environ.get("BST", "bst")
@@ -32,13 +32,12 @@ class BuildstreamConfiguration:
         ]
 
 
-
 def bst_build(
-        bst_config: BuildstreamConfiguration,
-        element_info: ElementInfo,
-        disallow_artifact_pull: bool,
-        dependency_kind: str,
-        max_jobs: Optional[int]=None
+    bst_config: BuildstreamConfiguration,
+    element_info: ElementInfo,
+    disallow_artifact_pull: bool,
+    dependency_kind: str,
+    max_jobs: Optional[int] = None,
 ):
     """Builds a single element without network connection
     to make sure we are not downloading from a artifacts server."""
@@ -49,17 +48,16 @@ def bst_build(
     bst_call.extend(["--deps", dependency_kind])
 
     if disallow_artifact_pull:
-        bst_call.extend([
-            "--ignore-project-artifact-remotes",
-        ])
+        bst_call.extend(
+            [
+                "--ignore-project-artifact-remotes",
+            ]
+        )
     print("BST BUILD RUNNING:", bst_call, file=sys.stderr)
     subprocess.run(bst_call, check=True)
 
 
-def bst_fetch_all(
-        bst_config: BuildstreamConfiguration,
-        element_info: ElementInfo
-):
+def bst_fetch_all(bst_config: BuildstreamConfiguration, element_info: ElementInfo):
     bst_call = bst_config.bst_call.copy()
     bst_call.extend(["source", "fetch", element_info.name])
     bst_call.extend(["--deps", "all"])
@@ -69,11 +67,11 @@ def bst_fetch_all(
 
 
 def bst_remove_artifact_cache(
-        bst_config: BuildstreamConfiguration,
-        element_info: ElementInfo,
-        dependency_kind: str
+    bst_config: BuildstreamConfiguration,
+    element_info: ElementInfo,
+    dependency_kind: str,
 ) -> bool:
-    """ Remove a build artifact from the local cache """
+    """Remove a build artifact from the local cache"""
     bst_call = bst_config.bst_call.copy()
     bst_call.extend(["artifact", "delete"])
     bst_call.append(element_info.name)
@@ -82,7 +80,7 @@ def bst_remove_artifact_cache(
 
 
 def bst_checkout_files_to(
-        bst_config: BuildstreamConfiguration, element_name, output_folder: str
+    bst_config: BuildstreamConfiguration, element_name, output_folder: str
 ) -> None:
     """Move a build artifact to a specific folder.
     The element should have been build already"""
@@ -107,7 +105,7 @@ def bst_checkout_files_to(
 
 
 def bst_show_extract_result(output) -> List[ElementInfo]:
-    """ Parses the output of the bst show command and returns the matches, if exists. """
+    """Parses the output of the bst show command and returns the matches, if exists."""
     result = []
     for line in output.decode("utf-8").splitlines():
         if len(line) == 0:
@@ -154,9 +152,9 @@ def bst_show(
 
 
 def is_reproducible(
-        element_name: str, folder: str, subfolder_a: str, subfolder_b: str, output_dir: str
+    element_name: str, folder: str, subfolder_a: str, subfolder_b: str, output_dir: str
 ):
-    """ runs diffoscope on two different folders and saves the result """
+    """runs diffoscope on two different folders and saves the result"""
 
     tool = "diffoscope"
     folder_a = os.path.join(folder, subfolder_a)
@@ -184,7 +182,7 @@ def is_reproducible(
 
 
 def restore_initial_state(
-        bst_config: BuildstreamConfiguration, element_info: ElementInfo
+    bst_config: BuildstreamConfiguration, element_info: ElementInfo
 ):
     """
     We want to build as many elements against remote cached artifacts as possible
@@ -192,7 +190,9 @@ def restore_initial_state(
     if necessary. We will also fetch sources for everything so that does not have
     to be done later.
     """
-    bst_remove_artifact_cache(bst_config=bst_config, element_info=element_info, dependency_kind="all")
+    bst_remove_artifact_cache(
+        bst_config=bst_config, element_info=element_info, dependency_kind="all"
+    )
 
     bst_fetch_all(bst_config=bst_config, element_info=element_info)
 
@@ -208,9 +208,9 @@ def is_single_project_reproducible(
     bst_config: BuildstreamConfiguration,
     element_info: ElementInfo,
     description: str,
-    output_dir: str
+    output_dir: str,
 ) -> bool:
-    """ verify if a single element is reproducible """
+    """verify if a single element is reproducible"""
 
     with tempfile.TemporaryDirectory(dir=".") as folder:
         # Checkout all files from the original build and store in a folder.
@@ -233,7 +233,7 @@ def is_single_project_reproducible(
             element_info=element_info,
             disallow_artifact_pull=True,
             dependency_kind="none",
-            max_jobs=min(multiprocessing.cpu_count(), 20)
+            max_jobs=min(multiprocessing.cpu_count(), 20),
         )
         bst_checkout_files_to(
             bst_config=bst_config,
@@ -254,7 +254,7 @@ def is_single_project_reproducible(
 
 
 def bst_check_reproducibility_v2(
-        bst_config: BuildstreamConfiguration, element_name: str, output_dir: str
+    bst_config: BuildstreamConfiguration, element_name: str, output_dir: str
 ) -> List[str]:
     """First checks if all the dependencies of element are reproducible, then
     checks if element is reproducible"""
@@ -265,19 +265,16 @@ def bst_check_reproducibility_v2(
         bst_config=bst_config, element_infos=[element_info], dependency_kind="all"
     )
 
-    results = {
-        "non_reproducible": [],
-        "reproducible" : []
-    }
+    results = {"non_reproducible": [], "reproducible": []}
 
     # Try to build all dependencies.
     for i, element_info in enumerate(reversed(deps)):
         description = f"{i}/{len(deps)}  {element_info.name}"
         if not is_single_project_reproducible(
-                bst_config=bst_config,
-                element_info=element_info,
-                description=description,
-                output_dir=output_dir,
+            bst_config=bst_config,
+            element_info=element_info,
+            description=description,
+            output_dir=output_dir,
         ):
             results["non_reproducible"].append(element_info.name)
         else:
@@ -334,7 +331,7 @@ def write_html_report(results, output_dir: str, output_filename: str) -> None:
 
 
 def handle_results(results, output_dir: str) -> bool:
-    """ Get the list of results, writes the resulting file, and prints useful information to the user """
+    """Get the list of results, writes the resulting file, and prints useful information to the user"""
 
     # Write the report first
     write_html_report(results, output_dir, "reproducibility_results.html")
@@ -348,13 +345,15 @@ def handle_results(results, output_dir: str) -> bool:
 
     print("Project is not reproducible, please check the results", file=sys.stderr)
     print("in reproducibility_results.txt and for a more detailed", file=sys.stderr)
-    print(f"output, see the folder {output_dir} specified in the command", file=sys.stderr)
+    print(
+        f"output, see the folder {output_dir} specified in the command", file=sys.stderr
+    )
 
     return False
 
 
 def main():
-    """ start of the application """
+    """start of the application"""
 
     print("Checking reproducibility", file=sys.stderr)
     parser = argparse.ArgumentParser(

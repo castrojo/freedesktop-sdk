@@ -16,23 +16,23 @@ import os
 import re
 from buildstream import Element
 
-class ExtractInitialScriptsElement(Element):
 
+class ExtractInitialScriptsElement(Element):
     BST_MIN_VERSION = "2.0"
     BST_FORBID_RDEPENDS = True
     BST_FORBID_SOURCES = True
 
     def configure(self, node):
-        node.validate_keys(['path'])
+        node.validate_keys(["path"])
 
-        self.path = node.get_str('path')
+        self.path = node.get_str("path")
 
     def preflight(self):
         pass
 
     def get_unique_key(self):
         key = {
-            'path': self.path,
+            "path": self.path,
         }
         return key
 
@@ -48,19 +48,20 @@ class ExtractInitialScriptsElement(Element):
 
         index = 0
         for dependency in self.dependencies():
-            public = dependency.get_public_data('initial-script')
-            if public and 'script' in public:
-                script = self.node_subst_vars(public.get_scalar('script'))
+            public = dependency.get_public_data("initial-script")
+            if public and "script" in public:
+                script = self.node_subst_vars(public.get_scalar("script"))
                 index += 1
-                depname = re.sub('[^A-Za-z0-9]', '_', dependency.name)
-                basename = f'{index:03}-{depname}'
+                depname = re.sub("[^A-Za-z0-9]", "_", dependency.name)
+                basename = f"{index:03}-{depname}"
 
                 pathdir = basedir.open_directory(relative_path, create=True)
-                with pathdir.open_file(basename, mode='w') as f:
+                with pathdir.open_file(basename, mode="w") as f:
                     f.write(script)
                     os.chmod(f.fileno(), 0o755)
 
         return os.sep
+
 
 def setup():
     return ExtractInitialScriptsElement

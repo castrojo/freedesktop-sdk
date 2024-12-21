@@ -51,15 +51,15 @@ def analyze_lowers(lowers):
     for lower in lowers:
         for lower_member in lower.getmembers():
             dirname, basename = os.path.split(lower_member.name)
-            if basename == '.wh..wh..opq':
-                prefix = dirname + '/'
+            if basename == ".wh..wh..opq":
+                prefix = dirname + "/"
                 to_delete = []
                 for k in lower_files:
                     if k.startswith(prefix):
                         to_delete.append(k)
                 for k in to_delete:
                     del lower_files[k]
-            elif basename.startswith('.wh.'):
+            elif basename.startswith(".wh."):
                 del lower_files[os.path.join(dirname, basename[4:])]
             else:
                 lower_files[lower_member.name] = lower
@@ -88,7 +88,7 @@ def dummy_tarinfo(name, original):
 def create_layer(output, upper, lowers):
     lower_files, lower_dir_contents = analyze_lowers(lowers)
 
-    epoch = os.environ.get('SOURCE_DATE_EPOCH')
+    epoch = os.environ.get("SOURCE_DATE_EPOCH")
 
     stack = [upper]
     while stack:
@@ -118,7 +118,7 @@ def create_layer(output, upper, lowers):
                 full_path = os.path.join(root_rel, old_file)
                 old_tar = lower_files[full_path]
                 old_info = old_tar.getmember(full_path)
-                new_name = os.path.join(root_rel, f'.wh.{old_file}')
+                new_name = os.path.join(root_rel, f".wh.{old_file}")
                 wh_tinfo = dummy_tarinfo(new_name, old_info)
                 output.addfile(wh_tinfo)
 
@@ -142,7 +142,7 @@ def create_layer(output, upper, lowers):
                 lower_found = tar_file.getmember(rel)
                 same_info = True
 
-                for attr in 'type', 'uid', 'gid', 'mode', 'mtime', 'size':
+                for attr in "type", "uid", "gid", "mode", "mtime", "size":
                     if getattr(tinfo, attr) != getattr(lower_found, attr):
                         same_info = False
                         break
@@ -151,11 +151,14 @@ def create_layer(output, upper, lowers):
                     if tinfo.type == tarfile.REGTYPE:
                         other_checksum = lower_found.pax_headers.get(PAX_HEADER_SHA256)
                         if not other_checksum:
-                            other_checksum = file_sha256(tar_file.extractfile(other_checksum))
+                            other_checksum = file_sha256(
+                                tar_file.extractfile(other_checksum)
+                            )
                         if checksum == other_checksum:
                             # We already added file to inode cache so we clean it up
                             output.inodes = {
-                                inode: arcname for inode, arcname in output.inodes.items()
+                                inode: arcname
+                                for inode, arcname in output.inodes.items()
                                 if arcname != tinfo.name
                             }
                             continue
@@ -166,12 +169,10 @@ def create_layer(output, upper, lowers):
                         if tinfo.linkname == os.readlink(path):
                             continue
                     else:
-                        raise RuntimeError(
-                            f"{path} unexpected type {tinfo.type}"
-                        )
+                        raise RuntimeError(f"{path} unexpected type {tinfo.type}")
 
             if tinfo.type == tarfile.REGTYPE:
-                with open(path, 'rb') as file_stream:
+                with open(path, "rb") as file_stream:
                     output.addfile(tinfo, file_stream)
             else:
                 output.addfile(tinfo)

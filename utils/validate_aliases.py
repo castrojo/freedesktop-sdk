@@ -6,11 +6,11 @@ from ruamel.yaml import YAML
 
 parser = argparse.ArgumentParser()
 
-EXCEPTIONS = {'freedesktop-sdk-project', 'pcre', 'freedesktop-sdk', 'fdsdk_registry'}
+EXCEPTIONS = {"freedesktop-sdk-project", "pcre", "freedesktop-sdk", "fdsdk_registry"}
 
 
 def yaml_argument(filename):
-    yaml = YAML(typ='safe')
+    yaml = YAML(typ="safe")
     with open(filename, encoding="utf-8") as file:
         return yaml.load(file)
 
@@ -31,6 +31,6 @@ def validate(aliases, mirrors):
     assert not missing, f"{missing} need mirror configured"
 
 
-if __name__ ==  "__main__":
+if __name__ == "__main__":
     parsed = parser.parse_args()
     validate(parsed.aliases, parsed.mirrors)

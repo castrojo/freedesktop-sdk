@@ -11,26 +11,29 @@ import subprocess
 
 has_error = False
 
-child_process = subprocess.run(["snap-review", "--json", sys.argv[1]],
-                               text=True, capture_output=True)
+child_process = subprocess.run(
+    ["snap-review", "--json", sys.argv[1]], text=True, capture_output=True
+)
 
 if child_process.returncode == 1:
-    sys.stderr.write(f'review-tools.snap-review crashed ({child_process.returncode})\n')
+    sys.stderr.write(f"review-tools.snap-review crashed ({child_process.returncode})\n")
     sys.stderr.write(child_process.stdout)
     sys.exit(1)
 elif child_process.returncode == 0:
-    sys.stderr.write(f'No error found ({child_process.returncode})\n')
+    sys.stderr.write(f"No error found ({child_process.returncode})\n")
 elif child_process.returncode in [2, 3]:
-    sys.stderr.write(f'Some issues found. Processing... ({child_process.returncode})\n')
+    sys.stderr.write(f"Some issues found. Processing... ({child_process.returncode})\n")
 else:
-    sys.stderr.write(f'Unknown return code ({child_process.returncode})\n')
+    sys.stderr.write(f"Unknown return code ({child_process.returncode})\n")
     sys.exit(1)
 
 data = json.loads(child_process.stdout)
 for section, section_value in data.items():
     for error, error_value in section_value["error"].items():
         if error_value["manual_review"]:
-            sys.stderr.write(f'{section}:{error}: (MANUAL REVIEW) {error_value["text"]}\n')
+            sys.stderr.write(
+                f'{section}:{error}: (MANUAL REVIEW) {error_value["text"]}\n'
+            )
         else:
             sys.stderr.write(f'{section}:{error}: (ERROR) {error_value["text"]}\n')
             has_error = True
