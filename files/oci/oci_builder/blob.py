@@ -105,6 +105,6 @@ class Blob:
             except:
                 try:
                     os.unlink(filename)
-                except: # pylint: disable=bare-except
+                except: # noqa: E722
                     pass
                 raise
