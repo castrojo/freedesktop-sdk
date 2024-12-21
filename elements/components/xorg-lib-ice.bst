@@ -21,4 +21,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libice.git
   track: libICE-*
-  ref: libICE-1.1.1-0-gbe1888a46e446dfcaa62ac0a97d96bb77b6816d4
+  ref: libICE-1.1.2-0-gadf389fc19aedbf1be077b05365d164cd6f463d8
