@@ -36,3 +36,5 @@ sources:
   # Track unstable too for xdp-gnome/gnome-nightly
   track: '*.*.*'
   ref: 1.19.1-0-g7295d5c66ad427099ef28d442b48fdb20c5dbb30
+- kind: patch
+  path: patches/xdg-desktop-portal/disable-tests.patch
