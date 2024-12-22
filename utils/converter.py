@@ -12,8 +12,12 @@ def LS(s):
 
 
 def query_date(identifier):
-    process = subprocess.run(["git", "log", "-1", "--format=\"%at\"", identifier],
-                             capture_output=True, check=True, text=True)
+    process = subprocess.run(
+        ["git", "log", "-1", '--format="%at"', identifier],
+        capture_output=True,
+        check=True,
+        text=True,
+    )
     timestamp = process.stdout.strip('" \n')
     date = datetime.date.fromtimestamp(int(timestamp))
     return date.isoformat()
@@ -33,10 +37,7 @@ def generate_documents(news):
             block = {}
         if line.startswith("freedesktop-sdk") and line.endswith(":"):
             line = line.strip(" :")
-            block = {
-                "Version": line,
-                "Date": query_date(line)
-            }
+            block = {"Version": line, "Date": query_date(line)}
             description.append(f"Changes in {line}")
         elif block:
             description.append(line)
@@ -44,6 +45,7 @@ def generate_documents(news):
         if len(description) > 1:
             block["Description"] = LS("\n".join(description))
         yield block
+
 
 if __name__ == "__main__":
     with open(sys.argv[1], encoding="utf-8") as news:

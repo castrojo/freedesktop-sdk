@@ -6,15 +6,19 @@ import re
 import shutil
 import subprocess
 
+
 def get_name(elem):
-    return elem.attrib['{http://openoffice.org/2001/registry}name']
+    return elem.attrib["{http://openoffice.org/2001/registry}name"]
+
 
 def get_type(elem):
-    return elem.attrib['{http://openoffice.org/2001/registry}type']
+    return elem.attrib["{http://openoffice.org/2001/registry}type"]
+
 
 SPELL_DEST = "hunspell"
 HYPH_DEST = "hyphen"
 THES_DEST = "mythes"
+
 
 def parse_props(elem, origin):
     props = {}
@@ -35,6 +39,7 @@ def parse_props(elem, origin):
         props[prop_name] = res
     return props
 
+
 def handle_file(filename):
     tree = ET.parse(filename)
     root = tree.getroot()
@@ -45,17 +50,17 @@ def handle_file(filename):
         if not os.path.isdir(origin):
             origin = os.path.dirname(filename)
         props = parse_props(element, origin)
-        props_format = props['Format']
+        props_format = props["Format"]
         print(f"Installing {props_format}  dictionary {name}:")
-        if props_format == 'DICT_SPELL':
+        if props_format == "DICT_SPELL":
             dest = SPELL_DEST
             prefix = ""
             suffix = ""
-        elif props_format == 'DICT_HYPH':
+        elif props_format == "DICT_HYPH":
             dest = HYPH_DEST
             prefix = "hyph_"
             suffix = ""
-        elif props_format == 'DICT_THES':
+        elif props_format == "DICT_THES":
             dest = THES_DEST
             prefix = "th_"
             suffix = "_v2"
@@ -63,12 +68,16 @@ def handle_file(filename):
             print(f"Unknown format {props_format}")
             continue
 
-        install_root = os.environ.get('DESTDIR', '')
+        install_root = os.environ.get("DESTDIR", "")
         symlink_dest = "/usr/share/" + dest + "/"
         os.makedirs(install_root + symlink_dest, exist_ok=True)
 
-        for file in props['Locations']:
-            if props_format == 'DICT_THES' and file.endswith(".dat") and os.path.isfile(file):
+        for file in props["Locations"]:
+            if (
+                props_format == "DICT_THES"
+                and file.endswith(".dat")
+                and os.path.isfile(file)
+            ):
                 idxname = file.replace(".dat", ".idx")
                 if not os.path.isfile(idxname):
                     print(f" Generate {idxname} from {file}")
@@ -81,16 +90,16 @@ def handle_file(filename):
                             stdin=f_in,
                             stdout=f_out,
                         )
-                    if idxname not in props['Locations']:
-                        props['Locations'].append(idxname)
+                    if idxname not in props["Locations"]:
+                        props["Locations"].append(idxname)
 
-        for file in props['Locations']:
+        for file in props["Locations"]:
             if not os.path.isfile(file):
                 continue
             ext = os.path.splitext(file)[1]
             basename = os.path.basename(file)
-            for loc in props['Locales']:
-                lang = loc.split('-')[0]
+            for loc in props["Locales"]:
+                lang = loc.split("-")[0]
                 full_dest = "/usr/share/locale/" + lang + "/" + dest + "/"
                 if lang != "en":
                     os.makedirs(install_root + full_dest, exist_ok=True)
@@ -99,8 +108,12 @@ def handle_file(filename):
                     full_dest_file = symlink_dest + basename
                 print(f" copy {file} to {install_root + full_dest_file}")
                 shutil.copyfile(file, install_root + full_dest_file)
-                loc = re.sub("(?P<lang>.*)-(?P<country>[A-Z][A-Z])(?P<suffix>(?:-.*)?)", r"\g<lang>_\g<country>\g<suffix>", loc)
-                symlink = symlink_dest + prefix + loc+suffix+ext
+                loc = re.sub(
+                    "(?P<lang>.*)-(?P<country>[A-Z][A-Z])(?P<suffix>(?:-.*)?)",
+                    r"\g<lang>_\g<country>\g<suffix>",
+                    loc,
+                )
+                symlink = symlink_dest + prefix + loc + suffix + ext
                 if symlink != full_dest_file:
                     symlink_inst = install_root + symlink
                     relpath = os.path.relpath(full_dest_file, os.path.dirname(symlink))
@@ -112,7 +125,6 @@ def handle_file(filename):
                         if basename == f"{loc}{ext}":
                             os.unlink(symlink_inst)
                             os.symlink(relpath, symlink_inst)
-
 
 
 for i in sys.argv[1:]:

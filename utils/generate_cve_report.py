@@ -29,7 +29,7 @@ LOOKUP_TABLE = {}
 unversioned_git = {}
 unversioned_archive = {}
 
-with open(sys.argv[1], 'rb') as f:
+with open(sys.argv[1], "rb") as f:
     manifest = json.load(f)
     for module in manifest["modules"]:
         cpe = module["x-cpe"]
@@ -73,40 +73,52 @@ def extract_product_vulns_sub(node):
 
 
 def extract_product_vulns(tree):
-    for item in tree['CVE_Items']:
-        summary = item['cve']['description']['description_data'][0]['value'].replace('\n', ' ').strip()
-        scorev2 = item['impact'].get('baseMetricV2', {}).get('cvssV2', {}).get('baseScore')
-        scorev3 = item['impact'].get('baseMetricV3', {}).get('cvssV3', {}).get('baseScore')
+    for item in tree["CVE_Items"]:
+        summary = (
+            item["cve"]["description"]["description_data"][0]["value"]
+            .replace("\n", " ")
+            .strip()
+        )
+        scorev2 = (
+            item["impact"].get("baseMetricV2", {}).get("cvssV2", {}).get("baseScore")
+        )
+        scorev3 = (
+            item["impact"].get("baseMetricV3", {}).get("cvssV3", {}).get("baseScore")
+        )
 
-        cve_id = item['cve']['CVE_data_meta']['ID']
-        for node in item['configurations']["nodes"]:
+        cve_id = item["cve"]["CVE_data_meta"]["ID"]
+        for node in item["configurations"]["nodes"]:
             for cpe_match in extract_product_vulns_sub(node):
                 yield cve_id, summary, scorev2, scorev3, cpe_match
+
 
 api = os.environ.get("CI_API_V4_URL")
 project_id = os.environ.get("CI_PROJECT_ID")
 token = os.environ.get("GITLAB_TOKEN")
 
+
 def get_entries(entry_char, entry_type, cveid):
     resp = requests.get(
-        f'{api}/projects/{project_id}/{entry_type}?search={cveid}',
-        headers={'Authorization': f'Bearer {token}'},
-        timeout=30*60,
+        f"{api}/projects/{project_id}/{entry_type}?search={cveid}",
+        headers={"Authorization": f"Bearer {token}"},
+        timeout=30 * 60,
     )
     if resp.ok:
         for entry in resp.json():
-            iid = entry.get('iid')
-            yield f'{entry_char}{iid}', entry.get('web_url')
+            iid = entry.get("iid")
+            yield f"{entry_char}{iid}", entry.get("web_url")
     else:
         print(resp.status_code, resp.text)
+
 
 def get_issues_and_mrs(cveid):
     if not api or not project_id or not token:
         return
-    for entry_name, url in get_entries('!', 'merge_requests', cveid):
+    for entry_name, url in get_entries("!", "merge_requests", cveid):
         yield entry_name, url
-    for entry_name, url in get_entries('#', 'issues', cveid):
+    for entry_name, url in get_entries("#", "issues", cveid):
         yield entry_name, url
+
 
 def check_version_range(version, cpe_match):
     vulnerable = True
@@ -129,13 +141,14 @@ def check_version_range(version, cpe_match):
             vulnerable = False
     return vulnerable
 
+
 def extract_vulnerabilities(filename):
     print(f"Processing {filename}")
     with gzip.open(filename) as file:
         tree = json.load(file)
         for cve_id, summary, scorev2, scorev3, cpe_match in extract_product_vulns(tree):
             product_name = cpe_match["cpe23Uri"]
-            vendor, name, version = product_name.split(':')[3:6]
+            vendor, name, version = product_name.split(":")[3:6]
 
             module = LOOKUP_TABLE.get(vendor, {}).get(name)
             if not module:
@@ -155,26 +168,41 @@ def extract_vulnerabilities(filename):
                 try:
                     vulnerable = check_version_range(version, cpe_match)
                 except TypeError as exc:
-                    raise SystemExit(f"{module} comparison against"
-                                     f"{cpe_match} ({cve_id})") from exc
+                    raise SystemExit(
+                        f"{module} comparison against" f"{cpe_match} ({cve_id})"
+                    ) from exc
             else:
                 vulnerable = False
             if vulnerable:
                 print(product_name, cpe_match)
-            yield cve_id, module["name"], module["version"], summary, scorev2, scorev3, vulnerable
+            yield (
+                cve_id,
+                module["name"],
+                module["version"],
+                summary,
+                scorev2,
+                scorev3,
+                vulnerable,
+            )
+
 
 def check_unversioned_elements(filename, unversioned_git, unversioned_archive):
     with gzip.open(filename) as file:
         tree = json.load(file)
-        for cve_id, _ , _ , _ , cpe_match in extract_product_vulns(tree):
+        for cve_id, _, _, _, cpe_match in extract_product_vulns(tree):
             product_name = cpe_match["cpe23Uri"]
-            _ , name, _ = product_name.split(':')[3:6]
+            _, name, _ = product_name.split(":")[3:6]
             for element in unversioned_git:
                 if name == unversioned_git[element]["product"]:
-                    unversioned_git[element]["cve_ids"].add(f"<nobr>[{cve_id}](https://nvd.nist.gov/vuln/detail/{cve_id})</nobr>")
+                    unversioned_git[element]["cve_ids"].add(
+                        f"<nobr>[{cve_id}](https://nvd.nist.gov/vuln/detail/{cve_id})</nobr>"
+                    )
             for element in unversioned_archive:
                 if name == unversioned_archive[element]["product"]:
-                    unversioned_archive[element]["cve_ids"].add(f"<nobr>[{cve_id}(https://nvd.nist.gov/vuln/detail/{cve_id})</nobr>")
+                    unversioned_archive[element]["cve_ids"].add(
+                        f"<nobr>[{cve_id}(https://nvd.nist.gov/vuln/detail/{cve_id})</nobr>"
+                    )
+
 
 def maybe_score(item):
     try:
@@ -188,6 +216,7 @@ def by_score(entry):
     scorev3 = maybe_score(entry[5])
     return scorev3, scorev2
 
+
 def format_score(score):
     if score is None:
         return ""
@@ -197,7 +226,15 @@ def format_score(score):
 if __name__ == "__main__":
     vuln_map = {}
     for filename in sorted(glob.glob("nvdcve-1.1-*.json.gz")):
-        for cve_id, name, version, summary, scorev2, scorev3, vulnerable in extract_vulnerabilities(filename):
+        for (
+            cve_id,
+            name,
+            version,
+            summary,
+            scorev2,
+            scorev3,
+            vulnerable,
+        ) in extract_vulnerabilities(filename):
             if not vulnerable:
                 try:
                     del vuln_map[cve_id]
@@ -212,21 +249,28 @@ if __name__ == "__main__":
 
     entries.sort(key=by_score, reverse=True)
 
-    with open(sys.argv[2], 'w', encoding="utf-8") as out:
+    with open(sys.argv[2], "w", encoding="utf-8") as out:
         out.write("|Vulnerability|Element|Version|Summary|CVSS V3.x|CVSS V2.0|WIP|\n")
         out.write("|---|---|---|---|---|---|---|\n")
 
         for ID, name, version, summary, scorev2, scorev3 in entries:
-            issues_mrs = ", ".join(f"[{id}]({link})" for id, link in get_issues_and_mrs(ID)) or "None"
-            out.write(f"|[{ID}](https://nvd.nist.gov/vuln/detail/{ID})|{name}|{version}|{html.escape(summary)}|{format_score(scorev3)}|{format_score(scorev2)}|{issues_mrs}|\n")
+            issues_mrs = (
+                ", ".join(f"[{id}]({link})" for id, link in get_issues_and_mrs(ID))
+                or "None"
+            )
+            out.write(
+                f"|[{ID}](https://nvd.nist.gov/vuln/detail/{ID})|{name}|{version}|{html.escape(summary)}|{format_score(scorev3)}|{format_score(scorev2)}|{issues_mrs}|\n"
+            )
 
         out.write("\n\n\n")
-        out.write("|Unversioned Element|Source: Archive - URL|Reported Vulnerability|\n")
+        out.write(
+            "|Unversioned Element|Source: Archive - URL|Reported Vulnerability|\n"
+        )
         out.write("|---|---|---|\n")
         for element, info in unversioned_archive.items():
             cve_list = "None"
             if info["cve_ids"]:
-                cve_list = ',<br>'.join(info["cve_ids"])
+                cve_list = ",<br>".join(info["cve_ids"])
             out.write(f"|{element}|{info['source']}|{cve_list}\n")
         out.write("\n\n\n")
         out.write("|Unversioned Element|Source: Git|Commit|Reported Vulnerability|\n")
@@ -234,10 +278,12 @@ if __name__ == "__main__":
         for element, info in unversioned_git.items():
             cve_list = "None"
             if info["cve_ids"]:
-                cve_list = ',<br>'.join(info["cve_ids"])
+                cve_list = ",<br>".join(info["cve_ids"])
             out.write(f"|{element}|{info['url']}|{info['source']}|{cve_list}\n")
-        out.write('<!-- Markdeep: -->'
-                  '<style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>'
-                  '<script src="markdeep.min.js" charset="utf-8"></script>'
-                  '<script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js" charset="utf-8"></script>'
-                  '<script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>')
+        out.write(
+            "<!-- Markdeep: -->"
+            '<style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>'
+            '<script src="markdeep.min.js" charset="utf-8"></script>'
+            '<script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js" charset="utf-8"></script>'
+            '<script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>'
+        )

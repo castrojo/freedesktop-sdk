@@ -30,9 +30,13 @@ def main():
 
     # Generate the final strings to copy paste into the yaml
     # They are pre-formatted
-    print("  encoders: |-\n" + f"    {get_fedora_file(encoders)}" + ",%{extra-encoders}")
+    print(
+        "  encoders: |-\n" + f"    {get_fedora_file(encoders)}" + ",%{extra-encoders}"
+    )
     print("")
-    print("  decoders: |-\n" + f"    {get_fedora_file(decoders)}" + ",%{extra-decoders}")
+    print(
+        "  decoders: |-\n" + f"    {get_fedora_file(decoders)}" + ",%{extra-decoders}"
+    )
 
 
 main()

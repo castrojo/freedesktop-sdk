@@ -5,32 +5,30 @@ Usage:
 
 This will produce a manifest.md in the same directory as the manifest.json
 """
+
 import argparse
 import json
 
-parser = argparse.ArgumentParser(description='Process input file')
+parser = argparse.ArgumentParser(description="Process input file")
 
-parser.add_argument('json', type=argparse.FileType('r'),
-                    help='A json file to convert to Markdown')
+parser.add_argument(
+    "json", type=argparse.FileType("r"), help="A json file to convert to Markdown"
+)
 
 args = parser.parse_args()
 
 json_data = json.loads(args.json.read())
 
-with open(
-    args.json.name.replace('json', 'md'),
-    'w+',
-    encoding="utf-8"
-) as md_file:
-    for obj in json_data['modules']:
-        if 'name' in obj:
+with open(args.json.name.replace("json", "md"), "w+", encoding="utf-8") as md_file:
+    for obj in json_data["modules"]:
+        if "name" in obj:
             md_file.write(f'## {obj["name"]} \n')
-        if 'sources' in obj:
-            for source in obj['sources']:
-                if source['type'] in ('archive', 'git', 'git_repo'):
+        if "sources" in obj:
+            for source in obj["sources"]:
+                if source["type"] in ("archive", "git", "git_repo"):
                     md_file.write(f'  - {source["url"]} \n')
-                if 'sha256' in source:
+                if "sha256" in source:
                     md_file.write(f'  - {source["sha256"]} \n')
-                if 'commit' in source:
+                if "commit" in source:
                     md_file.write(f'  - {source["commit"]} \n')
-        md_file.write('\n')
+        md_file.write("\n")

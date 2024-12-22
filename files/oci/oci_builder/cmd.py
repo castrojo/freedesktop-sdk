@@ -25,17 +25,17 @@ import yaml
 from .image_builder import build_images
 
 
-GlobalConf = collections.namedtuple('GlobalConf', ['mode', 'gzip', 'output'])
+GlobalConf = collections.namedtuple("GlobalConf", ["mode", "gzip", "output"])
 
 
 def main():
     data = yaml.load(sys.stdin, Loader=yaml.CLoader)
-    mode = data.get('mode', 'oci')
-    enabled_gzip = data.get('gzip', None)
+    mode = data.get("mode", "oci")
+    enabled_gzip = data.get("gzip", None)
     if enabled_gzip is not None:
         assert mode == "oci", "enabled_zip is only supported with oci"
     else:
         enabled_gzip = mode == "oci"
 
     global_conf = GlobalConf(mode, enabled_gzip, os.getcwd())
-    build_images(global_conf, data.get('images', []), data.get('annotations'))
+    build_images(global_conf, data.get("images", []), data.get("annotations"))

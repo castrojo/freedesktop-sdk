@@ -80,8 +80,7 @@ before_script:
 lint:
   stage: flatpak
   script:
-    - find . -path 'files/oci' -prune -o -iname "*.py" -exec pylint {} +
-    - pylint files/oci/oci_builder
+    - find . \( -path './.bst' \) -prune -o -type f -iname "*.py" -exec ruff format --check {} + -exec ruff check --output-format=gitlab {} +
     - python utils/news_validator.py validate --path NEWS.yml
     - python utils/flatpak_branch_validator.py validate --path include/repo_branches.yml
   rules:
