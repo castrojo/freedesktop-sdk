@@ -11,6 +11,7 @@ build-depends:
 - components/geoclue-libs.bst
 - components/glib.bst
 - components/pipewire.bst
+- components/libgudev.bst
 - components/python3-docutils.bst
 - components/docbook-xsl.bst
 - components/xmlto.bst

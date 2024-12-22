@@ -10,6 +10,7 @@ runtime-depends:
 - components/geoclue-libs.bst
 - components/glib.bst
 - components/pipewire-daemon.bst
+- components/libgudev.bst
 - components/xdg-desktop-portal-manifest.bst
 - components/xdg-portal-interfaces.bst
 
