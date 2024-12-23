@@ -26,7 +26,7 @@ else
 TARGET_BRANCH=release/$(RUNTIME_VERSION)
 endif
 
-GIT_DESCRIBE := $(shell git describe --long --abbrev=40)
+FLATPAK_SUBJECT := $(shell git rev-parse HEAD)
 
 SNAP_GRADE?=devel
 MINIMAL_VM?=firmware,locale
@@ -74,7 +74,7 @@ export: clean-runtime
 
 	test -e $(REPO) || ostree init --repo=$(REPO) --mode=archive
 
-	flatpak build-commit-from --src-repo=$(CHECKOUT_ROOT)/flatpak-release-repo.bst --subject $(GIT_DESCRIBE) $(REPO)
+	flatpak build-commit-from --src-repo=$(CHECKOUT_ROOT)/flatpak-release-repo.bst --subject $(FLATPAK_SUBJECT) $(REPO)
 
 	rm -rf $(CHECKOUT_ROOT)
 
