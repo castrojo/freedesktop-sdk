@@ -27,6 +27,7 @@ TARGET_BRANCH=release/$(RUNTIME_VERSION)
 endif
 
 FLATPAK_SUBJECT := $(shell git rev-parse HEAD)
+LAST_VERSION := $(shell awk '/^Version:/ {print $$2; exit}' NEWS.yml)
 
 SNAP_GRADE?=devel
 MINIMAL_VM?=firmware,locale
@@ -476,11 +477,9 @@ clean-secure-vm:
 	rm -rf $(VM_CHECKOUT_ROOT)/tpm
 
 update-secure-version:
-	describe=$$(git describe --tags) &&			\
-	suffix=$${describe#freedesktop-sdk-} &&			\
-	version=$${suffix%-g*} &&				\
-	echo "sdk-version: $${version}" >secure-version.yml
-
+	tag=$(LAST_VERSION) && \
+	suffix=$${tag#freedesktop-sdk-} && \
+	echo "sdk-version: $${suffix}" >secure-version.yml
 secure-version.yml:
 	$(MAKE) update-secure-version
 
