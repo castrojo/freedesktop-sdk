@@ -24,6 +24,7 @@ variables:
   PYTHONPYCACHEPREFIX: "${XDG_CACHE_HOME}/python"
 
   GIT_SUBMODULE_STRATEGY: "recursive"
+  GIT_STRATEGY: clone
 
 default:
   image: "${DOCKER_REGISTRY}/bst2:${DOCKER_IMAGE_ID}"
