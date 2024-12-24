@@ -29,10 +29,4 @@ sources:
   track: '*.*.*'
   exclude:
   - '*.dev*'
-  ref: 2.3.0-0-g5e88ea720442c61ec675e31fbce197f06201681d
-- kind: patch
-  path: patches/buildstream/storage-service.patch
-- kind: patch
-  path: patches/buildstream/uploadtree.patch
-- kind: patch
-  path: patches/buildstream/less-query-calls.patch
+  ref: 2.4.0-0-ge00f22f155b3a61825931bb3a639fef5e2068f34
