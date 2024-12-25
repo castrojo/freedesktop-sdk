@@ -8,6 +8,7 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/tcl.bst
 - components/xorg-lib-x11.bst
+- components/xorg-lib-xscrnsaver.bst
 
 variables:
   conf-cmd: ./unix/configure
