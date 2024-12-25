@@ -315,7 +315,7 @@ app_riscv64:
     - .builder-riscv64
   allow_failure: true
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "riscv"'
     - when: manual
   needs: []
 
