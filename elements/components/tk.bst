@@ -11,9 +11,16 @@ depends:
 
 variables:
   conf-cmd: ./unix/configure
+  arch-conf: ''
+  (?):
+  - target_arch == "i686":
+      arch-conf: --disable-64bit
+  - target_arch != "i686":
+      arch-conf: --enable-64bit
   conf-local: >-
     --disable-rpath
     --disable-zipfs
+    %{arch-conf}
 
 config:
   install-commands:
