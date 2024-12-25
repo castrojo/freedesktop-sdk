@@ -11,8 +11,9 @@ depends:
 
 variables:
   conf-cmd: ./unix/configure
-  conf-local: |
+  conf-local: >-
     --disable-rpath
+    --disable-zipfs
 
 config:
   install-commands:
