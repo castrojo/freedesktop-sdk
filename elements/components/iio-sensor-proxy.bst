@@ -14,4 +14,6 @@ sources:
 - kind: git_repo
   url: freedesktop:hadess/iio-sensor-proxy.git
   track: '*.*'
+  exclude:
+  - '*RC*'
   ref: 3.5-0-g29c79c9e3bd325c481bd9c52fdd520665bc0e28b
