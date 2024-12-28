@@ -23,7 +23,4 @@ public:
 sources:
 - kind: git_repo
   url: gitlab:procps-ng/procps.git
-  track: v*
-  exclude:
-  - '*rc*'
   ref: v4.0.4-0-g4ddcef2fd843170c8e2d59a83042978f41037a2b
