@@ -21,5 +21,5 @@ public:
 sources:
 - kind: git_repo
   url: github:fmtlib/fmt.git
-  track: '*.*.*'
+  track: '11.0.*'
   ref: 11.0.2-0-g0c9fce2ffefecfdce794e1859584e25877b7b592
