@@ -1,10 +1,9 @@
-kind: autotools
+kind: meson
 description: X.Org combined protocol headers
 
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
-- components/python3-minimal.bst
+- public-stacks/buildsystem-meson.bst
 - components/xorg-util-macros.bst
 
 depends:
