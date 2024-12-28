@@ -44,7 +44,6 @@ public:
 sources:
 - kind: git_repo
   url: github:OpenSC/libp11.git
-  track: libp11-*
   ref: libp11-0.4.12-0-g53d65dc48cf436694f7edcfc805414e608e8a2bf
 - kind: patch
   path: patches/libp11/Detect-openSSL-3.1-compatible-to-openSSL-3.0.patch
