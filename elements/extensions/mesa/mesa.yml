@@ -34,6 +34,7 @@ depends:
 - components/wayland.bst
 - components/libglvnd.bst
 - components/libvdpau.bst
+- components/libpng.bst
 - components/libunwind.bst
 - components/zstd.bst
 - extensions/mesa/libclc.bst
@@ -95,7 +96,7 @@ variables:
     -Dplatforms=x11,wayland
     -Dshared-glapi=enabled
     -Dvalgrind=disabled
-    -Dvulkan-layers=device-select,overlay
+    -Dvulkan-layers=device-select,overlay,screenshot
     -Dvulkan-drivers=%{vulkan_drivers}
     -Dvulkan-icd-dir="%{libdir}/vulkan/icd.d"
     -Dxlib-lease=enabled
