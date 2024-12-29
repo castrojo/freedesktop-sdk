@@ -14,3 +14,5 @@ sources:
   - "*rc*"
   - "*b*"
   ref: 3.4.1-0-gffdf7f5f08beb0ceb92dc0637e97382ba27cecfa
+- kind: patch
+  path: patches/python3-charset-normalizer/rm-mypy.patch
