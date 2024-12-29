@@ -1,6 +1,6 @@
 kind: stack
 
-runtime-depends:
+depends:
 - public-stacks/runtime-minimal.bst
 - components/util-linux-full.bst
 - components/linux.bst

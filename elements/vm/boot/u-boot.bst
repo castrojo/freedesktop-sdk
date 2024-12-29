@@ -11,22 +11,8 @@ variables:
   install-root: '/boot'
 
 config:
-
-  layout:
-  - element: ''
-    destination: '/tmp'
-  - element: ''
-    destination: '/var/tmp'
-  - element: ''
-    destination: '/boot'
-  - element: vm/boot/u-boot/deps.bst
-    destination: '/'
-  - element: vm/boot/u-boot/initial-scripts.bst
-    destination: '/'
-  - element: vm/prepare-image.bst
-    destination: '/'
-
   commands:
+  - mkdir -p /boot
   - |
     prepare-image.sh \
        --sysroot / \
