@@ -2,6 +2,7 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
+- components/python3-setuptools-scm.bst
 
 depends:
 - components/python3.bst
@@ -13,4 +14,6 @@ sources:
   exclude:
   - "*rc*"
   - "*b*"
-  ref: 3.4.0-0-gf3118e3b5132b34e4a888d8d6f7199aee4e85274
+  ref: 3.4.1-0-gffdf7f5f08beb0ceb92dc0637e97382ba27cecfa
+- kind: patch
+  path: patches/python3-charset-normalizer/rm-mypy.patch
