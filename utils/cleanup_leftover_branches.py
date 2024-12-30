@@ -22,6 +22,8 @@ open_mr_branches = {
 }
 branches_without_open_mrs = branch_names - open_mr_branches
 
+project.delete_merged_branches()
+
 if branches_without_open_mrs:
     for branch in branches_without_open_mrs:
         print(f"Deleting branch: {branch}")
