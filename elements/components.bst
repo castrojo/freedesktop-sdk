@@ -647,6 +647,7 @@ depends:
 - components/xorg-util-macros.bst
 - components/xwayland.bst
 - components/xz-docs.bst
+- components/yajl.bst
 - components/zenity.bst
 - components/zip.bst
 - components/zstd.bst
