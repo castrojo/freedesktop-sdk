@@ -17,6 +17,7 @@ variables:
   meson-local: >-
     -Dauto_features=disabled
     -Dtests=disabled
+    -Ddoc=enabled
 
 sources:
 - kind: git_repo
