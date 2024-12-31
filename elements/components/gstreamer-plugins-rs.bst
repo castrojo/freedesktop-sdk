@@ -11,23 +11,12 @@ depends:
 - components/gstreamer-plugins-bad.bst
 - components/dav1d.bst
 
-# disable aws, spotify, webrtc, webrtchttp and quinn
-# because they're too big
-# diable ffv1, file and flavors because they aren't
-# officially released yet
+# disable everything by default, enable
+# what is in use
 variables:
   meson-local: >-
-    -Daws=disabled
-    -Dexamples=disabled
-    -Dffv1=disabled
-    -Dfile=disabled
-    -Dflavors=disabled
-    -Dgtk4=disabled
-    -Dspotify=disabled
+    -Dauto_features=disabled
     -Dtests=disabled
-    -Dwebrtc=disabled
-    -Dwebrtchttp=disabled
-    -Dquinn=disabled
 
 sources:
 - kind: git_repo
