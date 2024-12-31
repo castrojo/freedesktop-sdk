@@ -16,8 +16,6 @@ plugins=(
     # Examples are from https://gstreamer.freedesktop.org/documentation/
     # gstreamer plugin
     ["gif"]="videotestsrc num-buffers=10 ! videoconvert ! gifenc ! filesink location=test.gif"
-    # gstreamer-plugins-rs
-    ["videocompare"]="videotestsrc num-buffers=5 pattern=red ! videocompare name=compare ! videoconvert ! autovideosink videotestsrc pattern=red ! imagefreeze ! compare. -m"
     # gstreamer-plugins-bad
     ["videodiff"]="videotestsrc num-buffers=5 pattern=ball ! videodiff ! videoconvert ! autovideosink"
     # gstreamer-plugins-good

@@ -11,13 +11,18 @@ depends:
 - components/gstreamer-plugins-bad.bst
 - components/dav1d.bst
 
-# disable everything by default, enable
-# what is in use
+# disable everything by default to prevent new plugins getting added
+# on updates, only enable plugins which are in use by apps
 variables:
   meson-local: >-
     -Dauto_features=disabled
     -Dtests=disabled
     -Ddoc=enabled
+    -Drtp=enabled
+    -Dgif=enabled
+    -Dspotify=enabled
+    -Dhlssink3=enabled
+    -Ddav1d=enabled
 
 sources:
 - kind: git_repo
