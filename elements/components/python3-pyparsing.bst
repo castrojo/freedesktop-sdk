@@ -10,6 +10,6 @@ sources:
 - kind: pypi
   name: pyparsing
   ref:
-    sha256sum: cbf74e27246d595d9a74b186b810f6fbb86726dbf3b9532efb343f6d7294fe9c
+    sha256sum: 61980854fd66de3a90028d679a954d5f2623e83144b5afe5ee86f43d762e5f0a
     suffix: 
-      8c/d5/e5aeee5387091148a19e1145f63606619cb5f20b83fccb63efae6474e7b2/pyparsing-3.2.0.tar.gz
+      8b/1a/3544f4f299a47911c2ab3710f534e52fea62a633c96806995da5d25be4b2/pyparsing-3.2.1.tar.gz
