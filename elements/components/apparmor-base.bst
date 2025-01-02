@@ -7,13 +7,14 @@ build-depends:
 - components/python3.bst
 - components/python3-setuptools.bst
 - components/linux-pam-base.bst
+- components/swig.bst
 
 variables:
   # apparmor has a very complex build stack that makes it hard
   # to use build-dir so we disable it
   build-dir: ''
   conf-link-args: --enable-shared --enable-static
-  conf-cmd: ./configure
+  conf-cmd: ./configure --with-python
   make: make -C libraries/libapparmor
   make-install: make -j1 -C libraries/libapparmor install DESTDIR='%{install-root}'
   autogen: "true"
