@@ -102,6 +102,7 @@ lint:
     - git branch -f "${CI_COMMIT_REF_NAME}" "origin/${CI_COMMIT_REF_NAME}"
     - git fetch --prune
     - if [[ "$CI_COMMIT_BRANCH" == "master" ]]; then python utils/cleanup_leftover_branches.py; fi
+    - python utils/assign_marge.py
     - |
       case "${CI_COMMIT_REF_NAME}" in
         master)
