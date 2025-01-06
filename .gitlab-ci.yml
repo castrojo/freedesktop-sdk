@@ -494,6 +494,34 @@ minimal_systemd_vm_aarch64:
     - job: app_loongarch64
       artifacts: false
 
+minimal_systemd_vm_riscv64:
+  extends:
+    - .vm_imageless_template
+    - .builder-riscv64
+  variables:
+    VM_ARTIFACT_BOOT: vm/boot/virt.bst
+    VM_ARTIFACT_FILESYSTEM: vm/minimal/virt.bst
+    VM_MACHINE_ID: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+  allow_failure: true
+  when: manual
+  needs:
+    - job: app_riscv64
+      artifacts: false
+
+minimal_qemu_u-boot_riscv64:
+  extends:
+    - .vm_imageless_template
+    - .builder-riscv64
+  variables:
+    VM_ARTIFACT_BOOT: vm/minimal/qemu-u-boot.bst
+    VM_ARTIFACT_FILESYSTEM: vm/minimal/qemu-u-boot.bst
+    VM_MACHINE_ID: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+  allow_failure: true
+  when: manual
+  needs:
+    - job: app_riscv64
+      artifacts: false
+
 desktop_systemd_vm_x86_64:
   extends:
     - .vm_imageless_template
@@ -530,6 +558,18 @@ desktop_systemd_vm_aarch64:
     - job: app_loongarch64
       artifacts: false
   when: manual # skip loongarch64 VM tests by default; the runner is too slow
+
+desktop_systemd_vm_riscv64:
+  extends:
+    - .vm_imageless_template
+    - .builder-riscv64
+  variables:
+    VM_ARTIFACT_BOOT: vm/boot/virt.bst
+    VM_ARTIFACT_FILESYSTEM: vm/desktop/virt.bst
+  needs:
+    - job: app_riscv64
+      artifacts: false
+  when: manual # skip riscv64 VM tests by default; the runner is too slow
 
 .vm_efi_image_template:
   stage: vm
@@ -590,6 +630,17 @@ minimal_efi_vm_image_aarch64:
   allow_failure: true
   when: manual
 
+minimal_efi_vm_image_riscv64:
+  extends:
+    - .vm_efi_image_template
+    - .builder-riscv64
+  needs:
+  - app_riscv64
+  variables:
+    VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
+  allow_failure: true
+  when: manual
+
 desktop_efi_vm_image_x86_64:
   extends:
     - .vm_efi_image_template
@@ -618,6 +669,16 @@ desktop_efi_vm_image_aarch64:
     - .builder-loongarch64
   needs:
   - app_loongarch64
+  variables:
+    VM_ARTIFACT_IMAGE: vm/desktop/efi.bst
+  when: manual # skip desktop image VM tests by default to avoid significant disk I/O
+
+desktop_efi_vm_image_riscv64:
+  extends:
+    - .vm_efi_image_template
+    - .builder-riscv64
+  needs:
+  - app_riscv64
   variables:
     VM_ARTIFACT_IMAGE: vm/desktop/efi.bst
   when: manual # skip desktop image VM tests by default to avoid significant disk I/O
