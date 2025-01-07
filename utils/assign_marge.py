@@ -14,6 +14,9 @@ MASTER_VERSION = float(os.environ.get("RUNTIME_VERSION"))
 
 
 def should_skip_mr(mr):
+    # this is a blocklist as `mergeable` means the branch has to be
+    # rebased, which marge can handle
+    # https://docs.gitlab.com/ee/api/merge_requests.html#merge-status
     status_blocked = (
         "approvals_syncing",
         "checking",
@@ -27,7 +30,7 @@ def should_skip_mr(mr):
         "conflict",
         "unchecked",
     )
-
+    # Marge cannot handle forks
     if mr.source_project_id != mr.target_project_id:
         return True
 
@@ -61,19 +64,23 @@ def main():
             print(f"Error while fetching NEWS MR: {err}")
 
         if news_mr:
-            print("Skipping NEWS MR found")
+            print(f"Skipping branch {branch}, NEWS MR found")
             continue
 
         mergeable_mrs = []
         open_mrs = []
 
         try:
+            # operate only on MRs opened by the updater bot
+            # with no labels (as we use labels in case abi changes or blocked)
+            # and not draft, to keep it safe
             open_mrs = project.mergerequests.list(
                 state="opened",
                 target_branch=branch,
                 labels=(),
                 author_id="4969990",
                 wip="no",
+                approved="yes",
                 get_all=True,
             )
         except GitlabListError as err:
@@ -83,12 +90,14 @@ def main():
             print(f"No open MRs found for branch {branch}")
             continue
 
-        if len(open_mrs) >= 50:
+        # Skip if too many open MRs are found
+        # as checking and assigning becomes slower
+        if len(open_mrs) >= 30:
             print(f"Skipping branch {branch}, too many open MRs to process")
             continue
 
         for mr in open_mrs:
-            if not should_skip_mr(mr, gl):
+            if not should_skip_mr(mr):
                 mergeable_mrs.append(mr)
 
         if not mergeable_mrs:
