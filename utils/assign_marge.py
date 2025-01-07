@@ -91,7 +91,7 @@ def main():
 
         # Skip if too many open MRs are found
         # as checking and assigning becomes slower
-        if len(open_mrs) >= 50:
+        if len(open_mrs) >= 30:
             print(f"Skipping branch {branch}, too many open MRs to process")
             continue
 
