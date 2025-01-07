@@ -99,7 +99,7 @@ lint:
     - git config user.email "freedesktop_sdk_updater@libreml.com"
     - git branch -f "${CI_COMMIT_REF_NAME}" "origin/${CI_COMMIT_REF_NAME}"
     - git fetch --prune
-    - if [[ "$CI_COMMIT_BRANCH" == "master" ]]; then python utils/cleanup_leftover_branches.py; fi
+    - python utils/cleanup_leftover_branches.py
     - python utils/assign_marge.py
     - |
       case "${CI_COMMIT_REF_NAME}" in
