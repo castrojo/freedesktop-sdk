@@ -64,7 +64,7 @@ def main():
             print(f"Error while fetching NEWS MR: {err}")
 
         if news_mr:
-            print("Skipping NEWS MR found")
+            print(f"Skipping branch {branch}, NEWS MR found")
             continue
 
         mergeable_mrs = []
