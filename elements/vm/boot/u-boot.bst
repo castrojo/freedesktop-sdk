@@ -39,6 +39,7 @@ config:
 
   - |
     . /tmp/vars
+    mkdir -p /var/tmp
     dracut -v --xz --reproducible --fstab \
            --no-machineid \
            --kver $(ls -1 /lib/modules | head -n1) \
