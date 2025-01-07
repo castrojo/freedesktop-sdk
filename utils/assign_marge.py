@@ -80,6 +80,7 @@ def main():
                 labels=(),
                 author_id="4969990",
                 wip="no",
+                approved="yes",
                 get_all=True,
             )
         except GitlabListError as err:
