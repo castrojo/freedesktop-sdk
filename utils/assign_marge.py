@@ -96,7 +96,7 @@ def main():
             continue
 
         for mr in open_mrs:
-            if not should_skip_mr(mr, gl):
+            if not should_skip_mr(mr):
                 mergeable_mrs.append(mr)
 
         if not mergeable_mrs:
