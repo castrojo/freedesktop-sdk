@@ -2,7 +2,7 @@
 """Usage: python utils/assign_marge.py"""
 
 import os
-
+import argparse
 import gitlab
 from gitlab.exceptions import GitlabListError
 
@@ -42,7 +42,7 @@ def should_skip_mr(mr):
     return False
 
 
-def main():
+def main(dry_run):
     branches = [
         "master",
         f"release/{MASTER_VERSION-1}",
@@ -113,10 +113,17 @@ def main():
 
         if len(mergeable_mrs) >= 2:
             for mr in mergeable_mrs:
-                mr.assignee_ids = ASSIGNEE_ID
-                mr.save()
-                print(f"Assigned MR {mr.iid} to Marge")
+                if dry_run:
+                    print(f"Dry run: Assigned MR {mr.iid} to Marge")
+                else:
+                    mr.assignee_ids = ASSIGNEE_ID
+                    mr.save()
+                    print(f"Assigned MR {mr.iid} to Marge")
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Assign MRs to Marge")
+    parser.add_argument("--dry-run", action="store_true", help="Perform a dry run")
+    args = parser.parse_args()
+
+    main(dry_run=args.dry_run)
