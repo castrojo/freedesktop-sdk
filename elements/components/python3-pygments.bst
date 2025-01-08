@@ -13,4 +13,4 @@ sources:
 - kind: git_repo
   url: github:pygments/pygments.git
   track: refs/tags/*.*.*
-  ref: 2.19.0-0-g62dff316900a548aabf741d662b79edc39ed78b5
+  ref: 2.19.1-0-gb583de4794e94b4dc4c2da03a7c29f462482293e
