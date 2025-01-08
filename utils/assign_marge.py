@@ -32,9 +32,11 @@ def should_skip_mr(mr):
     )
     # Marge cannot handle forks
     if mr.source_project_id != mr.target_project_id:
+        print(f"Skipping MR {mr.iid} as it is from a fork")
         return True
 
     if mr.detailed_merge_status in status_blocked:
+        print(f"Skipping MR {mr.iid}, not mergeable: {mr.detailed_merge_status}")
         return True
 
     return False
@@ -90,6 +92,8 @@ def main():
         if not open_mrs:
             print(f"No open MRs found for branch {branch}")
             continue
+        else:
+            print(f"Found open MRs for branch {branch}")
 
         # Skip if too many open MRs are found
         # as checking and assigning becomes slower
@@ -104,6 +108,8 @@ def main():
         if not mergeable_mrs:
             print(f"No mergeable MRs found for branch {branch}")
             continue
+        else:
+            print(f"Found mergeable MRs for branch {branch}")
 
         if len(mergeable_mrs) >= 2:
             for mr in mergeable_mrs:
