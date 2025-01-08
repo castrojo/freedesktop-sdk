@@ -30,6 +30,11 @@ def should_skip_mr(mr):
         "conflict",
         "unchecked",
     )
+
+    if mr.assignee is not None and mr.assignee["id"] == int(ASSIGNEE_ID):
+        print(f"Skipping MR {mr.iid}, already assigned to Marge")
+        return True
+
     # Marge cannot handle forks
     if mr.source_project_id != mr.target_project_id:
         print(f"Skipping MR {mr.iid} as it is from a fork")
