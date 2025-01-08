@@ -59,6 +59,7 @@ def main():
                 state="opened",
                 target_branch=branch,
                 search="NEWS:",
+                **{"in": "title"},
             )
         except GitlabListError as err:
             print(f"Error while fetching NEWS MR: {err}")
