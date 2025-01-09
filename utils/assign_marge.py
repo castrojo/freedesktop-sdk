@@ -2,7 +2,7 @@
 """Usage: python utils/assign_marge.py"""
 
 import os
-
+import argparse
 import gitlab
 from gitlab.exceptions import GitlabListError
 
@@ -30,17 +30,24 @@ def should_skip_mr(mr):
         "conflict",
         "unchecked",
     )
+
+    if mr.assignee is not None and mr.assignee["id"] == int(ASSIGNEE_ID):
+        print(f"Skipping MR {mr.iid}, already assigned to Marge")
+        return True
+
     # Marge cannot handle forks
     if mr.source_project_id != mr.target_project_id:
+        print(f"Skipping MR {mr.iid} as it is from a fork")
         return True
 
     if mr.detailed_merge_status in status_blocked:
+        print(f"Skipping MR {mr.iid}, not mergeable: {mr.detailed_merge_status}")
         return True
 
     return False
 
 
-def main():
+def main(dry_run):
     branches = [
         "master",
         f"release/{MASTER_VERSION-1}",
@@ -90,6 +97,8 @@ def main():
         if not open_mrs:
             print(f"No open MRs found for branch {branch}")
             continue
+        else:
+            print(f"Found open MRs for branch {branch}")
 
         # Skip if too many open MRs are found
         # as checking and assigning becomes slower
@@ -104,13 +113,22 @@ def main():
         if not mergeable_mrs:
             print(f"No mergeable MRs found for branch {branch}")
             continue
+        else:
+            print(f"Found mergeable MRs for branch {branch}")
 
         if len(mergeable_mrs) >= 2:
             for mr in mergeable_mrs:
-                mr.assignee_ids = ASSIGNEE_ID
-                mr.save()
-                print(f"Assigned MR {mr.iid} to Marge")
+                if dry_run:
+                    print(f"Dry run: Assigned MR {mr.iid} to Marge")
+                else:
+                    mr.assignee_ids = ASSIGNEE_ID
+                    mr.save()
+                    print(f"Assigned MR {mr.iid} to Marge")
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Assign MRs to Marge")
+    parser.add_argument("--dry-run", action="store_true", help="Perform a dry run")
+    args = parser.parse_args()
+
+    main(dry_run=args.dry_run)
