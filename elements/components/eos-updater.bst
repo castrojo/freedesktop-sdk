@@ -20,4 +20,4 @@ sources:
 - kind: git_repo
   url: github:endlessm/eos-updater.git
   track: Release_*
-  ref: Release_6.0.4-0-gc42ce0f1c41e990d16b1b9cda8f88e9784991458
+  ref: Release_6.0.5-0-gab693943203082ab01adc68751ca91c38c7c3233
