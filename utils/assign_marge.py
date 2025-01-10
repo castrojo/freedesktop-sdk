@@ -86,7 +86,6 @@ def main(dry_run):
                 state="opened",
                 target_branch=branch,
                 labels=(),
-                author_id="4969990",
                 wip="no",
                 approved="yes",
                 get_all=True,
