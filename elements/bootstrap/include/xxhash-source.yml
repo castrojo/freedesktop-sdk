@@ -2,4 +2,4 @@ sources:
 - kind: git_repo
   url: github:Cyan4973/xxHash.git
   track: v*
-  ref: v0.8.2-0-gbbb27a5efb85b92a0486cf361a8635715a53f6ba
+  ref: v0.8.3-0-ge626a72bc2321cd320e953a0ccf1584cad60f363
