@@ -23,6 +23,6 @@ sources:
 - kind: git_repo
   url: kernel:linux/kernel/git/firmware/linux-firmware.git
   track: '[0-9]*'
-  ref: 20241210-0-gb00a7f7e525095e5aae663945253fc8c709cc084
+  ref: 20250109-0-g7673dffd5e3324a726caf8bfc0f1a005862f5f16
 - kind: local
   path: files/linux-firmware/compress.py
