@@ -48,11 +48,13 @@ def should_skip_mr(mr):
 
 
 def main(dry_run):
+    is_master = os.getenv("CI_COMMIT_BRANCH", "") == "master"
     branches = [
         "master",
-        f"release/{MASTER_VERSION-1}",
-        f"release/{MASTER_VERSION-2}",
+        f"release/{MASTER_VERSION - (1 if is_master else 0)}",
+        f"release/{MASTER_VERSION - (2 if is_master else 1)}",
     ]
+
     gl = gitlab.Gitlab(GITLAB_URL, private_token=PRIVATE_TOKEN)
     project = gl.projects.get(PROJECT_ID, lazy=True)
 
@@ -86,7 +88,6 @@ def main(dry_run):
                 state="opened",
                 target_branch=branch,
                 labels=(),
-                author_id="4969990",
                 wip="no",
                 approved="yes",
                 get_all=True,
