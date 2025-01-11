@@ -31,7 +31,7 @@ public:
 
 variables:
   meson-local: >-
-    -Ddocumentation=true
+    -Ddocumentation=false
     -Dintrospection=enabled
     -Dbuild-testsuite=false
     -Dbuild-examples=false
