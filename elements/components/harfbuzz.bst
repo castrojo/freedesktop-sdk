@@ -33,4 +33,4 @@ sources:
 - kind: git_repo
   url: github:harfbuzz/harfbuzz.git
   track: '*.*.*'
-  ref: 10.1.0-0-g9ef44a2d67ac870c1f7f671f6dc98d08a2579865
+  ref: 10.2.0-0-g7b27c8edd46c674e01dd226fa9e1aa7549f5c436
