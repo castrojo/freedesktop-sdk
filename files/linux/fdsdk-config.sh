@@ -10,33 +10,40 @@ arch=$1
 # PinePhone Pro kernel configs
 case "$arch" in
     aarch64)
-        module VIDEO_ROCKCHIP_ISP1
-        module VIDEO_ROCKCHIP_RGA
-        module VIDEO_ROCKCHIP_VDEC
-        module VIDEO_HANTRO
-        module VIDEO_OV8858
-        module VIDEO_IMX258
-        module VIDEO_DW9714
+        # Camera Drivers
+        module VIDEO_ROCKCHIP_ISP1       # Rockchip Image Signal Processing (ISP) support
+        module VIDEO_ROCKCHIP_RGA        # Rockchip Raster 2D Graphic Acceleration Unit
+        module VIDEO_ROCKCHIP_VDEC       # Rockchip Video Decoder driver
+        module VIDEO_HANTRO              # Hantro VPU (Video Processing Unit) driver
+        module VIDEO_OV8858              # OmniVision OV8858 camera sensor support
+        module VIDEO_IMX258              # Sony IMX258 camera sensor support
+        module VIDEO_DW9714              # DW9714 camera lens voice coil driver
 
-        module ROCKCHIP_SARADC
-        enable ROCKCHIP_MBOX
-        module ROCKCHIP_THERMAL
-        enable ROCKCHIP_RGB
+        # Graphics and Display
+        enable ROCKCHIP_RGB              # Rockchip RGB support
+        module DRM_PANEL_HIMAX_HX8394    # Himax HX8394 display panel support
 
-        module CRYPTO_DEV_ROCKCHIP
+        # Thermal and Power Management
+        module ROCKCHIP_THERMAL          # Thermal sensor support for Rockchip SoCs
+        enable ROCKCHIP_MBOX             # Inter-processor communication support for Rockchip SoCs
 
-        module PHY_ROCKCHIP_DPHY_RX0
+        # Audio/Video Enhancements
+        module V4L2_FLASH_LED_CLASS      # V4L2 flash API support for LED flash
 
-        enable BACKLIGHT_CLASS_DEVICE
+        # Cryptography
+        module CRYPTO_DEV_ROCKCHIP       # Rockchip's Cryptographic Engine driver
 
-        module V4L2_FLASH_LED_CLASS
+        # Connectivity and Miscellaneous Hardware
+        module PHY_ROCKCHIP_DPHY_RX0     # Rockchip MIPI Synopsys DPHY RX0 driver
+        module ROCKCHIP_SARADC           # SAR A/D Converter bindings for Rockchip SoCs
 
-        module INPUT_GPIO_VIBRA
-        module KEYBOARD_PINEPHONE
+        # Input Devices
+        module INPUT_GPIO_VIBRA          # GPIO-based vibrator device support
+        module KEYBOARD_PINEPHONE        # PinePhone keyboard case support
 
-        module DRM_PANEL_HIMAX_HX8394
-
-        module LEDS_SGM3140
+        # Backlight and LED
+        enable BACKLIGHT_CLASS_DEVICE    # Low-level backlight control
+        module LEDS_SGM3140              # SGM3140 LED driver (500mA Buck/Boost Charge Pump)
     ;;
 esac
 
