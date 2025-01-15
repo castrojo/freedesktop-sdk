@@ -1,12 +1,14 @@
-kind: autotools
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
-- components/tar.bst
+- public-stacks/buildsystem-meson.bst
 - components/asciidoc.bst
 - components/docbook-xsl.bst
-- components/xmlto.bst
+- components/grep.bst
 - components/libxslt.bst
+- components/sed.bst
+- components/tar.bst
+- components/xmlto.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -25,30 +27,11 @@ runtime-depends:
 - components/perl-ssl.bst
 - components/perl-sasl.bst
 
-environment:
-  INSTALL_SYMLINKS: '1'
 
 variables:
-  # When build-dir is used with git, only configure logs land in
-  # build-dir after running autogen
-  build-dir: ''
-  make: make all man
-  make-install: make %{make-install-args} install-man
-
-config:
-  configure-commands:
-    (<):
-    - |
-      VN="$(git describe)"
-      echo "${VN#v}" >version
-
-  install-commands:
-    (>):
-    - |
-      find "%{install-root}" -type f -name perllocal.pod -delete
-
-    - |
-      install -Dm644 contrib/completion/git-completion.bash "%{install-root}%{datadir}/bash-completion/git"
+  meson-local: >-
+    -Dversion=$(git describe --tags --abbrev=0 | sed 's/^v//')
+    -Dtests=false
 
 public:
   bst:

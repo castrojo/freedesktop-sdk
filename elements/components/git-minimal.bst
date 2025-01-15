@@ -1,7 +1,14 @@
-kind: autotools
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- components/gcc.bst
+- components/stripper.bst
+- components/gettext.bst
+- components/grep.bst
+- components/meson.bst
+- components/ninja.bst
+- components/pkg-config.bst
+- components/sed.bst
 - components/tar.bst
 
 depends:
@@ -9,16 +16,15 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 variables:
-  # When build-dir is used with git, only configure logs land in
-  # build-dir after running autogen
-  build-dir: ''
-
-environment:
-  INSTALL_SYMLINKS: '1'
+  meson-local: >-
+    -Dauto_features=disabled
+    -Dtests=false
 
 config:
   install-commands:
-  - install -m 755 -D -t "%{install-root}%{bindir}" git
+  - |
+    cd %{build-dir}
+    install -m 755 -D -t "%{install-root}%{bindir}" git
 
 public:
   cpe:
