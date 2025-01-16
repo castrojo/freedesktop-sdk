@@ -71,7 +71,6 @@ variables:
     --enable-default-ssp
     --enable-languages=c,c++
     --with-isl
-    --enable-deterministic-archives
     --enable-linker-build-id
     %{conf-arch}
     %{conf-arch-extra}

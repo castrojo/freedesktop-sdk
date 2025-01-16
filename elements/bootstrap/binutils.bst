@@ -52,6 +52,7 @@ variables:
     --with-system-zlib
     --with-debuginfod
     --with-zstd
+    --enable-deterministic-archives
     %{disable-source}
     host_configargs='lt_cv_sys_lib_dlsearch_path_spec="/usr/lib/%{gcc_triplet}"'
 

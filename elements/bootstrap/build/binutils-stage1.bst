@@ -33,6 +33,7 @@ variables:
     --with-lib-path="%{sysroot}/usr/lib/%{gcc_triplet}:%{sysroot}/usr/lib:/usr/lib/%{gcc_triplet}:/usr/lib"
     --with-system-zlib
     --with-zstd
+    --enable-deterministic-archives
   make-args: >-
     MAKEINFO=true
 

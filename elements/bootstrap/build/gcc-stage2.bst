@@ -65,7 +65,6 @@ variables:
     --enable-default-ssp
     --with-isl
     --disable-libssp
-    --enable-deterministic-archives
     --enable-linker-build-id
     --disable-libstdcxx-filesystem-ts
     %{conf-arch}

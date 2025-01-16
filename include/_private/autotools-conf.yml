@@ -2,9 +2,6 @@
 
 variables:
   build-dir: bst_build_dir
-
-  conf-deterministic: |
-    --enable-deterministic-archives
   conf-link-args: |
     --enable-shared \
     --disable-static
@@ -19,7 +16,6 @@ variables:
   remove-libtool-libraries: "true"
 
   conf-global: >-
-      %{conf-deterministic}
       %{conf-link-args}
       %{conf-build}
       %{conf-host}
