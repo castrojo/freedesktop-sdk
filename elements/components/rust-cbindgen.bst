@@ -23,7 +23,7 @@ sources:
 - kind: git_repo
   track: v*
   url: github:mozilla/cbindgen.git
-  ref: v0.27.0-0-g58c6156b0d91e82abb03c26187b8d18fa4345ce0
+  ref: v0.28.0-0-ga976056ef61e6fcf0162ae81ba57fb92c8dfb599
 - kind: cargo
   cargo-lock: Cargo.lock
   ref:
@@ -166,8 +166,8 @@ sources:
     version: 0.11.1
     sha: 7da8b5736845d9f2fcb837ea5d9e2628564b3b043a70948a3f0b778838c5fb4f
   - name: syn
-    version: 2.0.72
-    sha: dc4b9b9bf2add8093d3f2c0204471e951b2285580335de42f9d2534f3ae7a8af
+    version: 2.0.85
+    sha: 5023162dfcd14ef8f32034d8bcd4cc5ddc61ef7a247c024a33e24e1f24d21b56
   - name: tempfile
     version: 3.12.0
     sha: 04cbcdd0c794ebb0d4cf35e88edd2f7d2c4c3e9a5a6dab322839b321c6a87a64
