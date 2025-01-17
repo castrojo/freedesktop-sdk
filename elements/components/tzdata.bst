@@ -37,4 +37,4 @@ sources:
 - kind: git_repo
   url: github:eggert/tz.git
   track: 20*
-  ref: 2024b-0-g6903dde39ed637adaafc352c4b6993739253f058
+  ref: 2025a-0-ga8e2fcd87bc5f83fec0a76652095e8d7881b0763
