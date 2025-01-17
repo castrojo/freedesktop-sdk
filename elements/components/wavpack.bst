@@ -22,4 +22,9 @@ sources:
 - kind: git_repo
   url: github:dbry/WavPack.git
   track: '*.*.*'
+  exclude:
+  - "*alpha*"
+  - "*rc*"
+  - "*beta*"
+  - "*dirty*"
   ref: 5.7.0-0-g63dd3fa3b69fc236cc17886af6d4bd7dbe856125
