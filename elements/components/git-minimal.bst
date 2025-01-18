@@ -19,6 +19,7 @@ variables:
   meson-local: >-
     -Dauto_features=disabled
     -Dtests=false
+    -Dcurl=disabled
 
 config:
   install-commands:
