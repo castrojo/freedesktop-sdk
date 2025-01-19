@@ -15,6 +15,7 @@ depends:
 variables:
   meson-local: >-
     -Dvapi=false
+    -Dbash_completion=disabled
 
 public:
   bst:
