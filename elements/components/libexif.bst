@@ -20,4 +20,4 @@ sources:
 - kind: git_repo
   url: github:libexif/libexif.git
   track: libexif-*
-  ref: libexif-0_6_24-release-0-g5bc74ae756f01bba42e73281fad67053bc7ac5f7
+  ref: libexif-0_6_25-release-0-ge99f14785ef02ee249bccbad8a97595eadbab810
