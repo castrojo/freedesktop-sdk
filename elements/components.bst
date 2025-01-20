@@ -40,6 +40,7 @@ depends:
 - components/btrfs-progs.bst
 - components/bubblewrap.bst
 - components/buildbox.bst
+- components/buildstream2.bst
 - components/bzip2.bst
 - components/ca-certificates.bst
 - components/cairo.bst
@@ -419,7 +420,6 @@ depends:
 - components/python3-babel.bst
 - components/python3-blessings.bst
 - components/python3-build.bst
-- components/python3-buildstream2.bst
 - components/python3-calver.bst
 - components/python3-certifi.bst
 - components/python3-cffi.bst
