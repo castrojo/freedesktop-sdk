@@ -5,7 +5,7 @@ sources:
   track: v5.38.*
   exclude:
   - v*-RC*
-  ref: v5.38.2-0-g55dd2f792ffc8cefe614350a411f785374281b24
+  ref: v5.38.3-0-g06697759559c52236e296a256776b1222f228163
 - kind: local
   path: files/perl/config.over
 - kind: patch
