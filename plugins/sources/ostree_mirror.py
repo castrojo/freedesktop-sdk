@@ -1,10 +1,9 @@
-import os
 import fnmatch
+import os
 
 import gi
-from gi.repository import OSTree, Gio, GLib
-from buildstream import Source
-from buildstream import utils
+from buildstream import Source, utils
+from gi.repository import Gio, GLib, OSTree
 
 gi.require_version("OSTree", "1.0")
 gi.require_version("Gio", "2.0")
@@ -102,12 +101,7 @@ class OSTreeMirrorSource(Source):
         local_repo.create(OSTree.RepoMode.ARCHIVE)
 
         refs = GLib.Variant("as", [checksum for _, checksum in self._refs()])
-        options = GLib.Variant(
-            "a{sv}",
-            {
-                "refs": refs,
-            },
-        )
+        options = GLib.Variant("a{sv}", {"refs": refs})
 
         local_repo.pull_with_options(f"file://{self.mirror}", options, None)
         for ref, checksum in self._refs():

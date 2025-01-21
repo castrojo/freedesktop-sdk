@@ -18,10 +18,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import tempfile
+import codecs
 import hashlib
 import os
-import codecs
+import tempfile
 from contextlib import contextmanager
 
 

@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
+import configparser
+import os
 import re
 import subprocess
-import os
 import sys
-import configparser
 
 CODECS_REG = re.compile(r"^ ([A-Z.]{6}) ([^ \=]+) +(.+)$", re.M)
 DECODERS_REG = re.compile(r" \(decoders: ([^)]+)\)")
@@ -181,19 +181,12 @@ exp_av1_encoder = [
 vp8_decoders = get_codec_info("decoder", "vp8")
 vp8_encoders = get_codec_info("encoder", "vp8")
 exp_vp8_decoder = ["Decoder vp8"]
-exp_vp8_encoder = [
-    "Encoder libvpx",
-    "Encoder vp8_v4l2m2m",
-    "Encoder vp8_vaapi",
-]
+exp_vp8_encoder = ["Encoder libvpx", "Encoder vp8_v4l2m2m", "Encoder vp8_vaapi"]
 
 vp9_decoders = get_codec_info("decoder", "vp9")
 vp9_encoders = get_codec_info("encoder", "vp9")
 exp_vp9_decoder = ["Decoder vp9"]
-exp_vp9_encoder = [
-    "Encoder libvpx-vp9",
-    "Encoder vp9_vaapi",
-]
+exp_vp9_encoder = ["Encoder libvpx-vp9", "Encoder vp9_vaapi"]
 
 if get_runtime_arch() == "riscv64":
     check_hw.remove("cuda")

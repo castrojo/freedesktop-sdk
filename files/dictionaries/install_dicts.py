@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-import sys
-import xml.etree.ElementTree as ET
 import os
 import re
 import shutil
 import subprocess
+import sys
+import xml.etree.ElementTree as ET
 
 
 def get_name(elem):
@@ -85,11 +85,7 @@ def handle_file(filename):
                         open(file, "r", encoding="utf-8") as f_in,
                         open(idxname, "w", encoding="utf-8") as f_out,
                     ):
-                        subprocess.run(
-                            ["./th_gen_idx.pl"],
-                            stdin=f_in,
-                            stdout=f_out,
-                        )
+                        subprocess.run(["./th_gen_idx.pl"], stdin=f_in, stdout=f_out)
                     if idxname not in props["Locations"]:
                         props["Locations"].append(idxname)
 

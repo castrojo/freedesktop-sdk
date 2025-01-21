@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Usage: python utils/assign_marge.py"""
 
-import os
 import argparse
+import os
+
 import gitlab
 from gitlab.exceptions import GitlabListError
 
@@ -65,10 +66,7 @@ def main(dry_run):
 
         try:
             news_mr = project.mergerequests.list(
-                state="opened",
-                target_branch=branch,
-                search="NEWS:",
-                **{"in": "title"},
+                state="opened", target_branch=branch, search="NEWS:", **{"in": "title"}
             )
         except GitlabListError as err:
             print(f"Error while fetching NEWS MR: {err}")

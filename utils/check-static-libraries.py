@@ -4,8 +4,8 @@
 #  i) Maybe use fnmatch or regular expressions to match files against the allow list, in such a way that we can specify partial directory paths along with filenames, in the allow_list
 
 import argparse
-import sys
 import os
+import sys
 
 DESCRIBE_TEXT = """
 A short program that searches a target directory for static library files (specifically, any file that ends with ".a"). The first argument should be a target directory. The second argument should be an "allow_list", listing filenames that are acceptable in the output.

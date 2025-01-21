@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 
-import sys
-import zlib
-import subprocess
-import tempfile
-import os.path
 import argparse
+import os.path
+import subprocess
+import sys
+import tempfile
+import zlib
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--verbose", action="store_true")

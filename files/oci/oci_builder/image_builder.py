@@ -18,18 +18,18 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 import enum
-import tempfile
-import tarfile
+import gzip
 import hashlib
-import shutil
 import json
 import os
-import gzip
+import shutil
+import tarfile
+import tempfile
 import time
 from contextlib import ExitStack
 
-from .layer_builder import create_layer
 from .blob import Blob
+from .layer_builder import create_layer
 
 
 class Compression(enum.StrEnum):
@@ -186,7 +186,7 @@ def build_image(global_conf, image):
         "created": time.strftime(
             "%Y-%m-%dT%H:%M:%SZ",
             time.gmtime(int(os.environ.get("SOURCE_DATE_EPOCH", time.time()))),
-        ),
+        )
     }
 
     if "author" in image:

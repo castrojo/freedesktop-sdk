@@ -2,20 +2,19 @@
 """Helper script for preparing and publishing release."""
 
 import argparse
-from contextlib import contextmanager
 import datetime
-from pathlib import Path
 import re
 import shlex
 import subprocess
 import textwrap
+from contextlib import contextmanager
+from pathlib import Path
 from tempfile import TemporaryDirectory
-from packaging.version import Version
 
 import gitlab
 import ruamel.yaml
+from packaging.version import Version
 from ruamel.yaml.scalarstring import LiteralScalarString
-
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 FD_SDK_ID = 4339844
@@ -59,10 +58,7 @@ def git_workdir(ref, branch=None):
     try:
         with TemporaryDirectory() as tmpdir:
             branch_args = [] if branch is None else ["-b", branch]
-            run_git(
-                ["worktree", "add", *branch_args, tmpdir, ref],
-                cwd=SCRIPT_DIR,
-            )
+            run_git(["worktree", "add", *branch_args, tmpdir, ref], cwd=SCRIPT_DIR)
             yield Path(tmpdir)
     finally:
         run_git(["worktree", "prune"], cwd=SCRIPT_DIR)
@@ -71,8 +67,7 @@ def git_workdir(ref, branch=None):
 def generate_changelog(previous_tag, git_dir):
     print(f"Generating changelog for changes since {previous_tag}")
     log_lines = run_git(
-        ["log", "--no-merges", "--format=%s", f"{previous_tag}.."],
-        cwd=git_dir,
+        ["log", "--no-merges", "--format=%s", f"{previous_tag}.."], cwd=git_dir
     ).splitlines()
     joined = "\n".join(f" * {line}" for line in log_lines)
     return re.sub(r"[^\s]+/(.*?)(?:-sources?)?.(?:bst|yml)", r"\1", joined)
@@ -89,10 +84,7 @@ def maybe_push(push, git_dir, message, remote, stable_branch, news_branch):
     ]
 
     if push:
-        run_git(
-            push_args,
-            cwd=git_dir,
-        )
+        run_git(push_args, cwd=git_dir)
     else:
         print("To submit an MR for the release branch run:")
         print("    " + shlex.join(["git", *push_args]))
@@ -116,10 +108,7 @@ def prepare(args):
 
     run_git(["fetch", "--prune", args.remote])
     with git_workdir(stable_branch, branch=news_branch) as git_dir:
-        previous_tag = run_git(
-            ["describe", "--abbrev=0", stable_branch],
-            cwd=git_dir,
-        )
+        previous_tag = run_git(["describe", "--abbrev=0", stable_branch], cwd=git_dir)
         changelog = generate_changelog(previous_tag, git_dir)
 
         yaml = ruamel.yaml.YAML()
@@ -151,10 +140,7 @@ def prepare(args):
         with open(git_dir / "NEWS.yml", "w", encoding="utf-8") as news:
             yaml.dump_all(documents, news)
         message = f"NEWS: Update for {args.new_version}"
-        run_git(
-            ["commit", "-m", message, "NEWS.yml"],
-            cwd=git_dir,
-        )
+        run_git(["commit", "-m", message, "NEWS.yml"], cwd=git_dir)
         maybe_push(
             args.push, git_dir, message, args.remote, args.stable_branch, news_branch
         )
@@ -181,10 +167,7 @@ def publish(args):
     gl.auth()
     with git_workdir(args.commit) as git_dir:
         changelog = read_changelog(git_dir, args.new_version)
-        run_git(
-            ["tag", "-asm", args.new_version, args.new_version],
-            cwd=git_dir,
-        )
+        run_git(["tag", "-asm", args.new_version, args.new_version], cwd=git_dir)
         run_git(["push", args.remote, args.new_version], cwd=git_dir)
     project = gl.projects.get(FD_SDK_ID, lazy=True)
     project.releases.create(

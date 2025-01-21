@@ -24,7 +24,7 @@ from typing import Optional
 
 import yaml
 
-from .image_builder import build_images, Compression
+from .image_builder import Compression, build_images
 
 
 @dataclasses.dataclass

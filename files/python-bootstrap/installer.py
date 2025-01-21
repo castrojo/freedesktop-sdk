@@ -4,7 +4,6 @@ import os
 import shutil
 import sysconfig
 
-
 parser = argparse.ArgumentParser()
 parser.add_argument("--destdir", required=True)
 parser.add_argument("wheels", nargs="+")

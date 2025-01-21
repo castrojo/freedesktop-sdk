@@ -18,16 +18,15 @@
 
 import argparse
 import filecmp
-from fnmatch import fnmatch
 import json
 import os
 import re
 import subprocess
 import sys
 import tarfile
+from fnmatch import fnmatch
 
 from elftools.elf.elffile import ELFFile  # pylint: disable=import-error
-
 
 ABRT_EXIT_CODE = -6
 SEGV_EXIT_CODE = -11
@@ -73,10 +72,7 @@ def get_parser():
         help="parent directory in which the archive directory is created",
     )
     parser.add_argument(
-        "--full-abi-diff",
-        type=int,
-        default=False,
-        help="Force full ABI diff on",
+        "--full-abi-diff", type=int, default=False, help="Force full ABI diff on"
     )
 
     return parser
@@ -84,22 +80,8 @@ def get_parser():
 
 def format_title(title, level):
     box = {
-        1: {
-            "tl": "╔",
-            "tr": "╗",
-            "bl": "╚",
-            "br": "╝",
-            "h": "═",
-            "v": "║",
-        },
-        2: {
-            "tl": "┌",
-            "tr": "┐",
-            "bl": "└",
-            "br": "┘",
-            "h": "─",
-            "v": "│",
-        },
+        1: {"tl": "╔", "tr": "╗", "bl": "╚", "br": "╝", "h": "═", "v": "║"},
+        2: {"tl": "┌", "tr": "┐", "bl": "└", "br": "┘", "h": "─", "v": "│"},
     }[level]
     hline = box["h"] * (len(title) + 2)
 
