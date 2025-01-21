@@ -20,11 +20,10 @@ import argparse
 import asyncio
 import asyncio.subprocess
 import logging
-import sys
 import os
 import signal
 import subprocess
-
+import sys
 
 QEMU = "qemu-system-x86_64"
 QEMU_EXTRA_ARGS = ["-m", "256"]

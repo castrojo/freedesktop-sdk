@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-from socket import gethostbyname
 import sys
+from socket import gethostbyname
 
 host = sys.argv[1]
 

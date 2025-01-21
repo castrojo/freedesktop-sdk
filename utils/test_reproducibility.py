@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-from typing import List, Optional
-
 import argparse
-import subprocess
+import multiprocessing
 import os
+import subprocess
 import sys
 import tempfile
-import multiprocessing
+from typing import List, Optional
 
 from yattag import Doc, indent
 
@@ -48,11 +47,7 @@ def bst_build(
     bst_call.extend(["--deps", dependency_kind])
 
     if disallow_artifact_pull:
-        bst_call.extend(
-            [
-                "--ignore-project-artifact-remotes",
-            ]
-        )
+        bst_call.extend(["--ignore-project-artifact-remotes"])
     print("BST BUILD RUNNING:", bst_call, file=sys.stderr)
     subprocess.run(bst_call, check=True)
 
@@ -133,13 +128,7 @@ def bst_show(
     # Has to run with colors off, otherwise parsing output will break
     bst_call = [x for x in bst_config.bst_call if x != "--colors"]
     bst_call.extend(
-        [
-            "show",
-            "--deps",
-            dependency_kind,
-            "--format",
-            "%{name},%{full-key},%{state}",
-        ]
+        ["show", "--deps", dependency_kind, "--format", "%{name},%{full-key},%{state}"]
     )
     bst_call.extend(element_info.name for element_info in element_infos)
 
@@ -223,9 +212,7 @@ def is_single_project_reproducible(
         )
 
         bst_remove_artifact_cache(
-            bst_config=bst_config,
-            element_info=element_info,
-            dependency_kind="none",
+            bst_config=bst_config, element_info=element_info, dependency_kind="none"
         )
 
         bst_build(

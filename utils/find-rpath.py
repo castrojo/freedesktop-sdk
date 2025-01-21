@@ -5,10 +5,9 @@ import re
 import sys
 import typing as t
 
-from elftools.elf.elffile import ELFFile  # pylint: disable=import-error
-from elftools.elf.dynamic import DynamicSection  # pylint: disable=import-error
 from elftools.common.exceptions import ELFError  # pylint: disable=import-error
-
+from elftools.elf.dynamic import DynamicSection  # pylint: disable=import-error
+from elftools.elf.elffile import ELFFile  # pylint: disable=import-error
 
 SO_RE = re.compile(r".*\.so(?:\.[\.\d]+)?$")
 
