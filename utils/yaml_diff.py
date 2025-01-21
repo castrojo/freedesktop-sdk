@@ -23,8 +23,12 @@ with contextlib.ExitStack() as stack:
     except YAMLError:
         diff(path, old_file, new_file)
     else:
-        old_formatted = stack.enter_context(tempfile.NamedTemporaryFile(mode="w"))
-        new_formatted = stack.enter_context(tempfile.NamedTemporaryFile(mode="w"))
+        old_formatted = stack.enter_context(
+            tempfile.NamedTemporaryFile(mode="w", encoding="utf-8")
+        )
+        new_formatted = stack.enter_context(
+            tempfile.NamedTemporaryFile(mode="w", encoding="utf-8")
+        )
         yaml.dump(old_data, old_formatted)
         yaml.dump(new_data, new_formatted)
         diff(path, old_formatted.name, new_formatted.name)
