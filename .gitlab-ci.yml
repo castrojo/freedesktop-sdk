@@ -272,6 +272,7 @@ check_mirrors:
 .builder-riscv64:
   tags:
     - riscv-native
+    - riscv-big
   variables:
     ARCH: riscv64
 
