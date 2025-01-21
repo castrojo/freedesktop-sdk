@@ -14,7 +14,7 @@ args = parser.parse_args()
 
 failed = False
 
-for root, dirs, files in os.walk(args.sysroot):
+for root, _, files in os.walk(args.sysroot):
     for f in files:
         obj = os.path.join(root, f)
         if os.path.islink(obj):

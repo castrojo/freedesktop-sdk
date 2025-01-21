@@ -36,7 +36,7 @@ with open(args.allow_list_filename, "r", encoding="utf-8") as allow_list_file:
 allow_list = set(line for line in allow_list if line and not line.startswith("#"))
 
 # walk the file directory
-for root, dirs, files in os.walk(args.target_dir):
+for root, _, files in os.walk(args.target_dir):
     for name in files:
         if name.endswith(".a"):
             if args.verbose:
