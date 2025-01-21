@@ -41,6 +41,6 @@ sources:
 - kind: pypi
   name: hotdoc
   ref:
-    sha256sum: 2e90156337d1f9214bbef9758cfa89b7815ae5efbb09bcdf15ae476e5fd258df
+    sha256sum: a9518bd2a8497ded8df6fa116632691e34ea03f9ce186655ffa228748d27775c
     suffix: 
-      7a/52/6eb10a38b207bac9a02a25e96b0b23712095d614112006e958c53cbb5ae9/hotdoc-0.17.2.tar.gz
+      6d/7c/dd87a9ced954b78203508f02229f4be0c77486cca5538404ecf5b621dbc1/hotdoc-0.17.3.tar.gz
