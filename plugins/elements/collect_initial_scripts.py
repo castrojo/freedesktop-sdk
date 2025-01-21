@@ -14,6 +14,7 @@ way to have integration scripts that we execute when we pack into an image
 
 import os
 import re
+
 from buildstream import Element
 
 
@@ -31,9 +32,7 @@ class ExtractInitialScriptsElement(Element):
         pass
 
     def get_unique_key(self):
-        key = {
-            "path": self.path,
-        }
+        key = {"path": self.path}
         return key
 
     def configure_sandbox(self, sandbox):

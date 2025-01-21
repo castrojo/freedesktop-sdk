@@ -14,16 +14,15 @@ Files are not downloaded if not modified. But we still verify with the
 remote database we have the latest version of the files.
 """
 
-import json
-import sys
-import gzip
 import glob
-import os
+import gzip
 import html
+import json
+import os
+import sys
 
-from libversion import Version
 import requests
-
+from libversion import Version
 
 LOOKUP_TABLE = {}
 unversioned_git = {}

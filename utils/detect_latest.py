@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import subprocess
 import re
+import subprocess
 
 REMOTE = "https://gitlab.com/freedesktop-sdk/freedesktop-sdk.git"
 

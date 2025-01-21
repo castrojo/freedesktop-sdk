@@ -2,9 +2,10 @@
 """Usage: python utils/news_validator.py validate --path NEWS.yml"""
 
 import argparse
-import re
-import json
 import datetime
+import json
+import re
+
 import ruamel.yaml
 
 FD_SDK_TAG_FORMAT = r"^freedesktop-sdk-\d{2}\.08(?:beta|rc)?\.\d+(?:\.\d+)?$"
@@ -44,10 +45,7 @@ def main():
         "validate", help="Validate NEWS.yml for common mistakes"
     )
     validate_parser.add_argument(
-        "--path",
-        type=str,
-        required=True,
-        help="Path to NEWS.yml",
+        "--path", type=str, required=True, help="Path to NEWS.yml"
     )
     validate_parser.set_defaults(func=validate)
 

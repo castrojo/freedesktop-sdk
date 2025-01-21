@@ -18,11 +18,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import errno
 import hashlib
 import os
 import stat
 import tarfile
-import errno
 
 PAX_HEADER_SHA256 = "SCHILY.xattr.user.checksum.sha256"
 

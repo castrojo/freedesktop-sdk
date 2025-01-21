@@ -18,12 +18,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import sys
 import collections
 import os
-import yaml
-from .image_builder import build_images
+import sys
 
+import yaml
+
+from .image_builder import build_images
 
 GlobalConf = collections.namedtuple("GlobalConf", ["mode", "gzip", "output"])
 

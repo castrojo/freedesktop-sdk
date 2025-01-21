@@ -4,6 +4,7 @@
 import argparse
 import os
 import re
+
 import ruamel.yaml
 
 
@@ -47,10 +48,7 @@ def main():
         "validate", help="Validate Flatpak branch definitions"
     )
     validate_parser.add_argument(
-        "--path",
-        type=str,
-        required=True,
-        help="Path to branch definitions in YML",
+        "--path", type=str, required=True, help="Path to branch definitions in YML"
     )
     validate_parser.set_defaults(func=validate)
 

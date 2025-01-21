@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
+import os
 import re
 import subprocess
-import os
 
 CODECS_REG = re.compile(r"^ ([A-Z.]{6}) ([^ \=]+) +(.+)$", re.M)
 DECODERS_REG = re.compile(r" \(decoders: ([^)]+)\)")
@@ -132,28 +132,17 @@ exp_libx265_encoder_ext = ["Encoder libx265"]
 av1_decoders = get_codec_info("decoder", "av1")
 av1_encoders = get_codec_info("encoder", "av1")
 exp_av1_decoder = ["Decoder av1"]
-exp_av1_encoder = [
-    "Encoder libaom-av1",
-    "Encoder libsvtav1",
-    "Encoder av1_vaapi",
-]
+exp_av1_encoder = ["Encoder libaom-av1", "Encoder libsvtav1", "Encoder av1_vaapi"]
 
 vp8_decoders = get_codec_info("decoder", "vp8")
 vp8_encoders = get_codec_info("encoder", "vp8")
 exp_vp8_decoder = ["Decoder vp8"]
-exp_vp8_encoder = [
-    "Encoder libvpx",
-    "Encoder vp8_v4l2m2m",
-    "Encoder vp8_vaapi",
-]
+exp_vp8_encoder = ["Encoder libvpx", "Encoder vp8_v4l2m2m", "Encoder vp8_vaapi"]
 
 vp9_decoders = get_codec_info("decoder", "vp9")
 vp9_encoders = get_codec_info("encoder", "vp9")
 exp_vp9_decoder = ["Decoder vp9"]
-exp_vp9_encoder = [
-    "Encoder libvpx-vp9",
-    "Encoder vp9_vaapi",
-]
+exp_vp9_encoder = ["Encoder libvpx-vp9", "Encoder vp9_vaapi"]
 
 
 # Common to both ffmpeg-full and platform ffmpeg

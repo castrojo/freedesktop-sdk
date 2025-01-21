@@ -6,8 +6,8 @@ store is ignored for the return status.
 """
 
 import json
-import sys
 import subprocess
+import sys
 
 has_error = False
 

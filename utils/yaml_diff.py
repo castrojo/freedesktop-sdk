@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
-import sys
 import contextlib
-import tempfile
 import subprocess
+import sys
+import tempfile
+
 from ruamel.yaml import YAML, YAMLError
 
 path, old_file, _, _, new_file, _, _ = sys.argv[1:]

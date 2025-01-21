@@ -18,11 +18,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import tempfile
-import hashlib
-import os
 import codecs
+import hashlib
 import json
+import os
+import tempfile
 from contextlib import contextmanager
 
 
@@ -90,17 +90,13 @@ class Blob:
                         os.makedirs(blobdir)
                         self.filename = os.path.join(blobdir, "layer.tar")
                         with open(
-                            os.path.join(blobdir, "VERSION"),
-                            "w",
-                            encoding="utf-8",
+                            os.path.join(blobdir, "VERSION"), "w", encoding="utf-8"
                         ) as version_file:
                             version_file.write("1.0")
                         self.legacy_config["id"] = file_hash.hexdigest()
                         self.legacy_id = file_hash.hexdigest()
                         with open(
-                            os.path.join(blobdir, "json"),
-                            "w",
-                            encoding="utf-8",
+                            os.path.join(blobdir, "json"), "w", encoding="utf-8"
                         ) as legacy_config_file:
                             json.dump(self.legacy_config, legacy_config_file)
                         self.descriptor = os.path.join(

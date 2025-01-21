@@ -1,5 +1,5 @@
-import sysconfig
 import sys
+import sysconfig
 
 fmt = "/app/{platlibdir}/python{py_version_short}/site-packages"
 path = fmt.format(**sysconfig.get_config_vars())
