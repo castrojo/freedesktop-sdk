@@ -138,7 +138,7 @@ async def run_test(command, dialog):
     success = False
 
     try:
-        logging.debug("Starting process: {}", command)
+        logging.debug("Starting process: %s", command)
         process = await asyncio.create_subprocess_exec(
             *command,
             stdin=asyncio.subprocess.PIPE,
