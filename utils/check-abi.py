@@ -26,7 +26,7 @@ import sys
 import tarfile
 from fnmatch import fnmatch
 
-from elftools.elf.elffile import ELFFile  # pylint: disable=import-error
+from elftools.elf.elffile import ELFFile
 
 ABRT_EXIT_CODE = -6
 SEGV_EXIT_CODE = -11
