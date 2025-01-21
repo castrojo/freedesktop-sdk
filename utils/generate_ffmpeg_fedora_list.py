@@ -11,7 +11,6 @@ def get_fedora_file(url: str) -> str:
             plugin = line.split("#")[0].strip()
 
             if plugin:
-                # print(plugin.strip())
                 # format the yaml so the final string doesn't end up a one liner
                 if count >= 6:
                     plugin = f"\\\n    {plugin}"
@@ -20,7 +19,6 @@ def get_fedora_file(url: str) -> str:
                 plugins.append(plugin)
                 count += 1
 
-    # print(plugins)
     return ",".join(plugins)
 
 
