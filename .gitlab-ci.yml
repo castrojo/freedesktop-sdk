@@ -82,7 +82,8 @@ before_script:
 lint:
   stage: flatpak
   script:
-    - find . \( -path './.bst' \) -prune -o -type f -iname "*.py" -exec ruff format --check {} + -exec ruff check --output-format=gitlab {} +
+    - ruff format --check
+    - ruff check
     - python utils/news_validator.py validate --path NEWS.yml
     - python utils/flatpak_branch_validator.py validate --path include/repo_branches.yml
   rules:
