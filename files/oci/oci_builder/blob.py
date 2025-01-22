@@ -103,7 +103,7 @@ class Blob:
                             file_hash.hexdigest(), "layer.tar"
                         )
                     else:
-                        assert False
+                        raise AssertionError()
                 os.rename(filename, self.filename)
             except:
                 try:
