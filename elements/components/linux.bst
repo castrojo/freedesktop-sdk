@@ -14,6 +14,7 @@ build-depends:
 - components/python3.bst
 - components/rsync.bst
 - components/util-linux.bst
+- components/zstd.bst
 - filename: components/linux-module-cert.bst
   strict: true
 
@@ -87,7 +88,7 @@ config:
 
   - |
     release=$(make -s kernelrelease)
-    find "%{install-root}%{indep-libdir}/modules/${release}" -type f -name '*.ko' | xargs -P $MAXJOBS -n 2 -r xz;
+    find "%{install-root}%{indep-libdir}/modules/${release}" -type f -name '*.ko' | xargs -n 2 -r zstd -19 -T${MAXJOBS};
 
   - |
     release=$(make -s kernelrelease)
