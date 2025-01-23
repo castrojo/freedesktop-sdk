@@ -12,4 +12,4 @@ sources:
   exclude:
   - '*rc*'
   - '*branchpoint*'
-  ref: mesa-24.3.3-0-gac434a4ff19a3d00b3ad63615a6fd5cd051e78a4
+  ref: mesa-24.3.4-0-g769e51468b49b2a42f0a0eaf71cf9eed5ff4e5de
