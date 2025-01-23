@@ -21,9 +21,6 @@ depends:
 variables:
   cmake-local: >-
     -DBUILD_SHARED_LIBS:BOOL=ON
-    -DSDL_ARTS:BOOL=OFF
-    -DSDL_ESD:BOOL=OFF
-    -DSDL_NAS:BOOL=OFF
     -DSDL_ALSA:BOOL=OFF
     -DSDL_OSS:BOOL=OFF
     -DSDL_SNDIO:BOOL=OFF
