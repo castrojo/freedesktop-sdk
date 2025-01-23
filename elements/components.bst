@@ -6,7 +6,6 @@ depends:
 - components/alsa-lib.bst
 - components/alsa-plugins.bst
 - components/aom.bst
-- components/apparmor-base.bst
 - components/apparmor-manifest.bst
 - components/apparmor.bst
 - components/appstream-minimal.bst
@@ -20,7 +19,6 @@ depends:
 - components/autoconf.bst
 - components/autoconf2.69.bst
 - components/automake.bst
-- components/avahi-base.bst
 - components/avahi-gobject.bst
 - components/avahi-manifest.bst
 - components/avahi-ui.bst
@@ -30,7 +28,6 @@ depends:
 - components/bc.bst
 - components/binutils.bst
 - components/bison.bst
-- components/bluez-base.bst
 - components/bluez-headers.bst
 - components/bluez-libs.bst
 - components/bluez-manifest.bst
@@ -55,12 +52,9 @@ depends:
 - components/cpio.bst
 - components/cracklib.bst
 - components/crun.bst
-- components/cryptsetup-base.bst
-- components/cryptsetup-lvm2-stage1.bst
 - components/cryptsetup-manifest.bst
 - components/cryptsetup.bst
 - components/cunit.bst
-- components/cups-base.bst
 - components/cups-daemon-only.bst
 - components/cups-daemon.bst
 - components/cups-filters.bst
@@ -70,7 +64,6 @@ depends:
 - components/cyrus-sasl.bst
 - components/cython.bst
 - components/dav1d.bst
-- components/dbus-base.bst
 - components/dbus-manifest.bst
 - components/dbus-tools.bst
 - components/dbus.bst
@@ -103,7 +96,6 @@ depends:
 - components/ffmpeg.bst
 - components/fftw.bst
 - components/findutils.bst
-- components/flat-manager-client-base.bst
 - components/flat-manager-client-minimal.bst
 - components/flat-manager-client.bst
 - components/flatpak-builder-minimal.bst
@@ -113,12 +105,10 @@ depends:
 - components/flatpak-xdg-utils.bst
 - components/flatpak.bst
 - components/fmtlib.bst
-- components/flex-base.bst
 - components/flex.bst
 - components/fontconfig-flatpak-config.bst
 - components/fontconfig.bst
 - components/foomatic-db.bst
-- components/freetype-stage1.bst
 - components/freetype.bst
 - components/frei0r.bst
 - components/fribidi.bst
@@ -310,13 +300,11 @@ depends:
 - components/libyaml.bst
 - components/linux-firmware.bst
 - components/linux-module-cert.bst
-- components/linux-pam-base.bst
 - components/linux-pam.bst
 - components/linux.bst
 - components/llvm.bst
 - components/locales.bst
 - components/lua.bst
-- components/lvm2-stage1.bst
 - components/lvm2.bst
 - components/lz4.bst
 - components/lzip.bst
@@ -387,7 +375,6 @@ depends:
 - components/perl-yaml-tiny.bst
 - components/perl.bst
 - components/pinentry-ncurses.bst
-- components/pipewire-base.bst
 - components/pipewire-daemon.bst
 - components/pipewire-manifest.bst
 - components/pipewire.bst
@@ -399,7 +386,6 @@ depends:
 - components/po4a.bst
 - components/podman-config.bst
 - components/podman.bst
-- components/polkit-base.bst
 - components/polkit-gobject.bst
 - components/polkit.bst
 - components/poppler.bst
@@ -554,12 +540,10 @@ depends:
 - components/supported-locales.bst
 - components/svt-av1.bst
 - components/swig.bst
-- components/systemd-base.bst
 - components/systemd-hwdb.bst
 - components/systemd-libs.bst
 - components/systemd-manifest.bst
 - components/systemd-kernel-install.bst
-- components/systemd-stage1.bst
 - components/systemd-ukify.bst
 - components/systemd.bst
 - components/tar.bst
@@ -577,7 +561,6 @@ depends:
 - components/unzip.bst
 - components/usbutils.bst
 - components/utf8cpp.bst 
-- components/util-linux-base.bst
 - components/util-linux-full.bst
 - components/util-linux.bst
 - components/v4l-utils.bst
@@ -608,7 +591,6 @@ depends:
 - components/xcb-util-wm.bst
 - components/xcb-util.bst
 - components/xdg-dbus-proxy.bst
-- components/xdg-desktop-portal-base.bst
 - components/xdg-desktop-portal-manifest.bst
 - components/xdg-desktop-portal.bst
 - components/xdg-portal-interfaces.bst
