@@ -25,9 +25,7 @@ sources:
 - kind: git_repo
   url: github:linux-audit/audit-userspace.git
   track: v*.*
-  ref: v4.0.2-0-g4e6deae41d4646d28bb3ba9524a8a227a38ccd0b
-- kind: patch
-  path: patches/audit/0001-Try-to-solve-Issue-390.patch
+  ref: v4.0.3-0-g51d154c5b7ec91831cbb89fe6ca54d8eb7ba344c
 - kind: local
   path: files/audit/tmpfiles-audit.conf
   directory: freedesktop-sdk
