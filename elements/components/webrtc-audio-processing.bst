@@ -12,7 +12,8 @@ variables:
   arch-conf: ''
   (?):
   - target_arch == "i686":
-      arch-conf: -Dc_args="${CFLAGS} -DPFFFT_SIMD_DISABLE" -Dcpp_args="${CPPFLAGS} -DPFFFT_SIMD_DISABLE"
+      arch-conf: -Dc_args="${CFLAGS} -DPFFFT_SIMD_DISABLE" -Dcpp_args="${CPPFLAGS}
+        -DPFFFT_SIMD_DISABLE"
   meson-local: >-
     -Dcpp_std=c++17
     %{arch-conf}
@@ -29,10 +30,12 @@ sources:
 - kind: git_repo
   url: freedesktop:pulseaudio/webrtc-audio-processing.git
   track: v*
-  ref: v1.3-0-g8e258a1933d405073c9e6465628a69ac7d2a1f13
+  ref: v2.1-0-g846fe90a289f58b7c9303a635142aa2c7caa93e5
 - kind: patch
-  path: patches/webrtc-audio-processing/Add-generic-byte-order-and-pointer-size-detection.patch
+  path: 
+    patches/webrtc-audio-processing/Add-generic-byte-order-and-pointer-size-detection.patch
 - kind: patch
-  path: patches/webrtc-audio-processing/webrtc-audio-processing-1.3-big-endian-support.patch
+  path: 
+    patches/webrtc-audio-processing/webrtc-audio-processing-1.3-big-endian-support.patch
 - kind: patch
   path: patches/webrtc-audio-processing/webrtc-audio-processing-1.3-x86-no-sse.patch
