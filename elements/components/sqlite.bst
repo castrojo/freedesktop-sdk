@@ -3,6 +3,7 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/tcl.bst
+- components/patchelf.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -18,6 +19,12 @@ variables:
     -DSQLITE_ENABLE_FTS3=1
     -DSQLITE_ENABLE_UNLOCK_NOTIFY=1
     -DSQLITE_ENABLE_DBSTAT_VTAB=1"
+
+config:
+  install-commands:
+    (>):
+    - |
+      patchelf --remove-rpath %{install-root}%{indep-libdir}/tcl*/sqlite3/libtclsqlite3.so
 
 public:
   bst:
