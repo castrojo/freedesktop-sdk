@@ -1,7 +1,7 @@
 kind: autotools
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-make.bst
 - components/tcl.bst
 - components/patchelf.bst
 
