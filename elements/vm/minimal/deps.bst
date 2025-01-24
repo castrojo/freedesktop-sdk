@@ -3,7 +3,6 @@ kind: stack
 depends:
 - public-stacks/runtime-minimal.bst
 - components/util-linux-full.bst
-- components/linux.bst
 - components/wireless-regdb-bin.bst
 - components/systemd.bst
 - components/dbus.bst
@@ -24,7 +23,21 @@ depends:
 - components/bash-completion.bst
 
 (?):
-- ("firmware" in minimal_vm):
+- downstream_bsp == "none":
+    (?):
+    - ("firmware" in minimal_vm):
+        depends:
+          (>):
+          - components/linux-firmware.bst
     depends:
       (>):
-      - components/linux-firmware.bst
+      - components/linux.bst
+- downstream_bsp == "spacemit_k1":
+    (?):
+    - ("firmware" in minimal_vm):
+        depends:
+          (>):
+          - components/linux-firmware-spacemit-k1.bst
+    depends:
+      (>):
+      - components/linux-spacemit-k1.bst
