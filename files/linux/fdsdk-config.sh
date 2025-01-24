@@ -636,6 +636,14 @@ case "$arch" in
     ;;
 esac
 
+# Needed for HDMI display on Rock 5B
+case "$arch" in
+    aarch64)
+        module PHY_ROCKCHIP_SAMSUNG_HDPTX
+        enable ROCKCHIP_DW_HDMI_QP
+    ;;
+esac
+
 # DRM for virtual machines
 enable DRM_VIRTIO_GPU
 case "$arch" in
