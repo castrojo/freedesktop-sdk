@@ -24,7 +24,7 @@ depends:
 - components/mpg123.bst
 - components/openal.bst
 - components/libpulse.bst
-- components/sdl2.bst
+- components/sdl2-compat.bst
 - components/aom.bst
 - components/gnutls.bst
 - components/speex.bst

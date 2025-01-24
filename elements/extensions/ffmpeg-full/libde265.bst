@@ -7,7 +7,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/sdl2.bst
+- components/sdl2-compat.bst
 
 variables:
   cmake-local: >-

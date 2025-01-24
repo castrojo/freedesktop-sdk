@@ -165,7 +165,8 @@ depends:
 - components/sdl2-mixer.bst
 - components/sdl2-net.bst
 - components/sdl2-ttf.bst
-- components/sdl2.bst
+- components/sdl2-compat.bst
+- components/sdl3.bst
 - components/shaderc.bst
 - components/shared-mime-info.bst
 - components/svt-av1.bst

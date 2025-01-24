@@ -8,7 +8,7 @@ depends:
 - components/libflac.bst
 - components/libvorbis.bst
 - components/mpg123.bst
-- components/sdl2.bst
+- components/sdl2-compat.bst
 - components/opusfile.bst
 - components/wavpack.bst
 

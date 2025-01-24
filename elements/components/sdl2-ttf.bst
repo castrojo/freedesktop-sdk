@@ -5,7 +5,7 @@ build-depends:
 
 depends:
 - components/freetype.bst
-- components/sdl2.bst
+- components/sdl2-compat.bst
 
 public:
   bst:
