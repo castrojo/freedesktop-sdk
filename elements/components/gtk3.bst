@@ -52,4 +52,4 @@ sources:
 - kind: git_repo
   url: gnome:gtk.git
   track: 3.24.*
-  ref: 3.24.43-0-g788f4de2799b3f5902d27733ea603e8dfee8d0a6
+  ref: 3.24.45-0-g367a323c129654c0cf8c8ec2da00f22a99be38bf
