@@ -2,6 +2,7 @@ kind: compose
 
 config:
   exclude:
+  - sysconf
   - extra
   - vm-only
 

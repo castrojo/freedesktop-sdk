@@ -26,4 +26,6 @@ config:
     - snapd2.45
 
 build-depends:
-- snap-images/sdk-fix-image.bst
+- snap-images/sdk-snap-image.bst
+- snap-images/snap-extra-fs.bst
+

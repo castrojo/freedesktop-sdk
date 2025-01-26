@@ -1,13 +1,9 @@
 kind: script
+
 build-depends:
 - public-stacks/runtime-minimal.bst
-- filename: snap-images/platform-snap-image.bst
-  config:
-    location: "%{install-root}"
 
 variables:
-  install-root: /buildstream-install
-
   # Note: /app is only for flatpak application compatibility
   # so that applications can bind themselves to the path
   # The rest comes from Snap.
@@ -35,9 +31,6 @@ variables:
 
 config:
   commands:
-    - |
-      rm -rf "%{install-root}/etc"
-
     # Because snapd does not allow binding /app, then we need to mount it in /var/app
     - |
       ln -s var/app "%{install-root}/app"
