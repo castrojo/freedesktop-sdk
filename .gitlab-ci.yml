@@ -69,7 +69,12 @@ stages:
 before_script:
   - ulimit -n 1048576
   - export PATH=~/.local/bin:${PATH}
-
+  - |
+    if cp --reflink=always README.md .reflink-test; then
+    echo Reflinks supported, disabling buildbox-fuse
+    chmod -x /usr/bin/buildbox-fuse
+    rm .reflink-test
+    fi
   - |
     mkdir -p ~/.config
     echo $CACHE_TOKEN > ~/.config/freedesktop-sdk.token
@@ -216,12 +221,6 @@ check_mirrors:
   stage: flatpak
   script:
     - test -x arch-test && arch-test
-    - |
-      if cp --reflink=always README.md .reflink-test; then
-      echo Reflinks supported, disabling buildbox-fuse
-      chmod -x /usr/bin/buildbox-fuse
-      rm .reflink-test
-      fi
     - ./utils/validate_aliases.py include/_private/aliases.yml include/_private/mirrors.yml
     - |
       if [ "${ARCH}" != "i686" ];then
