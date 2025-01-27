@@ -23,7 +23,7 @@ variables:
     /var/log
     /media
     /usr/lib/snapd
-    /lib/modules
+    /usr/lib/modules
     /mnt
     /usr/local/share/fonts
     /snap
