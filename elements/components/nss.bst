@@ -151,7 +151,7 @@ sources:
   # https://firefox-source-docs.mozilla.org/security/nss/releases/index.html
   # Next ESR is unknown
   track: NSS_3_101*_RTM
-  ref: NSS_3_101_2_RTM-0-g8d84779d9526ea6cebbfda440d73b6e3b58c34b7
+  ref: NSS_3_101_3_RTM-0-g3143eca5694df773dfda738de0ef02153a894944
   directory: nss
 - kind: patch
   path: patches/nss/pkg-config-libdir.patch
