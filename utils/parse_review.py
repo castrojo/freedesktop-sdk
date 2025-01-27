@@ -18,6 +18,7 @@ child_process = subprocess.run(
 if child_process.returncode == 1:
     sys.stderr.write(f"review-tools.snap-review crashed ({child_process.returncode})\n")
     sys.stderr.write(child_process.stdout)
+    sys.stderr.write(child_process.stderr)
     sys.exit(1)
 elif child_process.returncode == 0:
     sys.stderr.write(f"No error found ({child_process.returncode})\n")
