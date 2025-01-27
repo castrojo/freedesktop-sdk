@@ -14,4 +14,4 @@ sources:
   track: "*"
   exclude:
   - "*b*"
-  ref: 24.3.1-0-g05293b6b55eca86490b7c2944bcc558a56064f0d
+  ref: 25.0-0-gf47b5874299848c688336ae7c8d69534013fe2c6
