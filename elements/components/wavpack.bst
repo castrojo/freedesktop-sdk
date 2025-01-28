@@ -27,4 +27,4 @@ sources:
   - "*rc*"
   - "*beta*"
   - "*dirty*"
-  ref: 5.7.0-0-g63dd3fa3b69fc236cc17886af6d4bd7dbe856125
+  ref: 5.8.0-0-g0e1a78c94cc282c7e6b5e070b77d7c47cbbe688a
