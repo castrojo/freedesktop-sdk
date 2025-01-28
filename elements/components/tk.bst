@@ -38,4 +38,4 @@ sources:
   - "*-a*"
   - "*-b*"
   - "*-rc*"
-  ref: core-8-6-16-0-gc9ca6b23f3afe49fbd1cb2b6ad36cfec3b8e329c
+  ref: core-8-6-16-0-g2436f584c36d57411f6632e50eb3050097e011d0
