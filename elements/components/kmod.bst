@@ -5,6 +5,7 @@ depends:
 - components/openssl.bst
 - components/xz.bst
 - components/zlib.bst
+- components/zstd.bst
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
@@ -14,6 +15,7 @@ variables:
   conf-local: >-
     --with-xz
     --with-zlib
+    --with-zstd
     --with-openssl
     --enable-tools
 
