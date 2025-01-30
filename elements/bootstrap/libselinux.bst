@@ -48,4 +48,4 @@ sources:
   track: libselinux-*
   exclude:
   - '*rc*'
-  ref: libselinux-3.7-0-g2eb286bc0841791043567437ba5413f3014fb94e
+  ref: libselinux-3.8-0-g71aec30d068789e856e7cc429b620ae1cfa890f1
