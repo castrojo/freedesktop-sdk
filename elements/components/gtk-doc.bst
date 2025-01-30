@@ -1,19 +1,22 @@
-kind: autotools
+kind: meson
+
+build-depends:
+- public-stacks/buildsystem-meson.bst
+- components/sed.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: components/itstool.bst
-- filename: components/docbook-xml.bst
-- filename: components/docbook-xsl.bst
-- filename: components/pkg-config.bst   # gtk-doc uses pkg-config during runtime.
-- filename: components/python3.bst
-- filename: components/python3-pygments.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
+- components/itstool.bst
+- components/docbook-xml.bst
+- components/docbook-xsl.bst
+- components/pkg-config.bst   # gtk-doc uses pkg-config during runtime.
+- components/python3.bst
+- components/python3-pygments.bst
 
-public:
-  cpe:
-    version: '1.32'
+variables:
+  meson-local: >-
+    -Dyelp_manual=false
+    -Dtests=false
 
 sources:
 - kind: git_repo
