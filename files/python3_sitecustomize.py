@@ -4,7 +4,7 @@ import sysconfig
 fmt = "/app/{platlibdir}/python{py_version_short}/site-packages"
 path = fmt.format(**sysconfig.get_config_vars())
 
-for item in sys.path:
+for position, item in enumerate(sys.path):  # noqa: B007
     if item.startswith(sys.base_prefix) and item.endswith("site-packages"):
         break
 else:
