@@ -23,4 +23,4 @@ sources:
 - kind: git_repo
   url: github:hughsie/libjcat.git
   track: '*.*.*'
-  ref: 0.2.2-0-gfc04ad2d4e65e55024a4507e0aaa2659a0a588a3
+  ref: 0.2.3-0-gf284d18a694ed98f49ddb06e6920265781a30125
