@@ -5,6 +5,7 @@ depends:
 
 variables:
   strip-binaries: ''
+  ldconfig-cache: /var/cache/ldconfig/
 
 config:
   install-commands:
@@ -16,6 +17,10 @@ config:
 public:
   bst:
     integration-commands:
-    - ldconfig
+    - |
+      ldconfig
+      if [ -f %{ldconfig-cache} ];then
+      rm -r %{ldconfig-cache}
+      fi
     overlap-whitelist:
     - "%{sysconfdir}/ld.so.conf"
