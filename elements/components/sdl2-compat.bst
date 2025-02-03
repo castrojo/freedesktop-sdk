@@ -64,6 +64,6 @@ sources:
 - kind: git_repo
   url: github:libsdl-org/sdl2-compat.git
   track: release-*
-  ref: release-2.30.50-0-gc8cedca4f985de1eee5df19715cbede99dfd187c
+  ref: release-2.30.52-0-gf8faca3eef1553bcda038ec14380ab55b0515443
 - kind: patch
   path: patches/sdl2-compat/restore-headers.patch
