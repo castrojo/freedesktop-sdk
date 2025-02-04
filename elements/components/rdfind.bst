@@ -11,4 +11,4 @@ sources:
 - kind: git_repo
   url: github:pauldreik/rdfind.git
   track: "*.*.*"
-  ref: releases/1.6.0-0-gb0f580b8cdc096ea6d006a6bf586f491a47b1801
+  ref: releases/1.7.0-0-g594553e9c074d8ffa136ef95d6617a3199cea918
