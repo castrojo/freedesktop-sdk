@@ -1,3 +1,222 @@
+Version: freedesktop-sdk-24.08.11
+Date: '2025-02-04'
+Description: |-
+  Changes in freedesktop-sdk-24.08.11
+   * noopenh264: Disable tracking
+   * Revert to openh264 2.4.1 for now
+   * Update binutils to binutils-2_44-0
+   * Update python3-certifi to 2025.01.31-0
+   * Update sdl2 to release-2.30.12-0
+   * Update linux to v6.13.1-0
+   * Update libsepol to libsepol-3.8-0
+   * Update vim to v9.1.1065-0
+   * Update python3-babel to 2.17.0
+   * Update gdb to gdb-16.2-release-0
+   * Update wayland-protocols to 1.40-0
+   * Revert "python3_sitecustomize: Drop enumerate as `position` was unused"
+   * spirv-tools: Backport patch needed by newer Mesa
+   * Track SDL2 versions for all SDL libraries
+   * Update gtk3 to 3.24.48-0
+   * Update libpaper to v2.2.6-0
+   * Update grpc to v1.70.1-0
+   * Update python3-pytz to 2025.1
+   * Update hotdoc to 0.17.4
+   * Update libslirp to v4.9.0-0
+   * Update python3-attrs to 25.1.0-0
+   * Update wavpack to 5.8.1-0
+   * Update gstreamer to 1.24.12-0
+   * Update passt to 2025_01_21.4f2c8e7-0
+   * Update strace to v6.13-0
+   * Update lvm2 to v2_03_30-0
+   * Update buildbox to 1.2.43-0
+   * linux: add option needed for HDMI output on the Rock 5B
+   * Update tk to core-8-6-16-0
+   * Update wavpack to 5.8.0-0
+   * Update mesa-sdk to mesa-24.3.4-0
+   * Update intel-media-driver to intel-media-25.1.0-0
+   * Update python3-pip to 25.0-0
+   * Update iio-sensor-proxy to 3.6-0
+   * Update libexif to libexif-0_6_25-release-0
+   * Fix FUSE disable to be in before_script
+   * Update glibc to glibc-2.40-69
+   * Update vim to v9.1.1053-0
+   * Update xz to v5.6.4-0
+   * Update mutool to 1.25.4-0
+   * Update dictionaries to libreoffice-25.2.0.3-0
+   * Update gdb to gdb-16.1-release-0
+   * Update git to v2.48.1-0
+   * Update mutool to 1.25.3-0
+   * polkit: mozjs backend has been dropped and option removed
+   * Update polkit-base to 126-0
+   * Update llvm to llvmorg-19.1.7-0
+   * Switch to same image as master
+   * Disable buildbox-fuse if reflinks are usable
+   * linux: Drop unused configuration
+   * Update linux to v6.13-0
+   * Update buildbox to 1.2.42-0
+   * Update abseil-cpp to 20240722.1-0
+   * Update fwupd to 2.0.4-0
+   * Update grpc to v1.70.0-0
+   * Update mesa to mesa-24.3.4-0
+   * Update cmake to v3.31.5-0
+   * sdl2: Track SDL2 versions only
+   * audit: Drop redundant patch
+   * Update audit to v4.0.3-0
+   * Update man-pages to man-pages-6.10-0
+   * Update python3-filelock to 3.17.0-0
+   * Update podman to v5.3.2-0
+   * Update doxygen to Release_1_13_2-0
+   * blob: Replace assertion with `raise AssertionError()`
+   * chore: Remove unused pylint configuration
+   * chore: Replace unused dirs variables
+   * python3_sitecustomize: Drop enumerate as `position` was unused
+   * test_minimal_system: Fix logging format string
+   * yaml_diff: Explicitly set encoding with tempfile
+   * chore: Remove commented out debug lines
+   * chore: Apply new ruff formatting fixes
+   * ci: Run ruff directly
+   * chore: Extend ruff configuration
+   * Update xdg-desktop-portal-base to 1.19.2-0
+   * Update libsoup to 3.6.4-0
+   * Update python3-protobuf to 5.29.3
+   * .gitlab-ci.yml: Only run daily job in the big RISC-V machines
+   * libpng: Freeze to 1.6.44
+   * jpeg: Track 3.0
+   * webrtc-audio-processing: Track v1
+   * xxhash: Freeze to 0.8.2 due to backwards ABI break
+   * Update dav1d to 1.5.1-0
+   * Update hotdoc to 0.17.3
+   * Update networkmanager to 1.50.2-0
+   * Update iproute2 to v6.13.0-0
+   * Ignore internal ABI changes in libcap
+   * Update libcap to libcap-2.73-0
+   * Ignore guarded enumerator change for gnutls
+   * Update gnutls to 3.8.8-0
+   * ci: Make riscv job non-interruptible
+   * Update shadow to 4.17.2-0
+   * Update python3-virtualenv to 20.29.1-0
+   * Update python3-trove-classifiers to 2025.1.15.22-0
+   * Update python3-pygments to 2.19.1-0
+   * Update vim to v9.1.1034-0
+   * Update perl to v5.40.1-0
+   * Update ostree to v2025.1-0
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-164
+   * Update go to go1.23.5-0
+   * Update python3-poetry-core to 2.0.1-0
+   * Update tzdata to 2025a-0
+   * Update python3-setuptools to v75.8.0-0
+   * Update rust-cbindgen to v0.28.0-0
+   * Update buildbox to 1.2.40-0
+   * Update util-linux-base to v2.40.4-0
+   * Update extra-cmake-modules to v6.10.0-0
+   * wavpack: Exclude non production tags
+   * Update rsync to v3.4.1-0
+   * Update git-lfs to v3.6.1-0
+   * Update libxcrypt to v4.4.38-0
+   * Update linux to v6.12.9-0
+   * buildbox: Update to 1.2.39
+   * Update cmake to v3.31.4-0
+   * Update glib-networking to 2.80.1-0
+   * Update protobuf to v29.3-0
+   * Update poppler to poppler-25.01.0-0
+   * Update gstreamer to 1.24.11-0
+   * Update python3-click to 8.2.0-0
+   * Update dictionaries to libreoffice-25.2.0.2-0
+   * Fix tracking for npth
+   * Update git to v2.48.0-0
+   * Update vim to v9.1.1006-0
+   * flatpak: Start tracking stable tags
+   * Update flatpak to 1.16.0-0
+   * Update composefs to v1.0.8-0
+   * Revert "ci: Drop git fetch"
+   * Update util-linux-base to v2.40.3-0
+   * assign_marge: Fix branch calculation when running on stable branches
+   * assign_marge: Process MRs opened by everyone
+   * Update u-boot-qemu to v2025.01-0
+   * Update python3-ruamel-yaml to 0.18.10
+   * Update e2fsprogs to v1.47.2-0
+   * Update pcsc-lite to 2.3.1-0
+   * ci: Drop git fetch
+   * Update kbd to v2.7.1-0
+   * Update systemd to v256.11-0
+   * Update python3-cachecontrol to 0.14.2
+   * assign_marge: Skip if already assigned to marge
+   * assign_marge: Add a dry run mode for debugging
+   * assign_marge: Add some debug logging
+   * Cleanup merged branches
+   * Add extensions pattern to auto_updater branch regex
+   * cleanup_leftover_branches: Fix argument to re
+   * assign_marge: Search only titles for NEWS MR
+   * assign_marge: List only approved MRs
+   * assign_marge: Drop max MR count to process to 30
+   * assign_marge: Drop a redundant parameter
+   * assign_marge: Improve the error when skipping on NEWS MRs
+   * assign_marge: Add some comments
+   * ci: Drop master branch condition from branch cleanup script
+   * Add script to assign to Marge automatically before running daily updates
+   * ci: Fix bash syntax in if condition
+   * Add script to cleanup leftover branches from auto_updater
+   * mesa-default: Create symlinks for all paths defined in flatpak merge-dirs
+   * xdg-desktop-portal: Patch out tests
+   * xdg-desktop-portal: Drop doc dependencies
+   * xdg-desktop-portal: Add libgudev dependency
+   * Update xdg-desktop-portal-base to 1.19.1-0
+   * Update hwdata to v0.391-0
+   * Update python3-setuptools to v75.7.0-0
+   * Update networkmanager to 1.50.1-0
+   * Update python3-trove-classifiers to 2025.1.7.14-0
+   * Update mesa to mesa-24.3.3-0
+   * Update libinput to 1.27.1-0
+   * Update mesa-sdk to mesa-24.3.3-0
+   * iio-sensor-proxy: Ignore release candidates
+   * Enable aa-* utils by creating LibAppArmor.py at configure time
+   * Update liburcu to v0.15.0-0
+   * Update libdrm to libdrm-2.4.124-0
+   * Update python3-poetry-core to 2.0.0-0
+   * Update vim to v9.1.0990-0
+   * Update buildbox to 1.2.38-0
+   * Update python3-pyparsing to 3.2.1-0
+   * Update shadow to 4.17.1-0
+   * Update python3-pil to 11.1.0-0
+   * Add patch for flat-manager-client to fix push
+   * Update linux to v6.12.8-0
+   * Update doxygen to Release_1_13_1-0
+   * Update python3-virtualenv to 20.28.1-0
+   * Update sdl2 to release-2.30.11-0
+   * Update intel-media-driver to intel-media-24.4.4-0
+   * Fix OpenH264 version definition
+   * Update noopenh264 to v2.5.0-0
+   * image: Update to edcad4f0b35deca34fbf20ad38c078b463f627f4
+   * Update gstreamer-plugins-rs to 0.13.4-0
+   * Update reference-abi to freedesktop-sdk-24.08.10-0
+   * Update python3-ruamel-yaml to 0.18.8
+   * Update erofs-utils to v1.8.4-0
+   * python3-charset-normalizer: Add setuptools-scm to build depends
+   * python3-charset-normalizer: Drop mypy from dependencies
+   * Update python3-charset-normalizer to 3.4.1-0
+   * Update perl-yaml-tiny to 1.76
+   * Update buildbox to 1.2.37-0
+   * Update spirv-llvm-translator to v19.1.3-0
+   * Update python3-maturin to v1.8.1-0
+   * Update libxcrypt to v4.4.37-0
+   * Update linux to v6.12.7-0
+   * Update cracklib to v2.10.3-0
+   * Update sdl2-image to release-2.8.4-0
+   * Update sdl2 to release-2.30.10-0
+   * Update grpc to v1.69.0-0
+   * Update go-md2man to v2.0.6-0
+   * Update gmmlib to intel-gmmlib-22.6.0-0
+   * mesa: Enable intel-nullhw layer
+   * mesa: Enable vulkan screenshot layer
+   * Update vim to v9.1.0969-0
+   * Update glibc to glibc-2.40-64
+   * Update bash-completion to 2.16.0-0
+   * Update systemd to v256.10-0
+   * mesa: Drop crash fix patches
+   * Update mesa to mesa-24.3.2-0
+   * Update xorg-lib-xv to libXv-1.0.13-0
+   * Update python3-urllib3 to 2.3.0-0
+---
 Version: freedesktop-sdk-24.08.10
 Date: '2024-12-31'
 Description: |-
