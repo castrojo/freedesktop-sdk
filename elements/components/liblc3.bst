@@ -17,4 +17,4 @@ sources:
 - kind: git_repo
   url: github:google/liblc3.git
   track: v*
-  ref: v1.1.1-0-g73bbc00245d9874ef3e8bc8ef6476e6fee9f42aa
+  ref: v1.1.2-0-g48bbd3eacd36e99a57317a0a4867002e0b09e183
