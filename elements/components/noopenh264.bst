@@ -15,8 +15,7 @@ variables:
 config:
   configure-commands:
     (<):
-    - |
-      grep "version : '%{openh264-version}'" %{build-root}/meson.build
+    - grep "matching_version = '%{openh264-version}'" %{build-root}/meson.build
 
   install-commands:
     (>):
@@ -41,4 +40,4 @@ sources:
 - kind: git_repo
   url: fdsdk_git:noopenh264.git
   track: v*
-  ref: v2.5.0-0-g6e575e43922a7620165637b2596c9686aad1f923
+  ref: v2.4.1-2-0-g96d0e58260580ee6fcab4331bfc792309e3c6128
