@@ -39,5 +39,4 @@ public:
 sources:
 - kind: git_repo
   url: fdsdk_git:noopenh264.git
-  track: v*
   ref: v2.4.1-2-0-g96d0e58260580ee6fcab4331bfc792309e3c6128
