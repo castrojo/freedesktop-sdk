@@ -1,8 +1,8 @@
 kind: meson
 
 build-depends:
- - public-stacks/buildsystem-meson.bst
- - components/bison.bst
+- public-stacks/buildsystem-meson.bst
+- components/bison.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -28,4 +28,4 @@ sources:
 - kind: git_repo
   url: github:xkbcommon/libxkbcommon.git
   track: xkbcommon-*
-  ref: xkbcommon-1.7.0-0-g7a31e3585edf78be281559377e26d15f8c4bc655
+  ref: xkbcommon-1.8.0-0-g76740e0c4583ae49675e7ba8213d31ee09aa00d2
