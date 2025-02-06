@@ -12,4 +12,4 @@ sources:
 - kind: git_repo
   track: n*
   url: git_videolan:git/ffmpeg/nv-codec-headers.git
-  ref: n12.2.72.0-0-gc69278340ab1d5559c7d7bf0edf615dc33ddbba7
+  ref: n13.0.19.0-0-ge844e5b26f46bb77479f063029595293aa8f812d
