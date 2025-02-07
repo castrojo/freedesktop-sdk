@@ -33,7 +33,7 @@ config:
 sources:
 - kind: git_repo
   url: denx:u-boot/u-boot.git
-  track: master
+  track: v*
   exclude:
   - "*-rc*"
   ref: v2023.04-0-gfd4ed6b7e83ec3aea9a2ce21baea8ca9676f40dd
