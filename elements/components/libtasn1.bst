@@ -19,6 +19,19 @@ variables:
   autogen: ./bootstrap --no-git --gnulib-srcdir=%{build-root}/gnulib
 
 config:
+  configure-commands:
+    (<):
+    - |
+      set -eu
+      GNULIB_REV_NEEDED=$(. %{build-root}/bootstrap.conf; echo "$GNULIB_REVISION")
+      GNULIB_REV_FOUND=$(git -C gnulib rev-parse HEAD)
+      if [ "$GNULIB_REV_NEEDED" != "$GNULIB_REV_FOUND" ]; then
+        echo "Error: GNULIB revision mismatch!"
+        echo "Needed: $GNULIB_REV_NEEDED"
+        echo "Found:  $GNULIB_REV_FOUND"
+        exit 1
+      fi
+
   install-commands:
     (>):
     - rm "%{install-root}/usr/share/info/dir"
