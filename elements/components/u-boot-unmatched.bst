@@ -10,6 +10,7 @@ build-depends:
 - components/python3.bst
 - components/python3-setuptools.bst
 - components/swig.bst
+- components/gnutls.bst
 
 environment:
   OPENSBI: /usr/share/opensbi/lp64/generic/firmware/fw_dynamic.bin
