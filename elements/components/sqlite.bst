@@ -9,7 +9,8 @@ depends:
 
 variables:
   conf-local: >-
-    --enable-fts5
+    --fts5
+    --disable-static
     CFLAGS="${CFLAGS}
     -DSQLITE_ENABLE_COLUMN_METADATA=1
     -DSQLITE_SECURE_DELETE=1
