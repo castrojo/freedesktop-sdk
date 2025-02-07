@@ -11,6 +11,7 @@ variables:
   conf-local: >-
     --fts5
     --disable-static
+    --soname=legacy
     CFLAGS="${CFLAGS}
     -DSQLITE_ENABLE_COLUMN_METADATA=1
     -DSQLITE_SECURE_DELETE=1
