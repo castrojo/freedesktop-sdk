@@ -36,7 +36,9 @@ sources:
   url: gitlab:gnutls/libtasn1.git
   track: v*
   ref: v4.19.0-0-g2b7ee166f031bea63c5e7badcedc69f1cea69c89
-- kind: git_module
-  path: gnulib
+# Update manually according to
+# https://gitlab.com/gnutls/libtasn1/-/blob/TAG/bootstrap.conf?ref_type=heads#L19
+- kind: git_repo
+  directory: gnulib
   url: savannah:gnulib.git
-  ref: aa52cadc36fb1af0509dc3a4bce4ce73197ece68
+  ref: c89cd2fbd3b9f3d7c5a146247256599714c91ec7
