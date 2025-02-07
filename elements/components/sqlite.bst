@@ -20,6 +20,9 @@ variables:
     -DSQLITE_ENABLE_UNLOCK_NOTIFY=1
     -DSQLITE_ENABLE_DBSTAT_VTAB=1"
 
+  make-args: >-
+    LDFLAGS.rpath=""
+
 config:
   install-commands:
     (>):
