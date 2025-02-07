@@ -635,6 +635,7 @@ depends:
 - components/xorg-util-macros.bst
 - components/xwayland.bst
 - components/xz-docs.bst
+- components/yajl.bst
 - components/yelp-tools.bst
 - components/yelp-xsl.bst
 - components/zenity.bst
