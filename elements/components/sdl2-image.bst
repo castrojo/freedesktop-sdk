@@ -30,4 +30,4 @@ sources:
 - kind: git_repo
   url: github:libsdl-org/SDL_image.git
   track: release-2.*
-  ref: release-2.8.4-0-g4641fd73853a60a448a2f352a865633bec6140e8
+  ref: release-2.8.5-0-g4b43195502643dec5b4929e9bea6e97165e6993c
