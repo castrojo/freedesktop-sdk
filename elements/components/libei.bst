@@ -18,4 +18,6 @@ sources:
 - kind: git_repo
   url: freedesktop:libinput/libei.git
   track: "*.*"
+  exclude:
+  - "*.*.90*"
   ref: 1.3.0-0-g997b7c0f37faea4f8bae59613c8f27370925d5b0
