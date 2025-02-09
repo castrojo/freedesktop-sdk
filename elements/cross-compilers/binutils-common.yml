@@ -1,11 +1,9 @@
 variables:
-  gold-option: "--enable-gold"
   conf-local: >-
     --target=%{cross_triplet}
     --disable-nls
     --disable-multilib
     --disable-werror
-    %{gold-option}
     --enable-ld=default
     --enable-plugins
     --disable-gdb

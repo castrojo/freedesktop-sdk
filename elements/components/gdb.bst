@@ -25,7 +25,6 @@ variables:
   conf-local: >-
     --disable-binutils
     --disable-ld
-    --disable-gold
     --disable-gas
     --disable-sim
     --disable-gprof
