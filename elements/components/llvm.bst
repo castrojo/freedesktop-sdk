@@ -28,9 +28,6 @@ variables:
   (?):
   - target_arch == "i686":
       targets: X86;AMDGPU;NVPTX;BPF
-      # Our binutils doesn't cope with lld on i686 so
-      # skip building it completely.
-      enabled-projects: "clang;compiler-rt"
   - target_arch == "x86_64":
       targets: X86;AMDGPU;NVPTX;BPF
   - target_arch == "aarch64":
