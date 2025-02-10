@@ -108,6 +108,11 @@ config:
       no-autodownload: 'true'
       autodelete: 'true'
 
+    Extension org.freedesktop.Platform.codecs-extra:
+      directory: '%{lib}/codecs-extra'
+      add-ld-path: lib
+      autodelete: 'true'
+
 build-depends:
 - platform-image.bst
 - components/fontconfig-flatpak-config.bst
