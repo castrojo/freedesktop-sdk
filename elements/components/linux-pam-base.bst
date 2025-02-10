@@ -1,18 +1,17 @@
-kind: autotools
+kind: meson
 
 depends:
 - components/audit.bst
 - public-stacks/runtime-minimal.bst
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 - components/flex.bst
 
 variables:
-  conf-local: >-
-    --includedir="%{includedir}/security"
-    --enable-lastlog
-  make-args: sepermitlockdir=/run/sepermit
+  meson-local: >-
+    -Dpam_lastlog=enabled
+    -Dexamples=false
 
 public:
   bst:
