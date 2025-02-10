@@ -11,6 +11,8 @@ depends:
 variables:
   conf-local: >-
     --fts5
+    --rtree
+    --geopoly
     --soname=legacy
     CFLAGS="${CFLAGS}
     -DSQLITE_ENABLE_COLUMN_METADATA=1
