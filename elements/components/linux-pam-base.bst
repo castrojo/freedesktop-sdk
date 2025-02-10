@@ -3,6 +3,7 @@ kind: meson
 depends:
 - components/audit.bst
 - bootstrap-import.bst
+- components/libeconf.bst
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
