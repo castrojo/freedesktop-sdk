@@ -116,7 +116,7 @@ sources:
   ref: 86add13493e5c881d7e4ba77fb91c1f57752b3a4
 - kind: git_module
   path: UnitTestFrameworkPkg/Library/SubhookLib/subhook
-  url: github:Zeex/subhook.git
+  url: github:tianocore/edk2-subhook.git
   ref: 83d4e1ebef3588fae48b69a7352cc21801cb70bc
 - kind: git_module
   path: MdePkg/Library/BaseFdtLib/libfdt
