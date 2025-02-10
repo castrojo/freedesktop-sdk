@@ -13,6 +13,7 @@ variables:
   meson-local: >-
     -Dpam_lastlog=enabled
     -Dexamples=false
+    -Dlogind=disabled
 
 public:
   bst:
