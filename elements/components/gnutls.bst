@@ -41,7 +41,7 @@ sources:
 - kind: git_repo
   url: gitlab:gnutls/gnutls.git
   track: '*.*.*'
-  ref: 3.8.8-0-g40267b5e16b5b418d7781c1c92d160a9bb12925b
+  ref: 3.8.9-0-g477a733247460b94cd2b37a10579c27ca6fc196f
 - kind: git_module
   url: gitlab:gnutls/cligen.git
   path: cligen
@@ -51,11 +51,11 @@ sources:
 - kind: git_module
   path: gnulib
   url: gitlab:libidn/gnulib-mirror.git
-  ref: bd1e981434c98751b1106a1744e77a27317b52b3
+  ref: 05c63bc908a67a316fea29ddf4c702d89cf5bdec
 - kind: git_module
   path: devel/libtasn1
   url: gitlab:gnutls/libtasn1.git
-  ref: 2b7ee166f031bea63c5e7badcedc69f1cea69c89
+  ref: 6b45b25e94ea538192cc0f97e9ad57171d1c6374
 - kind: git_module
   path: devel/nettle
   url: gitlab:gnutls/nettle.git
