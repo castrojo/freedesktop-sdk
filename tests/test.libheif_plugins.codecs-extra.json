@@ -1,10 +1,10 @@
 {
-  "app-id": "test.libheif_plugins.ffmpeg-full",
+  "app-id": "test.libheif_plugins.codecs-extra",
   "runtime": "org.freedesktop.Platform",
   "runtime-version": "25.08beta",
   "sdk": "org.freedesktop.Sdk",
   "add-extensions": {
-    "org.freedesktop.Platform.ffmpeg-full": {
+    "org.freedesktop.Platform.codecs-extra": {
       "directory": "lib/ffmpeg",
       "version": "25.08beta",
       "add-ld-path": "."

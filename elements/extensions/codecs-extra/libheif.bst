@@ -2,12 +2,12 @@ kind: cmake
 
 (@):
 - elements/include/libheif.yml
-- elements/extensions/ffmpeg-full/config.yml
+- elements/extensions/codecs-extra/config.yml
 
 depends:
   (>):
-  - extensions/ffmpeg-full/libde265.bst
-  - extensions/ffmpeg-full/libx265.bst
+  - extensions/codecs-extra/libde265.bst
+  - extensions/codecs-extra/libx265.bst
 
 variables:
   cmake-extra: >-

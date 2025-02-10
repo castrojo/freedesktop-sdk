@@ -1,5 +1,5 @@
 variables:
-  prefix: '/usr/lib/%{gcc_triplet}/ffmpeg'
+  prefix: '/usr/lib/%{gcc_triplet}/codecs-extra'
   libdir: '%{prefix}'
   lib: '.'
   libheif-libde265-plugin: 'ON'

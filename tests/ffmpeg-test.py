@@ -196,7 +196,7 @@ if get_runtime_arch() == "riscv64":
     exp_hevc_encoder_ext.remove("Encoder hevc_nvenc")
     exp_av1_encoder.remove("Encoder av1_nvenc")
 
-# Common to both ffmpeg-full and platform ffmpeg
+# Common to both codecs-extra and platform ffmpeg
 
 print("Performing common checks...")
 
@@ -229,10 +229,10 @@ if not os.path.exists("/app/lib/ffmpeg"):
 
     assert libx265_encoders == exp_libx265_encoder_platform, libx265_encoders
 
-# Only ffmpeg-full extension
+# Only codecs-extra extension
 
 if os.path.exists("/app/lib/ffmpeg"):
-    print("Performing ffmpeg-full checks...")
+    print("Performing codecs-extra checks...")
 
     assert "hevc" in dec_and_enc, dec_and_enc
     assert all(x in dec_only for x in ["vvc", "vc1"]), dec_only

@@ -1,12 +1,12 @@
 kind: flatpak_image
 
 build-depends:
-- extensions/ffmpeg-full/ffmpeg.bst
-- extensions/ffmpeg-full/libheif.bst
-- extensions/ffmpeg-full/appdata.bst
+- extensions/codecs-extra/ffmpeg.bst
+- extensions/codecs-extra/libheif.bst
+- extensions/codecs-extra/appdata.bst
 
 (@):
-- elements/extensions/ffmpeg-full/config.yml
+- elements/extensions/codecs-extra/config.yml
 
 config:
   directory: '%{prefix}'
@@ -15,7 +15,7 @@ config:
   - devel
   metadata:
     Runtime:
-      name: org.freedesktop.Platform.ffmpeg-full
+      name: org.freedesktop.Platform.codecs-extra
 
     ExtensionOf:
       ref: runtime/org.freedesktop.Platform/%{gcc_arch}/%{branch}
