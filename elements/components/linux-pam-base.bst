@@ -40,4 +40,4 @@ sources:
 - kind: git_repo
   url: github:linux-pam/linux-pam.git
   track: v*
-  ref: v1.6.1-0-g9438e084e2b318bf91c3912c0b8ff056e1835486
+  ref: v1.7.0-0-gea980d991196df67cdd56b3f65d210b73218d08a
