@@ -15,6 +15,12 @@ variables:
     -Dexamples=false
     -Dlogind=disabled
     -Dnis=disabled
+    -Dselinux=disabled
+
+config:
+  install-commands:
+    (>):
+    - rm -rf "%{install-root}/var/run"
 
 public:
   bst:
