@@ -37,6 +37,7 @@ public:
     product: linux-pam
 
 sources:
-- kind: tar
-  url: github_files:linux-pam/linux-pam/releases/download/v1.6.1/Linux-PAM-1.6.1.tar.xz
-  ref: f8923c740159052d719dbfc2a2f81942d68dd34fcaf61c706a02c9b80feeef8e
+- kind: git_repo
+  url: github:linux-pam/linux-pam.git
+  track: v*
+  ref: v1.6.1-0-g9438e084e2b318bf91c3912c0b8ff056e1835486
