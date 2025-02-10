@@ -42,6 +42,8 @@ sources:
   url: gitlab:gnutls/gnutls.git
   track: '*.*.*'
   ref: 3.8.9-0-g477a733247460b94cd2b37a10579c27ca6fc196f
+- kind: patch
+  path: patches/gnutls/drop-submodule.patch
 - kind: git_module
   url: gitlab:gnutls/cligen.git
   path: cligen
