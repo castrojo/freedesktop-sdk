@@ -11,7 +11,7 @@ depends:
   - extensions/codecs-extra/libx265.bst
 
 environment:
-  PKG_CONFIG_PATH: "%{prefix}/pkgconfig"
+  PKG_CONFIG_PATH: "%{libdir}/pkgconfig"
 
 variables:
   conf-extra: >-
@@ -22,4 +22,4 @@ variables:
     --enable-libx265
     --enable-gpl
     --extra-cflags="-I%{prefix}/include"
-    --extra-ldflags="-L%{prefix}"
+    --extra-ldflags="-L%{libdir}"

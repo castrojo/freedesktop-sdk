@@ -1,6 +1,6 @@
 variables:
   prefix: '/usr/lib/%{gcc_triplet}/codecs-extra'
-  libdir: '%{prefix}'
-  lib: '.'
+  libdir: '%{prefix}/lib'
+  lib: 'lib'
   libheif-libde265-plugin: 'ON'
   libheif-libx265-plugin: 'ON'

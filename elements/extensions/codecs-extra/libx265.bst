@@ -14,7 +14,7 @@ variables:
   conf-root: "source"
 
   cmake-local: >-
-    -DLIB_INSTALL_DIR="%{prefix}"
+    -DLIB_INSTALL_DIR="%{libdir}"
     -DENABLE_SHARED=ON
     -DENABLE_CLI=OFF
 

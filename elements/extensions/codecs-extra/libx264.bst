@@ -9,7 +9,7 @@ build-depends:
 variables:
   conf-local: >-
     --prefix="%{prefix}"
-    --libdir="%{prefix}"
+    --libdir="%{libdir}"
     --enable-pic
     --disable-cli
     --disable-bashcompletion
