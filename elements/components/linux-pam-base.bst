@@ -14,6 +14,7 @@ variables:
     -Dpam_lastlog=enabled
     -Dexamples=false
     -Dlogind=disabled
+    -Dnis=disabled
 
 public:
   bst:
