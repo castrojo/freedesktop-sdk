@@ -2,6 +2,7 @@ kind: meson
 
 depends:
 - components/audit.bst
+- components/libeconf.bst
 - public-stacks/runtime-minimal.bst
 
 build-depends:
