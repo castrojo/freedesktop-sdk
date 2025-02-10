@@ -46,6 +46,7 @@ config:
   - |
     . /tmp/vars
     dracut -v --xz --reproducible --fstab \
+           -i /lib/firmware /lib/firmware \
            --no-machineid --kernel-image /boot/vmlinuz \
            --kver $(ls -1 /lib/modules | head -n1) \
            --kernel-cmdline "rw console=tty0 console=ttyS0 quiet root=UUID=${uuid_root}" \
