@@ -1,20 +1,17 @@
-kind: autotools
+kind: meson
 
 depends:
 - components/audit.bst
 - bootstrap-import.bst
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 - components/flex.bst
 
 variables:
-  conf-local: >-
-    --includedir="%{includedir}/security"
-    --enable-lastlog
-  make-args: sepermitlockdir=/run/sepermit
-  make: "make %{make-args}"
-  make-install: "make %{make-args} -j1 install DESTDIR='%{install-root}'"
+  meson-local: >-
+    -Dpam_lastlog=enabled
+    -Dexamples=false
 
 public:
   bst:
