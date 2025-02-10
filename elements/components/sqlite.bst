@@ -7,6 +7,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/zlib.bst
 
 variables:
   conf-local: >-
