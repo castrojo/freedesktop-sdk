@@ -105,6 +105,7 @@ config:
       versions: '%{openh264-version}beta;%{openh264-version}'
       version: '%{openh264-version}'
       add-ld-path: extra
+      no-autodownload: 'true'
       autodelete: 'true'
 
 build-depends:
