@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import configparser
+import glob
 import os
 import re
 import subprocess
@@ -11,6 +12,13 @@ DECODERS_REG = re.compile(r" \(decoders: ([^)]+)\)")
 ENCODERS_REG = re.compile(r" \(encoders: ([^)]+)\)")
 ffprobe = "ffprobe"
 ffmpeg = "ffmpeg"
+
+
+def has_codecs_extra() -> bool:
+    path = (
+        "/run/flatpak/ld.so.conf.d/runtime-*-org.freedesktop.Platform.codecs-extra.conf"
+    )
+    return bool(glob.glob(path))
 
 
 def get_stdout(command):
@@ -128,16 +136,9 @@ assert len(codecs_dict) > 0, codecs_dict
 
 h264_decoders = get_codec_info("decoder", "h264")
 h264_encoders = get_codec_info("encoder", "h264")
-exp_h264_decoder_platform = ["Decoder libopenh264"]
-exp_h264_decoder_ext = ["Decoder h264"]
+exp_h264_decoder_platform = ["Decoder h264"]
+exp_h264_decoder_noext = ["Decoder libopenh264"]
 exp_h264_encoder_platform = [
-    "Encoder libopenh264",
-    "Encoder h264_nvenc",
-    "Encoder h264_v4l2m2m",
-    "Encoder h264_vaapi",
-]
-
-exp_h264_encoder_ext = [
     "Encoder libx264",
     "Encoder libx264rgb",
     "Encoder libopenh264",
@@ -147,16 +148,18 @@ exp_h264_encoder_ext = [
     "Encoder h264_vulkan",
 ]
 
+exp_h264_encoder_noext = [
+    "Encoder libopenh264",
+    "Encoder h264_nvenc",
+    "Encoder h264_v4l2m2m",
+    "Encoder h264_vaapi",
+]
+
 hevc_decoders = get_codec_info("decoder", "hevc")
 hevc_encoders = get_codec_info("encoder", "hevc")
-exp_hevc_decoder_platform = []
-exp_hevc_decoder_ext = ["Decoder hevc"]
+exp_hevc_decoder_platform = ["Decoder hevc"]
+exp_hevc_decoder_noext = []
 exp_hevc_encoder_platform = [
-    "Encoder hevc_nvenc",
-    "Encoder hevc_v4l2m2m",
-    "Encoder hevc_vaapi",
-]
-exp_hevc_encoder_ext = [
     "Encoder libx265",
     "Encoder hevc_nvenc",
     "Encoder hevc_v4l2m2m",
@@ -164,9 +167,15 @@ exp_hevc_encoder_ext = [
     "Encoder hevc_vulkan",
 ]
 
+exp_hevc_encoder_noext = [
+    "Encoder hevc_nvenc",
+    "Encoder hevc_v4l2m2m",
+    "Encoder hevc_vaapi",
+]
+
 libx265_encoders = get_codec_info("encoder", "libx265")
-exp_libx265_encoder_platform = []
-exp_libx265_encoder_ext = ["Encoder libx265"]
+exp_libx265_encoder_platform = ["Encoder libx265"]
+exp_libx265_encoder_noext = []
 
 av1_decoders = get_codec_info("decoder", "av1")
 av1_encoders = get_codec_info("encoder", "av1")
@@ -191,9 +200,9 @@ exp_vp9_encoder = ["Encoder libvpx-vp9", "Encoder vp9_vaapi"]
 if get_runtime_arch() == "riscv64":
     check_hw.remove("cuda")
     exp_h264_encoder_platform.remove("Encoder h264_nvenc")
-    exp_h264_encoder_ext.remove("Encoder h264_nvenc")
+    exp_h264_encoder_noext.remove("Encoder h264_nvenc")
     exp_hevc_encoder_platform.remove("Encoder hevc_nvenc")
-    exp_hevc_encoder_ext.remove("Encoder hevc_nvenc")
+    exp_hevc_encoder_noext.remove("Encoder hevc_nvenc")
     exp_av1_encoder.remove("Encoder av1_nvenc")
 
 # Common to both codecs-extra and platform ffmpeg
@@ -212,35 +221,34 @@ assert vp8_encoders == exp_vp8_encoder, vp8_encoders
 assert vp9_decoders == exp_vp9_decoder, vp9_decoders
 assert vp9_encoders == exp_vp9_encoder, vp9_encoders
 
-# Only platform ffmpeg
+# Platform ffmpeg with codecs-extra
 
-if not os.path.exists("/app/lib/ffmpeg"):
-    print("Performing platform ffmpeg checks...")
+if has_codecs_extra():
+    print("Performing platform ffmpeg with codecs-extra checks...")
 
-    assert all(x not in dec_and_enc for x in ["hevc", "vvc", "vc1"]), dec_and_enc
-    assert all(x not in dec_only for x in ["hevc", "vvc", "vc1"]), dec_only
-    assert all(x not in enc_only for x in ["vvc", "vc1"]), enc_only
+    assert "hevc" in dec_and_enc, dec_and_enc
+    assert all(x in dec_only for x in ["vvc", "vc1"]), dec_only
 
     assert h264_decoders == exp_h264_decoder_platform, h264_decoders
     assert h264_encoders == exp_h264_encoder_platform, h264_encoders
 
     assert hevc_decoders == exp_hevc_decoder_platform, hevc_decoders
     assert hevc_encoders == exp_hevc_encoder_platform, hevc_encoders
-
     assert libx265_encoders == exp_libx265_encoder_platform, libx265_encoders
 
-# Only codecs-extra extension
+# Platform ffmpeg without codecs-extra
 
-if os.path.exists("/app/lib/ffmpeg"):
-    print("Performing codecs-extra checks...")
+if not has_codecs_extra():
+    print("Performing platform ffmpeg without codecs-extra checks...")
 
-    assert "hevc" in dec_and_enc, dec_and_enc
-    assert all(x in dec_only for x in ["vvc", "vc1"]), dec_only
+    assert all(x not in dec_and_enc for x in ["hevc", "vvc", "vc1"]), dec_and_enc
+    assert all(x not in dec_only for x in ["hevc", "vvc", "vc1"]), dec_only
+    assert all(x not in enc_only for x in ["vvc", "vc1"]), enc_only
 
-    assert h264_decoders == exp_h264_decoder_ext, h264_decoders
-    assert h264_encoders == exp_h264_encoder_ext, h264_encoders
+    assert h264_decoders == exp_h264_decoder_noext, h264_decoders
+    assert h264_encoders == exp_h264_encoder_noext, h264_encoders
 
-    assert hevc_decoders == exp_hevc_decoder_ext, hevc_decoders
-    assert hevc_encoders == exp_hevc_encoder_ext, hevc_encoders
+    assert hevc_decoders == exp_hevc_decoder_noext, hevc_decoders
+    assert hevc_encoders == exp_hevc_encoder_noext, hevc_encoders
 
-    assert libx265_encoders == exp_libx265_encoder_ext, libx265_encoders
+    assert libx265_encoders == exp_libx265_encoder_noext, libx265_encoders

@@ -3,13 +3,6 @@
   "runtime": "org.freedesktop.Platform",
   "runtime-version": "25.08beta",
   "sdk": "org.freedesktop.Sdk",
-  "add-extensions": {
-    "org.freedesktop.Platform.codecs-extra": {
-      "directory": "lib/ffmpeg",
-      "version": "25.08beta",
-      "add-ld-path": "."
-    }
-  },
   "command": "test",
   "modules": [
     {
@@ -17,7 +10,6 @@
       "buildsystem": "simple",
       "build-commands": [
         "g++ -o libheif-plugin libheif_plugin.cc -lheif",
-        "mkdir -p /app/lib/ffmpeg",
         "install -Dm0755 libheif-plugin /app/bin/libheif-plugin",
         "install -Dm0755 test /app/bin/test"
       ],
@@ -28,7 +20,10 @@
         },
         {
           "type": "script",
-          "commands": ["exec libheif-plugin /app/lib/ffmpeg/libheif"],
+          "commands": [
+            "export HOSTARCH=$([[ \"$(uname -m)\" == \"ppc64le\" ]] && echo \"powerpc64le\" || uname -m)",
+            "exec libheif-plugin /usr/lib/\"$HOSTARCH\"-linux-gnu/codecs-extra/lib/libheif"
+          ],
           "dest-filename": "test"
         }
       ]

@@ -3,20 +3,12 @@
   "runtime": "org.freedesktop.Platform",
   "runtime-version": "25.08beta",
   "sdk": "org.freedesktop.Sdk",
-  "add-extensions": {
-    "org.freedesktop.Platform.codecs-extra": {
-      "directory": "lib/ffmpeg",
-      "version": "25.08beta",
-      "add-ld-path": "."
-    }
-  },
   "command": "ffmpeg-test",
   "modules": [
     {
       "name": "codec-list",
       "buildsystem": "simple",
       "build-commands": [
-        "mkdir -p /app/lib/ffmpeg",
         "install -Dm0755 ffmpeg-test.py /app/bin/ffmpeg-test"
       ],
       "sources": [
