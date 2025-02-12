@@ -16,6 +16,21 @@ variables:
   command-subdir: subprojects/gst-libav
   local_flags: -DTRIPLET='"%{gcc_triplet}"'
 
+config:
+  install-commands:
+    (>):
+    - |
+      set -eu
+      libs="$(grep -Eo '"lib[^"]+\.so[^"]*"' %{build-root}/gst-libav-stop-caching-codecs.patch | sed 's/,\"$/\"/'|tr -d '"')"
+      [ -z "$libs" ] && { echo "No libraries found from patch"; exit 1; }
+      for lib in $libs; do
+        if test -f "%{libdir}/$lib"; then
+          echo "Found %{libdir}/$lib"
+        else
+          echo "Did not find %{libdir}/$lib"
+          exit 1
+        fi
+      done
+
 (@):
 - elements/include/gstreamer-source.yml
-
