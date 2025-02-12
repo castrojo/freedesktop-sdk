@@ -5,3 +5,5 @@ sources:
   ref: 1.24.12-0-g88e31216479a3f0c25096ca406369f3983efec14
 - kind: patch_queue
   path: patches/gstreamer
+- kind: local
+  path: patches/gstreamer/gst-libav-stop-caching-codecs.patch
