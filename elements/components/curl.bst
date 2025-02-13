@@ -1,8 +1,14 @@
-kind: autotools
+kind: cmake
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- components/gcc.bst
+- components/stripper.bst
+- components/cmake-stage1.bst
+- components/gettext.bst
+- components/ninja.bst
+- components/pkg-config.bst
 - components/git-minimal.bst
+- components/sed.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -14,15 +20,10 @@ runtime-depends:
 - components/ca-certificates.bst
 
 variables:
-  conf-local: >-
-    --without-ca-bundle
-    --with-ca-fallback
-    --with-libpsl
-    --with-ssl
-    --with-nghttp2
-    --enable-optimize
-    --disable-warnings
-    --disable-curldebug
+  cmake-local: >-
+    -DCURL_CA_BUNDLE=none
+    -DCURL_CA_FALLBACK=ON
+    -DBUILD_TESTING=OFF
 
 config:
   configure-commands:
