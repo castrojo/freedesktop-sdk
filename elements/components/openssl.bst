@@ -91,4 +91,4 @@ sources:
   exclude:
   - openssl*alpha*
   - openssl*beta*
-  ref: openssl-3.3.2-0-gfb7fab9fa6f4869eaa8fbb97e0d593159f03ffe4
+  ref: openssl-3.3.3-0-g42768eafab40d3e2f0851caa84aa9801139c74ab
