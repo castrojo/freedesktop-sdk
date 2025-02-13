@@ -22,6 +22,8 @@ plugins=(
     ["jpegenc"]="videotestsrc num-buffers=5 ! jpegenc ! avimux ! filesink location=mjpeg.avi"
     # gstreamer-plugins-base
     ["videoconvert"]="videotestsrc num-buffers=5 ! video/x-raw,format=YUY2 ! videoconvert ! autovideosink"
+    # x264enc and avdec_h264 via codecs-extra
+    ["videotestsrc"]="videotestsrc num-buffers=10 ! x264enc ! avdec_h264 ! videoconvert ! autovideosink"
     )
 
 for plugin in "${!plugins[@]}"; do
