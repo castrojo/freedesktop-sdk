@@ -15,7 +15,6 @@ build-depends:
 
 variables:
   meson-local: >-
-    -Dlibportal=disabled
     -Dtests=disabled
     -Ddocumentation=disabled
     -Dman-pages=disabled
