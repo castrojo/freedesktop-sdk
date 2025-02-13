@@ -16,7 +16,7 @@ build-depends:
 variables:
   meson-local: >-
     -Dlibportal=disabled
-    -Dpytest=disabled
+    -Dtests=disabled
     -Ddocumentation=disabled
     -Dman-pages=disabled
 
@@ -36,5 +36,3 @@ sources:
   # Track unstable too for xdp-gnome/gnome-nightly
   track: '*.*.*'
   ref: 1.20.0-0-g85df26fb1c53334969fea3f15c2a06a14831094b
-- kind: patch
-  path: patches/xdg-desktop-portal/disable-tests.patch
