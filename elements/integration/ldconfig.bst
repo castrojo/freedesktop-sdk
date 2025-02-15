@@ -19,7 +19,7 @@ public:
     integration-commands:
     - |
       ldconfig
-      if [ -f %{ldconfig-cache} ];then
+      if [ -d %{ldconfig-cache} ];then
       rm -r %{ldconfig-cache}
       fi
     overlap-whitelist:
