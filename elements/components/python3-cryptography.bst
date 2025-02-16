@@ -16,7 +16,7 @@ sources:
 - kind: git_repo
   url: github:pyca/cryptography.git
   track: '*.*.*'
-  ref: 44.0.0-0-gf299a48153650f2dd87716343f2daa7cd39a1f59
+  ref: 44.0.1-0-gadaaaed77db676bbaa9d171175db81dce056e2a7
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
@@ -110,24 +110,24 @@ sources:
     sha: 37d3544b3f2748c54e147655edb5025752e2303145b5aefb3c3ea2c78b973bb0
   - kind: registry
     name: pyo3
-    version: 0.23.2
-    sha: f54b3d09cbdd1f8c20650b28e7b09e338881482f4aa908a5f61a00c98fba2690
+    version: 0.23.4
+    sha: 57fe09249128b3173d092de9523eaa75136bf7ba85e0d69eca241c7939c933cc
   - kind: registry
     name: pyo3-build-config
-    version: 0.23.2
-    sha: 3015cf985888fe66cfb63ce0e321c603706cd541b7aec7ddd35c281390af45d8
+    version: 0.23.4
+    sha: 1cd3927b5a78757a0d71aa9dff669f903b1eb64b54142a9bd9f757f8fde65fd7
   - kind: registry
     name: pyo3-ffi
-    version: 0.23.2
-    sha: 6fca7cd8fd809b5ac4eefb89c1f98f7a7651d3739dfb341ca6980090f554c270
+    version: 0.23.4
+    sha: dab6bb2102bd8f991e7749f130a70d05dd557613e39ed2deeee8e9ca0c4d548d
   - kind: registry
     name: pyo3-macros
-    version: 0.23.2
-    sha: 34e657fa5379a79151b6ff5328d9216a84f55dc93b17b08e7c3609a969b73aa0
+    version: 0.23.4
+    sha: 91871864b353fd5ffcb3f91f2f703a22a9797c91b9ab497b1acac7b07ae509c7
   - kind: registry
     name: pyo3-macros-backend
-    version: 0.23.2
-    sha: 295548d5ffd95fd1981d2d3cf4458831b21d60af046b729b6fd143b0ba7aee2f
+    version: 0.23.4
+    sha: 43abc3b80bc20f3facd86cd3c60beed58c3e2aa26213f3cda368de39c60a27e4
   - kind: registry
     name: quote
     version: 1.0.37
