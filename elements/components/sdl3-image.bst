@@ -4,7 +4,7 @@ build-depends:
 - public-stacks/buildsystem-cmake.bst
 
 depends:
-- components/sdl2-compat.bst
+- components/sdl3.bst
 - components/jpeg.bst
 - components/libavif.bst
 - components/libpng.bst
