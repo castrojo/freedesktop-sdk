@@ -9,6 +9,8 @@ depends:
 variables:
   meson-local: >-
     -Duseroot=false
+    -Dexamples=false
+    -Dtests=false
 
 config:
   install-commands:
