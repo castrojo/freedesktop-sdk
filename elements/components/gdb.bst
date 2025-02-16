@@ -16,6 +16,9 @@ build-depends:
 - components/bison.bst
 
 variables:
+  # arches supported by the runtime only
+  cross-debug-targets: "aarch64-linux-gnu,powerpc-linux-gnu,riscv-linux-gnu,x86_64-linux-gnu,i686-linux-gnu"
+
   # We are explicitly setting this as blank to suppress --enable-shared and
   # --disable-static from global arguments.
   conf-link-args: ""
@@ -37,6 +40,7 @@ variables:
     --disable-install-libiberty
     --with-debuginfod
     --with-separate-debug-dir="%{debugdir}"
+    --enable-targets="%{cross-debug-targets}"
 
 config:
   install-commands:
