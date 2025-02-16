@@ -41,6 +41,7 @@ variables:
     --with-debuginfod
     --with-separate-debug-dir="%{debugdir}"
     --enable-targets="%{cross-debug-targets}"
+    --enable-languages=all
 
 config:
   install-commands:
