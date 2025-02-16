@@ -43,6 +43,7 @@ variables:
     --with-separate-debug-dir="%{debugdir}"
     --with-zstd
     --enable-targets="%{cross-debug-targets}"
+    --enable-languages=all
 
 config:
   install-commands:
