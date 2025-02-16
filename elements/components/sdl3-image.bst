@@ -23,8 +23,8 @@ public:
     split-rules:
       devel:
         (>):
-        - '%{libdir}/libSDL2_image.so'
-        - '%{libdir}/libSDL2_image-*.so'
+        - '%{libdir}/libSDL3_image.so'
+        - '%{libdir}/libSDL3_image-*.so'
 
 sources:
 - kind: git_repo
