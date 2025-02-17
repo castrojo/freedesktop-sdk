@@ -3,8 +3,11 @@ kind: make
 depends:
 - filename: bootstrap-import.bst
 
+# Drop -R when make 4.5 is out
+
 variables:
   make-args: >-
+    -R
     prefix="%{prefix}"
 
 config:
