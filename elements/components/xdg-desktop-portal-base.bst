@@ -34,4 +34,4 @@ sources:
   url: github:flatpak/xdg-desktop-portal.git
   # Track unstable too for xdp-gnome/gnome-nightly
   track: '*.*.*'
-  ref: 1.19.3-0-g10bb4d7d06172fa20d041a9ab135be670ce11629
+  ref: 1.19.4-0-gbb6b8df26f19134c5dd0bebf288fd05e8b6f7ce5
