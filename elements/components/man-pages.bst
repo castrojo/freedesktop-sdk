@@ -1,20 +1,22 @@
-kind: manual
+kind: make
 
 depends:
 - filename: bootstrap-import.bst
 
+variables:
+  make-args: >-
+    prefix="%{prefix}"
+
 config:
   install-commands:
-  - |
-    make prefix="%{prefix}" DESTDIR="%{install-root}" install
-
-  - |
-    # The following is provided by components/shadow.bst
-    rm "%{install-root}%{mandir}/man3/getspnam.3"
-    rm "%{install-root}%{mandir}/man5/passwd.5"
-    # The following is provided by bootstrap/libxcrypt.bst
-    rm "%{install-root}%{mandir}/man3/crypt.3"
-    rm "%{install-root}%{mandir}/man3/crypt_r.3"
+    (>):
+    - |
+      # The following is provided by components/shadow.bst
+      rm "%{install-root}%{mandir}/man3/getspnam.3"
+      rm "%{install-root}%{mandir}/man5/passwd.5"
+      # The following is provided by bootstrap/libxcrypt.bst
+      rm "%{install-root}%{mandir}/man3/crypt.3"
+      rm "%{install-root}%{mandir}/man3/crypt_r.3"
 
 sources:
 - kind: git_repo
