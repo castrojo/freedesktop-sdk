@@ -11,4 +11,4 @@ sources:
 - kind: git_repo
   url: github:python-poetry/poetry-core.git
   track: '*.*.*'
-  ref: 2.1.0-0-g895d49ca1176838e48f8733233725f8e9db7ede2
+  ref: 2.1.1-0-geee84d755cf3ac4573efa552cec283d4e7f8758e
