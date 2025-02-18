@@ -32,5 +32,5 @@ sources:
 - kind: git_repo
   url: freedesktop:gstreamer/orc.git
   track: '*.*.*'
-  ref: 0.4.40-0-g6f6fa6f93a982c18314f772c328b46e169268b98
+  ref: 0.4.41-0-g96dfe82ae431d8e4e06b6092171e231d693a73b5
 
