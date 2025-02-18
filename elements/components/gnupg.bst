@@ -44,7 +44,7 @@ sources:
   track: gnupg-*
   exclude:
   - '*-base'
-  ref: gnupg-2.5.3-0-gcc3e34b82a9b55dea3e2d812eb5b117b3ff1a550
+  ref: gnupg-2.5.4-0-gec6c2e38f1cd2052a9323db8e9c4f0016222d1e7
 - kind: patch
   path: patches/gnupg/gnupg-don-t-include-tests-with-tarred-data.patch
 - kind: patch
