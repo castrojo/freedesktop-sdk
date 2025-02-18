@@ -34,6 +34,9 @@ default:
   after_script:
   - timeout 30 du -sh "${CI_PROJECT_DIR}/repo" 2>/dev/null || true
   - timeout 60 du -chd 1 "${XDG_CACHE_HOME}/buildstream/" 2>/dev/null || true
+  - timeout 30 flatpak remote-add --if-not-exists --user --no-gpg-verify fdsdkrepo file:///${CI_PROJECT_DIR}/repo || true
+  - timeout 90 flatpak remote-ls -a --columns=ref,installed-size,download-size fdsdkrepo || true
+  - timeout 30 flatpak remote-delete --force fdsdkrepo || true
   - make clean
   - rm -rf "${XDG_CACHE_HOME}/buildstream/artifacts"
   - rm -rf "${XDG_CACHE_HOME}/buildstream/build"
