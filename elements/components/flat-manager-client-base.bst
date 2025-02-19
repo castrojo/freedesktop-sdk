@@ -30,5 +30,4 @@ sources:
   url: github:flatpak/flat-manager.git
   track: '*.*.*'
   ref: 0.4.5-0-g83b7deff39cb5005fcf31e5788dceb19324145fd
-- kind: patch
-  path: patches/flat-manager-client/flat-manager.patch
+
