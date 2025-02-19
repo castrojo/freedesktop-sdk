@@ -86,17 +86,25 @@ variables:
   #
   rust_local_flags: ""
 
+  rust_debug_flags: "-C debuginfo=2"
+
   # Architecture specific Rust flags
   #
+
   rust_target_x86_64_flags: >-
     -Cforce-frame-pointers=yes
+    %{rust_debug_flags}
   rust_target_i686_flags: ""
   rust_target_aarch64_flags: >-
     -Cforce-frame-pointers=yes
+    %{rust_debug_flags}
   rust_target_arm_flags: ""
-  rust_target_ppc64le_flags: ""
-  rust_target_ppc64_flags: ""
-  rust_target_riscv64_flags: ""
+  rust_target_ppc64le_flags: >-
+    %{rust_debug_flags}
+  rust_target_ppc64_flags: >-
+    %{rust_debug_flags}
+  rust_target_riscv64_flags: >-
+    %{rust_debug_flags}
   rust_target_loongarch64_flags: ""
 
   rust_target_flags: >-
