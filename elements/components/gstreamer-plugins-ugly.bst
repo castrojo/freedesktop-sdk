@@ -11,4 +11,3 @@ variables:
     -Ddvdlpcmdec=enabled
     -Ddvdsub=enabled
     -Drealmedia=enabled
-    -Dorc=enabled
