@@ -5,7 +5,6 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/gstreamer.bst
 - components/gstreamer-plugins-base.bst
-- components/orc.bst
 
 variables:
   command-subdir: subprojects/gst-plugins-ugly
