@@ -13,7 +13,7 @@ build-depends:
 
 variables:
   optimize-debug: "false"
-
+  rust_debug_flags: ""
   debuginfo-level-std: '1'
   rust-target: '%{host-triplet}'
   build-docs: 'true'
