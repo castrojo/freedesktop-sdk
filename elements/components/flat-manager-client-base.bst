@@ -29,6 +29,6 @@ sources:
 - kind: git_repo
   url: github:flatpak/flat-manager.git
   track: '*.*.*'
-  ref: 0.4.3.3-0-g7eb09a191918c09b767df86f5178760bc83135e6
+  ref: 0.4.5-0-g83b7deff39cb5005fcf31e5788dceb19324145fd
 - kind: patch
   path: patches/flat-manager-client/flat-manager.patch
