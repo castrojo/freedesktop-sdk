@@ -268,21 +268,22 @@ test-codecs: $(REPO)
 	flatpak remote-add --if-not-exists --user --no-gpg-verify fdo-sdk-test-repo $(REPO)
 	flatpak install -y --arch=$(FLATPAK_ARCH) --user fdo-sdk-test-repo org.freedesktop.{Platform,Sdk}//$(BRANCH)
 
-	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean --repo=$(REPO) app tests/test.codecs.no-exts.json
+	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean --repo=$(REPO) app tests/test.codecs.codecs-extra.json
 
-	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean --repo=$(REPO) app tests/test.codecs.ffmpeg-full.json
-
-	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean --repo=$(REPO) app tests/test.libheif_plugins.ffmpeg-full.json
+	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean --repo=$(REPO) app tests/test.libheif_plugins.codecs-extra.json
 
 	# Expect full codecs
-	flatpak install -y --arch=$(FLATPAK_ARCH) --user fdo-sdk-test-repo test.codecs.ffmpeg-full
-	flatpak install -y --arch=$(FLATPAK_ARCH) --user fdo-sdk-test-repo test.codecs.no-exts
-	flatpak install -y --arch=$(FLATPAK_ARCH) --user fdo-sdk-test-repo test.libheif_plugins.ffmpeg-full
-	flatpak run test.codecs.ffmpeg-full
-	flatpak run test.libheif_plugins.ffmpeg-full
+	flatpak install -y --arch=$(FLATPAK_ARCH) --user fdo-sdk-test-repo test.codecs.codecs-extra
+	flatpak install -y --arch=$(FLATPAK_ARCH) --user fdo-sdk-test-repo test.libheif_plugins.codecs-extra
 
-	# Expect default codecs
-	flatpak run test.codecs.no-exts
+	flatpak run test.libheif_plugins.codecs-extra
+
+	# Expect full codecs
+	flatpak run test.codecs.codecs-extra
+
+	# Expect free codecs
+	flatpak uninstall --no-related --force-remove -y --noninteractive org.freedesktop.Platform.codecs-extra
+	flatpak run test.codecs.codecs-extra
 
 	flatpak uninstall -y --all
 

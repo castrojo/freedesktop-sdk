@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="addon">
-  <id>org.freedesktop.Platform.ffmpeg-full</id>
+  <id>org.freedesktop.Platform.codecs-extra</id>
   <extends>org.freedesktop.Platform</extends>
-  <name>FFmpeg extension with extra codecs</name>
-  <summary>FFmpeg-full extension contains patent-restricted codecs not in runtime FFmpeg</summary>
+  <name>Codecs Extra Extension</name>
+  <summary>This extension contains patent-restricted codecs not shipped in Platform</summary>
   <developer id="io.freedesktop_sdk">
     <name>Freedesktop SDK</name>
   </developer>
   <description>
     <p>
-      This is a application extension shipped as part of the Freedesktop runtime
+      This is an extension shipped as part of the Freedesktop runtime
       containing support for patent encumbered FFmpeg codecs and additional
       libraries.
     </p>

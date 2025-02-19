@@ -1,6 +1,6 @@
 kind: cmake
 
-(@): elements/extensions/ffmpeg-full/config.yml
+(@): elements/extensions/codecs-extra/config.yml
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
@@ -14,7 +14,7 @@ variables:
   conf-root: "source"
 
   cmake-local: >-
-    -DLIB_INSTALL_DIR="%{prefix}"
+    -DLIB_INSTALL_DIR="%{libdir}"
     -DENABLE_SHARED=ON
     -DENABLE_CLI=OFF
 

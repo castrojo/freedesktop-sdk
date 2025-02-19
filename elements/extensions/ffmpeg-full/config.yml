@@ -1,6 +1,0 @@
-variables:
-  prefix: '/usr/lib/%{gcc_triplet}/ffmpeg'
-  libdir: '%{prefix}'
-  lib: '.'
-  libheif-libde265-plugin: 'ON'
-  libheif-libx265-plugin: 'ON'

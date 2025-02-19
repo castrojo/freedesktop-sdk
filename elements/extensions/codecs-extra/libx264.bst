@@ -1,6 +1,6 @@
 kind: autotools
 
-(@): elements/extensions/ffmpeg-full/config.yml
+(@): elements/extensions/codecs-extra/config.yml
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
@@ -9,7 +9,7 @@ build-depends:
 variables:
   conf-local: >-
     --prefix="%{prefix}"
-    --libdir="%{prefix}"
+    --libdir="%{libdir}"
     --enable-pic
     --disable-cli
     --disable-bashcompletion

@@ -1,5 +1,5 @@
 {
-  "app-id": "test.codecs.no-exts",
+  "app-id": "test.codecs.codecs-extra",
   "runtime": "org.freedesktop.Platform",
   "runtime-version": "25.08beta",
   "sdk": "org.freedesktop.Sdk",

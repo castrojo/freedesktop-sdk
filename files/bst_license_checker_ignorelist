@@ -189,7 +189,7 @@ flatpak-images/rust.bst
 flatpak-images/glxinfo.bst
 flatpak-images/toolchain-arm.bst
 flatpak-images/vulkaninfo.bst
-flatpak-images/platform-ffmpeg-full.bst
+flatpak-images/platform-codecs-extra.bst
 flatpak-images/sdk-arch-libs-debug.bst
 flatpak-images/platform-arch-libs-debug.bst
 flatpak-images/mesa.bst
