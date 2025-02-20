@@ -23,6 +23,7 @@ runtime-depends:
 - components/python3-sphinxcontrib-jsmath.bst
 - components/python3-sphinxcontrib-qthelp.bst
 - components/python3-sphinxcontrib-serializinghtml.bst
+- components/python3-roman-numerals-py.bst
 
 variables:
   strip-binaries: ''
