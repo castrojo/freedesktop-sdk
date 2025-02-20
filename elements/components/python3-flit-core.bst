@@ -19,4 +19,4 @@ sources:
 - kind: git_repo
   url: github:pypa/flit.git
   track: '*.*.*'
-  ref: 3.10.1-0-g7cc7d330d38d48ef865c07e5086a917278b19050
+  ref: 3.11.0-0-g5f8c75fba2f926036da6188ab8b59524ea4859f3
