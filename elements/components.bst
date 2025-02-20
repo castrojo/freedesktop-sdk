@@ -470,6 +470,7 @@ depends:
 - components/python3-pyyaml.bst
 - components/python3-requests-toolbelt.bst
 - components/python3-requests.bst
+- components/python3-roman-numerals-py.bst
 - components/python3-ruamel-yaml-clib.bst
 - components/python3-ruamel-yaml.bst
 - components/python3-schema.bst
