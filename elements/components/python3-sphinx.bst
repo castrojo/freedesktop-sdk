@@ -40,4 +40,6 @@ sources:
 - kind: git_repo
   url: github:sphinx-doc/sphinx.git
   track: v*
+  exclude:
+  - "*rc*"
   ref: v8.0.2-0-g043750e406d8fe03953f5b565b36e05aef6866ec
