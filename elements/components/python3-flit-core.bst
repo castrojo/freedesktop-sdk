@@ -22,3 +22,5 @@ sources:
   url: github:pypa/flit.git
   track: '*.*.*'
   ref: 3.11.0-0-g5f8c75fba2f926036da6188ab8b59524ea4859f3
+- kind: patch
+  path: patches/python3-flit-core/drop-lic-pattern.patch

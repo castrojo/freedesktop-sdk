@@ -1,0 +1,26 @@
+From 124566d9a45bf66e132ab0c694ed5329aa493945 Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Fri, 21 Feb 2025 08:40:13 +0530
+Subject: [PATCH] Drop license file pattern from vendor directory
+
+we delete it to unvendor modules
+---
+ flit_core/pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/flit_core/pyproject.toml b/flit_core/pyproject.toml
+index 11702af..5536929 100644
+--- a/flit_core/pyproject.toml
++++ b/flit_core/pyproject.toml
+@@ -13,7 +13,7 @@ dependencies = []
+ requires-python = '>=3.6'
+ readme = "README.rst"
+ license = "BSD-3-Clause"
+-license-files = ["LICENSE*", "flit_core/vendor/**/LICENSE*"]
++license-files = ["LICENSE*",]
+ classifiers = [
+     "Topic :: Software Development :: Libraries :: Python Modules",
+ ]
+-- 
+2.47.1
+
