@@ -116,10 +116,6 @@ sources:
   url: github:DMTF/libspdm.git
   ref: 50924a4c8145fc721e17208f55814d2b38766fe6
 - kind: git_module
-  path: ArmPkg/Library/ArmSoftFloatLib/berkeley-softfloat-3
-  url: github:ucb-bar/berkeley-softfloat-3.git
-  ref: b64af41c3276f97f0e181920400ee056b9c88037
-- kind: git_module
   path: UnitTestFrameworkPkg/Library/CmockaLib/cmocka
   url: github:tianocore/edk2-cmocka.git
   ref: 1cc9cde3448cdd2e000886a26acf1caac2db7cf1
