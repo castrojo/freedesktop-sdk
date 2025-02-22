@@ -9,6 +9,7 @@ depends:
 config:
   build-commands:
   - |
+    mv -v LICENCE.rst python/LICENCE.rst
     %{python} -mbuild %{build-args} python
 
 sources:
