@@ -1,3 +1,109 @@
+Version: freedesktop-sdk-24.08.12
+Date: '2025-02-22'
+Description: |-
+  Changes in freedesktop-sdk-24.08.12
+   * Update passt to 2025_02_17.a1e48a0-0
+   * Update python3-cryptography to 44.0.1-0
+   * Update python3-pyelftools to v0.32-0
+   * Update python3-trove-classifiers to 2025.2.18.16-0
+   * python3-sphinxcontrib-jsmath: Update reproducibility patch
+   * Add python3-roman-numerals-py for sphinx
+   * python3-sphinx: Update to 8.2.0
+   * python3-sphinx: Exclude rc tags
+   * util-linux-base: Exclude start tags
+   * flags: Enforce a rust debuginfo level of 2 globally
+   * rust: Override debug flags for rust itself
+   * Update xorg-data-xkeyboard-config to xkeyboard-config-2.44-0
+   * Update openssh to V_9_9_P2-0
+   * Update liburcu to v0.15.1-0
+   * Update libxml2 to v2.13.6-0
+   * flat-manager-client-base: Drop upstreamed patch
+   * Update flat-manager-client-base to 0.4.5-0
+   * ci: Print Flatpak ref's size information in after_script
+   * Update qpdf to v11.10.1-0
+   * Update libei to 1.4.0-0
+   * man-pages: Update to 6.11
+   * man-pages: Convert to make element
+   * Update fwupd to 2.0.6-0
+   * Update linux to v6.13.2-0
+   * gdb: Enable all languages
+   * gdb: Enable extra targets for cross debugging
+   * Replace `runtime-depends` in U-Boot+QEMU elements
+   * Fix U-Boot+QEMU elements for riscv64 platforms
+   * files/linux/fdsdk-config.sh: Reorganise and document
+   * ldconfig: Fix test for ldconfig cache
+   * ldconfig: Remove unreproducible aux-cache
+   * vm/boot/u-boot: Fix /var/tmp dracut error
+   * ci: Update docker image
+   * ovmf: Use tianocore subhook mirror
+   * linux-pam-base: Disable docs
+   * linux-pam-base: Disable selinux explicitly and remove var/run
+   * linux-pam-base: Disable nis due to no libnsl
+   * linux-pam-base: Disable logind support due to circular dep
+   * linux-pam-base: Enable libeconf
+   * linux-pam-base: Convert to meson
+   * linux-pam-base: Update to 1.7.0
+   * linux-pam-base: Convert to git_repo
+   * Update vim to v9.1.1113-0
+   * Update glibc to glibc-2.40-71
+   * Update clinfo to 3.0.25.02.14-0
+   * Update btrfs-progs to v6.13-0
+   * Update erofs-utils to v1.8.5-0
+   * Update sdl2 to release-2.32.0-0
+   * fuse3: Disable example and tests
+   * fuse3: Exclude rc releases
+   * xdg-desktop-portal-base: Drop libportal meson arg
+   * xdg-desktop-portal-base: Drop patch and disable tests with meson arg
+   * Update xdg-desktop-portal-base to 1.19.3-0
+   * Update python3-psutil to release-7.0.0-0
+   * Update podman to v5.4.0-0
+   * Update ell to 0.73-0
+   * Update libblockdev to 3.3.0-0
+   * Update python3-virtualenv to 20.29.2-0
+   * Update python3-lxml to lxml-5.3.1-0
+   * Update python3-pip to 25.0.1-0
+   * Update openssl to openssl-3.3.3-0
+   * Update netavark to v1.14.0-0
+   * Update aardvark-dns to v1.14.0-0
+   * Update buildbox to 1.2.45-0
+   * gstreamer-libav: Check that sonames from gstreamer-patch are found
+   * Update so versions in gst-libav patch
+   * Update slirp4netns to v1.3.2-0
+   * Update cython to 3.0.12-0
+   * Update python3-aiohttp to 3.11.12
+   * Ignore abi change due to enum insertion
+   * gnutls: Add patch to disable fetching submodules and using wget
+   * Update gnutls to 3.8.9-0
+   * Update qpdf to v11.10.0-0
+   * Update lcms to lcms2.17-0
+   * Update glibc to glibc-2.40-70
+   * Update vim to v9.1.1086-0
+   * Update rdfind to releases/1.7.0-0
+   * Update libffi to v3.4.7-0
+   * Update sdl2-mixer to release-2.8.1-0
+   * Update wireplumber to 0.5.8-0
+   * u-boot-unmatched: Add dependency on gnutls
+   * u-boot-unmatched: Update to v2025.01
+   * u-boot-unmatched: Track tags
+   * Update swig to v4.3.0-0
+   * Update dictionaries to libreoffice-25.2.1.1-0
+   * Update xwayland to xwayland-24.1.5-0
+   * Update python3-aiohappyeyeballs to v2.4.6-0
+   * Update sdl2-image to release-2.8.5-0
+   * Update reference-abi to freedesktop-sdk-24.08.11-0
+   * Update hwdata to v0.392-0
+   * Update exfat-progs to 1.2.7-0
+   * Update python3-maturin to v1.8.2-0
+   * Update spirv-llvm-translator to v19.1.4-0
+   * Update libjcat to 0.2.3-0
+   * Update poppler to poppler-25.02.0-0
+   * Update crun to 1.20-0
+   * Update python3-mako to rel_1_3_9-0
+   * Update python3 to v3.12.9-0
+   * Update libxkbcommon to xkbcommon-1.8.0-0
+   * libei: Exclude rc releases
+   * Update fwupd to 2.0.5-0
+---
 Version: freedesktop-sdk-24.08.11
 Date: '2025-02-04'
 Description: |-
