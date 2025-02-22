@@ -12,6 +12,7 @@ variables:
     -DREPRODUCIBLE_BUILDS=1
     -DBUILD_SHARED_LIBS=ON
     -DBUILD_TESTING=OFF
+    -DUSE_CPUINFO=OFF
 
 public:
   bst:
