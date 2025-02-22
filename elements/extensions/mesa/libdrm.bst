@@ -7,7 +7,6 @@ build-depends:
 depends:
 - bootstrap-import.bst
 - components/xorg-lib-pciaccess.bst
-- components/libdrm.bst
 
 (@):
 - elements/extensions/mesa/config.yml
@@ -20,7 +19,6 @@ variables:
     -Dvalgrind=disabled
     -Dudev=false
     -Dtests=false
-    -Dlibdrm=false
 
 public:
   bst:
@@ -28,11 +26,10 @@ public:
       devel:
         (>):
         - '%{libdir}/libdrm_*.so'
+        - '%{libdir}/libdrm.so'
 
 sources:
 - kind: git_repo
   url: freedesktop:mesa/drm.git
   track: libdrm-*
   ref: libdrm-2.4.124-0-g38ec7dbd4df3141441afafe5ac62dfc9df36a77e
-- kind: patch
-  path: patches/libdrm/libdrm-disable-libdrm.patch

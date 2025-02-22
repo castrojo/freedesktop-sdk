@@ -26,25 +26,6 @@ variables:
     -Dvalgrind=disabled
     -Dudev=false
 
-config:
-  install-commands:
-    (>):
-    - |
-      for f in "%{install-root}%{includedir}"/libdrm/*; do
-        case "${f}" in
-          */drm.h) ;&
-          */drm_*.h)
-            ;;
-          */*_drm.h)
-            rm "${f}"
-            ;;
-          *)
-            echo "Not sure what to do with ${f}" 1>&2
-            false
-            ;;
-        esac
-      done
-
 public:
   bst:
     split-rules:
@@ -55,7 +36,7 @@ public:
 sources:
 - kind: git_repo
   url: freedesktop:mesa/drm.git
+  # On release branches, we need to lock it to a specific version.
   ref: libdrm-2.4.124-0-g38ec7dbd4df3141441afafe5ac62dfc9df36a77e
-  track: libdrm-*
 - kind: patch
   path: patches/libdrm/libdrm-do-not-break-abi.patch
