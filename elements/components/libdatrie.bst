@@ -1,11 +1,12 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/git-minimal.bst
+
 depends:
-- filename: bootstrap-import.bst
-- filename: components/git-minimal.bst
-  type: build
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
+- bootstrap-import.bst
+
 
 public:
   bst:
