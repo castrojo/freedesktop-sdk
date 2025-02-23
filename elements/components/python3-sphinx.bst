@@ -23,6 +23,7 @@ runtime-depends:
 - components/python3-sphinxcontrib-jsmath.bst
 - components/python3-sphinxcontrib-qthelp.bst
 - components/python3-sphinxcontrib-serializinghtml.bst
+- components/python3-roman-numerals-py.bst
 
 public:
   bst:
@@ -37,6 +38,6 @@ sources:
 - kind: pypi
   name: sphinx
   ref:
-    sha256sum: 43c1911eecb0d3e161ad78611bc905d1ad0e523e4ddc202a58a821773dc4c927
+    sha256sum: e4b932951b9c18b039f73b72e4e63afe967d90408700ec222b981ac24647c01e
     suffix: 
-      6f/6d/be0b61178fe2cdcb67e2a92fc9ebb488e3c51c4f74a36a7824c0adf23425/sphinx-8.1.3.tar.gz
+      99/4b/95bdb36eaee30698f2d244d52e1b9e58642af56525d4b02fcd0f7312c27c/sphinx-8.2.1.tar.gz
