@@ -109,6 +109,7 @@ config:
 
     Extension org.freedesktop.Platform.codecs-extra:
       directory: '%{lib}/codecs-extra'
+      version: "%{branch-extra}"
       add-ld-path: lib
       autodelete: 'true'
 

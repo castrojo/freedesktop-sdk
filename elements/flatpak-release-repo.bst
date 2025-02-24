@@ -35,8 +35,8 @@ config:
         dest: runtime/org.freedesktop.Platform.VAAPI.Intel.%{flatpak_arch}/x86_64/%{branch}
       - src: runtime/org.freedesktop.Platform.VAAPI.nvidia/%{flatpak_arch}/%{branch}
         dest: runtime/org.freedesktop.Platform.VAAPI.nvidia.%{flatpak_arch}/x86_64/%{branch}
-      - src: runtime/org.freedesktop.Platform.codecs-extra/%{flatpak_arch}/%{branch}
-        dest: runtime/org.freedesktop.Platform.codecs_extra.%{flatpak_arch}/x86_64/%{branch}
+      - src: runtime/org.freedesktop.Platform.codecs-extra/%{flatpak_arch}/%{branch-extra}
+        dest: runtime/org.freedesktop.Platform.codecs_extra.%{flatpak_arch}/x86_64/%{branch-extra}
 
       - src: runtime/org.freedesktop.Platform.GL.default/%{flatpak_arch}/%{branch-extra}
         dest: runtime/org.freedesktop.Platform.GL32.default/x86_64/%{branch-extra}
