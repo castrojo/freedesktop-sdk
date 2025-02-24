@@ -107,6 +107,11 @@ config:
       no-autodownload: 'true'
       add-ld-path: lib
 
+    Extension org.freedesktop.Platform.codecs-extra:
+      directory: '%{lib}/codecs-extra'
+      add-ld-path: lib
+      autodelete: 'true'
+
     Extension org.freedesktop.Platform.VAAPI.Intel:
       directory: '%{lib}/dri/intel-vaapi-driver'
       autodelete: 'false'
