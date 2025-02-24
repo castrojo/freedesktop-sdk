@@ -100,14 +100,6 @@ config:
       download-if: have-kernel-module-nvidia
       autoprune-unless: have-kernel-module-nvidia
 
-    Extension org.freedesktop.Platform.openh264:
-      directory: '%{lib}/openh264'
-      versions: '%{openh264-version}beta;%{openh264-version}'
-      version: '%{openh264-version}'
-      add-ld-path: extra
-      no-autodownload: 'true'
-      autodelete: 'true'
-
     Extension org.freedesktop.Platform.codecs-extra:
       directory: '%{lib}/codecs-extra'
       version: "%{branch-extra}"

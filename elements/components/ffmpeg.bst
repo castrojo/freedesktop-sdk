@@ -29,7 +29,7 @@ variables:
     h264_vaapi,hap,hdr,hevc_amf,hevc_nvenc,hevc_qsv,\
     hevc_v4l2m2m,hevc_vaapi,huffyuv,ilbc,jpeg2000,jpegls,\
     libaom,libaom_av1,libcodec2,libgsm,libgsm_ms,libilbc,\
-    libjxl,libmp3lame,libopencore_amrnb,libopenh264,libopenjpeg,libopus,\
+    libjxl,libmp3lame,libopencore_amrnb,libopenjpeg,libopus,\
     librav1e,libspeex,libsvtav1,libtheora,libtwolame,libvo_amrwbenc,\
     libvorbis,libvpx_vp8,libvpx_vp9,libwebp,libwebp_anim,libxvid,\
     mjpeg,mjpeg_qsv,mjpeg_vaapi,mlp,mp2,mp2fixed,\
@@ -87,7 +87,7 @@ variables:
     interplay_video,ipu,jacosub,jpeg2000,jpegls,jv,\
     kgv1,kmvc,lagarith,libaom,libaom_av1,libcodec2,\
     libdav1d,libgsm,libgsm_ms,libilbc,libjxl,libopencore_amrnb,\
-    libopencore_amrwb,libopenh264,libopenjpeg,libopus,librsvg,libschroedinger,\
+    libopencore_amrwb,libopenjpeg,libopus,librsvg,libschroedinger,\
     libspeex,libvorbis,libvpx_vp8,libvpx_vp9,libzvbi_teletext,loco,\
     lscr,m101,mace3,mace6,mdec,media100,\
     metasound,microdvd,mimic,misc4,mjpeg,mjpeg_qsv,\

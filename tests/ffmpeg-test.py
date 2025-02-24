@@ -101,7 +101,6 @@ dec_only, enc_only, dec_and_enc, codecs_dict = get_codecs()
 check_hw = {"vdpau", "vaapi", "drm", "vulkan", "cuda"}
 check_common = {
     "y41p",
-    "h264",
     "ffv1",
     "png",
     "mp3",
@@ -137,11 +136,10 @@ assert len(codecs_dict) > 0, codecs_dict
 h264_decoders = get_codec_info("decoder", "h264")
 h264_encoders = get_codec_info("encoder", "h264")
 exp_h264_decoder_platform = ["Decoder h264"]
-exp_h264_decoder_noext = ["Decoder libopenh264"]
+exp_h264_decoder_noext = []
 exp_h264_encoder_platform = [
     "Encoder libx264",
     "Encoder libx264rgb",
-    "Encoder libopenh264",
     "Encoder h264_nvenc",
     "Encoder h264_v4l2m2m",
     "Encoder h264_vaapi",
@@ -149,7 +147,6 @@ exp_h264_encoder_platform = [
 ]
 
 exp_h264_encoder_noext = [
-    "Encoder libopenh264",
     "Encoder h264_nvenc",
     "Encoder h264_v4l2m2m",
     "Encoder h264_vaapi",
@@ -226,7 +223,7 @@ assert vp9_encoders == exp_vp9_encoder, vp9_encoders
 if has_codecs_extra():
     print("Performing platform ffmpeg with codecs-extra checks...")
 
-    assert "hevc" in dec_and_enc, dec_and_enc
+    assert all(x in dec_and_enc for x in ["hevc", "h264"]), dec_and_enc
     assert all(x in dec_only for x in ["vvc", "vc1"]), dec_only
 
     assert h264_decoders == exp_h264_decoder_platform, h264_decoders

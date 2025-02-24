@@ -65,7 +65,6 @@ depends:
 - components/lzip.bst
 - components/nano.bst
 - components/nettle.bst
-- components/noopenh264.bst
 - components/noto-emoji.bst
 - components/npth.bst
 - components/nspr.bst

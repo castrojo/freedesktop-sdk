@@ -4,13 +4,14 @@ import urllib.request
 def get_fedora_file(url: str) -> str:
     req = urllib.request.Request(url)
     plugins = []
+    excludes = ["libopenh264"]
     with urllib.request.urlopen(req) as response:
         count = 0
         for line in response.readlines():
             line = line.decode()
             plugin = line.split("#")[0].strip()
 
-            if plugin:
+            if plugin and plugin not in excludes:
                 # format the yaml so the final string doesn't end up a one liner
                 if count >= 6:
                     plugin = f"\\\n    {plugin}"

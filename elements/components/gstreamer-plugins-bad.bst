@@ -22,7 +22,6 @@ depends:
 - components/libwebp.bst
 - components/sndfile.bst
 - components/webrtc-audio-processing.bst
-- components/noopenh264.bst
 - components/libsrtp2.bst
 - components/svt-av1.bst
 - components/liblc3.bst
@@ -60,7 +59,6 @@ variables:
     -Dv4l2codecs=enabled
     -Dwayland=enabled
     -Dwebp=enabled
-    -Dopenh264=enabled
     -Dsrtp=enabled
     -Dsvtav1=enabled
     -Dwildmidi=enabled

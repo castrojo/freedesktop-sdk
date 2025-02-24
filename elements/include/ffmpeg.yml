@@ -41,7 +41,6 @@ depends:
 - components/v4l-utils.bst
 - components/libwebp.bst
 - components/xorg-lib-xcb.bst
-- components/noopenh264.bst
 - components/libmysofa.bst
 
 variables:
@@ -98,7 +97,6 @@ variables:
     --enable-vdpau
     --enable-vaapi
     --enable-pthreads
-    --enable-libopenh264
     --enable-libmysofa
     --arch="%{ffmpeg-arch}"
 

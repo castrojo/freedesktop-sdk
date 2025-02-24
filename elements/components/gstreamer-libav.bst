@@ -5,6 +5,7 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/nasm.bst
 - components/hotdoc.bst
+- components/grep.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
