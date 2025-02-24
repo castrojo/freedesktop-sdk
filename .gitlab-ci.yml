@@ -740,12 +740,10 @@ reproducible_aarch64:
     - .reproducible_template
     - .builder-aarch64
 
-.reproducible_x86_64:
+reproducible_x86_64:
   extends:
     - .reproducible_template
     - .builder-x86_64
-  when: manual
-  allow_failure: true
 
 .snap_publish_template:
   stage: publish
