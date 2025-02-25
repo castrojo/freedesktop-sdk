@@ -90,4 +90,4 @@ sources:
   exclude:
   - v*-rc*
   - v*-devel*
-  ref: v2.40.4-0-gdbcc687f6ab1568982cdf3fe391c0beb818b7e28
+  ref: v2.42-start-0-g0a7dfc376192e8fb1e7bdb2d0c90d8b9b173a42b
