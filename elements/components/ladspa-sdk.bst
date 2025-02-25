@@ -17,7 +17,7 @@ variables:
 
   make: |
     make %{make-args} CFLAGS="-I. ${CFLAGS} ${LDFLAGS} -DDEFAULT_LADSPA_PATH=%{install-root}%{libdir}/ladspa"
-  make-install: make %{make-install-args} %{install-conf}
+  make-install: make -j1 %{make-install-args} %{install-conf}
 
 sources:
 - kind: tar

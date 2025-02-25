@@ -22,8 +22,6 @@ variables:
       %{conf-libtool-force-dlsearch}
   conf-cmd: configure
 
-  make-install: make %{make-install-args}
-
 config:
   configure-commands:
   - |

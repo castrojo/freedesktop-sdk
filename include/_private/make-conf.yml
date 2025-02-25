@@ -1,4 +1,0 @@
-# Project-wide configuration of make elements
-
-variables:
-  make-install: make %{make-install-args}

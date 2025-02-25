@@ -34,7 +34,7 @@ variables:
     gl_cv_func_chown_ctime_works=yes
     gl_cv_func_chown_follows_symlink=yes
 
-  make-install: make install DESTDIR="%{install-root}" INSTALL=install
+  make-install: make -j1 install DESTDIR="%{install-root}" INSTALL=install
 
 config:
   build-commands:

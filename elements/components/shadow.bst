@@ -21,7 +21,7 @@ variables:
     --without-libbsd
     --enable-man
 
-  make-install: make %{make-install-args} ubindir="%{bindir}" usbindir="%{sbindir}"
+  make-install: make -j1 %{make-install-args} ubindir="%{bindir}" usbindir="%{sbindir}"
 
 config:
   install-commands:

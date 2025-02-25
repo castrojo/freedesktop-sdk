@@ -13,7 +13,7 @@ variables:
     --enable-pic
     --disable-cli
     --disable-bashcompletion
-  make-install: make %{make-args} DESTDIR="%{install-root}" install-lib-dev install-lib-shared
+  make-install: make -j1 %{make-args} DESTDIR="%{install-root}" install-lib-dev install-lib-shared
 
 sources:
 - kind: git_repo
