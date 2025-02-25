@@ -68,5 +68,3 @@ sources:
   url: crates:crates/ucd-trie/ucd-trie-0.1.6.crate
   ref: ed646292ffc8188ef8ea4d1e0e0150fb15a5c2e12ad9b8fc191ae7a8a7f3c4b9
   # Patches need to be last so non-applying patches won't block updates
-- kind: patch
-  path: patches/mesa/clang_res_path.patch
