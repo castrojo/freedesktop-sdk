@@ -1570,6 +1570,11 @@ if has HAVE_PCI; then
             enable PCIE_EDR
         fi
     fi
+    case "$arch" in
+        i686|x86_64)
+            module VMD
+        ;;
+    esac
 fi
 
 # RISC-V
