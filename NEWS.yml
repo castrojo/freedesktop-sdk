@@ -1,3 +1,30 @@
+Version: freedesktop-sdk-24.08.13
+Date: '2025-02-25'
+Description: |-
+  Changes in freedesktop-sdk-24.08.13
+   * wayland-protocols: Update to 1.41.0
+   * Add a bugtracker URL to all metainfo files
+   * Update python3-aiohttp to 3.11.13
+   * Update buildbox to 1.2.47-0
+   * mesa: Drop clc_res_path patch
+   * Update pyelftools to v0.32-0
+   * Update man-pages to man-pages-6.12-0
+   * Update reference-abi to freedesktop-sdk-24.08.12-0
+   * Update mesa-sdk to mesa-25.0.0-0
+   * Update open-iscsi to 2.1.11-0
+   * Update extra-cmake-modules to v6.11.0-0
+   * Update vim to v9.1.1136-0
+   * python3-roman-numerals-py: Move license file to expected location
+   * python3-flit-core: Drop license file pattern from vendor directory
+   * python3-flit-core: Update to 3.11.0
+   * Update python3-sphinx to v8.2.1-0
+   * Update python3-poetry-core to 2.1.1-0
+   * Update libppd to 2.1.1-0
+   * Update linux to v6.13.4-0
+   * xdg-desktop-portal-base: Track stable releases
+   * Update xdg-desktop-portal-base to 1.20.0-0
+   * Update xfsprogs to v6.13.0-0
+---
 Version: freedesktop-sdk-24.08.12
 Date: '2025-02-22'
 Description: |-
