@@ -1938,6 +1938,9 @@ if has HAVE_CBPF_JIT || has HAVE_EBPF_JIT; then
     enable BPF_JIT
 fi
 
+# Ramdisk
+module BLK_DEV_RAM
+
 # ZSWAP
 enable ZSWAP
 
