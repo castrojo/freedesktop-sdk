@@ -16,6 +16,7 @@
   </description>
   <url type="homepage">https://freedesktop-sdk.gitlab.io</url>
   <url type="contact">https://matrix.to/#/#freedesktop-sdk:matrix.org</url>
+  <url type="bugtracker">https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/issues</url>
   <metadata_license>FSFAP</metadata_license>
   <project_license>MIT</project_license>
 </component>
