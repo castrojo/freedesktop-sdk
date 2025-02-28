@@ -29,6 +29,7 @@ config:
   - components/pipewire-daemon.bst
   - components/plymouth.bst
   - components/polkit-gobject.bst
+  - components/pygobject.bst
   - components/rtkit.bst
   - components/rust.bst
   - components/steam-devices.bst
