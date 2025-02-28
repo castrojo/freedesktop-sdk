@@ -92,13 +92,6 @@ config:
       download-if: have-intel-gpu
       autoprune-unless: have-intel-gpu
 
-    Extension org.freedesktop.Platform.openh264:
-      directory: '%{lib}/openh264'
-      versions: '%{openh264-version}beta;%{openh264-version}'
-      version: '%{openh264-version}'
-      add-ld-path: extra
-      autodelete: 'true'
-
 build-depends:
 - platform-image.bst
 - components/fontconfig-flatpak-config.bst
