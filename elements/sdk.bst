@@ -42,7 +42,6 @@ depends:
 - components/texinfo.bst
 - components/valgrind-maybe.bst
 - components/desktop-file-utils.bst
-- components/gtk-doc.bst
 - components/itstool.bst
 - components/jq.bst
 - components/vulkan-validation-layers.bst
