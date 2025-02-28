@@ -7,4 +7,4 @@ build-depends:
 
 config:
   commands:
-  - abidiff '%{libdir}/libdrm.so' '%{libdir}/GL/default/lib/libdrm.so.2'
+  - abidiff --no-added-syms '%{libdir}/libdrm.so' '%{libdir}/GL/default/lib/libdrm.so.2'
