@@ -9,6 +9,7 @@ build-depends:
 - components/which.bst
 - components/rdfind.bst
 - components/parallel.bst
+- components/git-minimal.bst
 
 variables:
   make-args: >-
