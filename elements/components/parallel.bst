@@ -1,0 +1,25 @@
+kind: autotools
+
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
+depends:
+- bootstrap-import.bst
+- components/perl.bst
+- components/procps.bst
+
+variables:
+  conf-local: >-
+    --disable-documentation
+
+config:
+  configure-commands:
+    (<):
+    - |
+      autoreconf -ivf
+
+sources:
+- kind: git_repo
+  url: savannah:parallel.git
+  track: '[0-9]*'
+  ref: 20250222-0-g0e67de774461aa0c43385f459a1a389e9f7e304a
