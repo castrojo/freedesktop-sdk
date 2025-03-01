@@ -357,6 +357,7 @@ depends:
 - components/ovmf-maybe.bst
 - components/p11-kit.bst
 - components/pango.bst
+- components/parallel.bst
 - components/parted.bst
 - components/passt.bst
 - components/patch.bst
