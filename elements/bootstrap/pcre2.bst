@@ -49,3 +49,7 @@ sources:
   exclude:
   - '*-RC*'
   ref: pcre2-10.45-0-g2dce7761b1831fd3f82a9c2bd5476259d945da4d
+- kind: git_module
+  path: deps/sljit
+  url: github:zherczeg/sljit.git
+  ref: e51eabbfb8eabc6526f56e4e88b29fb10d1ee048
