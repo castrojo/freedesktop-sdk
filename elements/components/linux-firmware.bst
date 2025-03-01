@@ -8,6 +8,7 @@ build-depends:
 - components/python3.bst
 - components/which.bst
 - components/rdfind.bst
+- components/parallel.bst
 
 variables:
   strip-binaries: ''
