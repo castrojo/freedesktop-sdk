@@ -10,6 +10,7 @@ depends:
 - components/libpng.bst
 - components/libtiff.bst
 - components/libwebp.bst
+- components/libjxl.bst
 
 variables:
   cmake-local: >-
@@ -17,6 +18,7 @@ variables:
     -DSDLIMAGE_TIF:BOOL=ON
     -DSDLIMAGE_WEBP:BOOL=ON
     -DSDLIMAGE_AVIF:BOOL=ON
+    -DSDLIMAGE_JXL:BOOL=ON
 
 public:
   bst:
