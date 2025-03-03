@@ -52,6 +52,9 @@ config:
   - |
     find "%{install-root}%{libdir}/go/src" -perm -111 -type f -exec chmod 0644 {} ";"
 
+  - |
+    rm -vf "%{install-root}%{libdir}/go/src/debug/elf/testdata/libtiffxx.so_"
+
 public:
   bst:
     split-rules:
