@@ -57,5 +57,5 @@ sources:
   track: v*
   exclude:
   - '*rc*'
-  ref: v1.19.5-0-gcd95b113d78d0696105a9e678cbd19487ee13d6c
+  ref: v1.19.7-0-gc22636155fc6848b71ad77971159e6e1cc349cce
 
