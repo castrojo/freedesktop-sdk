@@ -1,3 +1,40 @@
+Version: freedesktop-sdk-24.08.14
+Date: '2025-03-03'
+Description: |-
+  Changes in freedesktop-sdk-24.08.14
+   * Update glibc to glibc-2.40-105 (d8e8342)
+   * Update vim to v9.1.1163-0
+   * Update buildbox to 1.2.48-0
+   * Update cmake to v3.31.6-0
+   * Update lvm2 to v2_03_31-0
+   * Update binary seed
+   * shaderc: Freeze to v2024.3
+   * Update python3-setuptools to v75.8.2-0
+   * Update shadow to 4.17.3-0
+   * Update spirv-llvm-translator to v19.1.5-0
+   * Update python3-gi-docgen to 2025.3-0
+   * check-abi-mesa: Allow forward changes in extension libdrm
+   * sdl2-ttf: Freeze to 2.22
+   * xorg-lib-x11: Freeze to 1.8.10
+   * abseil-cpp: Freeze to 20240722.1
+   * libflac: Freeze to 1.4
+   * libnotify: Freeze to 0.8.3
+   * libavif: Freeze to v1.1
+   * Update glib to 2.82.5-0
+   * linux-firmware: Add git-minimal for check-whence
+   * Add GNU parallel for linux-firmware
+   * linux-firmware: Convert to make element and use upstream compress script
+   * Update linux-firmware to 20250211-0
+   * svt-av1: Track v2
+   * Update python3-setuptools-scm to v8.2.0-0
+   * libdrm: Move the main library to mesa extension
+   * Update reference-abi to freedesktop-sdk-24.08.13-0
+   * Update python3-propcache to v0.3.0-0
+   * Update dictionaries to libreoffice-25.2.1.2-0
+   * Update python3-roman-numerals-py to v3.1.0-0
+   * Update conmon to v2.1.13-0
+   * Update iwd to 3.4-0
+---
 Version: freedesktop-sdk-24.08.13
 Date: '2025-02-25'
 Description: |-
