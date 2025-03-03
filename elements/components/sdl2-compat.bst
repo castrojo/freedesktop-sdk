@@ -64,4 +64,4 @@ sources:
 - kind: git_repo
   url: github:libsdl-org/sdl2-compat.git
   track: release-*
-  ref: release-2.32.50-0-ge104b651c93fc3abc60620d671303f744071cd83
+  ref: release-2.32.52-0-gfc273d65b167e88626d753aafe1e21be6c728974
