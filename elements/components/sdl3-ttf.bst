@@ -5,18 +5,18 @@ build-depends:
 
 depends:
 - components/freetype.bst
-- components/sdl2-compat.bst
+- components/sdl3.bst
 
 public:
   bst:
     split-rules:
       devel:
         (>):
-        - '%{libdir}/libSDL2_ttf.so'
-        - '%{libdir}/libSDL2_ttf-*.so'
+        - '%{libdir}/libSDL3_ttf.so'
+        - '%{libdir}/libSDL3_ttf-*.so'
 
 sources:
 - kind: git_repo
   url: github:libsdl-org/SDL_ttf.git
   track: release-*
-  ref: release-2.24.0-0-g2a891473eaf05ba1707a4b7913e6c4db7de7458a
+  ref: release-3.2.0-0-g3675de381020a719c37f7c79f6564cf52c8f4dcc
