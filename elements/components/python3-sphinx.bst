@@ -5,8 +5,6 @@ build-depends:
 
 depends:
 - components/python3.bst
-
-runtime-depends:
 - components/python3-alabaster.bst
 - components/python3-babel.bst
 - components/python3-docutils.bst
