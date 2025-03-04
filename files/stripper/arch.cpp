@@ -58,6 +58,15 @@ std::string get_triplet(known_arch arch) {
   return triplet;
 }
 
+std::string get_arch_string(known_arch arch) {
+    std::string triplet = get_triplet(arch);
+    std::size_t pos = triplet.find("-unknown-linux-");
+    if (pos != std::string::npos) {
+        return triplet.substr(0, pos);
+    }
+    return triplet;
+}
+
 std::filesystem::path get_toolchain(std::vector<std::string> const& prefixes, known_arch arch) {
   std::string triplet = get_triplet(arch);
 
