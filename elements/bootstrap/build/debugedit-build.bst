@@ -2,6 +2,7 @@ kind: autotools
 
 build-depends:
 - bootstrap/base-sdk/pkg-config.bst
+- bootstrap/base-sdk/xxhash.bst
 - bootstrap/gnu-config.bst
 
 depends:

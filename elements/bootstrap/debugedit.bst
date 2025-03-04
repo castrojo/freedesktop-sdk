@@ -8,9 +8,13 @@ build-depends:
 - filename:  bootstrap/elfutils.bst
   config:
     location: "%{sysroot}"
+- filename:  bootstrap/xxhash.bst
+  config:
+    location: "%{sysroot}"
 
 runtime-depends:
 - bootstrap/elfutils.bst
+- bootstrap/xxhash.bst
 
 (@):
 - elements/bootstrap/include/target.yml
