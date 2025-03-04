@@ -1,0 +1,21 @@
+--- a/gprofng/doc/Makefile.am
++++ b/gprofng/doc/Makefile.am
+@@ -61,7 +61,7 @@ EXTRA_DIST = $(man_MANS) version.texi
+ info: $(man_MANS)
+ 
+ examples.tar.gz:
+-	$(AM_V_at)( tar czf $@ $(srcdir)/../examples )
++	$(AM_V_at)( tar czf $@ --sort=name --mtime="@${SOURCE_DATE_EPOCH}" --owner=0 --group=0 --numeric-owner --pax-option=exthdr.name=%d/PaxHeaders/%f,delete=atime,delete=ctime --mode=a=rX,u+w $(srcdir)/../examples )
+ 
+ .PHONY: install-data-local
+ 
+--- a/gprofng/doc/Makefile.in
++++ b/gprofng/doc/Makefile.in
+@@ -895,7 +895,7 @@ gprofng-display-text.1: $(srcdir)/gprofn
+ info: $(man_MANS)
+ 
+ examples.tar.gz:
+-	$(AM_V_at)( tar czf $@ $(srcdir)/../examples )
++	$(AM_V_at)( tar czf $@ --sort=name --mtime="@${SOURCE_DATE_EPOCH}" --owner=0 --group=0 --numeric-owner --pax-option=exthdr.name=%d/PaxHeaders/%f,delete=atime,delete=ctime --mode=a=rX,u+w $(srcdir)/../examples )
+ 
+ .PHONY: install-data-local
