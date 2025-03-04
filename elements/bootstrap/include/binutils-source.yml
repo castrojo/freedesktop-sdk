@@ -24,3 +24,5 @@ sources:
   exclude:
   - binutils-2_41
   ref: binutils-2_44-0-g815d9a14cbbb3b81843f7566222c87fb22e7255d
+- kind: patch
+  path: patches/binutils/gprofng-examples-tgz-deterministic.patch
