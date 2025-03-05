@@ -350,7 +350,14 @@ struct script {
       try {
         toolchain = get_toolchain(toolchain_prefixes, arch);
       } catch (std::exception const& e) {
-        std::cerr << e.what() << '\n';
+        for (const auto& binary: binaries) {
+          std::cerr << "Encountered ELF: " << binary
+                    << " (ELF arch: " << get_arch_string(arch) << "),"
+                    << " but no objdump found in:\n";
+          for (const auto& prefix: toolchain_prefixes) {
+            std::cerr << "  " << prefix << "/" << get_triplet(arch) << "/bin\n";
+          }
+        }
         return false;
       }
 

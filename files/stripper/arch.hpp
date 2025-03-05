@@ -32,6 +32,7 @@ enum class known_arch { x86_64, i686, aarch64, arm, ppc64le, ppc64, riscv64, loo
 enum class endianness { le, be};
 
 std::string get_triplet(known_arch arch);
+std::string get_arch_string(known_arch arch);
 
 std::filesystem::path get_toolchain(std::vector<std::string> const& prefixes, known_arch arch);
 

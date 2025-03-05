@@ -29,16 +29,11 @@
 #include <unistd.h>
 
 named_tmp_file::named_tmp_file(): path(nullptr) {
-  char p[L_tmpnam];
-  char* ret = nullptr;
-  int fd = -1;
-  while (fd == -1) {
-    ret = tmpnam_r(p);
-    assert(ret != nullptr);
-    fd = open(ret, O_WRONLY|O_CREAT|O_EXCL, 0600);
-    }
+  char p_template[] = "/tmp/tmpfileXXXXXX";
+  int fd = mkstemp(p_template);
+  assert(fd != -1);
   close(fd);
-  path.reset(new std::string(p));
+  path.reset(new std::string(p_template));
 }
 
 named_tmp_file::~named_tmp_file() {
