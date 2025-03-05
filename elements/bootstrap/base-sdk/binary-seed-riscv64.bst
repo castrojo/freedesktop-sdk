@@ -11,4 +11,4 @@ sources:
   (@):
   - elements/bootstrap/base-sdk/binary-seed-source.yml
   architecture: "riscv64"
-  ref: d4c55bb1c60b68ac22eee6c0c7e30578d27fe5c071407e3792579f45eb697909
+  ref: 6be5f56bbe8d6767c842e7c41a36816d5099e6f26b0254a9324bda0156953f04
