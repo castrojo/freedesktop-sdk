@@ -5,7 +5,7 @@ sources:
   exclude:
   - '*rc*'
   - '*branchpoint*'
-  ref: mesa-24.3.4-0-g769e51468b49b2a42f0a0eaf71cf9eed5ff4e5de
+  ref: mesa-25.0.1-0-gc185b4a7b0ff052f556dff1b3849a9c9c6115640
 # Rust dependencies:
 - kind: tar
   directory: subprojects/packagecache/syn-2.0.68
