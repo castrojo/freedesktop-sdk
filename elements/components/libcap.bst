@@ -35,6 +35,6 @@ sources:
   track: libcap-*.*
   exclude:
   - 'libcap-korg-*'
-  ref: libcap-2.74-0-gdef8fab2a37d82aa69a534c93da580f335026cbb
+  ref: libcap-2.75-0-gf02e46a44a268f6ea17c95673ecdced31f1188a4
 - kind: patch
   path: patches/libcap/libcap-disable-tests.patch
