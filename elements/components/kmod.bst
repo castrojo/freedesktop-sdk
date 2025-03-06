@@ -19,4 +19,4 @@ sources:
 - kind: git_repo
   url: kernel:utils/kernel/kmod/kmod.git
   track: v*
-  ref: v33-0-ge193aeb99a04fb4b63ce47eb2c7f119db59446a0
+  ref: v34-0-g889403790977880b8759020338e7cf9634b6ce68
