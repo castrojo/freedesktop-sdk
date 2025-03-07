@@ -130,5 +130,3 @@ sources:
   exclude:
   - '*-dev'
   ref: n7.1.1-0-gdb69d06eeeab4f46da15030a80d539efb4503ca8
-- kind: patch
-  path: patches/ffmpeg/libx2654-build-fix.patch
