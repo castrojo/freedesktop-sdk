@@ -55,7 +55,7 @@ depends:
 - components/f2fs-tools.bst
 - components/btrfs-progs.bst
 - components/exfat-progs.bst
-- components/fscrypt-maybe.bst
+- components/fscrypt.bst
 - components/bash-config.bst
 - components/bash-completion.bst
 - components/apparmor.bst
