@@ -8,3 +8,17 @@ depends:
 - oci/layers/flatpak-stack.bst
 - vm/desktop/deps.bst
 - components.bst
+
+# Parents of maybe elements from components.bst
+
+- components/libsmbios.bst
+- components/ovmf.bst
+- components/u-boot-qemu.bst
+- components/u-boot-unmatched.bst
+- components/bpf.bst
+- components/efitools-bin.bst
+- components/fwupd-efi.bst
+- components/gnu-efi.bst
+- components/sbsigntools.bst
+- components/valgrind.bst
+- components/shim.bst
