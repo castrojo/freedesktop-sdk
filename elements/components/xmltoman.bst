@@ -1,4 +1,4 @@
-kind: manual
+kind: make
 
 build-depends:
 - public-stacks/buildsystem-make.bst
@@ -7,19 +7,6 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/perl.bst
 - components/perl-xml-parser.bst
-
-variables:
-  make-vars: >-
-    PREFIX="%{prefix}"
-
-config:
-  build-commands:
-  - |
-    make %{make-vars}
-
-  install-commands:
-  - |
-    make DESTDIR="%{install-root}" %{make-vars} install
 
 sources:
 - kind: tar

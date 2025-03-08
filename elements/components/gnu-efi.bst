@@ -1,4 +1,4 @@
-kind: manual
+kind: make
 
 build-depends:
 - public-stacks/buildsystem-make.bst
@@ -11,19 +11,10 @@ environment:
   LDFLAGS: "-z relro -z now --as-needed"
 
 variables:
-  make-args: |
-    INSTALLROOT='%{install-root}' \
-    LIBDIR='%{libdir}' \
+  make-args: >-
+    INSTALLROOT='%{install-root}'
+    LIBDIR='%{libdir}'
     PREFIX='%{prefix}'
-
-config:
-  build-commands:
-  - |
-    make %{make-args}
-
-  install-commands:
-  - |
-    make -j1 %{make-args} install
 
 sources:
 - kind: git_repo

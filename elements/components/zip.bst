@@ -1,4 +1,4 @@
-kind: manual
+kind: make
 
 build-depends:
 - public-stacks/buildsystem-make.bst
@@ -6,11 +6,14 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 
-config:
-  build-commands:
-  - |
-    make -f unix/Makefile prefix=%{prefix} "CFLAGS_NOOPT=-I. -DUNIX $CFLAGS" generic_gcc
+variables:
+  make-args: >-
+    -f unix/Makefile
+    prefix=%{prefix}
+    "CFLAGS_NOOPT=-I. -DUNIX $CFLAGS"
+    generic_gcc
 
+config:
   install-commands:
   - |
     install -m 755 -D -t "%{install-root}%{bindir}" zip zipcloak zipnote zipsplit

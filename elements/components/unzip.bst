@@ -1,4 +1,4 @@
-kind: manual
+kind: make
 
 build-depends:
 - public-stacks/buildsystem-make.bst
@@ -6,18 +6,22 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 
+variables:
+  make-args: >-
+    -f unix/Makefile
+    LOCAL_UNZIP="${CFLAGS} -DNO_LCHMOD"
+    LFLAGS2="${LDFLAGS}"
+    BINDIR="%{install-root}%{bindir}"
+    MANDIR="%{install-root}%{mandir}/man1"
+    generic_gcc
+  make-install: make -j1 %{make-args} install
+
 config:
-  build-commands:
-  - |
-    make -f unix/Makefile LOCAL_UNZIP="${CFLAGS} -DNO_LCHMOD" LFLAGS2="${LDFLAGS}" generic_gcc
-
   install-commands:
-  - |
-    make -f unix/Makefile BINDIR="%{install-root}%{bindir}" MANDIR="%{install-root}%{datadir}/man/man1" install
-
-  - |
-    rm "%{install-root}%{bindir}/zipinfo"
-    ln -s unzip "%{install-root}%{bindir}/zipinfo"
+    (>):
+    - |
+      rm "%{install-root}%{bindir}/zipinfo"
+      ln -s unzip "%{install-root}%{bindir}/zipinfo"
 
 public:
   cpe:
