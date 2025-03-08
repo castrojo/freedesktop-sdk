@@ -24,5 +24,5 @@ public:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:ed/ed-1.20.2.tar.lz
-  ref: 65fec7318f48c2ca17f334ac0f4703defe62037bb13cc23920de077b5fa24523
+  url: ftp_gnu_org:ed/ed-1.21.tar.lz
+  ref: 60e24998727d453a5cf02c54664b97536de46a2b34cd1f4f67c1c1a61bbbad75
