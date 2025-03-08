@@ -11,6 +11,10 @@ build-depends:
 - components/util-linux.bst
 - components/gnutls.bst
 
+depends:
+- public-stacks/runtime-minimal.bst
+- components/openssl.bst
+
 variables:
   notparallel: true
   (?):
