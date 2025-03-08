@@ -1,4 +1,4 @@
-kind: manual
+kind: make
 
 build-depends:
 - components/bison.bst
@@ -11,6 +11,7 @@ build-depends:
 - components/gnutls.bst
 
 variables:
+  notparallel: true
   (?):
   - target_arch == "x86_64":
       board: qemu-x86_64
@@ -18,14 +19,11 @@ variables:
       board: qemu_arm64
   - target_arch == "riscv64":
       board: qemu-riscv64_smode
+  make-args: >-
+    %{board}_defconfig
+    all
 
 config:
-  configure-commands:
-  - make "%{board}_defconfig"
-
-  build-commands:
-  - make V=1 all
-
   install-commands:
   - install -Dm644 -t "%{install-root}%{datadir}/u-boot/%{board}" u-boot.bin
   - install -Dm755 -t "%{install-root}%{bindir}" tools/mkimage
