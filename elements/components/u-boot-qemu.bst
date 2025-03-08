@@ -10,6 +10,10 @@ build-depends:
 - components/util-linux.bst
 - components/gnutls.bst
 
+depends:
+- bootstrap-import.bst
+- components/openssl.bst
+
 variables:
   notparallel: true
   (?):
