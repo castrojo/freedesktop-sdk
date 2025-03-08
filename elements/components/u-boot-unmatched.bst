@@ -1,4 +1,4 @@
-kind: manual
+kind: make
 
 build-depends:
 - components/bison.bst
@@ -19,14 +19,11 @@ variables:
   (?):
   - target_arch == "riscv64":
       board: sifive_unmatched
+  make-args: >-
+    %{board}_defconfig
+    all
 
 config:
-  configure-commands:
-  - make "%{board}_defconfig"
-
-  build-commands:
-  - make V=1 all
-
   install-commands:
   - install -Dm644 -t "%{install-root}%{datadir}/u-boot/%{board}" u-boot.bin spl/u-boot-spl.bin u-boot.itb
   - install -Dm755 -t "%{install-root}%{bindir}" tools/mkimage

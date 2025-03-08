@@ -5,6 +5,7 @@ build-depends:
 - components/u-boot-qemu.bst
 
 variables:
+  notparallel: true
   make-args: >-
     O=build-generic
     PLATFORM=generic
