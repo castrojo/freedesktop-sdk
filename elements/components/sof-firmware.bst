@@ -2,15 +2,24 @@ kind: manual
 
 build-depends:
 - bootstrap-import.bst
+- components/rsync.bst
+
+environment:
+  FW_DEST: '%{install-root}%{indep-libdir}/firmware/intel'
+  TOOLS_DEST: '%{build-root}/do-not-install'
 
 config:
   install-commands:
   - |
-    install -d -m755 '%{install-root}%{indep-libdir}/firmware/intel'
-    cp -aT sof-v* '%{install-root}%{indep-libdir}/firmware/intel/sof'
-    cp -aT sof-tplg-v* '%{install-root}%{indep-libdir}/firmware/intel/sof-tplg'
+    install -dm755 "${FW_DEST}"
+
+  - |
+    install -dm755 "${TOOLS_DEST}"
+
+  - |
+    bash -x install.sh
 
 sources:
 - kind: tar
-  url: github_files:thesofproject/sof-bin/releases/download/v2.2.6/sof-bin-v2.2.6.tar.gz
-  ref: 9322c2a7636d02845c3b26984d58ab8f78d63ff4c766d084c3196a585e000905
+  url: github_files:thesofproject/sof-bin/releases/download/v2025.01/sof-bin-2025.01.tar.gz
+  ref: 34d565db757a32450106317cc51f38bf67962e0fc8b7f7c72e6e39fd89e99263
