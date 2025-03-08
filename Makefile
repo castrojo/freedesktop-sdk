@@ -75,7 +75,7 @@ export: clean-runtime
 
 	test -e $(REPO) || ostree init --repo=$(REPO) --mode=archive
 
-	flatpak build-commit-from --src-repo=$(CHECKOUT_ROOT)/flatpak-release-repo.bst --subject $(FLATPAK_SUBJECT) $(REPO)
+	flatpak build-commit-from --src-repo=$(CHECKOUT_ROOT)/flatpak-release-repo.bst --subject $(FLATPAK_SUBJECT) --disable-fsync $(REPO)
 
 	rm -rf $(CHECKOUT_ROOT)
 
