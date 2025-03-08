@@ -18,6 +18,7 @@ variables:
     --runstatedir=/run
     --with-sysusersdir="$(pkg-config --variable=sysusersdir systemd)"
     --with-tmpfilesdir="$(pkg-config --variable=tmpfilesdir systemd)"
+    --with-udevrulesdir="$(pkg-config --variable=udevdir udev)/rules.d"
 
 sources:
 - kind: git_repo
