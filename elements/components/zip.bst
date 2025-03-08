@@ -1,13 +1,16 @@
-kind: manual
+kind: make
 
 depends:
 - filename: bootstrap-import.bst
 
-config:
-  build-commands:
-  - |
-    make -f unix/Makefile prefix=%{prefix} "CFLAGS_NOOPT=-I. -DUNIX $CFLAGS" generic_gcc
+variables:
+  make-args: >-
+    -f unix/Makefile
+    prefix=%{prefix}
+    "CFLAGS_NOOPT=-I. -DUNIX $CFLAGS"
+    generic_gcc
 
+config:
   install-commands:
   - |
     install -m 755 -D -t "%{install-root}%{bindir}" zip zipcloak zipnote zipsplit

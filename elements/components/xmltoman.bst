@@ -1,22 +1,9 @@
-kind: manual
+kind: make
 
 depends:
 - filename: bootstrap-import.bst
 - filename: components/perl.bst
 - filename: components/perl-xml-parser.bst
-
-variables:
-  make-vars: >-
-    PREFIX="%{prefix}"
-
-config:
-  build-commands:
-  - |
-    make %{make-vars}
-
-  install-commands:
-  - |
-    make DESTDIR="%{install-root}" %{make-vars} install
 
 sources:
 - kind: tar
