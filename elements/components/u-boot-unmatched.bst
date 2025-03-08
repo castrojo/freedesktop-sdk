@@ -17,6 +17,7 @@ environment:
   OPENSBI: /usr/share/opensbi/lp64/generic/firmware/fw_dynamic.bin
 
 variables:
+  notparallel: true
   (?):
   - target_arch == "riscv64":
       board: sifive_unmatched

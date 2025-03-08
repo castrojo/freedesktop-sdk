@@ -12,14 +12,7 @@ variables:
     PLATFORM=generic
     FW_PAYLOAD_PATH="/usr/share/u-boot/qemu-riscv64_smode/u-boot.bin"
 
-config:
-  build-commands:
-  - |
-    make %{make-args}
-
-  install-commands:
-  - |
-    make -j1 install %{make-args} install_root_dir="%{install-root}%{prefix}"
+  make-install: make -j1 %{make-args} install_root_dir="%{install-root}%{prefix}"
 
 sources:
 - kind: git_repo
