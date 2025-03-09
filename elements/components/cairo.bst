@@ -37,4 +37,4 @@ sources:
 - kind: git_repo
   url: freedesktop:cairo/cairo.git
   track: 1.*[02468].*
-  ref: 1.18.2-0-g200441e6855854eb4dbf338e44d67b00ababe07f
+  ref: 1.18.4-0-g4541e0cd3a751b85e52e2a83d02ac6145a5efa85
