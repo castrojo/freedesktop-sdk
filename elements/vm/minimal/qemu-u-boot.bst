@@ -3,6 +3,7 @@ description: |
   Prototype bootable image for QEMU with u-boot.
 
 build-depends:
+- components/fakecap.bst
 - components/linux.bst
 - vm/minimal/initial-scripts.bst
 - vm/prepare-image.bst
@@ -19,9 +20,14 @@ variables:
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
   uuid-boot: 10bf4857-5261-46d4-a178-cca1a9b5b997
 
+environment:
+  LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
+  FAKECAP_DB: /fakecap
+
 config:
 
   commands:
+  - mkdir -p /fakecap
   - mkdir -p /genimage
   - |
     prepare-image.sh \

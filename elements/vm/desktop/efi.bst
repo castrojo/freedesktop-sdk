@@ -1,6 +1,7 @@
 kind: script
 
 build-depends:
+- components/fakecap.bst
 - vm/deploy-tools.bst
 - vm/desktop/initial-scripts.bst
 - vm/prepare-image.bst
@@ -15,8 +16,13 @@ variables:
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
   build-root: /genimage
 
+environment:
+  LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
+  FAKECAP_DB: /fakecap
+
 config:
   commands:
+  - mkdir -p /fakecap
   - mkdir -p %{build-root}
   - prepare-image.sh --rootpasswd root --sysroot /sysroot --seed "%{uuidnamespace}" > "%{build-root}/vars"
 
@@ -34,7 +40,7 @@ config:
     image root.img {
         ext4  {
             label = "root"
-            extraargs = "-U ${uuid_root} -E no_copy_xattrs"
+            extraargs = "-U ${uuid_root}"
             use-mke2fs = true
         }
         size = 5G

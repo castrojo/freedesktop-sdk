@@ -1,6 +1,7 @@
 kind: script
 
 build-depends:
+- components/fakecap.bst
 - vm/boot/efi-plymouth/deps.bst
 - vm/boot/efi-plymouth/initial-scripts.bst
 - vm/prepare-image.bst
@@ -10,9 +11,14 @@ variables:
   # FIXME: dracut uses wrong directory when using /efi
   install-root: '/boot'
 
+environment:
+  LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
+  FAKECAP_DB: /fakecap
+
 config:
 
   commands:
+  - mkdir -p /fakecap
   - mkdir -p /tmp
   - mkdir -p /var/tmp
   - mkdir -p /boot

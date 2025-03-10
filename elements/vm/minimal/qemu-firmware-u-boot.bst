@@ -6,4 +6,4 @@ build-depends:
 
 config:
   commands:
-  - install -Dm644 -t "%{install-root}" %{datadir}/u-boot/*/u-boot.elf
+  - install -Dm644 -t "%{install-root}" %{datadir}/u-boot/*/u-boot.bin

@@ -1,6 +1,7 @@
 kind: script
 
 build-depends:
+- components/fakecap.bst
 - vm/deploy-tools.bst
 - components/squashfs-tools.bst
 - vm/minimal-secure/initial-scripts.bst
@@ -15,8 +16,15 @@ variables:
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
   salt: 5ceca5e1f86ae62403b27e66c5160717f1bb88405a1d1d0853241c27f3764843
 
+environment:
+  LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
+  FAKECAP_DB: /fakecap
+
 config:
   commands:
+  - |
+    mkdir /fakecap
+
   - |
     prepare-image.sh \
        --sysroot /sysroot \

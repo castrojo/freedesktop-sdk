@@ -1,6 +1,7 @@
 kind: script
 
 build-depends:
+- components/fakecap.bst
 - vm/deploy-tools.bst
 - vm/minimal/initial-scripts.bst
 - vm/prepare-image.bst
@@ -13,6 +14,8 @@ build-depends:
 
 environment:
   E2FSPROGS_FAKE_TIME: '%{source-date-epoch}'
+  LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
+  FAKECAP_DB: /fakecap
 
 variables:
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
@@ -20,6 +23,7 @@ variables:
 
 config:
   commands:
+  - mkdir -p /fakecap
   - mkdir -p %{build-root}
   - |
     prepare-image.sh \
@@ -45,7 +49,7 @@ config:
     image root.img {
         ext4  {
             label = "root"
-            extraargs = "-U ${uuid_root} -E hash_seed=${hash_seed},no_copy_xattrs"
+            extraargs = "-U ${uuid_root} -E hash_seed=${hash_seed}"
             use-mke2fs = true
             fs-timestamp = "${SOURCE_DATE_EPOCH}"
         }

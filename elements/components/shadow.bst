@@ -49,11 +49,9 @@ public:
       for i in expiry chage; do
         chmod 4755 "${sysroot}%{bindir}/${i}"
       done
-      # FIXME: BuildStream does not support that
-      #setcap cap_setuid+ep "${sysroo}%{bindir}/newuidmap"
-      #setcap cap_setgid+ep "${sysroo}%{bindir}/newgidmap"
-      chmod 4755 "${sysroot}%{bindir}/newuidmap"
-      chmod 4755 "${sysroot}%{bindir}/newgidmap"
+      # If those fail, please use components/fakecap.bst in LD_PRELOAD
+      setcap cap_setuid+ep "${sysroot}%{bindir}/newuidmap"
+      setcap cap_setgid+ep "${sysroot}%{bindir}/newgidmap"
 
 sources:
 - kind: git_repo

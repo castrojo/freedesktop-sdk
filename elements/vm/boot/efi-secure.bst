@@ -15,8 +15,13 @@ variables:
   - target_arch == "i686":
       efi-arch: ia32
 
+environment:
+  LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
+  FAKECAP_DB: /fakecap
+
 config:
   commands:
+  - mkdir -p /fakecap
   - mkdir -p /tmp
   - mkdir -p /var/tmp
   - mkdir -p /boot

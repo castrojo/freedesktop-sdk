@@ -4,6 +4,9 @@ build-depends:
 - vm/boot/efi-secure.bst
 - public-stacks/runtime-minimal.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - |

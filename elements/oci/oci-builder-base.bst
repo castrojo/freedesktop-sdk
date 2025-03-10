@@ -5,6 +5,7 @@ build-depends:
 
 depends:
 - components/python3-pyyaml.bst
+- components/fakecap.bst
 
 sources:
 - kind: local

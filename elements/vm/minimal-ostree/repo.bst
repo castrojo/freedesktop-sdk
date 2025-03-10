@@ -1,6 +1,7 @@
 kind: script
 
 build-depends:
+- components/fakecap.bst
 - components/ostree.bst
 - vm/deploy-tools.bst
 - vm/prepare-image.bst
@@ -17,12 +18,15 @@ variables:
 
 environment:
   OSTREE_REPO: "%{install-root}/ostree/repo"
+  LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
+  FAKECAP_DB: /fakecap
 
 config:
 
   commands:
   - mkdir -p /tmp
   - mkdir -p /efi
+  - mkdir -p /fakecap
   - |
     prepare-image.sh \
        --sysroot /sysroot \

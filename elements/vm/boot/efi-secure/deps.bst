@@ -18,3 +18,6 @@ depends:
 - components/tpm2-tss.bst
 - components/tpm2-tools.bst
 - components/efitools.bst
+- components/binutils.bst
+- components/fakecap.bst
+- components/lvm2.bst

@@ -1,6 +1,7 @@
 kind: script
 
 build-depends:
+- components/fakecap.bst
 - vm/boot/u-boot/deps.bst
 - vm/boot/u-boot/initial-scripts.bst
 - vm/prepare-image.bst
@@ -10,8 +11,13 @@ variables:
   uuid-boot: 10bf4857-5261-46d4-a178-cca1a9b5b997
   install-root: '/boot'
 
+environment:
+  LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
+  FAKECAP_DB: /fakecap
+
 config:
   commands:
+  - mkdir -p /fakecap
   - mkdir -p /boot
   - |
     prepare-image.sh \

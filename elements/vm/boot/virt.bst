@@ -1,6 +1,7 @@
 kind: script
 
 build-depends:
+- components/fakecap.bst
 - vm/boot/virt/deps.bst
 - vm/boot/virt/initial-scripts.bst
 - vm/prepare-image.bst
@@ -9,9 +10,14 @@ variables:
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
   install-root: /boot
 
+environment:
+  LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
+  FAKECAP_DB: /fakecap
+
 config:
 
   commands:
+  - mkdir -p /fakecap
   - mkdir -p /tmp
   - mkdir -p /var/tmp
   - mkdir -p /boot

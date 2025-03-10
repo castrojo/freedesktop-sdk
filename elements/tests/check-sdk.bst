@@ -12,6 +12,7 @@ config:
   - components/ccid.bst
   - components/dracut.bst
   - components/ed.bst
+  - components/fakecap.bst
   - components/gamemode-base.bst
   - components/gtk-doc.bst
   - components/glib-stage1.bst

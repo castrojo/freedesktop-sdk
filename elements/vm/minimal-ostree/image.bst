@@ -1,6 +1,7 @@
 kind: script
 
 build-depends:
+- components/fakecap.bst
 - components/ostree.bst
 - vm/deploy-tools.bst
 - filename: vm/minimal-ostree/repo.bst
@@ -17,9 +18,12 @@ variables:
 
 environment:
   OSTREE_REPO: "%{sysroot}/ostree/repo"
+  LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
+  FAKECAP_DB: /fakecap
 
 config:
   commands:
+  - mkdir -p /fakecap
   - mkdir -p "${OSTREE_REPO}"
   - ostree init --repo="${OSTREE_REPO}" --mode=bare
 
@@ -63,10 +67,9 @@ config:
     image root.img {
         ext4  {
             label = "root"
-            extraargs = "-E no_copy_xattrs"
             use-mke2fs = true
         }
-        size = 110%
+        size = 120%
     }
     image disk.img {
         hdimage {
