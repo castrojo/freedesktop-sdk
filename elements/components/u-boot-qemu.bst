@@ -1,5 +1,10 @@
 kind: make
 
+description: |
+    This element should be consumed through u-boot-qemu-maybe.bst
+    as this is specific to select arches. The board variable is set as
+    a stub to enable tracking
+
 build-depends:
 - public-stacks/buildsystem-make.bst
 - components/bison.bst
@@ -17,6 +22,7 @@ depends:
 
 variables:
   notparallel: true
+  board: "none"
   (?):
   - target_arch == "x86_64":
       board: qemu-x86_64
@@ -29,6 +35,14 @@ variables:
     all
 
 config:
+  build-commands:
+    (<):
+    - |
+      if [ "%{board}" == "none" ]; then
+        echo "Unsupported arch, use u-boot-qemu-maybe"
+        exit 1
+      fi
+
   install-commands:
   - install -Dm644 -t "%{install-root}%{datadir}/u-boot/%{board}" u-boot.bin
   - install -Dm755 -t "%{install-root}%{bindir}" tools/mkimage
