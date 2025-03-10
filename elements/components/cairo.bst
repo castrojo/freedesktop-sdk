@@ -11,6 +11,7 @@ depends:
 - components/xorg-lib-xext.bst
 - components/freetype.bst
 - components/fontconfig.bst
+- components/lzo.bst
 
 variables:
   # We don't built libspectre and it would depend on ghostscript
@@ -20,6 +21,7 @@ variables:
     -Dspectre=disabled
     -Dsymbol-lookup=disabled
     -Dtests=disabled
+    -Dlzo=enabled
 
 public:
   bst:
