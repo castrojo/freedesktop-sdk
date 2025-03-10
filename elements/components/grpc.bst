@@ -21,7 +21,7 @@ sources:
   track: v*
   exclude:
   - '*pre*'
-  ref: v1.70.1-0-g5e099002c1600c580ebe1e6741f8ff8b182ffea4
+  ref: v1.71.0-0-g4e9357bca1408596663a218c0c608a4c0560a867
 - kind: git_module
   url: github:c-ares/c-ares.git
   path: third_party/cares/cares
@@ -41,7 +41,7 @@ sources:
 - kind: git_module
   url: github:envoyproxy/data-plane-api.git
   path: third_party/envoy-api
-  ref: 88a37373e3cb5e1ab09e75dfb302b083168e6654
+  ref: 4de3c74cf21a9958c1cf26d8993c55c6e0d28b49
 - kind: git_module
   url: github:googleapis/googleapis.git
   path: third_party/googleapis
