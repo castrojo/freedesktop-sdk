@@ -46,7 +46,7 @@ config:
 
 sources:
 - kind: git_repo
-  url: denx:u-boot/u-boot.git
+  url: github:u-boot/u-boot.git
   track: v*
   exclude:
   - "*-rc*"
