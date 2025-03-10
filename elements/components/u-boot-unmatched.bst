@@ -1,5 +1,10 @@
 kind: make
 
+description: |
+    This element should be consumed through u-boot-unmatched-maybe.bst
+    as this is specific to riscv. The board variable is set as a stub
+    to enable tracking
+
 build-depends:
 - components/bison.bst
 - components/flex.bst
@@ -17,6 +22,7 @@ environment:
 
 variables:
   notparallel: true
+  board: "none"
   (?):
   - target_arch == "riscv64":
       board: sifive_unmatched
@@ -25,6 +31,14 @@ variables:
     all
 
 config:
+  build-commands:
+    (<):
+    - |
+      if [ "%{board}" == "none" ]; then
+        echo "Unsupported arch, use u-boot-unmatched-maybe"
+        exit 1
+      fi
+
   install-commands:
   - install -Dm644 -t "%{install-root}%{datadir}/u-boot/%{board}" u-boot.bin spl/u-boot-spl.bin u-boot.itb
   - install -Dm755 -t "%{install-root}%{bindir}" tools/mkimage
