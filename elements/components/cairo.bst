@@ -20,6 +20,7 @@ variables:
     -Dspectre=disabled
     -Dsymbol-lookup=disabled
     -Dtests=disabled
+    -Dlzo=disabled
 
 public:
   bst:
