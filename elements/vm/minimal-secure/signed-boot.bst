@@ -5,8 +5,11 @@ build-depends:
 - filename: vm/minimal-secure/usr-image.bst
   config:
     location: /usr-image
+- components/os-release.bst
 - components/sbsigntools.bst
 - components/sign-file.bst
+- components/systemd.bst
+- components/systemd-ukify.bst
 - components/util-linux.bst
 - components/binutils.bst
 
@@ -36,13 +39,19 @@ config:
     sdk_version="${sdk_version%_*}"
     version="$(ls -1 /usr/lib/modules | head -n1)"
     usr_part_uuid="$(uuidgen -s --namespace "%{uuidnamespace}" --name partition-usr)"
+    objcopy -O binary -j .linux "/boot/EFI/Linux/linux-${version}.efi" linux
+    objcopy -O binary -j .initrd "/boot/EFI/Linux/linux-${version}.efi" initrd
     objcopy -O binary -j .cmdline "/boot/EFI/Linux/linux-${version}.efi" cmdline.txt
+    rm "%{install-root}/boot/EFI/Linux/linux-${version}.efi"
     echo -n "usrhash=$(cat /usr-image/usr-root-hash.txt) " >new-cmdline.txt
     cat cmdline.txt >>new-cmdline.txt
-    objcopy --remove-section .cmdline "/boot/EFI/Linux/linux-${version}.efi" "linux-${version}.efi"
-    objcopy --add-section .cmdline=new-cmdline.txt --change-section-vma .cmdline=0x30000 "linux-${version}.efi"
-    sbsign --key VENDOR.key --cert VENDOR.crt  --output "%{install-root}/boot/EFI/Linux/freedesktopsdk_${sdk_version}.efi" "linux-${version}.efi"
-    rm "%{install-root}/boot/EFI/Linux/linux-${version}.efi"
+    ukify build \
+      --linux=linux \
+      --initrd=initrd \
+      --cmdline=@new-cmdline.txt \
+      --secureboot-private-key=VENDOR.key \
+      --secureboot-certificate=VENDOR.crt \
+      --output="%{install-root}/boot/EFI/Linux/freedesktopsdk_${sdk_version}.efi"
 
   - |
     sbsign --key VENDOR.key --cert VENDOR.crt --output "%{install-root}/boot/EFI/systemd/systemd-boot%{efi-arch}.efi" "/boot/EFI/systemd/systemd-boot%{efi-arch}.efi"
