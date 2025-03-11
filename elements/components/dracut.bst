@@ -5,6 +5,7 @@ build-depends:
 - components/asciidoc.bst
 - components/libxslt.bst
 - components/docbook-xsl.bst
+- components/systemd.bst
 
 depends:
 - bootstrap-import.bst
@@ -13,7 +14,6 @@ depends:
 
 runtime-depends:
 - components/cpio.bst
-
 
 variables:
   # This project documents it doesn't support build-dir
