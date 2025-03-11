@@ -49,7 +49,7 @@ class ExtractInitialScriptsElement(Element):
         for dependency in self.dependencies():
             public = dependency.get_public_data("initial-script")
             if public and "script" in public:
-                script = self.node_subst_vars(public.get_scalar("script"))
+                script = public.get_str("script")
                 index += 1
                 depname = re.sub("[^A-Za-z0-9]", "_", dependency.name)
                 basename = f"{index:03}-{depname}"
