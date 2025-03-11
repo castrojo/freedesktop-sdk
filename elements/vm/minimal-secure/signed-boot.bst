@@ -8,8 +8,10 @@ build-depends:
 - components/sbsigntools.bst
 - components/sign-file.bst
 - components/util-linux.bst
+- components/binutils.bst
 
 variables:
+  strip-binaries: ''
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
   (?):
   - target_arch == 'i686':
