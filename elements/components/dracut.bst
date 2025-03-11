@@ -5,6 +5,7 @@ build-depends:
 - components/asciidoc.bst
 - components/libxslt.bst
 - components/docbook-xsl.bst
+- components/systemd.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -13,6 +14,7 @@ depends:
 
 runtime-depends:
 - components/cpio.bst
+- components/gawk.bst
 
 
 variables:
