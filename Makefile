@@ -452,8 +452,8 @@ download-microsoft-keys: files/boot-keys/extra-db/.keep files/boot-keys/extra-ke
 	echo 77fa9abd-0359-4d32-bd60-28f4e78f784b >files/boot-keys/extra-db/mic-win.owner
 
 $(VM_CHECKOUT_ROOT)/secure-vm/disk.img: $(BOOT_KEYS) secure-version.yml
-	$(BST) build vm/minimal-secure/efi.bst
-	$(BST) artifact checkout vm/minimal-secure/efi.bst --directory $(dir $@)
+	$(BST) -o prod_keys true build vm/minimal-secure/efi.bst
+	$(BST) -o prod_keys true artifact checkout vm/minimal-secure/efi.bst --directory $(dir $@)
 	truncate --size=+10G $@
 
 run-secure-vm: $(VM_CHECKOUT_ROOT)/secure-vm/disk.img $(OVMF_VARS) $(OVMF_CODE)
