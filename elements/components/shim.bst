@@ -9,6 +9,7 @@ build-depends:
 - public-stacks/buildsystem-make.bst
 - components/git-minimal.bst
 - components/openssl.bst
+- components/sbsigntools.bst
 
 (?):
 - not prod_keys:
@@ -22,6 +23,7 @@ build-depends:
 
 variables:
   efi-arch: "none"
+  fdsdk-keys-uuid: 3eaca6a1-86fa-4580-9487-cccae358e9e4
   (?):
   - target_arch == 'i686':
       efi-arch: ia32
@@ -38,8 +40,7 @@ variables:
     DEFAULT_LOADER='\\EFI\\systemd\\systemd-boot%{efi-arch}.efi'
     EFIDIR=freedesktopsdk
     ESPROOTDIR=boot/
-    VENDOR_CERT_FILE=boot-keys/VENDOR.cer
-  make-install: make DESTDIR="%{install-root}" %{make-args} install
+    VENDOR_DB_FILE=VENDOR.esl
 
 config:
   configure-commands:
@@ -51,7 +52,9 @@ config:
 
   - cp -ra /boot-keys .
   - |
-    openssl x509 -inform PEM -outform DER -in "boot-keys/VENDOR.crt" -out "boot-keys/VENDOR.cer"
+    openssl x509 -inform PEM -outform DER -in /boot-keys/VENDOR.crt -out VENDOR.cer
+  - |
+    sbsiglist --owner '%{fdsdk-keys-uuid}' --type x509 --output VENDOR.esl VENDOR.cer
 
 sources:
 - kind: git_repo

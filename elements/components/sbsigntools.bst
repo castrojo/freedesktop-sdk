@@ -3,12 +3,12 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/git-minimal.bst
-- components/util-linux.bst
 - components/gnu-efi.bst
 - components/help2man.bst
 
 depends:
 - components/openssl.bst
+- components/util-linux.bst
 - public-stacks/runtime-minimal.bst
 
 variables:
