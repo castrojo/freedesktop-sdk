@@ -40,7 +40,7 @@ config:
             extraargs = "--invariant -F32 -i${id_efi} -n EFI"
         }
         mountpoint = "/boot"
-        size = 105%
+        size = 500M
         temporary = true
     }
     image disk.img {
@@ -58,13 +58,13 @@ config:
             image = "/usr-image/usr.squashfs"
             partition-type-uuid = "%{usr-uuid}"
             partition-uuid = "${usr_part_uuid}"
-            size = 110%
+            size = 2G
         }
         partition fdsdk_usr_verity_${sdk_version} {
             partition-type-uuid = "%{usr-verity-uuid}"
             partition-uuid = "${usr_verity_part_uuid}"
             image = "/usr-image/usr.verity"
-            size = 110%
+            size = 10M
         }
     }
     config {

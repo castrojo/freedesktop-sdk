@@ -454,7 +454,7 @@ download-microsoft-keys: files/boot-keys/extra-db/.keep files/boot-keys/extra-ke
 $(VM_CHECKOUT_ROOT)/secure-vm/disk.img: $(BOOT_KEYS) secure-version.yml
 	$(BST) build vm/minimal-secure/efi.bst
 	$(BST) artifact checkout vm/minimal-secure/efi.bst --directory $(dir $@)
-	truncate --size=+2G $@
+	truncate --size=+10G $@
 
 run-secure-vm: $(VM_CHECKOUT_ROOT)/secure-vm/disk.img $(OVMF_VARS) $(OVMF_CODE)
 	du -BM $(VM_CHECKOUT_ROOT)/secure-vm/disk.img
