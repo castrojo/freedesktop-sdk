@@ -5,8 +5,9 @@ kind: make
 
 config:
   build-commands:
-    (>):
+    (<):
     - cp -ra /boot-keys/* .
+    (>):
     - |
       for type in kek db; do
         regen=0
