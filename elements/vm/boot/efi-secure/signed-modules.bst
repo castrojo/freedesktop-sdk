@@ -1,8 +1,10 @@
 kind: manual
 
 build-depends:
+- components/findutils.bst
 - components/linux.bst
 - components/sign-file.bst
+- components/stripper.bst
 
 config:
   install-commands:
