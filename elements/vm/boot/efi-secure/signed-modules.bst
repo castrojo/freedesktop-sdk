@@ -20,10 +20,16 @@ config:
     openssl x509 -inform PEM -outform DER -in linux-module-cert.crt -out linux-module-cert.cer
 
   - |
-    find '%{install-root}/usr/lib/modules' -type f -name "*.ko.xz" -exec unxz {} ';'
+    find '%{install-root}/usr/lib/modules' -type f -name "*.ko.zstd" -exec unzstd {} ';'
 
   - |
-    find '%{install-root}/usr/lib/modules' -type f -name "*.ko" -exec sign-file sha512 linux-module-cert.key linux-module-cert.cer {} ';' -exec xz --lzma2=dict=2MiB {} ';'
+    find '%{install-root}/usr/lib/modules' -type f -name "*.ko" -exec sign-file sha512 linux-module-cert.key linux-module-cert.cer {} ';' -exec zstd {} ';'
+
+  - |
+    cd '%{install-root}/usr/lib/modules'
+    for version in *; do
+      depmod -b '%{install-root}%{prefix}' -a "$version";
+    done
 
 sources:
 - kind: local
