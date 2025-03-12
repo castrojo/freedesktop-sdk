@@ -2,6 +2,7 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- components/grep.bst
 - components/patch.bst
 
 depends:
@@ -17,6 +18,16 @@ variables:
 config:
   configure-commands:
     (<):
+    - |
+      set -eu
+      PYCAPI_COMPAT_REV_NEEDED=$(grep '^revision=' %{build-root}/subprojects/pythoncapi-compat.wrap| cut -d'=' -f2)
+      PYCAPI_COMPAT_REV_FOUND=$(git -C subprojects/pythoncapi-compat rev-parse HEAD)
+      if [ "$PYCAPI_COMPAT_REV_NEEDED" != "$PYCAPI_COMPAT_REV_FOUND" ]; then
+        echo "Error: PYCAPI_COMPAT revision mismatch!"
+        echo "Needed: $PYCAPI_COMPAT_REV_NEEDED"
+        echo "Found:  $PYCAPI_COMPAT_REV_FOUND"
+        exit 1
+      fi
     - patch -p1 -d subprojects/pythoncapi-compat -i ../packagefiles/pythoncapi-compat-meson.diff
 
 sources:
