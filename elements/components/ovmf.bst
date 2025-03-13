@@ -1,5 +1,10 @@
 kind: manual
 
+description: |
+    This element should be consumed through ovmf-maybe.bst
+    as this is specific to select arches. Certain variables are set to
+    a stub value to enable tracking
+
 build-depends:
 - public-stacks/runtime-minimal.bst
 - public-stacks/buildsystem-make.bst
@@ -15,6 +20,12 @@ environment-nocache:
 - JOBS
 
 variables:
+  arch-args: "none"
+  arch-opts: "none"
+  platform: "none"
+  build-dir: "none"
+  shell: "none"
+
   build-args: >-
     -n "${JOBS}"
     --buildtarget=RELEASE
@@ -56,6 +67,12 @@ variables:
 
 config:
   build-commands:
+  - |
+    if [ "%{platform}" == "none" ]; then
+      echo "Unsupported arch, use ovmf-maybe"
+      exit 1
+    fi
+
   - |
     . ./edksetup.sh
     make -C BaseTools/Source/C -j${JOBS}
