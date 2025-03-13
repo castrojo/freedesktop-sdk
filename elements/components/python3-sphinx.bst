@@ -5,8 +5,6 @@ build-depends:
 
 depends:
 - components/python3.bst
-
-runtime-depends:
 - components/python3-alabaster.bst
 - components/python3-babel.bst
 - components/python3-docutils.bst
@@ -43,4 +41,4 @@ sources:
   track: v*
   exclude:
   - "*rc*"
-  ref: v8.2.1-0-g0215a73cbfd9326c5fd54160da277112fd6435c9
+  ref: v8.2.3-0-g847ad0c991e21db9daa02fec09acbd456f353300
