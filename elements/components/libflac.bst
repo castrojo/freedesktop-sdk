@@ -22,5 +22,5 @@ public:
 sources:
 - kind: git_repo
   url: xiph:flac.git
-  track: '*.*.*'
+  track: '1.4.*'
   ref: 1.4.3-0-g28e4f0528c76b296c561e922ba67d43751990599
