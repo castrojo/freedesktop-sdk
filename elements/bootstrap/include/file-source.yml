@@ -5,5 +5,4 @@ public:
 sources:
 - kind: git_repo
   url: github:file/file.git
-  track: FILE*
   ref: FILE5_45-0-g4cbd5c8f0851201d203755b76cb66ba991ffd8be
