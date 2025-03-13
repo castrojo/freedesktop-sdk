@@ -11,10 +11,6 @@ depends:
 - filename: public-stacks/buildsystem-autotools.bst
   type: build
 
-public:
-  cpe:
-    version: '1.32'
-
 sources:
 - kind: git_repo
   url: gnome:gtk-doc.git
