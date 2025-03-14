@@ -1,5 +1,10 @@
 kind: make
 
+description: |
+    This element should be consumed through shim-maybe.bst
+    as this is specific to select arches. The efi-arch variable is set
+    as a stub to enable tracking
+
 build-depends:
 - bootstrap-import.bst
 - components/git-minimal.bst
@@ -16,6 +21,7 @@ build-depends:
         - components/boot-keys-prod.bst
 
 variables:
+  efi-arch: "none"
   (?):
   - target_arch == 'i686':
       efi-arch: ia32
@@ -39,6 +45,12 @@ variables:
 
 config:
   configure-commands:
+  - |
+    if [ "%{efi-arch}" == "none" ]; then
+      echo "Unsupported arch, use shim-maybe"
+      exit 1
+    fi
+
   - cp -ra /boot-keys .
   - |
     openssl x509 -inform PEM -outform DER -in "boot-keys/VENDOR.crt" -out "boot-keys/VENDOR.cer"
