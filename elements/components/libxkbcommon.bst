@@ -28,4 +28,4 @@ sources:
 - kind: git_repo
   url: github:xkbcommon/libxkbcommon.git
   track: xkbcommon-*
-  ref: xkbcommon-1.8.0-0-g76740e0c4583ae49675e7ba8213d31ee09aa00d2
+  ref: xkbcommon-1.8.1-0-gb3465081878e80ca6c11fe35c81787ec374ec15a
