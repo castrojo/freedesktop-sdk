@@ -12,4 +12,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libxtrans.git
   track: xtrans-*
-  ref: xtrans-1.5.2-0-g0dc46e7ed5bdd876467f9dbb314ba6b8094e541b
+  ref: xtrans-1.6.0-0-gcf05ba4a10c90da2c63805a5375e983b174e28b0
