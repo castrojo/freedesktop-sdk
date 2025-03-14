@@ -21,4 +21,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libsm.git
   track: libSM-*
-  ref: libSM-1.2.5-0-g83644d01d64a93a1fc463affc8bd9b30dc023a83
+  ref: libSM-1.2.6-0-g5f6da959a34bcefc425b6e37462553acf44369a3

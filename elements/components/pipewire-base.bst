@@ -29,6 +29,7 @@ build-depends:
 - components/doxygen.bst
 - components/webrtc-audio-processing.bst
 - public-stacks/buildsystem-meson.bst
+- components/libebur128.bst
 
 variables:
   meson-local: >-
@@ -79,6 +80,7 @@ public:
       - '%{libdir}/spa-0.2/v4l2/**'
       - '%{libdir}/spa-0.2/libcamera'
       - '%{libdir}/spa-0.2/libcamera/**'
+      - '%{libdir}/spa-0.2/filter-graph/**'
       - '%{libdir}/pipewire-0.3/libpipewire-module-access.so'
       - '%{libdir}/pipewire-0.3/libpipewire-module-echo-cancel.so'
       - '%{libdir}/pipewire-0.3/libpipewire-module-filter-chain.so'
@@ -136,4 +138,4 @@ sources:
   track: '*.[02468].*'
   exclude:
   - '*.*.9*'
-  ref: 1.2.7-0-gcc7439187f61dd73b81ca69f5dbccbb52ce970b2
+  ref: 1.4.0-0-gdf1c36aec2aaf9e2eb1596b6b55e72c15fb2088a
