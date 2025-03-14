@@ -13,6 +13,9 @@ depends:
 - components/python3.bst
 - components/python3-pygments.bst
 
+runtime-depends:
+- components/python3-lxml.bst
+
 variables:
   meson-local: >-
     -Dyelp_manual=false
