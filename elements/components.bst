@@ -222,6 +222,7 @@ depends:
 - components/libdecor.bst
 - components/libdisplay-info.bst
 - components/libdrm.bst
+- components/libebur128.bst
 - components/libeconf.bst
 - components/libei.bst
 - components/libepoxy.bst
