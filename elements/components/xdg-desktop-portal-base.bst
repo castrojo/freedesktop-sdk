@@ -35,6 +35,6 @@ sources:
   url: github:flatpak/xdg-desktop-portal.git
   # Track unstable too for xdp-gnome/gnome-nightly
   track: '*.*.*'
-  ref: 1.19.2-0-gd347832239183327561b9f45853ee7c39ad93480
+  ref: 1.20.0-0-g85df26fb1c53334969fea3f15c2a06a14831094b
 - kind: patch
   path: patches/xdg-desktop-portal/disable-tests.patch
