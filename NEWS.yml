@@ -1,3 +1,82 @@
+Version: freedesktop-sdk-24.08.15
+Date: '2025-03-13'
+Description: |-
+  Changes in freedesktop-sdk-24.08.15
+   * Update openh264-version to 2.5.1, fixes CVE-2025-27091
+   * pygobject: Ensure wrap revision is consistent with source in element
+   * pygobject: Add pythoncapi-compat wrap and patch from wrap
+   * pygobject: Update to 3.52.1
+   * Update python3-setuptools to v76.0.0-0
+   * Update ccache to v4.11-0
+   * Update buildbox to 1.3.3-0
+   * Update newt to r0-52-25-0
+   * Update podman to v5.4.1-0
+   * Update iwd to 0.74-0
+   * u-boot: Switch to github to make tracking work
+   * u-boot: Define board variable as a stub so that tracking works
+   * opensbi-u-boot: Use make-install variable to reduce boilerplate
+   * u-boot-unmatched: Convert to make element
+   * ci: Update docker image
+   * u-boot-qemu: Add openssl and bootstrap-import to depends
+   * u-boot-qemu: Convert to make element
+   * Drop fscrypt-maybe
+   * track-elements: Add parents of maybe elements to track-elements
+   * Revert "Update mesa to mesa-25.0.1-0"
+   * noopenh264: Lie about openh264-version
+   * Revert "Revert to openh264 2.4.1 for now"
+   * Update xwayland to xwayland-24.1.6-0
+   * Update libnghttp2 to v1.65.0-0
+   * Update grpc to v1.71.0-0
+   * Update ell to 0.74-0
+   * Update linux to v6.13.6-0
+   * Update man-pages to man-pages-6.13-0
+   * Update mesa-sdk to mesa-25.0.1-0
+   * Update gtk3 to 3.24.49-0
+   * Update pkg-config to pkgconf-2.4.3-0
+   * Update vim to v9.1.1186-0
+   * Update python3-virtualenv to 20.29.3-0
+   * Update buildbox to 1.3.1-0
+   * Update libsepol to libsepol-3.8.1-0
+   * Update gstreamer-plugins-rs to 0.13.5-0
+   * flatpak-repo: Remove fsync when creating repo
+   * Convert some elements to make from manual
+   * Update libcupsfilters to 2.1.1-0
+   * Update libcap to libcap-2.75-0
+   * Update hwdata to v0.393-0
+   * Update go to go1.24.1-0
+   * Update cunit to 3.5.2-0
+   * Bump treshold to 16 CPU's
+   * Update sdl2-image to release-2.8.8-0
+   * Update kmod to v34-0
+   * Update python3-protobuf to 6.30.0
+   * Update mesa to mesa-25.0.1-0
+   * efitools: Convert to stack of bin and efi elements
+   * Add a efitools-efi element for the EFI files
+   * Add efitools-bin for adding to components
+   * efitools: Create a shared source and build-configuration
+   * efitools-maybe: Stop building on i686
+   * binary-seed-source: Update to latest commit
+   * stripper: Print ELF path,arch and toolchain paths if objdump is not found
+   * Use mkstemp instead of tmpnam_r
+   * ci: Update docker image
+   * libdatrie: Build docs
+   * libdatrie: Modernise dependency specification
+   * ci: Renable reproducible_x86_64, drop manual and allow_faliure
+   * Update exfat-progs to 1.2.8-0
+   * Update networkmanager to 1.52.0-0
+   * Update buildbox to 1.3.0-0
+   * files/linux/fdsdk-config.sh: Build VMD module
+   * python3-sphinx: Convert runtime-depends to depends
+   * Update python3-sphinx to v8.2.3-0
+   * Update python3-trove-classifiers to 2025.3.3.18-0
+   * Update reference-abi to freedesktop-sdk-24.08.14-0
+   * Update vala to 0.56.18-0
+   * Update python3-cryptography to 44.0.2-0
+   * Update poppler to poppler-25.03.0-0
+   * go: Remove stray test library
+   * Update go to go1.24.0-0
+   * Update linux to v6.13.5-0
+---
 Version: freedesktop-sdk-24.08.14
 Date: '2025-03-03'
 Description: |-
