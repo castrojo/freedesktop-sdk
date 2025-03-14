@@ -14,4 +14,4 @@ sources:
 - kind: git_repo
   url: github:python-attrs/attrs.git
   track: '*.*.*'
-  ref: 25.1.0-0-gfbff14eeaf817e4b34e9c5727c8d546dc118a346
+  ref: 25.3.0-0-g3dca08ce5bbe673d7df25f44f3dda92505d1043d
