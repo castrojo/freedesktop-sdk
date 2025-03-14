@@ -14,7 +14,7 @@ sources:
   track: v*
   exclude:
   - "*beta*"
-  ref: v1.8.2-0-g060e2108fde4a7066459a0c7bacfe810d6d46cfa
+  ref: v1.8.3-0-gc200385c764593d983e35c69d2c5be866526900a
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
@@ -116,12 +116,12 @@ sources:
     sha: a3e368af43e418a04d52505cf3dbc23dda4e3407ae2fa99fd0e4f308ce546acc
   - kind: registry
     name: bzip2
-    version: 0.4.4
-    sha: bdb116a6ef3f6c3698828873ad02c3014b3c85cadb88496095628e3ef1e347f8
+    version: 0.5.2
+    sha: 49ecfb22d906f800d4fe833b6282cf4dc1c298f5057ca0b5445e5c209735ca47
   - kind: registry
     name: bzip2-sys
-    version: 0.1.11+1.0.8
-    sha: 736a955f3fa7875102d57c82b8cac37ec45224a07fd32d58f9f7a186b6cd4cdc
+    version: 0.1.13+1.0.8
+    sha: 225bff33b2141874fe80d71e07d6eec4f85c5c216453dd96388240f96e1acc14
   - kind: registry
     name: cab
     version: 0.6.0
@@ -156,12 +156,12 @@ sources:
     sha: afc309ed89476c8957c50fb818f56fe894db857866c3e163335faa91dc34eb85
   - kind: registry
     name: cbindgen
-    version: 0.27.0
-    sha: 3fce8dd7fcfcbf3a0a87d8f515194b49d6135acab73e18bd380d1d93bb1a15eb
+    version: 0.28.0
+    sha: eadd868a2ce9ca38de7eeafdcec9c7065ef89b42b32f0839278d55f35c54d1ff
   - kind: registry
     name: cc
-    version: 1.1.21
-    sha: 07b1695e2c7e8fc85310cde85aeaab7e3097f593c91d209d3f9df76c928100f0
+    version: 1.2.16
+    sha: be714c154be609ec7f5dad223a33bf1482fff90472de28f7362806e6d4832b8c
   - kind: registry
     name: cfb
     version: 0.10.0
@@ -868,8 +868,8 @@ sources:
     sha: bc36545d1021456a751b573517cb52e8c339b2f662e6b2778ef629282678de29
   - kind: registry
     name: ring
-    version: 0.17.8
-    sha: c17fa4cb658e3583423e915b9f3acc01cceaee1860e33d59ebae66adc3a2dc0d
+    version: 0.17.13
+    sha: 70ac5d832aa16abd7d1def883a8545280c20a60f523a370aa3a9617c2b8550ee
   - kind: registry
     name: rstest
     version: 0.22.0
@@ -1026,10 +1026,6 @@ sources:
     name: socks
     version: 0.3.4
     sha: f0c3dbbd9ae980613c6dd8e28a9407b50509d3803b57624d5dfe8315218cd58b
-  - kind: registry
-    name: spin
-    version: 0.9.8
-    sha: 6980e8d7511241f8acf4aebddbb1ff938df5eebe98691418c4468d0b72a96a67
   - kind: registry
     name: stable_deref_trait
     version: 1.2.0
@@ -1464,8 +1460,8 @@ sources:
     sha: 6eafa6dfb17584ea3e2bd6e76e0cc15ad7af12b09abdd1ca55961bed9b1063c6
   - kind: registry
     name: zip
-    version: 2.1.6
-    sha: 40dd8c92efc296286ce1fbd16657c5dbefff44f1b4ca01cc5f517d8b7b3d3e2e
+    version: 2.2.3
+    sha: b280484c454e74e5fff658bbf7df8fdbe7a07c6b2de4a53def232c15ef138f3a
   - kind: registry
     name: zopfli
     version: 0.8.1
