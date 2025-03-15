@@ -18,6 +18,15 @@ def get_target_branch():
     return os.environ["CI_MERGE_REQUEST_TARGET_BRANCH_NAME"]
 
 
+def get_makefile_var(makefile, var):
+    with open(makefile, "r", encoding="utf-8") as file:
+        for line in file:
+            match = re.match(rf"^\s*{var}\s*=\s*(.+)$", line)
+            if match:
+                return match.group(1).strip()
+    return ""
+
+
 def validate(args):
     yaml = ruamel.yaml.YAML()
     with open(args.path, encoding="utf-8") as yaml_in:
@@ -26,18 +35,34 @@ def validate(args):
         flatpak_extra_br = obj["freedesktop-sdk-flatpak-branch-extra"]
         snap_br = obj["freedesktop-sdk-snap-branch"]
 
+    makefile_br = get_makefile_var("Makefile", "BRANCH")
+
     if get_target_branch() == "master":
+        assert re.match(MAIN_BETA_REGEX, makefile_br) is not None, makefile_br
         assert re.match(MAIN_BETA_REGEX, flatpak_br) is not None, flatpak_br
         assert (
             re.match(MAIN_BETA_EXTRA_REGEX, flatpak_extra_br) is not None
         ), flatpak_extra_br
     else:
+        assert re.match(MAIN_STABLE_REGEX, makefile_br) is not None, makefile_br
         assert re.match(MAIN_STABLE_REGEX, flatpak_br) is not None, flatpak_br
         assert (
             re.match(MAIN_STABLE_EXTRA_REGEX, flatpak_extra_br) is not None
         ), flatpak_extra_br
 
     assert re.match(SNAP_REGEX, snap_br) is not None, snap_br
+
+    if re.match(MAIN_BETA_REGEX, makefile_br) is not None:
+        assert re.match(MAIN_BETA_REGEX, flatpak_br) is not None, flatpak_br
+        assert (
+            re.match(MAIN_BETA_EXTRA_REGEX, flatpak_extra_br) is not None
+        ), flatpak_extra_br
+
+    if re.match(MAIN_STABLE_REGEX, makefile_br) is not None:
+        assert re.match(MAIN_STABLE_REGEX, flatpak_br) is not None, flatpak_br
+        assert (
+            re.match(MAIN_STABLE_EXTRA_REGEX, flatpak_extra_br) is not None
+        ), flatpak_extra_br
 
 
 def main():
