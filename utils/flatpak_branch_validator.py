@@ -7,6 +7,18 @@ import re
 
 import ruamel.yaml
 
+MAIN_BETA_REGEX = r"^\d{2}\.08beta$"
+MAIN_BETA_EXTRA_REGEX = r"^\d{2}\.08beta-extra$"
+MAIN_STABLE_REGEX = r"^\d{2}\.08$"
+MAIN_STABLE_EXTRA_REGEX = r"^\d{2}\.08-extra$"
+SNAP_REGEX = r"^\d{2}08"
+
+# validate against the wrong pattern because this got tagged with
+# the wrong branch name and it is too late to fix this
+# https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/issues/1821
+# DO NOT backport
+MAIN_STABLE_EXTRA_WRONG_REGEX = r"^\d{2}\.08extra$"
+
 
 def get_target_branch():
     return os.environ["CI_MERGE_REQUEST_TARGET_BRANCH_NAME"]
@@ -21,21 +33,19 @@ def validate(args):
         snap_br = obj["freedesktop-sdk-snap-branch"]
 
     if get_target_branch() == "master":
-        assert re.match(r"^\d{2}\.08beta$", flatpak_br) is not None, flatpak_br
+        assert re.match(MAIN_BETA_REGEX, flatpak_br) is not None, flatpak_br
         assert (
-            re.match(r"^\d{2}\.08beta-extra$", flatpak_extra_br) is not None
+            re.match(MAIN_BETA_EXTRA_REGEX, flatpak_extra_br) is not None
         ), flatpak_extra_br
-        assert re.match(r"^\d{2}08", snap_br) is not None, snap_br
     else:
-        assert re.match(r"^\d{2}\.08$", flatpak_br) is not None, flatpak_br
-        # validate against the wrong pattern because this got tagged with
-        # the wrong branch name and it is too late to fix this
-        # https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/issues/1821
-        # DO NOT backport
         assert (
-            re.match(r"^\d{2}\.08extra$", flatpak_extra_br) is not None
+            re.match(MAIN_STABLE_EXTRA_WRONG_REGEX, flatpak_br) is not None
+        ), flatpak_br
+        assert (
+            re.match(MAIN_STABLE_EXTRA_WRONG_REGEX, flatpak_extra_br) is not None
         ), flatpak_extra_br
-        assert re.match(r"^\d{2}08", snap_br) is not None, snap_br
+
+    assert re.match(SNAP_REGEX, snap_br) is not None, snap_br
 
 
 def main():
