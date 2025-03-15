@@ -1,4 +1,4 @@
-kind: link
+kind: stack
 
-config:
-  target: bootstrap-import.bst
+depends:
+- bootstrap-import.bst
