@@ -11,6 +11,7 @@ depends:
 
 # Parents of maybe elements from components.bst
 
+- components/bpf.bst
 - components/libsmbios.bst
 - components/ovmf.bst
 - components/u-boot-qemu.bst
