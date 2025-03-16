@@ -1,0 +1,45 @@
+From af675a18376d4807b5cfb76fba36e03c62e825ba Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Sun, 16 Mar 2025 12:26:03 +0530
+Subject: [PATCH] Update to 2.5.1
+
+---
+ codec/api/wels/codec_ver.h | 8 ++++----
+ meson.build                | 2 +-
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/codec/api/wels/codec_ver.h b/codec/api/wels/codec_ver.h
+index 06b1fc0..10c86a0 100644
+--- a/codec/api/wels/codec_ver.h
++++ b/codec/api/wels/codec_ver.h
+@@ -4,12 +4,12 @@
+ 
+ #include "codec_app_def.h"
+ 
+-static const OpenH264Version g_stCodecVersion  = {2, 5, 0, 2411};
+-static const char* const g_strCodecVer  = "OpenH264 version:2.5.0.2411";
++static const OpenH264Version g_stCodecVersion  = {2, 5, 1, 2503};
++static const char* const g_strCodecVer  = "OpenH264 version:2.5.1.2503";
+ 
+ #define OPENH264_MAJOR (2)
+ #define OPENH264_MINOR (5)
+-#define OPENH264_REVISION (0)
+-#define OPENH264_RESERVED (2411)
++#define OPENH264_REVISION (1)
++#define OPENH264_RESERVED (2503)
+ 
+ #endif  // CODEC_VER_H
+diff --git a/meson.build b/meson.build
+index 460e602..46964f0 100644
+--- a/meson.build
++++ b/meson.build
+@@ -1,5 +1,5 @@
+ project('noopenh264', ['cpp'],
+-  version : '2.5.0',
++  version : '2.5.1',
+   meson_version: '>= 0.64.0',
+   license: 'MPL-2.0 or LGPLv2.1+',
+   default_options: [
+-- 
+2.48.1
+

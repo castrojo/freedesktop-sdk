@@ -16,7 +16,7 @@ config:
   configure-commands:
     (<):
     - |
-      grep "version : '2.5.0'" %{build-root}/meson.build
+      grep "version : '%{openh264-version}'" %{build-root}/meson.build
 
   install-commands:
     (>):
@@ -41,3 +41,5 @@ sources:
 - kind: git_repo
   url: fdsdk_git:noopenh264.git
   ref: v2.5.0-0-g6e575e43922a7620165637b2596c9686aad1f923
+- kind: patch
+  path: patches/noopenh264/update-to-2.5.1.patch
