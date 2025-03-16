@@ -7,5 +7,5 @@ kind: manual
 sources:
 - kind: tar
   url: 
-    tar_https:static.rust-lang.org/dist/rust-1.81.0-loongarch64-unknown-linux-gnu.tar.xz
-  ref: 35abdd57afdd85515b241e3cd8ac4b4841fc2c28055ddd1701db05d271da7093
+    tar_https:static.rust-lang.org/dist/rust-1.84.0-loongarch64-unknown-linux-gnu.tar.xz
+  ref: 08bbf2dced82481edfe7d14ab170f90dc7e326511f39641eb8c428b1376d2990
