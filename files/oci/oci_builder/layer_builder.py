@@ -24,12 +24,13 @@ import os
 import stat
 import tarfile
 
-PAX_HEADER_SHA256 = "SCHILY.xattr.user.checksum.sha256"
+PAX_HEADER_SHA256 = "freedesktopsdk.checksum.sha256"
+PAX_HEADER_XATTR = "SCHILY.xattr."
 
 
 def xattr_sha256(filename):
     try:
-        checksum = os.getxattr(filename, "user.checksum.sha256")
+        checksum = os.getxattr(filename, "user.checksum.sha256", follow_symlinks=False)
     except OSError as error:
         if error.errno == errno.ENODATA:
             # This is given if the xattr did not exist, we will fallback
@@ -37,6 +38,20 @@ def xattr_sha256(filename):
             return None
         raise
     return checksum.decode()
+
+
+def getallxattr(filename):
+    try:
+        for attr in os.listxattr(filename, follow_symlinks=False):
+            value = os.getxattr(filename, attr, follow_symlinks=False)
+            yield attr, value.decode("utf-8", errors="surrogateescape")
+    except OSError as error:
+        if error.errno != errno.ENOTSUP:
+            raise
+
+
+def attr_set(items):
+    return set([(k, v) for k, v in items if k.startswith(PAX_HEADER_XATTR)])
 
 
 def file_sha256(file_handle):
@@ -133,6 +148,8 @@ def create_layer(output, upper, lowers):
                     with open(path, "rb") as file:
                         checksum = file_sha256(file)
                 tinfo.pax_headers[PAX_HEADER_SHA256] = checksum
+                for attr, value in getallxattr(path):
+                    tinfo.pax_headers[f"{PAX_HEADER_XATTR}{attr}"] = value
 
             if epoch is not None:
                 tinfo.mtime = int(epoch)
@@ -146,6 +163,11 @@ def create_layer(output, upper, lowers):
                     if getattr(tinfo, attr) != getattr(lower_found, attr):
                         same_info = False
                         break
+
+                if same_info:
+                    same_info = attr_set(tinfo.pax_headers.items()) == attr_set(
+                        lower_found.pax_headers.items()
+                    )
 
                 if same_info:
                     if tinfo.type == tarfile.REGTYPE:
