@@ -21,5 +21,6 @@ sources:
 - kind: pypi
   name: dbus-python
   ref:
-    sha256sum: ad67819308618b5069537be237f8e68ca1c7fcc95ee4a121fe6845b1418248f8
-    suffix: c1/d3/6be85a9c772d6ebba0cc3ab37390dd6620006dcced758667e0217fb13307/dbus-python-1.3.2.tar.gz
+    sha256sum: 991666e498f60dbf3e49b8b7678f5559b8a65034fdf61aae62cdecdb7d89c770
+    suffix: 
+      ff/24/63118050c7dd7be04b1ccd60eab53fef00abe844442e1b6dec92dae505d6/dbus-python-1.4.0.tar.gz
