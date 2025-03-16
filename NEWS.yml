@@ -1,3 +1,31 @@
+Version: freedesktop-sdk-24.08.16
+Date: '2025-03-16'
+Description: |-
+  Changes in freedesktop-sdk-24.08.16
+   * noopenh264: Actually update to 2.5.1
+   * Revert "noopenh264: Lie about openh264-version"
+   * flatpak_branch_validator: Add makefile branch validation
+   * flatpak_branch_validator: Use common variables for regex patterns
+   * Temporarily convert link elements to stack to bypass bst bug
+   * binutils: Add compatibility wrapper between master and 24.08
+   * track-elements: Add bpf
+   * sof-firmware: Update to 2025.01
+   * systemd: Build with bpf
+   * tpm2-tss: Fix installation path for udev rules
+   * Add two link element public stacks to reduce delta with master
+   * Update reference-abi to freedesktop-sdk-24.08.15-0
+   * Update python3-protobuf to 6.30.1
+   * Update pygobject to 3.52.2-0
+   * Update systemd to v256.12-0
+   * Update python3-setuptools-rust to v1.11.0-0
+   * shim: Add efi-arch as a stub to enable tracking
+   * Update protobuf to v30.0-0
+   * dracut: Work-around permission issue with systemd-sysusers
+   * dracut: Fix dependencies
+   * Update dracut to 106-0
+   * gtk-doc: Remove invalid cpe data
+   * ovmf: Set some variables to stub values to enable tracking
+---
 Version: freedesktop-sdk-24.08.15
 Date: '2025-03-13'
 Description: |-
