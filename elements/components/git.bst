@@ -32,6 +32,7 @@ variables:
   meson-local: >-
     -Dversion=$(git describe --tags --abbrev=0 | sed 's/^v//')
     -Dtests=false
+    -Dcoccinelle=disabled
 
 public:
   bst:
