@@ -16,7 +16,7 @@ config:
   configure-commands:
     (<):
     - |
-      grep "version : '2.5.0'" %{build-root}/meson.build
+      grep "version : '%{openh264-version}'" %{build-root}/meson.build
 
   install-commands:
     (>):
