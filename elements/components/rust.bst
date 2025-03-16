@@ -53,6 +53,7 @@ config:
   - |
     cat <<EOF >config.toml
     [llvm]
+    download-ci-llvm = false
     link-shared = true
     targets = "%{llvm-targets}"
     # disable experimental targets, we certainly don't want them (only AVR at the moment)
