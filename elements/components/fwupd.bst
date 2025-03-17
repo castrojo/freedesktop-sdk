@@ -70,3 +70,5 @@ sources:
   url: github:fwupd/fwupd.git
   track: '*.*.*'
   ref: 2.0.6-0-g476e1bf881daa548ad6bba60d713fe5666a9d53e
+- kind: patch
+  path: patches/fwupd/pango-1-56-2.patch
