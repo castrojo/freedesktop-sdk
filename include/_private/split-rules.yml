@@ -48,3 +48,16 @@ sysconf:
   - "%{sysconfdir}/**"
 
 static-blocklist: []
+
+locale:
+  - "%{datadir}/locale"
+  - "%{datadir}/locale/**"
+  - "%{datadir}/i18n"
+  - "%{datadir}/i18n/**"
+
+zoneinfo:
+  - "%{datadir}/zoneinfo"
+  - "%{datadir}/zoneinfo/**"
+  - "%{datadir}/zoneinfo-leaps"
+  - "%{datadir}/zoneinfo-leaps/**"
+  - "%{datadir}/zoneinfo-posix"
