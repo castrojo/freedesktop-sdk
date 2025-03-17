@@ -9,8 +9,6 @@ build-depends:
 variables:
   (@):
   - include/repo_branches.yml
-  extlibdir: "%{libdir}/openh264/extra"
-  meson-local: "--libdir=%{extlibdir}"
 
 config:
   configure-commands:
@@ -20,20 +18,13 @@ config:
   install-commands:
     (>):
     - |
-      mv "%{install-root}%{extlibdir}/pkgconfig/" "%{install-root}%{libdir}"
-
-    - |
-      ln -srL %{install-root}%{extlibdir}/libopenh264.so* %{install-root}%{libdir}
-
-    - |
-      rm %{install-root}%{extlibdir}/libopenh264.a
+      rm %{install-root}%{libdir}/libopenh264.a
 
 public:
   bst:
     split-rules:
       devel:
         (>):
-        - '%{extlibdir}/libopenh264.so'
         - '%{libdir}/libopenh264.so'
 
 sources:
