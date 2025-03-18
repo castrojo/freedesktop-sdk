@@ -133,3 +133,5 @@ sources:
 - kind: tar
   url: tar_https:static.rust-lang.org/dist/rustc-1.85.0-src.tar.xz
   ref: d542c397217b5ba5bac7eb274f5ca62d031f61842c3ba4cc5328c709c38ea1e7
+- kind: patch
+  path: patches/rust/rust-llvm20.patch
