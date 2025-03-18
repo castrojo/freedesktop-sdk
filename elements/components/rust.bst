@@ -53,6 +53,7 @@ config:
   - |
     cat <<EOF >config.toml
     [llvm]
+    download-ci-llvm = false
     link-shared = true
     targets = "%{llvm-targets}"
     # disable experimental targets, we certainly don't want them (only AVR at the moment)
@@ -130,5 +131,7 @@ public:
 
 sources:
 - kind: tar
-  url: tar_https:static.rust-lang.org/dist/rustc-1.82.0-src.tar.xz
-  ref: 1276a0bb8fa12288ba6fa96597d28b40e74c44257c051d3bc02c2b049bb38210
+  url: tar_https:static.rust-lang.org/dist/rustc-1.85.0-src.tar.xz
+  ref: d542c397217b5ba5bac7eb274f5ca62d031f61842c3ba4cc5328c709c38ea1e7
+- kind: patch
+  path: patches/rust/rust-llvm20.patch
