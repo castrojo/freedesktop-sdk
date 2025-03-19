@@ -9,8 +9,13 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 variables:
+  arch-conf: ""
+  (?):
+  - target_arch != "aarch64":
+      arch-conf: "-Dneon=disabled"
   meson-local: >-
     -Dcpp_std=c++17
+    %{arch-conf}
 
 public:
   bst:
