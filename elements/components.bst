@@ -287,6 +287,7 @@ depends:
 - components/libunistring.bst
 - components/libunwind.bst
 - components/liburcu.bst
+- components/liburing.bst
 - components/libusb.bst
 - components/libva.bst
 - components/libvdpau.bst

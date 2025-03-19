@@ -9,6 +9,11 @@ depends:
 - components/keyutils.bst
 - components/libdbus.bst
 - components/openssl.bst
+- components/liburing.bst
+
+variables:
+  meson-local: >-
+    -Dliburing=enabled
 
 public:
   bst:
