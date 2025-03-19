@@ -12,7 +12,6 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/git-minimal.bst
 - components/perl.bst
 - components/python3.bst
 - components/gnupg.bst
@@ -30,7 +29,6 @@ runtime-depends:
 
 variables:
   meson-local: >-
-    -Dversion=$(git describe --tags --abbrev=0 | sed 's/^v//')
     -Dtests=false
     -Dcoccinelle=disabled
 
