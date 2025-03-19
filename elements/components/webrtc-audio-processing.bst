@@ -9,14 +9,8 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 variables:
-  arch-conf: ''
-  (?):
-  - target_arch == "i686":
-      arch-conf: -Dc_args="${CFLAGS} -DPFFFT_SIMD_DISABLE" -Dcpp_args="${CPPFLAGS}
-        -DPFFFT_SIMD_DISABLE"
   meson-local: >-
     -Dcpp_std=c++17
-    %{arch-conf}
 
 public:
   bst:
