@@ -10,6 +10,10 @@ depends:
 - components/libdbus.bst
 - components/openssl.bst
 
+variables:
+  meson-local: >-
+    -Dliburing=disabled
+
 public:
   bst:
     split-rules:
