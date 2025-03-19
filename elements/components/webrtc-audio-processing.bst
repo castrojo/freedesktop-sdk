@@ -22,8 +22,7 @@ public:
     split-rules:
       devel:
         (>):
-        - "%{libdir}/libwebrtc-audio-coding-1.so"
-        - "%{libdir}/libwebrtc-audio-processing-1.so"
+        - "%{libdir}/libwebrtc-audio-processing-2.so"
 
 sources:
 - kind: git_repo
