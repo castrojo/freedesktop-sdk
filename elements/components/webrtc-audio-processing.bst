@@ -31,11 +31,3 @@ sources:
   url: freedesktop:pulseaudio/webrtc-audio-processing.git
   track: v*
   ref: v2.1-0-g846fe90a289f58b7c9303a635142aa2c7caa93e5
-- kind: patch
-  path: 
-    patches/webrtc-audio-processing/Add-generic-byte-order-and-pointer-size-detection.patch
-- kind: patch
-  path: 
-    patches/webrtc-audio-processing/webrtc-audio-processing-1.3-big-endian-support.patch
-- kind: patch
-  path: patches/webrtc-audio-processing/webrtc-audio-processing-1.3-x86-no-sse.patch
