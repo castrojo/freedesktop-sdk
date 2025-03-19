@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Keep variables and values in sync with utils/validate_repo.py
+
 # flat-manager tokens to upload the releases
 if ! grep -E "^BRANCH=.*beta$" Makefile
 then
