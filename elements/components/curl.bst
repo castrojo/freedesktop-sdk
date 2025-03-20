@@ -23,6 +23,7 @@ variables:
     --enable-optimize
     --disable-warnings
     --disable-curldebug
+    --disable-ssls-export
 
 config:
   configure-commands:
