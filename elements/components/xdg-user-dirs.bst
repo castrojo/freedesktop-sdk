@@ -2,14 +2,14 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- components/docbook-xsl.bst
+- components/libxslt.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
 
 variables:
   conf-link-args: ''
-  conf-local: >-
-    --disable-documentation
 
 sources:
 - kind: git_repo
