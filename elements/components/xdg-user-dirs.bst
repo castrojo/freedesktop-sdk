@@ -10,7 +10,6 @@ variables:
   conf-link-args: ''
   conf-local: >-
     --disable-documentation
-  make-args: SUBDIRS=po
 
 sources:
 - kind: git_repo
