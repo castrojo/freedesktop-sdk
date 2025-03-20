@@ -12,8 +12,12 @@ FLATHUB_REPO_HOSTNAME = "hub.flathub.org"
 REF_ARCHES = ("x86_64", "aarch64")
 BETA_FDSDK_TAG_PATTERN = r"^freedesktop-sdk-\d{2}\.08(beta|rc)\.\d+(?:\.\d+)?$"
 STABLE_FDSDK_TAG_PATTERN = r"^freedesktop-sdk-\d{2}\.08\.\d+(?:\.\d+)?$"
-STABLE_REF_BRANCH_PATTERN = r"^\d{2}\.08(?:-extra)?$"
-BETA_REF_BRANCH_PATTERN = r"^\d{2}\.08beta(?:-extra)?$"
+# validate against the wrong pattern because this got tagged with
+# the wrong branch name and it is too late to fix this
+# https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/issues/1821
+# DO NOT backport
+STABLE_REF_BRANCH_PATTERN = r"^\d{2}\.08(?:extra)?$"
+BETA_REF_BRANCH_PATTERN = r"^\d{2}\.08beta(?:extra)?$"
 
 
 def get_hostname(url: str) -> str:
