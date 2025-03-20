@@ -45,7 +45,4 @@ public:
 sources:
 - kind: git_repo
   url: github:PCRE2Project/pcre2.git
-  track: pcre2-*
-  exclude:
-  - '*-RC*'
   ref: pcre2-10.44-0-g6ae58beca071f13ccfed31d03b3f479ab520639b

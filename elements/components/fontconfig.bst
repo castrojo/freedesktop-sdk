@@ -29,7 +29,4 @@ public:
 sources:
 - kind: git_repo
   url: freedesktop:fontconfig/fontconfig.git
-  track: '*.*.*'
-  exclude:
-  - 2.*.9*
   ref: 2.15.0-0-g72b9a48f57de6204d99ce1c217b5609ee92ece9b
