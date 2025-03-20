@@ -1,0 +1,13 @@
+diff --git a/configure.ac b/configure.ac
+index dc389db..e99d670 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -21,7 +21,7 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [The gettext domain name]
+ AC_SUBST(GETTEXT_PACKAGE)
+ 
+ AM_GNU_GETTEXT([external])
+-
++AM_GNU_GETTEXT_VERSION([0.24])
+ dnl ==========================================================================
+ dnl Turn on the additional warnings last, so -Werror doesn't affect other tests.
+ 
