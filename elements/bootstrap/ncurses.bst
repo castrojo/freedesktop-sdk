@@ -27,6 +27,7 @@ variables:
     --with-pkg-config="%{bindir}/pkg-config"
     --with-pkg-config-libdir="%{libdir}/pkgconfig"
     --disable-root-access
+    --disable-root-environ
     --disable-setuid-environ
     --with-shared
     --without-ada
