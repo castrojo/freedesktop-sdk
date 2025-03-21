@@ -1,6 +1,9 @@
 sources:
-- kind: tar
-  url: ftp_gnu_org:ncurses/ncurses-6.4.tar.gz
-  ref: 6931283d9ac87c5073f30b6290c4c75f21632bb4fc3603ac8100812bed248159
+- kind: git_repo
+  url: github:ThomasDickey/ncurses-snapshots.git
+  track: "v*"
+  exclude:
+  - "v*_*_*"
+  ref: v6_5-0-ge12a453fc23c5ac586d72af46465e8ba92adb707
 - kind: patch
   path: patches/ncurses/always-cross-compile.patch
