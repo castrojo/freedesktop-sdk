@@ -31,3 +31,4 @@ public:
       sysroot="${1}"
       chmod 1777 ${sysroot}/tmp
       chmod 1777 ${sysroot}/var/tmp
+      chmod 700 ${sysroot}/root
