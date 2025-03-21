@@ -18,49 +18,39 @@ runtime-depends:
 - elements/bootstrap/include/target.yml
 - elements/bootstrap/include/ncurses-sources.yml
 
+variables:
+  common-conf-flags: >-
+    --build=%{bootstrapper-triplet}
+    --host=%{triplet}
+    --disable-stripping
+    --libdir=%{libdir}
+    --with-pkg-config="%{bindir}/pkg-config"
+    --with-pkg-config-libdir="%{libdir}/pkgconfig"
+    --disable-root-access
+    --disable-setuid-environ
+    --with-shared
+    --without-ada
+    --without-normal
+    --enable-pc-files
+    --with-termlib
+    --prefix=/usr
+    TIC="%{tools}/bin/tic"
+
 config:
   configure-commands:
   - |
     mkdir ncurses-build &&
     cd ncurses-build &&
     ../configure \
-    --build=%{bootstrapper-triplet} \
-    --host=%{triplet} \
-    --disable-stripping \
-    --libdir=%{libdir} \
-    --with-pkg-config="%{bindir}/pkg-config" \
-    --with-pkg-config-libdir="%{libdir}/pkgconfig" \
-    --disable-widec \
-    --disable-root-access \
-    --disable-setuid-environ \
-    --with-shared \
-    --without-ada \
-    --without-normal \
-    --enable-pc-files \
-    --with-termlib \
-    --prefix=/usr \
-    TIC="%{tools}/bin/tic"
+    %{common-conf-flags} \
+    --disable-widec
 
   - |
     mkdir ncursesw-build &&
     cd ncursesw-build &&
     ../configure \
-    --build=%{bootstrapper-triplet} \
-    --host=%{triplet} \
-    --disable-stripping \
-    --libdir=%{libdir} \
-    --with-pkg-config="%{bindir}/pkg-config" \
-    --with-pkg-config-libdir="%{libdir}/pkgconfig" \
-    --disable-root-access \
-    --disable-setuid-environ \
-    --enable-widec \
-    --with-shared \
-    --without-ada \
-    --without-normal \
-    --enable-pc-files \
-    --with-termlib \
-    --prefix=/usr \
-    TIC="%{tools}/bin/tic"
+    %{common-conf-flags} \
+    --enable-widec
 
   build-commands:
   - |
