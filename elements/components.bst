@@ -91,6 +91,7 @@ depends:
 - components/expat.bst
 - components/extra-cmake-modules.bst
 - components/exfat-progs.bst
+- components/fakecap.bst
 - components/f2fs-tools.bst
 - components/fcitx5-gtk.bst
 - components/ffmpeg.bst
