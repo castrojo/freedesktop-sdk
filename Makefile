@@ -296,7 +296,7 @@ clean-test:
 	rm -rf runtime/
 
 clean-oci:
-	rm -f debug-oci.tar flatpak-oci.tar platform-oci.tar sdk-oci.tar toolbox-oci.tar
+	rm -f minimal-oci.tar debug-oci.tar flatpak-oci.tar platform-oci.tar sdk-oci.tar toolbox-oci.tar
 
 clean-boot-keys:
 	find files/boot-keys -maxdepth 2 ! -path "files/boot-keys/modules/.keep" ! -path "files/boot-keys/modules" ! -path "files/boot-keys" -exec rm -rvf {} +
@@ -320,6 +320,15 @@ export-oci:
 	for name in platform sdk debug flatpak toolbox; do \
 	  $(BST) artifact checkout "oci/$${name}-oci.bst" --tar "$${name}-oci.tar"; \
 	done
+
+test-minimal-oci:
+	$(BST) build oci/flatpak-oci.bst; \
+	$(BST) artifact checkout "oci/flatpak-oci.bst" --tar "flatpak-oci.tar"; \
+	set -e; \
+	if podman --version >/dev/null 2>&1; then \
+		IMAGE=$$(podman load -i flatpak-oci.tar | grep -E "^Loaded image:" | cut -d' ' -f3); \
+		podman run --rm $$IMAGE sh --version; \
+	fi
 
 export-docker:
 	$(BST) build oci/platform-docker.bst \
@@ -494,7 +503,7 @@ secure-images-serve: secure-images/SHA256SUMS
 	build check-dev-files clean clean-oci clean-test clean-repo clean-runtime	\
 	export test-apps manifest markdown-manifest check-rpath		\
 	build-tar export-tar clean-vm build-vm run-vm export-snap	\
-	export-oci export-docker bootstrap test-codecs			\
+	export-oci export-docker bootstrap test-codecs test-minimal-oci	 \
 	track-mesa-git							\
 	clean-efi-vm build-efi-vm run-efi-vm				\
 	update-ostree ostree-serve run-ostree-vm			\
