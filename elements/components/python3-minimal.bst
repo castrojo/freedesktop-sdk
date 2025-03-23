@@ -15,7 +15,6 @@ depends:
 - bootstrap/glibc.bst
 - bootstrap/symlinks.bst
 - components/utf-locale.bst
-- components/openssl.bst
 
 variables:
   install-conf: COMPILEALL_OPTS=-j1  # Used for deterministic compiling
