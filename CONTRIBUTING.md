@@ -163,7 +163,6 @@ freedesktop-sdk. The table below outlines them and their uses.
 | Check for components using rpath                  | `make check-rpath`       |
 | Test some basic apps.                             | `make test-apps`         |
 | Test the codec extensions behave as intended      | `make test-codecs`       |
-| Track the mesa-git extension                      | `make track-mesa-git`    |
 
 **NOTE:** You must run `make build-repo` *before* running `make test-apps`
 

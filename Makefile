@@ -338,10 +338,6 @@ test-minimal-oci:
 		podman run --rm $$IMAGE sh --version; \
 	fi
 
-track-mesa-git:
-	$(BST) source track extensions/mesa-git/libdrm.bst
-	$(BST) source track extensions/mesa-git/mesa.bst
-
 define OSTREE_GPG_CONFIG
 Key-Type: DSA
 Key-Length: 1024
@@ -504,7 +500,6 @@ secure-images-serve: secure-images/SHA256SUMS
 	export test-apps manifest markdown-manifest check-rpath		\
 	build-tar export-tar clean-vm build-vm run-vm export-snap	\
 	export-oci bootstrap test-codecs test-minimal-oci	 \
-	track-mesa-git							\
 	clean-efi-vm build-efi-vm run-efi-vm				\
 	update-ostree ostree-serve run-ostree-vm			\
 	test-runtime-inheritance generate-keys clean-ostree-vm		\
