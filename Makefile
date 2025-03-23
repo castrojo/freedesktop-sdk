@@ -338,17 +338,6 @@ test-minimal-oci:
 		podman run --rm $$IMAGE sh --version; \
 	fi
 
-export-docker:
-	$(BST) build oci/platform-docker.bst \
-	             oci/sdk-docker.bst \
-	             oci/debug-docker.bst \
-	             oci/flatpak-docker.bst \
-	             oci/toolbox-docker.bst
-	set -e; \
-	for name in platform sdk debug flatpak toolbox; do \
-	  $(BST) artifact checkout "oci/$${name}-docker.bst" --tar "$${name}-docker.tar"; \
-	done
-
 track-mesa-git:
 	$(BST) source track extensions/mesa-git/libdrm.bst
 	$(BST) source track extensions/mesa-git/mesa.bst
@@ -514,7 +503,7 @@ secure-images-serve: secure-images/SHA256SUMS
 	build check-dev-files clean clean-oci clean-test clean-repo clean-runtime	\
 	export test-apps manifest markdown-manifest check-rpath		\
 	build-tar export-tar clean-vm build-vm run-vm export-snap	\
-	export-oci export-docker bootstrap test-codecs test-minimal-oci	 \
+	export-oci bootstrap test-codecs test-minimal-oci	 \
 	track-mesa-git							\
 	clean-efi-vm build-efi-vm run-efi-vm				\
 	update-ostree ostree-serve run-ostree-vm			\
