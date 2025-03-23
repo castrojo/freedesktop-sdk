@@ -44,6 +44,7 @@ depends:
 - components/itstool.bst
 - components/jq.bst
 - components/vulkan-validation-layers.bst
+- components/vulkan-headers.bst
 - components/wayland-protocols.bst
 - components/xdg-portal-interfaces.bst
 - components/xorg-proto-xcb.bst
