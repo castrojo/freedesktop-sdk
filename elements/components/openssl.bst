@@ -1,17 +1,11 @@
 kind: autotools
 
 build-depends:
-- bootstrap/gcc.bst
-- bootstrap/make.bst
-- bootstrap/stripper.bst
+- public-stacks/buildsystem-make.bst
 - components/perl.bst
 
 depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
-- bootstrap/glibc.bst
-- bootstrap/symlinks.bst
-- components/utf-locale.bst
+- public-stacks/runtime-minimal.bst
 
 variables:
   openssl-target: linux-%{target_arch}
