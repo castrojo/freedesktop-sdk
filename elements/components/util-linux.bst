@@ -6,6 +6,7 @@ build-depends:
 runtime-depends:
 - public-stacks/runtime-minimal.bst
 - components/libeconf.bst
+- bootstrap/file.bst
 
 config:
   exclude:
