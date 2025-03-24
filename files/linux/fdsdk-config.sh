@@ -223,19 +223,48 @@ enable EROFS_FS_ZIP_LZMA
 enable EROFS_FS_ZIP_DEFLATE
 
 # Some useful drivers when running as virtual machine
+enable EXCLUSIVE_SYSTEM_RAM
+enable STRICT_DEVMEM
+enable IO_STRICT_DEVMEM
+enable CONFIG_CMA
+enable CONTIG_ALLOC
+
+enable VIRTIO_MENU
 module VIRTIO_BALLOON
 module VIRTIO_INPUT
+module SND_VIRTIO
+module I2C_VIRTIO
 module LIBNVDIMM
+module VIRTIO_ANCHOR
 enable VIRTIO_PMEM
-enable VIRTIO_NET
-enable VIRTIO_BLK
+module VIRTIO_NET
+module VIRTIO_BLK
+module VIRTIO_CONSOLE
+enable VIRTIO_PCI_LIB
 enable SCSI_VIRTIO
 enable VIRTIO_IOMMU
+module VDPA
+module VIRTIO_VDPA
+module VIRTIO_DMA_SHARED_BUFFER
 
 enable BLK_MQ_VIRTIO
-module VIRTIO_CONSOLE
 module VIRTIO_MMIO
+enable VIRTIO_MMIO_CMDLINE_DEVICES
 module CRYPTO_DEV_VIRTIO
+
+case "$arch" in
+    aarch64)
+        enable ARM64_PMEM
+    ;;
+esac
+
+case "$arch" in
+    aarch64|arm)
+        enable ARM_SCMI_PROTOCOL
+        enable ARM_SCMI_TRANSPORT_VIRTIO
+        enable ARM_SCMI_TRANSPORT_VIRTIO_VERSION1_COMPLIANCE
+    ;;
+esac
 
 # Input
 enable INPUT_EVDEV
@@ -282,6 +311,7 @@ module TABLET_USB_PEGASUS
 # needed by spice-vdagent
 module VSOCKETS
 module VIRTIO_VSOCKETS
+module VIRTIO_VSOCKETS_COMMON
 module INPUT_UINPUT
 
 # for virtualbox
@@ -637,7 +667,8 @@ case "$arch" in
 esac
 
 # DRM for virtual machines
-enable DRM_VIRTIO_GPU
+module DRM_VIRTIO_GPU
+enable DRM_VIRTIO_GPU_KMS
 case "$arch" in
     i686|x86_64)
         module DRM_VMWGFX
@@ -1106,6 +1137,10 @@ esac
 if has ARCH_ENABLE_MEMORY_HOTPLUG; then
     enable MEMORY_HOTPLUG
     enable ACPI_HOTPLUG_MEMORY
+fi
+
+if has ARCH_ENABLE_MEMORY_HOTREMOVE; then
+    enable CONFIG_MEMORY_HOTREMOVE
 fi
 
 if has ACPI_NUMA; then
@@ -2048,6 +2083,8 @@ case "$arch" in
     ;;
 esac
 
+enable CPU_FREQ
+
 # cpufreq
 case "$arch" in
     x86_64|i686)
@@ -2065,6 +2102,7 @@ case "$arch" in
     aarch64|arm)
         enable ACPI_CPPC_CPUFREQ_FIE
         enable ARM_PSCI_CPUIDLE_DOMAIN
+        module CPUFREQ_DT
         module ACPI_CPPC_CPUFREQ
         module ARM_SCPI_CPUFREQ
     ;;
@@ -2232,3 +2270,5 @@ module BLK_DEV_SR
 
 # Fast charging for apple devices
 module APPLE_MFI_FASTCHARGE
+
+enable IDLE_PAGE_TRACKING
