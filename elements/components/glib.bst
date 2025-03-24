@@ -14,6 +14,9 @@ depends:
 - components/python3.bst
 - components/python3-packaging.bst
 
+runtime-depends:
+- bootstrap/elfutils.bst
+
 variables:
   meson-local: >-
     -Dselinux=disabled

@@ -6,6 +6,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- bootstrap/elfutils.bst
 - components/libffi.bst
 - components/util-linux.bst
 - components/python3.bst
