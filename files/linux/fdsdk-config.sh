@@ -2221,3 +2221,6 @@ esac
 # already available built-in on x84. But other architectures now need
 # it.
 module BLK_DEV_SR
+
+# Fast charging for apple devices
+module APPLE_MFI_FASTCHARGE
