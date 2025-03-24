@@ -1091,6 +1091,7 @@ esac
 # ACPI
 enable ACPI_FFH
 enable ACPI_PCI_SLOT
+enable ACPI_DOCK
 module ACPI_HED
 module ACPI_IPMI
 module ACPI_PFRUT
