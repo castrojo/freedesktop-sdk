@@ -1097,6 +1097,12 @@ module ACPI_IPMI
 module ACPI_PFRUT
 module ACPI_TAD
 
+case "$arch" in
+    x86_64|aarch64)
+        enable ACPI_BGRT
+    ;;
+esac
+
 if has ARCH_ENABLE_MEMORY_HOTPLUG; then
     enable MEMORY_HOTPLUG
     enable ACPI_HOTPLUG_MEMORY
