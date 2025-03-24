@@ -890,6 +890,7 @@ module BT_HCIBPA10X
 module BT_HCIBTSDIO
 module BT_HCIUART
 module BT_HCIVHCI
+module BT_INTEL_PCIE
 module BT_MRVL
 module BT_MRVL_SDIO
 module BT_MTKSDIO
