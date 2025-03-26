@@ -4,7 +4,7 @@ sources:
   track: v*
   exclude:
   - '*-rc*'
-  ref: v6.13.5-0-gc5e32b0a3c19f6cf40241e323e02dff00810406e
+  ref: v6.14-0-g38fec10eb60d687e30c8c6b5420d86e8149f7557
 - kind: local
   path: files/linux/config-utils.sh
 - kind: local
