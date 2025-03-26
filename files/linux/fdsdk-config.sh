@@ -80,15 +80,10 @@ enable CRYPTO_USER_API_SKCIPHER
 
 case "$arch" in
     i686)
-        module CRYPTO_CRC32C_INTEL
-        module CRYPTO_CRC32_PCLMUL
         module CRYPTO_AES_NI_INTEL
     ;;
     x86_64)
-        module CRYPTO_CRC32C_INTEL
-        module CRYPTO_CRC32_PCLMUL
         module CRYPTO_AES_NI_INTEL
-        module CRYPTO_CRCT10DIF_PCLMUL
         module CRYPTO_GHASH_CLMUL_NI_INTEL
         module CRYPTO_SHA1_SSSE3
         module CRYPTO_SHA256_SSSE3
@@ -106,8 +101,6 @@ case "$arch" in
         module CRYPTO_AES_ARM_BS
         module CRYPTO_AES_ARM_CE
         module CRYPTO_GHASH_ARM_CE
-        module CRYPTO_CRCT10DIF_ARM_CE
-        module CRYPTO_CRC32_ARM_CE
     ;;
     aarch64)
         module CRYPTO_SHA256_ARM64
@@ -116,7 +109,6 @@ case "$arch" in
         module CRYPTO_SHA2_ARM64_CE
         module CRYPTO_SHA512_ARM64_CE
         module CRYPTO_GHASH_ARM64_CE
-        module CRYPTO_CRCT10DIF_ARM64_CE
         module CRYPTO_AES_ARM64
         module CRYPTO_AES_ARM64_CE
         module CRYPTO_AES_ARM64_CE_CCM
