@@ -252,12 +252,7 @@ if __name__ == "__main__":
             scorev3,
             vulnerable,
         ) in extract_vulnerabilities(filename):
-            if not vulnerable:
-                try:
-                    del vuln_map[cve_id]
-                except KeyError:
-                    pass
-            else:
+            if vulnerable:
                 vuln_map[cve_id] = cve_id, name, version, summary, scorev2, scorev3
 
         check_unversioned_elements(filename, unversioned_git, unversioned_archive)
