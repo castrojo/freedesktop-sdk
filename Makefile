@@ -313,7 +313,10 @@ clean-oci:
 clean-boot-keys:
 	find files/boot-keys -maxdepth 2 ! -path "files/boot-keys/modules/.keep" ! -path "files/boot-keys/modules" ! -path "files/boot-keys" -exec rm -rvf {} +
 
-clean: clean-repo clean-runtime clean-test clean-vm clean-efi-vm clean-oci clean-boot-keys
+clean-cve:
+	rm -rf cve-reports cve platform-manifest sdk-manifest
+
+clean: clean-repo clean-runtime clean-test clean-vm clean-efi-vm clean-oci clean-boot-keys clean-cve
 
 export-snap:
 	bst $(ARCH_OPTS) build "snap-images/images.bst"
