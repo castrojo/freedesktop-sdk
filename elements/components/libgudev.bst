@@ -27,6 +27,9 @@ public:
         (>):
         - '%{libdir}/libgudev-1.0.so'
 
+  cpe:
+    version-match: '^\d+'
+
 sources:
 - kind: git_repo
   url: gnome:libgudev.git

@@ -7,6 +7,10 @@ variables:
   make-args: >-
     PREFIX="%{prefix}" CC=gcc ZFLAGS='-b fat'
 
+public:
+  cpe:
+    version-match: '^\d{4}[a-z]'
+
 config:
   install-commands:
     (>):

@@ -7,6 +7,10 @@ runtime-depends:
 - components/python3.bst
 - components/python3-markupsafe.bst
 
+public:
+  cpe:
+    version-match: '(\d+)_(\d+)_(\d+)'
+
 sources:
 - kind: git_repo
   url: github:sqlalchemy/mako.git

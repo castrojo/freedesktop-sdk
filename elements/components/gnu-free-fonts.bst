@@ -17,6 +17,10 @@ config:
       ln -s "../conf.avail/69-$(basename "$i")" "%{confdir}/conf.d/69-$(basename "$i")"
     done
 
+public:
+  cpe:
+    version-match: '\d{8}'
+
 sources:
 - kind: zip
   url: ftp_gnu_org:freefont/freefont-ttf-20120503.zip
