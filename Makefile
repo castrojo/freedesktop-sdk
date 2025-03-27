@@ -316,7 +316,7 @@ clean-boot-keys:
 clean-cve:
 	rm -rf cve-reports cve platform-manifest sdk-manifest
 
-clean: clean-repo clean-runtime clean-test clean-vm clean-efi-vm clean-oci clean-boot-keys clean-cve
+clean: clean-repo clean-runtime clean-test clean-vm clean-efi-vm clean-oci clean-boot-keys
 
 export-snap:
 	bst $(ARCH_OPTS) build "snap-images/images.bst"
