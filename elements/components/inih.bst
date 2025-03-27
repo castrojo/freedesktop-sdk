@@ -10,6 +10,10 @@ variables:
   meson-local: >-
     -Ddistro_install=true
 
+public:
+  cpe:
+    version-match: '(?<=r)\d{2}'
+
 sources:
 - kind: git_repo
   url: github:benhoyt/inih.git
