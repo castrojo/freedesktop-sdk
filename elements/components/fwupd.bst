@@ -34,29 +34,18 @@ depends:
 - components/gnu-efi-maybe.bst
 
 variables:
-  plugin_msr: 'disabled'
-  plugin_uefi_capsule: 'disabled'
   efi_binary: 'false'
   (?):
-  - target_arch in ["aarch64", "loongarch64"]:
-      plugin_uefi_capsule: 'enabled'
-      efi_binary: 'true'
-  - target_arch in ["i686", "x86_64"]:
-      plugin_msr: 'enabled'
-      plugin_uefi_capsule: 'enabled'
+  - target_arch in ["i686", "x86_64", "aarch64", "loongarch64"]:
       efi_binary: 'true'
 
   # FIXME: consider adding dependencies for passim and all plugins
   meson-local: >-
     -Ddocs=enabled
-    -Dplugin_msr=%{plugin_msr}
-    -Dplugin_uefi_capsule=%{plugin_uefi_capsule}
     -Defi_binary=%{efi_binary}
     -Dpolkit=enabled
     -Dpassim=disabled
-    -Dlaunchd=disabled
     -Dplugin_flashrom=disabled
-    -Dplugin_amdgpu=disabled
     -Dplugin_logitech_bulkcontroller=disabled
     -Dplugin_modem_manager=disabled
     -Dvendor_ids_dir="%{datadir}/hwdata"
