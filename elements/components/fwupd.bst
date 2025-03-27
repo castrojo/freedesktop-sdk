@@ -46,7 +46,7 @@ variables:
     -Dpolkit=enabled
     -Dpassim=disabled
     -Dplugin_flashrom=disabled
-    -Dplugin_logitech_bulkcontroller=disabled
+    -Dprotobuf=disabled
     -Dplugin_modem_manager=disabled
     -Dvendor_ids_dir="%{datadir}/hwdata"
     -Dumockdev_tests=disabled
