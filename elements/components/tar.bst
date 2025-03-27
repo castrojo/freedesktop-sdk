@@ -30,5 +30,9 @@ depends:
 - bootstrap/symlinks.bst
 - bootstrap/utf-locale.bst
 
+public:
+  cpe:
+    vendor: 'gnu'
+
 (@):
 - elements/include/tar-source.yml
