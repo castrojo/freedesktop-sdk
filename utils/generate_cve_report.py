@@ -262,15 +262,11 @@ if __name__ == "__main__":
             )
 
         out.write("\n\n\n")
-        out.write(
-            "|Unversioned Element|Source: Archive - URL|Reported Vulnerability|\n"
-        )
-        out.write("|---|---|---|\n")
+        out.write("|Elements missing version data|Source|\n")
+        out.write("|---|---|\n")
         for element, info in unversioned_archive.items():
-            cve_list = "None"
-            if info["cve_ids"]:
-                cve_list = ",<br>".join(info["cve_ids"])
-            out.write(f"|{element}|{info['source']}|{cve_list}\n")
+            out.write(f"|{element}|{info['source']}\n")
+
         out.write("\n\n\n")
         out.write("|Unversioned Element|Source: Git|Commit|Reported Vulnerability|\n")
         out.write("|---|---|---|---|\n")
