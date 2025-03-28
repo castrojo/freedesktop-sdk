@@ -24,9 +24,6 @@ variables:
     -DRECC=ON
     -DRUN_BUBBLEWRAP=ON
     -DWORKER=ON
-  (?):
-  - target_arch == "riscv64":
-      local_ldflags: "-Wl,--push-state,--no-as-needed -latomic -Wl,--pop-state"
 
 sources:
 - kind: git_repo
