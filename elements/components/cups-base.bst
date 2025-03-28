@@ -55,6 +55,8 @@ public:
       - '%{sourcedir}/**'
   cpe:
     product: cups
+    ignored:
+    - CVE-2022-26691
 
 sources:
 - kind: git_repo
