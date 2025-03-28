@@ -39,7 +39,7 @@ config:
             extraargs = "--invariant -F32 -i${id_efi} -n EFI"
         }
         mountpoint = "/efi"
-        size = 125M
+        size = 105%
         temporary = true
     }
     image root.img {
