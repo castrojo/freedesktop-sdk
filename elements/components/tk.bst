@@ -29,6 +29,9 @@ public:
         (>):
         - "%{libdir}/libtkstub*.a"
 
+  cpe:
+    version-match: '(\d+)-(\d)+-(\d+)'
+
 
 sources:
 - kind: git_repo
