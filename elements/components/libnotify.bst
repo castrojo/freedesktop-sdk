@@ -23,6 +23,9 @@ public:
         (>):
         - '%{libdir}/libnotify.so'
 
+  cpe:
+    vendor: 'gnome'
+
 sources:
 - kind: git_repo
   url: gnome:libnotify.git
