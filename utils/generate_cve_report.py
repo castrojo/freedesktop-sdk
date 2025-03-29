@@ -35,7 +35,12 @@ with open(sys.argv[1], "rb") as f:
     for module in manifest["modules"]:
         cpe = module["x-cpe"]
         version = cpe.get("version")
-        if not version:
+        if version:
+            print(f"Found version {version} for module {module['name']}")
+        else:
+            print(
+                f"Failed to find a version for module {module['name']}, assuming unversioned"
+            )
             sources = module["sources"]
             for element in sources:
                 if "commit" in element and element["type"] == "git":
