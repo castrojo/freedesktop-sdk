@@ -168,7 +168,7 @@ def extract_vulnerabilities(filename):
             if cve_id in module["patches"]:
                 print(f"Ignoring {cve_id}, found in patches")
                 vulnerable = False
-            if cve_id in module["ignored"]:
+            elif cve_id in module["ignored"]:
                 print(f"Ignoring {cve_id}, found in ignored")
                 vulnerable = False
             elif module["version"] == version:
