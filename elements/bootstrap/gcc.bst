@@ -133,6 +133,10 @@ config:
       mv -f %{install-root}%{multiarch_libdir}/libstdc++.so.*-gdb.py "%{install-root}%{datadir}/gdb/auto-load%{multiarch_libdir}/"
 
 public:
+  cpe:
+    ignored:
+    - CVE-2023-4039
+
   bst:
     split-rules:
       runtime:
