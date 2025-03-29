@@ -77,6 +77,8 @@ public:
       - '%{libdir}/pkgconfig/libapparmor.pc'
   cpe:
     product: apparmor
+    ignored:
+    - CVE-2016-1585
 
 sources:
 - kind: tar
