@@ -214,7 +214,8 @@ generate-cve-report: manifest
 		-- generate_cve_report /buildstream-build/platform-manifest/usr/manifest.json	\
 		/buildstream-build/cve-reports/platform.md.html
 
-	mv cve/cve-reports/ .
+	rm -rvf cve-reports
+	mv -v cve/cve-reports .
 	find cve -mindepth 1 ! -name 'nvdcve-1.1-*' -exec rm -rvf {} +
 
 manifest:
@@ -299,6 +300,9 @@ clean-oci:
 
 clean-boot-keys:
 	find files/boot-keys -maxdepth 2 ! -path "files/boot-keys/modules/.keep" ! -path "files/boot-keys/modules" ! -path "files/boot-keys" -exec rm -rvf {} +
+
+clean-cve:
+	rm -rf cve-reports cve platform-manifest sdk-manifest
 
 clean: clean-repo clean-runtime clean-test clean-vm clean-efi-vm clean-oci clean-boot-keys
 

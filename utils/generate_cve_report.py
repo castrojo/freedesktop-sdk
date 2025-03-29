@@ -14,11 +14,13 @@ Files are not downloaded if not modified. But we still verify with the
 remote database we have the latest version of the files.
 """
 
+import datetime
 import glob
 import gzip
 import html
 import json
 import os
+import re
 import sys
 
 import requests
@@ -222,6 +224,22 @@ def format_score(score):
     return score
 
 
+def is_git_hash(s: str) -> bool:
+    return bool(re.fullmatch(r"[0-9a-f]{6,40}", s, re.IGNORECASE))
+
+
+def is_recent_cve(cve_id: str) -> bool:
+    current_year = datetime.datetime.now(tz=datetime.timezone.utc).year
+    valid_years = (current_year, current_year - 1, current_year - 2)
+
+    matched = re.match(r"CVE-(\d{4})-\d+", cve_id)
+    if matched:
+        year = int(matched.group(1))
+        return year in valid_years
+
+    return False
+
+
 if __name__ == "__main__":
     vuln_map = {}
     for filename in sorted(glob.glob("nvdcve-1.1-*.json.gz")):
@@ -234,12 +252,7 @@ if __name__ == "__main__":
             scorev3,
             vulnerable,
         ) in extract_vulnerabilities(filename):
-            if not vulnerable:
-                try:
-                    del vuln_map[cve_id]
-                except KeyError:
-                    pass
-            else:
+            if vulnerable:
                 vuln_map[cve_id] = cve_id, name, version, summary, scorev2, scorev3
 
         check_unversioned_elements(filename, unversioned_git, unversioned_archive)
@@ -262,23 +275,23 @@ if __name__ == "__main__":
             )
 
         out.write("\n\n\n")
-        out.write(
-            "|Unversioned Element|Source: Archive - URL|Reported Vulnerability|\n"
-        )
-        out.write("|---|---|---|\n")
+        out.write("|Elements missing version data|Data|\n")
+        out.write("|---|---|\n")
         for element, info in unversioned_archive.items():
-            cve_list = "None"
-            if info["cve_ids"]:
-                cve_list = ",<br>".join(info["cve_ids"])
-            out.write(f"|{element}|{info['source']}|{cve_list}\n")
-        out.write("\n\n\n")
-        out.write("|Unversioned Element|Source: Git|Commit|Reported Vulnerability|\n")
-        out.write("|---|---|---|---|\n")
+            out.write(f"|{element}|{info['source']}\n")
+
         for element, info in unversioned_git.items():
-            cve_list = "None"
-            if info["cve_ids"]:
-                cve_list = ",<br>".join(info["cve_ids"])
-            out.write(f"|{element}|{info['url']}|{info['source']}|{cve_list}\n")
+            source, cve_ids, url = (
+                info.get("source"),
+                info.get("cve_ids"),
+                info.get("url"),
+            )
+            if source and cve_ids and not is_git_hash(source):
+                cve_list = ",<br>".join(cve for cve in cve_ids if is_recent_cve(cve))
+            else:
+                cve_list = ""
+            out.write(f"|{element}|{url} {source} {cve_list}\n")
+
         out.write(
             "<!-- Markdeep: -->"
             '<style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>'

@@ -3,6 +3,10 @@ kind: manual
 depends:
 - filename: bootstrap-import.bst
 
+public:
+  cpe:
+    version-match: '^\d{4}[a-z]'
+
 config:
   build-commands:
   - |

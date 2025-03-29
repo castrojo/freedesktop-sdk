@@ -5,6 +5,10 @@ depends:
 - filename: components/python3.bst
   type: build
 
+public:
+  cpe:
+    version-match: '(\d+)-(\d+)-(\d+)'
+
 config:
   build-commands:
   - |
