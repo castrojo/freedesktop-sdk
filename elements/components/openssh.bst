@@ -47,6 +47,7 @@ public:
     version-match: '(\d+)_(\d+)'
     ignored:
     - CVE-2007-2768
+    - CVE-2023-51767
 
 sources:
 - kind: git_repo
