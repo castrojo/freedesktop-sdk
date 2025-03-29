@@ -16,6 +16,7 @@ public:
   cpe:
     ignored:
     - CVE-2024-37407
+    - CVE-2025-1632
 
 sources:
 - kind: git_repo
