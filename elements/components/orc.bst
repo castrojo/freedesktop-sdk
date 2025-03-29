@@ -21,6 +21,9 @@ public:
         (>):
         - '%{bindir}/orc'
         - '%{libdir}/liborc-0.4.so'
+  cpe:
+    patches:
+    - CVE-2024-40897
 
 config:
   install-commands:
@@ -32,4 +35,5 @@ sources:
 - kind: git_repo
   url: freedesktop:gstreamer/orc.git
   ref: 0.4.38-0-gf071d3a14f28c7c5acff5ff0b5a67ecd3f785ef3
-
+- kind: patch
+  path: patches/orc/0001-CVE-2024-40897.patch
