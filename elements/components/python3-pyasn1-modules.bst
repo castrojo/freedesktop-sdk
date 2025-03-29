@@ -13,6 +13,6 @@ sources:
 - kind: pypi
   name: pyasn1-modules
   ref:
-    sha256sum: c28e2dbf9c06ad61c71a075c7e0f9fd0f1b0bb2d2ad4377f240d33ac2ab60a7c
+    sha256sum: 677091de870a80aae844b1ca6134f54652fa2c8c5a52aa396440ac3106e941e6
     suffix: 
-      1d/67/6afbf0d507f73c32d21084a79946bfcfca5fbc62a72057e9c23797a737c9/pyasn1_modules-0.4.1.tar.gz
+      e9/e6/78ebbb10a8c8e4b61a59249394a4a594c1a7af95593dc933a349c8d00964/pyasn1_modules-0.4.2.tar.gz
