@@ -13,6 +13,9 @@ public:
       devel:
         (>):
         - '%{libdir}/libarchive.so'
+  cpe:
+    ignored:
+    - CVE-2024-37407
 
 sources:
 - kind: git_repo
