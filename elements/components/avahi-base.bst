@@ -50,6 +50,8 @@ sources:
   path: patches/avahi/0003-CVE-2023-38470.patch
 - kind: patch
   path: patches/avahi/0004-CVE-2023-38471.patch
+- kind: patch
+  path: patches/avahi/0005-CVE-2023-38472.patch
 
 public:
   bst:
@@ -81,3 +83,4 @@ public:
     - CVE-2023-38469
     - CVE-2023-38470
     - CVE-2023-38471
+    - CVE-2023-38472
