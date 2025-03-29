@@ -42,6 +42,8 @@ sources:
 - kind: local
   path: files/avahi/avahi.conf
   directory: freedesktop-sdk
+- kind: patch
+  path: patches/avahi/0001-CVE-2021-3468.patch
 
 public:
   bst:
@@ -68,3 +70,5 @@ public:
     product: avahi
     ignored:
     - CVE-2021-26720
+    patches:
+    - CVE-2021-3468
