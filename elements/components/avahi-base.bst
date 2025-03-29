@@ -44,6 +44,8 @@ sources:
   directory: freedesktop-sdk
 - kind: patch
   path: patches/avahi/0001-CVE-2021-3468.patch
+- kind: patch
+  path: patches/avahi/0002-CVE-2023-38469.patch
 
 public:
   bst:
@@ -72,3 +74,4 @@ public:
     - CVE-2021-26720
     patches:
     - CVE-2021-3468
+    - CVE-2023-38469
