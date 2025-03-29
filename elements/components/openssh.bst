@@ -49,6 +49,7 @@ public:
     - CVE-2007-2768
     - CVE-2023-51767
     - CVE-2025-26465
+    - CVE-2025-26466
 
 sources:
 - kind: git_repo
