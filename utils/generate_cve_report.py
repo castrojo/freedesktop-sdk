@@ -262,35 +262,46 @@ if __name__ == "__main__":
     entries.sort(key=by_score, reverse=True)
 
     with open(sys.argv[2], "w", encoding="utf-8") as out:
-        out.write("|Vulnerability|Element|Version|Summary|CVSS V3.x|CVSS V2.0|WIP|\n")
-        out.write("|---|---|---|---|---|---|---|\n")
-
-        for ID, name, version, summary, scorev2, scorev3 in entries:
-            issues_mrs = (
-                ", ".join(f"[{id}]({link})" for id, link in get_issues_and_mrs(ID))
-                or "None"
-            )
+        if not entries:
+            out.write("No CVE data affecting any element found\n")
+        else:
             out.write(
-                f"|[{ID}](https://nvd.nist.gov/vuln/detail/{ID})|{name}|{version}|{html.escape(summary)}|{format_score(scorev3)}|{format_score(scorev2)}|{issues_mrs}|\n"
+                "|Vulnerability|Element|Version|Summary|CVSS V3.x|CVSS V2.0|WIP|\n"
             )
+            out.write("|---|---|---|---|---|---|---|\n")
+
+            for ID, name, version, summary, scorev2, scorev3 in entries:
+                issues_mrs = (
+                    ", ".join(f"[{id}]({link})" for id, link in get_issues_and_mrs(ID))
+                    or "None"
+                )
+                out.write(
+                    f"|[{ID}](https://nvd.nist.gov/vuln/detail/{ID})|{name}|{version}|{html.escape(summary)}|{format_score(scorev3)}|{format_score(scorev2)}|{issues_mrs}|\n"
+                )
 
         out.write("\n\n\n")
-        out.write("|Elements missing version data|Data|\n")
-        out.write("|---|---|\n")
-        for element, info in unversioned_archive.items():
-            out.write(f"|{element}|{info['source']}\n")
 
-        for element, info in unversioned_git.items():
-            source, cve_ids, url = (
-                info.get("source"),
-                info.get("cve_ids"),
-                info.get("url"),
-            )
-            if source and cve_ids and not is_git_hash(source):
-                cve_list = ",<br>".join(cve for cve in cve_ids if is_recent_cve(cve))
-            else:
-                cve_list = ""
-            out.write(f"|{element}|{url} {source} {cve_list}\n")
+        if not (unversioned_git or unversioned_archive):
+            out.write("No unversioned element found\n")
+        else:
+            out.write("|Elements missing version data|Data|\n")
+            out.write("|---|---|\n")
+            for element, info in unversioned_archive.items():
+                out.write(f"|{element}|{info['source']}\n")
+
+            for element, info in unversioned_git.items():
+                source, cve_ids, url = (
+                    info.get("source"),
+                    info.get("cve_ids"),
+                    info.get("url"),
+                )
+                if source and cve_ids and not is_git_hash(source):
+                    cve_list = ",<br>".join(
+                        cve for cve in cve_ids if is_recent_cve(cve)
+                    )
+                else:
+                    cve_list = ""
+                out.write(f"|{element}|{url} {source} {cve_list}\n")
 
         out.write(
             "<!-- Markdeep: -->"
