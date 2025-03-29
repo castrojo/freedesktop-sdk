@@ -52,6 +52,8 @@ public:
   cpe:
     ignored:
     - CVE-2016-2781
+    patches:
+    - CVE-2024-0684
 
 sources:
   (>):
