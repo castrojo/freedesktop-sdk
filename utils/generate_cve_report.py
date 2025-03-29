@@ -242,7 +242,8 @@ def is_recent_cve(cve_id: str) -> bool:
 
 if __name__ == "__main__":
     vuln_map = {}
-    for filename in sorted(glob.glob("nvdcve-1.1-*.json.gz")):
+    database_files = sorted(glob.glob("nvdcve-1.1-*.json.gz"))
+    for filename in database_files:
         for (
             cve_id,
             name,
@@ -262,7 +263,9 @@ if __name__ == "__main__":
     entries.sort(key=by_score, reverse=True)
 
     with open(sys.argv[2], "w", encoding="utf-8") as out:
-        if not entries:
+        if not database_files:
+            out.write("No CVE database files found\n")
+        elif database_files and not entries:
             out.write("No CVE data affecting any element found\n")
         else:
             out.write(
