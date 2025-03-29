@@ -66,3 +66,5 @@ public:
       - "%{debugdir}%{libdir}/libavahi-gobject.so*.debug"
   cpe:
     product: avahi
+    ignored:
+    - CVE-2021-26720
