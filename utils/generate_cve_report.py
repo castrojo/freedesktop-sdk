@@ -162,9 +162,14 @@ def extract_vulnerabilities(filename):
             if not module:
                 continue
             if vendor in module["exclude-vendor"]:
+                print(f"Ignoring vendor {vendor}, listed in exclude-vendor")
                 continue
 
-            if cve_id in module["patches"] or cve_id in module["ignored"]:
+            if cve_id in module["patches"]:
+                print(f"Ignoring {cve_id}, found in patches")
+                vulnerable = False
+            if cve_id in module["ignored"]:
+                print(f"Ignoring {cve_id}, found in ignored")
                 vulnerable = False
             elif module["version"] == version:
                 vulnerable = True
@@ -180,7 +185,9 @@ def extract_vulnerabilities(filename):
             else:
                 vulnerable = False
             if vulnerable:
-                print(product_name, cpe_match)
+                print(
+                    f"Found vulnerable: {cve_id} for vendor {vendor} and product {name}"
+                )
             yield (
                 cve_id,
                 module["name"],
@@ -259,6 +266,7 @@ if __name__ == "__main__":
             vulnerable,
         ) in extract_vulnerabilities(filename):
             if vulnerable:
+                print(f"Adding {cve_id} for {name} to final vulnerabilities map")
                 vuln_map[cve_id] = cve_id, name, version, summary, scorev2, scorev3
 
         check_unversioned_elements(filename, unversioned_git, unversioned_archive)
