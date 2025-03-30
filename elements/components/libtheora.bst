@@ -32,4 +32,4 @@ sources:
   exclude:
   - '*alpha*'
   - '*beta*'
-  ref: v1.1.1-0-g7ffd8b2ecfc2d93ae5e16028e7528e609266bfbf
+  ref: v1.2.0-0-g8e4808736e9c181b971306cc3f05df9e61354004
