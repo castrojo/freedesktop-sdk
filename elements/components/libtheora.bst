@@ -10,6 +10,10 @@ depends:
 - components/libpng.bst
 - components/cairo.bst
 
+variables:
+  conf-local: >-
+    --disable-examples
+
 public:
   bst:
     split-rules:
