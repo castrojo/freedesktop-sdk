@@ -7,10 +7,6 @@ depends:
 - public-stacks/runtime-minimal.bst
 - filename: components/libogg.bst
 
-variables:
-  autogen: ./autogen.sh %{conf-args}
-  build-dir: ''
-
 public:
   bst:
     split-rules:
@@ -19,11 +15,6 @@ public:
         - '%{libdir}/libtheora.so'
         - '%{libdir}/libtheoraenc.so'
         - '%{libdir}/libtheoradec.so'
-
-config:
-  configure-commands:
-  - |
-    %{autogen}
 
 sources:
 - kind: git_repo
