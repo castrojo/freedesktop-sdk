@@ -8,7 +8,6 @@ build-depends:
 - components/vala.bst
 - components/avahi.bst
 
-depends:
 - components/json-glib.bst
 - components/glib.bst
 - components/libsoup.bst
