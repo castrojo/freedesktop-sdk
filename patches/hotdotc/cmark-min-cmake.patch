@@ -1,0 +1,26 @@
+diff --git a/cmark/CMakeLists.txt b/cmark/CMakeLists.txt
+index ff97419..6b3cde0 100755
+--- a/cmark/CMakeLists.txt
++++ b/cmark/CMakeLists.txt
+@@ -1,9 +1,9 @@
+-cmake_minimum_required(VERSION 2.8.9)
++cmake_minimum_required(VERSION 3.5)
+ 
+ # prevent ugly developer warnings because version is set directly, not through project()
+ # it should be redone properly by using VERSION in project() if on CMake 3.x
+ if(CMAKE_MAJOR_VERSION GREATER 2)
+-    cmake_policy(SET CMP0048 OLD)
++    cmake_policy(SET CMP0048 NEW)
+ endif()
+ 
+ project(cmark)
+diff --git a/cmark/extensions/CMakeLists.txt b/cmark/extensions/CMakeLists.txt
+index e62d155..a048871 100644
+--- a/cmark/extensions/CMakeLists.txt
++++ b/cmark/extensions/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.8)
++cmake_minimum_required(VERSION 3.5)
+ set(LIBRARY "cmarkextensions")
+ set(LIBRARY_SOURCES
+     core-extensions.c

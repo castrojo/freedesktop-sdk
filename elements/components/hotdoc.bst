@@ -45,3 +45,5 @@ sources:
     sha256sum: c4d5dff647f03aa87a1d2d06035d2819edd099b91635e3b2ee390829357ae9fc
     suffix: 
       60/fd/32e24a747181e060ace04cd927698b2b5b3b90f6bf2c014e12df630c183a/hotdoc-0.17.4.tar.gz
+- kind: patch
+  path: patches/hotdotc/cmark-min-cmake.patch
