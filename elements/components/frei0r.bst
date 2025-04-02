@@ -6,6 +6,10 @@ depends:
   type: build
 - filename: components/cairo.bst
 
+variables:
+  cmake-local: >-
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+
 sources:
 - kind: git_repo
   url: github:dyne/frei0r.git

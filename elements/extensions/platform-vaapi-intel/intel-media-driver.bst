@@ -19,6 +19,7 @@ variables:
       arch-conf: -DARCH:STRING=32
 
   cmake-local: >-
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     -DCMAKE_INSTALL_LIBDIR="%{libdir}/dri/intel-vaapi-driver/lib"
     -DLIBVA_DRIVERS_PATH="%{libdir}/dri/intel-vaapi-driver"
     -DMEDIA_BUILD_FATAL_WARNINGS=OFF

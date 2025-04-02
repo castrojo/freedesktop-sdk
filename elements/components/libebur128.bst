@@ -6,6 +6,10 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 
+variables:
+  cmake-local: >-
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+
 public:
   bst:
     split-rules:

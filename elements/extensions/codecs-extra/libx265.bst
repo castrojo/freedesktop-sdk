@@ -14,6 +14,7 @@ variables:
   conf-root: "source"
 
   cmake-local: >-
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     -DLIB_INSTALL_DIR="%{libdir}"
     -DENABLE_SHARED=ON
     -DENABLE_CLI=OFF

@@ -5,6 +5,10 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 
+variables:
+  cmake-local: >-
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+
 sources:
 - kind: git_repo
   url: github:json-c/json-c.git

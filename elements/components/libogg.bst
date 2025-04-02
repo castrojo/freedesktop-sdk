@@ -7,6 +7,7 @@ depends:
 
 variables:
   cmake-local: |
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DBUILD_SHARED_LIBS:BOOL=ON
 
 public:

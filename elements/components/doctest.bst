@@ -8,6 +8,7 @@ build-depends:
 
 variables:
   cmake-local: >-
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     -DDOCTEST_WITH_TESTS=OFF
 
 sources:
