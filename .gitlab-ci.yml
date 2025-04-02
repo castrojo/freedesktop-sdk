@@ -690,13 +690,8 @@ publish_aarch64_tar:
 
 cve_report:
   stage: finish-publish
-  cache:
-    key: cve
-    paths:
-      - "${CI_PROJECT_DIR}/cve"
   script:
     - make generate-cve-report
-
   artifacts:
     paths:
       - "${CI_PROJECT_DIR}/cve-reports"
