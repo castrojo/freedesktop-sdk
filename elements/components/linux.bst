@@ -88,7 +88,7 @@ config:
 
   - |
     release=$(make -s kernelrelease)
-    find "%{install-root}%{indep-libdir}/modules/${release}" -type f -name '*.ko' | xargs -n 2 -r zstd -19 -T${MAXJOBS};
+    find "%{install-root}%{indep-libdir}/modules/${release}" -type f -name '*.ko' | xargs -n 2 -r zstd --rm -19 -T${MAXJOBS};
 
   - |
     release=$(make -s kernelrelease)
