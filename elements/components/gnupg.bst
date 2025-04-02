@@ -8,7 +8,7 @@ depends:
 - components/npth.bst
 - components/sqlite.bst
 - components/gnutls.bst
-
+- components/bzip2.bst
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
