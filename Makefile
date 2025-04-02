@@ -294,6 +294,16 @@ test-runtime-inheritance: $(REPO)
 	flatpak install -y --arch=$(FLATPAK_ARCH) --user fdo-sdk-test-repo org.freedesktop.{Platform,Sdk{,.Debug,.Docs,.Locale}}//$(BRANCH)
 	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean app tests/org.flatpak.ExampleRuntime.json
 
+test-ldd: export XDG_DATA_HOME=$(CURDIR)/runtime
+test-ldd: $(REPO)
+	flatpak remote-add --if-not-exists --user --no-gpg-verify fdo-sdk-test-repo $(REPO)
+	flatpak install -y --arch=$(FLATPAK_ARCH) --user fdo-sdk-test-repo org.freedesktop.{Platform,Sdk}//$(BRANCH)
+
+	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean --user --install app tests/test.ldd.check.json
+	flatpak --arch=$(FLATPAK_ARCH) run --devel test.ldd.check
+	flatpak --arch=$(FLATPAK_ARCH) run test.ldd.check
+
+	flatpak uninstall -y --all
 
 clean-repo:
 	rm -rf $(REPO)
@@ -513,7 +523,7 @@ secure-images-serve: secure-images/SHA256SUMS
 	build check-dev-files clean clean-oci clean-test clean-repo clean-runtime	\
 	export test-apps manifest markdown-manifest check-rpath		\
 	build-tar export-tar clean-vm build-vm run-vm export-snap	\
-	export-oci export-docker bootstrap test-codecs test-minimal-oci	 \
+	export-oci export-docker bootstrap test-codecs test-minimal-oci test-ldd \
 	clean-efi-vm build-efi-vm run-efi-vm				\
 	update-ostree ostree-serve run-ostree-vm			\
 	test-runtime-inheritance generate-keys clean-ostree-vm		\
