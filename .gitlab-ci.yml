@@ -233,7 +233,7 @@ check_mirrors:
       if [ "${ARCH}" = "i686" ]; then
         make export
       else
-        make test-apps test-codecs test-minimal-oci
+        make test-apps test-codecs test-ldd test-minimal-oci
       fi
 
     - |

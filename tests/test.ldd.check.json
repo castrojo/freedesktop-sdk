@@ -1,0 +1,35 @@
+{
+  "app-id": "test.ldd.check",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "23.08",
+  "sdk": "org.freedesktop.Sdk",
+  "command": "ldd-check.sh",
+  "modules": [
+    {
+      "name": "codec-list",
+      "buildsystem": "simple",
+      "build-commands": [
+        "install -Dm0755 check-ldd.py /app/bin/check-ldd",
+        "install -Dm0644 ldd-check-allowlist.json /app/share/ldd-check-allowlist.json",
+        "install -Dm0755 ldd-check.sh /app/bin/ldd-check.sh"
+      ],
+      "sources": [
+        {
+          "type": "file",
+          "path": "../utils/check-ldd.py"
+        },
+        {
+          "type": "file",
+          "path": "check-ldd/ldd-check-allowlist.json"
+        },
+        {
+          "type": "script",
+          "dest-filename": "ldd-check.sh",
+          "commands": [
+            "check-ldd --ignore-file \"/app/share/ldd-check-allowlist.json\""
+          ]
+        }
+      ]
+    }
+  ]
+}
