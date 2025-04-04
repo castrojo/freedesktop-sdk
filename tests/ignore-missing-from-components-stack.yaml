@@ -1,0 +1,5 @@
+# riscv64 only
+- opensbi-u-boot.bst
+# efitools pulls gnu-efi which doesn't build in ppc64le we build
+# efitools-bin-maybe in CI instead
+- efitools.bst
