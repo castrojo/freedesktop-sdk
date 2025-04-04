@@ -528,6 +528,7 @@ depends:
 - components/shared-mime-info.bst
 - components/shim-maybe.bst
 - components/sign-file.bst
+- components/skopeo.bst
 - components/slang.bst
 - components/slirp4netns.bst
 - components/sndfile.bst
