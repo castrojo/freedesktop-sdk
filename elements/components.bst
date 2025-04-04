@@ -138,6 +138,7 @@ depends:
 - components/giflib.bst
 - components/git-minimal.bst
 - components/git.bst
+- components/git-lfs.bst
 - components/glib-networking.bst
 - components/glib.bst
 - components/glibc-gconv-cache.bst
@@ -431,6 +432,7 @@ depends:
 - components/python3-editables.bst
 - components/python3-faust-cchardet.bst
 - components/python3-filelock.bst
+- components/python3-flake8.bst
 - components/python3-flit-core.bst
 - components/python3-frozenlist.bst
 - components/python3-gi-docgen.bst
