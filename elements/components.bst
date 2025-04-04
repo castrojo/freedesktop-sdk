@@ -135,6 +135,7 @@ depends:
 - components/giflib.bst
 - components/git-minimal.bst
 - components/git.bst
+- components/git-lfs.bst
 - components/glib-networking.bst
 - components/glib.bst
 - components/glibc-gconv-cache.bst
