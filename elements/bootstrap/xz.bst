@@ -29,6 +29,9 @@ public:
       devel:
         (>):
         - '%{libdir}/liblzma.so'
+  cpe:
+    patches:
+    - CVE-2025-31115
 
 (@):
 - elements/include/xz-source.yml

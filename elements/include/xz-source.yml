@@ -7,3 +7,5 @@ sources:
   ref: v5.4.1-0-g18b845e69752c975dfeda418ec00eda22605c2ee
 - kind: patch
   path: patches/xz/disable-test.patch
+- kind: patch
+  path: patches/xz/0001-CVE-2025-31115.patch
