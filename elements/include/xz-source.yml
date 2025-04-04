@@ -1,7 +1,7 @@
 sources:
 - kind: git_repo
   url: github:tukaani-project/xz.git
-  track: v*
+  track: v5.6.*
   exclude:
   - v*alpha
   - v*beta
