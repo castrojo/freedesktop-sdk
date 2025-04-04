@@ -6,3 +6,5 @@ sources:
   - v*alpha
   - v*beta
   ref: v5.6.4-0-gac50df0d89ce73f30430b8174e578071cbb4e056
+- kind: patch
+  path: patches/xz/0001-CVE-2025-31115.patch
