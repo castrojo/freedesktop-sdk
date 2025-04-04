@@ -5,6 +5,7 @@ build-depends:
 
 runtime-depends:
 - bootstrap-import.bst
+- components/util-linux-manifest.bst
 - components/libeconf.bst
 
 config:
