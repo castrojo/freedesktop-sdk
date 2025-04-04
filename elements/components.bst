@@ -388,7 +388,7 @@ depends:
 - components/plymouth-logo.bst
 - components/plymouth.bst
 - components/po4a.bst
-- components/podman-config.bst
+- components/containers-common.bst
 - components/podman.bst
 - components/polkit-gobject.bst
 - components/polkit.bst

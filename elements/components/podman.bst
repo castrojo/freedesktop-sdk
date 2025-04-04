@@ -9,9 +9,10 @@ build-depends:
 - public-stacks/buildsystem-make.bst
 
 depends:
+- components/containers-common.bst
+- components/gpgme.bst
 - components/libseccomp.bst
 - components/systemd-libs.bst
-- components/gpgme.bst
 - public-stacks/runtime-minimal.bst
 
 runtime-depends:
@@ -23,7 +24,6 @@ runtime-depends:
 - components/slirp4netns.bst
 - components/fuse-overlayfs.bst
 - components/iptables.bst
-- components/podman-config.bst
 
 environment:
   GOPATH: "%{build-root}"
