@@ -4,6 +4,7 @@ build-depends:
 - components/util-linux-base.bst
 
 runtime-depends:
+- components/util-linux-manifest.bst
 - public-stacks/runtime-minimal.bst
 - components/libeconf.bst
 - bootstrap/file.bst

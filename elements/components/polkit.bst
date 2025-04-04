@@ -5,6 +5,7 @@ build-depends:
 
 runtime-depends:
 - components/polkit-gobject.bst
+- components/polkit-manifest.bst
 - components/duktape.bst
 - components/linux-pam.bst
 
