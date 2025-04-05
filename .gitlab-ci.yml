@@ -94,6 +94,7 @@ lint:
     - ruff check
     - python utils/news_validator.py validate --path NEWS.yml
     - python utils/flatpak_branch_validator.py validate --path include/repo_branches.yml
+    - python utils/check-missing-components-stack.py --ignore-file tests/ignore-missing-from-components-stack.yaml
   rules:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
   needs: []
