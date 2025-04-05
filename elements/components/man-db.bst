@@ -10,6 +10,7 @@ depends:
 - components/less.bst
 - components/groff.bst
 - components/libpipeline.bst
+- components/libseccomp.bst
 - components/gzip.bst
 - components/lzip.bst
 - components/util-linux.bst
