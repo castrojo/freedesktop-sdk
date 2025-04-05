@@ -37,6 +37,7 @@ depends:
 - components/brotli.bst
 - components/btrfs-progs.bst
 - components/bubblewrap.bst
+- components/buildah.bst
 - components/buildbox.bst
 - components/buildstream2.bst
 - components/bzip2.bst
