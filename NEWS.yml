@@ -1,3 +1,107 @@
+Version: freedesktop-sdk-23.08.30
+Date: '2025-04-03'
+Description: |-
+  Changes in freedesktop-sdk-23.08.30
+   * mesa-sources: Update to 25.0.3
+   * openssh: Split sshd-session to vm
+   * pipewire-base: Split modules with missing dependencies to daemon
+   * Add a check for missing dependencies in ELF files
+   * Makefile: Drop mesa-git target
+   * Add a buildability test for final OCI export
+   * flatpak_branch_validator: Add makefile branch validation
+   * flatpak_branch_validator: Use common variables for regex patterns
+   * Update python3-tenacity to 9.1.2-0
+   * Update mesa-sdk to mesa-25.0.3-0
+   * Update hwdata to v0.394-0
+   * Update poppler to poppler-25.04.0-0
+   * Update python3-aiohttp to 3.11.15
+   * Update kmod to v34.2-0
+   * Update pcsc-lite to 2.3.2-0
+   * Update python3-multidict to 6.3.1
+   * Update vim to v9.1.1267-0
+   * Update mesa to mesa-25.0.2-0
+   * noopenh264: Install the actual noopenh264 library to Platform
+   * Drop openh264 extension point
+   * patch: Drop all patches
+   * Update patch to v2.8-0
+   * Update mutool to 1.25.6-0
+   * Update python3-aiohttp to 3.11.12
+   * Update python3-multidict to 6.3.0
+   * geoclue: Fix base element dependencies
+   * fwupd: Update plugin_logitech_bulkcontroller to protobuf
+   * fwupd: Remove dropped meson args
+   * Update fwupd to 2.0.7-0
+   * Update iwd to 3.5-0
+   * Update crun to 1.21-0
+   * Update btrfs-progs to v6.14-0
+   * openssh: Mark CVE-2025-26466 as ignored
+   * cpio: Ignore CVE-2010-4226
+   * gcc: Ignore CVE-2023-4039
+   * libarchive: Mark CVE-2025-1632 as ignored
+   * coreutils: Ignore CVE-2016-2781
+   * openssh: Mark CVE-2025-26465 as ignored
+   * openssh: Mark CVE-2023-51767 as ignored
+   * glibc: Mark a bunch of CVEs as fixed
+   * avahi: Ignore CVE-2021-26720
+   * libarchive: Ignore CVE-2024-37407
+   * apparmor: Ignore old CVE-2016-1585
+   * libtheora: Freeze to 1.1.1 due to soname bump
+   * Update inih to r59-0
+   * Update protobuf to v30.2-0
+   * Update libinput to 1.28.0-0
+   * generate_cve_report: Use elif instead of if
+   * check-debug-crc: Check for missing debug data too and fail if not found
+   * generate_cve_report: Log more about CVE decision process
+   * generate_cve_report: Log calculated version data from manifest
+   * generate_cve_report: Write a message if no database files were found
+   * generate_cve_report: Don't write empty tables
+   * Update buildbox to 1.3.9-0
+   * Update python3-propcache to v0.3.1-0
+   * Update python3-pyasn1-modules to 0.4.2
+   * Update fuse3 to fuse-3.17.1-0
+   * tar: Set vendor to ignore junk CPE data
+   * cups: Ignore false positive introduced by dbf343535
+   * Add version-data to a bunch of elements
+   * generate_cve_report.py: do not delete CVE from vulnerability map
+   * Makefile: Drop clean-cve from clean
+   * generate_cve_report: Write recent CVEs for unversioned git sources
+   * generate_cve_report: Hide CVE list for unversioned tarballs
+   * Makefile: Add a target to clean generated cve files
+   * Makefile: Clear cve-reports before moving
+   * efi: Partially backport 5e9e43db2 to fit in 6.14 kernel
+   * Drop some unused configs
+   * Update linux to v6.14-0
+   * qpdf: Freeze to 11.10.1
+   * Update buildbox to 1.3.8-0
+   * Update python3-pyparsing to 3.2.3
+   * Update strace to v6.14-0
+   * Update python3-typing-extensions to 4.13.0-0
+   * Update ell to 0.75-0
+   * Update python3-protobuf to 6.30.2
+   * Update python3-pytz to 2025.2
+   * Update python3-buildstream2 to 2.4.1-0
+   * Update gmmlib to intel-gmmlib-22.7.1-0
+   * Update wayland-protocols to 1.42-0
+   * Update python3-flit-core to 3.12.0-0
+   * passt: Switch to fdsdk_mirror
+   * Update passt to 2025_03_20.32f6212-0
+   * Update reference-abi to freedesktop-sdk-23.08.29-0
+   * Update python3-pyparsing to 3.2.2
+   * Update sbc to 2.1-0
+   * Update libevdev to libevdev-1.13.4-0
+   * Update iproute2 to v6.14.0-0
+   * Update parallel to 20250322-0
+   * Update ccache to v4.11.2-0
+   * Update jansson to v2.14.1-0
+   * ostree: Drop downstream patch
+   * Update ostree to v2025.2-0
+   * Update python3-setuptools-scm to 8.2.0
+   * Update tzdata to 2025b-0
+   * Update linux to v6.13.8-0
+   * Update libwacom to libwacom-2.15.0-0
+   * Update dictionaries to libreoffice-25.2.2.2-0
+   * Update mesa-sdk to mesa-25.0.2-0
+---
 Version: freedesktop-sdk-23.08.29
 Date: '2025-03-21'
 Description: |-
