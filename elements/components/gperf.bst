@@ -14,6 +14,7 @@ config:
     (<):
     - |
       cp gnulib/build-aux/{install-sh,mkinstalldirs,compile,ar-lib} build-aux/
+      cp -v gnulib/lib/filename.h %{build-root}/src/filename.h
 
     #FIXME: Explain *why* we cannot build the docs.
     # We need this hack to not build the docs
