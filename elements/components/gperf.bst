@@ -32,3 +32,5 @@ sources:
   url: savannah:gnulib.git
   directory: gnulib
   ref: v0.1-2785-gc01635497d830f181a2607279135b3fff041b936
+- kind: patch
+  path: patches/gperf/disable-tests.patch
