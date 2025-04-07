@@ -16,13 +16,6 @@ config:
       cp gnulib/build-aux/{install-sh,mkinstalldirs,compile,ar-lib} build-aux/
       cp -v gnulib/lib/filename.h %{build-root}/src/filename.h
 
-    #FIXME: Explain *why* we cannot build the docs.
-    # We need this hack to not build the docs
-    - |
-      sed -i 's/AC_CONFIG_SUBDIRS(\[lib src tests doc\])/AC_CONFIG_SUBDIRS(\[lib src tests\])/' configure.ac
-      #FIXME: Use a patch
-      sed -i '45d;46d;47d;48d;49d' configure.ac
-
 sources:
 - kind: git_repo
   url: savannah:gperf.git
@@ -34,3 +27,5 @@ sources:
   ref: v0.1-2785-gc01635497d830f181a2607279135b3fff041b936
 - kind: patch
   path: patches/gperf/disable-tests.patch
+- kind: patch
+  path: patches/gperf/partial-doc.patch
