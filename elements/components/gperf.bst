@@ -6,6 +6,9 @@ build-depends:
 depends:
 - bootstrap-import.bst
 
+variables:
+  autogen: autoreconf -ivf
+
 config:
   configure-commands:
     (<):
