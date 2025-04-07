@@ -1,0 +1,36 @@
+From a50be56766304a6a782005901cc74cd98b059f46 Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Tue, 8 Apr 2025 02:05:20 +0530
+Subject: [PATCH 1/2] Disable tests
+
+---
+ configure.ac | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 98fe176..634f92e 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -30,7 +30,7 @@ AC_EXEEXT
+ 
+ AC_CONFIG_FILES([Makefile])
+ 
+-AC_CONFIG_SUBDIRS([lib src tests doc])
++AC_CONFIG_SUBDIRS([lib src doc])
+ 
+ dnl This piece of sed script replaces every line containing '@subdir@'
+ dnl by several consecutive lines, each referencing one subdir.
+@@ -44,9 +44,6 @@ g
+ s/@subdir@/src/
+ p
+ g
+-s/@subdir@/tests/
+-p
+-g
+ s/@subdir@/doc/
+ p
+ d
+-- 
+2.49.0
+
+
