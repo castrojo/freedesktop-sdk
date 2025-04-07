@@ -1,0 +1,43 @@
+From 3712f13aec47f05dad3b600941dd9080575c82df Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Tue, 8 Apr 2025 02:06:16 +0530
+Subject: [PATCH 2/2] Disable info and html targets
+
+Depends on texinfo which in turn depends on a working text distribution
+---
+ doc/Makefile.in | 10 +---------
+ 1 file changed, 1 insertion(+), 9 deletions(-)
+
+diff --git a/doc/Makefile.in b/doc/Makefile.in
+index 699cbc4..afe23cd 100644
+--- a/doc/Makefile.in
++++ b/doc/Makefile.in
+@@ -64,7 +64,7 @@ SHELL = /bin/sh
+ 
+ VPATH = $(srcdir)
+ 
+-all : info pdf html man
++all : html man
+ 
+ 
+ info : $(srcdir)/gperf.info
+@@ -120,16 +120,8 @@ gperf.1-update : force
+ 
+ 
+ install : all force
+-	$(MKINSTALLDIRS) $(DESTDIR)$(infodir)
+-	$(INSTALL_DATA) $(srcdir)/gperf.info $(DESTDIR)$(infodir)/gperf.info
+ 	$(MKINSTALLDIRS) $(DESTDIR)$(man1dir)
+ 	$(INSTALL_DATA) $(srcdir)/gperf.1 $(DESTDIR)$(man1dir)/gperf.1
+-#	$(MKINSTALLDIRS) $(DESTDIR)$(dvidir)
+-#	$(INSTALL_DATA) $(srcdir)/gperf.dvi $(DESTDIR)$(dvidir)/gperf.dvi
+-#	$(MKINSTALLDIRS) $(DESTDIR)$(psdir)
+-#	$(INSTALL_DATA) $(srcdir)/gperf.ps $(DESTDIR)$(psdir)/gperf.ps
+-#	$(MKINSTALLDIRS) $(DESTDIR)$(pdfdir)
+-#	$(INSTALL_DATA) $(srcdir)/gperf.pdf $(DESTDIR)$(pdfdir)/gperf.pdf
+ 	$(MKINSTALLDIRS) $(DESTDIR)$(htmldir)
+ 	$(INSTALL_DATA) $(srcdir)/gperf.html $(DESTDIR)$(htmldir)/gperf.html
+ 
+-- 
+2.49.0
+
