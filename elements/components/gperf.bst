@@ -6,6 +6,9 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 
+variables:
+  autogen: autoreconf -ivf
+
 config:
   configure-commands:
     (<):
