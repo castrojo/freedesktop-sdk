@@ -42,6 +42,18 @@ sources:
 - kind: local
   path: files/avahi/avahi.conf
   directory: freedesktop-sdk
+- kind: patch
+  path: patches/avahi/0001-CVE-2021-3468.patch
+- kind: patch
+  path: patches/avahi/0002-CVE-2023-38469.patch
+- kind: patch
+  path: patches/avahi/0003-CVE-2023-38470.patch
+- kind: patch
+  path: patches/avahi/0004-CVE-2023-38471.patch
+- kind: patch
+  path: patches/avahi/0005-CVE-2023-38472.patch
+- kind: patch
+  path: patches/avahi/0006-CVE-2023-38473.patch
 
 public:
   bst:
@@ -68,3 +80,10 @@ public:
     product: avahi
     ignored:
     - CVE-2021-26720
+    patches:
+    - CVE-2021-3468
+    - CVE-2023-38469
+    - CVE-2023-38470
+    - CVE-2023-38471
+    - CVE-2023-38472
+    - CVE-2023-38473

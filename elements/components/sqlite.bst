@@ -31,8 +31,12 @@ public:
 
   cpe:
     vendor: 'sqlite'
+    patches:
+    - CVE-2023-7104
 
 sources:
 - kind: git_repo
   url: github:sqlite/sqlite.git
   ref: version-3.42.0-0-g89efa897780db03eac974eb6b0e041cfb7c39733
+- kind: patch
+  path: patches/sqlite/0001-CVE-2023-7104.patch

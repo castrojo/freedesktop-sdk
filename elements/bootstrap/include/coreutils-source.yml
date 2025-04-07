@@ -2,4 +2,5 @@ sources:
 - kind: tar
   url: ftp_gnu_org:coreutils/coreutils-9.4.tar.xz
   ref: ea613a4cf44612326e917201bbbcdfbd301de21ffc3b59b6e5c07e040b275e52
-
+- kind: patch
+  path: patches/coreutils/0001-CVE-2024-0684.patch

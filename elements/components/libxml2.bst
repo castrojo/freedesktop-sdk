@@ -25,6 +25,7 @@ public:
   cpe:
     ignored:
     - CVE-2016-3709
+    - CVE-2025-27113
 
 sources:
 - kind: git_repo
@@ -33,3 +34,5 @@ sources:
   ref: v2.11.9-0-g954e851e1d8d1f4c1dfbdf043623b3c11a1c723c
 - kind: patch
   path: patches/libxml2/libxml2-python-in-nodeWrap-deal-with-name-is-None-case.patch
+- kind: patch
+  path: patches/libxml2/0001-CVE-2025-27113.patch

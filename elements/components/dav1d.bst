@@ -18,9 +18,14 @@ public:
       devel:
         (>):
         - '%{libdir}/libdav1d.so'
+  cpe:
+    patches:
+    - CVE-2024-1580
 
 sources:
 - kind: git_repo
   url: git_https:code.videolan.org/videolan/dav1d.git
   track: '1.2.*'
   ref: 1.2.1-0-g8a6f054ef1e0f7886bc6e53e6be97c427154fe85
+- kind: patch
+  path: patches/dav1d/0001-CVE-2024-1580.patch

@@ -29,6 +29,7 @@ public:
   cpe:
     patches:
     - CVE-2022-48281
+    - CVE-2024-7006
 
 sources:
 - kind: git_repo
@@ -37,3 +38,5 @@ sources:
   exclude:
   - '*rc*'
   ref: v4.6.0-0-g8b20804fc0ddeaa93667b799b5e1a2a7dc9e3fb2
+- kind: patch
+  path: patches/libtiff/0001-CVE-2024-7006.patch

@@ -35,8 +35,12 @@ public:
       - '%{datadir}/**'
   cpe:
     product: linux-pam
+    patches:
+    - CVE-2024-22365
 
 sources:
 - kind: tar
   url: github_files:linux-pam/linux-pam/releases/download/v1.5.3/Linux-PAM-1.5.3.tar.xz
   ref: 7ac4b50feee004a9fa88f1dfd2d2fa738a82896763050cd773b3c54b0a818283
+- kind: patch
+  path: patches/linux-pam/CVE-2024-22365.patch
