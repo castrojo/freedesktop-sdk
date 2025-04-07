@@ -14,4 +14,4 @@ sources:
 - kind: git_repo
   url: github:PyO3/setuptools-rust.git
   track: v*
-  ref: v1.11.0-0-g1054e1c64518822c496ebd76ab0323e2d24936ff
+  ref: v1.11.1-0-gcc5c23399393f04197d6e6ec92648c1f504d8deb
