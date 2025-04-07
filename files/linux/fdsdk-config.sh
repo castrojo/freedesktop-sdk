@@ -621,6 +621,7 @@ case "$arch" in
     x86_64|i686)
         remove DRM_I915; module DRM_I915
         module DRM_GMA500
+        module DRM_XE
     ;;
     aarch64)
         module DRM_PANFROST
@@ -1168,6 +1169,7 @@ case "$arch" in
         enable IRQ_REMAP
         enable X86_AMD_PLATFORM_DEVICE
         enable CONFIG_X86_USER_SHADOW_STACK
+        enable PINCTRL_INTEL_PLATFORM
     ;;
 esac
 
