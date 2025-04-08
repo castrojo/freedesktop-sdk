@@ -1,29 +1,31 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
+
+variables:
+  autogen: autoreconf -ivf
 
 config:
   configure-commands:
     (<):
     - |
       cp gnulib/build-aux/{install-sh,mkinstalldirs,compile,ar-lib} build-aux/
-
-    #FIXME: Explain *why* we cannot build the docs.
-    # We need this hack to not build the docs
-    - |
-      sed -i 's/AC_CONFIG_SUBDIRS(\[lib src tests doc\])/AC_CONFIG_SUBDIRS(\[lib src tests\])/' configure.ac
-      #FIXME: Use a patch
-      sed -i '45d;46d;47d;48d;49d' configure.ac
+      cp -v gnulib/lib/filename.h %{build-root}/src/filename.h
 
 sources:
 - kind: git_repo
   url: savannah:gperf.git
   track: v*
-  ref: v3.1-0-g165bba235b2e3289967e505411500e08151f63e9
+  ref: v3.2-0-gfe7539a0f9afca81feca95b56723c19a33522f75
 - kind: git_repo
   url: savannah:gnulib.git
   directory: gnulib
   ref: v0.1-2785-gc01635497d830f181a2607279135b3fff041b936
+- kind: patch
+  path: patches/gperf/disable-tests.patch
+- kind: patch
+  path: patches/gperf/partial-doc.patch
