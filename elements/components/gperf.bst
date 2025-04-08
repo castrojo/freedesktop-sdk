@@ -20,7 +20,7 @@ sources:
 - kind: git_repo
   url: savannah:gperf.git
   track: v*
-  ref: v3.1-0-g165bba235b2e3289967e505411500e08151f63e9
+  ref: v3.2-0-gfe7539a0f9afca81feca95b56723c19a33522f75
 - kind: git_repo
   url: savannah:gnulib.git
   directory: gnulib
