@@ -20,6 +20,7 @@ public:
     patches:
     - CVE-2024-26256
     - CVE-2024-48957
+    - CVE-2024-48958
 
 sources:
 - kind: git_repo
@@ -29,3 +30,5 @@ sources:
   path: patches/libarchive/0001-CVE-2024-26256.patch
 - kind: patch
   path: patches/libarchive/0002-CVE-2024-48957.patch
+- kind: patch
+  path: patches/libarchive/0003-CVE-2024-48958.patch
