@@ -1,6 +1,6 @@
-diff -Nuar gst-plugins-rs-0.13.0.orig/crates/libsodium-sys-0.2.7/build.rs gst-plugins-rs-0.13.0/crates/libsodium-sys-0.2.7/build.rs
---- gst-plugins-rs-0.13.0.orig/crates/libsodium-sys-0.2.7/build.rs	2011-11-11 19:11:11.000000000 +0800
-+++ gst-plugins-rs-0.13.0/crates/libsodium-sys-0.2.7/build.rs	2024-08-27 12:05:40.740822219 +0800
+diff -Nuar gst-plugins-rs-0.13.0.orig/.vendored-crates/libsodium-sys-0.2.7/build.rs gst-plugins-rs-0.13.0/.vendored-crates/libsodium-sys-0.2.7/build.rs
+--- gst-plugins-rs-0.13.0.orig/.vendored-crates/libsodium-sys-0.2.7/build.rs	2011-11-11 19:11:11.000000000 +0800
++++ gst-plugins-rs-0.13.0/.vendored-crates/libsodium-sys-0.2.7/build.rs	2024-08-27 12:05:40.740822219 +0800
 @@ -149,7 +149,7 @@
      let build_compiler = cc::Build::new().get_compiler();
      let mut compiler = build_compiler.path().to_str().unwrap().to_string();
