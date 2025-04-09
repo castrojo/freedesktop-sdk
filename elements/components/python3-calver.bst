@@ -18,3 +18,5 @@ sources:
   url: github:di/calver.git
   track: '*.*.*'
   ref: 2025.04.02-0-ge9c8017caf3e3aff214fbb581ee7f366de55f629
+- kind: patch
+  path: patches/python3-calver/pyproject-license.patch
