@@ -367,14 +367,14 @@ sources:
     sha: 7dafe3a8757b027e2be6e4e5601ed563c55989fcf1546e933c66c8eb3a058d35
   - kind: git
     commit: 052084edb141065138e407dd6e53471ad166413f
-    repo: https://github.com/gtk-rs/gtk-rs-core
+    repo: github:gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: cairo-rs
     version: 0.20.9
   - kind: git
     commit: 052084edb141065138e407dd6e53471ad166413f
-    repo: https://github.com/gtk-rs/gtk-rs-core
+    repo: github:gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: cairo-sys-rs
@@ -693,7 +693,7 @@ sources:
     sha: d013fc25338cc558c5c2cfbad646908fb23591e2404481826742b651c9af7160
   - kind: git
     commit: 2afb025a327173ce891954c052e804d0f880368a
-    repo: https://github.com/rust-av/ffv1.git
+    repo: github:rust-av/ffv1.git
     query:
       rev: 2afb025a327173ce891954c052e804d0f880368a
     name: ffv1
@@ -712,7 +712,7 @@ sources:
     sha: 11faaf5a5236997af9848be0bef4db95824b1d534ebc64d0f0c6cf3e67bd38dc
   - kind: git
     commit: 833508af656d298c269f2397c8541a084264d992
-    repo: https://github.com/rust-av/flavors
+    repo: github:rust-av/flavors
     name: flavors
     version: 0.2.0
   - kind: registry
@@ -785,70 +785,70 @@ sources:
     sha: 9fa08315bb612088cc391249efdc3bc77536f16c91f6cf495e6fbe85b20a4a81
   - kind: git
     commit: 052084edb141065138e407dd6e53471ad166413f
-    repo: https://github.com/gtk-rs/gtk-rs-core
+    repo: github:gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: gdk-pixbuf
     version: 0.20.9
   - kind: git
     commit: 052084edb141065138e407dd6e53471ad166413f
-    repo: https://github.com/gtk-rs/gtk-rs-core
+    repo: github:gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: gdk-pixbuf-sys
     version: 0.20.9
   - kind: git
     commit: 20d14bdf598eb1a3bde54e68c32b92775b165bd4
-    repo: https://github.com/gtk-rs/gtk4-rs
+    repo: github:gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gdk4
     version: 0.9.6
   - kind: git
     commit: 20d14bdf598eb1a3bde54e68c32b92775b165bd4
-    repo: https://github.com/gtk-rs/gtk4-rs
+    repo: github:gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gdk4-sys
     version: 0.9.6
   - kind: git
     commit: 20d14bdf598eb1a3bde54e68c32b92775b165bd4
-    repo: https://github.com/gtk-rs/gtk4-rs
+    repo: github:gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gdk4-wayland
     version: 0.9.6
   - kind: git
     commit: 20d14bdf598eb1a3bde54e68c32b92775b165bd4
-    repo: https://github.com/gtk-rs/gtk4-rs
+    repo: github:gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gdk4-wayland-sys
     version: 0.9.6
   - kind: git
     commit: 20d14bdf598eb1a3bde54e68c32b92775b165bd4
-    repo: https://github.com/gtk-rs/gtk4-rs
+    repo: github:gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gdk4-win32
     version: 0.9.6
   - kind: git
     commit: 20d14bdf598eb1a3bde54e68c32b92775b165bd4
-    repo: https://github.com/gtk-rs/gtk4-rs
+    repo: github:gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gdk4-win32-sys
     version: 0.9.6
   - kind: git
     commit: 20d14bdf598eb1a3bde54e68c32b92775b165bd4
-    repo: https://github.com/gtk-rs/gtk4-rs
+    repo: github:gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gdk4-x11
     version: 0.9.6
   - kind: git
     commit: 20d14bdf598eb1a3bde54e68c32b92775b165bd4
-    repo: https://github.com/gtk-rs/gtk4-rs
+    repo: github:gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gdk4-x11-sys
@@ -875,35 +875,35 @@ sources:
     sha: 07e28edb80900c19c28f1072f2e8aeca7fa06b23cd4169cefe1af5aa3260783f
   - kind: git
     commit: 052084edb141065138e407dd6e53471ad166413f
-    repo: https://github.com/gtk-rs/gtk-rs-core
+    repo: github:gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: gio
     version: 0.20.9
   - kind: git
     commit: 052084edb141065138e407dd6e53471ad166413f
-    repo: https://github.com/gtk-rs/gtk-rs-core
+    repo: github:gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: gio-sys
     version: 0.20.9
   - kind: git
     commit: 052084edb141065138e407dd6e53471ad166413f
-    repo: https://github.com/gtk-rs/gtk-rs-core
+    repo: github:gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: glib
     version: 0.20.9
   - kind: git
     commit: 052084edb141065138e407dd6e53471ad166413f
-    repo: https://github.com/gtk-rs/gtk-rs-core
+    repo: github:gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: glib-macros
     version: 0.20.9
   - kind: git
     commit: 052084edb141065138e407dd6e53471ad166413f
-    repo: https://github.com/gtk-rs/gtk-rs-core
+    repo: github:gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: glib-sys
@@ -914,21 +914,21 @@ sources:
     sha: a8d1add55171497b4705a648c6b583acafb01d58050a51727785f0b2c8e0a2b2
   - kind: git
     commit: 052084edb141065138e407dd6e53471ad166413f
-    repo: https://github.com/gtk-rs/gtk-rs-core
+    repo: github:gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: gobject-sys
     version: 0.20.9
   - kind: git
     commit: 052084edb141065138e407dd6e53471ad166413f
-    repo: https://github.com/gtk-rs/gtk-rs-core
+    repo: github:gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: graphene-rs
     version: 0.20.9
   - kind: git
     commit: 052084edb141065138e407dd6e53471ad166413f
-    repo: https://github.com/gtk-rs/gtk-rs-core
+    repo: github:gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: graphene-sys
@@ -939,266 +939,266 @@ sources:
     sha: 5dfbfb3a6cfbd390d5c9564ab283a0349b9b9fcd46a706c1eb10e0db70bfbac7
   - kind: git
     commit: 20d14bdf598eb1a3bde54e68c32b92775b165bd4
-    repo: https://github.com/gtk-rs/gtk4-rs
+    repo: github:gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gsk4
     version: 0.9.6
   - kind: git
     commit: 20d14bdf598eb1a3bde54e68c32b92775b165bd4
-    repo: https://github.com/gtk-rs/gtk4-rs
+    repo: github:gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gsk4-sys
     version: 0.9.6
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-allocators
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-allocators-sys
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-app
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-app-sys
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-audio
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-audio-sys
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-base
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-base-sys
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-check
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-check-sys
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-gl
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-gl-egl
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-gl-egl-sys
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-gl-sys
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-gl-wayland
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-gl-wayland-sys
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-gl-x11
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-gl-x11-sys
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-net
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-net-sys
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-pbutils
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-pbutils-sys
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-rtp
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-rtp-sys
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-sdp
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-sdp-sys
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-sys
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-utils
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-video
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-video-sys
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-webrtc
     version: 0.23.5
   - kind: git
     commit: 3d31d72f08c7d11af64fd86309123cc7deed3ab4
-    repo: https://gitlab.freedesktop.org/gstreamer/gstreamer-rs
+    repo: freedesktop:gstreamer/gstreamer-rs
     query:
       branch: 0.23
     name: gstreamer-webrtc-sys
     version: 0.23.5
   - kind: git
     commit: 20d14bdf598eb1a3bde54e68c32b92775b165bd4
-    repo: https://github.com/gtk-rs/gtk4-rs
+    repo: github:gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gtk4
     version: 0.9.6
   - kind: git
     commit: 20d14bdf598eb1a3bde54e68c32b92775b165bd4
-    repo: https://github.com/gtk-rs/gtk4-rs
+    repo: github:gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gtk4-macros
     version: 0.9.6
   - kind: git
     commit: 20d14bdf598eb1a3bde54e68c32b92775b165bd4
-    repo: https://github.com/gtk-rs/gtk4-rs
+    repo: github:gtk-rs/gtk4-rs
     query:
       branch: 0.9
     name: gtk4-sys
@@ -1745,28 +1745,28 @@ sources:
     sha: 51f44edd08f51e2ade572f141051021c5af22677e42b7dd28a88155151c33594
   - kind: git
     commit: 052084edb141065138e407dd6e53471ad166413f
-    repo: https://github.com/gtk-rs/gtk-rs-core
+    repo: github:gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: pango
     version: 0.20.9
   - kind: git
     commit: 052084edb141065138e407dd6e53471ad166413f
-    repo: https://github.com/gtk-rs/gtk-rs-core
+    repo: github:gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: pango-sys
     version: 0.20.9
   - kind: git
     commit: 052084edb141065138e407dd6e53471ad166413f
-    repo: https://github.com/gtk-rs/gtk-rs-core
+    repo: github:gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: pangocairo
     version: 0.20.9
   - kind: git
     commit: 052084edb141065138e407dd6e53471ad166413f
-    repo: https://github.com/gtk-rs/gtk-rs-core
+    repo: github:gtk-rs/gtk-rs-core
     query:
       branch: 0.20
     name: pangocairo-sys
