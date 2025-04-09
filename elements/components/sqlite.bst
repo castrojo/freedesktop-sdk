@@ -37,6 +37,8 @@ public:
       devel:
         (>):
         - '%{libdir}/libsqlite3.so'
+      tcl:
+        - '%{indep-libdir}/tcl*/**'
 
   cpe:
     vendor: 'sqlite'
