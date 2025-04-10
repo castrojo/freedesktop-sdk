@@ -1,3 +1,189 @@
+Version: freedesktop-sdk-24.08.17
+Date: '2025-04-09'
+Description: |-
+  Changes in freedesktop-sdk-24.08.17
+   * Switch generate-cve-report to use nvd-cve-database gitlab mirror
+   * gperf: Update to 3.2
+   * gperf: Do a partial doc build
+   * gperf: Disable tests
+   * gperf: Import filename header from gnulib
+   * gperf: Regenerate configure
+   * gperf: Use build-depends
+   * Update libevdev to libevdev-1.13.4-0
+   * Update python3-setuptools to v78.1.0-0
+   * Update fuse3 to fuse-3.17.1-0
+   * Update opencl to v2.3.3-0
+   * ffmpeg: Add patch to fix vulkan crash on Nvidia
+   * Update btrfs-progs to v6.14-0
+   * Update python3-wheel to 0.46.0-0
+   * Update python3-flit-core to 3.12.0-0
+   * Update inih to r59-0
+   * Update glibc to glibc-2.40-112
+   * Update vim to v9.1.1279-0
+   * Update iproute2 to v6.14.0-0
+   * Update python3-virtualenv to 20.30.0-0
+   * Update expat to R_2_7_1-0
+   * Update iwd to 3.6-0
+   * Update python3-aiohttp to 3.11.16
+   * Update python3-pyasn1-modules to v0.4.2-0
+   * Update python3-tenacity to 9.1.2-0
+   * Add missing elements to components stack
+   * Add initial ignore list
+   * Add a check to ensure all elements in components are in components stack
+   * efitools: Fix missing depends key
+   * Special collect manifest element for util-linux and polkit
+   * Update nano to v8.4-0
+   * libtheora: Freeze due to soname bump
+   * Update python3-multidict to v6.3.2-0
+   * xz: Freeze to 5.6 branch
+   * xz: Add patch for CVE-2025-31115
+   * pipewire-base: Split modules with missing dependencies to daemon
+   * openssh: Split sshd-session to vm
+   * Add a check for missing dependencies in ELF files
+   * Makefile: Drop mesa-git target
+   * Add a buildability test for final OCI export
+   * Update parallel to 20250322-0
+   * Update mesa to mesa-25.0.3-0
+   * Update python3-typing-extensions to 4.13.0-0
+   * Update go to go1.24.2-0
+   * Update kmod to v34.2-0
+   * ostree: Drop downstream patch
+   * Update ostree to v2025.2-0
+   * Update libxkbcommon to xkbcommon-1.8.1-0
+   * Update gmmlib to intel-gmmlib-22.7.1-0
+   * cmake: Track v3 on stable branches
+   * Update mesa to mesa-25.0.2-0
+   * Update python3-aiohttp to 3.11.12
+   * Update python3-pyparsing to 3.2.3-0
+   * Update git to v2.49.0-0
+   * geoclue: Fix base element dependencies
+   * rust: Set download-ci-llvm to false
+   * rust: Update to 1.85
+   * Update tzdata to 2025b-0
+   * Update protobuf to v30.2-0
+   * Update mutool to 1.25.5-0
+   * Update python3-poetry-core to 2.1.2-0
+   * openssh: Mark CVE-2025-26466 as ignored
+   * openssh: Mark CVE-2025-26465 as ignored
+   * openssh: Mark CVE-2023-51767 as ignored
+   * cpio: Ignore CVE-2010-4226
+   * gcc: Ignore CVE-2023-4039
+   * coreutils: Ignore CVE-2016-2781
+   * libarchive: Mark CVE-2025-1632 as ignored
+   * avahi: Ignore CVE-2021-26720
+   * apparmor: Ignore old CVE-2016-1585
+   * Update glibc to glibc-2.40-111
+   * Update vim to v9.1.1258-0
+   * fwupd: Update plugin_logitech_bulkcontroller to protobuf
+   * fwupd: Remove dropped meson args
+   * Update fwupd to 2.0.7-0
+   * Update libinput to 1.28.0-0
+   * Update python3-filelock to 3.18.0-0
+   * Update python3-setuptools-scm to v8.2.1-0
+   * generate_cve_report: Use elif instead of if
+   * check-debug-crc: Check for missing debug data too and fail if not found
+   * generate_cve_report: Log more about CVE decision process
+   * generate_cve_report: Log calculated version data from manifest
+   * generate_cve_report: Write a message if no database files were found
+   * generate_cve_report: Don't write empty tables
+   * Update bluez to 5.80-0
+   * Update python3-protobuf to 6.30.2
+   * Update buildbox to 1.3.9-0
+   * Update crun to 1.21-0
+   * cups: Ignore false positive introduced by 663b75912
+   * generate_cve_report.py: do not delete CVE from vulnerability map
+   * Add version data to tk and lvm
+   * Update mesa-sdk to mesa-25.0.2-0
+   * Update sbc to 2.1-0
+   * Update wayland-protocols to 1.42-0
+   * Update python3-buildstream2 to 2.4.1-0
+   * Makefile: Drop clean-cve from clean
+   * libnotify: Set tentative vendor to gnome
+   * tar: Set vendor to ignore junk CPE data
+   * Add version-match data to a bunch of elements
+   * generate_cve_report: Write recent CVEs for unversioned git sources
+   * generate_cve_report: Hide CVE list for unversioned tarballs
+   * Makefile: Add a target to clean generated cve files
+   * Makefile: Clear cve-reports before moving
+   * Update python3-aiohappyeyeballs to v2.6.1-0
+   * Update python3-click to 8.1.8-0
+   * Update pcsc-lite to 2.3.2-0
+   * Update python3-propcache to v0.3.1-0
+   * Update python3-pytz to 2025.2
+   * Update strace to v6.14-0
+   * Update ghostscript to ghostpdl-10.05.0-0
+   * passt: Switch to fdsdk_mirror
+   * Update passt to 2025_03_20.32f6212-0
+   * sdk: Restore vulkan-headers
+   * vulkan-icd-loader: Fix dependencies
+   * vulkan-validation-layers: Fix dependency
+   * vulkan-tools: Fix dependencies
+   * mesa: Add missing dependency
+   * gstreamer-plugins-bad: Add missing dependency
+   * gstreamer-plugins-base: Add missing dependency
+   * gtk3: Fix dependency
+   * Update buildbox to 1.3.7-0
+   * Update python3-dbus to dbus-python-1.4.0-0
+   * Update kmod to v34.1-0
+   * Update libsoup to 3.6.5-0
+   * libnvme: Disable liburing support to avoid runtime dependency
+   * Update libnvme to v1.12-0
+   * Update jansson to v2.14.1-0
+   * Update extra-cmake-modules to v6.12.0-0
+   * pygobject: Track 3.50 for now
+   * Revert pygobject update to 3.50
+   * Update vim to v9.1.1230-0
+   * Update glibc to glibc-2.40-109
+   * Update libwacom to libwacom-2.15.0-0
+   * Update sdl2 to release-2.32.2-0
+   * Update gsettings-desktop-schemas to 48.0-0
+   * Update shadow to 4.17.4-0
+   * Update xorg-lib-sm to libSM-1.2.6-0
+   * Update netavark to v1.14.1-0
+   * Update shim to 16.0-0
+   * Update libxmlb to 0.3.22-0
+   * Update python3-setuptools to v77.0.3-0
+   * Update libical to v3.0.20-0
+   * validate_repo: Validate against the "wrong" pattern on 24.08
+   * ci: Add script to validate refs before repo push
+   * Suppress change in experimental API in orc
+   * Update orc to 0.4.41-0
+   * Ignore experimental ssls-export functions in curl
+   * curl: Disable ssls-export to drop new API addition
+   * Update curl to curl-8_12_1-0
+   * pcre2: Freeze to 10.44
+   * fontconfig: Freeze to 2.16
+   * util-linux-base: Track 2.40
+   * libxslt: Freeze due to backwards ABI break
+   * glib: Track 2.82
+   * Update python3-trove-classifiers to 2025.3.19.19-0
+   * Update python3-jinja2 to 3.1.6-0
+   * Update python3-aiohttp to 3.11.14
+   * Update libusb to v1.0.28-0
+   * Update python3-multidict to v6.2.0-0
+   * Update python3-setuptools to v76.1.0-0
+   * Update qpdf to v12.0.0-0
+   * Update protobuf to v30.1-0
+   * Update python3-attrs to 25.3.0-0
+   * Update python3-trove-classifiers to 2025.3.13.13-0
+   * ci: Update image
+   * Suppress ABI changes in private struct fields in libtasn1
+   * libtasn1: Update to v4.20
+   * libtasn1: Add a check to make sure right revision is tracked
+   * libtasn1: Convert gnulib to a seperate git_repo
+   * cairo: Disable lzo to prevent new dependencies
+   * Update cairo to 1.18.4-0
+   * Update reference-abi to freedesktop-sdk-24.08.16-0
+   * Update opensbi to v1.6-0
+   * Update gobject-introspection-base to 1.84.0-0
+   * Update python3-maturin to v1.8.3-0
+   * Update glibc to glibc-2.40-106
+   * Update vim to v9.1.1206-0
+   * Update linux-firmware to 20250311-0
+   * libtheora: Exclude beta tags
+   * Update expat to R_2_7_0-0
+   * gstreamer-source: Track 1.24 branch
+---
 Version: freedesktop-sdk-24.08.16
 Date: '2025-03-16'
 Description: |-
