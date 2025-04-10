@@ -2,6 +2,8 @@ Version: freedesktop-sdk-24.08.17
 Date: '2025-04-09'
 Description: |-
   Changes in freedesktop-sdk-24.08.17
+   * Update buildstream-plugins-community
+   * coreutils: re-enable groups
    * Switch generate-cve-report to use nvd-cve-database gitlab mirror
    * gperf: Update to 3.2
    * gperf: Do a partial doc build
