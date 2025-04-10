@@ -27,7 +27,7 @@ environment:
 variables:
   conf-local: >-
     --enable-install-program=hostname,arch
-    --enable-no-install-program=kill,uptime,groups
+    --enable-no-install-program=kill,uptime
     --enable-acl
     ac_cv_func_chown_works=yes
     gl_cv_func_chown_slash_works=yes
