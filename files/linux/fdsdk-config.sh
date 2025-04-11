@@ -445,9 +445,14 @@ module MT76x0E
 module MT76x0U
 module MT76x2E
 module MT76x2U
+module MT7603E
 module MT7915E
 module MT7921E
 module MT7921U
+module MT7921S
+module MT7925E
+module MT7925U
+module MT7996E
 module RT2400PCI
 module RT2500PCI
 module RT2500USB
