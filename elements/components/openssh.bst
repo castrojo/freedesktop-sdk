@@ -38,6 +38,7 @@ public:
       - "%{sysconfdir}/sshd_config"
       - "%{libexecdir}/sftp-server"
       - "%{libexecdir}/sshd-session"
+      - "%{libexecdir}/sshd-auth"
       - "%{mandir}/man5/sshd_config.5"
       - "%{mandir}/man8/sftp-server.8"
       - "%{mandir}/man8/sshd.8"
