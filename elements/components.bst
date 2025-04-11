@@ -232,7 +232,6 @@ depends:
 - components/libevdev.bst
 - components/libevent.bst
 - components/libexif.bst
-- components/libfdk-aac.bst
 - components/libffi.bst
 - components/libfido2.bst
 - components/libfl.bst

@@ -14,7 +14,6 @@ build-depends:
 - components/gstreamer-plugins-base.bst
 - components/gtk-doc.bst
 - components/libcamera.bst
-- components/libfdk-aac.bst
 - components/libusb.bst
 - components/liblc3.bst
 - components/libpulse.bst
@@ -43,6 +42,7 @@ variables:
     -Dman=enabled
     -Dbluez5-codec-ldac=disabled
     -Dbluez5-codec-aptx=disabled
+    -Dbluez5-codec-aac=disabled
     -Dlibcamera=enabled
     -Dpipewire-v4l2=disabled
     -Dlibcanberra=disabled

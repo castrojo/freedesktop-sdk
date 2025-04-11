@@ -16,7 +16,6 @@ runtime-depends:
 - components/libcamera.bst
 - components/liblc3.bst
 - components/libpulse.bst
-- components/libfdk-aac.bst
 - components/libebur128.bst
 
 config:

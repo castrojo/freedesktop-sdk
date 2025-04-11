@@ -4,10 +4,6 @@ description: Base ffmpeg we ship in the SDK, no patented codecs
 (@):
 - elements/include/ffmpeg.yml
 
-depends:
-  (>):
-  - components/libfdk-aac.bst
-
 variables:
   # Extra codecs not available in Fedora
   extra-encoders:
@@ -134,7 +130,6 @@ variables:
     zlib,zmbv,%{extra-decoders}
 
   conf-extra: >-
-    --enable-libfdk-aac
     --enable-encoder=%{encoders}
     --enable-decoder=%{decoders}
     --disable-decoder="h264,hevc,vc1,vvc"

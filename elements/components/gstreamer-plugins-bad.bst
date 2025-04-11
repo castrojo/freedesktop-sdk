@@ -9,7 +9,6 @@ depends:
 - components/gstreamer-plugins-base.bst
 - components/ladspa-sdk.bst
 - components/libdrm.bst
-- components/libfdk-aac.bst
 - components/libglvnd.bst
 - components/libnice.bst
 - components/librsvg.bst
@@ -43,7 +42,6 @@ variables:
     -Daom=enabled
     -Dbz2=enabled
     -Dcurl=enabled
-    -Dfdkaac=enabled
     -Dfrei0r=enabled
     -Dgl=enabled
     -Dhls=enabled
