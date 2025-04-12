@@ -20,11 +20,6 @@ VM_ARTIFACT_BOOT?=vm/boot/virt.bst
 VM_ARTIFACT_IMAGE?=vm/minimal/efi.bst
 VM_MACHINE_ID?=
 RUNTIME_VERSION?=master
-ifeq ($(RUNTIME_VERSION),master)
-TARGET_BRANCH=master
-else
-TARGET_BRANCH=release/$(RUNTIME_VERSION)
-endif
 
 FLATPAK_SUBJECT := $(shell git rev-parse HEAD)
 LAST_VERSION := $(shell awk '/^Version:/ {print $$2; exit}' NEWS.yml)

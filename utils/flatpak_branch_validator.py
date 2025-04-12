@@ -43,7 +43,7 @@ def validate(args):
 
     makefile_br = get_makefile_var("Makefile", "BRANCH")
 
-    if get_target_branch() == "master":
+    if get_target_branch() == os.environ["CI_DEFAULT_BRANCH"]:
         assert re.match(MAIN_BETA_REGEX, makefile_br) is not None, makefile_br
         assert re.match(MAIN_BETA_REGEX, flatpak_br) is not None, flatpak_br
         assert (
