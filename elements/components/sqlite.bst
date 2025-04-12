@@ -2,8 +2,6 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-make.bst
-- components/tcl.bst
-- components/patchelf.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -25,20 +23,12 @@ variables:
   make-args: >-
     LDFLAGS.rpath=""
 
-config:
-  install-commands:
-    (>):
-    - |
-      patchelf --remove-rpath %{install-root}%{indep-libdir}/tcl*/sqlite3/libtclsqlite3.so
-
 public:
   bst:
     split-rules:
       devel:
         (>):
         - '%{libdir}/libsqlite3.so'
-      tcl:
-        - '%{indep-libdir}/tcl*/**'
 
   cpe:
     vendor: 'sqlite'

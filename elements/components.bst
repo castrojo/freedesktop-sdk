@@ -554,7 +554,6 @@ depends:
 - components/systemd.bst
 - components/tar.bst
 - components/taglib.bst
-- components/tcl.bst
 - components/tex-gyre-fonts.bst
 - components/texinfo.bst
 - components/tpm2-pkcs11.bst
