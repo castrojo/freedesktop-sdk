@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:PyCQA/pycodestyle.git
   track: '*.*.*'
-  ref: '2.11.1-0-gcefd59cf8e8a199a978da491e75a37fe4d37de82'
+  ref: '2.13.0-0-g3f52426121985a1717c214aeac47650d5c729621'
