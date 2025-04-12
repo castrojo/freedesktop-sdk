@@ -10,7 +10,8 @@ url = "https://gitlab.com"
 proj_id = os.environ.get("CI_PROJECT_ID", "4339844")
 token = os.environ.get("FREEDESKTOP_API_KEY")
 
-branch_regex = r"^update/(components|include|abi|bootstrap|extensions)_.*[.](bst|yml)-diff_md5-.*-for-(master|release/\d{2}[.]08)$"
+default_branch = os.environ["CI_DEFAULT_BRANCH"]
+branch_regex = rf"^update/(components|include|abi|bootstrap|extensions)_.*[.](bst|yml)-diff_md5-.*-for-({default_branch}|release/\d{{2}}[.]08)$"
 
 gl = gitlab.Gitlab(url, private_token=token)
 project = gl.projects.get(proj_id, lazy=True)

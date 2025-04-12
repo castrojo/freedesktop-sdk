@@ -113,7 +113,7 @@ lint:
     - python utils/assign_marge.py
     - |
       case "${CI_COMMIT_REF_NAME}" in
-        master)
+        "${CI_DEFAULT_BRANCH}")
         ;;
         release/*)
         ;;
@@ -633,7 +633,7 @@ cve_report:
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK != "daily"'
     when: never
-  - if: '$CI_COMMIT_BRANCH == "master"'
+  - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
   - if: '$CI_COMMIT_BRANCH =~ /^release\/.*/'
   needs: []
 
@@ -648,7 +648,7 @@ markdown_manifest:
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule"'
     when: never
-  - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_BRANCH =~ /^release\/.*/'
+  - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH =~ /^release\/.*/'
   needs: []
 
 .reproducible_template:
@@ -717,7 +717,7 @@ reproducible_aarch64:
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule"'
     when: never
-  - if: '$CI_COMMIT_TAG || $CI_COMMIT_BRANCH == "master"'
+  - if: '$CI_COMMIT_TAG || $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
 
 publish_snap_x86_64:
   extends:

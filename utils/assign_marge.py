@@ -49,11 +49,12 @@ def should_skip_mr(mr):
 
 
 def main(dry_run):
-    is_master = os.getenv("CI_COMMIT_BRANCH", "") == "master"
+    default_br = os.environ["CI_DEFAULT_BRANCH"]
+    is_default_branch = os.getenv("CI_COMMIT_BRANCH", "") == default_br
     branches = [
-        "master",
-        f"release/{MASTER_VERSION - (1 if is_master else 0)}",
-        f"release/{MASTER_VERSION - (2 if is_master else 1)}",
+        f"{default_br}",
+        f"release/{MASTER_VERSION - (1 if is_default_branch else 0)}",
+        f"release/{MASTER_VERSION - (2 if is_default_branch else 1)}",
     ]
 
     gl = gitlab.Gitlab(GITLAB_URL, private_token=PRIVATE_TOKEN)
