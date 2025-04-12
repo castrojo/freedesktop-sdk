@@ -33,6 +33,7 @@ config:
   - components/polkit-gobject.bst
   - components/pygobject.bst
   - components/rtkit.bst
+  - components/ruby.bst
   - components/rust.bst
   - components/steam-devices.bst
   - components/sudo.bst
