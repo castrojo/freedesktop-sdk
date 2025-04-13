@@ -11,6 +11,6 @@ sources:
 - kind: pypi
   name: mako
   ref:
-    sha256sum: b5d65ff3462870feec922dbccf38f6efb44e5714d7b593a656be86663d8600ac
+    sha256sum: 99579a6f39583fa7e5630a28c3c1f440e4e97a414b80372649c0ce338da2ea28
     suffix: 
-      62/4f/ddb1965901bc388958db9f0c991255b2c469349a741ae8c9cd8a562d70a6/mako-1.3.9.tar.gz
+      9e/38/bd5b78a920a64d708fe6bc8e0a2c075e1389d53bef8413725c63ba041535/mako-1.3.10.tar.gz
