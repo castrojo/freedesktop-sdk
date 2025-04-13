@@ -26,4 +26,4 @@ sources:
 - kind: git_repo
   url: github:kcat/openal-soft.git
   track: '*.*.*'
-  ref: 1.24.2-0-gb621b5fce739525418f36e0474a46f9e1cab5e64
+  ref: 1.24.3-0-gdc7d7054a5b4f3bec1dc23a42fd616a0847af948
