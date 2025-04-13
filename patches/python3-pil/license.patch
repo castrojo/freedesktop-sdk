@@ -1,0 +1,21 @@
+--- ./pyproject.toml	2025-04-12 22:32:40.000000000 +0530
++++ ./pyproject.toml	2025-04-13 09:33:58.923548756 +0530
+@@ -1,7 +1,7 @@
+ [build-system]
+ build-backend = "backend"
+ requires = [
+-  "setuptools>=77",
++  "setuptools",
+ ]
+ backend-path = [
+   "_custom_build",
+@@ -14,8 +14,7 @@
+ keywords = [
+   "Imaging",
+ ]
+-license = "MIT-CMU"
+-license-files = [ "LICENSE" ]
++license = { text = "MIT-CMU" }
+ authors = [
+   { name = "Jeffrey A. Clark", email = "aclark@aclark.net" },
+ ]
