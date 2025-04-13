@@ -67,7 +67,6 @@ while [ $# -gt 0 ]; do
             ;;
         --noroot)
             noroot="1"
-            shift
             ;;
     esac
 done
