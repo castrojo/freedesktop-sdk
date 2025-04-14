@@ -40,29 +40,29 @@ def validate(args):
     if get_target_branch() == os.environ["CI_DEFAULT_BRANCH"]:
         assert re.match(MAIN_BETA_REGEX, makefile_br) is not None, makefile_br
         assert re.match(MAIN_BETA_REGEX, flatpak_br) is not None, flatpak_br
-        assert (
-            re.match(MAIN_BETA_EXTRA_REGEX, flatpak_extra_br) is not None
-        ), flatpak_extra_br
+        assert re.match(MAIN_BETA_EXTRA_REGEX, flatpak_extra_br) is not None, (
+            flatpak_extra_br
+        )
     else:
         assert re.match(MAIN_STABLE_REGEX, makefile_br) is not None, makefile_br
         assert re.match(MAIN_STABLE_REGEX, flatpak_br) is not None, flatpak_br
-        assert (
-            re.match(MAIN_STABLE_EXTRA_REGEX, flatpak_extra_br) is not None
-        ), flatpak_extra_br
+        assert re.match(MAIN_STABLE_EXTRA_REGEX, flatpak_extra_br) is not None, (
+            flatpak_extra_br
+        )
 
     assert re.match(SNAP_REGEX, snap_br) is not None, snap_br
 
     if re.match(MAIN_BETA_REGEX, makefile_br) is not None:
         assert re.match(MAIN_BETA_REGEX, flatpak_br) is not None, flatpak_br
-        assert (
-            re.match(MAIN_BETA_EXTRA_REGEX, flatpak_extra_br) is not None
-        ), flatpak_extra_br
+        assert re.match(MAIN_BETA_EXTRA_REGEX, flatpak_extra_br) is not None, (
+            flatpak_extra_br
+        )
 
     if re.match(MAIN_STABLE_REGEX, makefile_br) is not None:
         assert re.match(MAIN_STABLE_REGEX, flatpak_br) is not None, flatpak_br
-        assert (
-            re.match(MAIN_STABLE_EXTRA_REGEX, flatpak_extra_br) is not None
-        ), flatpak_extra_br
+        assert re.match(MAIN_STABLE_EXTRA_REGEX, flatpak_extra_br) is not None, (
+            flatpak_extra_br
+        )
 
 
 def main():
