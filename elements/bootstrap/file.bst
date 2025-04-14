@@ -12,6 +12,7 @@ build-depends:
     location: "%{sysroot}"
 
 runtime-depends:
+- bootstrap/zstd.bst
 - bootstrap/zlib.bst
 
 (@):
