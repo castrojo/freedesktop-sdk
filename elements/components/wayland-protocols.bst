@@ -15,4 +15,4 @@ sources:
 - kind: git_repo
   url: freedesktop:wayland/wayland-protocols.git
   track: '*.*'
-  ref: 1.42-0-ga8d2201f0bc35c56ceff063ded48d1ca6eeb7e2c
+  ref: 1.43-0-g4313a51a170efffece8f60f7a5dfdad135e6befa
