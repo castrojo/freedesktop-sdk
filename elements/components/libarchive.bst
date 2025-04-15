@@ -21,6 +21,7 @@ public:
     - CVE-2024-26256
     - CVE-2024-48957
     - CVE-2024-48958
+    - CVE-2024-48615
 
 sources:
 - kind: git_repo
