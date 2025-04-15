@@ -7,7 +7,7 @@ runtime-depends:
 - components/util-linux-manifest.bst
 - public-stacks/runtime-minimal.bst
 - components/libeconf.bst
-- bootstrap/file.bst
+- components/file.bst
 
 config:
   exclude:

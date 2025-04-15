@@ -7,7 +7,7 @@ build-depends:
 - components/texinfo.bst
 
 depends:
-- bootstrap/file.bst
+- components/file.bst
 - bootstrap/ncurses.bst
 - public-stacks/runtime-minimal.bst
 

@@ -96,6 +96,7 @@ depends:
 - components/fcitx5-gtk.bst
 - components/ffmpeg.bst
 - components/fftw.bst
+- components/file.bst
 - components/findutils.bst
 - components/flat-manager-client-minimal.bst
 - components/flat-manager-client.bst

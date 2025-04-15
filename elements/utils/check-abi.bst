@@ -4,7 +4,7 @@ build-depends:
 - public-stacks/runtime-minimal.bst
 
 runtime-depends:
-- bootstrap/file.bst
+- components/file.bst
 - components/python3.bst
 - components/python3-pyelftools.bst
 - components/libabigail.bst
