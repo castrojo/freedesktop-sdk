@@ -35,10 +35,7 @@ with open("services", "w", encoding="utf-8") as out:
         aliases = " ".join(aliases)
 
         out.write(
-            f"{add_delim(name)}"
-            f"{add_delim(port)}"
-            f"{add_delim(aliases)}"
-            f"{description}\n"
+            f"{add_delim(name)}{add_delim(port)}{add_delim(aliases)}{description}\n"
         )
 
 with open("protocols", "w", encoding="utf-8") as out:

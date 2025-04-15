@@ -32,15 +32,15 @@ for section, section_value in data.items():
     for error, error_value in section_value["error"].items():
         if error_value["manual_review"]:
             sys.stderr.write(
-                f'{section}:{error}: (MANUAL REVIEW) {error_value["text"]}\n'
+                f"{section}:{error}: (MANUAL REVIEW) {error_value['text']}\n"
             )
         else:
-            sys.stderr.write(f'{section}:{error}: (ERROR) {error_value["text"]}\n')
+            sys.stderr.write(f"{section}:{error}: (ERROR) {error_value['text']}\n")
             has_error = True
     for warning, warning_value in section_value["warn"].items():
-        sys.stderr.write(f'{section}:{warning}: (WARNING) {warning_value["text"]}\n')
+        sys.stderr.write(f"{section}:{warning}: (WARNING) {warning_value['text']}\n")
     for info, info_value in section_value["info"].items():
-        sys.stderr.write(f'{section}:{info}: (INFO) {info_value["text"]}\n')
+        sys.stderr.write(f"{section}:{info}: (INFO) {info_value['text']}\n")
 
 if has_error:
     sys.exit(1)
