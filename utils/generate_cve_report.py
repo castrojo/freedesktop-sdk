@@ -180,7 +180,7 @@ def extract_vulnerabilities(filename):
                     vulnerable = check_version_range(version, cpe_match)
                 except TypeError as exc:
                     raise SystemExit(
-                        f"{module} comparison against" f"{cpe_match} ({cve_id})"
+                        f"{module} comparison against {cpe_match} ({cve_id})"
                     ) from exc
             else:
                 vulnerable = False
