@@ -12,4 +12,4 @@ sources:
   track: v*
   exclude:
   - 'v*-*'
-  ref: v0.393-0-g2b7f8370a5b3b1552d8264b8665ed99ddfea0b57
+  ref: v0.394-0-gfa1ccf4e4944bdb4110025c5c40e4fee8c8de29b
