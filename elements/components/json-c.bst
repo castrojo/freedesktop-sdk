@@ -8,6 +8,7 @@ depends:
 variables:
   cmake-local: >-
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+    -DBUILD_STATIC_LIBS=OFF
 
 sources:
 - kind: git_repo
