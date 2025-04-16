@@ -16,6 +16,8 @@ config:
 public:
   cpe:
     version-match: '([0-9]*)_([0-9]*)'
+    patches:
+    - CVE-2025-1153
 
 sources:
 - kind: git_repo
@@ -24,3 +26,5 @@ sources:
   exclude:
   - binutils-2_41
   ref: binutils-2_44-0-g815d9a14cbbb3b81843f7566222c87fb22e7255d
+- kind: patch
+  path: patches/binutils/0001-CVE-2025-1153.patch
