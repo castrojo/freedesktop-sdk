@@ -10,6 +10,13 @@ variables:
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     -DBUILD_STATIC_LIBS=OFF
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libjson-c.so'
+
 sources:
 - kind: git_repo
   url: github:json-c/json-c.git
