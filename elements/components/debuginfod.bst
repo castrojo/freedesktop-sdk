@@ -5,19 +5,26 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- bootstrap/elfutils.bst
 - components/libarchive.bst
 - components/sqlite.bst
 - components/curl.bst
 - components/libmicrohttpd.bst
+- components/json-c.bst
+- components/bzip2.bst
 
 (@):
 - elements/bootstrap/include/elfutils-source.yml
 
-config:
-  install-commands:
-  - |
-    cd "%{build-dir}/debuginfod"
-    make -j1 install DESTDIR="%{install-root}"
+variables:
+  conf-local: >-
+    --enable-debuginfod
+    --enable-libdebuginfo
+  make-install-args: >-
+    %{make-args}
+    -C "debuginfod"
+    DESTDIR="%{install-root}"
+    install
 
 public:
   bst:
