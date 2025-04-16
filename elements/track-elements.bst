@@ -22,3 +22,4 @@ depends:
 - components/sbsigntools.bst
 - components/valgrind.bst
 - components/shim.bst
+- components/rr.bst
