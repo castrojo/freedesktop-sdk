@@ -508,6 +508,7 @@ depends:
 - components/python3.bst
 - components/qpdf.bst
 - components/rdfind.bst
+- components/rr-maybe.bst
 - components/rsync.bst
 - components/rtkit.bst
 - components/ruby.bst
