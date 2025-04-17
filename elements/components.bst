@@ -125,6 +125,7 @@ depends:
 - components/gawk.bst
 - components/gcab.bst
 - components/gdb.bst
+- components/gdb-debuginfod.bst
 - components/gdbm.bst
 - components/gdk-pixbuf.bst
 - components/genimage.bst

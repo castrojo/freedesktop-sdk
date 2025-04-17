@@ -1,5 +1,7 @@
 kind: autotools
-description: GNU debugger
+description: |
+  GNU debugger. This ships with a dummy libdebuginfod library. Use
+  components/gdb-debuginfod.bst for the actual libdebuginfod
 
 depends:
 - bootstrap/xxhash.bst
