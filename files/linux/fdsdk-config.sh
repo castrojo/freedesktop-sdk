@@ -697,6 +697,13 @@ case "$arch" in
     ;;
 esac
 
+# Hybrid graphics support
+case "$arch" in
+    x86_64)
+        enable VGA_SWITCHEROO
+    ;;
+esac
+
 # Needed for HDMI display on Rock 5B
 case "$arch" in
     aarch64)
