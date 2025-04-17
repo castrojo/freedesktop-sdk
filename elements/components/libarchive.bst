@@ -23,6 +23,7 @@ public:
     - CVE-2025-1632
     patches:
     - CVE-2024-48957
+    - CVE-2024-48958
 
 sources:
 - kind: git_repo
@@ -30,3 +31,5 @@ sources:
   ref: v3.7.4-0-g313aa1fa10b657de791e3202c168a6c833bc3543
 - kind: patch
   path: patches/libarchive/0001-CVE-2024-48957.patch
+- kind: patch
+  path: patches/libarchive/0002-CVE-2024-48958.patch
