@@ -1,18 +1,5 @@
-kind: pyproject
-
-build-depends:
-- components/_private/python3-build-bootstrap.bst
-- components/python3-flit-core.bst
-- components/python3-installer.bst
+kind: stack
 
 depends:
+- components/_private/python3-pyproject-hooks.bst
 - components/python3.bst
-
-variables:
-  strip-binaries: ''
-
-sources:
-- kind: git_repo
-  url: github:pypa/pyproject-hooks.git
-  track: '*.*.*'
-  ref: v1.2.0-0-g4b7c6d113fb89b755d762a88712c8a6873cddd47

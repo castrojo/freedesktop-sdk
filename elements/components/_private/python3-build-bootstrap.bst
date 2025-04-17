@@ -1,7 +1,10 @@
 kind: manual
 
+build-depends:
+- components/python3-minimal.bst
+
 depends:
-- components/python3.bst
+- public-stacks/runtime-minimal.bst
 
 config:
   install-commands:

@@ -33,3 +33,10 @@ variables:
 
   # Upstream default is -O3 and we should not override this
   local_flags: "-O3"
+
+config:
+  install-commands:
+    (>):
+    - |
+      mkdir -p %{install-root}%{bindir}
+      ln -s %{bindir}/python3 %{install-root}%{bindir}/python

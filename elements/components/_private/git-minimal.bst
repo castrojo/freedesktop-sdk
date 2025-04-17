@@ -4,14 +4,17 @@ kind: meson
 - elements/include/git.yml
 
 build-depends:
+- components/_private/meson.bst
+- components/expat.bst
 - components/gcc.bst
-- components/stripper.bst
 - components/gettext.bst
 - components/grep.bst
-- components/meson.bst
 - components/ninja.bst
+- components/openssl.bst
 - components/pkg-config.bst
+- components/python3-minimal.bst
 - components/sed.bst
+- components/stripper.bst
 - components/tar.bst
 
 depends:
