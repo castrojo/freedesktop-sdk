@@ -6,11 +6,14 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/gnutls.bst
 
 variables:
   conf-local: >-
     --disable-examples
     --disable-tools
+    --enable-https
+    --with-gnutls
 
 config:
   install-commands:
