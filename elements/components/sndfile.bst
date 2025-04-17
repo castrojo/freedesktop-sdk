@@ -24,6 +24,9 @@ variables:
     --enable-external-libs
 
 sources:
-- kind: tar
-  url: github_files:libsndfile/libsndfile/releases/download/1.2.2/libsndfile-1.2.2.tar.xz
-  ref: 3799ca9924d3125038880367bf1468e53a1b7e3686a934f098b7e1d286cdb80e
+- kind: git_repo
+  url: github:libsndfile/libsndfile.git
+  track: '*.*.*'
+  exclude:
+  - "*beta*"
+  ref: 1.2.2-0-g72f6af15e8f85157bd622ed45b979025828b7001
