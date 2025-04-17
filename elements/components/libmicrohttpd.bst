@@ -13,6 +13,13 @@ config:
     - |
       rm "%{install-root}%{infodir}/dir"
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libmicrohttpd.so'
+
 sources:
 - kind: git_repo
   url: git_https:git.gnunet.org/libmicrohttpd.git
