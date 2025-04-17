@@ -846,6 +846,8 @@ module USB_GSPCA_VICAM
 module USB_GSPCA_XIRLINK_CIT
 module USB_GSPCA_ZC3XX
 enable MEDIA_PCI_SUPPORT
+module USB_PWC
+enable USB_PWC_INPUT_EVDEV
 if has ACPI && has I2C && has X86; then
     module IPU_BRIDGE
     module VIDEO_IPU3_CIO2
