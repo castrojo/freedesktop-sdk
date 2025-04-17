@@ -14,6 +14,7 @@ variables:
     --disable-tools
     --enable-https
     --with-gnutls
+    --enable-largefile
 
 config:
   install-commands:
