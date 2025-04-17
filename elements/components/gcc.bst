@@ -172,3 +172,7 @@ public:
       static-allowlist:
         - '%{multiarch_libdir}/libstdc++.a'
         - '%{indep-libdir}/gcc/**/*.a'
+
+  cpe:
+    ignored:
+    - CVE-2023-4039
