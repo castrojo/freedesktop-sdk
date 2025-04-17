@@ -21,6 +21,7 @@ config:
     (>):
     - |
       rm "%{install-root}%{infodir}/dir"
+      rm -vf "%{install-root}%{infodir}"/*.png
 
 public:
   bst:
