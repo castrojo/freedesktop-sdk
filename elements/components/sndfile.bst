@@ -1,7 +1,7 @@
-kind: autotools
+kind: cmake
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-cmake.bst
 
 depends:
 - bootstrap-import.bst
@@ -22,8 +22,14 @@ public:
     - CVE-2024-50612
 
 variables:
-  conf-local: |
-    --enable-external-libs
+  cmake-local: >-
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+    -DBUILD_SHARED_LIBS=ON
+    -DENABLE_EXTERNAL_LIBS=ON
+    -DBUILD_TESTING=OFF
+    -DBUILD_PROGRAMS=OFF
+    -DBUILD_EXAMPLES=OFF
+
 
 sources:
 - kind: git_repo
