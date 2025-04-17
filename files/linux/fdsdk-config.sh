@@ -1529,6 +1529,16 @@ enable XFS_ONLINE_SCRUB
 enable XFS_QUOTA
 enable XFS_RT
 
+enable FSCACHE
+
+module CIFS
+enable CIFS_DEBUG
+enable CIFS_DFS_UPCALL
+enable CIFS_FSCACHE
+enable CIFS_POSIX
+enable CIFS_UPCALL
+enable CIFS_XATTR
+
 # Needed for FAT filesystems
 enable NLS_CODEPAGE_437
 enable NLS_ISO8859_1
