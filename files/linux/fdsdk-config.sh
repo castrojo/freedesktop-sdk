@@ -704,6 +704,11 @@ case "$arch" in
     ;;
 esac
 
+module RC_CORE
+module CEC_CORE
+enable MEDIA_CEC_RC
+enable MEDIA_CEC_SUPPORT
+
 # Needed for HDMI display on Rock 5B
 case "$arch" in
     aarch64)
