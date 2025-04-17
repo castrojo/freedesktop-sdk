@@ -3,7 +3,7 @@ description: GNU debugger
 
 depends:
 - bootstrap/xxhash.bst
-- components/debuginfod.bst
+- components/elfutils.bst
 - components/gmp.bst
 - components/mpfr.bst
 - components/python3.bst

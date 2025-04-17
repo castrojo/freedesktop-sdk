@@ -10,7 +10,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/elfutils.bst
+- components/elfutils.bst
 - components/glib.bst
 - components/libunwind.bst
 - components/svt-av1.bst

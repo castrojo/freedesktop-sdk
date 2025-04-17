@@ -86,6 +86,7 @@ depends:
 - components/ed.bst
 - components/efivar.bst
 - components/efitools-bin-maybe.bst
+- components/elfutils.bst
 - components/ell.bst
 - components/erofs-utils.bst
 - components/expat.bst

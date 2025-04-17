@@ -6,7 +6,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/elfutils.bst
+- components/elfutils.bst
 - bootstrap/binutils.bst
 - components/libxml2.bst
 

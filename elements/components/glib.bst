@@ -15,7 +15,7 @@ depends:
 - components/python3-packaging.bst
 
 runtime-depends:
-- bootstrap/elfutils.bst
+- components/elfutils.bst
 
 variables:
   meson-local: >-
