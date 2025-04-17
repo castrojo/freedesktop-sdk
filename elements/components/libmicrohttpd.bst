@@ -7,6 +7,11 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 
+variables:
+  conf-local: >-
+    --disable-examples
+    --disable-tools
+
 config:
   install-commands:
     (>):
