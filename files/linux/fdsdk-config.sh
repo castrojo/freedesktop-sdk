@@ -1250,6 +1250,19 @@ module HID_GENERIC
 if has ACPI && has I2C; then
     module I2C_HID_ACPI
     module I2C_HID_OF
+
+    # i2c VIDEO drivers
+    module VIDEO_HI556
+    module VIDEO_OV01A10
+    module VIDEO_OV08X40
+    module VIDEO_OV13B10
+    module VIDEO_OV2680
+    module VIDEO_OV2740
+    module VIDEO_OV5670
+    module VIDEO_OV5693
+    module VIDEO_OV7251
+    module VIDEO_OV8856
+    module VIDEO_OV8865
 fi
 enable HIDRAW
 module UHID
