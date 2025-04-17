@@ -21,8 +21,12 @@ public:
   cpe:
     ignored:
     - CVE-2025-1632
+    patches:
+    - CVE-2024-48957
 
 sources:
 - kind: git_repo
   url: github:libarchive/libarchive.git
   ref: v3.7.4-0-g313aa1fa10b657de791e3202c168a6c833bc3543
+- kind: patch
+  path: patches/libarchive/0001-CVE-2024-48957.patch
