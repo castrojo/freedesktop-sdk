@@ -1176,10 +1176,13 @@ esac
 if has ARCH_ENABLE_MEMORY_HOTPLUG; then
     enable MEMORY_HOTPLUG
     enable ACPI_HOTPLUG_MEMORY
-fi
 
-if has ARCH_ENABLE_MEMORY_HOTREMOVE; then
-    enable CONFIG_MEMORY_HOTREMOVE
+    if has ARCH_ENABLE_MEMORY_HOTREMOVE; then
+        enable MEMORY_HOTREMOVE
+        enable ZONE_DEVICE
+        enable DEVICE_PRIVATE
+        enable HMM_MIRROR
+    fi
 fi
 
 if has ACPI_NUMA; then
