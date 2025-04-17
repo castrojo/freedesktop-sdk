@@ -697,6 +697,16 @@ case "$arch" in
     ;;
 esac
 
+# VFIO
+module VFIO
+module VFIO_PCI
+
+case "$arch" in
+    x86_64)
+        enable VFIO_PCI_VGA
+    ;;
+esac
+
 # Hybrid graphics support
 case "$arch" in
     x86_64)
