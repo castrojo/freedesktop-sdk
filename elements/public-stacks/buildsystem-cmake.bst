@@ -4,4 +4,5 @@ kind: stack
 
 depends:
   (>):
+  - components/_private/recc.bst
   - components/cmake.bst
