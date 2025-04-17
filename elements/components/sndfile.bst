@@ -2,6 +2,7 @@ kind: cmake
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
+- components/python3-minimal.bst
 
 depends:
 - bootstrap-import.bst
