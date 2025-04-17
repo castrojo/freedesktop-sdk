@@ -1,0 +1,5 @@
+sources:
+- kind: git_repo
+  url: gitlab:BuildGrid/buildbox/buildbox.git
+  track: '*.*.*'
+  ref: 1.4.1-0-g5f0255032fa461795cbe1db46c3fa74c9beb12ec

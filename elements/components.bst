@@ -527,6 +527,7 @@ depends:
 - components/python3.bst
 - components/qpdf.bst
 - components/rdfind.bst
+- components/recc.bst
 - components/rr-maybe.bst
 - components/rsync.bst
 - components/rtkit.bst

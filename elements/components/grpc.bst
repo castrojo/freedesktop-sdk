@@ -4,7 +4,7 @@ kind: cmake
 - elements/include/grpc-source.yml
 
 build-depends:
-- public-stacks/buildsystem-cmake.bst
+- components/_private/buildsystem-cmake.bst
 
 depends:
 - components/abseil-cpp.bst

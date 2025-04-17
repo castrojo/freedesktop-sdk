@@ -8,4 +8,5 @@ depends:
 - components/gettext.bst
 - components/libtool.bst
 - components/pkg-config.bst
+- components/recc.bst
 - components/which.bst
