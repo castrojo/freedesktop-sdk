@@ -1244,6 +1244,7 @@ module HID_MULTITOUCH
 module HID_GENERIC
 if has ACPI && has I2C; then
     module I2C_HID_ACPI
+    module I2C_HID_OF
 fi
 enable HIDRAW
 module UHID
