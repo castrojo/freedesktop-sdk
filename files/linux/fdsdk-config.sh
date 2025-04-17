@@ -1617,6 +1617,27 @@ module MFD_AXP20X_I2C
 if has HAS_IOMEM && has EDAC_SUPPORT; then
     enable RAS
     module EDAC
+
+    case "$arch" in
+        x86_64)
+          module EDAC_AMD64
+          module EDAC_E752X
+          module EDAC_I10NM
+          module EDAC_I3000
+          module EDAC_I3200
+          module EDAC_I5100
+          module EDAC_I5400
+          module EDAC_I7300
+          module EDAC_I7CORE
+          module EDAC_I82975X
+          module EDAC_IE31200
+          module EDAC_IGEN6
+          module EDAC_PND2
+          module EDAC_SBRIDGE
+          module EDAC_SKX
+          module EDAC_X38
+        ;;
+    esac
 fi
 
 if has HAS_IOMEM; then
