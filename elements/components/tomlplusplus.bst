@@ -1,8 +1,7 @@
-kind: meson
+kind: cmake
 
 build-depends:
-- public-stacks/buildsystem-meson.bst
-- components/cmake.bst
+- components/_private/buildsystem-cmake.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

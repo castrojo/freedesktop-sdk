@@ -2,6 +2,7 @@ kind: stack
 
 depends:
 - public-stacks/buildsystem-make.bst
+- components/_private/recc.bst
 - components/autoconf-archive.bst
 - components/autoconf.bst
 - components/automake.bst
