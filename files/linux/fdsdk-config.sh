@@ -64,22 +64,55 @@ enable IKCONFIG
 enable IKCONFIG_PROC
 
 # Kernel crypto/hash API
+module CRYPTO_ADIANTUM
+module CRYPTO_AEGIS128
 module CRYPTO_AES
+module CRYPTO_AES_TI
+module CRYPTO_ANSI_CPRNG
 module CRYPTO_ARC4
+module CRYPTO_BLOWFISH
+module CRYPTO_CAMELLIA
+module CRYPTO_CAST5
+module CRYPTO_CAST6
 module CRYPTO_CBC
+module CRYPTO_CHACHA20
+module CRYPTO_CHACHA20POLY1305
 module CRYPTO_CMAC
 module CRYPTO_CRC32
 module CRYPTO_CRC32C
 module CRYPTO_CRCT10DIF
+module CRYPTO_CTS
+module CRYPTO_CURVE25519
+module CRYPTO_DEFLATE
 module CRYPTO_DES
+module CRYPTO_DH
+enable CRYPTO_DRBG_CTR
+enable CRYPTO_DRBG_HASH
 module CRYPTO_ECB
+module CRYPTO_ECDSA
+module CRYPTO_ECRDSA
+module CRYPTO_FCRYPT
 module CRYPTO_GHASH
 module CRYPTO_HMAC
+module CRYPTO_LRW
+module CRYPTO_LZ4
+module CRYPTO_LZ4HC
 module CRYPTO_MD4
 module CRYPTO_MD5
+module CRYPTO_PCBC
+module CRYPTO_PCRYPT
+module CRYPTO_POLY1305
+module CRYPTO_RMD160
+module CRYPTO_SERPENT
 module CRYPTO_SHA1
 module CRYPTO_SHA256
 module CRYPTO_SHA512
+module CRYPTO_TWOFISH
+module CRYPTO_USER
+module CRYPTO_USER_API_AEAD
+module CRYPTO_USER_API_RNG
+module CRYPTO_WP512
+module CRYPTO_XCBC
 module CRYPTO_XTS
 
 enable CRYPTO_USER_API_HASH
@@ -651,8 +684,6 @@ enable DRM_AMD_DC_SI
 enable DRM_RADEON_USERPTR
 enable DRM_AMDGPU_USERPTR
 enable DRM_AMD_ACP
-module SND_SOC
-module SND_SOC_AMD_ACP
 case "$arch" in
     x86_64|i686)
         remove DRM_I915; module DRM_I915
@@ -663,6 +694,28 @@ case "$arch" in
         module DRM_PANFROST
     ;;
 esac
+
+# VFIO
+module VFIO
+module VFIO_PCI
+
+case "$arch" in
+    x86_64)
+        enable VFIO_PCI_VGA
+    ;;
+esac
+
+# Hybrid graphics support
+case "$arch" in
+    x86_64)
+        enable VGA_SWITCHEROO
+    ;;
+esac
+
+module RC_CORE
+module CEC_CORE
+enable MEDIA_CEC_RC
+enable MEDIA_CEC_SUPPORT
 
 # Needed for HDMI display on Rock 5B
 case "$arch" in
@@ -801,6 +854,8 @@ module USB_GSPCA_VICAM
 module USB_GSPCA_XIRLINK_CIT
 module USB_GSPCA_ZC3XX
 enable MEDIA_PCI_SUPPORT
+module USB_PWC
+enable USB_PWC_INPUT_EVDEV
 if has ACPI && has I2C && has X86; then
     module IPU_BRIDGE
     module VIDEO_IPU3_CIO2
@@ -946,28 +1001,41 @@ remove SND_HDA_INTEL; module SND_HDA_INTEL # module only
 enable SND_HDA_RECONFIG
 enable SND_HDA_INPUT_BEEP
 enable SND_HDA_PATCH_LOADER
-module SND_HDA_CODEC_REALTEK
+enable SND_HDA_CODEC_CA0132_DSP
 module SND_HDA_CODEC_ANALOG
-module SND_HDA_CODEC_SIGMATEL
-module SND_HDA_CODEC_VIA
-module SND_HDA_CODEC_HDMI
-module SND_HDA_CODEC_CIRRUS
-module SND_HDA_CODEC_CONEXANT
 module SND_HDA_CODEC_CA0110
 module SND_HDA_CODEC_CA0132
-enable SND_HDA_CODEC_CA0132_DSP
+module SND_HDA_CODEC_CIRRUS
 module SND_HDA_CODEC_CMEDIA
+module SND_HDA_CODEC_CONEXANT
+module SND_HDA_CODEC_CS8409
+module SND_HDA_CODEC_HDMI
+module SND_HDA_CODEC_REALTEK
 module SND_HDA_CODEC_SI3054
+module SND_HDA_CODEC_SIGMATEL
+module SND_HDA_CODEC_VIA
+module SND_HDA_SCODEC_CS35L41_I2C
+module SND_HDA_SCODEC_CS35L41_SPI
+module SND_HDA_SCODEC_CS35L56_I2C
+module SND_HDA_SCODEC_CS35L56_SPI
+module SND_HDA_SCODEC_TAS2781_I2C
 
 # Other sound
-module SOUNDWIRE
+enable MEDIA_RADIO_SUPPORT
 enable SND_AC97_POWER_SAVE
+enable SND_CS46XX_NEW_DSP
+enable SND_ES1968_INPUT
+enable SND_ES1968_RADIO
+enable SND_FIREWIRE
+enable SND_FM801_TEA575X_BOOL
+enable SND_MAESTRO3_INPUT
+enable SND_USB_CAIAQ_INPUT
 module SND_AD1889
 module SND_ALI5451
 module SND_ALOOP
 module SND_ALS300
-module SND_ATIIXP_MODEM
 module SND_ATIIXP
+module SND_ATIIXP_MODEM
 module SND_AU8810
 module SND_AU8820
 module SND_AU8830
@@ -978,7 +1046,6 @@ module SND_BT87X
 module SND_CA0106
 module SND_CMIPCI
 module SND_CS4281
-enable SND_CS46XX_NEW_DSP
 module SND_CS46XX
 module SND_CTXFI
 module SND_DARLA20
@@ -986,39 +1053,31 @@ module SND_DARLA24
 module SND_DICE
 module SND_DUMMY
 module SND_ECHO3G
-module SND_EMU10K1X
 module SND_EMU10K1
+module SND_EMU10K1X
 module SND_ENS1370
 module SND_ENS1371
 module SND_ES1938
 module SND_ES1968
-enable SND_ES1968_INPUT
-enable MEDIA_RADIO_SUPPORT
-enable SND_ES1968_RADIO
-enable SND_FIREWIRE
 module SND_FIREFACE
 module SND_FIREWIRE_DIGI00X
 module SND_FIREWIRE_MOTU
 module SND_FIREWIRE_TASCAM
 module SND_FIREWORKS
 module SND_FM801
-enable SND_FM801_TEA575X_BOOL
 module SND_GINA20
 module SND_GINA24
-module SND_HDA_CODEC_CS8409
-module SND_HDA_SCODEC_CS35L41_I2C
-module SND_HDA_SCODEC_CS35L41_SPI
-module SND_HDSPM
 module SND_HDSP
+module SND_HDSPM
 module SND_ICE1712
 module SND_ICE1724
-module SND_INDIGODJX
-module SND_INDIGODJ
-module SND_INDIGOIOX
-module SND_INDIGOIO
 module SND_INDIGO
-module SND_INTEL8X0M
+module SND_INDIGODJ
+module SND_INDIGODJX
+module SND_INDIGOIO
+module SND_INDIGOIOX
 module SND_INTEL8X0
+module SND_INTEL8X0M
 module SND_ISIGHT
 module SND_KORG1212
 module SND_LAYLA20
@@ -1026,7 +1085,6 @@ module SND_LAYLA24
 module SND_LOLA
 module SND_LX6464ES
 module SND_MAESTRO3
-enable SND_MAESTRO3_INPUT
 module SND_MIA
 module SND_MIXART
 module SND_MONA
@@ -1040,26 +1098,28 @@ module SND_PCXHR
 module SND_PORTMAN2X4
 module SND_RIPTIDE
 module SND_RME32
-module SND_RME9652
 module SND_RME96
+module SND_RME9652
 module SND_SERIAL_U16550
-module SND_SOC_ES8316
 module SND_SONICVIBES
 module SND_TRIDENT
-module SND_USB_6FIRE
-module SND_USB_CAIAQ
-enable SND_USB_CAIAQ_INPUT
-module SND_USB_HIFACE
-module SND_USB_PODHD
-module SND_USB_POD
-module SND_USB_TONEPORT
-module SND_USB_UA101
 module SND_USB_VARIAX
-module SND_VIA82XX_MODEM
 module SND_VIA82XX
+module SND_VIA82XX_MODEM
 module SND_VIRMIDI
 module SND_VIRTUOSO
 module SND_VX222
+module SND_YMFPCI
+module SOUNDWIRE
+
+module SND_USB_6FIRE
+module SND_USB_CAIAQ
+module SND_USB_HIFACE
+module SND_USB_POD
+module SND_USB_PODHD
+module SND_USB_TONEPORT
+module SND_USB_UA101
+
 if has XEN; then
     module SND_XEN_FRONTEND
 fi
@@ -1071,6 +1131,8 @@ case "$arch" in
         module SND_ASIHPI
         module SND_PCSP
         module SND_USB_US122L
+        module SND_AMD_ASOC_ACP70
+        module SND_AMD_ASOC_RENOIR
     ;;
 esac
 case "$arch" in
@@ -1080,29 +1142,58 @@ case "$arch" in
 esac
 
 module SND_SOC
+module SND_SOC_AMD_ACP
+enable SND_SOC_SOF_TOPLEVEL
+module SND_SOC_CROS_EC_CODEC
+module SND_SOC_CS35L41_I2C
+module SND_SOC_CS35L56_I2C
+module SND_SOC_CS42L42
+module SND_SOC_ES8316
+module SND_SOC_HDA
 module SND_SOC_MAX98373_SDW
+module SND_SOC_NAU8315
 module SND_SOC_RT1308_SDW
 module SND_SOC_RT5682_SDW
 module SND_SOC_RT700_SDW
 module SND_SOC_RT711_SDW
 module SND_SOC_RT715_SDW
 module SND_SOC_SOF_PCI
-enable SND_SOC_SOF_TOPLEVEL
+module SND_SOC_TAS2781_I2C
 
 case "$arch" in
     x86_64|i686)
+        enable SND_SOC_INTEL_USER_FRIENDLY_LONG_NAMES
         enable SND_SOC_SOF_HDA_AUDIO_CODEC
         enable SND_SOC_SOF_HDA_LINK
         enable SND_SOC_SOF_INTEL_TOPLEVEL
+        module SND_SOC_AMD_ACP_COMMON
+        module SND_SOC_AMD_ACP_PCI
         module SND_SOC_AMD_ACP3x
         module SND_SOC_AMD_ACP5x
         module SND_SOC_AMD_ACP6x
         module SND_SOC_AMD_CZ_DA7219MX98357_MACH
         module SND_SOC_AMD_CZ_RT5645_MACH
-        module SND_SOC_AMD_RENOIR_MACH
+        module SND_SOC_AMD_LEGACY_MACH
+        module SND_SOC_AMD_PS
+        module SND_SOC_AMD_PS_MACH
         module SND_SOC_AMD_RENOIR
+        module SND_SOC_AMD_RENOIR_MACH
+        module SND_SOC_AMD_RPL_ACP6x
+        module SND_SOC_AMD_RV_RT5682_MACH
+        module SND_SOC_AMD_SOF_MACH
         module SND_SOC_AMD_VANGOGH_MACH
         module SND_SOC_AMD_YC_MACH
+        module SND_SOC_INTEL_AVS
+        module SND_SOC_INTEL_AVS_MACH_DA7219
+        module SND_SOC_INTEL_AVS_MACH_DMIC
+        module SND_SOC_INTEL_AVS_MACH_HDAUDIO
+        module SND_SOC_INTEL_AVS_MACH_MAX98373
+        module SND_SOC_INTEL_AVS_MACH_MAX98927
+        module SND_SOC_INTEL_AVS_MACH_NAU8825
+        module SND_SOC_INTEL_AVS_MACH_RT286
+        module SND_SOC_INTEL_AVS_MACH_RT5514
+        module SND_SOC_INTEL_AVS_MACH_RT5663
+        module SND_SOC_INTEL_AVS_MACH_SSM4567
         module SND_SOC_INTEL_BDW_RT5650_MACH
         module SND_SOC_INTEL_BDW_RT5677_MACH
         module SND_SOC_INTEL_BROADWELL_MACH
@@ -1116,12 +1207,21 @@ case "$arch" in
         module SND_SOC_INTEL_CHT_BSW_NAU8824_MACH
         module SND_SOC_INTEL_CHT_BSW_RT5645_MACH
         module SND_SOC_INTEL_CHT_BSW_RT5672_MACH
+        module SND_SOC_INTEL_CML_LP_DA7219_MAX98357A_MACH
+        module SND_SOC_INTEL_GLK_DA7219_MAX98357A_MACH
         module SND_SOC_INTEL_GLK_RT5682_MAX98357A_MACH
         module SND_SOC_INTEL_HASWELL_MACH
         module SND_SOC_INTEL_SKL_HDA_DSP_GENERIC_MACH
+        module SND_SOC_INTEL_SOF_CML_RT1011_RT5682_MACH
+        module SND_SOC_INTEL_SOF_CS42L42_MACH
+        module SND_SOC_INTEL_SOF_DA7219_MACH
+        module SND_SOC_INTEL_SOF_ES8336_MACH
+        module SND_SOC_INTEL_SOF_NAU8825_MACH
         module SND_SOC_INTEL_SOF_RT5682_MACH
+        module SND_SOC_INTEL_SOF_SSP_AMP_MACH
         module SND_SOC_INTEL_SOUNDWIRE_SOF_MACH
-        enable SND_SOC_INTEL_USER_FRIENDLY_LONG_NAMES
+        module SND_SOC_SOF_AMD_REMBRANDT
+        module SND_SOC_SOF_AMD_TOPLEVEL
     ;;
 esac
 
@@ -1143,10 +1243,13 @@ esac
 if has ARCH_ENABLE_MEMORY_HOTPLUG; then
     enable MEMORY_HOTPLUG
     enable ACPI_HOTPLUG_MEMORY
-fi
 
-if has ARCH_ENABLE_MEMORY_HOTREMOVE; then
-    enable CONFIG_MEMORY_HOTREMOVE
+    if has ARCH_ENABLE_MEMORY_HOTREMOVE; then
+        enable MEMORY_HOTREMOVE
+        enable ZONE_DEVICE
+        enable DEVICE_PRIVATE
+        enable HMM_MIRROR
+    fi
 fi
 
 if has ACPI_NUMA; then
@@ -1201,6 +1304,20 @@ module HID_MULTITOUCH
 module HID_GENERIC
 if has ACPI && has I2C; then
     module I2C_HID_ACPI
+    module I2C_HID_OF
+
+    # i2c VIDEO drivers
+    module VIDEO_HI556
+    module VIDEO_OV01A10
+    module VIDEO_OV08X40
+    module VIDEO_OV13B10
+    module VIDEO_OV2680
+    module VIDEO_OV2740
+    module VIDEO_OV5670
+    module VIDEO_OV5693
+    module VIDEO_OV7251
+    module VIDEO_OV8856
+    module VIDEO_OV8865
 fi
 enable HIDRAW
 module UHID
@@ -1455,6 +1572,16 @@ enable XFS_ONLINE_SCRUB
 enable XFS_QUOTA
 enable XFS_RT
 
+enable FSCACHE
+
+module CIFS
+enable CIFS_DEBUG
+enable CIFS_DFS_UPCALL
+enable CIFS_FSCACHE
+enable CIFS_POSIX
+enable CIFS_UPCALL
+enable CIFS_XATTR
+
 # Needed for FAT filesystems
 enable NLS_CODEPAGE_437
 enable NLS_ISO8859_1
@@ -1584,6 +1711,27 @@ module MFD_AXP20X_I2C
 if has HAS_IOMEM && has EDAC_SUPPORT; then
     enable RAS
     module EDAC
+
+    case "$arch" in
+        x86_64)
+          module EDAC_AMD64
+          module EDAC_E752X
+          module EDAC_I10NM
+          module EDAC_I3000
+          module EDAC_I3200
+          module EDAC_I5100
+          module EDAC_I5400
+          module EDAC_I7300
+          module EDAC_I7CORE
+          module EDAC_I82975X
+          module EDAC_IE31200
+          module EDAC_IGEN6
+          module EDAC_PND2
+          module EDAC_SBRIDGE
+          module EDAC_SKX
+          module EDAC_X38
+        ;;
+    esac
 fi
 
 if has HAS_IOMEM; then
@@ -2047,16 +2195,123 @@ enable PSI
 # Hardware monitors
 case "$arch" in
     x86_64|i686)
-        module SENSORS_K8TEMP
-        module SENSORS_K10TEMP
+        module SENSORS_ABITUGURU
+        module SENSORS_ABITUGURU3
+        module SENSORS_APPLESMC
+        module SENSORS_ASB100
+        module SENSORS_ASUS_EC
+        module SENSORS_ATK0110
+        module SENSORS_CORETEMP
+        module SENSORS_DELL_SMM
         module SENSORS_FAM15H_POWER
+        module SENSORS_FSCHMD
+        module SENSORS_I5500
+        module SENSORS_K10TEMP
+        module SENSORS_K8TEMP
         module SENSORS_NCT6683
         module SENSORS_NCT6775
         module SENSORS_NCT7802
         module SENSORS_NCT7904
-        module SENSORS_NCT7904
+        module SENSORS_VIA_CPUTEMP
     ;;
 esac
+
+module SENSORS_ACPI_POWER
+module SENSORS_AD7414
+module SENSORS_AD7418
+module SENSORS_ADCXX
+module SENSORS_ADM1025
+module SENSORS_ADM1026
+module SENSORS_ADM1029
+module SENSORS_ADM1031
+module SENSORS_ADM9240
+module SENSORS_ADS7828
+module SENSORS_ADS7871
+module SENSORS_ADT7411
+module SENSORS_ADT7462
+module SENSORS_ADT7470
+module SENSORS_ADT7475
+module SENSORS_AMC6821
+module SENSORS_AQUACOMPUTER_D5NEXT
+module SENSORS_ASC7621
+module SENSORS_ATXP1
+module SENSORS_CORSAIR_CPRO
+module SENSORS_CORSAIR_PSU
+module SENSORS_DME1737
+module SENSORS_DRIVETEMP
+module SENSORS_DS1621
+module SENSORS_DS620
+module SENSORS_EMC1403
+module SENSORS_EMC6W201
+module SENSORS_F71805F
+module SENSORS_F71882FG
+module SENSORS_F75375S
+module SENSORS_FTSTEUTATES
+module SENSORS_G760A
+module SENSORS_GL518SM
+module SENSORS_GL520SM
+module SENSORS_I5K_AMB
+module SENSORS_IBMAEM
+module SENSORS_IBMPEX
+module SENSORS_IT87
+module SENSORS_JC42
+module SENSORS_LINEAGE
+module SENSORS_LM63
+module SENSORS_LM70
+module SENSORS_LM73
+module SENSORS_LM75
+module SENSORS_LM77
+module SENSORS_LM78
+module SENSORS_LM80
+module SENSORS_LM83
+module SENSORS_LM85
+module SENSORS_LM87
+module SENSORS_LM90
+module SENSORS_LM92
+module SENSORS_LM93
+module SENSORS_LM95241
+module SENSORS_LM95245
+module SENSORS_LTC4151
+module SENSORS_LTC4215
+module SENSORS_LTC4245
+module SENSORS_LTC4261
+module SENSORS_MAX1111
+module SENSORS_MAX16065
+module SENSORS_MAX1619
+module SENSORS_MAX1668
+module SENSORS_MAX6639
+module SENSORS_MAX6650
+module SENSORS_NPCM7XX
+module SENSORS_NTC_THERMISTOR
+module SENSORS_PC87360
+module SENSORS_PC87427
+module SENSORS_PCF8591
+module SENSORS_SCH5627
+module SENSORS_SCH5636
+module SENSORS_SHT21
+module SENSORS_SHT3x
+module SENSORS_SIS5595
+module SENSORS_SMSC47B397
+module SENSORS_SMSC47M1
+module SENSORS_SMSC47M192
+module SENSORS_SPD5118
+module SENSORS_THMC50
+module SENSORS_TMP102
+module SENSORS_TMP401
+module SENSORS_TMP421
+module SENSORS_VIA686A
+module SENSORS_VT1211
+module SENSORS_VT8231
+module SENSORS_W83627EHF
+module SENSORS_W83627HF
+module SENSORS_W83773G
+module SENSORS_W83781D
+module SENSORS_W83791D
+module SENSORS_W83792D
+module SENSORS_W83793
+module SENSORS_W83795
+module SENSORS_W83L785TS
+module SENSORS_W83L786NG
 
 # LEDS
 enable LED_TRIGGER_PHY
@@ -2234,8 +2489,12 @@ case "$arch" in
         module MSI_WMI
         module NVIDIA_WMI_EC_BACKLIGHT
         module SENSORS_ASUS_WMI
+        module SENSORS_HP_WMI
         module SURFACE3_WMI
         module X86_ANDROID_TABLETS
+
+        # hdmi audio with DRM_I915
+        module HDMI_LPE_AUDIO
     ;;
 esac
 
