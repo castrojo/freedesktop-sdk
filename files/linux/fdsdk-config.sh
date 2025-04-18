@@ -119,9 +119,6 @@ enable CRYPTO_USER_API_HASH
 enable CRYPTO_USER_API_SKCIPHER
 
 case "$arch" in
-    i686)
-        module CRYPTO_AES_NI_INTEL
-    ;;
     x86_64)
         module CRYPTO_AES_NI_INTEL
         module CRYPTO_GHASH_CLMUL_NI_INTEL
@@ -129,18 +126,6 @@ case "$arch" in
         module CRYPTO_SHA256_SSSE3
         module CRYPTO_SHA512_SSSE3
         module CRYPTO_DES3_EDE_X86_64
-    ;;
-    arm)
-        module CRYPTO_SHA1_ARM
-        module CRYPTO_SHA1_ARM_NEON
-        module CRYPTO_SHA1_ARM_CE
-        module CRYPTO_SHA2_ARM_CE
-        module CRYPTO_SHA256_ARM
-        module CRYPTO_SHA512_ARM
-        module CRYPTO_AES_ARM
-        module CRYPTO_AES_ARM_BS
-        module CRYPTO_AES_ARM_CE
-        module CRYPTO_GHASH_ARM_CE
     ;;
     aarch64)
         module CRYPTO_SHA256_ARM64
@@ -292,7 +277,7 @@ case "$arch" in
 esac
 
 case "$arch" in
-    aarch64|arm)
+    aarch64)
         enable ARM_SCMI_PROTOCOL
         enable ARM_SCMI_TRANSPORT_VIRTIO
         enable ARM_SCMI_TRANSPORT_VIRTIO_VERSION1_COMPLIANCE
@@ -305,7 +290,7 @@ enable INPUT_TOUCHSCREEN
 enable INPUT_TABLET
 module INPUT_MOUSEDEV
 case "$arch" in
-    i686|x86_64)
+    x86_64)
         module KEYBOARD_APPLESPI
     ;;
 esac
@@ -349,7 +334,7 @@ module INPUT_UINPUT
 
 # for virtualbox
 case "$arch" in
-    i686|x86_64)
+    x86_64)
         enable VIRT_DRIVERS
         module VBOXGUEST
     ;;
@@ -357,7 +342,7 @@ esac
 
 # Hyper-V
 case "$arch" in
-    i686|x86_64|aarch64)
+    x86_64|aarch64)
         module HYPERV
         module PCI_HYPERV
         module HYPERV_BALLOON
@@ -370,7 +355,7 @@ esac
 
 # Xen
 case "$arch" in
-    i686|x86_64|aarch64)
+    x86_64|aarch64)
         enable XEN
         module XEN_SCSI_FRONTEND
     ;;
@@ -378,7 +363,7 @@ esac
 
 # VMWare
 case "$arch" in
-    i686|x86_64)
+    x86_64)
         module VMWARE_BALLOON
         module VMWARE_VMCI
         module VMWARE_PVSCSI
@@ -387,7 +372,7 @@ esac
 
 # Needed by some devices
 case "$arch" in
-    i686|x86_64)
+    x86_64)
         enable INTEL_TPMI
         enable INTEL_VSEC
         enable X86_INTEL_LPSS
@@ -396,7 +381,7 @@ esac
 
 # Device Tree and Open Firmware
 case "$arch" in
-    aarch64|arm)
+    aarch64)
         enable DTPM
         enable DTPM_CPU
         enable DTPM_DEVFREQ
@@ -533,7 +518,7 @@ module ACENIC
 module ENA_ETHERNET
 module AMD8111_ETH
 case "$arch" in
-    x86_64|i686|aarch64)
+    x86_64|aarch64)
         enable NET_VENDOR_AMD
         module AMD_XGBE
     ;;
@@ -645,7 +630,7 @@ if has PCMCIA; then
 fi
 module SMSC9420
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         module DWMAC_INTEL
     ;;
 esac
@@ -670,7 +655,7 @@ enable DRM_AMDGPU_SI
 enable DRM_AMDGPU_CIK
 enable DRM_AMD_DC
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         enable DRM_AMD_DC_FP
         enable DRM_AMD_SECURE_DISPLAY
     ;;
@@ -685,7 +670,7 @@ enable DRM_RADEON_USERPTR
 enable DRM_AMDGPU_USERPTR
 enable DRM_AMD_ACP
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         remove DRM_I915; module DRM_I915
         module DRM_GMA500
         module DRM_XE
@@ -729,7 +714,7 @@ esac
 module DRM_VIRTIO_GPU
 enable DRM_VIRTIO_GPU_KMS
 case "$arch" in
-    i686|x86_64)
+    x86_64)
         module DRM_VMWGFX
     ;;
 esac
@@ -784,7 +769,7 @@ module USB_ROLE_SWITCH
 module USB4
 module USB4_NET
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         module USB_LGM_PHY
         module USB_ROLES_INTEL_XHCI
     ;;
@@ -1127,7 +1112,7 @@ if has ISA_DMA_API; then
     module SND_ALS4000
 fi
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         module SND_ASIHPI
         module SND_PCSP
         module SND_USB_US122L
@@ -1136,7 +1121,7 @@ case "$arch" in
     ;;
 esac
 case "$arch" in
-    x86_64|i686|ppc64|ppc64le)
+    x86_64|ppc64|ppc64le)
         module SND_USB_USX2Y
     ;;
 esac
@@ -1161,7 +1146,7 @@ module SND_SOC_SOF_PCI
 module SND_SOC_TAS2781_I2C
 
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         enable SND_SOC_INTEL_USER_FRIENDLY_LONG_NAMES
         enable SND_SOC_SOF_HDA_AUDIO_CODEC
         enable SND_SOC_SOF_HDA_LINK
@@ -1280,7 +1265,7 @@ if has HAVE_ACPI_APEI; then
 fi
 
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         module ACPI_EXTLOG
         module ACPI_PROCESSOR_AGGREGATOR
         module ACPI_SBS
@@ -1289,7 +1274,7 @@ esac
 
 # acpi pmic
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         enable BXT_WC_PMIC_OPREGION
         enable BYTCRC_PMIC_OPREGION
         enable CHTCRC_PMIC_OPREGION
@@ -1328,7 +1313,7 @@ if has IOMMU_SUPPORT; then
     enable IOMMUFD
 fi
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         # pinctrl_amd might not work as module if it is loaded to late
         enable PINCTRL_AMD
         enable INTEL_IOMMU
@@ -1367,7 +1352,7 @@ esac
 
 # Performance monitoring
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         enable PERF_EVENTS_AMD_BRS
         enable PERF_EVENTS_INTEL_CSTATE
         enable PERF_EVENTS_INTEL_RAPL
@@ -1381,11 +1366,11 @@ esac
 enable HW_RANDOM
 enable HW_RANDOM_VIRTIO
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         enable HW_RANDOM_AMD
         enable HW_RANDOM_INTEL
     ;;
-    aarch64|arm)
+    aarch64)
         enable HW_RANDOM_ARM_SMCCC_TRNG
     ;;
 esac
@@ -1398,7 +1383,7 @@ module NVMEM_RMEM
 
 # I2C/SMBus
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         module I2C_PIIX4
         enable I2C_DESIGNWARE_CORE
         enable I2C_DESIGNWARE_PLATFORM
@@ -1545,7 +1530,7 @@ enable BLK_CGROUP
 
 # KVM
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         enable PARAVIRT_SPINLOCKS
         enable PARAVIRT_TIME_ACCOUNTING
         module KVM
@@ -1596,7 +1581,7 @@ enable FANOTIFY_ACCESS_PERMISSIONS
 # Extcon
 module EXTCON
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         module EXTCON_AXP288
         module EXTCON_INTEL_CHT_WC
     ;;
@@ -1608,7 +1593,7 @@ module CHARGER_BQ24190
 module BATTERY_BQ27XXX
 module BATTERY_MAX17042
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         module AXP288_CHARGER
         module AXP288_FUEL_GAUGE
         module BATTERY_SURFACE
@@ -1679,7 +1664,7 @@ module RC_CORE
 # PWM
 enable PWM
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         enable PWM_CRC
         module PWM_LPSS_PLATFORM
     ;;
@@ -1687,14 +1672,14 @@ esac
 
 # RTC
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         enable RTC_HCTOSYS
     ;;
 esac
 
 # MFD
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         enable PMIC_OPREGION
         enable INTEL_SOC_PMIC
         module INTEL_SOC_PMIC_BXTWC
@@ -1761,7 +1746,7 @@ if has HAVE_PCI; then
         fi
     fi
     case "$arch" in
-        i686|x86_64)
+        x86_64)
             module VMD
         ;;
     esac
@@ -2040,7 +2025,7 @@ module HID_ZYDACRON
 module HID_SONY
 enable SONY_FF
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         module INTEL_ISH_HID
         module SURFACE_HID
         module SURFACE_KBD
@@ -2062,7 +2047,7 @@ enable MOUSE_ELAN_I2C_SMBUS
 enable MOUSE_PS2_ELANTECH
 enable MOUSE_PS2_SENTELIC
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         enable MOUSE_PS2_VMMOUSE
     ;;
 esac
@@ -2194,7 +2179,7 @@ enable PSI
 
 # Hardware monitors
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         module SENSORS_ABITUGURU
         module SENSORS_ABITUGURU3
         module SENSORS_APPLESMC
@@ -2339,7 +2324,7 @@ module LEDS_TRIGGER_TIMER
 module LEDS_TRIGGER_TRANSIENT
 
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         module LEDS_APU
         module LEDS_INTEL_SS4200
     ;;
@@ -2349,7 +2334,7 @@ enable CPU_FREQ
 
 # cpufreq
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         enable CPU_FREQ_STAT
         enable X86_AMD_PSTATE
         module CPU_FREQ_GOV_CONSERVATIVE
@@ -2361,7 +2346,7 @@ case "$arch" in
         module X86_PCC_CPUFREQ
         module X86_POWERNOW_K8
     ;;
-    aarch64|arm)
+    aarch64)
         enable ACPI_CPPC_CPUFREQ_FIE
         enable ARM_PSCI_CPUIDLE_DOMAIN
         module CPUFREQ_DT
@@ -2372,7 +2357,7 @@ esac
 
 # Platforms
 case "$arch" in
-    aarch64|arm|x86_64|i686)
+    aarch64|x86_64)
         # Chrome Platform
         enable CHROME_PLATFORMS
         module CHARGER_CROS_USBPD
@@ -2399,7 +2384,7 @@ case "$arch" in
 esac
 
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         enable MLX_PLATFORM
         module CHROMEOS_LAPTOP
         module CHROMEOS_PSTORE
@@ -2524,7 +2509,7 @@ module CHARGER_SMB347
 enable POWERCAP
 enable IDLE_INJECT
 case "$arch" in
-    x86_64|i686)
+    x86_64)
         module INTEL_RAPL
     ;;
 esac

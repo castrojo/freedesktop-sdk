@@ -28,9 +28,6 @@ variables:
       src-arch: x86
   - target_arch == "aarch64":
       kernel_arch: arm64
-  - target_arch == "i686":
-      src-arch: x86
-      kernel_arch: i386
   - target_arch in ("ppc64", "ppc64le"):
       kernel_arch: powerpc
   - target_arch == "riscv64":
@@ -74,7 +71,7 @@ config:
     done
     # Only fail for...
     case "%{arch}" in
-      x86_64|i686|aarch64)
+      x86_64|aarch64)
         [ "${missing_configs}" = 0 ]
       ;;
     esac
