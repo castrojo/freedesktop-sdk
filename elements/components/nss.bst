@@ -43,8 +43,6 @@ variables:
       gyp-arch: x64
   - target_arch == 'i686':
       gyp-arch: ia32
-  - target_arch == 'arm':
-      gyp-arch: arm
   - target_arch == 'aarch64':
       gyp-arch: aarch64
   - target_arch == 'ppc64le':
