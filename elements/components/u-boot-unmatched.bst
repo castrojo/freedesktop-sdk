@@ -1,9 +1,9 @@
 kind: make
 
 description: |
-    This element should be consumed through u-boot-unmatched-maybe.bst
-    as this is specific to riscv. The board variable is set as a stub
-    to enable tracking
+  This element should be consumed through u-boot-unmatched-maybe.bst
+  as this is specific to riscv. The board variable is set as a stub
+  to enable tracking
 
 build-depends:
 - public-stacks/buildsystem-make.bst
@@ -41,7 +41,8 @@ config:
       fi
 
   install-commands:
-  - install -Dm644 -t "%{install-root}%{datadir}/u-boot/%{board}" u-boot.bin spl/u-boot-spl.bin u-boot.itb
+  - install -Dm644 -t "%{install-root}%{datadir}/u-boot/%{board}" u-boot.bin spl/u-boot-spl.bin
+    u-boot.itb
   - install -Dm755 -t "%{install-root}%{bindir}" tools/mkimage
 
 sources:
@@ -50,7 +51,7 @@ sources:
   track: v*
   exclude:
   - "*-rc*"
-  ref: v2025.01-0-g6d41f0a39d6423c8e57e92ebbe9f8c0333a63f72
+  ref: v2025.04-0-g34820924edbc4ec7803eb89d9852f4b870fa760a
 - kind: patch
   # This patch is a hack for vm/firmware/bootloader-unmatched.bst
   # The DTB from U-Boot is not in sync with the one from the kernel
