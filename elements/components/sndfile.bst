@@ -1,7 +1,8 @@
-kind: autotools
+kind: cmake
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-cmake.bst
+- components/python3-minimal.bst
 
 depends:
 - bootstrap-import.bst
@@ -22,12 +23,21 @@ public:
     - CVE-2024-50612
 
 variables:
-  conf-local: |
-    --enable-external-libs
+  cmake-local: >-
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+    -DBUILD_SHARED_LIBS=ON
+    -DENABLE_EXTERNAL_LIBS=ON
+    -DBUILD_TESTING=OFF
+    -DBUILD_PROGRAMS=OFF
+    -DBUILD_EXAMPLES=OFF
+
 
 sources:
-- kind: tar
-  url: github_files:libsndfile/libsndfile/releases/download/1.2.2/libsndfile-1.2.2.tar.xz
-  ref: 3799ca9924d3125038880367bf1468e53a1b7e3686a934f098b7e1d286cdb80e
+- kind: git_repo
+  url: github:libsndfile/libsndfile.git
+  track: '*.*.*'
+  exclude:
+  - "*beta*"
+  ref: 1.2.2-0-g72f6af15e8f85157bd622ed45b979025828b7001
 - kind: patch
   path: patches/sndfile/0001-CVE-2024-50612.patch
