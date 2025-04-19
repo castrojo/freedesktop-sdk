@@ -36,6 +36,6 @@ sources:
   track: v*
   exclude:
   - "*rc*"
-  ref: v2025.01-0-g6d41f0a39d6423c8e57e92ebbe9f8c0333a63f72
+  ref: v2025.04-0-g34820924edbc4ec7803eb89d9852f4b870fa760a
 - kind: patch
   path: patches/u-boot/riscv-pre-load-fdt.patch
