@@ -12,6 +12,6 @@ sources:
 - kind: pypi
   name: frozenlist
   ref:
-    sha256sum: 81d5af29e61b9c8348e876d442253723928dce6433e0e76cd925cd83f1b4b817
+    sha256sum: b99655c32c1c8e06d111e7f41c06c29a5318cb1835df23a45518e02a47c63b68
     suffix: 
-      8f/ed/0f4cec13a93c02c47ec32d81d11c0c1efbadf4a471e3f3ce7cad366cbbd3/frozenlist-1.5.0.tar.gz
+      ee/f4/d744cba2da59b5c1d88823cf9e8a6c74e4659e2b27604ed973be2a0bf5ab/frozenlist-1.6.0.tar.gz
