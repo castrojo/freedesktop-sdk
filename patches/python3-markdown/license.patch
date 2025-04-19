@@ -1,0 +1,20 @@
+--- ./pyproject.toml	2025-04-09 22:46:35.000000000 +0530
++++ ./pyproject.toml	2025-04-19 07:35:58.020610666 +0530
+@@ -1,6 +1,6 @@
+ [build-system]
+ # Minimum requirements for the build system to execute.
+-requires = ["setuptools>=77.0"]
++requires = ["setuptools"]
+ build-backend = "setuptools.build_meta"
+ 
+ [project]
+@@ -17,8 +17,7 @@
+     {name = 'Waylan Limberg', email = 'python.markdown@gmail.com'},
+     {name = 'Isaac Muse'}
+ ]
+-license = "BSD-3-Clause"
+-license-files = ["LICENSE.md"]
++license = {text = "BSD-3-Clause"}
+ requires-python = '>=3.9'
+ dependencies = [
+     "importlib-metadata>=4.4;python_version<'3.10'"
