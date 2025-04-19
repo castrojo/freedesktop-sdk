@@ -10,6 +10,8 @@ sources:
 - kind: pypi
   name: markdown
   ref:
-    sha256sum: 2ae2471477cfd02dbbf038d5d9bc226d40def84b4fe2986e49b59b6b472bbed2
+    sha256sum: 7df81e63f0df5c4b24b7d156eb81e4690595239b7d70937d0409f1b0de319c6f
     suffix: 
-      54/28/3af612670f82f4c056911fbbbb42760255801b3068c48de792d354ff4472/markdown-3.7.tar.gz
+      2f/15/222b423b0b88689c266d9eac4e61396fe2cc53464459d6a37618ac863b24/markdown-3.8.tar.gz
+- kind: patch
+  path: patches/python3-markdown/license.patch
