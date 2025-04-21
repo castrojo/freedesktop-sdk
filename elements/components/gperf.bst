@@ -7,16 +7,6 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 
-variables:
-  autogen: autoreconf -ivf
-
-config:
-  configure-commands:
-    (<):
-    - |
-      cp gnulib/build-aux/{install-sh,mkinstalldirs,compile,ar-lib} build-aux/
-      cp -v gnulib/lib/filename.h %{build-root}/src/filename.h
-
 sources:
 - kind: git_repo
   url: savannah:gperf.git
@@ -30,3 +20,5 @@ sources:
   path: patches/gperf/disable-tests.patch
 - kind: patch
   path: patches/gperf/partial-doc.patch
+- kind: patch
+  path: patches/gperf/disable-devel-makefile-paralel.patch
