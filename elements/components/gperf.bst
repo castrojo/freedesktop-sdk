@@ -2,6 +2,7 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- components/python3.bst
 
 depends:
 - bootstrap-import.bst
