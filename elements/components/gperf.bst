@@ -24,7 +24,7 @@ sources:
 - kind: git_repo
   url: savannah:gnulib.git
   directory: gnulib
-  ref: v0.1-2785-gc01635497d830f181a2607279135b3fff041b936
+  ref: v1.0-1692-gff657b72826c90b7a0247156c302d3600f9f2594
 - kind: patch
   path: patches/gperf/disable-tests.patch
 - kind: patch
