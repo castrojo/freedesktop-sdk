@@ -22,3 +22,5 @@ sources:
   path: patches/gperf/partial-doc.patch
 - kind: patch
   path: patches/gperf/disable-devel-makefile-paralel.patch
+- kind: patch
+  path: patches/gperf/html-doc-reproducible-date.patch
