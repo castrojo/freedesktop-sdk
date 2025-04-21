@@ -14,6 +14,11 @@ variables:
   meson-local: >-
     -Dsystemdunit="system"
 
+config:
+  install-commands:
+    (>):
+    - find "%{install-root}" -name "lib*.a" -delete
+
 sources:
 - kind: git_repo
   url: debian_salsa:rousseau/PCSC.git
