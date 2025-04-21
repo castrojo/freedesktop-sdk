@@ -1,0 +1,23 @@
+diff --git a/doc/texi2html b/doc/texi2html
+index ca8b5fc..8abac33 100755
+--- a/doc/texi2html
++++ b/doc/texi2html
+@@ -1838,12 +1838,14 @@ sub anchor {
+ }
+ 
+ sub pretty_date {
+-    local(@MoY, $sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst);
++    my $timestamp = $ENV{SOURCE_DATE_EPOCH} // 1577836800;
+ 
+-    @MoY = ('January', 'February', 'March', 'April', 'May', 'June',
+-	    'July', 'August', 'September', 'October', 'November', 'December');
+-    ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime(time);
++    my @MoY = ('January', 'February', 'March', 'April', 'May', 'June',
++               'July', 'August', 'September', 'October', 'November', 'December');
++
++    my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime($timestamp);
+     $year += ($year < 70) ? 2000 : 1900;
++
+     return("$mday $MoY[$mon] $year");
+ }
+ 
