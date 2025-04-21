@@ -1,0 +1,12 @@
+diff --git a/autogen.sh b/autogen.sh
+index a335f61..a38cac4 100755
+--- a/autogen.sh
++++ b/autogen.sh
+@@ -82,6 +82,6 @@ if test $skip_gnulib = false; then
+   $GNULIB_TOOL --copy-file build-aux/ar-lib; chmod a+x build-aux/ar-lib
+ fi
+ 
+-make -f Makefile.devel totally-clean all || exit $?
++make -j1 -f Makefile.devel totally-clean all || exit $?
+ 
+ echo "$0: done.  Now you can run './configure'."
