@@ -38,17 +38,17 @@ sources:
   track: v*
   exclude:
   - "v1.0.1"
-  ref: v0.62.3-0-g2875bdaafdf916815f46e0c3966cdde1ffa6854b
+  ref: v0.63.0-0-g27569a951475052035b46c5534dd3044dadb2f73
 - kind: git_repo
   url: github:containers/image.git
   directory: image
   track: v*
-  ref: v5.34.3-0-g0851c2a5b580edd3409d331e89489f88d3b1962a
+  ref: v5.35.0-0-g617c288ea0420502677c6211b416b7d2dfecc67b
 - kind: git_repo
   url: github:containers/storage.git
   directory: storage
   track: v*
-  ref: v1.57.2-0-g0dda9c21d191998706f6e68238e6b02318a6b105
+  ref: v1.58.0-0-g19ffd5bbbcceaba60eb9f60a7b361c61dcf50d13
 - kind: git_repo
   url: github:containers/shortnames.git
   directory: shortnames
