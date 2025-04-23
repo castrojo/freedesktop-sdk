@@ -11,4 +11,4 @@ sources:
 - kind: git_repo
   url: github:python-pillow/Pillow.git
   track: "*.*.*"
-  ref: 11.1.0-0-g4c1aed801e43c6b307e7135279ca1dbc02bbf052
+  ref: 11.2.1-0-g339bc5db93bd95decf65a59fab273f300db6594d
