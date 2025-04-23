@@ -36,6 +36,7 @@ depends:
 - components/python3-pip.bst
 - components/python3-wheel.bst
 - components/ruby.bst
+- components/rr-maybe.bst
 - components/strace.bst
 - components/texinfo.bst
 - components/valgrind-maybe.bst
