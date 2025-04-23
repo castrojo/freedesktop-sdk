@@ -14,6 +14,6 @@ sources:
 - kind: pypi
   name: setuptools_scm
   ref:
-    sha256sum: a18396a1bc0219c974d1a74612b11f9dce0d5bd8b1dc55c65f6ac7fd609e8c28
+    sha256sum: 360bc58c97e73d3db34f9052937454195ed5c29057a529b324cecbfc324509b3
     suffix: 
-      4b/bd/c5d16dd95900567e09744af92119da7abc5f447320d53ec1d9415ec30263/setuptools_scm-8.2.0.tar.gz
+      ae/c1/0eb89ad8a0aa7033bbd0cc9fb44a0090c20edaba495f291e31be010e6ec1/setuptools_scm-8.3.0.tar.gz
