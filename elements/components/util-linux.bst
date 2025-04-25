@@ -7,6 +7,7 @@ runtime-depends:
 - bootstrap-import.bst
 - components/util-linux-manifest.bst
 - components/libeconf.bst
+- components/sqlite.bst
 
 config:
   exclude:
