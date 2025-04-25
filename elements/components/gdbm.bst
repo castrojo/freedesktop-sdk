@@ -15,5 +15,5 @@ public:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:gdbm/gdbm-1.23.tar.gz
-  ref: 74b1081d21fff13ae4bd7c16e5d6e504a4c26f7cde1dca0d963a484174bbcacd
+  url: ftp_gnu_org:gdbm/gdbm-1.25.tar.gz
+  ref: d02db3c5926ed877f8817b81cd1f92f53ef74ca8c6db543fbba0271b34f393ec
