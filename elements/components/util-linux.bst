@@ -8,6 +8,7 @@ runtime-depends:
 - public-stacks/runtime-minimal.bst
 - components/libeconf.bst
 - components/file.bst
+- components/sqlite.bst
 
 config:
   exclude:
