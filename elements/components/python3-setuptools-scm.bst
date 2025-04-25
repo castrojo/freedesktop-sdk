@@ -14,4 +14,4 @@ sources:
 - kind: git_repo
   url: github:pypa/setuptools_scm.git
   track: v*
-  ref: v8.2.1-0-g94f36a0035b4a1dfb31b5b34086ad8f0860f86aa
+  ref: v8.3.1-0-gb6a20226f0d54442a3e5bd95eec0aefdc21e4a0d
