@@ -13,4 +13,4 @@ sources:
 - kind: git_repo
   url: git_https:gitlab.gnome.org/pwithnall/libgsystemservice.git
   track: '*.*'
-  ref: 0.2.0-0-gbb53a665a769dadb85d2e1197572ee7fe919f56d
+  ref: 0.3.0-0-gf4c5764652b5f347347b459ee011e4f02b29c3a0
