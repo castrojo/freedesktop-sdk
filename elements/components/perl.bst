@@ -22,9 +22,16 @@ environment:
 config:
   configure-commands:
   - |
+    ABI_VERSION="$(awk '/^#define PERL_REVISION/ {r=$3} /^#define PERL_VERSION/ {v=$3} END {print r "." v}' patchlevel.h)"
     sh Configure -des \
       -Dprefix="%{prefix}" \
       -Dvendorprefix="%{prefix}" \
+      -Dprivlib="%{indep-libdir}/perl5/$ABI_VERSION" \
+      -Darchlib="%{indep-libdir}/perl5/$ABI_VERSION/%{gcc_triplet}" \
+      -Dsitelib="%{indep-libdir}/perl5/site_perl/$ABI_VERSION" \
+      -Dsitearch="%{indep-libdir}/perl5/site_perl/$ABI_VERSION/%{gcc_triplet}" \
+      -Dvendorlib="%{indep-libdir}/perl5/vendor_perl/$ABI_VERSION" \
+      -Dvendorarch="%{indep-libdir}/perl5/vendor_perl/$ABI_VERSION/%{gcc_triplet}" \
       -Dman1dir="%{mandir}/man1" \
       -Dman3dir="%{mandir}/man3" \
       -Dlibpth="%{libdir}" \
