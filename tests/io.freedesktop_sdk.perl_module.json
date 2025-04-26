@@ -1,0 +1,40 @@
+{
+    "app-id": "io.freedesktop_sdk.perl_module",
+    "runtime": "org.freedesktop.Sdk",
+    "runtime-version": "25.08beta",
+    "sdk": "org.freedesktop.Sdk",
+    "command": "perl-test",
+    "modules": [
+        {
+            "name": "perl-json",
+            "buildsystem": "simple",
+            "build-commands": [
+                "perl Makefile.PL PREFIX=/app && make && make install"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.10.tar.gz",
+                    "mirror-urls": [
+                        "https://mirrors.slackware.com/slackware/slackware-current/source/d/perl/JSON-4.10.tar.gz",
+                        "https://distfiles.alpinelinux.org/distfiles/v3.17/JSON-4.10.tar.gz"
+                    ],
+                    "sha256": "df8b5143d9a7de99c47b55f1a170bd1f69f711935c186a6dc0ab56dd05758e35"
+                }
+            ]
+        },
+        {
+            "name": "test",
+            "buildsystem": "simple",
+            "build-commands": [
+                "install -Dm0755 perl-test.sh ${FLATPAK_DEST}/bin/perl-test"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "path": "perl-test.sh"
+                }
+            ]
+        }
+    ]
+}

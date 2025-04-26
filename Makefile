@@ -265,6 +265,8 @@ test-apps: $(REPO)
 	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean --user --install app tests/io.freedesktop_sdk.ComplexMaths.json
 	flatpak --arch=$(FLATPAK_ARCH) run io.freedesktop_sdk.ComplexMaths
 
+	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean --user --install app tests/io.freedesktop_sdk.perl_module.json
+	flatpak --arch=$(FLATPAK_ARCH) run io.freedesktop_sdk.perl_module
 
 test-codecs: export XDG_DATA_HOME=$(CURDIR)/runtime
 test-codecs: $(REPO)
