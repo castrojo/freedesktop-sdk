@@ -91,4 +91,4 @@ sources:
   - v*-rc*
   - v*-devel*
   - v*-start*
-  ref: v2.40.4-0-gdbcc687f6ab1568982cdf3fe391c0beb818b7e28
+  ref: v2.41-0-gcaa26876bc75041833c9644491cc2670d623f750
