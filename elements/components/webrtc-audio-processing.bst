@@ -29,3 +29,5 @@ sources:
   url: freedesktop:pulseaudio/webrtc-audio-processing.git
   track: v*
   ref: v2.1-0-g846fe90a289f58b7c9303a635142aa2c7caa93e5
+- kind: patch
+  path: patches/webrtc-audio-processing/gcc15.patch
