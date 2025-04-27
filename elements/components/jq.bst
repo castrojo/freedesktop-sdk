@@ -7,6 +7,9 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 
+variables:
+  local_flags: -std=gnu17
+
 config:
   configure-commands:
     (<):

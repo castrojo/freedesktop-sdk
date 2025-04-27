@@ -18,6 +18,7 @@ build-depends:
 - components/cargo-c.bst
 
 variables:
+  local_flags: -std=gnu17
   meson-local: >-
     -Dtests=false
 

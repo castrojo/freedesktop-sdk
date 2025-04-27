@@ -25,6 +25,7 @@ variables:
   debuginfo-level-std: '1'
   rust-target: '%{host-triplet}'
   build-docs: 'true'
+  local_flags: -std=gnu17
   (?):
   - target_arch == "i686":
       llvm-targets: 'X86'

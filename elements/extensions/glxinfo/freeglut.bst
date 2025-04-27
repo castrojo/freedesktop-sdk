@@ -11,6 +11,7 @@ build-depends:
 
 
 variables:
+  local_flags: -std=gnu17
   cmake-local: >
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     -DFREEGLUT_BUILD_DEMOS:BOOL=OFF

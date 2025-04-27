@@ -19,6 +19,7 @@ build-depends:
   strict: true
 
 variables:
+  local_flags: -std=gnu17
   bootdir: /boot
   kernel_arch: '%{arch}'
   src-arch: '%{kernel_arch}'

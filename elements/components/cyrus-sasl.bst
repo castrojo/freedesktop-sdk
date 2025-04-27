@@ -12,6 +12,7 @@ depends:
 - components/openssl.bst
 
 variables:
+  local_flags: -std=gnu17
   # Uses generated header md5global.h into source directory
   build-dir: ''
   conf-local: >-

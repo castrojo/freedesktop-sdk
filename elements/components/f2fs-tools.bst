@@ -7,6 +7,9 @@ depends:
 - components/util-linux-full.bst
 - public-stacks/runtime-minimal.bst
 
+variables:
+  local_flags: -std=gnu17
+
 sources:
 - kind: git_repo
   url: kernel:linux/kernel/git/jaegeuk/f2fs-tools.git

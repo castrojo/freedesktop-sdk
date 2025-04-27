@@ -15,6 +15,7 @@ depends:
 - components/xorg-lib-xt.bst
 
 variables:
+  local_flags: -std=gnu17
   conf-local: >-
     --with-drivers=ALL
     --with-system-libtiff=yes

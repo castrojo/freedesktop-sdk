@@ -8,6 +8,9 @@ depends:
 - components/util-linux-full.bst
 - components/libdevmapper.bst
 
+variables:
+  local_flags: -std=gnu17
+
 sources:
 - kind: tar
   url: ftp_gnu_org:parted/parted-3.6.tar.xz

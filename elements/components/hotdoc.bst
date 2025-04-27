@@ -31,6 +31,9 @@ runtime-depends:
 environment:
   HOTDOC_BUILD_C_EXTENSION: enabled
 
+variables:
+  local_flags: -std=gnu17
+
 public:
   bst:
     integration-commands:

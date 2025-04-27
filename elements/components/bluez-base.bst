@@ -10,6 +10,7 @@ build-depends:
 - components/ell.bst
 
 variables:
+  local_flags: -std=gnu17
   conf-local: >-
     --enable-library
     --enable-external-ell

@@ -10,6 +10,9 @@ depends:
 - components/dejavu-fonts.bst
 - components/libppd.bst
 
+variables:
+  local_flags: -std=gnu17
+
 sources:
 - kind: git_repo
   url: github:OpenPrinting/cups-filters.git

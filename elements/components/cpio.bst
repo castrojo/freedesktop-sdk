@@ -8,6 +8,7 @@ depends:
 - components/tar.bst
 
 variables:
+  local_flags: -std=gnu17
   conf-local: >-
     --with-rmt="%{libexecdir}/rmt"
 

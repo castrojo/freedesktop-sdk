@@ -19,6 +19,7 @@ runtime-depends:
 - elements/bootstrap/include/ncurses-sources.yml
 
 variables:
+  local_flags: -std=gnu17
   common-conf-flags: >-
     --build=%{bootstrapper-triplet}
     --host=%{triplet}
