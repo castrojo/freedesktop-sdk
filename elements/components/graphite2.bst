@@ -41,3 +41,5 @@ sources:
   ref: 1.3.14-0-g92f59dcc52f73ce747f1cdc831579ed2546884aa
 - kind: patch
   path: patches/graphite2/graphite2-1.2.0-cmakepath.patch
+- kind: patch
+  path: patches/graphite2/graphite2-disable-tests.patch
