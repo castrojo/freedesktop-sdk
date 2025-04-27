@@ -1,0 +1,26 @@
+diff --git a/Makefile b/Makefile
+index 8b6764d44a61..136078b93fbb 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1053,6 +1053,7 @@ KBUILD_CFLAGS += $(call cc-option, -fstrict-flex-arrays=3)
+ #Currently, disable -Wstringop-overflow for GCC 11, globally.
+ KBUILD_CFLAGS-$(CONFIG_CC_NO_STRINGOP_OVERFLOW) += $(call cc-option, -Wno-stringop-overflow)
+ KBUILD_CFLAGS-$(CONFIG_CC_STRINGOP_OVERFLOW) += $(call cc-option, -Wstringop-overflow)
++KBUILD_CFLAGS += $(call cc-option, -Wno-unterminated-string-initialization)
+ 
+ # disable invalid "can't wrap" optimizations for signed / pointers
+ KBUILD_CFLAGS	+= -fno-strict-overflow
+diff --git a/arch/powerpc/boot/types.h b/arch/powerpc/boot/types.h
+index 8a4c418b7260..6f34b31b85f9 100644
+--- a/arch/powerpc/boot/types.h
++++ b/arch/powerpc/boot/types.h
+@@ -40,7 +40,9 @@ typedef s64 int64_t;
+ #define min_t(type, a, b) min(((type) a), ((type) b))
+ #define max_t(type, a, b) max(((type) a), ((type) b))
+ 
++#if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 202300L
+ typedef int bool;
++#endif
+ 
+ #ifndef true
+ #define true 1
