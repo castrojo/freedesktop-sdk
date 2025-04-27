@@ -25,3 +25,5 @@ sources:
   url: github:google/highway.git
   track: '*.*.*'
   ref: 1.2.0-0-g457c891775a7397bdb0376bb1031e6e027af1c48
+- kind: patch
+  path: patches/highway/gcc15.patch
