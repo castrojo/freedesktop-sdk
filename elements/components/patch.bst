@@ -26,11 +26,11 @@ sources:
 - kind: git_repo
   url: savannah:patch.git
   track: v*
-  ref: v2.7.6-0-g40b387de08653a1e46872b8ac1a6a14b9b94feb3
+  ref: v2.8-0-g48ceda8200aaf30c3ce42c31cd70ff6087db2425
 - kind: git_module
   path: gnulib
   url: savannah:gnulib.git
-  ref: e017871121364b67549ea00fcfebc0cb6cc99fb3
+  ref: 9829f0a93c40492875f67ee738e000611bdcf0e7
 - kind: patch
   path: patches/patch/CVE-2018-6951.patch
 - kind: patch
