@@ -12,6 +12,8 @@ build-depends:
 - components/util-linux.bst
 - components/python3.bst
 - components/nasm.bst
+- components/patch.bst
+- components/sed.bst
 
 environment:
   JOBS: "%{max-jobs}"
@@ -72,6 +74,16 @@ config:
       echo "Unsupported arch, use ovmf-maybe"
       exit 1
     fi
+  - |
+    for file in \
+        MdePkg/Library/BaseFdtLib/LibFdtSupport.h \
+        BaseTools/Source/C/VfrCompile/Pccts/dlg/makefile \
+        BaseTools/Source/C/VfrCompile/Pccts/antlr/makefile; do
+      sed -i 's/\r$//' "$file"
+    done
+
+  - |
+    patch -Np1 -i gcc15.patch
 
   - |
     . ./edksetup.sh
@@ -143,3 +155,5 @@ sources:
   path: MdePkg/Library/MipiSysTLib/mipisyst
   url: github:MIPI-Alliance/public-mipi-sys-t.git
   ref: 370b5944c046bab043dd8b133727b2135af7747a
+- kind: local
+  path: patches/ovmf/gcc15.patch
