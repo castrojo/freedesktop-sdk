@@ -26,7 +26,7 @@ sources:
 - kind: git_repo
   url: github:cpuguy83/go-md2man.git
   track: v*
-  ref: v2.0.6-0-g441631534462b74c098953dbd8d5f6210994b0bf
+  ref: v2.0.7-0-g061b6c7cbecd6752049221aa15b7a05160796698
 - kind: go_module
   url: github:russross/blackfriday.git
   module: github.com/russross/blackfriday/v2
