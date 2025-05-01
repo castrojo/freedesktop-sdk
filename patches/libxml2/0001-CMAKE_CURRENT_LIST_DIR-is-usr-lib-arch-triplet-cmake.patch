@@ -1,0 +1,58 @@
+diff --git a/configure.ac b/configure.ac
+index 6922831d..7c543475 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -1136,6 +1136,17 @@ AC_SUBST(XML_PRIVATE_CFLAGS)
+ AC_SUBST(XML_LIBTOOLLIBS)
+ AC_SUBST(XML_INCLUDEDIR)
+ 
++# for libxml2-config.cmake.in
++AX_RECURSIVE_EVAL(["$bindir"], [INSTALL_BINDIR])
++AX_RECURSIVE_EVAL(["$includedir"], [INSTALL_INCLUDEDIR])
++AX_RECURSIVE_EVAL(["$libdir"], [INSTALL_LIBDIR])
++AC_SUBST(INSTALL_BINDIR)
++AC_SUBST(INSTALL_INCLUDEDIR)
++AC_SUBST(INSTALL_LIBDIR)
++AM_SUBST_NOTMAKE(INSTALL_BINDIR)
++AM_SUBST_NOTMAKE(INSTALL_INCLUDEDIR)
++AM_SUBST_NOTMAKE(INSTALL_LIBDIR)
++
+ dnl for the spec file
+ RELDATE=`date +'%a %b %e %Y'`
+ AC_SUBST(RELDATE)
+diff --git a/libxml2-config.cmake.in b/libxml2-config.cmake.in
+index f35eb056..3e94dee1 100644
+--- a/libxml2-config.cmake.in
++++ b/libxml2-config.cmake.in
+@@ -31,13 +31,12 @@ set(LIBXML2_VERSION_MINOR  @LIBXML_MINOR_VERSION@)
+ set(LIBXML2_VERSION_MICRO  @LIBXML_MICRO_VERSION@)
+ set(LIBXML2_VERSION_STRING "@VERSION@")
+ set(LIBXML2_DEFINITIONS    "@XML_CFLAGS@")
+-set(LIBXML2_INSTALL_PREFIX ${_libxml2_rootdir})
+-set(LIBXML2_INCLUDE_DIR    ${_libxml2_rootdir}/include/libxml2)
+-set(LIBXML2_LIBRARY_DIR    ${_libxml2_rootdir}/lib)
++set(LIBXML2_INCLUDE_DIR    @INSTALL_INCLUDEDIR@/libxml2)
++set(LIBXML2_LIBRARY_DIR    @INSTALL_LIBDIR@)
+ 
+ find_library(LIBXML2_LIBRARY NAMES xml2 HINTS ${LIBXML2_LIBRARY_DIR} NO_DEFAULT_PATH)
+-find_program(LIBXML2_XMLCATALOG_EXECUTABLE NAMES xmlcatalog HINTS ${_libxml2_rootdir}/bin NO_DEFAULT_PATH)
+-find_program(LIBXML2_XMLLINT_EXECUTABLE NAMES xmllint HINTS ${_libxml2_rootdir}/bin NO_DEFAULT_PATH)
++find_program(LIBXML2_XMLCATALOG_EXECUTABLE NAMES xmlcatalog HINTS @INSTALL_BINDIR@ NO_DEFAULT_PATH)
++find_program(LIBXML2_XMLLINT_EXECUTABLE NAMES xmllint HINTS @INSTALL_BINDIR@ NO_DEFAULT_PATH)
+ 
+ set(LIBXML2_LIBRARIES ${LIBXML2_LIBRARY})
+ set(LIBXML2_INCLUDE_DIRS ${LIBXML2_INCLUDE_DIR})
+diff --git a/meson.build b/meson.build
+index de29cf31..956c62c2 100644
+--- a/meson.build
++++ b/meson.build
+@@ -772,6 +772,9 @@ config_cmake = configuration_data()
+ config_cmake.set('LIBXML_MAJOR_VERSION', v_maj)
+ config_cmake.set('LIBXML_MINOR_VERSION', v_min)
+ config_cmake.set('LIBXML_MICRO_VERSION', v_mic)
++config_cmake.set('INSTALL_BINDIR', dir_bin)
++config_cmake.set('INSTALL_INCLUDEDIR', dir_include)
++config_cmake.set('INSTALL_LIBDIR', dir_lib)
+ config_cmake.set('VERSION', meson.project_version())
+ config_cmake.set('WITH_ICONV', iconv_dep.found().to_int().to_string())
+ config_cmake.set('WITH_ICU', icu_dep.found().to_int().to_string())

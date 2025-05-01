@@ -36,3 +36,5 @@ sources:
   ref: v2.13.8-0-geb0a2f2b91566384f378d870ffcd69c0a24162cc
 - kind: patch
   path: patches/libxml2/libxml2-python-in-nodeWrap-deal-with-name-is-None-case.patch
+- kind: patch
+  path: patches/libxml2/0001-CMAKE_CURRENT_LIST_DIR-is-usr-lib-arch-triplet-cmake.patch
