@@ -18,6 +18,10 @@ config:
     - sed -i "s|%{build-root}|%{includedir}/tk-private|" %{install-root}%{libdir}/tkConfig.sh
     - mkdir -p "%{install-root}%{includedir}/tk-private/doc/"
     - cp "%{build-root}/doc/man.macros" "%{install-root}%{includedir}/tk-private/doc/"
+    - |
+      cd "%{install-root}/%{bindir}"
+      wish_versioned="$(ls wish8.* 2>/dev/null | grep -E '^wish8\.[0-9]+' | head -n 1)"
+      test -f "$wish_versioned" && ln -svf "$wish_versioned" wish
 
 public:
   bst:
