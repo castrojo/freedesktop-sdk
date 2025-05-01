@@ -2,8 +2,7 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/python3.bst
-- components/python3-setuptools.bst
+- public-stacks/buildsystem-python-setuptools.bst
 
 depends:
 - bootstrap-import.bst
@@ -24,3 +23,5 @@ sources:
   url: github:libpwquality/libpwquality.git
   track: libpwquality-*
   ref: libpwquality-1.4.5-0-g5490e96a3dd6ed7371435ca5b3ccef98bdb48b5a
+- kind: patch
+  path: patches/pwquality/setuptools80.patch
