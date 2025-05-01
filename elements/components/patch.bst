@@ -16,7 +16,7 @@ sources:
 - kind: git_repo
   url: savannah:patch.git
   track: v*
-  ref: v2.8-0-gb3d0c933389208ccac795a1b517c5a8b11cc012e
+  ref: v2.8-0-g48ceda8200aaf30c3ce42c31cd70ff6087db2425
 - kind: git_module
   path: gnulib
   url: savannah:gnulib.git
