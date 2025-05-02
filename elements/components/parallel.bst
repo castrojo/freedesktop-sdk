@@ -22,4 +22,4 @@ sources:
 - kind: git_repo
   url: savannah:parallel.git
   track: '[0-9]*'
-  ref: 20250322-0-g8ba09e08b387288c93204100b26c92719fd652e2
+  ref: 20250422-0-g32a1da2130dcf5d8f0958c205dfaa7e452503665
