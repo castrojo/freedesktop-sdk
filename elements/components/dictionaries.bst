@@ -25,7 +25,7 @@ sources:
   - '*alpha*'
   - '*beta*'
   - '*macfix*'
-  ref: libreoffice-25.2.3.1-0-gd3660b0040ad0dfe76fa61462ba751743ad05463
+  ref: libreoffice-25.2.3.2-0-g3bba7dc6880336e2a8657f9e52ac08e2aecbe3f9
 - kind: local
   path: files/dictionaries/install_dicts.py
 - kind: local
