@@ -1,8 +1,8 @@
 kind: autotools
 
 build-depends:
-- components/git-minimal.bst
 - public-stacks/buildsystem-autotools.bst
+- components/git-minimal.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

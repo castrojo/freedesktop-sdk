@@ -1,8 +1,8 @@
 kind: autotools
 
 build-depends:
-- components/python3-minimal.bst
 - public-stacks/buildsystem-autotools.bst
+- components/python3-minimal.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

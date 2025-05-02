@@ -5,9 +5,6 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/gperf.bst
 
-runtime-depends:
-- public-stacks/runtime-minimal.bst
-
 public:
   bst:
     split-rules:

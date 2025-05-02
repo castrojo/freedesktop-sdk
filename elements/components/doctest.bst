@@ -1,6 +1,5 @@
 kind: cmake
 
-
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 

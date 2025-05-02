@@ -1,13 +1,13 @@
 kind: autotools
 
 build-depends:
-- components/gobject-introspection.bst
-- components/wayland-protocols.bst
 - public-stacks/buildsystem-autotools.bst
+- components/gobject-introspection.bst
+- components/gtk-doc.bst
 - components/iso-codes.bst
 - components/systemd.bst
 - components/vala.bst
-- components/gtk-doc.bst
+- components/wayland-protocols.bst
 
 depends:
 - components/gtk3.bst

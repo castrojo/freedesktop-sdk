@@ -1,9 +1,9 @@
 kind: cmake
 
 build-depends:
+- public-stacks/buildsystem-cmake.bst
 - components/asciidoc.bst
 - components/doxygen.bst
-- public-stacks/buildsystem-cmake.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

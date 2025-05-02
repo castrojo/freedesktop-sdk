@@ -5,8 +5,8 @@ description: Python 3
 - elements/include/python3.yml
 
 build-depends:
-- components/bluez-headers.bst
 - public-stacks/buildsystem-autotools.bst
+- components/bluez-headers.bst
 # depends: add these to filters
 - public-stacks/runtime-minimal.bst
 - components/expat.bst

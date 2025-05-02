@@ -14,5 +14,4 @@ sources:
   - "*a*"
   - "*rc*"
   - "*b*"
-  ref-format: git-describe
   ref: 3.1.2-0-g51f471dad7c8588c77d4f60f90fc5855bd012790

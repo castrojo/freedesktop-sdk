@@ -1,13 +1,13 @@
 kind: meson
 
 build-depends:
-- public-stacks/runtime-minimal.bst
 - public-stacks/buildsystem-meson.bst
 - components/wayland-protocols.bst
 - extensions/mesa/libdrm.bst
 - components/xcb-util-cursor.bst
 
 depends:
+- public-stacks/runtime-minimal.bst
 - components/libunwind.bst
 - components/linux-pam.bst
 - components/cairo.bst
