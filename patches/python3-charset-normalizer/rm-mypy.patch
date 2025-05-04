@@ -4,7 +4,7 @@ index bbb8227..4d394f9 100644
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
  [build-system]
--requires = ["setuptools", "setuptools-scm", "mypy>=1.4.1,<=1.14.0"]
+-requires = ["setuptools", "setuptools-scm", "mypy>=1.4.1,<=1.15.0"]
 +requires = ["setuptools", "setuptools-scm"]
  build-backend = "setuptools.build_meta"
  
