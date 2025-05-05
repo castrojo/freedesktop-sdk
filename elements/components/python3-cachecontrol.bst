@@ -10,6 +10,6 @@ sources:
 - kind: pypi
   name: cachecontrol
   ref:
-    sha256sum: 7d47d19f866409b98ff6025b6a0fca8e4c791fb31abbd95f622093894ce903a2
+    sha256sum: 73e7efec4b06b20d9267b441c1f733664f989fb8688391b670ca812d70795d11
     suffix: 
-      b7/a4/3390ac4dfa1773f661c8780368018230e8207ec4fd3800d2c0c3adee4456/cachecontrol-0.14.2.tar.gz
+      58/3a/0cbeb04ea57d2493f3ec5a069a117ab467f85e4a10017c6d854ddcbff104/cachecontrol-0.14.3.tar.gz
