@@ -20,5 +20,3 @@ sources:
   url: github:strukturag/libde265.git
   track: v*
   ref: v1.0.16-0-g7ba65889d3d6d8a0d99b5360b028243ba843be3a
-- kind: patch
-  path: patches/libde265/missing-cstring.patch
