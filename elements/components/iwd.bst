@@ -32,7 +32,7 @@ sources:
   kind: git_repo
   url: kernel:network/wireless/iwd.git
   track: '*.*'
-  ref: 3.6-0-g7d5bcd738bb92cd33756985ffd2c4c67452a7f85
+  ref: 3.7-0-g36b1086f609c9b8674be9c36dd207a5917e2c96d
 - directory: ell
   kind: git_repo
   url: kernel:libs/ell/ell.git
