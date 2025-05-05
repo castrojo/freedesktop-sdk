@@ -48,4 +48,4 @@ sources:
 - kind: git_repo
   url: git_https:git.linuxtv.org/v4l-utils.git
   track: v4l-utils-*
-  ref: v4l-utils-1.28.1-0-gfc15e229d9d337e46d730f00647821adbbd58548
+  ref: v4l-utils-1.30.1-0-g9bdabf8793f40e5df74435b2df94b5567b55805d
