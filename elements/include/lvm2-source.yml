@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: sourceware:lvm2.git
   track: v*
-  ref: v2_03_31-0-g3a6e221c569eb253fa38a772b15e53b5de65b5d1
+  ref: v2_03_32-0-g8817523c5682a7fd83770d3f58a99c436f7e73f7
