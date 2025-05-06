@@ -1,10 +1,10 @@
-diff --git a/modules.d/60systemd-sysusers/module-setup.sh b/modules.d/60systemd-sysusers/module-setup.sh
-index 05680553..cd459a3b 100755
---- a/modules.d/60systemd-sysusers/module-setup.sh
-+++ b/modules.d/60systemd-sysusers/module-setup.sh
-@@ -16,4 +16,5 @@ install() {
-     inst_sysusers basic.conf
- 
-     systemd-sysusers --root="$initdir"
+diff --git a/modules.d/99systemd-sysusers/module-setup.sh b/modules.d/99systemd-sysusers/module-setup.sh
+index c1ef40cd..1618f80b 100755
+--- a/modules.d/99systemd-sysusers/module-setup.sh
++++ b/modules.d/99systemd-sysusers/module-setup.sh
+@@ -23,4 +23,5 @@ install() {
+         set -o pipefail
+         systemd-sysusers --root="$initdir" 2>&1 >&3 | grep -v "^Creating " >&2
+     } 3>&1
 +    chmod 0400 "${initdir}/etc/gshadow" "${initdir}/etc/shadow" || true
  }
