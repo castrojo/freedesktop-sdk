@@ -1,7 +1,6 @@
 build-depends:
 - components/nasm.bst
 - components/vulkan-headers.bst
-- components/nv-codec-headers.bst
 - public-stacks/buildsystem-autotools.bst
 
 (?):
