@@ -35,9 +35,13 @@ public:
 
   cpe:
     vendor: 'sqlite'
+    patches:
+    - CVE-2025-29087
 
 sources:
 - kind: git_repo
   url: github:sqlite/sqlite.git
   track: version-*
   ref: version-3.46.1-0-gf3d536d37825302e31ed0eddd811c689f38f85a3
+- kind: patch_queue
+  path: patches/sqlite
