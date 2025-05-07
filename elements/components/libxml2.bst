@@ -26,15 +26,13 @@ public:
     ignored:
     - CVE-2016-3709
     - CVE-2025-27113
+    - CVE-2025-32414
+    - CVE-2025-32415
 
 sources:
 - kind: git_repo
   url: gnome:libxml2.git
   track: v2.11.*
   ref: v2.11.9-0-g954e851e1d8d1f4c1dfbdf043623b3c11a1c723c
-- kind: patch
-  path: patches/libxml2/libxml2-python-in-nodeWrap-deal-with-name-is-None-case.patch
-- kind: patch
-  path: patches/libxml2/0001-CVE-2025-27113.patch
-- kind: patch
-  path: patches/libxml2/0001-CMAKE_CURRENT_LIST_DIR-is-usr-lib-arch-triplet-cmake.patch
+- kind: patch_queue
+  path: patches/libxml2
