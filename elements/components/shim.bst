@@ -16,6 +16,8 @@ build-depends:
       - components/boot-keys-prod.bst
 
 variables:
+  notparallel: true
+
   (?):
   - target_arch == 'i686':
       efi-arch: ia32
