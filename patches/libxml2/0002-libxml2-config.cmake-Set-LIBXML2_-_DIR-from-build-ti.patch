@@ -1,3 +1,14 @@
+From 73a1edcb67afea96c00920206aa8e4a134b84ff3 Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Wed, 7 May 2025 07:50:07 +0530
+Subject: [PATCH 2/5] libxml2-config.cmake: Set LIBXML2_*_DIR from build time
+ values
+
+---
+ configure.ac            | 11 +++++++++++
+ libxml2-config.cmake.in |  9 ++++-----
+ 2 files changed, 15 insertions(+), 5 deletions(-)
+
 diff --git a/configure.ac b/configure.ac
 index aa279a2d..d556e45b 100644
 --- a/configure.ac
@@ -42,3 +53,6 @@ index 49896900..3ea77c05 100644
  
  set(LIBXML2_LIBRARIES ${LIBXML2_LIBRARY})
  set(LIBXML2_INCLUDE_DIRS ${LIBXML2_INCLUDE_DIR})
+-- 
+2.49.0
+

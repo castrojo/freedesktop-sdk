@@ -1,7 +1,7 @@
-From 7cf3b0315dca73b83f4889b48fa44af85f90d8d0 Mon Sep 17 00:00:00 2001
+From fa7444af3f2d9cf9da044d902baed1c95a8f7825 Mon Sep 17 00:00:00 2001
 From: Patrick Welche <prlw1@cam.ac.uk>
 Date: Wed, 8 Nov 2017 22:52:19 +0000
-Subject: [PATCH] python: in nodeWrap deal with name is None case
+Subject: [PATCH 1/5] python: in nodeWrap deal with name is None case
 
 Should fix gtk-doc 1.26 build with itstool 2.0.4:
 
@@ -14,7 +14,7 @@ https://bugzilla.gnome.org/show_bug.cgi?id=790071
  1 file changed, 2 insertions(+)
 
 diff --git a/python/libxml.py b/python/libxml.py
-index 2466cc9f..e53fb40d 100644
+index 1e458d17..1bee9f8d 100644
 --- a/python/libxml.py
 +++ b/python/libxml.py
 @@ -573,6 +573,8 @@ class xmlCoreBreadthFirstItertor:
@@ -27,5 +27,5 @@ index 2466cc9f..e53fb40d 100644
          return xmlNode(_obj=o)
      if name == "attribute":
 -- 
-2.15.0
+2.49.0
 
