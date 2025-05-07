@@ -40,6 +40,10 @@ config:
       find "%{install-root}" -name "lib*.a" -exec rm {} ";"
 
 public:
+  cpe:
+    ignored:
+    - CVE-2024-25260
+
   bst:
     split-rules:
       runtime:
