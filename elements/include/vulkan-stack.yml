@@ -3,27 +3,27 @@ sources:
   url: github:KhronosGroup/Vulkan-Headers.git
   directory: vulkan-headers
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.309.0-0-g952f776f6573aafbb62ea717d871cd1d6816c387
+  ref: vulkan-sdk-1.4.313.0-0-g409c16be502e39fe70dd6fe2d9ad4842ef2c9a53
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-ValidationLayers.git
   directory: vulkan-validation-layers
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.309.0-0-g3ba0e590a2e76475b3eef4043355b498fb64e752
+  ref: vulkan-sdk-1.4.313.0-0-g50b87dd4be883b63c10e3c4f7b9c5aac0c82efd3
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-Tools.git
   directory: vulkan-tools
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.309.0-0-gbf9fcd2d62ea9eac52e5351c02e35cb61ec5e873
+  ref: vulkan-sdk-1.4.313.0-0-gad2f0170f9466fadd96e3fdd65fad02cd3a3739b
 - kind: git_repo
   url: github:KhronosGroup/SPIRV-Headers.git
   directory: spirv-headers
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.309.0-0-g09913f088a1197aba4aefd300a876b2ebbaa3391
+  ref: vulkan-sdk-1.4.313.0-0-gaa6cef192b8e693916eb713e7a9ccadf06062ceb
 - kind: git_repo
   url: github:KhronosGroup/SPIRV-Tools.git
   directory: spirv-tools
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.309.0-0-gf289d047f49fb60488301ec62bafab85573668cc
+  ref: vulkan-sdk-1.4.313.0-0-ga62abcb402009b9ca5975e6167c09f237f630e0e
 - kind: patch
   directory: spirv-tools
   path: patches/spirv-tools/Remove-libSPIRV-Tools-shared.so.patch
@@ -31,19 +31,19 @@ sources:
   url: github:KhronosGroup/glslang.git
   directory: glslang
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.309.0-0-g7200bc12a8979d13b22cd52de80ffb7d41939615
+  ref: vulkan-sdk-1.4.313.0-0-gfc9889c889561c5882e83819dcaffef5ed45529b
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-Loader.git
   directory: vulkan-icd-loader
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.309.0-0-gfa5f2bf40baa15c22be61e393e1dded6c06ee503
+  ref: vulkan-sdk-1.4.313.0-0-gfb78607414e154c7a5c01b23177ba719c8a44909
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-Utility-Libraries.git
   directory: vulkan-utility-libraries
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.309.0-0-g897ee4d90309f5b4f8e254472863d0489e6439d2
+  ref: vulkan-sdk-1.4.313.0-0-g4e246c56ec5afb5ad66b9b04374d39ac04675c8e
 - kind: git_repo
   url: github:zeux/volk.git
   directory: volk
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.309.0-0-g58689c063427f5bad4f133625049b1a3c5dd8287
+  ref: vulkan-sdk-1.4.313.0-0-g43c29e655cb8117fd9cfb65ad9cefe2d40965102

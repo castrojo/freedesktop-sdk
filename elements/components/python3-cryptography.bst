@@ -16,7 +16,7 @@ sources:
 - kind: git_repo
   url: github:pyca/cryptography.git
   track: '*.*.*'
-  ref: 44.0.2-0-g56cfce682c8bd2ee5101b654a429b05d0f610f0e
+  ref: 44.0.3-0-gb92c8416bf71bf5aa9c343490984dbcf7feb2cec
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
@@ -90,8 +90,8 @@ sources:
     sha: a948666b637a0f465e8564c73e89d4dde00d72d4d473cc972f390fc3dcee7d9c
   - kind: registry
     name: openssl-sys
-    version: 0.9.104
-    sha: 45abf306cbf99debc8195b66b7346498d7b10c210de50418b5ccd7ceba08c741
+    version: 0.9.108
+    sha: e145e1651e858e820e4860f7b9c5e169bc1d8ce1c86043be79fa7b7634821847
   - kind: registry
     name: pem
     version: 3.0.4
