@@ -18,4 +18,4 @@ sources:
 - kind: git_repo
   url: github:pypa/trove-classifiers.git
   track: '*.*.*'
-  ref: 2025.5.1.12-0-ge2b922f3a625ed37ef37108be82aa902240621ac
+  ref: 2025.5.7.19-0-g38454c06aca1acfc3acfcf9eb63c12f2979c4fc3
