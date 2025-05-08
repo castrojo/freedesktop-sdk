@@ -13,4 +13,4 @@ sources:
 - kind: git_repo
   url: github:qpdf/qpdf.git
   track: v*
-  ref: v12.1.0-0-g51fa3b523837afb18d9a86560bb2fb9979db1b95
+  ref: v12.2.0-0-g856d32c610334855d30e96d25eb5f9636fb62f08
