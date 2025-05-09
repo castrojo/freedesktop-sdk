@@ -9,7 +9,7 @@ runtime-depends:
 sources:
 - kind: git_repo
   url: github:cython/cython.git
-  track: '*.*.*'
+  track: '3.0.*'
   exclude:
   - "*a*"
   - "*rc*"
