@@ -28,4 +28,4 @@ sources:
   exclude:
   - '*rc*'
   - '*-a*'
-  ref: man-pages-6.13-0-g380c22882dc0cd3d4ee16255d1f5ff1a1073ca59
+  ref: man-pages-6.14-0-g6a4470ba1116d0d16e5f4a3c372a91c89c6b8297
