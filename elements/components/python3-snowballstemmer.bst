@@ -10,6 +10,6 @@ sources:
 - kind: pypi
   name: snowballstemmer
   ref:
-    sha256sum: 1d09493a5ecc85fb5b433674e9c83fcd41c6739b6979ce4b54e81a40ec078342
+    sha256sum: 6d5eeeec8e9f84d4d56b847692bacf79bc2c8e90c7f80ca4444ff8b6f2e52895
     suffix: 
-      71/81/f47e97c9850c529ab233fd1cd8319e0e5a1cfae49c87c49ab2fd0a19c744/snowballstemmer-3.0.0.1.tar.gz
+      75/a7/9810d872919697c9d01295633f5d574fb416d47e535f258272ca1f01f447/snowballstemmer-3.0.1.tar.gz
