@@ -1,0 +1,4 @@
+sources:
+- kind: tar
+  url: ftp_gnu_org:m4/m4-1.4.20.tar.xz
+  ref: e236ea3a1ccf5f6c270b1c4bb60726f371fa49459a8eaaebc90b216b328daf2b

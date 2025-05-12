@@ -16,10 +16,5 @@ depends:
 - bootstrap/symlinks.bst
 - components/utf-locale.bst
 
-variables:
-  local_flags: -std=gnu17
-
-sources:
-- kind: tar
-  url: ftp_gnu_org:m4/m4-1.4.19.tar.xz
-  ref: 63aede5c6d33b6d9b13511cd0be2cac046f2e70fd0a07aa9573a04a82783af96
+(@):
+- elements/include/m4-source.yml
