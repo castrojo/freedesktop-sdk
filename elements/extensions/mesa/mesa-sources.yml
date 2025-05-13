@@ -1,7 +1,7 @@
 sources:
 - kind: git_repo
   url: freedesktop:mesa/mesa.git
-  track: mesa-*
+  track: mesa-25.0.*
   exclude:
   - '*rc*'
   - '*branchpoint*'
