@@ -14,7 +14,7 @@ sources:
   track: v*
   exclude:
   - "*beta*"
-  ref: v1.8.3-0-gc200385c764593d983e35c69d2c5be866526900a
+  ref: v1.8.5-0-gfd59bd33510e85fc157002c8101a0e2f2d1c517c
 - kind: cargo
   cargo-lock: Cargo.lock
   ref:
@@ -115,8 +115,8 @@ sources:
     version: 0.18.4
     sha: 60f1954e4ffa0f4c47b3df5e6e9508706d8dcaa56152cd672dcee02930ba0326
   - name: cargo-zigbuild
-    version: 0.19.7
-    sha: 04cc649328f39bbf1ef92ef753406e1785ff1074941c398e5214b6c74d318a9e
+    version: 0.20.0
+    sha: 3f6e9e856390d5b0a859acaeda16528f8a61c964bdb894c3216c254908f1c2ea
   - name: cargo_metadata
     version: 0.19.0
     sha: afc309ed89476c8957c50fb818f56fe894db857866c3e163335faa91dc34eb85
@@ -193,8 +193,8 @@ sources:
     version: 1.4.2
     sha: a97769d94ddab943e4510d138150169a2758b5ef3eb191a9ee688de3e23ef7b3
   - name: crossbeam-channel
-    version: 0.5.13
-    sha: 33480d6946193aa8033910124896ca395333cae7e2d1113d1fef6c3272217df2
+    version: 0.5.15
+    sha: 82b8f8f868b36967f9606790d1903570de9ceaf870a7bf9fbbd3016d636a2cb2
   - name: crossbeam-deque
     version: 0.8.5
     sha: 613f8cc01fe9cf1a3eb3d7f488fd2fa8388403e97039e2f73692932e291a770d
@@ -520,8 +520,8 @@ sources:
     version: 1.20.2
     sha: 1261fe7e33c73b354eab43b1273a57c8f967d0391e80353e51f764ac02cf6775
   - name: openssl
-    version: 0.10.70
-    sha: 61cfb4e166a8bb8c9b55c500bc2308550148ece889be90f609377e58140f42c6
+    version: 0.10.72
+    sha: fedfea7d58a1f73118430a55da6a286e7b044961736ce96a16a17068ea25e5da
   - name: openssl-macros
     version: 0.1.1
     sha: a948666b637a0f465e8564c73e89d4dde00d72d4d473cc972f390fc3dcee7d9c
@@ -529,8 +529,8 @@ sources:
     version: 0.1.5
     sha: ff011a302c396a5197692431fc1948019154afc178baf7d8e37367442a4601cf
   - name: openssl-sys
-    version: 0.9.105
-    sha: 8b22d5b84be05a8d6947c7cb71f7c849aa0f112acd4bf51c2a7c1c988ac0a9dc
+    version: 0.9.107
+    sha: 8288979acd84749c744a9014b4382d42b8f7b2592847b5afb2ed29e5d16ede07
   - name: option-ext
     version: 0.2.0
     sha: 04744f49eae99ab78e0d5c0b603ab218f515ea8cfe5a456d7629ad883a3b6e7d
@@ -1099,8 +1099,8 @@ sources:
     version: 0.10.3
     sha: 6eafa6dfb17584ea3e2bd6e76e0cc15ad7af12b09abdd1ca55961bed9b1063c6
   - name: zip
-    version: 2.2.3
-    sha: b280484c454e74e5fff658bbf7df8fdbe7a07c6b2de4a53def232c15ef138f3a
+    version: 2.3.0
+    sha: 84e9a772a54b54236b9b744aaaf8d7be01b4d6e99725523cb82cb32d1c81b1d7
   - name: zopfli
     version: 0.8.1
     sha: e5019f391bac5cf252e93bbcc53d039ffd62c7bfb7c150414d61369afe57e946
