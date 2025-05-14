@@ -20,5 +20,4 @@ public:
 sources:
 - kind: git_repo
   url: github:openSUSE/libeconf.git
-  track: v*
   ref: v0.7.4-0-gb66629fe913fe73b90b4408093635787827b6485
