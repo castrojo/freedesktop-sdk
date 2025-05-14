@@ -27,5 +27,3 @@ sources:
   url: freedesktop:libdecor/libdecor.git
   track: '*.*.*'
   ref: 0.2.3-0-g15afd30a6e23e949d022ff18f17dd7fdbd3361e4
-- kind: patch
-  path: patches/libdecor/0001-MR-158.patch
