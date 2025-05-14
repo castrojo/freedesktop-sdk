@@ -49,4 +49,4 @@ sources:
 - kind: git_repo
   url: github:OpenSC/libp11.git
   track: libp11-*
-  ref: libp11-0.4.13-0-g6d669183c7b241ce47ecce28744837ad92814f5c
+  ref: libp11-0.4.14-0-gea905629be1a4496e0545bfde1a0feb196af804b
