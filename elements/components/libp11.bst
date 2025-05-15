@@ -43,7 +43,7 @@ public:
     split-rules:
       devel:
         (>):
-        - '%{libdir}/libpkcs11.so'
+        - '%{libdir}/ossl-modules/libpkcs11.so'
 
 sources:
 - kind: git_repo
