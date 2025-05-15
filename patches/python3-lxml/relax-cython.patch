@@ -1,0 +1,18 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index f2edb28e..609168fd 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["Cython>=3.0.11, < 3.1.0", "setuptools", "wheel"]
++requires = ["Cython>=3.0.11", "setuptools", "wheel"]
+ 
+ [tool.cibuildwheel]
+ build-verbosity = 1
+diff --git a/requirements.txt b/requirements.txt
+index e0c05246..a5e5ef38 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1 +1 @@
+-Cython>=3.0.11, < 3.1.0
++Cython>=3.0.11
