@@ -1,0 +1,20 @@
+diff --git a/packaging/pep517_backend/_backend.py b/packaging/pep517_backend/_backend.py
+index 7588db3..6d5d294 100644
+--- a/packaging/pep517_backend/_backend.py
++++ b/packaging/pep517_backend/_backend.py
+@@ -379,7 +379,7 @@ def get_requires_for_build_wheel(
+     elif sysconfig.get_config_var('Py_GIL_DISABLED'):
+         c_ext_build_deps = ['Cython ~= 3.1.0a1']
+     else:
+-        c_ext_build_deps = ['Cython ~= 3.0.12']
++        c_ext_build_deps = ['Cython >= 3.0.12']
+ 
+     return _setuptools_get_requires_for_build_wheel(
+         config_settings=config_settings,
+diff --git a/requirements/cython.txt b/requirements/cython.txt
+index 69a1d6f..3d6bf1b 100644
+--- a/requirements/cython.txt
++++ b/requirements/cython.txt
+@@ -1 +1 @@
+-cython==3.0.12
++cython>=3.0.12
