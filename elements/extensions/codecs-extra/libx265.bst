@@ -13,8 +13,21 @@ depends:
 variables:
   conf-root: "source"
 
+  arch-conf: ''
+  (?):
+  - target_arch in ("x86_64", "aarch64", "riscv64"):
+      arch-conf: >-
+        -DENABLE_HDR10_PLUS=TRUE
+  - target_arch == "i686":
+      arch-conf: >-
+        -DENABLE_HDR10_PLUS=TRUE
+  - target_arch == "ppc64le":
+      arch-conf: >-
+        -DENABLE_HDR10_PLUS=FALSE
+
   cmake-common: >-
     %{cmake-args}
+    %{arch-conf}
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     -DLIB_INSTALL_DIR="%{libdir}"
     -DENABLE_CLI=OFF
