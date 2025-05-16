@@ -13,13 +13,52 @@ depends:
 variables:
   conf-root: "source"
 
-  cmake-local: >-
+  cmake-common: >-
+    %{cmake-args}
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     -DLIB_INSTALL_DIR="%{libdir}"
-    -DENABLE_SHARED=ON
     -DENABLE_CLI=OFF
 
+  cmake-hd-common: >-
+    %{cmake-common}
+    -DHIGH_BIT_DEPTH=TRUE
+    -DEXPORT_C_API=FALSE
+    -DENABLE_SHARED=FALSE
+
+  cmake-hd-10: >-
+    %{cmake-hd-common}
+
+  cmake-hd-12: >-
+    %{cmake-hd-common}
+    -DMAIN12=TRUE
+
+  cmake-final: >-
+    %{cmake-common}
+    -DENABLE_SHARED=TRUE
+    -DEXTRA_LIB="x265_main10.a;x265_main12.a"
+    -DEXTRA_LINK_FLAGS="-L%{build-root}/%{build-dir}"
+    -DLINKED_10BIT=TRUE
+    -DLINKED_12BIT=TRUE
+
 config:
+  configure-commands: []
+
+  build-commands:
+    - |
+      cmake -B _builddir-12 -H"%{conf-root}" -G"%{generator}" %{cmake-hd-12}
+      cmake --build _builddir-12 -- ${JOBS}
+
+    - |
+      cmake -B _builddir-10 -H"%{conf-root}" -G"%{generator}" %{cmake-hd-10}
+      cmake --build _builddir-10 -- ${JOBS}
+
+    - |
+      mkdir -p %{build-dir}
+      cp -vf _builddir-12/libx265.a %{build-dir}/libx265_main12.a
+      cp -vf _builddir-10/libx265.a %{build-dir}/libx265_main10.a
+      cmake -B %{build-dir} -H"%{conf-root}" -G"%{generator}" %{cmake-final}
+      cmake --build %{build-dir} -- ${JOBS}
+
   install-commands:
     (>):
     - find "%{install-root}%{prefix}" -name "lib*.a" -delete
