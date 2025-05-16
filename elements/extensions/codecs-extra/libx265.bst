@@ -26,6 +26,8 @@ variables:
   - target_arch == "ppc64le":
       arch-conf: >-
         -DENABLE_ASSEMBLY=OFF
+        -DENABLE_ALTIVEC=OFF
+        -DCPU_POWER8=OFF
         -DENABLE_HDR10_PLUS=FALSE
 
   cmake-common: >-
