@@ -15,14 +15,17 @@ variables:
 
   arch-conf: ''
   (?):
-  - target_arch in ("x86_64", "aarch64", "riscv64"):
+  - target_arch in ("x86_64", "aarch64"):
       arch-conf: >-
+        -DENABLE_ASSEMBLY=ON
         -DENABLE_HDR10_PLUS=TRUE
-  - target_arch == "i686":
+  - target_arch in ("i686", "riscv64"):
       arch-conf: >-
+        -DENABLE_ASSEMBLY=OFF
         -DENABLE_HDR10_PLUS=TRUE
   - target_arch == "ppc64le":
       arch-conf: >-
+        -DENABLE_ASSEMBLY=OFF
         -DENABLE_HDR10_PLUS=FALSE
 
   cmake-common: >-
