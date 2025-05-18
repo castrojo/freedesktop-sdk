@@ -52,6 +52,7 @@ public:
         - '%{datadir}/glib-2.0/dtds'
         - '%{datadir}/glib-2.0/dtds/**'
         - '%{datadir}/glib-2.0/schemas/gschema.dtd'
+        - '%{datadir}/glib-2.0/gettext/po/Makefile.in.in'
         - '%{datadir}/glib-2.0/gdb'
         - '%{datadir}/glib-2.0/gdb/**'
         - '%{datadir}/glib-2.0/valgrind'
