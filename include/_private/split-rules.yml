@@ -16,6 +16,8 @@ devel:
   - "%{libdir}/cmake/**"
   - "%{prefix}/lib/*.a"
   - "%{libdir}/*.a"
+  - "%{datadir}/gdb/auto-load"
+  - "%{datadir}/gdb/auto-load/**"
   - "%{datadir}/gir-1.0"
   - "%{datadir}/gir-1.0/**"
   - "%{datadir}/vala*/vapi"
