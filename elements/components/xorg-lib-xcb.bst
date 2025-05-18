@@ -5,10 +5,10 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/xorg-util-macros.bst
 - components/python3-minimal.bst
+- components/xorg-proto-xcb.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/xorg-proto-xcb.bst
 - components/xorg-lib-xau.bst
 
 variables:
