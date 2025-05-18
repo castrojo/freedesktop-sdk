@@ -49,6 +49,19 @@ sysconf:
   - "%{sysconfdir}"
   - "%{sysconfdir}/**"
 
+tests:
+  - "%{datadir}/installed-tests"
+  - "%{datadir}/installed-tests/**"
+  - "%{libexecdir}/installed-tests"
+  - "%{libexecdir}/installed-tests/**"
+
+# shells not part of shippables
+shells:
+  - "%{datadir}/fish"
+  - "%{datadir}/fish/**"
+  - "%{datadir}/zsh"
+  - "%{datadir}/zsh/**"
+
 static-blocklist: []
 
 locale:
