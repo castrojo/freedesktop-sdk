@@ -38,6 +38,8 @@ public:
         - '%{libdir}/libgailutil-3.so'
         - '%{datadir}/share/icons'
         - '%{datadir}/share/icons/**'
+        - '%{datadir}/gtk-3.0/valgrind'
+        - '%{datadir}/gtk-3.0/valgrind/**'
 
     integration-commands:
     - |
