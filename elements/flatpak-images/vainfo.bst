@@ -9,6 +9,8 @@ config:
   exclude:
   - debug
   - devel
+  - tests
+  - shells
 
   metadata:
     Application:

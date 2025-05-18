@@ -5,6 +5,8 @@ config:
   - devel
   - extra
   - vm-only
+  - tests
+  - shells
 
 build-depends:
 - platform.bst

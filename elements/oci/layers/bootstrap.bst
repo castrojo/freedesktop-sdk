@@ -12,3 +12,5 @@ config:
   - locale
   - extra
   - vm-only
+  - tests
+  - shells

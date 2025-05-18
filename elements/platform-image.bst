@@ -12,6 +12,8 @@ config:
   - static-blocklist
   - static-allowlist
   - vm-only
+  - tests
+  - shells
 
 public:
   bst:

@@ -4,6 +4,8 @@ config:
   exclude:
   - extra
   - vm-only
+  - tests
+  - shells
 
 build-depends:
 - sdk.bst
