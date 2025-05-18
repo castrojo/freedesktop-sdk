@@ -32,6 +32,7 @@ public:
         (>):
         - '%{bindir}/gtk3-*'
         - '%{bindir}/gtk-builder-tool'
+        - '%{bindir}/gtk-query-settings'
         - '%{bindir}/gtk-encode-symbolic-svg'
         - '%{libdir}/libgdk-3.so'
         - '%{libdir}/libgtk-3.so'
@@ -40,6 +41,8 @@ public:
         - '%{datadir}/share/icons/**'
         - '%{datadir}/gtk-3.0/valgrind'
         - '%{datadir}/gtk-3.0/valgrind/**'
+        - '%{datadir}/applications'
+        - '%{datadir}/applications/**'
 
     integration-commands:
     - |
