@@ -63,6 +63,7 @@ public:
         (>):
         - '%{libdir}/bash/loadables.h'
         - '%{libdir}/bash/Makefile.inc'
+        - '%{libdir}/bash/Makefile.sample'
 
   cpe:
     vendor: 'gnu'
