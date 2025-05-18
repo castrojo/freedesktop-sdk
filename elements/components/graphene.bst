@@ -8,6 +8,11 @@ depends:
 - components/glib.bst
 - components/gobject-introspection.bst
 
+variables:
+  meson-local: >-
+    -Dtests=false
+    -Dinstalled_tests=false
+
 public:
   bst:
     split-rules:
