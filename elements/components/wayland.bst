@@ -25,6 +25,7 @@ public:
         - '%{libdir}/libwayland-cursor.so'
         - '%{libdir}/libwayland-egl.so'
         - '%{libdir}/libwayland-server.so'
+        - '%{datadir}/wayland/wayland.dtd'
 
 sources:
 - kind: git_repo
