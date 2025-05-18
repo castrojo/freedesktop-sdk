@@ -14,6 +14,8 @@ config:
     - docs
     - locale
     - devel
+    - tests
+    - shells
 
   metadata:
     Runtime:

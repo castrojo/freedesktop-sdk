@@ -14,6 +14,8 @@ config:
   exclude:
   - debug
   - devel
+  - tests
+  - shells
   metadata:
     Runtime:
       name: org.freedesktop.Platform.codecs-extra

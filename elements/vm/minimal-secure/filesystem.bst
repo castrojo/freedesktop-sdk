@@ -8,6 +8,8 @@ config:
   - debug
   - devel
   - doc
+  - tests
+  - shells
   include-orphans: True
   (?):
   - ("locale" not in minimal_vm):

@@ -9,6 +9,8 @@ config:
   - debug
   - docs
   - locale
+  - tests
+  - shells
   - zoneinfo
 
   metadata:

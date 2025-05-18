@@ -6,6 +6,8 @@ config:
     - debug
     - docs
     - locale
+    - tests
+    - shells
 
   metadata:
     name: "freedesktop-sdk-runtime-%{freedesktop-sdk-snap-branch}"
