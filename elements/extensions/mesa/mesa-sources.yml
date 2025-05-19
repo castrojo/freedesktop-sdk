@@ -1,11 +1,11 @@
 sources:
 - kind: git_repo
   url: freedesktop:mesa/mesa.git
-  track: mesa-*
+  track: mesa-25.0.*
   exclude:
   - '*rc*'
   - '*branchpoint*'
-  ref: mesa-25.0.5-0-ga89e40440857e5dd354130806c168190601b7ff8
+  ref: mesa-25.0.6-0-gd0b545b3ef3fccb8961cac35cdcfc929487a54be
 # Rust dependencies:
 - kind: tar
   directory: subprojects/packagecache/syn-2.0.68
