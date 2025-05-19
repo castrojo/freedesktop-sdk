@@ -40,6 +40,8 @@ done
 find "$1" \
         -not \( -path "${1}/usr/lib/debug" -prune \) \
         -not \( -path "${1}/usr/share/runtime/docs/doc" -prune \) \
+        -not \( -path "${1}/usr/share/gettext" -prune \) \
+        -not -path "${1}/var/db/Makefile" \
         \( -path "${1}/usr/bin/*-config" \
            -o -path "${1}/usr/include/*" \
            -o -name "*.h" \
@@ -47,4 +49,6 @@ find "$1" \
            -o -name "*.o" \
            -o -name "*.c" \
            -o -name "*.spec" \
+           -o -name "*.supp" \
+           -o -name "Makefile*" \
            -o -name "*.cmake" \)

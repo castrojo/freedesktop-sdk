@@ -5,6 +5,8 @@ config:
   exclude:
   - debug
   - locale
+  - tests
+  - shells
 
   metadata:
     Runtime:

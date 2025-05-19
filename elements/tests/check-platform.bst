@@ -50,3 +50,4 @@ config:
   - components/vulkan-validation-layers.bst
   - components/protobuf.bst
   - components/python3-protobuf.bst
+  - components/xorg-proto-xcb.bst

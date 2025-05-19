@@ -16,6 +16,8 @@ devel:
   - "%{libdir}/cmake/**"
   - "%{prefix}/lib/*.a"
   - "%{libdir}/*.a"
+  - "%{datadir}/gdb/auto-load"
+  - "%{datadir}/gdb/auto-load/**"
   - "%{datadir}/gir-1.0"
   - "%{datadir}/gir-1.0/**"
   - "%{datadir}/vala*/vapi"
@@ -46,6 +48,19 @@ doc:
 sysconf:
   - "%{sysconfdir}"
   - "%{sysconfdir}/**"
+
+tests:
+  - "%{datadir}/installed-tests"
+  - "%{datadir}/installed-tests/**"
+  - "%{libexecdir}/installed-tests"
+  - "%{libexecdir}/installed-tests/**"
+
+# shells not part of shippables
+shells:
+  - "%{datadir}/fish"
+  - "%{datadir}/fish/**"
+  - "%{datadir}/zsh"
+  - "%{datadir}/zsh/**"
 
 static-blocklist: []
 

@@ -10,3 +10,5 @@ config:
   - extra
   - static-blocklist
   - vm-only
+  - tests
+  - shells
