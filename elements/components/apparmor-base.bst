@@ -39,7 +39,7 @@ variables:
 config:
   configure-commands:
   - |
-    cd libraries/libapparmor && %{configure}
+    cd libraries/libapparmor && autoreconf -fiv && %{configure}
 
   build-commands:
     (>):
@@ -80,6 +80,11 @@ public:
     - CVE-2016-1585
 
 sources:
-- kind: tar
-  url: tar_https:launchpad.net/apparmor/3.1/3.1.7/+download/apparmor-3.1.7.tar.gz
-  ref: c6c161d6dbd99c2f10758ff347cbc6848223c7381f311de62522f22b0a16de64
+- kind: git_repo
+  track: v*
+  exclude:
+  - "*beta*"
+  - "*alpha*"
+  - "*cherry-pick*"
+  url: gitlab:apparmor/apparmor.git
+  ref: v4.1.0-0-g53074bb9063797743ba8298388dd590b8265ccf7
