@@ -13,16 +13,16 @@ sources:
 - kind: git_repo
   url: github:pyca/cryptography.git
   track: '*.*.*'
-  ref: 44.0.3-0-gb92c8416bf71bf5aa9c343490984dbcf7feb2cec
+  ref: 45.0.2-0-gf81c07535ddf2d26cb1a27e70a9967ab708b8056
 - kind: cargo
   cargo-lock: Cargo.lock
   ref:
   - name: asn1
-    version: 0.20.0
-    sha: 2d8b84b4ea1de2bf1dcd2a759737ddb328fb6695b2a95eb7e44fed67e3406f32
+    version: 0.21.3
+    sha: 2d9c3502a6f1b50a2c69b97b71638a81ad3b21b9874604880401b9b2b0bf758f
   - name: asn1_derive
-    version: 0.20.0
-    sha: a200809d0138620b3dba989f1d08d0620e76248bc1e62a2ec1b2df5eb1ee08ad
+    version: 0.21.3
+    sha: 1766ebcb519d8dd186d60dfa912571edcaa2c1f995e2e56643a261a87df69a61
   - name: autocfg
     version: 1.4.0
     sha: ace50bade8e6234aa140d9a2f552bbee1db4d353f69b8217bc503490fc1a9f26
@@ -30,11 +30,11 @@ sources:
     version: 0.22.1
     sha: 72b3254f16251a8381aa12e40e3c4d2f0199f8c6508fbecb9d91f575e0fbb8c6
   - name: bitflags
-    version: 2.6.0
-    sha: b048fb63fd8b5923fc5aa7b340d8e156aec7ec02f0c78fa8a6ddc2613f6f71de
+    version: 2.9.1
+    sha: 1b8e56985ec62d17e9c1001dc89c88ecd7dc08e47eba5ec7c29c7b5eeecde967
   - name: cc
-    version: 1.2.1
-    sha: fd9de9f2205d5ef3fd67e685b0df337994ddd4495e2a28d185500d0e1edfea47
+    version: 1.2.23
+    sha: 5f4ac86a9e5bc1e2b3449ab9d7d3a6a405e3d1bb28d7b9be8614f55846ae3766
   - name: cfg-if
     version: 1.0.0
     sha: baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd
@@ -48,23 +48,23 @@ sources:
     version: 0.5.0
     sha: 2304e00983f87ffb38b55b444b5e3b60a884b5d30c0fca7d82fe33449bbe55ea
   - name: indoc
-    version: 2.0.5
-    sha: b248f5224d1d606005e02c97f5aa4e88eeb230488bcc03bc9ca4d7991399f2b5
+    version: 2.0.6
+    sha: f4c7245a08504955605670dbf141fceab975f15ca21570696aebe9d2e71576bd
   - name: itoa
-    version: 1.0.14
-    sha: d75a2a4b1b190afb6f5425f10f6a8f959d2ea0b9c2b1d79553551850539e4674
+    version: 1.0.15
+    sha: 4a5f13b858c8d314ee3e8f639011f7ccefe71f97f96e50151fb991f267928e2c
   - name: libc
-    version: 0.2.166
-    sha: c2ccc108bbc0b1331bd061864e7cd823c0cab660bbe6970e66e2c0614decde36
+    version: 0.2.172
+    sha: d750af042f7ef4f724306de029d18836c26c1765a54a6a3f094cbd23a7267ffa
   - name: memoffset
     version: 0.9.1
     sha: 488016bfae457b036d996092f6cb448677611ce4449e970ceaf42695203f218a
   - name: once_cell
-    version: 1.20.2
-    sha: 1261fe7e33c73b354eab43b1273a57c8f967d0391e80353e51f764ac02cf6775
+    version: 1.21.3
+    sha: 42f5e15c9953c5e4ccceeb2e7382a716482c34515315f7b03532b8b4e8393d2d
   - name: openssl
-    version: 0.10.68
-    sha: 6174bc48f102d208783c2c84bf931bb75927a617866870de8a4ea85597f871f5
+    version: 0.10.72
+    sha: fedfea7d58a1f73118430a55da6a286e7b044961736ce96a16a17068ea25e5da
   - name: openssl-macros
     version: 0.1.1
     sha: a948666b637a0f465e8564c73e89d4dde00d72d4d473cc972f390fc3dcee7d9c
@@ -72,53 +72,53 @@ sources:
     version: 0.9.108
     sha: e145e1651e858e820e4860f7b9c5e169bc1d8ce1c86043be79fa7b7634821847
   - name: pem
-    version: 3.0.4
-    sha: 8e459365e590736a54c3fa561947c84837534b8e9af6fc5bf781307e82658fae
+    version: 3.0.5
+    sha: 38af38e8470ac9dee3ce1bae1af9c1671fffc44ddfd8bd1d0a3445bf349a8ef3
   - name: pkg-config
-    version: 0.3.31
-    sha: 953ec861398dccce10c670dfeaf3ec4911ca479e9c02154b3a215178c5f566f2
+    version: 0.3.32
+    sha: 7edddbd0b52d732b21ad9a5fab5c704c14cd949e5e9a1ec5929a24fded1b904c
   - name: portable-atomic
-    version: 1.10.0
-    sha: 280dc24453071f1b63954171985a0b0d30058d287960968b9b2aca264c8d4ee6
+    version: 1.11.0
+    sha: 350e9b48cbc6b0e028b0473b114454c6316e57336ee184ceab6e53f72c178b3e
   - name: proc-macro2
-    version: 1.0.92
-    sha: 37d3544b3f2748c54e147655edb5025752e2303145b5aefb3c3ea2c78b973bb0
+    version: 1.0.95
+    sha: 02b3e5e68a3a1a02aad3ec490a98007cbc13c37cbe84a3cd7b8e406d76e7f778
   - name: pyo3
-    version: 0.23.5
-    sha: 7778bffd85cf38175ac1f545509665d0b9b92a198ca7941f131f85f7a4f9a872
+    version: 0.25.0
+    sha: f239d656363bcee73afef85277f1b281e8ac6212a1d42aa90e55b90ed43c47a4
   - name: pyo3-build-config
-    version: 0.23.5
-    sha: 94f6cbe86ef3bf18998d9df6e0f3fc1050a8c5efa409bf712e661a4366e010fb
+    version: 0.25.0
+    sha: 755ea671a1c34044fa165247aaf6f419ca39caa6003aee791a0df2713d8f1b6d
   - name: pyo3-ffi
-    version: 0.23.5
-    sha: e9f1b4c431c0bb1c8fb0a338709859eed0d030ff6daa34368d3b152a63dfdd8d
+    version: 0.25.0
+    sha: fc95a2e67091e44791d4ea300ff744be5293f394f1bafd9f78c080814d35956e
   - name: pyo3-macros
-    version: 0.23.5
-    sha: fbc2201328f63c4710f68abdf653c89d8dbc2858b88c5d88b0ff38a75288a9da
+    version: 0.25.0
+    sha: a179641d1b93920829a62f15e87c0ed791b6c8db2271ba0fd7c2686090510214
   - name: pyo3-macros-backend
-    version: 0.23.5
-    sha: fca6726ad0f3da9c9de093d6f116a93c1a38e417ed73bf138472cf4064f72028
+    version: 0.25.0
+    sha: 9dff85ebcaab8c441b0e3f7ae40a6963ecea8a9f5e74f647e33fcf5ec9a1e89e
   - name: quote
-    version: 1.0.37
-    sha: b5b9d34b8991d19d98081b46eacdd8eb58c6f2b201139f7c5f643cc155a633af
+    version: 1.0.40
+    sha: 1885c039570dc00dcb4ff087a89e185fd56bae234ddc7f056a945bf36467248d
   - name: self_cell
-    version: 1.0.4
-    sha: d369a96f978623eb3dc28807c4852d6cc617fed53da5d3c400feff1ef34a714a
+    version: 1.2.0
+    sha: 0f7d95a54511e0c7be3f51e8867aa8cf35148d7b9445d44de2f943e2b206e749
   - name: shlex
     version: 1.3.0
     sha: 0fda2ff0d084019ba4d7c6f371c95d8fd75ce3524c3cb8fb653a3023f6323e64
   - name: syn
-    version: 2.0.89
-    sha: 44d46482f1c1c87acd84dea20c1bf5ebff4c757009ed6bf19cfd36fb10e92c4e
+    version: 2.0.101
+    sha: 8ce2b7fc941b3a24138a0a7cf8e858bfc6a992e7978a068a5c760deb0ed43caf
   - name: target-lexicon
-    version: 0.12.16
-    sha: 61c41af27dd6d1e27b1b16b489db798443478cef1f06a660c96db617ba5de3b1
+    version: 0.13.2
+    sha: e502f78cdbb8ba4718f566c418c52bc729126ffd16baee5baa718cf25dd5a69a
   - name: unicode-ident
-    version: 1.0.14
-    sha: adb9e6ca4f869e1180728b7950e35922a7fc6397f7b641499e8f3ef06e50dc83
+    version: 1.0.18
+    sha: 5a5f39404a5da50712a4c1eecf25e90dd62b613502b7e925fd4e4d19b5c96512
   - name: unindent
-    version: 0.2.3
-    sha: c7de7d73e1754487cb58364ee906a499937a0dfabd86bcb980fa99ec8c8fa2ce
+    version: 0.2.4
+    sha: 7264e107f553ccae879d21fbea1d6724ac785e8c3bfc762137959b5802826ef3
   - name: vcpkg
     version: 0.2.15
     sha: accd4ea62f7bb7a82fe23066fb0957d48ef677f6eeb8215f372f52e48bb32426

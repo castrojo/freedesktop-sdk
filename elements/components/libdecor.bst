@@ -26,4 +26,4 @@ sources:
 - kind: git_repo
   url: freedesktop:libdecor/libdecor.git
   track: '*.*.*'
-  ref: 0.2.2-0-g7807ae3480f5c6a37c5e8505d94af1e764aaf704
+  ref: 0.2.3-0-g15afd30a6e23e949d022ff18f17dd7fdbd3361e4
