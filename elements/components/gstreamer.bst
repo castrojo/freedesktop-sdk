@@ -38,6 +38,8 @@ public:
         - '%{libdir}/libgstnet-1.0.so'
         - '%{libdir}/libgstreamer-1.0.so'
         - '%{libdir}/libgstcontroller-1.0.so'
+        - '%{datadir}/gstreamer-1.0/gdb'
+        - '%{datadir}/gstreamer-1.0/gdb/**'
 
 (@):
 - elements/include/gstreamer-source.yml

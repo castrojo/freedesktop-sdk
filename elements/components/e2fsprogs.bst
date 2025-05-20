@@ -53,6 +53,8 @@ public:
         - '%{libdir}/libcom_err.so'
         - '%{libdir}/libe2p.so'
         - '%{libdir}/libext2fs.so'
+        - '%{datadir}/et'
+        - '%{datadir}/et/**'
 
       vm-only:
       - '%{bindir}/*'

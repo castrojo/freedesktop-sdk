@@ -14,6 +14,8 @@ config:
   exclude:
     - debug
     - devel
+    - tests
+    - shells
   include-orphans: False
 
   metadata:
