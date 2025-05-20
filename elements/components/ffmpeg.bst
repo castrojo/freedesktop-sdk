@@ -25,7 +25,7 @@ variables:
     h264_vaapi,hap,hdr,hevc_amf,hevc_nvenc,hevc_qsv,\
     hevc_v4l2m2m,hevc_vaapi,huffyuv,ilbc,jpeg2000,jpegls,\
     libaom,libaom_av1,libcodec2,libgsm,libgsm_ms,libilbc,\
-    libjxl,libmp3lame,libopencore_amrnb,libopenjpeg,libopus,\
+    libjxl,liblc3,libmp3lame,libopencore_amrnb,libopenjpeg,libopus,\
     librav1e,libspeex,libsvtav1,libtheora,libtwolame,libvo_amrwbenc,\
     libvorbis,libvpx_vp8,libvpx_vp9,libwebp,libwebp_anim,libxvid,\
     mjpeg,mjpeg_qsv,mjpeg_vaapi,mlp,mp2,mp2fixed,\
@@ -81,53 +81,53 @@ variables:
     iac,idcin,idf,iff_ilbm,ilbc,imc,\
     indeo2,indeo3,indeo4,indeo5,interplay_acm,interplay_dpcm,\
     interplay_video,ipu,jacosub,jpeg2000,jpegls,jv,\
-    kgv1,kmvc,lagarith,libaom,libaom_av1,libcodec2,\
-    libdav1d,libgsm,libgsm_ms,libilbc,libjxl,libopencore_amrnb,\
-    libopencore_amrwb,libopenjpeg,libopus,librsvg,libschroedinger,\
-    libspeex,libvorbis,libvpx_vp8,libvpx_vp9,libzvbi_teletext,loco,\
-    lscr,m101,mace3,mace6,mdec,media100,\
-    metasound,microdvd,mimic,misc4,mjpeg,mjpeg_qsv,\
-    mjpegb,mlp,mmvideo,motionpixels,mp1,mp1float,\
-    mp2,mp2float,mp3,mp3adu,mp3adufloat,mp3float,\
-    mp3on4,mp3on4float,mpc7,mpc8,mpeg1_v4l2m2m,mpeg1video,\
-    mpeg2_qsv,mpeg2_v4l2m2m,mpeg2video,mpeg4,mpeg4_v4l2m2m,mpegvideo,\
-    mpl2,msa1,mscc,msmpeg4v1,msmpeg4v2,msmpeg4v3,\
-    msnsiren,msp2,msrle,mss1,mss2,msvideo1,\
-    mszh,mts2,mv30,mvc1,mvc2,mvdv,\
-    mvha,mwsc,mxpeg,nellymoser,nuv,on2avc,\
-    opus,paf_audio,paf_video,pam,pbm,pcm_alaw,\
-    pcm_bluray,pcm_dvd,pcm_f16le,pcm_f24le,pcm_f32be,pcm_f32le,\
-    pcm_f64be,pcm_f64le,pcm_lxf,pcm_mulaw,pcm_s16be,pcm_s16be_planar,\
-    pcm_s16le,pcm_s16le_planar,pcm_s24be,pcm_s24daud,pcm_s24le,pcm_s24le_planar,\
-    pcm_s32be,pcm_s32le,pcm_s32le_planar,pcm_s64be,pcm_s64le,pcm_s8,\
-    pcm_s8_planar,pcm_sga,pcm_u16be,pcm_u16le,pcm_u24be,pcm_u24le,\
-    pcm_u32be,pcm_u32le,pcm_u8,pcm_vidc,pcx,pfm,\
-    pgm,pgmyuv,pgssub,pgx,phm,photocd,\
-    pictor,pjs,png,ppm,prosumer,psd,\
-    ptx,qcelp,qdm2,qdmc,qdraw,qoa,\
-    qoi,qpeg,qtrle,r10k,r210,ra_144,\
-    ra_288,rasc,rawvideo,realtext,rka,rl2,\
-    roq,roq_dpcm,rpza,rscc,rv10,rv20,\
-    s302m,sami,sanm,sbc,screenpresso,sdx2_dpcm,\
-    sgi,sgirle,shorten,simbiosis_imx,sipr,siren,\
-    smackaud,smacker,smc,smvjpeg,snow,sol_dpcm,\
-    sonic,sp5x,speedhq,speex,srgc,srt,\
-    ssa,stl,subrip,subviewer,subviewer1,sunrast,\
-    svq1,svq3,tak,targa,targa_y216,tdsc,\
-    text,theora,thp,tiertexseqvideo,tiff,tmv,\
-    truehd,truemotion1,truemotion2,truemotion2rt,truespeech,tscc,\
-    tscc2,tta,twinvq,txd,ulti,utvideo,\
-    v210,v210x,v308,v408,v410,vb,\
-    vble,vcr1,vmdaudio,vmdvideo,vmnc,vnull,\
-    vorbis,vp3,vp4,vp5,vp6,vp6a,\
-    vp6f,vp7,vp8,vp8_qsv,vp8_v4l2m2m,vp9,\
-    vp9_qsv,vp9_v4l2m2m,vplayer,vqa,vqc,wady_dpcm,\
-    wavarc,wavpack,wbmp,wcmv,webp,webvtt,\
-    wmav1,wmav2,wmavoice,wmv1,wmv2,wnv1,\
-    wrapped_avframe,ws_snd1,xan_dpcm,xan_wc3,xan_wc4,xbin,\
-    xbm,xface,xl,xpm,xsub,xwd,\
-    y41p,ylc,yop,yuv4,zero12v,zerocodec,\
-    zlib,zmbv,%{extra-decoders}
+    kgv1,kmvc,lagarith,libaribb24,libaribcaption,libaom,\
+    libaom_av1,libcodec2,libdav1d,libgsm,libgsm_ms,libilbc,\
+    libjxl,liblc3,libopencore_amrnb,libopencore_amrwb,libopenjpeg,libopus,\
+    librsvg,libschroedinger,libspeex,libvorbis,libvpx_vp8,libvpx_vp9,\
+    libzvbi_teletext,loco,lscr,m101,mace3,mace6,\
+    mdec,media100,metasound,microdvd,mimic,misc4,\
+    mjpeg,mjpeg_qsv,mjpegb,mlp,mmvideo,motionpixels,\
+    mp1,mp1float,mp2,mp2float,mp3,mp3adu,\
+    mp3adufloat,mp3float,mp3on4,mp3on4float,mpc7,mpc8,\
+    mpeg1_v4l2m2m,mpeg1video,mpeg2_qsv,mpeg2_v4l2m2m,mpeg2video,mpeg4,\
+    mpeg4_v4l2m2m,mpegvideo,mpl2,msa1,mscc,msmpeg4v1,\
+    msmpeg4v2,msmpeg4v3,msnsiren,msp2,msrle,mss1,\
+    mss2,msvideo1,mszh,mts2,mv30,mvc1,\
+    mvc2,mvdv,mvha,mwsc,mxpeg,nellymoser,\
+    nuv,on2avc,opus,paf_audio,paf_video,pam,\
+    pbm,pcm_alaw,pcm_bluray,pcm_dvd,pcm_f16le,pcm_f24le,\
+    pcm_f32be,pcm_f32le,pcm_f64be,pcm_f64le,pcm_lxf,pcm_mulaw,\
+    pcm_s16be,pcm_s16be_planar,pcm_s16le,pcm_s16le_planar,pcm_s24be,pcm_s24daud,\
+    pcm_s24le,pcm_s24le_planar,pcm_s32be,pcm_s32le,pcm_s32le_planar,pcm_s64be,\
+    pcm_s64le,pcm_s8,pcm_s8_planar,pcm_sga,pcm_u16be,pcm_u16le,\
+    pcm_u24be,pcm_u24le,pcm_u32be,pcm_u32le,pcm_u8,pcm_vidc,\
+    pcx,pfm,pgm,pgmyuv,pgssub,pgx,\
+    phm,photocd,pictor,pjs,png,ppm,\
+    prosumer,psd,ptx,qcelp,qdm2,qdmc,\
+    qdraw,qoa,qoi,qpeg,qtrle,r10k,\
+    r210,ra_144,ra_288,rasc,rawvideo,realtext,\
+    rka,rl2,roq,roq_dpcm,rpza,rscc,\
+    rv10,rv20,s302m,sami,sanm,sbc,\
+    screenpresso,sdx2_dpcm,sgi,sgirle,shorten,simbiosis_imx,\
+    sipr,siren,smackaud,smacker,smc,smvjpeg,\
+    snow,sol_dpcm,sonic,sp5x,speedhq,speex,\
+    srgc,srt,ssa,stl,subrip,subviewer,\
+    subviewer1,sunrast,svq1,svq3,tak,targa,\
+    targa_y216,tdsc,text,theora,thp,tiertexseqvideo,\
+    tiff,tmv,truehd,truemotion1,truemotion2,truemotion2rt,\
+    truespeech,tscc,tscc2,tta,twinvq,txd,\
+    ulti,utvideo,v210,v210x,v308,v408,\
+    v410,vb,vble,vcr1,vmdaudio,vmdvideo,\
+    vmnc,vnull,vorbis,vp3,vp4,vp5,\
+    vp6,vp6a,vp6f,vp7,vp8,vp8_qsv,\
+    vp8_v4l2m2m,vp9,vp9_qsv,vp9_v4l2m2m,vplayer,vqa,\
+    vqc,wady_dpcm,wavarc,wavpack,wbmp,wcmv,\
+    webp,webvtt,wmav1,wmav2,wmavoice,wmv1,\
+    wmv2,wnv1,wrapped_avframe,ws_snd1,xan_dpcm,xan_wc3,\
+    xan_wc4,xbin,xbm,xface,xl,xpm,\
+    xsub,xwd,y41p,ylc,yop,yuv4,\
+    zero12v,zerocodec,zlib,zmbv,%{extra-decoders}
 
   conf-extra: >-
     --enable-encoder=%{encoders}
