@@ -25,4 +25,4 @@ sources:
 - kind: git_repo
   url: gnupg:libgcrypt.git
   track: libgcrypt-*
-  ref: libgcrypt-1.11.0-0-g9d94d7846cde272b8b1519ba96e53967bf0b90d2
+  ref: libgcrypt-1.11.1-0-g81ce5321b1b79bde6dfdc3c164efb40c13cf656b
