@@ -21,6 +21,6 @@ sources:
 - kind: git_repo
   url: github:pypa/setuptools.git
   track: v*
-  ref: v80.7.1-0-g12ca0186ba7d9bf387d65400bb05205d0bcf9e56
+  ref: v80.8.0-0-gb3786cd9b59576907e671d8b22b66c73cfed5dc6
 - kind: patch
   path: patches/python3-setuptools/disable-coherent-license.patch
