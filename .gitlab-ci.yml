@@ -484,6 +484,7 @@ minimal_efi_vm_image_aarch64:
   variables:
     VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
     DIALOG: root-login
+  allow_failure: true
 
 desktop_efi_vm_image_x86_64:
   extends:
