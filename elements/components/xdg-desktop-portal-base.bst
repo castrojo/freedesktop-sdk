@@ -33,4 +33,4 @@ sources:
 - kind: git_repo
   url: github:flatpak/xdg-desktop-portal.git
   track: '1.*[02468].*'
-  ref: 1.20.2-0-gcd9448ff8e934dda562687a74bfe2eb1c39a18a6
+  ref: 1.20.3-0-g23a76c392170dbbd26230f85ef56c3a57e52b857
