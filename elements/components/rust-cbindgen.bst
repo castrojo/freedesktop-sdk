@@ -25,7 +25,7 @@ sources:
 - kind: git_repo
   track: v*
   url: github:mozilla/cbindgen.git
-  ref: v0.28.0-0-ga976056ef61e6fcf0162ae81ba57fb92c8dfb599
+  ref: v0.29.0-0-g802154245edebe6bd031e473737da4c2fbdea8a3
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
@@ -103,8 +103,8 @@ sources:
     sha: e5274423e17b7c9fc20b6e7e208532f9b19825d82dfd615708b70edd83df41f1
   - kind: registry
     name: heck
-    version: 0.4.1
-    sha: 95505c38b4572b2d910cecb0281560f54b440a19336cbbcb27bf6ce6adc6f5a8
+    version: 0.5.0
+    sha: 2304e00983f87ffb38b55b444b5e3b60a884b5d30c0fca7d82fe33449bbe55ea
   - kind: registry
     name: indexmap
     version: 2.3.0
