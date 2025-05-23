@@ -36,4 +36,4 @@ sources:
   exclude:
   - "*-rc*"
   - "*branchpoint*"
-  ref: v1.8.1-0-g9cc4d98b22ae57bc1d8c253988feb85d4298a634
+  ref: v1.8.2-0-gf2c0bdb4bdde3cf83ed48547a276bdcbc7b41425
