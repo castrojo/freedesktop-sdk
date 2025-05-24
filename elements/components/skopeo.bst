@@ -23,7 +23,8 @@ environment:
 variables:
   command-subdir: src/github.com/containers/skopeo
   # otherwise it installs etc/containers/ as well
-  make-install: make -j1 %{make-args} DESTDIR="%{install-root}" install-binary install-docs install-completions
+  make-install: make -j1 %{make-args} DESTDIR="%{install-root}" install-binary install-docs
+    install-completions
 
 sources:
 - kind: git_repo
@@ -32,4 +33,4 @@ sources:
   track: v*
   exclude:
   - "*rc*"
-  ref: v1.18.0-0-g64361bde0687b2d8ae490fd9d7358a1e89d70e5b
+  ref: v1.19.0-0-g7aa78df96b049bc9e36e10283ba08ceb9165041d
