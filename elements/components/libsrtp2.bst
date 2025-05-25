@@ -6,10 +6,13 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/openssl.bst
 
 variables:
   meson-local: >-
     -Dpcap-tests=disabled
+    -Dcrypto-library=openssl
+    -Dcrypto-library-kdf=disabled
 
 public:
   bst:
