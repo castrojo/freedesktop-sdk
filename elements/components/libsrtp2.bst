@@ -10,6 +10,7 @@ depends:
 
 variables:
   meson-local: >-
+    -Dtests=disabled
     -Dpcap-tests=disabled
     -Dcrypto-library=openssl
     -Dcrypto-library-kdf=disabled
