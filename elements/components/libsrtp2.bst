@@ -9,6 +9,7 @@ depends:
 
 variables:
   meson-local: >-
+    -Dtests=disabled
     -Dpcap-tests=disabled
 
 public:
