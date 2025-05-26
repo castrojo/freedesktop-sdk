@@ -3,6 +3,7 @@ kind: pyproject
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
 - components/cython.bst
+- components/python3-pkgconfig.bst
 
 runtime-depends:
 - components/python3.bst
