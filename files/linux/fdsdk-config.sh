@@ -63,7 +63,6 @@ module CRYPTO_CBC
 module CRYPTO_CMAC
 module CRYPTO_CRC32
 module CRYPTO_CRC32C
-module CRYPTO_CRCT10DIF
 module CRYPTO_DES
 module CRYPTO_ECB
 module CRYPTO_GHASH
@@ -1085,7 +1084,7 @@ esac
 # ACPI
 enable ACPI_FFH
 enable ACPI_PCI_SLOT
-module ACPI_HED
+enable ACPI_HED
 module ACPI_IPMI
 module ACPI_PFRUT
 module ACPI_TAD
