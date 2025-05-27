@@ -80,7 +80,6 @@ module CRYPTO_CHACHA20POLY1305
 module CRYPTO_CMAC
 module CRYPTO_CRC32
 module CRYPTO_CRC32C
-module CRYPTO_CRCT10DIF
 module CRYPTO_CTS
 module CRYPTO_CURVE25519
 module CRYPTO_DEFLATE
@@ -1214,7 +1213,7 @@ esac
 enable ACPI_FFH
 enable ACPI_PCI_SLOT
 enable ACPI_DOCK
-module ACPI_HED
+enable ACPI_HED
 module ACPI_IPMI
 module ACPI_PFRUT
 module ACPI_TAD
