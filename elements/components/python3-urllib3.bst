@@ -18,3 +18,5 @@ sources:
   - '*b*'
   - '*rc*'
   ref: 2.4.0-0-ga5ff7ac3bbb8659e2ec3ed41dd43889f06a7d7bc
+- kind: patch
+  path: patches/python3-urllib3/hatch_vcs.patch
