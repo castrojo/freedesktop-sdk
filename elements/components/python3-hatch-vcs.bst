@@ -13,6 +13,6 @@ sources:
 - kind: pypi
   name: hatch-vcs
   ref:
-    sha256sum: 093810748fe01db0d451fabcf2c1ac2688caefd232d4ede967090b1c1b07d9f7
+    sha256sum: 0395fa126940340215090c344a2bf4e2a77bcbe7daab16f41b37b98c95809ff9
     suffix: 
-      f5/c9/54bb4fa27b4e4a014ef3bb17710cdf692b3aa2cbc7953da885f1bf7e06ea/hatch_vcs-0.4.0.tar.gz
+      6b/b0/4cc743d38adbee9d57d786fa496ed1daadb17e48589b6da8fa55717a0746/hatch_vcs-0.5.0.tar.gz
