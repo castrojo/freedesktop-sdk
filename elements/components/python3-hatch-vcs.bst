@@ -13,4 +13,4 @@ sources:
 - kind: git_repo
   url: github:ofek/hatch-vcs.git
   track: v*
-  ref: v0.4.0-0-ge186a8b5d97dd9c9f93ae6015139b55411d9011b
+  ref: v0.5.0-0-gdfec2c06defdb4648eb66f6aadf7b57453d732cd
