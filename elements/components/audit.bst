@@ -30,6 +30,8 @@ sources:
 - kind: git_repo
   url: github:linux-audit/audit-userspace.git
   track: v*.*
+  exclude:
+  - "*b*"
   ref: v4.0.3-0-g51d154c5b7ec91831cbb89fe6ca54d8eb7ba344c
 - kind: local
   path: files/audit/tmpfiles-audit.conf
