@@ -1,0 +1,13 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 77c97312..ffaab0ea 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,7 +1,7 @@
+ # This file is protected via CODEOWNERS
+ 
+ [build-system]
+-requires = ["hatchling>=1.6.0,<2", "hatch-vcs==0.4.0"]
++requires = ["hatchling>=1.6.0,<2", "hatch-vcs>=0.4.0,<1"]
+ build-backend = "hatchling.build"
+ 
+ [project]
