@@ -22,7 +22,7 @@ sources:
 - kind: git_repo
   url: github:containers/netavark.git
   track: v*
-  ref: v1.15.0-0-gaadd9fe28619d61201191006994a8ff138b73569
+  ref: v1.15.1-0-g868d33d321fc9f57d0bd2ddf14bb566078a32da4
 - kind: cargo2
   ref:
   - kind: registry
