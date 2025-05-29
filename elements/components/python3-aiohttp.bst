@@ -5,6 +5,7 @@ build-depends:
 - components/grep.bst
 - components/findutils.bst
 - components/cython.bst
+- components/python3-pkgconfig.bst
 
 runtime-depends:
 - components/python3.bst
