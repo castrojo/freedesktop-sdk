@@ -12,4 +12,4 @@ sources:
 - kind: git_repo
   url: freedesktop:slirp/libslirp.git
   track: v*
-  ref: v4.9.0-0-gc32a8a1ccaae8490142e67e078336a95c5ffc956
+  ref: v4.9.1-0-g9c744e1e52aa0d9646ed91d789d588696292c21e
