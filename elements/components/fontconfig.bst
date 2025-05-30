@@ -6,6 +6,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/expat.bst
 - components/freetype.bst
 
 variables:
@@ -14,6 +15,7 @@ variables:
     -Dcache-build=disabled
     -Ddoc=disabled
     -Dtemplate-dir="%{sysconfdir}/fonts/conf.avail"
+    -Dxml-backend="expat"
 
 public:
   bst:
