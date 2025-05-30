@@ -31,6 +31,12 @@ public:
         fc-cache -rs
       fi
 
+config:
+  install-commands:
+    (>):
+    - |
+      find "%{install-root}" -name "lib*.a" -delete
+
 sources:
 - kind: git_repo
   url: freedesktop:fontconfig/fontconfig.git
