@@ -1,7 +1,7 @@
-kind: autotools
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 - components/gperf.bst
 
 depends:
@@ -9,8 +9,11 @@ depends:
 - components/freetype.bst
 
 variables:
-  conf-local: >-
-    --with-templatedir="%{sysconfdir}/fonts/conf.avail"
+  meson-local: >-
+    -Dtests=disabled
+    -Dcache-build=disabled
+    -Ddoc=disabled
+    -Dtemplate-dir="%{sysconfdir}/fonts/conf.avail"
 
 public:
   bst:
