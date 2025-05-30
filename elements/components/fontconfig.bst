@@ -32,3 +32,5 @@ sources:
   ref: 2.15.0-0-g72b9a48f57de6204d99ce1c217b5609ee92ece9b
 - kind: patch
   path: patches/fontconfig/bitmap-block.patch
+- kind: patch
+  path: patches/fontconfig/rename-lohit-oriya.patch
