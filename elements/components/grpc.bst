@@ -11,6 +11,7 @@ depends:
 
 variables:
   cmake-local: >-
+    -DBUILD_SHARED_LIBS=ON
     -DgRPC_SSL_PROVIDER=package
     -DgRPC_PROTOBUF_PROVIDER=package
     -DgRPC_ZLIB_PROVIDER=package
