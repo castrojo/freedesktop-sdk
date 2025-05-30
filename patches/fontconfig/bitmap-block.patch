@@ -1,0 +1,196 @@
+From b27002b61f2a928cc4f623e27a76da2c36addbf4 Mon Sep 17 00:00:00 2001
+From: Akira TAGOH <akira@tagoh.org>
+Date: Fri, 8 Mar 2024 01:55:14 +0900
+Subject: [PATCH] Backport bitmap-blocking font config and meson-hooks to
+ install it
+
+See https://gitlab.freedesktop.org/fontconfig/fontconfig/-/merge_requests/313
+and https://gitlab.freedesktop.org/fontconfig/fontconfig/-/commit/15cf5fb89701fd662231bc541e84696559fd26e0
+
+Fixes https://gitlab.freedesktop.org/fontconfig/fontconfig/-/issues/474
+Fixes https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/issues/718
+---
+ conf.d/70-no-bitmaps-and-emoji.conf    | 13 +++++++++++++
+ conf.d/70-no-bitmaps-except-emoji.conf | 14 ++++++++++++++
+ conf.d/70-no-bitmaps.conf              | 11 ++---------
+ conf.d/Makefile.am                     |  4 ++++
+ conf.d/meson.build                     | 15 +++++++++++++++
+ configure.ac                           | 24 ++++++++++++++++++++++++
+ meson_options.txt                      |  3 +++
+ 7 files changed, 75 insertions(+), 9 deletions(-)
+ create mode 100644 conf.d/70-no-bitmaps-and-emoji.conf
+ create mode 100644 conf.d/70-no-bitmaps-except-emoji.conf
+
+diff --git a/conf.d/70-no-bitmaps-and-emoji.conf b/conf.d/70-no-bitmaps-and-emoji.conf
+new file mode 100644
+index 00000000..3e18a4cf
+--- /dev/null
++++ b/conf.d/70-no-bitmaps-and-emoji.conf
+@@ -0,0 +1,13 @@
++<?xml version="1.0"?>
++<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
++<fontconfig>
++  <description>Reject bitmap fonts, including bitmap emoji fonts</description>
++  <!-- Reject bitmap fonts -->
++  <selectfont>
++    <rejectfont>
++      <pattern>
++        <patelt name="outline"><bool>false</bool></patelt>
++      </pattern>
++    </rejectfont>
++  </selectfont>
++</fontconfig>
+diff --git a/conf.d/70-no-bitmaps-except-emoji.conf b/conf.d/70-no-bitmaps-except-emoji.conf
+new file mode 100644
+index 00000000..3170cd6f
+--- /dev/null
++++ b/conf.d/70-no-bitmaps-except-emoji.conf
+@@ -0,0 +1,14 @@
++<?xml version="1.0"?>
++<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
++<fontconfig>
++  <description>Reject bitmap fonts except bitmap emoji fonts</description>
++  <!-- Reject bitmap fonts -->
++  <selectfont>
++    <rejectfont>
++      <pattern>
++        <patelt name="outline"><bool>false</bool></patelt>
++        <patelt name="scalable"><bool>false</bool></patelt>
++      </pattern>
++    </rejectfont>
++  </selectfont>
++</fontconfig>
+diff --git a/conf.d/70-no-bitmaps.conf b/conf.d/70-no-bitmaps.conf
+index 10203acb..767e4115 100644
+--- a/conf.d/70-no-bitmaps.conf
++++ b/conf.d/70-no-bitmaps.conf
+@@ -1,13 +1,6 @@
+ <?xml version="1.0"?>
+ <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+ <fontconfig>
+-  <description>Reject bitmap fonts</description>
+-<!-- Reject bitmap fonts -->
+- <selectfont>
+-  <rejectfont>
+-   <pattern>
+-     <patelt name="outline"><bool>false</bool></patelt>
+-   </pattern>
+-  </rejectfont>
+- </selectfont>
++  <description>Reject bitmap fonts except bitmap emoji fonts (deprecated; use 70-no-bitmaps-except-emoji.conf)</description>
++  <include ignore_missing="yes">70-no-bitmaps-except-emoji.conf</include>
+ </fontconfig>
+diff --git a/conf.d/Makefile.am b/conf.d/Makefile.am
+index fd858348..ac9d6e2c 100644
+--- a/conf.d/Makefile.am
++++ b/conf.d/Makefile.am
+@@ -52,6 +52,8 @@ CONF_LINKS = \
+ 	80-delicious.conf \
+ 	90-synthetic.conf
+ 
++CONF_LINKS += 70-$(PREFERRED_BITMAP).conf
++
+ EXTRA_DIST = $(template_DATA) $(DOC_SOURCES)
+ CLEANFILES = $(DOC_FILES)
+ 
+@@ -98,6 +100,8 @@ template_DATA =				\
+ 	65-nonlatin.conf		\
+ 	69-unifont.conf			\
+ 	70-no-bitmaps.conf		\
++	70-no-bitmaps-and-emoji.conf	\
++	70-no-bitmaps-except-emoji.conf	\
+ 	70-yes-bitmaps.conf		\
+ 	80-delicious.conf		\
+ 	90-synthetic.conf
+diff --git a/conf.d/meson.build b/conf.d/meson.build
+index 8e896118..3fd4d94d 100644
+--- a/conf.d/meson.build
++++ b/conf.d/meson.build
+@@ -36,6 +36,8 @@ conf_files = [
+   '65-nonlatin.conf',
+   '69-unifont.conf',
+   '70-no-bitmaps.conf',
++  '70-no-bitmaps-and-emoji.conf',
++  '70-no-bitmaps-except-emoji.conf',
+   '70-yes-bitmaps.conf',
+   '80-delicious.conf',
+   '90-synthetic.conf',
+@@ -43,6 +45,7 @@ conf_files = [
+ 
+ preferred_hinting = get_option('default-hinting')
+ preferred_sub_pixel_rendering = get_option('default-sub-pixel-rendering')
++preferred_bitmap = get_option('bitmap-conf')
+ 
+ conf_links = [
+   '10-hinting-@0@.conf'.format(preferred_hinting),
+@@ -68,6 +71,18 @@ conf_links = [
+   '90-synthetic.conf',
+ ]
+ 
++bitmap_conf_options = {
++  'yes': 'yes-bitmaps',
++  'no': 'no-bitmaps-and-emoji',
++  'no-except-emoji': 'no-bitmaps-except-emoji'
++}
++
++foreach opt, configfile : bitmap_conf_options
++  if opt == preferred_bitmap
++    conf_links += '70-@0@.conf'.format(configfile)
++  endif
++endforeach
++
+ install_data(conf_files, install_dir: fc_templatedir)
+ 
+ meson.add_install_script('link_confs.py', fc_templatedir,
+diff --git a/configure.ac b/configure.ac
+index c4764208..c8b1bdc5 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -481,6 +481,30 @@ none|slight|medium|full)
+ 	;;
+ esac
+ 
++#
++# default bitmap config
++#
++
++AC_ARG_WITH(bitmap-conf,
++    [AS_HELP_STRING([--with-bitmap-conf=NAME],[Enable your preferred bitmap related configuration (yes/no/no-except-emoji) [default=no-except-emoji]])],
++    preferred_bitmap="$withval", preferred_bitmap=no-except-emoji)
++
++case "$preferred_bitmap" in
++yes)
++    PREFERRED_BITMAP="yes-bitmaps"
++    ;;
++no)
++    PREFERRED_BITMAP="no-bitmaps-and-emoji"
++    ;;
++no-except-emoji)
++    PREFERRED_BITMAP="no-bitmaps-except-emoji"
++    ;;
++*)
++	AC_MSG_ERROR([Invalid bitmap config. please choose one of yes, no, or no-except-emoji])
++	;;
++esac
++AC_SUBST(PREFERRED_BITMAP)
++
+ #
+ # Set default font directory
+ #
+diff --git a/meson_options.txt b/meson_options.txt
+index ab4f3b91..c781e4d3 100644
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -22,6 +22,9 @@ option('default-hinting', type: 'combo', choices: ['none', 'slight', 'medium', '
+ option('default-sub-pixel-rendering', type: 'combo', choices: ['none', 'bgr', 'rgb', 'vbgr', 'vrgb'], value: 'none',
+   description: 'Preferred sub-pixel rendering configuration')
+ 
++option('bitmap-conf', type: 'combo', choices: ['yes', 'no', 'no-except-emoji'], value: 'no-except-emoji',
++  description: 'What bitmap font related config file enabled by default: See 70-*bitmaps*.conf')
++
+ option('default-fonts-dirs', type: 'array', value: ['yes'],
+   description: 'Use fonts from DIR1,DIR2,... when config is busted (set to "yes" for generic system-specific defaults)')
+ 
+-- 
+2.49.0
+
