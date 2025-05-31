@@ -1,9 +1,6 @@
 kind: make
 description: Linux kernel configured for use in virtual machines.
 
-depends:
-- components/kmod.bst
-
 build-depends:
 - public-stacks/buildsystem-make.bst
 - components/bison.bst
@@ -124,13 +121,6 @@ config:
 
 public:
   bst:
-    integration-commands:
-    - |
-      cd '%{indep-libdir}/modules'
-      for version in *; do
-        depmod -b '%{prefix}' -a "$version";
-      done
-
     split-rules:
       devel:
         (>):

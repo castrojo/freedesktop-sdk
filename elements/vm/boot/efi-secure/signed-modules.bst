@@ -25,12 +25,6 @@ config:
   - |
     find '%{install-root}/usr/lib/modules' -type f -name "*.ko" -exec sign-file sha512 linux-module-cert.key linux-module-cert.cer {} ';' -exec zstd {} ';'
 
-  - |
-    cd '%{install-root}/usr/lib/modules'
-    for version in *; do
-      depmod -b '%{install-root}%{prefix}' -a "$version";
-    done
-
 sources:
 - kind: local
   path: files/boot-keys/linux-module-cert.key
