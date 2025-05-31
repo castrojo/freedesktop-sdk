@@ -71,6 +71,13 @@ while [ $# -gt 0 ]; do
     esac
 done
 
+echo "Running depmod" 1>&2
+
+for version in $(ls "${sysroot}"/lib/modules/); do
+    depmod -b "${sysroot}" -a "${version}";
+done
+
+
 mkdir -p "${sysroot}/etc"
 
 echo "Initial /etc/shells" 1>&2
