@@ -14,7 +14,7 @@ config:
   configure-commands:
     (<):
     - |
-      cd modules/oniguruma
+      cd vendor/oniguruma
       autoreconf -v -f -i
       cd ../..
 
@@ -24,8 +24,8 @@ sources:
   track: jq-*
   exclude:
   - jq-*rc*
-  ref: jq-1.7.1-0-g71c2ab509a8628dbbad4bc7b3f98a64aa90d3297
+  ref: jq-1.8.0-0-gd23a7b9db932be706fecf5f4c9711fd4214bb64e
 - kind: git_module
-  path: modules/oniguruma
+  path: vendor/oniguruma
   url: github:kkos/oniguruma.git
-  ref: d2f1a14ced5d5d461acac0da0d477ab240a7ab5f
+  ref: 4ef89209a239c1aea328cf13c05a2807e5c146d1
