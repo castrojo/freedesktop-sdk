@@ -40,7 +40,7 @@ sources:
   track: '*.*.*'
   exclude:
   - '*-*'
-  ref: 1.25.6-0-g8610a48f12b71eb7a73b6d68cece78f6342d116f
+  ref: 1.26.1-0-ga895aab8501d477b74cbf631fe4ff3c0f9706471
 - kind: git_module
   path: thirdparty/mujs
   url: ghostscript:mujs.git
@@ -56,8 +56,8 @@ sources:
 - kind: git_module
   path: thirdparty/lcms2
   url: ghostscript:thirdparty-lcms2.git
-  ref: ab4547bd04a13590a6e72833f9928fc1c31da12e
+  ref: f75fad71d53efd58d7312bea21c2bedca0b9e6da
 - kind: git_module
   path: thirdparty/extract
   url: ghostscript:extract.git
-  ref: ed5acb1397fc48f7e11804e9a72e37dd25a05c93
+  ref: 8750ac39c30a0d65119b426b5a491c5b8e8bf674
