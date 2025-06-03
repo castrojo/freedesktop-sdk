@@ -35,6 +35,7 @@ config:
   - components/rtkit.bst
   - components/ruby.bst
   - components/rust.bst
+  - components/spirv-tools.bst
   - components/steam-devices.bst
   - components/sudo.bst
   - components/systemd.bst
