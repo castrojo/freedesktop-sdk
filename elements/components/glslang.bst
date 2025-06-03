@@ -3,7 +3,6 @@ kind: cmake
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/python3.bst
-- components/spirv-tools.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -12,7 +11,7 @@ variables:
   cmake-local: >-
     -DCMAKE_SKIP_RPATH:BOOL=yes
     -DBUILD_SHARED_LIBS:BOOL=yes
-    -DALLOW_EXTERNAL_SPIRV_TOOLS:BOOL=yes
+    -DENABLE_OPT="OFF"
   command-subdir: glslang
 
 public:
