@@ -14,7 +14,7 @@ depends:
 - components/lcms.bst
 - components/nss.bst
 - components/openjpeg.bst
-- components/gpgme.bst
+- components/gpgmepp.bst
 - components/curl.bst
 
 variables:
