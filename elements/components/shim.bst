@@ -62,8 +62,9 @@ sources:
   track: "*.*"
   exclude:
   - "*rc*"
-  ref: 16.0-0-g18d98bfb34be583a5fe2987542e4b15e0db9cb61
+  - "16.0"
+  ref: 15.8-0-g5914984a1ffeab841f482c791426d7ca9935a5e6
 - kind: git_module
   url: github:rhboot/gnu-efi.git
   path: gnu-efi
-  ref: 0d74e15af1ed17a7502829bef70b745287348e3d
+  ref: 328951d3dcb5ff97f5a7c7a362b006626fada000
