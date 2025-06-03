@@ -27,7 +27,6 @@ public:
         (>):
         - '%{bindir}/gpgme-config'
         - '%{libdir}/libgpgme.so'
-        - '%{libdir}/libgpgmepp.so'
 
 config:
   install-commands:

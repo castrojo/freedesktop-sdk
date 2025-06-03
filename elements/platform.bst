@@ -23,6 +23,7 @@ depends:
 - components/gnutls.bst
 - components/gzip.bst
 - components/gpgme.bst
+- components/gpgmepp.bst
 - components/iana-config.bst
 - components/icu.bst
 - components/iso-codes.bst

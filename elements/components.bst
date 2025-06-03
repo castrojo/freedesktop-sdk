@@ -156,6 +156,7 @@ depends:
 - components/google-crosextra-carlito.bst
 - components/gperf.bst
 - components/gpgme.bst
+- components/gpgmepp.bst
 - components/graphene.bst
 - components/graphite2.bst
 - components/grep.bst
