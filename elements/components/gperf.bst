@@ -24,3 +24,5 @@ sources:
   path: patches/gperf/disable-devel-makefile-paralel.patch
 - kind: patch
   path: patches/gperf/html-doc-reproducible-date.patch
+- kind: patch
+  path: patches/gperf/man-page-reproducible-date.patch

@@ -1,0 +1,26 @@
+From 9de3a8881cce0d897dd05a44535d6f331b647626 Mon Sep 17 00:00:00 2001
+From: Adrien Plazas <adrien.plazas@codethink.co.uk>
+Date: Wed, 4 Jun 2025 17:40:25 +0200
+Subject: [PATCH] Man page reproducible date
+
+---
+ doc/help2man | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/doc/help2man b/doc/help2man
+index 5226bd4..01c518e 100755
+--- a/doc/help2man
++++ b/doc/help2man
+@@ -166,7 +166,8 @@ my ($help_text, $version_text) = map {
+ 	or die "$this_program: can't get `--$_' info from $ARGV[0]\n"
+ } qw(help version);
+ 
+-my $date = strftime "%B %Y", localtime;
++my $timestamp = $ENV{SOURCE_DATE_EPOCH} // 1577836800;
++my $date = strftime "%B %Y", localtime($timestamp);
+ (my $program = $ARGV[0]) =~ s!.*/!!;
+ my $package = $program;
+ my $version;
+-- 
+2.49.0
+
