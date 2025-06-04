@@ -11,7 +11,7 @@ sources:
 - kind: git_repo
   url: github:iputils/iputils.git
   track: '[0-9]*'
-  ref: 20240905-0-g10b50784aae3fb75c96cdf9b1668916b49557dd5
+  ref: 20250602-0-g23b06385444fba29c898370ae6f297e41c11667b
 
 variables:
   meson-local: >-
