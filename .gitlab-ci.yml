@@ -257,6 +257,7 @@ check_mirrors:
     when: always
     paths:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs/**/*-build.*.log
+      - ${CI_PROJECT_DIR}/cache/buildstream/logs/_casd
       - ${CI_PROJECT_DIR}/libabigail-tars
   rules:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
