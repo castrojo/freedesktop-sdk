@@ -16,6 +16,7 @@ variables:
     -Ddoc=disabled
     -Dtemplate-dir="%{sysconfdir}/fonts/conf.avail"
     -Dxml-backend="expat"
+    -Dcache-dir="%{indep-libdir}/fontconfig/cache"
 
 public:
   bst:
