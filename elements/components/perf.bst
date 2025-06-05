@@ -32,6 +32,9 @@ variables:
       kernel_arch: riscv
 
   kernel_arch: '%{arch}'
+  local_flags: >-
+    -Wno-error
+
   # Note: CFLAGS environment is ignored and should be passed as
   # EXTRA_CFLAGS instead. LFLAGS works.
   make-args: >-
