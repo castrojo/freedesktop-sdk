@@ -21,10 +21,21 @@ depends:
 - components/slang.bst
 
 variables:
+  (?):
+  - target_arch == "aarch64":
+      kernel_arch: arm64
+  - target_arch == "i686":
+      kernel_arch: i386
+  - target_arch == "ppc64le":
+      kernel_arch: powerpc
+  - target_arch == "riscv64":
+      kernel_arch: riscv
+
   kernel_arch: '%{arch}'
   # Note: CFLAGS environment is ignored and should be passed as
   # EXTRA_CFLAGS instead. LFLAGS works.
   make-args: >-
+    -C "tools/perf"
     prefix='%{prefix}'
     bindir='%{bindir}'
     libdir='%{libdir}'
@@ -39,25 +50,12 @@ variables:
     ARCH='%{kernel_arch}'
     EXTRA_CFLAGS='%{target_flags}'
 
-  (?):
-  - target_arch == "aarch64":
-      kernel_arch: arm64
-  - target_arch == "i686":
-      kernel_arch: i386
-  - target_arch == "ppc64le":
-      kernel_arch: powerpc
-  - target_arch == "riscv64":
-      kernel_arch: riscv
-
 config:
-  build-commands:
-  - make -C tools/perf %{make-args}
-
   install-commands:
-  - make -j1 -C tools/perf install %{make-args} DESTDIR='%{install-root}'
-
-  - rm "%{install-root}%{bindir}/trace"
-  - ln -s perf "%{install-root}%{bindir}/trace"
+    (>):
+    - |
+      rm "%{install-root}%{bindir}/trace"
+      ln -s perf "%{install-root}%{bindir}/trace"
 
 (@):
 - elements/include/linux.yml
