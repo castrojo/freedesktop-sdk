@@ -11,6 +11,8 @@ depends:
 sources:
 - kind: pypi
   name: frozenlist
+  include:
+  - "1.6.0"
   ref:
     sha256sum: b99655c32c1c8e06d111e7f41c06c29a5318cb1835df23a45518e02a47c63b68
     suffix: 
