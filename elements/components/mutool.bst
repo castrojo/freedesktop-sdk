@@ -35,28 +35,28 @@ config:
 
 sources:
 - kind: git_repo
-  url: ghostscript:mupdf.git
+  url: github:ArtifexSoftware/mupdf.git
   track: '*.*.*'
   exclude:
   - '*-*'
-  ref: 1.26.1-0-ga895aab8501d477b74cbf631fe4ff3c0f9706471
+  ref: 1.26.2-0-gf5179b4dce460c83ddd9e0177a3358447cafc891
 - kind: git_module
   path: thirdparty/mujs
-  url: ghostscript:mujs.git
+  url: github:ArtifexSoftware/mujs.git
   ref: 0df0707f2f10187127e36acfbc3ba9b9ca5b5cf0
 - kind: git_module
   path: thirdparty/jbig2dec
-  url: ghostscript:jbig2dec.git
+  url: github:ArtifexSoftware/jbig2dec.git
   ref: 1d1347e38a55e657dcc4c8f1c77bb3a26bfc9ff3
 - kind: git_module
   path: thirdparty/gumbo-parser
-  url: ghostscript:thirdparty-gumbo-parser.git
+  url: github:ArtifexSoftware/thirdparty-gumbo-parser.git
   ref: 61bd4e736c3b342e592f65be0d65ec6a0acd8dcb
 - kind: git_module
   path: thirdparty/lcms2
-  url: ghostscript:thirdparty-lcms2.git
+  url: github:ArtifexSoftware/thirdparty-lcms2.git
   ref: f75fad71d53efd58d7312bea21c2bedca0b9e6da
 - kind: git_module
   path: thirdparty/extract
-  url: ghostscript:extract.git
+  url: github:ArtifexSoftware/extract.git
   ref: 8750ac39c30a0d65119b426b5a491c5b8e8bf674
