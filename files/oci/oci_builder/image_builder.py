@@ -182,7 +182,10 @@ def build_layer(upper, lowers, legacy_config, global_conf):
     new_legacy_parent = None
 
     with ExitStack() as stack:
-        tfile = stack.enter_context(tempfile.TemporaryFile(mode="w+b"))
+        # By default tempfile will place it in /tmp, but since its an image we should
+        # use /var/tmp to avoid writing all of it into ram
+        os.makedirs("/var/tmp", mode=0o1777, exist_ok=True)
+        tfile = stack.enter_context(tempfile.TemporaryFile(mode="w+b", dir="/var/tmp"))
         tar = stack.enter_context(tarfile.open(fileobj=tfile, mode="w:"))
         lower_tars = []
         read_mode = "r:gz" if global_conf.gzip else "r:"
