@@ -27,7 +27,7 @@ sources:
   track: v*.*
   exclude:
   - "*b*"
-  ref: v4.0.4-0-g81dcded2ed9e407dd1357eda0bdc0855f06085e6
+  ref: v4.0.5-0-g97c4ec3d68b5b199f2796d1e126c2144506bd228
 - kind: local
   path: files/audit/tmpfiles-audit.conf
   directory: freedesktop-sdk
