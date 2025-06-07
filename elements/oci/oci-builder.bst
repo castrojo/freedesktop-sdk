@@ -1,6 +1,7 @@
 kind: compose
 
 build-depends:
+- components/shadow.bst
 - oci/oci-builder-base.bst
 
 config:
