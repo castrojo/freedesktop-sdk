@@ -11,6 +11,7 @@ config:
   - locale
   - tests
   - shells
+  - zoneinfo
 
   metadata:
     Runtime:

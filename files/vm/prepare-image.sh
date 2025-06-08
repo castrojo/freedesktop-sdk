@@ -12,6 +12,7 @@ uuidnamespace="$(uuidgen -r)"
 rootfstype="ext4"
 rootfsopts="errors=remount-ro,relatime"
 root_source=
+noroot=
 
 while [ $# -gt 0 ]; do
     param="$1"
@@ -63,6 +64,9 @@ while [ $# -gt 0 ]; do
         --rootfsopts)
             rootfsopts="$1"
             shift
+            ;;
+        --noroot)
+            noroot="1"
             ;;
     esac
 done
@@ -125,9 +129,11 @@ if [ -z "${root_source}" ]; then
     root_source="UUID=${uuid_root}"
 fi
 
-cat >"${sysroot}/etc/fstab" <<EOF
+if [ -z "${noroot}" ]; then
+  cat >>"${sysroot}/etc/fstab" <<EOF
 ${root_source} / ${rootfstype} ${rootfsopts} 0 1
 EOF
+fi
 
 if [ -z "${noboot}" ]; then
     cat >>"${sysroot}/etc/fstab" <<EOF
