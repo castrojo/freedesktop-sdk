@@ -5,4 +5,4 @@ sources:
   exclude:
   - '*rc*'
   - '*beta*'
-  ref: go1.24.3-0-g34c8b14ca9f4096383d658fbd748322a993a2bd2
+  ref: go1.24.4-0-g6796ebb2cb66b316a07998cdcd69b1c486b8579e
