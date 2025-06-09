@@ -7,7 +7,6 @@ description: |
 
 build-depends:
 - components/oci-builder.bst
-- components/shadow.bst
 
 config:
   exclude:
