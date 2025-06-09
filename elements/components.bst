@@ -341,6 +341,7 @@ depends:
 - components/nss.bst
 - components/nsswitch-config-bootable.bst
 - components/nsswitch-config.bst
+- components/oci-builder.bst
 - components/open-iscsi.bst
 - components/open-isns.bst
 - components/openal.bst
