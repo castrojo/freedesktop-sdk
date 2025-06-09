@@ -15,4 +15,4 @@ sources:
 - kind: git_repo
   url: github:psf/requests.git
   track: v*
-  ref: v2.32.3-0-g0e322af87745eff34caffe4df68456ebc20d9068
+  ref: v2.32.4-0-g021dc729f0b71a3030cefdbec7fb57a0e80a6cfd
