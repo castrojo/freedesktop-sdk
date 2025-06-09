@@ -22,7 +22,7 @@ sources:
 - kind: git_repo
   url: github:containers/netavark.git
   track: v*
-  ref: v1.15.1-0-g868d33d321fc9f57d0bd2ddf14bb566078a32da4
+  ref: v1.15.2-0-g01b002ffea76934739836bddabe223908f48eb76
 - kind: cargo
   ref:
   - name: addr2line
@@ -173,8 +173,8 @@ sources:
     version: 2.9.0
     sha: 2a2330da5de22e8a3cb63252ce2abb30116bf5265e89c0e01bc17015ce30a476
   - name: dhcproto
-    version: 0.9.0
-    sha: dcee045385d5f7819022821f41209b9945d17550760b0b2349aaef4ecfa14bc3
+    version: 0.12.0
+    sha: f6794294f2c4665aae452e950c2803a1e487c5672dc8448f0bfa3f52ff67e270
   - name: dhcproto-macros
     version: 0.1.0
     sha: a7993efb860416547839c115490d4951c6d0f8ec04a3594d9dd99d50ed7ec170
@@ -443,8 +443,8 @@ sources:
     version: 1.0.3
     sha: 2886843bf800fba2e3377cff24abf6379b4c4d5c6681eaf9ea5b0d15090450bd
   - name: mozim
-    version: 0.2.5
-    sha: 610e34113d007c3588631f879854c14fbf291f3ab7853b833220f7cbf6ece8ad
+    version: 0.2.6
+    sha: 8232b853f83a0c76331d934627aeec172e9d5f2c82d1f9e7f86caa0df72cb304
   - name: mptcp-pm
     version: 0.1.3
     sha: 3eafa8fc63dce407b75e336f9a22f18cf5510a3a5c3a5d83262688eb5cca42d5
@@ -475,9 +475,6 @@ sources:
   - name: nispor
     version: 1.2.24
     sha: de4f8494aa978fe693dc7f36cdfcac99f1f1441f71c44267278b889e36d52c1a
-  - name: nix
-    version: 0.27.1
-    sha: 2eb04e9c688eff1c89d72b407f168cf79bb9e867a9d3323ed6c01519eb9cc053
   - name: nix
     version: 0.29.0
     sha: 71e2746dc3a24dd78b3cfcb7be93368c6de9963d30f43a6a73998a9cf4b17b46
