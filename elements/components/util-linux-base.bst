@@ -1,28 +1,43 @@
-kind: autotools
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 - components/asciidoctor.bst
+- components/bash-completion.bst
 - components/bison.bst
 - components/flex.bst
 - components/git-minimal.bst
 - components/libcap-ng.bst
 - components/libeconf.bst
+- bootstrap/sed.bst
 
 depends:
 - components/sqlite.bst
 
 variables:
-  conf-local: >-
-    --without-python
-    --disable-wall
-    --disable-makeinstall-chown
-    --disable-kill
-    --disable-nologin
-    --enable-usrdir-path
-    --enable-setpriv
-    --with-econf
-    --with-vendordir="%{indep-libdir}"
+  meson-local: >-
+    -Dncurses=disabled
+    -Dlibuser=disabled
+    -Dlibutempter=disabled
+    -Dsystemd=disabled
+    -Dbuild-login=disabled
+    -Dbuild-chfn-chsh=disabled
+    -Dbuild-su=disabled
+    -Dbuild-runuser=disabled
+    -Dcryptsetup=disabled
+    -Dbuild-pam-lastlog2=disabled
+    -Dbuild-kill=disabled
+    -Dbuild-wall=disabled
+    -Dbuild-nologin=disabled
+    -Dbuild-line=disabled
+    -Dbuild-newgrp=disabled
+    -Dbuild-pg=disabled
+    -Dbuild-tunelp=disabled
+    -Dbuild-vipw=disabled
+    -Dbuild-write=disabled
+    -Dbuild-python=disabled
+    -Dvendordir="%{indep-libdir}"
+    -Dprogram-tests=false
 
 public:
   initial-script:
@@ -77,10 +92,7 @@ public:
 config:
   install-commands:
     (>):
-    - |
-      install -d -m0755 "%{install-root}%{bindir}"
-      mv "%{install-root}%{prefix}/sbin"/* "%{install-root}%{bindir}/"
-      rm -rf "%{install-root}%{prefix}/sbin"
+    - find "%{install-root}%{libdir}" -name "lib*.a" -delete
 
 sources:
 - kind: git_repo
