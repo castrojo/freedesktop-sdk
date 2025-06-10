@@ -2,12 +2,12 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- bootstrap/xxhash.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/elfutils.bst
 - bootstrap/binutils.bst
+- bootstrap/xxhash.bst
+- components/elfutils.bst
 - components/libxml2.bst
 
 sources:
