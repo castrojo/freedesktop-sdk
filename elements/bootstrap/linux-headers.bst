@@ -48,7 +48,7 @@ public:
 sources:
 - kind: git_repo
   url: kernel:linux/kernel/git/stable/linux.git
-  track: v6.6.17
+  track: v6.12.32
   exclude:
   - '*-rc*'
-  ref: v6.6.17-0-gb2c9bf06474ea12eaca7d5f007e9280e057e960b
+  ref: v6.12.32-0-gba9210b8c96355a16b78e1b890dce78f284d6f31
