@@ -21,4 +21,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xkeyboard-config/xkeyboard-config.git
   track: xkeyboard-config-*
-  ref: xkeyboard-config-2.44-0-g1691aef8fa12f63037f2ff956f902587d814a65c
+  ref: xkeyboard-config-2.45-0-ga8b1be93168cbd3246359c724f090e821079b313
