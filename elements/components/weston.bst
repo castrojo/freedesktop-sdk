@@ -36,6 +36,9 @@ variables:
   meson-local: >-
     -Dbackend-rdp=false
     -Dbackend-vnc=false
+    -Dtests=false
+    -Dtest-junit-xml=false
+    -Ddemo-clients=false
 
   meson-lto-flags: ""
 
