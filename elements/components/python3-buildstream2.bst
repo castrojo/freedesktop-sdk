@@ -30,5 +30,3 @@ sources:
   exclude:
   - '*.dev*'
   ref: 2.5.0-0-ga847a77882cb372b1dd3b3dd00545c95cee1088e
-- kind: patch
-  path: patches/buildstream2/cython_3_1.patch
