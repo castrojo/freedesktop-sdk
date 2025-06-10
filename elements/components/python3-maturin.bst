@@ -14,7 +14,7 @@ sources:
   track: v*
   exclude:
   - "*beta*"
-  ref: v1.8.6-0-gc5fd4ce8eab655952bc5059c0a9e8372fb7890eb
+  ref: v1.8.7-0-g53def9f880e0a6b5e20ed831cdbfd62a6fb0bc6a
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
@@ -144,8 +144,8 @@ sources:
     sha: 24b1f0365a6c6bb4020cd05806fd0d33c44d38046b8bd7f0e40814b9763cabfc
   - kind: registry
     name: cargo-xwin
-    version: 0.18.4
-    sha: 60f1954e4ffa0f4c47b3df5e6e9508706d8dcaa56152cd672dcee02930ba0326
+    version: 0.18.6
+    sha: 5dff83aad332bd6ee29072dd874b48892cd22c58e233c25735eb4417b3999685
   - kind: registry
     name: cargo-zigbuild
     version: 0.20.0
@@ -156,8 +156,8 @@ sources:
     sha: afc309ed89476c8957c50fb818f56fe894db857866c3e163335faa91dc34eb85
   - kind: registry
     name: cbindgen
-    version: 0.28.0
-    sha: eadd868a2ce9ca38de7eeafdcec9c7065ef89b42b32f0839278d55f35c54d1ff
+    version: 0.29.0
+    sha: 975982cdb7ad6a142be15bdf84aea7ec6a9e5d4d797c004d43185b24cfe4e684
   - kind: registry
     name: cc
     version: 1.2.16
@@ -431,6 +431,10 @@ sources:
     version: 0.2.15
     sha: c4567c8db10ae91089c99af84c68c38da3ec2f087c3f82960bcdbf3656b6f4d7
   - kind: registry
+    name: getrandom
+    version: 0.3.3
+    sha: 26145e563e54f2cadc477553f1ec5ee650b00862f0a58bcd12cbdc5f0ea2d2f4
+  - kind: registry
     name: glob
     version: 0.3.1
     sha: d2fabcfbdc87f4758337ca535fb41a6d701b65693ce38287d856d1674551ec9b
@@ -450,10 +454,6 @@ sources:
     name: hashbrown
     version: 0.15.2
     sha: bf151400ff0baff5465007dd2f3e717f3fe502074ca563069ce3a6629d07b289
-  - kind: registry
-    name: heck
-    version: 0.4.1
-    sha: 95505c38b4572b2d910cecb0281560f54b440a19336cbbcb27bf6ce6adc6f5a8
   - kind: registry
     name: heck
     version: 0.5.0
@@ -551,6 +551,10 @@ sources:
     version: 1.0.11
     sha: 49f1f14873335454500d59611f1cf4a4b0f786f9ac11f4312a78e4cf2566695b
   - kind: registry
+    name: jobserver
+    version: 0.1.33
+    sha: 38f262f097c174adebe41eb73d66ae9c06b2844fb0da69969647bbddd9b0538a
+  - kind: registry
     name: js-sys
     version: 0.3.73
     sha: fb15147158e79fd8b8afd0252522769c4f48725460b37338544d8379d94fc8f9
@@ -568,8 +572,8 @@ sources:
     sha: e0779ac94bd7b6ab781fa12388dbf79ac45ec1fa433e7d25521753be8227b08e
   - kind: registry
     name: libc
-    version: 0.2.167
-    sha: 09d6582e104315a817dff97f75133544b2e094ee22447d2acf4a74e189ba06fc
+    version: 0.2.172
+    sha: d750af042f7ef4f724306de029d18836c26c1765a54a6a3f094cbd23a7267ffa
   - kind: registry
     name: libmimalloc-sys
     version: 0.1.39
@@ -602,6 +606,10 @@ sources:
     name: log
     version: 0.4.22
     sha: a7a70ba024b9dc04c27ea2f0c0548feb474ec5c54bba33a7f72f873a39d07b24
+  - kind: registry
+    name: lzma-rs
+    version: 0.3.0
+    sha: 297e814c836ae64db86b36cf2a557ba54368d03f6afcd7d947c266692f71115e
   - kind: registry
     name: lzma-sys
     version: 0.1.20
@@ -806,6 +814,10 @@ sources:
     name: quoted_printable
     version: 0.5.0
     sha: 79ec282e887b434b68c18fe5c121d38e72a5cf35119b59e54ec5b992ea9c8eb0
+  - kind: registry
+    name: r-efi
+    version: 5.2.0
+    sha: 74765f6d916ee2faa39bc8e68e4f3ed8949b48cccdac59983d287a7cb71ce9c5
   - kind: registry
     name: rand
     version: 0.8.5
@@ -1259,6 +1271,10 @@ sources:
     version: 0.11.0+wasi-snapshot-preview1
     sha: 9c8d87e72b64a3b4db28d11ce29237c246188f4f51057d65a7eab63b7987e423
   - kind: registry
+    name: wasi
+    version: 0.14.2+wasi-0.2.4
+    sha: 9683f9a5a998d873c0d21fcbe3c083009670149a8fab228644b8bd36b2c48cb3
+  - kind: registry
     name: wasm-bindgen
     version: 0.2.96
     sha: 21d3b25c3ea1126a2ad5f4f9068483c2af1e64168f847abe863a526b8dbfe00b
@@ -1399,6 +1415,10 @@ sources:
     version: 0.0.19
     sha: d135d17ab770252ad95e9a872d365cf3090e3be864a34ab46f48555993efc904
   - kind: registry
+    name: wit-bindgen-rt
+    version: 0.39.0
+    sha: 6f42320e61fe2cfd34354ecb597f86f413484a798ba44a8ca1165c58d42da6c1
+  - kind: registry
     name: write16
     version: 1.0.0
     sha: d1890f4022759daae28ed4fe62859b1236caebfc61ede2f63ed4e695f3f6d936
@@ -1466,3 +1486,15 @@ sources:
     name: zopfli
     version: 0.8.1
     sha: e5019f391bac5cf252e93bbcc53d039ffd62c7bfb7c150414d61369afe57e946
+  - kind: registry
+    name: zstd
+    version: 0.13.3
+    sha: e91ee311a569c327171651566e07972200e76fcfe2242a4fa446149a3881c08a
+  - kind: registry
+    name: zstd-safe
+    version: 7.2.4
+    sha: 8f49c4d5f0abb602a93fb8736af2a4f4dd9512e36f7f570d66e65ff867ed3b9d
+  - kind: registry
+    name: zstd-sys
+    version: 2.0.15+zstd.1.5.7
+    sha: eb81183ddd97d0c74cedf1d50d85c8d08c1b8b68ee863bdee9e706eedba1a237
