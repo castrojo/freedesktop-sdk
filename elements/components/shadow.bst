@@ -37,6 +37,7 @@ config:
 
     - rm %{install-root}%{sysconfdir}/pam.d/chfn
     - rm %{install-root}%{sysconfdir}/pam.d/chsh
+    - rm "%{install-root}%{mandir}/man1/login.1"
 
 public:
   initial-script:
