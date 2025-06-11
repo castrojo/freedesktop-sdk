@@ -12,6 +12,7 @@ variables:
   conf-local: >-
     --with-ncurses
     --with-systemd
+    --disable-kill
 
 public:
   bst:
