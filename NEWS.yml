@@ -1,3 +1,63 @@
+Version: freedesktop-sdk-24.08.21
+Date: '2025-06-10'
+Description: |-
+  Changes in freedesktop-sdk-24.08.21
+   * python3-buildstream2: Remove outdated patch
+   * Update python3-buildstream2 to 2.5.0-0
+   * Update python3-maturin to v1.8.7-0
+   * Update apparmor-base to v4.1.1-0
+   * Update podman to v5.5.1-0
+   * Update genpeimg to v13.0.0-0
+   * Update mesa to mesa-25.1.3-0
+   * Update grpc to v1.73.0-0
+   * buildbox: Downgrade to 1.3.16
+   * Update vim to v9.1.1436-0
+   * Update xorg-data-xkeyboard-config to xkeyboard-config-2.45-0
+   * Update go to go1.24.4-0
+   * Update python3-aiohttp to 3.12.11
+   * python3-lxml: Add patch to fix build with cython 3.1
+   * python3-lxml: Relax cython requirements
+   * buildstream2: Add patch to fix build against cython 3.1.1
+   * python3-propcache: Relax cython requirements
+   * cython: Update to 3.1.1
+   * Revert "cython: Track 3.0.x"
+   * Update python3-frozenlist to v1.6.2-0
+   * split-rules: Move zoneinfo out of locales
+   * prepare-image.sh: Make --noroot not expect a value
+   * files/vm/prepare-image.sh: Allow no root in fstab
+   * grpc: build shared libraries
+   * linux: Enable DRM_XE and PINCTRL_INTEL_PLATFORM
+   * oci-builder: Add shadow to oci-builder compose
+   * Update curl to curl-8_14_1-0
+   * Update python3-ruamel-yaml to 0.18.13
+   * Update passt to 2025_06_06.754c6d7-0
+   * Update netavark to v1.15.2-0
+   * Update poppler to poppler-25.06.0-0
+   * ghostscript: Switch to github source
+   * mutool: Switch to github source
+   * perf: Force -Wno-error through patch and local_flags
+   * perf: Use make variables instead of overriding build or install commands
+   * mutool: Update to 1.26.2
+   * Update sdl2 to release-2.32.8-0
+   * Update python3-tomlkit to 0.13.3-0
+   * Update iputils to 20250605-0
+   * ci: Collect casd logs from core build jobs
+   * Update reference-abi to freedesktop-sdk-24.08.20-0
+   * Update mesa to mesa-25.1.2-0
+   * Update fwupd to 2.0.11-0
+   * Update python3-aiohttp to 3.12.9
+   * Update python3 to v3.12.11-0
+   * gperf: Add patch to use SOURCE_DATE_EPOCH for man page header
+   * Update hwdata to v0.396-0
+   * Update perl-ssl to 2.090
+   * Update audit to v4.0.5-0
+   * Update python3-typing-extensions to 4.14.0-0
+   * Update bluez to 5.83-0
+   * Update slirp4netns to v1.3.3-0
+   * Update grpc to v1.72.1-0
+   * Update iputils to 20250602-0
+   * spirv-llvm-translator: Freeze to 19.1.7
+---
 Version: freedesktop-sdk-24.08.20
 Date: '2025-06-03'
 Description: |-
