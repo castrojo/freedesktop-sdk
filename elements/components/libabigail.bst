@@ -5,6 +5,7 @@ build-depends:
 
 depends:
 - bootstrap-import.bst
+- bootstrap/xxhash.bst
 - components/libxml2.bst
 
 sources:
