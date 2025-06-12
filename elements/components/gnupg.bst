@@ -46,3 +46,5 @@ sources:
   path: patches/gnupg/gnupg-don-t-include-tests-with-tarred-data.patch
 - kind: patch
   path: patches/gnupg/remove-Werror-from-configure.ac.patch
+- kind: patch
+  path: patches/gnupg/0001-session-env-Skip-DBUS_SESSION_BUS_ADDRESS-inside-Fla.patch
