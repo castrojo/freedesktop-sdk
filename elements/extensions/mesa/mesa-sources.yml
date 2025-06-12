@@ -6,6 +6,8 @@ sources:
   - '*rc*'
   - '*branchpoint*'
   ref: mesa-25.1.3-0-gba95e694fed5276f9b83dac70a0c19530ee47fb1
+- kind: patch_queue
+  path: patches/mesa
 # Rust dependencies:
 - kind: tar
   directory: subprojects/packagecache/syn-2.0.68
