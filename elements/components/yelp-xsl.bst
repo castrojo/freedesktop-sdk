@@ -1,11 +1,11 @@
-kind: autotools
+kind: meson
+
+build-depends:
+- public-stacks/buildsystem-meson.bst
+- components/itstool.bst
 
 depends:
-- filename: bootstrap-import.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/itstool.bst
-  type: build
+- bootstrap-import.bst
 
 sources:
 - kind: git_repo
