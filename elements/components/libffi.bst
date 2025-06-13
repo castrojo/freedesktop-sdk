@@ -28,8 +28,4 @@ config:
 sources:
 - kind: git_repo
   url: github:libffi/libffi.git
-  track: v*
-  exclude:
-  - v*-rc*
-  - "v*-dev*"
   ref: v3.4.8-0-g6a99edb8082f75e523e0d6ebaba42218b80e10c8
