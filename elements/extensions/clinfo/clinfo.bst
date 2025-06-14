@@ -1,4 +1,4 @@
-kind: manual
+kind: make
 
 (@):
 - elements/extensions/include/app.yml
@@ -10,12 +10,6 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/opencl.bst
-
-config:
-  build-commands:
-  - make
-  install-commands:
-  - make -j1 PREFIX=%{install-root}%{prefix} install
 
 sources:
 - kind: git_repo
