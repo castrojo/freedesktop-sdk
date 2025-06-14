@@ -6,6 +6,7 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/iso-codes.bst
 - components/systemd.bst
+- components/vala.bst
 
 depends:
 - components/gtk3.bst
@@ -29,7 +30,6 @@ variables:
     --disable-unicode-dict
     --disable-python2
     --disable-libnotify
-    --disable-vala
 
 config:
   install-commands:
