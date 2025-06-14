@@ -7,6 +7,7 @@ build-depends:
 - components/iso-codes.bst
 - components/systemd.bst
 - components/vala.bst
+- components/gtk-doc.bst
 
 depends:
 - components/gtk3.bst
