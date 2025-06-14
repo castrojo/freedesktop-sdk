@@ -1,3 +1,39 @@
+Version: freedesktop-sdk-24.08.22
+Date: '2025-06-13'
+Description: |-
+  Changes in freedesktop-sdk-24.08.22
+   * mesa: Add patch to fix Electron apps not opening
+   * tests: Add a test to ensure mktime is working
+   * Update cmake to v3.31.8-0
+   * flatpak-images: Don't exclude zoneinfo data
+   * libffi: Freeze due to abi break
+   * libffi: Exclude dev tags
+   * Update buildbox to 1.3.21-0
+   * mesa: Revert upstream commit to fix GTK4 apps
+   * meson: Freeze to 1.5.2 for now
+   * Update reference-abi to freedesktop-sdk-24.08.21-0
+   * Update perl-ssl to 2.091
+   * Update intel-media-driver to intel-media-25.2.4-0
+   * Update mesa-sdk to mesa-25.1.3-0
+   * gnupg: Skip DBUS_SESSION_BUS_ADDRESS inside Flatpak
+   * Update python3-ruamel-yaml to 0.18.14
+   * Update dwz to dwz-0.16-0
+   * Update python3-requests to v2.32.4-0
+   * Update python3-aiohttp to 3.12.12
+   * procps: Disable kill as it is now in util-linux
+   * shadow: Remove login(1) man page
+   * weston: Disable tests and demo clients
+   * linux-pam-config: Order systemd_home before unix
+   * jq: Update to 1.8.0
+   * shim: Do not use 16.0
+   * Put oci-builder in components
+   * oci_builder: Write the image to /var/tmp rather than /tmp
+   * Revert "oci-builder: Add shadow to oci-builder compose"
+   * ci: Update image
+   * util-linux-base: switch to meson
+   * libabigail: Build with xxhash
+   * Update linux to v6.15.1-0
+---
 Version: freedesktop-sdk-24.08.21
 Date: '2025-06-10'
 Description: |-

@@ -1,0 +1,34 @@
+From d764e1c062f4d6c9cc5b63d30e6af03e610628af Mon Sep 17 00:00:00 2001
+From: Mel Henning <mhenning@darkrefraction.com>
+Date: Wed, 11 Jun 2025 00:16:09 -0400
+Subject: [PATCH] zink: Return NULL on vkCreateInstance failure
+
+Previously we were returning uninitialized data on the error path.
+
+Fixes: 015eda4a418 ("zink: deduplicate VkDevice and VkInstance")
+Part-of: <https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/35471>
+---
+ src/gallium/drivers/zink/zink_instance.py | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/src/gallium/drivers/zink/zink_instance.py b/src/gallium/drivers/zink/zink_instance.py
+index e0881e06fc1cf..1ab36bee2cad1 100644
+--- a/src/gallium/drivers/zink/zink_instance.py
++++ b/src/gallium/drivers/zink/zink_instance.py
+@@ -269,9 +269,11 @@ zink_create_instance(struct zink_screen *screen, struct zink_instance_info *inst
+    if (err != VK_SUCCESS) {
+       if (!screen->driver_name_is_inferred)
+           mesa_loge("ZINK: vkCreateInstance failed (%s)", vk_Result_to_str(err));
+-   }
+ 
+-   return instance;
++      return NULL;
++   } else {
++      return instance;
++   }
+ }
+ 
+ void
+-- 
+GitLab
+

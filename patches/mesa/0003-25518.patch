@@ -1,0 +1,43 @@
+From 7d974c32ce562b345cc279f9d931bab822ab5038 Mon Sep 17 00:00:00 2001
+From: Mel Henning <mhenning@darkrefraction.com>
+Date: Fri, 13 Jun 2025 14:20:24 -0400
+Subject: [PATCH] zink: Handle null instance in 2nd create_screen
+
+If zink_internal_create_screen is called twice and the first call fails
+with instance==NULL, then the second call also needs to goto fail
+instead of just asserting that instance is non-null.
+
+Fixes: 015eda4a ("zink: deduplicate VkDevice and VkInstance")
+Closes: https://gitlab.freedesktop.org/mesa/mesa/-/issues/13337
+Part-of: <https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/35518>
+---
+ src/gallium/drivers/zink/zink_screen.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
+
+diff --git a/src/gallium/drivers/zink/zink_screen.c b/src/gallium/drivers/zink/zink_screen.c
+index fc5bab171ee33..fd8028687cc93 100644
+--- a/src/gallium/drivers/zink/zink_screen.c
++++ b/src/gallium/drivers/zink/zink_screen.c
+@@ -3279,12 +3279,13 @@ zink_internal_create_screen(const struct pipe_screen_config *config, int64_t dev
+    if (++instance_refcount == 1) {
+       instance_info.loader_version = zink_get_loader_version(screen);
+       instance = zink_create_instance(screen, &instance_info);
+-      if (!instance) {
+-         simple_mtx_unlock(&instance_lock);
+-         goto fail;
+-      }
+-   } else {
+-      assert(instance);
++   }
++   if (!instance) {
++      /* We don't decrement instance_refcount here. This prevents us from trying
++       * to create another instance on subsequent calls.
++       */
++      simple_mtx_unlock(&instance_lock);
++      goto fail;
+    }
+    screen->instance = instance;
+    screen->instance_info = &instance_info;
+-- 
+GitLab
+
