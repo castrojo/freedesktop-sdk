@@ -32,6 +32,7 @@ variables:
     --disable-unicode-dict
     --disable-python2
     --disable-libnotify
+    --disable-systemd-services
 
 config:
   install-commands:
@@ -52,7 +53,6 @@ public:
       devel:
         (>):
         - '%{libdir}/libibus-1.0.so'
-      (@): include/_private/exclude-systemd.yml
 
 sources:
 - kind: git_repo
