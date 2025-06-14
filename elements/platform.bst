@@ -128,7 +128,7 @@ depends:
 - components/hicolor-icon-theme.bst
 - components/hunspell.bst
 - components/hyphen.bst
-- components/ibus.bst
+- components/libibus.bst
 - components/json-glib.bst
 - components/lame.bst
 - components/libdatrie.bst

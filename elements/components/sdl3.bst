@@ -2,7 +2,7 @@ kind: cmake
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
-- components/ibus.bst
+- components/libibus.bst
 - components/pipewire.bst
 - components/wayland-protocols.bst
 

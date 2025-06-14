@@ -184,7 +184,7 @@ depends:
 - components/hwdata.bst
 - components/hyphen.bst
 - components/iana-config.bst
-- components/ibus.bst
+- components/libibus.bst
 - components/icu.bst
 - components/iio-sensor-proxy.bst
 - components/inih.bst
