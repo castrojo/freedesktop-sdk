@@ -13,7 +13,6 @@ depends:
 - components/gtk3.bst
 
 variables:
-  local_flags: -std=gnu17
   conf-local: >-
     --disable-xim
     --disable-dconf
