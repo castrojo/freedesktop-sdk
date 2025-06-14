@@ -54,6 +54,10 @@ public:
       (@): include/_private/exclude-systemd.yml
 
 sources:
-- kind: tar
-  url: github_files:ibus/ibus/releases/download/1.5.30/ibus-1.5.30.tar.gz
-  ref: 05b84d4a45139face161596e5ade8e6c5da55cfaf6f194861da66516190f5b96
+- kind: git_repo
+  url: github:ibus/ibus.git
+  track: "*.*.*"
+  exclude:
+  - "*rc*"
+  - "*beta*"
+  ref: 1.5.32-0-g0fd4e408a52d3d15179c643fd54d310aafd8875f
