@@ -1,4 +1,4 @@
-kind: manual
+kind: make
 
 (@): elements/extensions/include/app.yml
 
@@ -7,12 +7,6 @@ depends:
 - filename: components/opencl.bst
 - filename: extensions/clinfo/khronos-headers.bst
   type: build
-
-config:
-  build-commands:
-  - make
-  install-commands:
-  - make -j1 PREFIX=%{install-root}%{prefix} install
 
 sources:
 - kind: git_repo
