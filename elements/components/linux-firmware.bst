@@ -25,4 +25,4 @@ sources:
 - kind: git_repo
   url: kernel:linux/kernel/git/firmware/linux-firmware.git
   track: '[0-9]*'
-  ref: 20250509-0-g788aadc8f73d93908cf8545b2fc770fb6580a3f2
+  ref: 20250613-0-g12fe085fa4096dedd82a9af0901fb8721379011f
