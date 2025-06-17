@@ -5,11 +5,6 @@ sources:
   track: vulkan-sdk-*
   ref: vulkan-sdk-1.4.313.0-0-g409c16be502e39fe70dd6fe2d9ad4842ef2c9a53
 - kind: git_repo
-  url: github:KhronosGroup/Vulkan-ValidationLayers.git
-  directory: vulkan-validation-layers
-  track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.313.0-0-g50b87dd4be883b63c10e3c4f7b9c5aac0c82efd3
-- kind: git_repo
   url: github:KhronosGroup/Vulkan-Tools.git
   directory: vulkan-tools
   track: vulkan-sdk-*
@@ -37,11 +32,6 @@ sources:
   directory: vulkan-icd-loader
   track: vulkan-sdk-*
   ref: vulkan-sdk-1.4.313.0-0-gfb78607414e154c7a5c01b23177ba719c8a44909
-- kind: git_repo
-  url: github:KhronosGroup/Vulkan-Utility-Libraries.git
-  directory: vulkan-utility-libraries
-  track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.313.0-0-g4e246c56ec5afb5ad66b9b04374d39ac04675c8e
 - kind: git_repo
   url: github:zeux/volk.git
   directory: volk
