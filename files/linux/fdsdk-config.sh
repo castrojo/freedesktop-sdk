@@ -436,6 +436,7 @@ module RT61PCI
 module RT73USB
 module RTL8XXXU
 module RTW88_8723DE
+module RTW88_8821AU
 module RTW88_8821CE
 module RTW89
 module RTW89_8852AE
