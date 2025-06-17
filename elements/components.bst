@@ -587,6 +587,7 @@ depends:
 - components/vulkan-headers.bst
 - components/vulkan-icd-loader.bst
 - components/vulkan-validation-layers.bst
+- components/vulkan-layer-manifests.bst
 - components/vulkan-validation-layers-layer-manifests.bst
 - components/wavpack.bst
 - components/wayland-protocols.bst
