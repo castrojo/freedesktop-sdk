@@ -5,6 +5,7 @@ build-depends:
 - components/gzip.bst
 - components/openssl.bst
 - components/systemd.bst
+- components/avahi-libs.bst
 
 variables:
   # Makefiles not added to build-dir which makes it unusable
