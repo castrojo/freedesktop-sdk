@@ -5,6 +5,7 @@ depends:
 - components/appstream.bst
 - components/bluez-libs.bst
 - components/ca-certificates.bst
+- components/compat-vulkan-link.bst
 - components/cracklib.bst
 - components/curl.bst
 - components/cyrus-sasl.bst
