@@ -17,6 +17,7 @@ variables:
     -Dnis=disabled
     -Dselinux=disabled
     -Ddocs=disabled
+    -Delogind=disabled
 
 config:
   install-commands:
