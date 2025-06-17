@@ -20,4 +20,4 @@ sources:
 - kind: git_repo
   url: github:xiph/ogg.git
   track: v*
-  ref: v1.3.5-0-ge1774cd77f471443541596e09078e78fdc342e4f
+  ref: v1.3.6-0-gbe05b13e98b048f0b5a0f5fa8ce514d56db5f822
