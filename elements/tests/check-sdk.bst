@@ -36,6 +36,7 @@ config:
   - components/systemd.bst
   - components/util-linux-full.bst
   - components/vim.bst
+  - components/vulkan-layer-manifests.bst
   - components/weston.bst
   - components/wireless-regdb-bin.bst
   - components/wpa-supplicant.bst
