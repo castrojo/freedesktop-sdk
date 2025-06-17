@@ -49,6 +49,7 @@ depends:
 - components/cmake.bst
 - components/colord.bst
 - components/conmon.bst
+- components/compat-vulkan-link.bst
 - components/cpio.bst
 - components/cracklib.bst
 - components/crun.bst
