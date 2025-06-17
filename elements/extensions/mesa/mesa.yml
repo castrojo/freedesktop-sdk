@@ -21,6 +21,7 @@ build-depends:
 - components/wayland-protocols.bst
 - components/glslang.bst
 - public-stacks/buildsystem-meson.bst
+- components/vulkan-layer-manifests.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -130,6 +131,16 @@ config:
       ln -sr '%{install-root}%{datadir}/vulkan/implicit_layer.d' '%{install-root}%{prefix}/vulkan/implicit_layer.d'
       ln -sr '%{install-root}%{libdir}/OpenCL' '%{install-root}%{prefix}/OpenCL'
       ln -sr '%{install-root}%{libdir}/vdpau' '%{install-root}%{prefix}/vdpau'
+
+    - |
+      for dir in explicit_layer.d implicit_layer.d icd.d; do
+        src="/usr/share/vulkan/$dir"
+        dest="%{install-root}%{prefix}/vulkan/$dir"
+        if [ -d "$src" ] && ls "$src"/*.json >/dev/null 2>&1; then
+          mkdir -p "$dest"
+          cp -av "$src/"*.json "$dest"
+        fi
+      done
 
 public:
   bst:
