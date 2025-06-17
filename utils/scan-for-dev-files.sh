@@ -37,6 +37,11 @@ done
 
 # The rest scan for miscellaneous development files spread all over the runtime
 
+# Vulkan manifests in
+# /usr/share/vulkan/{icd.d,explicit_layer.d,implicit_layer.d} needs to
+# be moved to Mesa GL prefix. See
+# `components/vulkan-layer-manifests.bst`
+
 find "$1" \
         -not \( -path "${1}/usr/lib/debug" -prune \) \
         -not \( -path "${1}/usr/share/runtime/docs/doc" -prune \) \
@@ -51,4 +56,7 @@ find "$1" \
            -o -name "*.spec" \
            -o -name "*.supp" \
            -o -name "Makefile*" \
-           -o -name "*.cmake" \)
+           -o -name "*.cmake" \
+           -o -path "${1}/usr/share/vulkan/icd.d/*.json" \
+           -o -path "${1}/usr/share/vulkan/explicit_layer.d/*.json" \
+           -o -path "${1}/usr/share/vulkan/implicit_layer.d/*.json" \)
