@@ -11,4 +11,4 @@ sources:
 - kind: git_repo
   url: github:leohemsted/smartypants.py.git
   track: v*
-  ref: v2.0.1-0-gd4b99ab7e7e6f42ba2d75624715c5c47c8de650d
+  ref: v2.0.2-0-gf1266cfbe42c7f85d96c329d4b8a1dba017f3efa
