@@ -20,6 +20,12 @@ variables:
     --with-usrlibdir=%{libdir}
     --with-usrsbindir=%{sbindir}
 
+config:
+  configure-commands:
+    (<):
+    - |
+      rm configure
+
 public:
   bst:
     split-rules:
