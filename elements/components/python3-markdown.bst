@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:Python-Markdown/markdown.git
   track: refs/tags/*.*.*
-  ref: 3.5.2-0-g08dacae618775831243f6bbab47d9be590d511f2
+  ref: 3.8.1-0-g3870f20ba1dd214609b380e921dffc5f115730f5
