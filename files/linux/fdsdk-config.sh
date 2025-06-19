@@ -172,6 +172,8 @@ enable SECCOMP
 enable SECCOMP_FILTER
 enable CHECKPOINT_RESTORE
 
+remove IPV6_SIT; module IPV6_SIT
+
 # Required for CPUShares= in resource control unit settings
 enable CGROUP_SCHED
 enable FAIR_GROUP_SCHED
