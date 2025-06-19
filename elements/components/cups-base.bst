@@ -17,7 +17,7 @@ variables:
     --with-tls=openssl
     --with-cups-group=lp
     --with-pkgconfpath="%{libdir}/pkgconfig"
-    --with-system-groups=wheel
+    --with-system-groups="root wheel"
     --with-rundir=/run/cups
     localedir=/usr/share/locale
     DSOFLAGS="$CFLAGS $LDFLAGS"
