@@ -357,6 +357,7 @@ enable WLAN
 module IWLWIFI
 module IWLMVM
 module IWLDVM
+module IWLMLD
 module ATH9K
 module ATH10K
 module ATH10K_PCI
