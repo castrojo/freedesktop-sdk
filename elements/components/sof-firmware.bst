@@ -24,5 +24,5 @@ config:
 
 sources:
 - kind: tar
-  url: github_files:thesofproject/sof-bin/releases/download/v2025.01/sof-bin-2025.01.tar.gz
-  ref: 34d565db757a32450106317cc51f38bf67962e0fc8b7f7c72e6e39fd89e99263
+  url: github_files:thesofproject/sof-bin/releases/download/v2025.05/sof-bin-2025.05.tar.gz
+  ref: e2f2603b0d38c7cbdb1672901863fbf84b4db4921f405952a236915cb8a86bcc
