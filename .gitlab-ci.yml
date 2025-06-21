@@ -849,3 +849,24 @@ publish_docker_finish:
   - publish_docker_x86_64
   - publish_docker_i686
   - publish_docker_ppc64le
+
+publish_gitlab_release:
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  stage: finish-publish
+  allow_failure: true
+  timeout: 10 minutes
+  before_script: []
+  after_script: []
+  script:
+    - |
+      git tag -l "$CI_COMMIT_TAG" --format='%(contents)' \
+        | sed '/^-----BEGIN/,$d' \
+        | sed 's/"/\\"/g' \
+        > tag_message.txt
+  release:
+    name: "$CI_COMMIT_TAG"
+    tag_name: "$CI_COMMIT_TAG"
+    description: "./tag_message.txt"
+    ref: "$CI_COMMIT_SHA"
+  rules:
+  - if: '$CI_COMMIT_TAG && $CI_COMMIT_REF_PROTECTED == "true" && $CI_PIPELINE_SOURCE != "schedule"'
