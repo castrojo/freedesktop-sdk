@@ -32,8 +32,8 @@
 
 1. Wait for the NEWS MR to be reviewed and merged
 
-1. Run the helper script to create and push a GPG signed tag and create a GitLab release, e.g.:
+1. Run the helper script to create and push a GPG signed tag:
 
    ```
-   $ ./utils/release.py publish glpat-XXXXX freedesktop-sdk-23.08.1 82ccd27bb92aa3934f8c2ff62bbe46ae4af7adf4
+   $ ./utils/release.py publish freedesktop-sdk-23.08.1 82ccd27bb92aa3934f8c2ff62bbe46ae4af7adf4
    ```
