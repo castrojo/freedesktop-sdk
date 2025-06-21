@@ -19,4 +19,4 @@ sources:
 - kind: git_repo
   url: github:ninja-build/ninja.git
   track: v*
-  ref: v1.12.1-0-g2daa09ba270b0a43e1929d29b073348aa985dfaa
+  ref: v1.13.0-0-gb4d51f6ed5bed09dd2b70324df0d9cb4ecad2638
