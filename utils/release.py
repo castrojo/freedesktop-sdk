@@ -164,7 +164,7 @@ def read_changelog(git_dir, new_version):
 def publish(args):
     with git_workdir(args.commit) as git_dir:
         changelog = read_changelog(git_dir, args.new_version)
-        run_git(["tag", "-asm", args.new_version, args.new_version], cwd=git_dir)
+        run_git(["tag", "-asm", changelog, args.new_version], cwd=git_dir)
         run_git(["push", args.remote, args.new_version], cwd=git_dir)
 
 
