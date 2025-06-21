@@ -11,7 +11,6 @@ from contextlib import contextmanager
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-import gitlab
 import ruamel.yaml
 from packaging.version import Version
 from ruamel.yaml.scalarstring import LiteralScalarString
@@ -163,20 +162,10 @@ def read_changelog(git_dir, new_version):
 
 
 def publish(args):
-    gl = gitlab.Gitlab("https://gitlab.com", args.api_token)
-    gl.auth()
     with git_workdir(args.commit) as git_dir:
         changelog = read_changelog(git_dir, args.new_version)
         run_git(["tag", "-asm", args.new_version, args.new_version], cwd=git_dir)
         run_git(["push", args.remote, args.new_version], cwd=git_dir)
-    project = gl.projects.get(FD_SDK_ID, lazy=True)
-    project.releases.create(
-        {
-            "name": args.new_version,
-            "tag_name": args.new_version,
-            "description": changelog,
-        }
-    )
 
 
 def main():
@@ -208,9 +197,6 @@ def main():
     prepare_parser.set_defaults(func=prepare)
 
     publish_parser = subparsers.add_parser("publish", help="Publish a release")
-    publish_parser.add_argument(
-        "api_token", help="The API token used to create a GitLab release entry"
-    )
     publish_parser.add_argument(
         "new_version", type=release_version, help="The new release tag/version"
     )
