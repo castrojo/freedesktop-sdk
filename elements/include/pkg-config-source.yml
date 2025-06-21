@@ -5,4 +5,4 @@ sources:
   exclude:
   - pkgconf-2.0.3
   - pkgconf-2.1.0
-  ref: pkgconf-2.4.3-0-g1d37e711cefe83e6b5393b424af4c94da4e7e9d3
+  ref: pkgconf-2.5.0-0-g204ad5e48a1a20c86bdbb4a6378526a7c3bdaf89
