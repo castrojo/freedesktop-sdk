@@ -8,7 +8,9 @@ build-depends:
 - kernel-conf-utils/fedora-config.bst
 - kernel-conf-utils/debian-config.bst
 - kernel-conf-utils/conf-dirs.bst
+- components/grep.bst
 - components/linux.bst
+- components/sed.bst
 - public-stacks/runtime-minimal.bst
 
 config:

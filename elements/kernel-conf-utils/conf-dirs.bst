@@ -5,6 +5,12 @@ description: |
 
 build-depends:
 - public-stacks/runtime-minimal.bst
+- components/findutils.bst
+- components/grep.bst
+- components/sed.bst
+
+variables:
+  strip-binaries: ''
 
 config:
   build-commands:

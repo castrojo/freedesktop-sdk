@@ -4,6 +4,7 @@ build-depends:
 - public-stacks/runtime-minimal.bst
 
 variables:
+  strip-binaries: ''
   kernel-arch: "%{arch}"
   (?):
   - target_arch == "x86_64":

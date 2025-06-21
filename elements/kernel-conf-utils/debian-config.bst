@@ -4,6 +4,7 @@ build-depends:
 - public-stacks/runtime-minimal.bst
 
 variables:
+  strip-binaries: ''
   kernel-arch: "%{arch}"
   debian-arch: "%{arch}"
   (?):
@@ -44,4 +45,4 @@ sources:
   # It's intended to not have a pinned ref, as this module is only
   # for local utility and you are expected to track every time you
   # need to use it.
-  track: master
+  track: debian/latest
