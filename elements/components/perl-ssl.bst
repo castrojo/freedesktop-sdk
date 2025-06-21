@@ -8,5 +8,5 @@ depends:
 sources:
 - kind: cpan
   name: IO::Socket::SSL
-  suffix: authors/id/S/SU/SULLR/IO-Socket-SSL-2.093.tar.gz
-  sha256sum: ef5295964251bb688150aa9e32c881f3c6d1d8f435b595c9e3b37ad729ca1e44
+  suffix: authors/id/S/SU/SULLR/IO-Socket-SSL-2.094.tar.gz
+  sha256sum: b2446889cb5e20545d782c4676da1b235673a81c181689aaae2492589d84bf02
