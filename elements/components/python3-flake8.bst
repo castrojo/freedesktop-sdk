@@ -15,4 +15,4 @@ sources:
 - kind: git_repo
   url: github:PyCQA/flake8.git
   track: '*.*.*'
-  ref: '7.2.0-0-g16f5f28a384f0781bebb37a08aa45e65b9526c50'
+  ref: '7.3.0-0-gc48217e1fc006c2dddd14df54e83b67da15de5cd'
