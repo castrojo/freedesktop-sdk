@@ -10,7 +10,6 @@ depends:
 
 variables:
   cmake-local: >-
-    -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     -DBUILD_TESTING=OFF
 
 sources:
