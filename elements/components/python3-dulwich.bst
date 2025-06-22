@@ -17,6 +17,8 @@ runtime-depends:
 sources:
 - kind: pypi
   name: dulwich
+  include:
+  - "0.22.*"
   ref:
     sha256sum: 701547310415de300269331abe29cb5717aa1ea377af826bf513d0adfb1c209b
     suffix: 
