@@ -1,9 +1,11 @@
 kind: autotools
 
 build-depends:
-- public-stacks/runtime-minimal.bst
 - public-stacks/buildsystem-autotools.bst
 - components/gperf.bst
+
+runtime-depends:
+- public-stacks/runtime-minimal.bst
 
 public:
   bst:

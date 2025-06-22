@@ -2,7 +2,6 @@ kind: cmake
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
-- components/ninja.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

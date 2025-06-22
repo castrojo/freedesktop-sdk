@@ -2,7 +2,6 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/python3.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
