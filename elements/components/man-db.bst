@@ -19,11 +19,6 @@ variables:
   conf-local: >-
     --disable-cache-owner
 
-public:
-  bst:
-    split-rules:
-      (@): include/_private/exclude-systemd.yml
-
 sources:
 - kind: tar
   url: tar_https:download-mirror.savannah.gnu.org/releases/man-db/man-db-2.13.1.tar.xz

@@ -44,7 +44,6 @@ public:
         - '%{libdir}/libv4lconvert.so'
         - '%{libdir}/v4l1compat.so'
         - '%{libdir}/v4l2convert.so'
-      (@): include/_private/exclude-systemd.yml
 
 sources:
 - kind: git_repo

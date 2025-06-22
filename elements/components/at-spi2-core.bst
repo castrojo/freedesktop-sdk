@@ -23,7 +23,6 @@ public:
         - '%{libdir}/libatk-1.0.so'
         - '%{libdir}/libatk-bridge-2.0.so'
         - '%{libdir}/libatspi.so'
-      (@): include/_private/exclude-systemd.yml
 
   cpe:
     version-match: '(\d+)_(\d+)_(\d+)'
