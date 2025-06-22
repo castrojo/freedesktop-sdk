@@ -1,15 +1,15 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/scdoc.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
 - components/openssl.bst
 - components/xz.bst
 - components/zlib.bst
 - components/zstd.bst
-
-build-depends:
-- public-stacks/buildsystem-autotools.bst
-- components/scdoc.bst
 
 variables:
   conf-local: >-

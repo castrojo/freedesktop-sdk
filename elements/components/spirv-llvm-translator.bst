@@ -1,12 +1,13 @@
 kind: cmake
 
-depends:
-- public-stacks/runtime-minimal.bst
-- components/llvm.bst
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/spirv-headers.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
+- components/llvm.bst
 
 variables:
   cmake-local: >-

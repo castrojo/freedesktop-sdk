@@ -1,6 +1,7 @@
 kind: stack
+
 depends:
-- filename: bootstrap/build/debugedit-build.bst
-- filename: bootstrap/build/elfutils-build.bst
-- filename: bootstrap/build/dwz-build.bst
-- filename: bootstrap/build/stripper.bst
+- bootstrap/build/debugedit-build.bst
+- bootstrap/build/elfutils-build.bst
+- bootstrap/build/dwz-build.bst
+- bootstrap/build/stripper.bst

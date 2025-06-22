@@ -1,13 +1,13 @@
 kind: meson
 
+build-depends:
+- public-stacks/buildsystem-meson.bst
+- components/python3.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: components/mesa-headers.bst
-- filename: components/xorg-lib-x11.bst
-- filename: public-stacks/buildsystem-meson.bst
-  type: build
-- filename: components/python3.bst
-  type: build
+- components/mesa-headers.bst
+- components/xorg-lib-x11.bst
 
 variables:
   meson-local: >

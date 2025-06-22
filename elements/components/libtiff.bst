@@ -1,13 +1,13 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
 - components/jpeg.bst
 - components/lzip.bst
 - components/libwebp.bst
-
-build-depends:
-- public-stacks/buildsystem-autotools.bst
 
 variables:
   autogen: autoreconf -fvi

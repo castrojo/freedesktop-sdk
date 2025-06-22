@@ -3,6 +3,13 @@ description: |
   GNU debugger. This ships with a dummy libdebuginfod library. Use
   components/gdb-debuginfod.bst for the actual libdebuginfod
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/texinfo.bst
+- components/perl.bst
+- components/flex.bst
+- components/bison.bst
+
 depends:
 - bootstrap/xxhash.bst
 - components/elfutils.bst
@@ -11,13 +18,6 @@ depends:
 - components/python3.bst
 - components/zstd.bst
 - public-stacks/runtime-minimal.bst
-
-build-depends:
-- public-stacks/buildsystem-autotools.bst
-- components/texinfo.bst
-- components/perl.bst
-- components/flex.bst
-- components/bison.bst
 
 variables:
   # arches supported by the runtime only

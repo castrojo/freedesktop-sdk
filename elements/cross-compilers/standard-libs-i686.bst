@@ -1,7 +1,7 @@
 kind: filter
-depends:
-- filename: cross-compilers/standard-libs-i686-compose.bst
-  type: build
+
+build-depends:
+- cross-compilers/standard-libs-i686-compose.bst
 
 config:
   include:

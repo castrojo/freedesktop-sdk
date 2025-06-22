@@ -1,10 +1,11 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: components/libunwind.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
+- components/libunwind.bst
 
 variables:
   conf-local: --enable-mpers=check

@@ -1,12 +1,11 @@
 kind: autotools
-
-depends:
-- public-stacks/runtime-minimal.bst
-
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/bison.bst
 - components/flex.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
 
 public:
   bst:

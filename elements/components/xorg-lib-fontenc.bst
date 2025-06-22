@@ -1,14 +1,13 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/xorg-util-macros.bst
+- components/xorg-font-util.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/xorg-proto-xorgproto.bst
-- filename: components/xorg-util-macros.bst
-  type: build
-- filename: components/xorg-font-util.bst
-  type: build
+- components/xorg-proto-xorgproto.bst
 
 sources:
 - kind: git_repo

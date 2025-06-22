@@ -1,7 +1,7 @@
 kind: manual
 
 depends:
-- filename: components/systemd.bst
+- components/systemd.bst
 
 variables:
   journald-config: "%{install-root}%{indep-libdir}/systemd/journald.conf.d"

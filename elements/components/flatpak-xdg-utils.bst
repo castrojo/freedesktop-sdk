@@ -1,10 +1,11 @@
 kind: meson
 
+build-depends:
+- public-stacks/buildsystem-meson.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: public-stacks/buildsystem-meson.bst
-  type: build
-- filename: components/glib.bst
+- components/glib.bst
 
 sources:
 - kind: git_repo

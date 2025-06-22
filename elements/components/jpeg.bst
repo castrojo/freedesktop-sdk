@@ -1,11 +1,11 @@
 kind: cmake
 
+build-depends:
+- public-stacks/buildsystem-cmake.bst
+- components/nasm.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: public-stacks/buildsystem-cmake.bst
-  type: build
-- filename: components/nasm.bst
-  type: build
 
 variables:
   cmake-local: >-

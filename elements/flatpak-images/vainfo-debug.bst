@@ -11,6 +11,5 @@ config:
     Runtime:
       name: org.freedesktop.Platform.VaInfo.Debug
 
-depends:
-- filename: extensions/vainfo/libva-utils.bst
-  type: build
+build-depends:
+- extensions/vainfo/libva-utils.bst

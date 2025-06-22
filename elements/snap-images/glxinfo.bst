@@ -41,8 +41,6 @@ config:
       /var/app:
         bind: $SNAP/app
 
-depends:
-  - filename: extensions/glxinfo/mesa-demos.bst
-    type: build
-  - filename: snap-images/glxinfo-wrapper.bst
-    type: build
+build-depends:
+- extensions/glxinfo/mesa-demos.bst
+- snap-images/glxinfo-wrapper.bst

@@ -3,11 +3,9 @@ kind: flatpak_image
 (@):
 - elements/cross-compilers/aarch64-vars.yml
 
-depends:
-- filename: cross-compilers/gcc-aarch64.bst
-  type: build
-- filename: cross-compilers/binutils-aarch64.bst
-  type: build
+build-depends:
+- cross-compilers/gcc-aarch64.bst
+- cross-compilers/binutils-aarch64.bst
 
 config:
   directory: '%{prefix}'

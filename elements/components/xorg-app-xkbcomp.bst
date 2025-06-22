@@ -1,17 +1,15 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/xorg-util-macros.bst
+- components/flex.bst
+- components/bison.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: components/xorg-lib-x11.bst
-- filename: components/xorg-lib-xkbfile.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/xorg-util-macros.bst
-  type: build
-- filename: components/flex.bst
-  type: build
-- filename: components/bison.bst
-  type: build
+- components/xorg-lib-x11.bst
+- components/xorg-lib-xkbfile.bst
 
 sources:
 - kind: git_repo

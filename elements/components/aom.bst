@@ -1,15 +1,13 @@
 kind: cmake
 
+build-depends:
+- public-stacks/buildsystem-cmake.bst
+- components/nasm.bst
+- components/git-minimal.bst
+- components/perl.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: public-stacks/buildsystem-cmake.bst
-  type: build
-- filename: components/nasm.bst
-  type: build
-- filename: components/git-minimal.bst
-  type: build
-- filename: components/perl.bst
-  type: build
 
 variables:
   arch-options: ''

@@ -1,11 +1,11 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/texinfo.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/texinfo.bst
-  type: build
 
 variables:
   includedir: "%{prefix}/include/%{gcc_triplet}"

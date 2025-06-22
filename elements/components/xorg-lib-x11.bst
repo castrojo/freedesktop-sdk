@@ -1,16 +1,15 @@
 kind: autotools
 description: X.org lib x11
 
+build-depends:
+- components/perl.bst
+- public-stacks/buildsystem-autotools.bst
+- components/xorg-util-macros.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: components/xorg-lib-xtrans.bst
-- filename: components/xorg-lib-xcb.bst
-- filename: components/perl.bst
-  type: build
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/xorg-util-macros.bst
-  type: build
+- components/xorg-lib-xtrans.bst
+- components/xorg-lib-xcb.bst
 
 public:
   bst:

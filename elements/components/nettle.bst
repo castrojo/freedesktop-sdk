@@ -1,10 +1,11 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: components/gmp.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
+- components/gmp.bst
 
 variables:
   # Work around race condition in makefiles. The following error

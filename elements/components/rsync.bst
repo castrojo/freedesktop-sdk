@@ -3,6 +3,10 @@ kind: autotools
 (@):
 - elements/include/rsync-source.yml
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/git-minimal.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
 - bootstrap/xxhash.bst
@@ -10,10 +14,6 @@ depends:
 - components/lz4.bst
 - components/openssl.bst
 - components/popt.bst
-
-build-depends:
-- public-stacks/buildsystem-autotools.bst
-- components/git-minimal.bst
 
 variables:
   conf-local: >-

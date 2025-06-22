@@ -1,11 +1,11 @@
 kind: meson
 
+build-depends:
+- public-stacks/buildsystem-meson.bst
+- components/gtk-doc.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: public-stacks/buildsystem-meson.bst
-  type: build
-- filename: components/gtk-doc.bst
-  type: build
 
 variables:
   meson-local: >-

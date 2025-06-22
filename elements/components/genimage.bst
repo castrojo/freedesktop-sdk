@@ -1,11 +1,11 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
 - components/libconfuse.bst
-
-build-depends:
-- public-stacks/buildsystem-autotools.bst
 
 runtime-depends:
 - components/e2fsprogs.bst

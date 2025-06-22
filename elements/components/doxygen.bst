@@ -1,13 +1,14 @@
 kind: cmake
 
-depends:
-- public-stacks/runtime-minimal.bst
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/flex.bst
 - components/bison.bst
 - components/python3.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
 
 public:
   cpe:

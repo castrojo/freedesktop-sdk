@@ -11,6 +11,5 @@ config:
     Runtime:
       name: org.freedesktop.Platform.GlxInfo.Debug
 
-depends:
-- filename: extensions/glxinfo/mesa-demos.bst
-  type: build
+build-depends:
+- extensions/glxinfo/mesa-demos.bst

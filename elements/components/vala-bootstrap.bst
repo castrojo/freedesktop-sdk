@@ -1,13 +1,14 @@
 kind: autotools
 
+
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/flex.bst
+- components/bison.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
 - components/glib.bst
-
-build-depends:
-- components/flex.bst
-- components/bison.bst
-- public-stacks/buildsystem-autotools.bst
 
 variables:
   conf-local: --disable-valadoc

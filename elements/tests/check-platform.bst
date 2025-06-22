@@ -1,8 +1,7 @@
 kind: check_forbidden
 
-depends:
-- filename: platform.bst
-  type: build
+build-depends:
+- platform.bst
 
 config:
   forbidden:

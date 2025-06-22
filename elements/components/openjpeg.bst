@@ -1,7 +1,7 @@
 kind: cmake
 
 build-depends:
-- filename: public-stacks/buildsystem-cmake.bst
+- public-stacks/buildsystem-cmake.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

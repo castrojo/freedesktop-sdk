@@ -15,6 +15,5 @@ config:
     ExtensionOf:
       ref: runtime/org.freedesktop.Sdk/%{flatpak_arch}/%{branch}
 
-depends:
-- filename: sdk-image.bst
-  type: build
+build-depends:
+- sdk-image.bst

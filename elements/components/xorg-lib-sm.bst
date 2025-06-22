@@ -1,14 +1,14 @@
 kind: autotools
 description: X.org lib SM
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/xorg-util-macros.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: components/xorg-lib-ice.bst
-- filename: components/xorg-lib-xtrans.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/xorg-util-macros.bst
-  type: build
+- components/xorg-lib-ice.bst
+- components/xorg-lib-xtrans.bst
 
 public:
   bst:

@@ -1,14 +1,15 @@
 kind: meson
 
+build-depends:
+- public-stacks/buildsystem-meson.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: components/libproxy.bst
-- filename: components/glib.bst
-- filename: components/gnutls.bst
-- filename: components/gsettings-desktop-schemas.bst
-- filename: components/ca-certificates.bst
-- filename: public-stacks/buildsystem-meson.bst
-  type: build
+- components/libproxy.bst
+- components/glib.bst
+- components/gnutls.bst
+- components/gsettings-desktop-schemas.bst
+- components/ca-certificates.bst
 
 variables:
   meson-local: |

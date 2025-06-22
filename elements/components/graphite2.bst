@@ -1,12 +1,13 @@
 kind: cmake
 
+build-depends:
+- public-stacks/buildsystem-cmake.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: components/xorg-lib-x11.bst
-- filename: components/xorg-lib-xrandr.bst
-- filename: components/wayland.bst
-- filename: public-stacks/buildsystem-cmake.bst
-  type: build
+- components/xorg-lib-x11.bst
+- components/xorg-lib-xrandr.bst
+- components/wayland.bst
 
 variables:
   cmake-local: >-

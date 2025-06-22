@@ -1,11 +1,11 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
 - components/sndfile.bst
-
-build-depends:
-- public-stacks/buildsystem-autotools.bst
 
 sources:
 - kind: git_repo

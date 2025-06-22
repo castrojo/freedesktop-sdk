@@ -1,11 +1,12 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: components/python3.bst
-- filename: components/libxslt.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
+- components/python3.bst
+- components/libxslt.bst
 
 variables:
   conf-local: PYTHON="/usr/bin/python3"

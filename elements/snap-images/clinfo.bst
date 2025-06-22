@@ -41,8 +41,6 @@ config:
       /var/app:
         bind: $SNAP/app
 
-depends:
-  - filename: extensions/clinfo/clinfo.bst
-    type: build
-  - filename: snap-images/clinfo-wrapper.bst
-    type: build
+build-depends:
+- extensions/clinfo/clinfo.bst
+- snap-images/clinfo-wrapper.bst

@@ -1,10 +1,11 @@
 kind: autotools
 description: X.org util macros
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
 
 public:
   bst:

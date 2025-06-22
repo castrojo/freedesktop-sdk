@@ -1,5 +1,8 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
 - components/libgcrypt.bst
@@ -9,9 +12,6 @@ depends:
 - components/sqlite.bst
 - components/gnutls.bst
 - components/bzip2.bst
-
-build-depends:
-- public-stacks/buildsystem-autotools.bst
 
 public:
   cpe:

@@ -1,13 +1,13 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
 - components/libpng.bst
 - components/jpeg.bst
 - components/giflib.bst
-
-build-depends:
-- public-stacks/buildsystem-autotools.bst
 
 variables:
   conf-local: |

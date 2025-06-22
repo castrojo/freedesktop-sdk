@@ -1,15 +1,14 @@
 kind: cmake
-
-depends:
-- public-stacks/runtime-minimal.bst
-- components/glib.bst
-- components/libxml2.bst
-
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/gobject-introspection.bst
 - components/perl.bst
 - components/vala.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
+- components/glib.bst
+- components/libxml2.bst
 
 variables:
   cmake-local: >-

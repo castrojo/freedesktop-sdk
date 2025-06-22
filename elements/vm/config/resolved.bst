@@ -1,7 +1,7 @@
 kind: manual
 
 depends:
-- filename: components/systemd.bst
+- components/systemd.bst
 
 variables:
   resolved-config: "%{install-root}%{sysconfdir}/systemd/"

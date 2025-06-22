@@ -1,10 +1,11 @@
 kind: cmake
 
-depends:
-- public-stacks/runtime-minimal.bst
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
 
 variables:
   cmake-local: >-

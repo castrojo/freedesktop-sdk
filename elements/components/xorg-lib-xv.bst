@@ -1,14 +1,14 @@
 kind: autotools
 description: X.org lib xv
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/xorg-util-macros.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: components/xorg-lib-x11.bst
-- filename: components/xorg-lib-xext.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/xorg-util-macros.bst
-  type: build
+- components/xorg-lib-x11.bst
+- components/xorg-lib-xext.bst
 
 public:
   bst:

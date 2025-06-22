@@ -7,7 +7,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: components/glib.bst
+- components/glib.bst
 
 public:
   bst:

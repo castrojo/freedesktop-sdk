@@ -41,8 +41,6 @@ config:
       /var/app:
         bind: $SNAP/app
 
-depends:
-  - filename: extensions/vulkaninfo/vulkan-tools.bst
-    type: build
-  - filename: snap-images/vulkaninfo-wrapper.bst
-    type: build
+build-depends:
+- extensions/vulkaninfo/vulkan-tools.bst
+- snap-images/vulkaninfo-wrapper.bst

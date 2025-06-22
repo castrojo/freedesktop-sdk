@@ -1,12 +1,12 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/git-minimal.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: components/gdbm.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/git-minimal.bst
-  type: build
+- components/gdbm.bst
 
 public:
   bst:

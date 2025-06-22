@@ -41,8 +41,6 @@ config:
       /var/app:
         bind: $SNAP/app
 
-depends:
-  - filename: extensions/vainfo/libva-utils.bst
-    type: build
-  - filename: snap-images/vainfo-wrapper.bst
-    type: build
+build-depends:
+- extensions/vainfo/libva-utils.bst
+- snap-images/vainfo-wrapper.bst

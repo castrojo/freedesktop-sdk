@@ -1,8 +1,10 @@
 kind: autotools
+
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
 
 sources:
 - kind: git_repo

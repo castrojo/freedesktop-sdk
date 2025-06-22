@@ -1,14 +1,14 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/git-minimal.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
 - components/opus.bst
 - components/libogg.bst
 - components/openssl.bst
-
-build-depends:
-- public-stacks/buildsystem-autotools.bst
-- components/git-minimal.bst
 
 public:
   bst:

@@ -1,10 +1,10 @@
 kind: filter
 
-depends:
-- filename: components/xdg-desktop-portal-base.bst
-  type: build
-- filename: components/xdg-desktop-portal-manifest.bst
-  type: runtime
+build-depends:
+- components/xdg-desktop-portal-base.bst
+
+runtime-depends:
+- components/xdg-desktop-portal-manifest.bst
 
 config:
   include:

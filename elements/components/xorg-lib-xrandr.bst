@@ -1,13 +1,13 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/xorg-util-macros.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: components/xorg-lib-xext.bst
-- filename: components/xorg-lib-xrender.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/xorg-util-macros.bst
-  type: build
+- components/xorg-lib-xext.bst
+- components/xorg-lib-xrender.bst
 
 public:
   bst:

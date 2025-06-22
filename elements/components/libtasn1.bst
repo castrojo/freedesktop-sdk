@@ -1,8 +1,4 @@
 kind: autotools
-
-depends:
-- public-stacks/runtime-minimal.bst
-
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/bison.bst
@@ -11,6 +7,9 @@ build-depends:
 - components/texinfo.bst
 - components/patch.bst
 - components/gtk-doc.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
 
 variables:
   # When using --disable-static, some useless rpaths appear

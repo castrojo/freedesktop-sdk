@@ -1,11 +1,11 @@
 kind: meson
 
+build-depends:
+- components/gobject-introspection.bst
+- public-stacks/buildsystem-meson.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: components/gobject-introspection.bst
-  type: build
-- filename: public-stacks/buildsystem-meson.bst
-  type: build
 
 sources:
 - kind: git_repo

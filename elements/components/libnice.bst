@@ -1,17 +1,15 @@
 kind: meson
 
+build-depends:
+- public-stacks/buildsystem-meson.bst
+- components/gstreamer.bst
+- components/gobject-introspection.bst
+- components/gtk-doc.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: public-stacks/buildsystem-meson.bst
-  type: build
-- filename: components/glib.bst
-- filename: components/gnutls.bst
-- filename: components/gstreamer.bst
-  type: build
-- filename: components/gobject-introspection.bst
-  type: build
-- filename: components/gtk-doc.bst
-  type: build
+- components/glib.bst
+- components/gnutls.bst
 
 public:
   bst:

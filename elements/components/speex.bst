@@ -1,12 +1,12 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: components/libogg.bst
-- filename: components/speexdsp.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-
+- components/libogg.bst
+- components/speexdsp.bst
 
 variables:
   conf-local: |

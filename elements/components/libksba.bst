@@ -1,14 +1,13 @@
 kind: autotools
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- components/bison.bst
+- components/texinfo.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-- filename: components/libgpg-error.bst
-- filename: public-stacks/buildsystem-autotools.bst
-  type: build
-- filename: components/bison.bst
-  type: build
-- filename: components/texinfo.bst
-  type: build
+- components/libgpg-error.bst
 
 variables:
   conf-local: |

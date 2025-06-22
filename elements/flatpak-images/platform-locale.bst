@@ -15,6 +15,5 @@ config:
     ExtensionOf:
       ref: runtime/org.freedesktop.Platform/%{flatpak_arch}/%{branch}
 
-depends:
-- filename: platform-image.bst
-  type: build
+build-depends:
+- platform-image.bst
