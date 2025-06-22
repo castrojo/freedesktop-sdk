@@ -12,6 +12,7 @@ build-depends:
 - components/glib.bst
 - components/libsoup.bst
 - components/avahi-gobject.bst
+- components/avahi-libs.bst
 
 variables:
   # FIXME: Need modem-manager

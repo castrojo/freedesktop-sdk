@@ -12,6 +12,7 @@ runtime-depends:
 
 config:
   exclude:
+  - libs
   - ui
   - gobject
   include-orphans: True
@@ -21,7 +22,5 @@ public:
     split-rules:
       devel:
         (>):
-        - "%{libdir}/libavahi-client.so"
-        - "%{libdir}/libavahi-common.so"
         - "%{libdir}/libavahi-core.so"
         - "%{libdir}/libavahi-glib.so"

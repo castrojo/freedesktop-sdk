@@ -45,6 +45,20 @@ sources:
 public:
   bst:
     split-rules:
+      libs:
+      - "%{includedir}/avahi-client"
+      - "%{includedir}/avahi-client/**"
+      - "%{includedir}/avahi-common"
+      - "%{includedir}/avahi-common/**"
+      - "%{libdir}/pkgconfig/avahi-client.pc"
+      - "%{libdir}/libavahi-client.so*"
+      - "%{libdir}/libavahi-common.so*"
+      - "%{debugdir}%{libdir}/libavahi-client.so*.debug"
+      - "%{debugdir}%{libdir}/libavahi-common.so*.debug"
+      - "%{sourcedir}/%{element-name}/avahi-client"
+      - "%{sourcedir}/%{element-name}/avahi-client/**"
+      - "%{sourcedir}/%{element-name}/avahi-common"
+      - "%{sourcedir}/%{element-name}/avahi-common/**"
       ui:
       - "%{bindir}/bssh"
       - "%{bindir}/bvnc"

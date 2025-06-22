@@ -19,6 +19,7 @@ depends:
 - components/autoconf.bst
 - components/autoconf2.69.bst
 - components/automake.bst
+- components/avahi-libs.bst
 - components/avahi-gobject.bst
 - components/avahi-manifest.bst
 - components/avahi-ui.bst

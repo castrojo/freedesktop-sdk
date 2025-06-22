@@ -8,6 +8,7 @@ build-depends:
 - bootstrap/grep.bst
 - components/alsa-lib.bst
 - components/avahi.bst
+- components/avahi-libs.bst
 - components/bluez.bst
 - components/bluez-libs.bst
 - components/dbus.bst

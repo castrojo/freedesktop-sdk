@@ -5,6 +5,7 @@ build-depends:
 
 runtime-depends:
 - components/avahi.bst
+- components/avahi-libs.bst
 - components/pygobject.bst
 - components/python3-dbus.bst
 

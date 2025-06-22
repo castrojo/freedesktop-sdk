@@ -5,6 +5,7 @@ build-depends:
 
 runtime-depends:
 - components/avahi.bst
+- components/avahi-libs.bst
 - components/pipewire.bst
 - components/sbc.bst
 - components/bluez.bst
