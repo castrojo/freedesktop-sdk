@@ -1272,6 +1272,7 @@ module I2C_AMD8111
 module I2C_AMD_MP2
 module I2C_DESIGNWARE_PCI
 module I2C_DIOLAN_U2C
+module I2C_I801
 module I2C_ISCH
 module I2C_NFORCE2
 module I2C_PARPORT
