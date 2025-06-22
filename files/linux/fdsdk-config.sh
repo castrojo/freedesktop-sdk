@@ -1324,6 +1324,24 @@ case "$arch" in
         enable X86_AMD_PLATFORM_DEVICE
         enable CONFIG_X86_USER_SHADOW_STACK
         enable PINCTRL_INTEL_PLATFORM
+        module PINCTRL_ALDERLAKE
+        enable PINCTRL_BAYTRAIL
+        module PINCTRL_BROXTON
+        module PINCTRL_CANNONLAKE
+        module PINCTRL_CEDARFORK
+        module PINCTRL_CHERRYVIEW
+        module PINCTRL_DENVERTON
+        module PINCTRL_ELKHARTLAKE
+        module PINCTRL_EMMITSBURG
+        module PINCTRL_GEMINILAKE
+        module PINCTRL_ICELAKE
+        module PINCTRL_JASPERLAKE
+        module PINCTRL_LAKEFIELD
+        module PINCTRL_LEWISBURG
+        module PINCTRL_METEORLAKE
+        module PINCTRL_METEORPOINT
+        module PINCTRL_SUNRISEPOINT
+        module PINCTRL_TIGERLAKE
     ;;
 esac
 
