@@ -20,5 +20,11 @@ variables:
     --with-usrlibdir=%{libdir}
     --with-usrsbindir=%{sbindir}
 
+config:
+  configure-commands:
+    (<):
+    - |
+      rm configure
+
 (@):
 - elements/include/lvm2-source.yml
