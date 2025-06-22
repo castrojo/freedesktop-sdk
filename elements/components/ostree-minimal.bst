@@ -1,5 +1,8 @@
 kind: autotools
 
+(@):
+- elements/include/ostree-source.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/git-minimal.bst
@@ -28,6 +31,3 @@ public:
       devel:
         (>):
         - "%{libdir}/libostree.so"
-
-(@):
-- elements/include/ostree-source.yml

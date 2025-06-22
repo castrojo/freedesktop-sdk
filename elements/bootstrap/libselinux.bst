@@ -1,5 +1,8 @@
 kind: make
 
+(@):
+- elements/bootstrap/include/target.yml
+
 build-depends:
 - bootstrap/base-sdk/pkg-config.bst
 - bootstrap/build/gcc-stage2.bst
@@ -14,9 +17,6 @@ build-depends:
 runtime-depends:
 - bootstrap/pcre2.bst
 - bootstrap/libsepol.bst
-
-(@):
-- elements/bootstrap/include/target.yml
 
 variables:
   command-subdir: libselinux

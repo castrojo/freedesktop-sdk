@@ -1,5 +1,8 @@
 kind: autotools
 
+(@):
+- elements/bootstrap/include/target.yml
+
 build-depends:
 - bootstrap/base-sdk/automake.bst
 - bootstrap/base-sdk/libtool.bst
@@ -22,8 +25,6 @@ public:
         - '%{libdir}/libattr.so'
         - '%{libdir}/libacl.so'
         - '%{libexecdir}/libacl.so'
-
-(@): elements/bootstrap/include/target.yml
 
 config:
   configure-commands:

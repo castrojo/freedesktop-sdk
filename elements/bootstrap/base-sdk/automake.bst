@@ -1,14 +1,14 @@
 kind: autotools
 description: GNU automake
 
+(@):
+- elements/bootstrap/include/base-sdk.yml
+
 build-depends:
 - bootstrap/gnu-config.bst
 
 depends:
 - bootstrap/base-sdk/autoconf.bst
-
-(@):
-- elements/bootstrap/include/base-sdk.yml
 
 sources:
 - kind: tar

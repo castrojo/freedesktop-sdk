@@ -1,6 +1,10 @@
 kind: autotools
 description: GNU Binutils Stage 1
 
+(@):
+- elements/bootstrap/include/build.yml
+- elements/bootstrap/include/binutils-source.yml
+
 build-depends:
 - bootstrap/base-sdk/automake.bst
 - bootstrap/base-sdk/bison.bst
@@ -11,10 +15,6 @@ build-depends:
 depends:
 - bootstrap/base-sdk/binary-seed.bst
 - bootstrap/base-sdk/zstd.bst
-
-(@):
-- elements/bootstrap/include/build.yml
-- elements/bootstrap/include/binutils-source.yml
 
 environment:
   CFLAGS_FOR_TARGET:  "%{target_flags}"

@@ -1,6 +1,9 @@
 kind: meson
 description: Glib
 
+(@):
+- elements/include/glib-source.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
 
@@ -48,6 +51,3 @@ public:
       if [ -d "%{libdir}/gio/modules" ]; then
         gio-querymodules "%{libdir}/gio/modules"
       fi
-
-(@):
-- elements/include/glib-source.yml

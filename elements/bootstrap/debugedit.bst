@@ -1,5 +1,9 @@
 kind: autotools
 
+(@):
+- elements/bootstrap/include/target.yml
+- elements/bootstrap/include/debugedit-source.yml
+
 build-depends:
 - bootstrap/base-sdk/pkg-config.bst
 - bootstrap/build/gcc-stage2.bst
@@ -15,10 +19,6 @@ build-depends:
 runtime-depends:
 - bootstrap/elfutils.bst
 - bootstrap/xxhash.bst
-
-(@):
-- elements/bootstrap/include/target.yml
-- elements/bootstrap/include/debugedit-source.yml
 
 variables:
   conf-local: >-

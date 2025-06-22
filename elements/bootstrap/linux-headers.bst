@@ -1,11 +1,11 @@
 kind: manual
 description: GNU linux headers stage 1
 
-build-depends:
-- bootstrap/build/rsync.bst
-
 (@):
 - elements/bootstrap/include/common.yml
+
+build-depends:
+- bootstrap/build/rsync.bst
 
 variables:
   kernel_arch: '%{arch}'

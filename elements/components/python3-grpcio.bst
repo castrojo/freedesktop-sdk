@@ -1,5 +1,7 @@
 kind: pyproject
 
+(@):
+- elements/include/grpc-source.yml
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
@@ -20,6 +22,3 @@ environment:
   GRPC_PYTHON_BUILD_SYSTEM_ZLIB: "true"
   GRPC_PYTHON_BUILD_WITH_CYTHON: "1"
   GRPC_PYTHON_CFLAGS: "%{target_flags}"
-
-(@):
-- elements/include/grpc-source.yml

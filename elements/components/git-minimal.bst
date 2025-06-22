@@ -1,5 +1,8 @@
 kind: meson
 
+(@):
+- elements/include/git.yml
+
 build-depends:
 - components/gcc.bst
 - components/stripper.bst
@@ -30,6 +33,3 @@ config:
 public:
   cpe:
     vendor: git-scm
-  
-(@):
-- elements/include/git.yml

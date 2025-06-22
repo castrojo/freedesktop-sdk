@@ -1,5 +1,9 @@
 kind: autotools
 
+(@):
+- elements/include/xz-source.yml
+- elements/bootstrap/include/target.yml
+
 build-depends:
 - bootstrap/base-sdk/automake.bst
 - bootstrap/base-sdk/libtool.bst
@@ -23,7 +27,3 @@ public:
       devel:
         (>):
         - '%{libdir}/liblzma.so'
-
-(@):
-- elements/include/xz-source.yml
-- elements/bootstrap/include/target.yml

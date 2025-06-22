@@ -1,5 +1,8 @@
 kind: meson
 
+(@):
+- elements/include/git.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/asciidoc.bst
@@ -39,6 +42,3 @@ public:
     - "%{debugdir}%{bindir}/git.debug"
   cpe:
     vendor: git-scm
-
-(@):
-- elements/include/git.yml

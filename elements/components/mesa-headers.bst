@@ -1,5 +1,8 @@
 kind: manual
 
+(@):
+- elements/include/mesa-sdk.yml
+
 build-depends:
 - public-stacks/runtime-minimal.bst
 - components/git-minimal.bst
@@ -7,9 +10,6 @@ build-depends:
 
 runtime-depends:
 - components/libglvnd.bst
-
-(@):
-- elements/include/mesa-sdk.yml
 
 variables:
   headers: >-

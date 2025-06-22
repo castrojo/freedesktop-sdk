@@ -1,6 +1,7 @@
 kind: autotools
 
-(@): elements/extensions/codecs-extra/config.yml
+(@):
+- elements/extensions/codecs-extra/config.yml
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst

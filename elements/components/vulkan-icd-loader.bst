@@ -1,5 +1,8 @@
 kind: cmake
 
+(@):
+- elements/include/vulkan-stack.yml
+
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/vulkan-headers.bst
@@ -31,6 +34,3 @@ public:
       devel:
         (>):
         - '%{libdir}/libvulkan.so'
-
-(@):
-- elements/include/vulkan-stack.yml

@@ -4,6 +4,9 @@ kind: meson
 #  - components/systemd.bst
 #  - components/systemd-libs.bst
 
+(@):
+- elements/include/systemd.yml
+
 build-depends:
 - public-stacks/runtime-minimal.bst
 - public-stacks/buildsystem-meson.bst
@@ -154,9 +157,6 @@ public:
       - '%{debugdir}%{libdir}/libnss_resolve.so*'
       - '%{sourcedir}'
       - '%{sourcedir}/**'
-
-(@):
-- elements/include/systemd.yml
 
 sources:
   (>):

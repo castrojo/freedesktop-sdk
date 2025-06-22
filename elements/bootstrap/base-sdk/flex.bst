@@ -1,5 +1,8 @@
 kind: autotools
 
+(@):
+- elements/bootstrap/include/base-sdk.yml
+
 build-depends:
 - bootstrap/base-sdk/automake.bst
 - bootstrap/base-sdk/libtool.bst
@@ -7,9 +10,6 @@ build-depends:
 
 depends:
 - bootstrap/base-sdk/m4.bst
-
-(@):
-- elements/bootstrap/include/base-sdk.yml
 
 environment:
   AUTOPOINT: true

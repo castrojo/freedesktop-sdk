@@ -1,14 +1,14 @@
 kind: autotools
 
+(@):
+- elements/bootstrap/include/build.yml
+- elements/include/rsync-source.yml
+
 build-depends:
 - bootstrap/base-sdk/automake.bst
 
 depends:
 - bootstrap/base-sdk/binary-seed.bst
-
-(@):
-- elements/bootstrap/include/build.yml
-- elements/include/rsync-source.yml
 
 variables:
   conf-local: >-

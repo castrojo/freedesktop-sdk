@@ -1,5 +1,8 @@
 kind: autotools
 
+(@):
+- elements/include/python3.yml
+
 build-depends:
 - bootstrap/gawk.bst
 - bootstrap/gcc.bst
@@ -29,6 +32,3 @@ config:
     cd %{build-dir}
     fi
     %{make-install} %{install-conf} DESTSHARED=/usr/lib/python%{version_long}/lib-dynload
-
-(@):
-- elements/include/python3.yml

@@ -1,5 +1,9 @@
 kind: autotools
 
+(@):
+- elements/bootstrap/include/target.yml
+- elements/bootstrap/include/file-source.yml
+
 build-depends:
 - bootstrap/base-sdk/automake.bst
 - bootstrap/base-sdk/libtool.bst
@@ -14,10 +18,6 @@ build-depends:
 runtime-depends:
 - bootstrap/zstd.bst
 - bootstrap/zlib.bst
-
-(@):
-- elements/bootstrap/include/target.yml
-- elements/bootstrap/include/file-source.yml
 
 variables:
   conf-local: >-

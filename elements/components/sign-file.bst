@@ -1,5 +1,8 @@
 kind: manual
 
+(@):
+- elements/include/linux.yml
+
 build-depends:
 - bootstrap/stripper.bst
 - components/gcc.bst
@@ -14,6 +17,3 @@ config:
 
   install-commands:
   - install -Dm755 -t "%{install-root}%{bindir}" sign-file
-
-(@):
-- elements/include/linux.yml

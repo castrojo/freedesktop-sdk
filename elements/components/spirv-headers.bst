@@ -1,5 +1,8 @@
 kind: cmake
 
+(@):
+- elements/include/vulkan-stack.yml
+
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 
@@ -8,6 +11,3 @@ depends:
 
 variables:
   command-subdir: spirv-headers
-
-(@):
-- elements/include/vulkan-stack.yml

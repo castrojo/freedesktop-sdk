@@ -1,5 +1,8 @@
 kind: autotools
 
+(@):
+- elements/include/bluez.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/python3-docutils.bst
@@ -34,5 +37,3 @@ public:
 
   cpe:
     product: bluez
-
-(@): elements/include/bluez.yml

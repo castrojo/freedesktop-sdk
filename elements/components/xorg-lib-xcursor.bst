@@ -1,6 +1,9 @@
 kind: autotools
 description: X.org lib Xcursor
 
+(@):
+- elements/include/cursorpath.yml
+
 depends:
 - public-stacks/runtime-minimal.bst
 - filename: components/xorg-lib-x11.bst
@@ -29,6 +32,3 @@ sources:
   url: freedesktop:xorg/lib/libxcursor.git
   track: libXcursor-*
   ref: libXcursor-1.2.3-0-g8ae6cf61b18ecddf26f72a07bbfbd1ea9f022c36
-
-(@):
-- elements/include/cursorpath.yml

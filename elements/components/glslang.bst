@@ -1,5 +1,8 @@
 kind: cmake
 
+(@):
+- elements/include/vulkan-stack.yml
+
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/python3.bst
@@ -30,7 +33,4 @@ public:
       static-blocklist:
         (>):
         - "%{libdir}/*.a"
-
-(@):
-- elements/include/vulkan-stack.yml
 

@@ -1,5 +1,8 @@
 kind: autotools
 
+(@):
+- elements/include/tar-source.yml
+
 build-depends:
 - bootstrap/gawk.bst
 - bootstrap/gcc.bst
@@ -14,6 +17,3 @@ depends:
 - bootstrap/glibc.bst
 - bootstrap/symlinks.bst
 - components/utf-locale.bst
-
-(@):
-- elements/include/tar-source.yml

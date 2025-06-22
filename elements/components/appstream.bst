@@ -1,5 +1,8 @@
 kind: meson
 
+(@):
+- elements/include/appstream-source.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - bootstrap/sed.bst
@@ -41,7 +44,3 @@ public:
         - '%{libdir}/libappstream.so'
         - '%{bindir}'
         - '%{bindir}/**'
-
-
-(@):
-- elements/include/appstream-source.yml

@@ -1,5 +1,8 @@
 kind: cmake
 
+(@):
+- elements/include/cmake-source.yml
+
 build-depends:
 - components/cmake-stage1.bst
 - components/gcc.bst
@@ -27,6 +30,3 @@ config:
     - |
       echo 'list(INSERT CMAKE_SYSTEM_LIBRARY_PATH 0 "%{libdir}")' >>Modules/Platform/UnixPaths.cmake
       echo 'list(INSERT CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES 0 "%{libdir}")' >>Modules/Platform/UnixPaths.cmake
-
-(@):
-- elements/include/cmake-source.yml

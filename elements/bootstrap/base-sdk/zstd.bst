@@ -1,11 +1,11 @@
 kind: make
 
-build-depends:
-- bootstrap/base-sdk/binary-seed.bst
-
 (@):
 - elements/bootstrap/include/base-sdk.yml
 - elements/bootstrap/include/zstd-source.yml
+
+build-depends:
+- bootstrap/base-sdk/binary-seed.bst
 
 variables:
   make-args: >-

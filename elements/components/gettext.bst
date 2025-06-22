@@ -1,6 +1,9 @@
 kind: autotools
 description: GNU gettext
 
+(@):
+- elements/include/gettext-source.yml
+
 build-depends:
 - bootstrap/gawk.bst
 - bootstrap/gcc.bst
@@ -43,6 +46,3 @@ public:
         - '%{datadir}/gettext/gettext.h'
         - '%{datadir}/gettext/javaversion.class'
         - '%{datadir}/gettext/msgunfmt.tcl'
-
-(@):
-- elements/include/gettext-source.yml

@@ -1,5 +1,8 @@
 kind: meson
 
+(@):
+- elements/include/gstreamer-source.yml
+
 build-depends:
 - components/gobject-introspection.bst
 - public-stacks/buildsystem-meson.bst
@@ -54,6 +57,3 @@ variables:
 public:
   cpe:
     product: gstreamer
-
-(@):
-- elements/include/gstreamer-source.yml

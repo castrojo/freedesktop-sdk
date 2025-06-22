@@ -1,6 +1,7 @@
 kind: manual
 
-(@): elements/extensions/include/app.yml
+(@):
+- elements/extensions/include/app.yml
 
 build-depends:
 - components/appstream-minimal.bst

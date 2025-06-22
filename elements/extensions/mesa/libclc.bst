@@ -1,5 +1,9 @@
 kind: cmake
 
+(@):
+- elements/include/llvm.yml
+- elements/extensions/mesa/config.yml
+
 depends:
 - public-stacks/runtime-minimal.bst
 
@@ -9,10 +13,6 @@ build-depends:
 - components/spirv-tools.bst
 - components/spirv-llvm-translator.bst
 - components/python3.bst
-
-(@):
-- elements/include/llvm.yml
-- elements/extensions/mesa/config.yml
 
 variables:
   cmake: cmake "-B%{build-dir}" -Slibclc -G"%{generator}" %{cmake-args}

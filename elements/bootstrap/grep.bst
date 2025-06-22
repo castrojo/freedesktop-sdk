@@ -1,6 +1,9 @@
 kind: autotools
 description: GNU grep
 
+(@):
+- elements/bootstrap/include/target.yml
+
 build-depends:
 - bootstrap/base-sdk/texinfo.bst
 - bootstrap/build/gcc-stage2.bst
@@ -16,8 +19,6 @@ build-depends:
 runtime-depends:
 - bootstrap/glibc.bst
 - bootstrap/pcre2.bst
-
-(@): elements/bootstrap/include/target.yml
 
 variables:
   conf-local: >-

@@ -1,5 +1,8 @@
 kind: make
 
+(@):
+- elements/include/perl-source.yml
+
 build-depends:
 - bootstrap/gawk.bst
 - bootstrap/gcc.bst
@@ -48,6 +51,3 @@ config:
     - |
       rm "%{install-root}%{bindir}/perl"
       ln -sr "%{install-root}%{bindir}"/perl[0-9]* "%{install-root}%{bindir}/perl"
-
-(@):
-- elements/include/perl-source.yml

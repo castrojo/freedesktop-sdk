@@ -1,6 +1,9 @@
 kind: autotools
 description: GNU make
 
+(@):
+- elements/bootstrap/include/target.yml
+
 build-depends:
 - bootstrap/base-sdk/automake.bst
 - bootstrap/base-sdk/pkg-config.bst
@@ -15,8 +18,6 @@ build-depends:
 
 runtime-depends:
 - bootstrap/glibc.bst
-
-(@): elements/bootstrap/include/target.yml
 
 config:
   configure-commands:

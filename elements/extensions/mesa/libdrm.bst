@@ -1,15 +1,15 @@
 kind: meson
 description: libdrm
 
+(@):
+- elements/extensions/mesa/config.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
 - components/xorg-lib-pciaccess.bst
-
-(@):
-- elements/extensions/mesa/config.yml
 
 variables:
   meson-local: >-

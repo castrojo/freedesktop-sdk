@@ -1,11 +1,11 @@
 kind: script
 
+(@):
+- elements/bootstrap/include/common.yml
+
 build-depends:
 - bootstrap/base-sdk/binary-seed.bst
 - bootstrap/build/gcc-stage2.bst
-
-(@):
-- elements/bootstrap/include/common.yml
 
 variables:
   destdir: "%{install-root}/%{sysroot}%{libdir}/"

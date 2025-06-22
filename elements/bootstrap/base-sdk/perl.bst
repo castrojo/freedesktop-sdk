@@ -1,11 +1,11 @@
 kind: make
 
-depends:
-- bootstrap/base-sdk/binary-seed.bst
-
 (@):
 - elements/bootstrap/include/base-sdk.yml
 - elements/include/perl-source.yml
+
+depends:
+- bootstrap/base-sdk/binary-seed.bst
 
 environment:
   BSTARCH: '%{bootstrap_build_arch}'

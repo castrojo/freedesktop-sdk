@@ -1,5 +1,8 @@
 kind: autotools
 
+(@):
+- elements/bootstrap/include/base-sdk.yml
+
 build-depends:
 - bootstrap/base-sdk/automake.bst
 - bootstrap/base-sdk/flex.bst
@@ -8,9 +11,6 @@ build-depends:
 depends:
 - bootstrap/base-sdk/m4.bst
 - bootstrap/base-sdk/perl.bst
-
-(@):
-- elements/bootstrap/include/base-sdk.yml
 
 environment:
   AUTOPOINT: true

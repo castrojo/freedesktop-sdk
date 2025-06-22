@@ -1,5 +1,8 @@
 kind: autotools
 
+(@):
+- elements/include/lvm2-source.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 
@@ -16,6 +19,3 @@ variables:
     --with-staticdir=%{sbindir}
     --with-usrlibdir=%{libdir}
     --with-usrsbindir=%{sbindir}
-
-(@):
-- elements/include/lvm2-source.yml

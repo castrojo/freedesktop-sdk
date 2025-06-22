@@ -1,6 +1,11 @@
 kind: autotools
 description: GNU gcc Stage 2
 
+(@):
+- elements/bootstrap/include/build.yml
+- elements/bootstrap/include/gcc-arch-opts.yml
+- elements/include/gcc-source.yml
+
 build-depends:
 - bootstrap/base-sdk/autoconf2.69.bst
 - bootstrap/base-sdk/automake.bst
@@ -19,11 +24,6 @@ build-depends:
 
 runtime-depends:
 - bootstrap/build/binutils-stage1.bst
-
-(@):
-- elements/bootstrap/include/build.yml
-- elements/bootstrap/include/gcc-arch-opts.yml
-- elements/include/gcc-source.yml
 
 environment:
   CFLAGS_FOR_TARGET:  "%{target_flags}"

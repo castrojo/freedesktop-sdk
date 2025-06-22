@@ -1,5 +1,8 @@
 kind: make
 
+(@):
+- elements/bootstrap/include/build.yml
+
 build-depends:
 - bootstrap/base-sdk/binary-seed.bst
 - bootstrap/gnu-config.bst
@@ -7,9 +10,6 @@ build-depends:
 runtime-depends:
 - bootstrap/build/debugedit-build.bst
 - bootstrap/build/dwz-build.bst
-
-(@):
-- elements/bootstrap/include/build.yml
 
 sources:
 - kind: local

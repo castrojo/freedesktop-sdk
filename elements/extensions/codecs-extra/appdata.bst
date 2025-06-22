@@ -1,5 +1,8 @@
 kind: manual
 
+(@):
+- elements/extensions/codecs-extra/config.yml
+
 build-depends:
 - components/appstream-minimal.bst
 
@@ -19,6 +22,3 @@ config:
 sources:
 - kind: local
   path: files/codecs-extra/org.freedesktop.Platform.codecs-extra.metainfo.xml
-
-(@):
-- elements/extensions/codecs-extra/config.yml

@@ -1,6 +1,9 @@
 kind: autotools
 description: pkg-config
 
+(@):
+- elements/include/pkg-config-source.yml
+
 build-depends:
 - bootstrap/gcc.bst
 - bootstrap/make.bst
@@ -30,6 +33,3 @@ public:
       devel:
         (>):
         - '%{libdir}/libpkgconf.so'
-
-(@):
-- elements/include/pkg-config-source.yml

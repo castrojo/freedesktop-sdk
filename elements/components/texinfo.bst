@@ -1,6 +1,9 @@
 kind: autotools
 description: GNU texinfo
 
+(@):
+- elements/include/texinfo-source.yml
+
 build-depends:
 - bootstrap/gcc.bst
 - bootstrap/grep.bst
@@ -37,6 +40,3 @@ public:
             ;;
         esac
       done
-
-(@):
-- elements/include/texinfo-source.yml

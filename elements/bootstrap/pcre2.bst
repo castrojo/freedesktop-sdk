@@ -1,5 +1,8 @@
 kind: autotools
 
+(@):
+- elements/bootstrap/include/target.yml
+
 build-depends:
 - bootstrap/base-sdk/automake.bst
 - bootstrap/base-sdk/libtool.bst
@@ -14,9 +17,6 @@ build-depends:
 
 runtime-depends:
 - bootstrap/glibc.bst
-
-(@):
-- elements/bootstrap/include/target.yml
 
 variables:
   common_options: "--enable-pcre2-16 --enable-pcre2-32"

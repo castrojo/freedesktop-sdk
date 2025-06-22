@@ -1,5 +1,8 @@
 kind: meson
 
+(@):
+- elements/include/flatpak.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/bison.bst
@@ -28,7 +31,6 @@ depends:
 - components/systemd-libs.bst
 - components/xdg-dbus-proxy.bst
 
-
 variables:
   meson-local: >-
     -Dgtkdoc=disabled
@@ -39,6 +41,3 @@ variables:
     -Dselinux_module=disabled
     -Dtests=false
     -Dsystem_dbus_proxy=xdg-dbus-proxy
-
-(@):
-- elements/include/flatpak.yml

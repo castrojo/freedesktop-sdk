@@ -1,5 +1,8 @@
 kind: compose
 
+(@):
+- elements/bootstrap/include/base-sdk.yml
+
 (?):
 - bootstrap_build_arch == "x86_64":
     build-depends:
@@ -13,9 +16,6 @@ kind: compose
 - bootstrap_build_arch == "riscv64":
     build-depends:
     - bootstrap/base-sdk/binary-seed-riscv64.bst
-
-(@):
-- elements/bootstrap/include/base-sdk.yml
 
 config:
   exclude:

@@ -1,5 +1,8 @@
 kind: meson
 
+(@):
+- elements/include/gstreamer-source.yml
+
 build-depends:
 - components/ffmpeg.bst
 - public-stacks/buildsystem-meson.bst
@@ -32,6 +35,3 @@ config:
           exit 1
         fi
       done
-
-(@):
-- elements/include/gstreamer-source.yml

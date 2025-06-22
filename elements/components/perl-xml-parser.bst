@@ -1,5 +1,8 @@
 kind: makemaker
 
+(@):
+- include/strip.yml
+
 build-depends:
 - public-stacks/buildsystem-make.bst
 
@@ -7,8 +10,6 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/perl.bst
 - components/expat.bst
-
-(@): include/strip.yml
 
 sources:
 - kind: cpan

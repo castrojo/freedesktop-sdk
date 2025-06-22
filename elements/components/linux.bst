@@ -1,6 +1,9 @@
 kind: make
 description: Linux kernel configured for use in virtual machines.
 
+(@):
+- elements/include/linux.yml
+
 build-depends:
 - public-stacks/buildsystem-make.bst
 - components/bison.bst
@@ -125,6 +128,3 @@ public:
       devel:
         (>):
         - '%{bootdir}/System.map'
-
-(@):
-- elements/include/linux.yml

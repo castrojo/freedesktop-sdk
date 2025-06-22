@@ -1,5 +1,8 @@
 kind: cmake
 
+(@):
+- elements/include/grpc-source.yml
+
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 
@@ -19,5 +22,3 @@ variables:
     -DgRPC_CARES_PROVIDER=package
     -DgRPC_ABSL_PROVIDER=package
     -DgRPC_INSTALL_LIBDIR="%{lib}"
-
-(@): elements/include/grpc-source.yml

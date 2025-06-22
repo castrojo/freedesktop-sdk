@@ -1,6 +1,10 @@
 kind: autotools
 description: GNU Binutils
 
+(@):
+- elements/bootstrap/include/target.yml
+- elements/bootstrap/include/binutils-source.yml
+
 build-depends:
 - bootstrap/base-sdk/automake.bst
 - bootstrap/base-sdk/bison.bst
@@ -25,10 +29,6 @@ runtime-depends:
 - bootstrap/glibc.bst
 - bootstrap/zlib.bst
 - bootstrap/zstd.bst
-
-(@):
-- elements/bootstrap/include/target.yml
-- elements/bootstrap/include/binutils-source.yml
 
 variables:
   # Disable '-fexceptions' which breaks build on arm.

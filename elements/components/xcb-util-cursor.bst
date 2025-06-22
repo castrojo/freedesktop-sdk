@@ -1,6 +1,9 @@
 kind: autotools
 description: X.org xcb-util-cursor
 
+(@):
+- elements/include/cursorpath.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/xorg-util-macros.bst
@@ -35,6 +38,3 @@ sources:
   path: m4
   url: freedesktop:xorg/util/xcb-util-m4.git
   ref: c617eee22ae5c285e79e81ec39ce96862fd3262f
-
-(@):
-- elements/include/cursorpath.yml

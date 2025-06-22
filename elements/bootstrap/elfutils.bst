@@ -1,5 +1,9 @@
 kind: autotools
 
+(@):
+- elements/bootstrap/include/target.yml
+- elements/bootstrap/include/elfutils-source.yml
+
 build-depends:
 - bootstrap/base-sdk/automake.bst
 - bootstrap/base-sdk/gettext.bst
@@ -20,10 +24,6 @@ runtime-depends:
 - bootstrap/zlib.bst
 - bootstrap/zstd.bst
 - bootstrap/xz.bst
-
-(@):
-- elements/bootstrap/include/target.yml
-- elements/bootstrap/include/elfutils-source.yml
 
 variables:
   autogen: autoreconf -fvi

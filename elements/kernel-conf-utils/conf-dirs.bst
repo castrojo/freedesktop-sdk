@@ -3,6 +3,9 @@ description: |
     This extracts mapping for config items to kernel source
     directories.
 
+(@):
+- elements/include/linux.yml
+
 build-depends:
 - public-stacks/runtime-minimal.bst
 - components/findutils.bst
@@ -21,6 +24,3 @@ config:
   install-commands:
   - |
     install -Dm644 -t '%{install-root}' configs.dir
-
-(@):
-- elements/include/linux.yml

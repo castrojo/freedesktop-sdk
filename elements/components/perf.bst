@@ -1,5 +1,8 @@
 kind: make
 
+(@):
+- elements/include/linux.yml
+
 build-depends:
 - public-stacks/buildsystem-make.bst
 - components/audit.bst
@@ -59,6 +62,3 @@ config:
     - |
       rm "%{install-root}%{bindir}/trace"
       ln -s perf "%{install-root}%{bindir}/trace"
-
-(@):
-- elements/include/linux.yml

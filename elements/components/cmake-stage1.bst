@@ -1,5 +1,8 @@
 kind: manual
 
+(@):
+- elements/include/cmake-source.yml
+
 build-depends:
 - bootstrap/grep.bst
 - bootstrap/sed.bst
@@ -45,7 +48,4 @@ config:
   install-commands:
   - |
     env DESTDIR="%{install-root}" ninja install -v -j ${JOBS} -C %{build-dir}
-
-(@):
-- elements/include/cmake-source.yml
 

@@ -1,5 +1,8 @@
 kind: autotools
 
+(@):
+- elements/include/lvm2-source.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 
@@ -36,6 +39,3 @@ public:
         - '%{datadir}/licenses/device-mapper-libs/**'
         - '%{libdir}/libdevmapper.so**'
         - '%{libdir}/pkgconfig/devmapper.pc'
-
-(@):
-- elements/include/lvm2-source.yml

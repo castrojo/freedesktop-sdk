@@ -1,6 +1,11 @@
 kind: autotools
 description: GNU gcc Stage 3
 
+(@):
+- elements/bootstrap/include/gcc-arch-opts.yml
+- elements/bootstrap/include/target.yml
+- elements/include/gcc-source.yml
+
 build-depends:
 - bootstrap/base-sdk/autoconf2.69.bst
 - bootstrap/base-sdk/automake.bst
@@ -23,11 +28,6 @@ runtime-depends:
 - bootstrap/glibc.bst
 - bootstrap/binutils.bst
 - bootstrap/libxcrypt.bst
-
-(@):
-- elements/bootstrap/include/gcc-arch-opts.yml
-- elements/bootstrap/include/target.yml
-- elements/include/gcc-source.yml
 
 environment:
   CC: '%{tools}/bin/%{triplet}-gcc'

@@ -1,6 +1,10 @@
 kind: autotools
 description: GNU coreutils
 
+(@):
+- elements/bootstrap/include/target.yml
+- elements/bootstrap/include/coreutils-source.yml
+
 build-depends:
 - bootstrap/base-sdk/texinfo.bst
 - bootstrap/build/gcc-stage2.bst
@@ -16,10 +20,6 @@ build-depends:
 runtime-depends:
 - bootstrap/acl.bst
 - bootstrap/libselinux.bst
-
-(@):
-- elements/bootstrap/include/target.yml
-- elements/bootstrap/include/coreutils-source.yml
 
 environment:
   FORCE_UNSAFE_CONFIGURE: "1"

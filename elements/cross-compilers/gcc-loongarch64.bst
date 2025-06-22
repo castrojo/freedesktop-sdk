@@ -1,5 +1,10 @@
 kind: autotools
 
+(@):
+- elements/cross-compilers/loongarch64-vars.yml
+- elements/cross-compilers/gcc-common.yml
+- elements/include/gcc-source.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - cross-compilers/standard-libs-loongarch64.bst
@@ -10,11 +15,6 @@ build-depends:
 
 depends:
 - cross-compilers/binutils-loongarch64.bst
-
-(@):
-- elements/cross-compilers/loongarch64-vars.yml
-- elements/cross-compilers/gcc-common.yml
-- elements/include/gcc-source.yml
 
 variables:
   conf-arch: ''

@@ -1,5 +1,8 @@
 kind: autotools
 
+(@):
+- elements/bootstrap/include/elfutils-source.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 
@@ -12,9 +15,6 @@ depends:
 - components/libmicrohttpd.bst
 - components/json-c.bst
 - components/bzip2.bst
-
-(@):
-- elements/bootstrap/include/elfutils-source.yml
 
 variables:
   conf-local: >-

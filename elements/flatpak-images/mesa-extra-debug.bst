@@ -1,10 +1,10 @@
 kind: flatpak_image
 
-build-depends:
-- extensions/mesa/mesa-extra.bst
-
 (@):
 - elements/extensions/mesa/config.yml
+
+build-depends:
+- extensions/mesa/mesa-extra.bst
 
 config:
   directory: '%{debugdir}%{prefix}'

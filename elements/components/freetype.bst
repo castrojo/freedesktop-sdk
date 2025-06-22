@@ -1,5 +1,8 @@
 kind: meson
 
+(@):
+- elements/include/freetype.yml
+
 build-depends:
 - components/freetype-stage1.bst
 - public-stacks/buildsystem-meson.bst
@@ -29,6 +32,3 @@ variables:
     -Dharfbuzz=enabled
     -Dpng=enabled
     -Dzlib=enabled
-
-(@):
-- elements/include/freetype.yml

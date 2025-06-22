@@ -1,5 +1,8 @@
 kind: make
 
+(@):
+- elements/bootstrap/include/target.yml
+
 build-depends:
 - bootstrap/base-sdk/flex.bst
 - bootstrap/build/gcc-stage2.bst
@@ -11,9 +14,6 @@ build-depends:
 
 runtime-depends:
 - bootstrap/pcre2.bst
-
-(@):
-- elements/bootstrap/include/target.yml
 
 variables:
   notparallel: true

@@ -1,5 +1,8 @@
 kind: meson
 
+(@):
+- elements/include/flatpak.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/bison.bst
@@ -36,6 +39,3 @@ variables:
     -Dsystem_dbus_proxy=xdg-dbus-proxy
     -Dwayland_security_context=disabled
     -Dsystemd=disabled
-
-(@):
-- elements/include/flatpak.yml

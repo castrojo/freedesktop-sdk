@@ -5,6 +5,9 @@ description: |
   platform if not GL extension loaded provides libgbm.  However if it
   is present in a GL extension, it should be loaded instead.
 
+(@):
+- elements/include/mesa-sdk.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
   # It just needs one header from extension at build time to get a PCI ID.
@@ -19,9 +22,6 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/libdrm.bst
-
-(@):
-- elements/include/mesa-sdk.yml
 
 environment:
   PKG_CONFIG_PATH: ":%{libdir}/GL/default/lib/pkgconfig"

@@ -1,5 +1,10 @@
 kind: autotools
 
+(@):
+- elements/cross-compilers/riscv64-vars.yml
+- elements/bootstrap/include/binutils-source.yml
+- elements/cross-compilers/binutils-common.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/bison.bst
@@ -8,8 +13,3 @@ build-depends:
 
 depends:
 - components/zstd.bst
-
-(@):
-- elements/cross-compilers/riscv64-vars.yml
-- elements/bootstrap/include/binutils-source.yml
-- elements/cross-compilers/binutils-common.yml

@@ -1,15 +1,15 @@
 kind: autotools
 description: GNU texinfo
 
+(@):
+- elements/bootstrap/include/base-sdk.yml
+- elements/include/texinfo-source.yml
+
 build-depends:
 - bootstrap/gnu-config.bst
 
 depends:
 - bootstrap/base-sdk/perl.bst
-
-(@):
-- elements/bootstrap/include/base-sdk.yml
-- elements/include/texinfo-source.yml
 
 variables:
   conf-local: |

@@ -1,15 +1,15 @@
 kind: autotools
 description: GNU libtool
 
+(@):
+- elements/bootstrap/include/base-sdk.yml
+
 build-depends:
 - bootstrap/base-sdk/m4.bst
 - bootstrap/gnu-config.bst
 
 depends:
 - bootstrap/base-sdk/binary-seed.bst
-
-(@):
-- elements/bootstrap/include/base-sdk.yml
 
 sources:
 - kind: tar

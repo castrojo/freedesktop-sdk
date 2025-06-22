@@ -1,5 +1,8 @@
 kind: make
 
+(@):
+- elements/include/linux.yml
+
 build-depends:
 - public-stacks/buildsystem-make.bst
 - components/bison.bst
@@ -28,6 +31,3 @@ config:
     - |
       mv "%{install-root}%{prefix}/sbin"/* "%{install-root}%{bindir}/"
       rmdir "%{install-root}%{prefix}/sbin"
-
-(@):
-- elements/include/linux.yml

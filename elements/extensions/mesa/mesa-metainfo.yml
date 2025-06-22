@@ -1,12 +1,12 @@
+(@):
+- elements/extensions/mesa/config.yml
+- elements/extensions/mesa/mesa-sources.yml
+
 build-depends:
 - bootstrap/sed.bst
 - components/appstream-minimal.bst
 - components/git-minimal.bst
 - components/m4.bst
-
-(@):
-- elements/extensions/mesa/config.yml
-- elements/extensions/mesa/mesa-sources.yml
 
 variables:
   app-id: >-

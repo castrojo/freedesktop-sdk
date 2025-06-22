@@ -1,6 +1,7 @@
 kind: manual
 
-(@): elements/components/rust-stage1-common.yml
+(@):
+- elements/components/rust-stage1-common.yml
 
 # Use the previous version of the compiler to bootstrap the new one.
 # That's how upstream recommends doing it.

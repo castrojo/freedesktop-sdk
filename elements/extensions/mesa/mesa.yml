@@ -1,3 +1,7 @@
+(@):
+- elements/extensions/mesa/config.yml
+- elements/extensions/mesa/mesa-sources.yml
+
 build-depends:
 - components/bison.bst
 - components/flex.bst
@@ -38,10 +42,6 @@ depends:
 - extensions/mesa/libclc.bst
 - extensions/mesa/libdrm.bst
 - extensions/mesa/llvm.bst
-
-(@):
-- elements/extensions/mesa/config.yml
-- elements/extensions/mesa/mesa-sources.yml
 
 environment:
   PKG_CONFIG_PATH: "%{libdir}/pkgconfig:%{datadir}/pkgconfig"

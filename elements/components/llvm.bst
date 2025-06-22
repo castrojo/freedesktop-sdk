@@ -1,5 +1,8 @@
 kind: cmake
 
+(@):
+- elements/include/llvm.yml
+
 build-depends:
 - components/cmake-stage1.bst
 - components/gcc.bst
@@ -105,5 +108,3 @@ public:
 
   cpe:
     product: llvm
-
-(@): elements/include/llvm.yml

@@ -1,15 +1,15 @@
 kind: autotools
 description: GNU autoconf
 
+(@):
+- elements/bootstrap/include/base-sdk.yml
+
 build-depends:
 - bootstrap/gnu-config.bst
 
 depends:
 - bootstrap/base-sdk/m4.bst
 - bootstrap/base-sdk/perl.bst
-
-(@):
-- elements/bootstrap/include/base-sdk.yml
 
 sources:
 - kind: tar

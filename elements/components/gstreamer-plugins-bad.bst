@@ -1,5 +1,8 @@
 kind: meson
 
+(@):
+- elements/include/gstreamer-source.yml
+
 depends:
 - public-stacks/runtime-minimal.bst
 - components/aom.bst
@@ -96,6 +99,3 @@ public:
         - '%{libdir}/libgstwebrtcnice-1.0.so'
   cpe:
     product: gstreamer
-
-(@):
-- elements/include/gstreamer-source.yml

@@ -1,5 +1,8 @@
 kind: manual
 
+(@):
+- elements/include/go-source.yml
+
 build-depends:
 - bootstrap/go.bst
 - bootstrap/grep.bst
@@ -65,5 +68,3 @@ public:
         (>):
         - "%{libdir}/go/src/**"
         - "%{libdir}/go/src"
-
-(@): elements/include/go-source.yml

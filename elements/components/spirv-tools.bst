@@ -1,5 +1,8 @@
 kind: cmake
 
+(@):
+- elements/include/vulkan-stack.yml
+
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/python3.bst
@@ -31,6 +34,3 @@ public:
         - '%{bindir}/spirv-opt'
         - '%{bindir}/spirv-stats'
         - '%{bindir}/spirv-val'
-
-(@):
-- elements/include/vulkan-stack.yml

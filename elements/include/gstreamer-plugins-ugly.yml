@@ -1,3 +1,6 @@
+(@):
+- elements/include/gstreamer-source.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
 
@@ -23,6 +26,3 @@ config:
   configure-commands:
   - |
     %{meson} %{meson-local} %{meson-extra}
-
-(@):
-- elements/include/gstreamer-source.yml

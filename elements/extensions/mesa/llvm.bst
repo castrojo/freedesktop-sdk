@@ -1,5 +1,8 @@
 kind: manual
 
+(@):
+- elements/extensions/mesa/config.yml
+
 build-depends:
 - bootstrap/binutils.bst
 - bootstrap/sed.bst
@@ -23,7 +26,4 @@ config:
 
   # Strip was already done
   strip-commands: []
-
-(@):
-- elements/extensions/mesa/config.yml
 

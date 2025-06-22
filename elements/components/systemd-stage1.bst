@@ -1,5 +1,8 @@
 kind: meson
 
+(@):
+- elements/include/systemd.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - bootstrap/diffutils.bst
@@ -81,6 +84,3 @@ public:
       - '%{debugdir}%{libdir}/libudev*.so*'
       - '%{sourcedir}'
       - '%{sourcedir}/**'
-
-(@):
-- elements/include/systemd.yml

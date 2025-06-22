@@ -1,6 +1,9 @@
 kind: autotools
 description: Python 3
 
+(@):
+- elements/include/python3.yml
+
 build-depends:
 - components/bluez-headers.bst
 - public-stacks/buildsystem-autotools.bst
@@ -116,6 +119,3 @@ public:
     ignored:
     - CVE-2007-4559
     - CVE-2015-20107
-
-(@):
-- elements/include/python3.yml

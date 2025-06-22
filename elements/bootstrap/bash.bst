@@ -1,6 +1,9 @@
 kind: autotools
 description: GNU Bash
 
+(@):
+- elements/bootstrap/include/target.yml
+
 build-depends:
 - bootstrap/base-sdk/texinfo.bst
 - bootstrap/build/gcc-stage2.bst
@@ -12,8 +15,6 @@ build-depends:
 
 runtime-depends:
 - bootstrap/readline.bst
-
-(@): elements/bootstrap/include/target.yml
 
 variables:
   local_flags: -std=gnu17

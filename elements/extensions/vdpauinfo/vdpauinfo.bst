@@ -1,5 +1,8 @@
 kind: autotools
 
+(@):
+- elements/extensions/include/app.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 
@@ -8,8 +11,6 @@ depends:
 
 variables:
   autogen: autoreconf -fvi
-
-(@): elements/extensions/include/app.yml
 
 sources:
 - kind: git_repo

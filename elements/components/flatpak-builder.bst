@@ -1,5 +1,8 @@
 kind: meson
 
+(@):
+- elements/include/flatpak-builder-source.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
 
@@ -25,6 +28,3 @@ variables:
   meson-local: >-
     -Dtests=false
     -Dfuse=3
-
-(@):
-- elements/include/flatpak-builder-source.yml

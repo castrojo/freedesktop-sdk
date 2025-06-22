@@ -1,5 +1,8 @@
 kind: autotools
 
+(@):
+- elements/include/rsync-source.yml
+
 depends:
 - public-stacks/runtime-minimal.bst
 - bootstrap/xxhash.bst
@@ -18,6 +21,3 @@ variables:
     --disable-zstd
     --disable-simd
     --disable-md2man
-
-(@):
-- elements/include/rsync-source.yml

@@ -1,5 +1,8 @@
 kind: meson
 
+(@):
+- elements/include/appstream-source.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - bootstrap/sed.bst
@@ -29,6 +32,3 @@ variables:
     -Dsystemd=false
     -Ddocs=false
     -Dapidocs=false
-
-(@):
-- elements/include/appstream-source.yml

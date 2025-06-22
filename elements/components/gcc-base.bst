@@ -1,5 +1,9 @@
 kind: autotools
 
+(@):
+- elements/bootstrap/include/gcc-arch-opts.yml
+- elements/include/gcc-source.yml
+
 build-depends:
 - bootstrap/diffutils.bst
 - bootstrap/gcc.bst
@@ -15,10 +19,6 @@ build-depends:
 - components/python3-minimal.bst
 - components/tar.bst
 - components/texinfo.bst
-
-(@):
-- elements/bootstrap/include/gcc-arch-opts.yml
-- elements/include/gcc-source.yml
 
 variables:
   # gcc installs correctly libraries in the multiarch library

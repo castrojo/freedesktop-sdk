@@ -1,5 +1,9 @@
 kind: autotools
 
+(@):
+- elements/bootstrap/include/build.yml
+- elements/bootstrap/include/elfutils-source.yml
+
 build-depends:
 - bootstrap/base-sdk/m4.bst
 - bootstrap/base-sdk/pkg-config.bst
@@ -7,10 +11,6 @@ build-depends:
 
 depends:
 - bootstrap/base-sdk/zstd.bst
-
-(@):
-- elements/bootstrap/include/build.yml
-- elements/bootstrap/include/elfutils-source.yml
 
 variables:
   conf-local: >-

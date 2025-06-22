@@ -1,5 +1,8 @@
 kind: manual
 
+(@):
+- elements/bootstrap/include/glibc-source.yml
+
 build-depends:
 - public-stacks/buildsystem-make.bst
 
@@ -14,9 +17,6 @@ config:
   install-commands:
   - |
     install -D -m0644 SUPPORTED "%{install-root}%{datadir}/i18n/SUPPORTED"
-
-(@):
-- elements/bootstrap/include/glibc-source.yml
 
 sources:
   (>):

@@ -1,5 +1,9 @@
 kind: manual
 
+(@):
+- elements/bootstrap/include/target.yml
+- elements/include/go-source.yml
+
 build-depends:
 - bootstrap/base-sdk/binary-seed.bst
 - bootstrap/build/binutils-stage1.bst
@@ -7,10 +11,6 @@ build-depends:
 
 runtime-depends:
 - bootstrap/symlinks.bst
-
-(@):
-- elements/bootstrap/include/target.yml
-- elements/include/go-source.yml
 
 variables:
   optimize-debug: "false"

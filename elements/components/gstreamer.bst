@@ -1,5 +1,8 @@
 kind: meson
 
+(@):
+- elements/include/gstreamer-source.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/bison.bst
@@ -41,6 +44,3 @@ public:
         - '%{libdir}/libgstcontroller-1.0.so'
         - '%{datadir}/gstreamer-1.0/gdb'
         - '%{datadir}/gstreamer-1.0/gdb/**'
-
-(@):
-- elements/include/gstreamer-source.yml

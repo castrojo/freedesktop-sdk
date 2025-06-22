@@ -1,6 +1,10 @@
 kind: autotools
 description: GNU C Library
 
+(@):
+- elements/bootstrap/include/target.yml
+- elements/bootstrap/include/glibc-source.yml
+
 build-depends:
 - bootstrap/base-sdk/bison.bst
 - bootstrap/base-sdk/gettext.bst
@@ -71,10 +75,6 @@ config:
 
     - |
       rm "%{install-root}%{infodir}/dir"
-
-(@):
-- elements/bootstrap/include/target.yml
-- elements/bootstrap/include/glibc-source.yml
 
 variables:
   # -D_FORTIFY_SOURCE=2 breaks building glibc

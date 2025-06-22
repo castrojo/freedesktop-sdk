@@ -1,13 +1,13 @@
 kind: flatpak_image
 
+(@):
+- elements/cross-compilers/i686-vars.yml
+
 depends:
 - filename: cross-compilers/gcc-i686.bst
   type: build
 - filename: cross-compilers/binutils-i686.bst
   type: build
-
-(@):
-- elements/cross-compilers/i686-vars.yml
 
 config:
   directory: '%{prefix}'

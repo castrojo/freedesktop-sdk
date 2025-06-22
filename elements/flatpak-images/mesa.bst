@@ -1,11 +1,11 @@
 kind: flatpak_image
 
+(@):
+- elements/extensions/mesa/config.yml
+
 build-depends:
 - extensions/mesa/mesa.bst
 - extensions/mesa/mesa-metainfo.bst
-
-(@):
-- elements/extensions/mesa/config.yml
 
 config:
   directory: "%{prefix}"

@@ -1,5 +1,8 @@
 kind: make
 
+(@):
+- elements/bootstrap/include/target.yml
+
 build-depends:
 - bootstrap/gnu-config.bst
 - bootstrap/build/gcc-stage2.bst
@@ -13,8 +16,6 @@ runtime-depends:
 - bootstrap/debugedit.bst
 - bootstrap/dwz.bst
 - bootstrap/xz.bst
-
-(@): elements/bootstrap/include/target.yml
 
 environment:
   CXX: "%{triplet}-g++"

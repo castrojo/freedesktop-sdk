@@ -1,6 +1,7 @@
 kind: cmake
 
-(@): elements/extensions/include/app.yml
+(@):
+- elements/extensions/include/app.yml
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst

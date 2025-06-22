@@ -1,5 +1,8 @@
 kind: autotools
 
+(@):
+- elements/include/xz-source.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/po4a.bst
@@ -19,6 +22,3 @@ config:
         make -C "${dir}" install-data-hook DESTDIR="%{install-root}"
       fi
     done
-
-(@):
-- elements/include/xz-source.yml

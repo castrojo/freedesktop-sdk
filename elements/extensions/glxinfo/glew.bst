@@ -1,6 +1,7 @@
 kind: make
 
-(@): elements/extensions/include/app.yml
+(@):
+- elements/extensions/include/app.yml
 
 build-depends:
 - components/mesa-headers.bst
