@@ -1,12 +1,15 @@
-kind: meson
+kind: meson_recc
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/wayland-protocols.bst
-- extensions/mesa/libdrm.bst
-- components/xcb-util-cursor.bst
 - components/glslang.bst
 - components/vulkan-headers.bst
+- components/wayland-protocols.bst
+- components/xcb-util-cursor.bst
+- extensions/mesa/libdrm.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

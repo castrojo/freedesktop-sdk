@@ -1,8 +1,11 @@
-kind: meson
+kind: meson_recc
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/cmake.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/abseil-cpp.bst

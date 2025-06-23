@@ -1,4 +1,4 @@
-kind: meson
+kind: meson_recc
 
 (@):
 - elements/include/flatpak.yml
@@ -9,6 +9,9 @@ build-depends:
 - components/gettext.bst
 - components/gobject-introspection.bst
 - components/python3-pyparsing.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

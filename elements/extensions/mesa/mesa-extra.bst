@@ -1,4 +1,4 @@
-kind: meson
+kind: meson_recc
 
 (@):
 - elements/extensions/mesa/mesa.yml
