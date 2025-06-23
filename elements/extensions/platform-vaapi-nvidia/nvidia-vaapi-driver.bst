@@ -1,9 +1,12 @@
-kind: meson
+kind: meson_recc
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/nv-codec-headers.bst
 - components/libva.bst
+- components/nv-codec-headers.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/gstreamer-plugins-bad.bst

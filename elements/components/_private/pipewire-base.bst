@@ -1,10 +1,11 @@
-kind: meson
+kind: meson_recc
 
 # This element is not be used directly. Use either:
 #  - components/pipewire.bst
 #  - components/pipewire-daemon.bst
 
 build-depends:
+- public-stacks/buildsystem-meson.bst
 - bootstrap/grep.bst
 - components/alsa-lib.bst
 - components/avahi.bst
@@ -28,8 +29,10 @@ build-depends:
 - components/vulkan-headers.bst
 - components/doxygen.bst
 - components/webrtc-audio-processing.bst
-- public-stacks/buildsystem-meson.bst
 - components/libebur128.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 variables:
   meson-local: >-

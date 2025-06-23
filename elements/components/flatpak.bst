@@ -1,4 +1,4 @@
-kind: meson
+kind: meson_recc
 
 (@):
 - elements/include/flatpak.yml
@@ -13,6 +13,9 @@ build-depends:
 - components/python3-pyparsing.bst
 - components/wayland-protocols.bst
 - components/xmlto.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

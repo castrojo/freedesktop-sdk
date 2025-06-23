@@ -1,4 +1,4 @@
-kind: meson
+kind: meson_recc
 
 # This element is not be used directly. Use either:
 #  - components/libgamemode.bst
@@ -7,6 +7,9 @@ kind: meson
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/systemd.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/dbus.bst

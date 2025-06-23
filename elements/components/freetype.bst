@@ -1,11 +1,14 @@
-kind: meson
+kind: meson_recc
 
 (@):
 - elements/include/freetype.yml
 
 build-depends:
-- components/_private/freetype-stage1.bst
 - public-stacks/buildsystem-meson.bst
+- components/_private/freetype-stage1.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst
