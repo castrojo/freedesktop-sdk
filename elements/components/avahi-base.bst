@@ -5,7 +5,6 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/dbus.bst
 - components/glib.bst
-- components/gtk3.bst
 - components/systemd.bst
 
 - components/libdaemon.bst
@@ -21,7 +20,7 @@ variables:
     --disable-qt4
     --disable-qt5
     --disable-gtk
-    --enable-gtk3
+    --disable-gtk3
     --disable-python
     --disable-mono
 
@@ -46,14 +45,25 @@ sources:
 public:
   bst:
     split-rules:
+      libs:
+      - "%{includedir}/avahi-client"
+      - "%{includedir}/avahi-client/**"
+      - "%{includedir}/avahi-common"
+      - "%{includedir}/avahi-common/**"
+      - "%{libdir}/pkgconfig/avahi-client.pc"
+      - "%{libdir}/libavahi-client.so*"
+      - "%{libdir}/libavahi-common.so*"
+      - "%{debugdir}%{libdir}/libavahi-client.so*.debug"
+      - "%{debugdir}%{libdir}/libavahi-common.so*.debug"
+      - "%{sourcedir}/%{element-name}/avahi-client"
+      - "%{sourcedir}/%{element-name}/avahi-client/**"
+      - "%{sourcedir}/%{element-name}/avahi-common"
+      - "%{sourcedir}/%{element-name}/avahi-common/**"
       ui:
       - "%{bindir}/bssh"
       - "%{bindir}/bvnc"
       - "%{bindir}/bshell"
-      - "%{libdir}/libavahi-ui-gtk3.so*"
-      - "%{libdir}/pkgconfig/avahi-ui-gtk3.pc"
       - "%{debugdir}%{bindir}/bssh.debug"
-      - "%{debugdir}%{libdir}/libavahi-ui-gtk3.so*.debug"
       gobject:
       - "%{includedir}/avahi-gobject"
       - "%{includedir}/avahi-gobject/**"

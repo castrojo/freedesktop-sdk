@@ -17,6 +17,7 @@ depends:
 - components/systemd-libs.bst
 - components/libarchive.bst
 - components/avahi.bst
+- components/avahi-libs.bst
 - components/gnupg.bst
 
 variables:

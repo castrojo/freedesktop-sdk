@@ -4,6 +4,7 @@ build-depends:
 - components/cups-base.bst
 
 runtime-depends:
+- components/avahi-libs.bst
 - components/openssl.bst
 - components/cups-manifest.bst
 
