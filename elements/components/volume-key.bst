@@ -2,8 +2,9 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/swig.bst
 - components/python3-setuptools.bst
+- components/swig.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/glib.bst

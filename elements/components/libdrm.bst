@@ -4,6 +4,7 @@ description: libdrm
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/python3-docutils.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

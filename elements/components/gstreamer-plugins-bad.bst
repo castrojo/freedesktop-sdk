@@ -33,9 +33,10 @@ depends:
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/gobject-introspection.bst
-- components/wayland-protocols.bst
 - components/shaderc.bst
 - components/vulkan-headers.bst
+- components/wayland-protocols.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   command-subdir: subprojects/gst-plugins-bad

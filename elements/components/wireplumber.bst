@@ -4,12 +4,13 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - public-stacks/buildsystem-cmake.bst
 - components/_private/git-minimal.bst
-- components/gobject-introspection.bst
 - components/doxygen.bst
 - components/flex.bst
+- components/gobject-introspection.bst
 - components/hotdoc.bst
 - components/lua.bst
 - components/systemd.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/glib.bst

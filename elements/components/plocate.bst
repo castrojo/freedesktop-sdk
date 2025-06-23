@@ -2,8 +2,8 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-# systemd is needed to resolve unit install dir
 - components/systemd.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

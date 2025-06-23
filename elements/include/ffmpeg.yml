@@ -2,6 +2,7 @@ build-depends:
 - components/nasm.bst
 - components/vulkan-headers.bst
 - public-stacks/buildsystem-autotools.bst
+- (@): include/_private/gcc-for-recc.yml
 
 (?):
 - target_arch in ["x86_64", "i686", "aarch64", "ppc64le"]:

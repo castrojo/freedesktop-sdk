@@ -11,6 +11,7 @@ build-depends:
 - components/itstool.bst
 - components/python3-gi-docgen.bst
 - components/xmlto.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/bash-completion.bst

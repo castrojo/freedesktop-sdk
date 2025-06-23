@@ -10,9 +10,10 @@ depends:
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/llvm.bst
-- components/spirv-tools.bst
-- components/spirv-llvm-translator.bst
 - components/python3.bst
+- components/spirv-llvm-translator.bst
+- components/spirv-tools.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   cmake: cmake "-B%{build-dir}" -Slibclc -G"%{generator}" %{cmake-args}

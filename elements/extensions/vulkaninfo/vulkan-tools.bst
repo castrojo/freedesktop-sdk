@@ -6,11 +6,12 @@ kind: cmake
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
-- extensions/vulkaninfo/volk.bst
 - components/glslang.bst
 - components/python3.bst
 - components/vulkan-headers.bst
 - components/wayland-protocols.bst
+- extensions/vulkaninfo/volk.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

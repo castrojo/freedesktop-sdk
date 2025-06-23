@@ -2,8 +2,9 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/nv-codec-headers.bst
 - components/libva.bst
+- components/nv-codec-headers.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/gstreamer-plugins-bad.bst

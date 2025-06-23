@@ -5,11 +5,11 @@ build-depends:
 - components/dbus.bst
 - components/glib.bst
 - components/systemd.bst
-
 - components/libdaemon.bst
 - components/pygobject.bst
 - components/python3-dbus.bst
 - components/xmltoman.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   conf-local: >-

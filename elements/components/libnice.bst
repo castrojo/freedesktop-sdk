@@ -2,9 +2,10 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/gstreamer.bst
 - components/gobject-introspection.bst
+- components/gstreamer.bst
 - components/gtk-doc.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

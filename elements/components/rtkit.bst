@@ -2,7 +2,8 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/vim.bst # provides xxd
+- components/vim.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/systemd.bst

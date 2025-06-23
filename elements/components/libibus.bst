@@ -8,6 +8,7 @@ build-depends:
 - components/systemd.bst
 - components/vala.bst
 - components/wayland-protocols.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/gtk3.bst

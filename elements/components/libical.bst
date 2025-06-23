@@ -1,9 +1,11 @@
 kind: cmake
+
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/gobject-introspection.bst
 - components/perl.bst
 - components/vala.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

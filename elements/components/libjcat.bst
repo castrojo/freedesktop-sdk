@@ -5,8 +5,9 @@ build-depends:
 - bootstrap/diffutils.bst
 - components/gobject-introspection.bst
 - components/gtk-doc.bst
-- components/vala.bst
 - components/help2man.bst
+- components/vala.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/glib.bst

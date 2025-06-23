@@ -3,6 +3,7 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/mutool.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/cups.bst

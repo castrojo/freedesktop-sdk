@@ -5,6 +5,7 @@ build-depends:
 - components/gobject-introspection.bst
 - components/gtk-doc.bst
 - components/help2man.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

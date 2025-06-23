@@ -8,6 +8,7 @@ build-depends:
 - components/gobject-introspection.bst
 - components/hotdoc.bst
 - components/wayland-protocols.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

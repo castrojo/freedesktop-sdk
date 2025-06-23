@@ -13,6 +13,7 @@ build-depends:
 - components/sed.bst
 - components/tar.bst
 - components/xmlto.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

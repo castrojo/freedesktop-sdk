@@ -2,9 +2,10 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/python3.bst
 - components/_private/git-minimal.bst
 - components/gperf.bst
+- components/python3.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/systemd-libs.bst

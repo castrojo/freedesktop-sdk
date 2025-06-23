@@ -6,6 +6,7 @@ kind: cmake
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/_private/git-minimal.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/bubblewrap.bst

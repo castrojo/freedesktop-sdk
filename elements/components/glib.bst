@@ -9,6 +9,7 @@ build-depends:
 - components/_private/gobject-introspection-base.bst
 - components/_private/glib-stage1.bst
 - components/python3-gi-docgen.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

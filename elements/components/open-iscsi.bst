@@ -4,6 +4,7 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/perl.bst
 - components/systemd.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/open-isns.bst

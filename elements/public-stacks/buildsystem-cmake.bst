@@ -6,3 +6,4 @@ depends:
   (>):
   - components/_private/recc.bst
   - components/cmake.bst
+  - components/recc-wrapper.bst

@@ -14,6 +14,7 @@ build-depends:
 - components/libxslt.bst
 - components/m4.bst
 - components/python3-jinja2.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

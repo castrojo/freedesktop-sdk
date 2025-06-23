@@ -7,6 +7,7 @@ build-depends:
 - components/gperf.bst
 - components/help2man.bst
 - components/texinfo.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

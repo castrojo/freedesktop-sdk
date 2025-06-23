@@ -4,6 +4,7 @@ description: X.org lib pciaccess
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - bootstrap/sed.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

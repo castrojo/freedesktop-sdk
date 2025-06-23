@@ -2,9 +2,10 @@ kind: autotools
 description: X.org lib x11
 
 build-depends:
-- components/perl.bst
 - public-stacks/buildsystem-autotools.bst
+- components/perl.bst
 - components/xorg-util-macros.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

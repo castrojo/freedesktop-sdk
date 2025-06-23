@@ -4,6 +4,7 @@ description: Tool to help find memory-management problems in programs
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/perl.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

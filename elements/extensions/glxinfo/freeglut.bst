@@ -7,9 +7,8 @@ build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/mesa-headers.bst
 - components/xorg-lib-xi.bst
-
 - extensions/glxinfo/glu.bst
-
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   cmake-local: >

@@ -3,6 +3,7 @@ kind: meson
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/doxygen.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/jpeg.bst

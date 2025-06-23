@@ -6,6 +6,7 @@ kind: meson
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/mesa-headers.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/xorg-lib-xi.bst

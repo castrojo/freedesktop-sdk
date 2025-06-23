@@ -5,6 +5,7 @@ build-depends:
 - components/flex.bst
 - components/perl.bst
 - components/systemd.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/pcsc-lite.bst

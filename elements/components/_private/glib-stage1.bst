@@ -6,6 +6,7 @@ description: Glib
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

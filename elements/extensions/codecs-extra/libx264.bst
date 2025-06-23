@@ -6,6 +6,7 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/nasm.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   conf-local: >-

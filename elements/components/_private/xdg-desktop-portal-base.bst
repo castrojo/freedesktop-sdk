@@ -11,9 +11,10 @@ build-depends:
 - components/fuse3.bst
 - components/geoclue-libs.bst
 - components/glib.bst
-- components/pipewire.bst
 - components/libgudev.bst
+- components/pipewire.bst
 - components/sed.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   meson-local: >-

@@ -5,9 +5,10 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- public-stacks/buildsystem-autotools.bst
 - components/mesa-headers.bst
 - components/wayland-protocols.bst
+- public-stacks/buildsystem-autotools.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/libdrm.bst

@@ -3,6 +3,7 @@ kind: cmake
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/_private/systemd-stage1.bst # Depends on udev
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/libcbor.bst

@@ -7,6 +7,7 @@ build-depends:
 - components/cargo-c.bst
 - components/hotdoc.bst
 - components/rust.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/gstreamer-plugins-bad.bst

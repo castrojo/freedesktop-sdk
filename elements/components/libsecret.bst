@@ -2,10 +2,11 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/python3-gi-docgen.bst
-- components/gobject-introspection.bst
 - components/docbook-xsl.bst
+- components/gobject-introspection.bst
 - components/libxslt.bst
+- components/python3-gi-docgen.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

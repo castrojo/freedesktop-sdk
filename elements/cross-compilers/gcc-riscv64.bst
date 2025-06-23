@@ -7,11 +7,12 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- cross-compilers/standard-libs-riscv64.bst
 - components/autoconf2.69.bst
 - components/flex.bst
 - components/tar.bst
 - components/texinfo.bst
+- cross-compilers/standard-libs-riscv64.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - cross-compilers/binutils-riscv64.bst

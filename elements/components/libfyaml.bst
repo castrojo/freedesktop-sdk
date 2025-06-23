@@ -5,7 +5,9 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/_private/recc.bst
 - components/libyaml.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   arch-conf: ''

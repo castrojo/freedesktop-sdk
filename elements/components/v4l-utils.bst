@@ -4,11 +4,13 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - bootstrap/grep.bst
 - bootstrap/sed.bst
-- components/doxygen.bst
 - components/_private/git-minimal.bst
-- components/llvm.bst  # bpf support
+- components/doxygen.bst
+- components/llvm.bst    # bpf support
 - components/perl.bst
-- components/systemd.bst     # To properly place udev rules
+- components/systemd.bst       # To properly place udev rules
+- (@): include/_private/gcc-for-recc.yml
+- (@): include/_private/clang-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst
