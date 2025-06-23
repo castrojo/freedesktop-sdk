@@ -4,6 +4,9 @@ description: X.org xcb-util-renderutil
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/xorg-util-macros.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

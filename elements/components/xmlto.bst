@@ -4,6 +4,9 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/docbook-xsl.bst
 - components/flex.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

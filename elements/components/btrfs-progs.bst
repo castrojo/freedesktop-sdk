@@ -6,9 +6,12 @@ build-depends:
 - components/docbook-xsl.bst
 - components/libxslt.bst
 - components/python3-setuptools.bst
-- components/python3-sphinx.bst
 - components/python3-sphinx-rtd-theme.bst
+- components/python3-sphinx.bst
 - components/xmlto.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

@@ -3,6 +3,9 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/systemd.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/systemd-libs.bst

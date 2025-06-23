@@ -3,6 +3,9 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/curl.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - bootstrap/zlib-ng.bst

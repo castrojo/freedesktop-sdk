@@ -4,6 +4,9 @@ description: Tool to help find memory-management problems in programs
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/perl.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

@@ -2,9 +2,13 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/doxygen.bst
 - components/_private/git-minimal.bst
 - components/_private/systemd-stage1.bst
+- components/doxygen.bst
+- components/_private/git-minimal.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/libgcrypt.bst

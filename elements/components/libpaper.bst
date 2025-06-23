@@ -2,10 +2,13 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/patch.bst
 - components/_private/git-minimal.bst
-- components/help2man.bst
 - components/gnupg.bst
+- components/help2man.bst
+- components/patch.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst
