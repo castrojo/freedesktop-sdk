@@ -1,0 +1,13 @@
+(@): include/_private/recc.yml
+
+environment:
+  CC: recc cc
+  CC_LD: recc ld
+  CXX: recc c++
+  CXX_LD: recc ld
+
+build-depends:
+- components/recc.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
