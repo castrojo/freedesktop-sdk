@@ -1,9 +1,12 @@
 kind: pyproject
 
+(@):
+- include/_private/python-setuptools-recc.yml
+
 build-depends:
-- public-stacks/buildsystem-python-setuptools.bst
-- components/_private/git-minimal.bst
-- components/python3-calver.bst
+  (>):
+  - components/_private/git-minimal.bst
+  - components/python3-calver.bst
 
 depends:
 - components/python3.bst

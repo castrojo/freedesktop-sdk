@@ -1,11 +1,14 @@
 kind: pyproject
 
+(@):
+- include/_private/python-setuptools-recc.yml
+
 build-depends:
-- public-stacks/buildsystem-python-setuptools.bst
-- public-stacks/buildsystem-cmake.bst
-- components/make.bst
-- components/pkg-config.bst
-- components/flex.bst
+  (>):
+  - components/flex.bst
+  - components/make.bst
+  - components/pkg-config.bst
+  - public-stacks/buildsystem-cmake.bst
 
 depends:
 - components/python3.bst

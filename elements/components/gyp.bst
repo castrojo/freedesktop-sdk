@@ -1,7 +1,7 @@
 kind: pyproject
 
-build-depends:
-- public-stacks/buildsystem-python-setuptools.bst
+(@):
+- include/_private/python-setuptools-recc.yml
 
 runtime-depends:
 - components/ninja.bst

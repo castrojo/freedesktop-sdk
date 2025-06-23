@@ -2,10 +2,11 @@ kind: pyproject
 
 (@):
 - elements/include/grpc-source.yml
+- include/_private/python-setuptools-recc.yml
 
 build-depends:
-- public-stacks/buildsystem-python-setuptools.bst
-- components/cython.bst
+  (>):
+  - components/cython.bst
 
 depends:
 - components/abseil-cpp.bst

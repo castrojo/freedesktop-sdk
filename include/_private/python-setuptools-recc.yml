@@ -1,0 +1,8 @@
+(@): include/_private/recc.yml
+
+build-depends:
+- public-stacks/buildsystem-python-setuptools.bst
+- components/recc.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest

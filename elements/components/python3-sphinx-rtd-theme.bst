@@ -1,7 +1,7 @@
 kind: pyproject
 
-build-depends:
-- public-stacks/buildsystem-python-setuptools.bst
+(@):
+- include/_private/python-setuptools-recc.yml
 
 depends:
 - components/python3-sphinxcontrib-jquery.bst

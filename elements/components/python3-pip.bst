@@ -1,5 +1,8 @@
 kind: pyproject
 
+(@):
+- include/_private/python-setuptools-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-python-flit.bst
 
