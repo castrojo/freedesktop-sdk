@@ -1,10 +1,13 @@
-kind: autotools
+kind: autotools_recc
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/gnupg.bst
 - components/_private/git-minimal.bst
+- components/gnupg.bst
 - components/texinfo.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

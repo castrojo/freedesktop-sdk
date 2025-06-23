@@ -1,9 +1,12 @@
-kind: autotools
+kind: autotools_recc
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/linux-pam.bst
 - components/openssl.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - bootstrap/libxcrypt.bst

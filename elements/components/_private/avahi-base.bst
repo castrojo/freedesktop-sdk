@@ -1,15 +1,17 @@
-kind: autotools
+kind: autotools_recc
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/dbus.bst
 - components/glib.bst
 - components/systemd.bst
-
 - components/libdaemon.bst
 - components/pygobject.bst
 - components/python3-dbus.bst
 - components/xmltoman.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 variables:
   conf-local: >-

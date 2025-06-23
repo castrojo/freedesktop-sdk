@@ -1,11 +1,14 @@
-kind: autotools
+kind: autotools_recc
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/libxslt.bst
-- components/docbook-xsl.bst
 - components/bison.bst
+- components/docbook-xsl.bst
 - components/itstool.bst
+- components/libxslt.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

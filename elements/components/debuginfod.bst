@@ -1,10 +1,13 @@
-kind: autotools
+kind: autotools_recc
 
 (@):
 - elements/bootstrap/include/elfutils-source.yml
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

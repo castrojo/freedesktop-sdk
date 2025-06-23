@@ -1,9 +1,12 @@
-kind: autotools
+kind: autotools_recc
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/bison.bst
 - components/_private/git-minimal.bst
+- components/bison.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

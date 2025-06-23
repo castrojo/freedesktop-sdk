@@ -1,11 +1,14 @@
-kind: autotools
+kind: autotools_recc
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- components/avahi-libs.bst
 - components/gzip.bst
 - components/openssl.bst
 - components/systemd.bst
-- components/avahi-libs.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 variables:
   license-files-extra: NOTICE
