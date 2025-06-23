@@ -6,9 +6,12 @@ kind: cmake
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/vulkan-headers.bst
+- components/wayland.bst
 - components/xorg-lib-x11.bst
 - components/xorg-lib-xrandr.bst
-- components/wayland.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

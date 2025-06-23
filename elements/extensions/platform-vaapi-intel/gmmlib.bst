@@ -2,6 +2,9 @@ kind: cmake
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 variables:
   licensedir: "%{libdir}/dri/intel-vaapi-driver/share/licenses"

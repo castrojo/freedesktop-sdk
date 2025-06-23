@@ -5,8 +5,11 @@ build-depends:
 - components/_private/git-minimal.bst
 - components/grep.bst
 - components/python3.bst
+- components/sed.bst
 - components/spirv-tools.bst
-- bootstrap/sed.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/glslang.bst

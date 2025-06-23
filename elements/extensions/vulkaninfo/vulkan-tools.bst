@@ -6,11 +6,14 @@ kind: cmake
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
-- extensions/vulkaninfo/volk.bst
 - components/glslang.bst
 - components/python3.bst
 - components/vulkan-headers.bst
 - components/wayland-protocols.bst
+- extensions/vulkaninfo/volk.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

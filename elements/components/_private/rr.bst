@@ -4,6 +4,9 @@ description: Tool to record execution of a program and later replay it in a debu
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/capnproto.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

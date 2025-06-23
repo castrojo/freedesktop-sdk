@@ -3,6 +3,9 @@ kind: cmake
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/_private/systemd-stage1.bst # Depends on udev
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/libcbor.bst

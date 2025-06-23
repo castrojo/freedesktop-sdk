@@ -5,7 +5,11 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/_private/recc.bst
 - components/libyaml.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 variables:
   arch-conf: ''

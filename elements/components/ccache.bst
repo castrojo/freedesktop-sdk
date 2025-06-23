@@ -2,11 +2,14 @@ kind: cmake
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
+- components/_private/git-minimal.bst
 - components/asciidoc.bst
 - components/asciidoctor.bst
 - components/doctest.bst
-- components/_private/git-minimal.bst
 - components/perl.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

@@ -5,8 +5,11 @@ kind: cmake
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
-- components/nasm.bst
 - components/_private/git-minimal.bst
+- components/nasm.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst
