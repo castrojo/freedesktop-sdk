@@ -1,10 +1,13 @@
-kind: autotools
+kind: autotools_recc
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/python3.bst
 - components/_private/git-minimal.bst
 - components/gperf.bst
+- components/python3.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/systemd-libs.bst

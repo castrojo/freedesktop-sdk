@@ -1,9 +1,12 @@
-kind: autotools
+kind: autotools_recc
 description: X.org xcb-util-image
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/xorg-util-macros.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

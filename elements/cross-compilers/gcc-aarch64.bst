@@ -1,4 +1,4 @@
-kind: autotools
+kind: autotools_recc
 
 (@):
 - elements/cross-compilers/aarch64-vars.yml
@@ -12,6 +12,9 @@ build-depends:
 - components/tar.bst
 - components/texinfo.bst
 - cross-compilers/standard-libs-aarch64.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - cross-compilers/binutils-aarch64.bst

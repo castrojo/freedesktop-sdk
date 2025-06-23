@@ -1,4 +1,4 @@
-kind: autotools
+kind: autotools_recc
 
 (@):
 - elements/include/ostree-source.yml
@@ -6,9 +6,12 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/_private/git-minimal.bst
-- components/gobject-introspection.bst
 - components/bison.bst
+- components/gobject-introspection.bst
 - components/systemd.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/composefs.bst

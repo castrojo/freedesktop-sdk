@@ -1,4 +1,4 @@
-kind: autotools
+kind: autotools_recc
 
 (@):
 - elements/extensions/codecs-extra/config.yml
@@ -6,6 +6,9 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/nasm.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 variables:
   conf-local: >-
