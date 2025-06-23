@@ -5,9 +5,5 @@ sources:
   exclude:
   - '*-rc*'
   ref: v6.15.3-0-ga2b47f77e740a21dbdcb12e2f2ca3c840299545a
-- kind: local
-  path: files/linux/config-utils.sh
-- kind: local
-  path: files/linux/fdsdk-config.sh
 - kind: patch_queue
   path: patches/linux
