@@ -3,17 +3,18 @@ description: Python 3
 
 (@):
 - elements/include/python3.yml
+- include/_private/autotools-recc.yml
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/bluez-headers.bst
-# depends: add these to filters
-- public-stacks/runtime-minimal.bst
 - components/expat.bst
-- components/libffi.bst
 - components/gdbm.bst
+- components/libffi.bst
 - components/openssl.bst
 - components/sqlite.bst
+- public-stacks/runtime-minimal.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

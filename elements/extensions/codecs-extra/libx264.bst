@@ -2,10 +2,12 @@ kind: autotools
 
 (@):
 - elements/extensions/codecs-extra/config.yml
+- include/_private/autotools-recc.yml
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/nasm.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   conf-local: >-

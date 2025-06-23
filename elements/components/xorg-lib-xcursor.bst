@@ -3,10 +3,12 @@ description: X.org lib Xcursor
 
 (@):
 - elements/include/cursorpath.yml
+- include/_private/autotools-recc.yml
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/xorg-util-macros.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

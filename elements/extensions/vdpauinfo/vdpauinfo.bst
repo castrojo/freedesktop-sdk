@@ -2,9 +2,11 @@ kind: autotools
 
 (@):
 - elements/extensions/include/app.yml
+- include/_private/autotools-recc.yml
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/libvdpau.bst

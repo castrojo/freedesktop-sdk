@@ -4,6 +4,7 @@ kind: autotools
 - elements/cross-compilers/aarch64-vars.yml
 - elements/cross-compilers/gcc-common.yml
 - elements/include/gcc-source.yml
+- include/_private/autotools-recc.yml
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
@@ -12,6 +13,7 @@ build-depends:
 - components/tar.bst
 - components/texinfo.bst
 - cross-compilers/standard-libs-aarch64.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - cross-compilers/binutils-aarch64.bst

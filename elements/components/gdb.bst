@@ -3,12 +3,16 @@ description: |
   GNU debugger. This ships with a dummy libdebuginfod library. Use
   components/gdb-debuginfod.bst for the actual libdebuginfod
 
+(@):
+- include/_private/autotools-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/texinfo.bst
-- components/perl.bst
-- components/flex.bst
 - components/bison.bst
+- components/flex.bst
+- components/perl.bst
+- components/texinfo.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - bootstrap/xxhash.bst

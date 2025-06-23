@@ -1,14 +1,18 @@
 kind: autotools
 
+(@):
+- include/_private/autotools-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- components/_private/lvm2-stage1.bst
 - components/asciidoctor.bst
 - components/json-c.bst
+- components/openssl.bst
+- components/popt.bst
 - components/pwquality.bst
 - components/util-linux-full.bst
-- components/_private/lvm2-stage1.bst
-- components/popt.bst
-- components/openssl.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   conf-local: >-

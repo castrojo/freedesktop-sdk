@@ -4,14 +4,16 @@ kind: autotools
 - elements/cross-compilers/riscv64-vars.yml
 - elements/cross-compilers/gcc-common.yml
 - elements/include/gcc-source.yml
+- include/_private/autotools-recc.yml
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- cross-compilers/standard-libs-riscv64.bst
 - components/autoconf2.69.bst
 - components/flex.bst
 - components/tar.bst
 - components/texinfo.bst
+- cross-compilers/standard-libs-riscv64.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - cross-compilers/binutils-riscv64.bst

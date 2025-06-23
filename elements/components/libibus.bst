@@ -1,5 +1,8 @@
 kind: autotools
 
+(@):
+- include/_private/autotools-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/gobject-introspection.bst
@@ -8,6 +11,7 @@ build-depends:
 - components/systemd.bst
 - components/vala.bst
 - components/wayland-protocols.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/gtk3.bst

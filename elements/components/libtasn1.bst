@@ -1,12 +1,17 @@
 kind: autotools
+
+(@):
+- include/_private/autotools-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/bison.bst
 - components/_private/git-minimal.bst
-- components/help2man.bst
-- components/texinfo.bst
-- components/patch.bst
+- components/bison.bst
 - components/gtk-doc.bst
+- components/help2man.bst
+- components/patch.bst
+- components/texinfo.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

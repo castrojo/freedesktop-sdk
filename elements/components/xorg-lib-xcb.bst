@@ -1,11 +1,15 @@
 kind: autotools
 description: X.org lib xcb
 
+(@):
+- include/_private/autotools-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/xorg-util-macros.bst
 - components/_private/python3-minimal.bst
 - components/xorg-proto-xcb.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

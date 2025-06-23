@@ -1,10 +1,14 @@
 kind: autotools
 description: GNU nano
 
+(@):
+- include/_private/autotools-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/groff.bst
 - components/texinfo.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/file.bst

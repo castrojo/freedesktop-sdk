@@ -1,10 +1,14 @@
 kind: autotools
 
+(@):
+- include/_private/autotools-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/_private/git-minimal.bst
 - components/_private/gnu-efi.bst
 - components/help2man.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/openssl.bst

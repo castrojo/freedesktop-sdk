@@ -1,5 +1,8 @@
 kind: autotools
 
+(@):
+- include/_private/autotools-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/dbus.bst
@@ -10,6 +13,7 @@ build-depends:
 - components/pygobject.bst
 - components/python3-dbus.bst
 - components/xmltoman.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   conf-local: >-

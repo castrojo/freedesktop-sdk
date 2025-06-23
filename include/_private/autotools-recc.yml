@@ -1,0 +1,5 @@
+(@): include/_private/recc.yml
+
+environment:
+  CC: recc cc
+  CXX: recc c++

@@ -2,9 +2,11 @@ kind: autotools
 
 (@):
 - elements/include/lvm2-source.yml
+- include/_private/autotools-recc.yml
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/libaio.bst

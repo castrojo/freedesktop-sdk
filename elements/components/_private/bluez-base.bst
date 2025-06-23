@@ -2,15 +2,17 @@ kind: autotools
 
 (@):
 - elements/include/bluez.yml
+- include/_private/autotools-recc.yml
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- components/dbus.bst
+- components/ell.bst
+- components/libical.bst
 - components/python3-docutils.bst
 - components/python3-pygments.bst
 - components/systemd.bst
-- components/dbus.bst
-- components/libical.bst
-- components/ell.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   conf-local: >-

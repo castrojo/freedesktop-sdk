@@ -1,10 +1,14 @@
 kind: autotools
 
+(@):
+- include/_private/autotools-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/docbook-xsl.bst
 - components/gobject-introspection.bst
 - components/gtk-doc.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/libatasmart.bst

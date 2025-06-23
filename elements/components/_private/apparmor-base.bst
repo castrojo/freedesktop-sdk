@@ -1,13 +1,17 @@
 kind: autotools
 
+(@):
+- include/_private/autotools-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/bison.bst
 - components/flex.bst
-- components/python3.bst
-- components/python3-setuptools.bst
 - components/linux-pam-base.bst
+- components/python3-setuptools.bst
+- components/python3.bst
 - components/swig.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   # apparmor has a very complex build stack that makes it hard

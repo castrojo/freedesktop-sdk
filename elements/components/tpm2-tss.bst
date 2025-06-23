@@ -1,10 +1,15 @@
 kind: autotools
 
+(@):
+- include/_private/autotools-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/doxygen.bst
 - components/_private/git-minimal.bst
 - components/_private/systemd-stage1.bst
+- components/doxygen.bst
+- components/_private/git-minimal.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/libgcrypt.bst
