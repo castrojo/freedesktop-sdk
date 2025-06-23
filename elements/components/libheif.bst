@@ -1,4 +1,4 @@
-kind: cmake
+kind: cmake-recc
 
 (@):
 - elements/include/libheif.yml

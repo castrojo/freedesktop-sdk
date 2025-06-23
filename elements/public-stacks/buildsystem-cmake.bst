@@ -5,3 +5,4 @@ kind: stack
 depends:
   (>):
   - components/cmake.bst
+  - components/recc.bst

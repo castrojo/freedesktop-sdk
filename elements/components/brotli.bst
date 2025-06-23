@@ -1,8 +1,11 @@
-kind: cmake
+kind: cmake-recc
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/bc.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

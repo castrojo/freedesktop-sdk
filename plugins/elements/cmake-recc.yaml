@@ -1,0 +1,96 @@
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+
+# CMake default configuration
+
+variables:
+
+  build-dir: _builddir
+
+  # Project-wide extra arguments to be passed to `cmake`
+  cmake-global: ''
+
+  # Element-specific extra arguments to be passed to `cmake`.
+  cmake-local: ''
+
+  # The cmake generator to use
+  generator: Ninja
+
+  cmake-args: |
+
+    -DCMAKE_VERBOSE_MAKEFILE=ON \
+    -DCMAKE_INSTALL_PREFIX:PATH="%{prefix}" \
+    -DCMAKE_C_COMPILER_LAUNCHER=recc \
+    -DCMAKE_C_LINKER_LAUNCHER=recc \
+    -DCMAKE_CXX_COMPILER_LAUNCHER=recc \
+    -DCMAKE_CXX_LINKER_LAUNCHER=recc \
+    -DCMAKE_INSTALL_LIBDIR:PATH="%{lib}" %{cmake-global} %{cmake-local}
+
+  cmake: |
+
+    cmake -B%{build-dir} -H"%{conf-root}" -G"%{generator}" %{cmake-args}
+
+  make: cmake --build %{build-dir} -- ${JOBS}
+  make-install: env DESTDIR="%{install-root}" cmake --build %{build-dir} --target install
+
+  # Set this if the sources cannot handle parallelization.
+  #
+  # notparallel: True
+
+config:
+
+  # Commands for configuring the software
+  #
+  configure-commands:
+  - |
+    %{cmake}
+
+  # Commands for building the software
+  #
+  build-commands:
+  - |
+    %{make}
+
+  # Commands for installing the software into a
+  # destination folder
+  #
+  install-commands:
+  - |
+    %{make-install}
+
+  # Commands for stripping debugging information out of
+  # installed binaries
+  #
+  strip-commands:
+  - |
+    %{strip-binaries}
+
+# Use max-jobs CPUs for building and enable verbosity
+environment:
+  JOBS: -j%{max-jobs}
+  RECC_SERVER: unix:/tmp/casd.sock
+  RECC_DEPS_GLOBAL_PATHS: true
+  RECC_NO_PATH_REWRITE: true
+  RECC_INVALID_INPUT_PATHS_REGEX: .*/CMakeFiles/CMakeScratch/.*,.*/Modules/CMakeCCompilerABI.c,.*/Modules/CMakeCXXCompilerABI.cpp,.*/conftest.*
+  RECC_USE_LOCALCAS: 1
+
+# And dont consider JOBS as something which may
+# affect build output.
+environment-nocache:
+- JOBS
+- RECC_CACHE_ONLY
+- RECC_INVALID_INPUT_PATHS_REGEX
+- RECC_USE_LOCALCAS
+
+sandbox:
+  remote-apis-socket:
+    path: /tmp/casd.sock

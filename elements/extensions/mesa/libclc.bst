@@ -1,4 +1,4 @@
-kind: cmake
+kind: cmake-recc
 
 (@):
 - elements/include/llvm.yml
@@ -10,9 +10,12 @@ depends:
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/llvm.bst
-- components/spirv-tools.bst
-- components/spirv-llvm-translator.bst
 - components/python3.bst
+- components/spirv-llvm-translator.bst
+- components/spirv-tools.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 variables:
   cmake: cmake "-B%{build-dir}" -Slibclc -G"%{generator}" %{cmake-args}
