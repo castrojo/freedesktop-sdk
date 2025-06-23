@@ -1,12 +1,15 @@
-kind: meson
+kind: meson-recc
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - bootstrap/diffutils.bst
+- components/gobject-introspection.bst
+- components/gtk-doc.bst
 - components/python3-gi-docgen.bst
 - components/python3-setuptools.bst
-- components/gtk-doc.bst
-- components/gobject-introspection.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/libusb.bst

@@ -1,4 +1,4 @@
-kind: meson
+kind: meson-recc
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
@@ -6,6 +6,9 @@ build-depends:
 - components/gobject-introspection.bst
 - components/gtk-doc.bst
 - components/help2man.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

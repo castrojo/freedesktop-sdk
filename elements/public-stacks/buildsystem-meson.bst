@@ -8,3 +8,4 @@ depends:
 - components/meson.bst
 - components/ninja.bst
 - components/pkg-config.bst
+- components/recc.bst

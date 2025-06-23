@@ -1,7 +1,10 @@
-kind: meson
+kind: meson-recc
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/xorg-lib-x11.bst

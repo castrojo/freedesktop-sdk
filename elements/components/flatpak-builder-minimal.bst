@@ -1,10 +1,13 @@
-kind: meson
+kind: meson-recc
 
 (@):
 - elements/include/flatpak-builder-source.yml
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

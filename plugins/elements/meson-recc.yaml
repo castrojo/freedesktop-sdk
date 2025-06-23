@@ -1,0 +1,103 @@
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+
+# Meson default configuration
+
+variables:
+
+  build-dir: _builddir
+
+  # Project-wide extra arguments to be passed to `meson`
+  meson-global: ''
+
+  # Element-specific extra arguments to be passed to `meson`.
+  meson-local: ''
+
+  meson-args: |
+
+    --prefix=%{prefix} \
+    --bindir=%{bindir} \
+    --sbindir=%{sbindir} \
+    --sysconfdir=%{sysconfdir} \
+    --datadir=%{datadir} \
+    --includedir=%{includedir} \
+    --libdir=%{libdir} \
+    --libexecdir=%{libexecdir} \
+    --localstatedir=%{localstatedir} \
+    --sharedstatedir=%{sharedstatedir} \
+    --mandir=%{mandir} \
+    --infodir=%{infodir} %{meson-global} %{meson-local}
+
+  meson: meson setup %{conf-root} %{build-dir} %{meson-args}
+
+  meson-build: |
+    ninja -v -j ${JOBS} -C %{build-dir}
+
+  meson-install: |
+    env DESTDIR="%{install-root}" meson install -C %{build-dir} --no-rebuild
+
+  # Set this if the sources cannot handle parallelization.
+  #
+  # notparallel: True
+
+config:
+
+  # Commands for configuring the software
+  #
+  configure-commands:
+  - |
+    %{meson}
+
+  # Commands for building the software
+  #
+  build-commands:
+  - |
+    %{meson-build}
+
+  # Commands for installing the software into a
+  # destination folder
+  #
+  install-commands:
+  - |
+    %{meson-install}
+
+  # Commands for stripping debugging information out of
+  # installed binaries
+  #
+  strip-commands:
+  - |
+    %{strip-binaries}
+
+# Use max-jobs CPUs for building
+environment:
+  JOBS: "%{max-jobs}"
+  CC: recc cc
+  CXX: recc c++
+  RUSTC_LD: cc
+
+  RECC_SERVER: unix:/tmp/casd.sock
+  RECC_DEPS_GLOBAL_PATHS: true
+  RECC_NO_PATH_REWRITE: true
+  RECC_INVALID_INPUT_PATHS_REGEX: .*/CMakeFiles/CMakeScratch/.*,.*/Modules/CMakeCCompilerABI.c,.*/Modules/CMakeCXXCompilerABI.cpp,.*/conftest.*
+  RECC_USE_LOCALCAS: 1
+
+# And dont consider JOBS as something which may
+# affect build output.
+environment-nocache:
+- JOBS
+- RECC_CACHE_ONLY
+- RECC_INVALID_INPUT_PATHS_REGEX
+- RECC_USE_LOCALCAS
+
+sandbox:
+  remote-apis-socket:
+    path: /tmp/casd.sock

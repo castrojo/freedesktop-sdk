@@ -1,4 +1,4 @@
-kind: meson
+kind: meson-recc
 
 (@):
 - elements/include/gstreamer-source.yml
@@ -8,6 +8,9 @@ build-depends:
 - components/gobject-introspection.bst
 - components/hotdoc.bst
 - components/wayland-protocols.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

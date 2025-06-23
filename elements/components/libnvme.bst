@@ -1,8 +1,11 @@
-kind: meson
+kind: meson-recc
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/swig.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/json-c.bst

@@ -1,8 +1,11 @@
-kind: meson
+kind: meson-recc
 description: libvdpau
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -35,7 +38,7 @@ public:
       extra:
       - "%{libdir}/GL"
       - "%{libdir}/GL/**"
-      
+
 
 sources:
 - kind: git_repo

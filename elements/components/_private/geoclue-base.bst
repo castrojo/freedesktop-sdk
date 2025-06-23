@@ -1,4 +1,4 @@
-kind: meson
+kind: meson-recc
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
@@ -14,6 +14,9 @@ build-depends:
 - components/avahi-gobject.bst
 - components/avahi-libs.bst
 - components/modemmanager.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 variables:
   meson-local: >-

@@ -1,10 +1,13 @@
-kind: meson
-
-build-depends:
-- public-stacks/buildsystem-meson.bst
+kind: meson-recc
 
 runtime-depends:
 - components/util-linux-full.bst
+
+build-depends:
+- public-stacks/buildsystem-meson.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

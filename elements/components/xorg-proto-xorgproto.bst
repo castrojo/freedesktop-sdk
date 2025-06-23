@@ -1,10 +1,12 @@
-kind: meson
+kind: meson-recc
 description: X.Org combined protocol headers
-
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/xorg-util-macros.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

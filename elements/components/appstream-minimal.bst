@@ -1,4 +1,4 @@
-kind: meson
+kind: meson-recc
 
 (@):
 - elements/include/appstream-source.yml
@@ -6,9 +6,12 @@ kind: meson
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - bootstrap/sed.bst
+- components/docbook-xsl.bst
 - components/gperf.bst
 - components/itstool.bst
-- components/docbook-xsl.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/bash-completion.bst

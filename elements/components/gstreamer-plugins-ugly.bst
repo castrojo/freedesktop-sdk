@@ -1,4 +1,4 @@
-kind: meson
+kind: meson-recc
 
 (@):
 - elements/include/gstreamer-plugins-ugly.yml
