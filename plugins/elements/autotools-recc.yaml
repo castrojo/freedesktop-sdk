@@ -1,0 +1,157 @@
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+
+# Autotools default configurations
+
+variables:
+
+  autogen: |
+    export NOCONFIGURE=1;
+
+    if [ -x %{conf-cmd} ]; then true;
+    elif [ -x %{conf-root}/autogen ]; then %{conf-root}/autogen;
+    elif [ -x %{conf-root}/autogen.sh ]; then %{conf-root}/autogen.sh;
+    elif [ -x %{conf-root}/bootstrap ]; then %{conf-root}/bootstrap;
+    elif [ -x %{conf-root}/bootstrap.sh ]; then %{conf-root}/bootstrap.sh;
+    else autoreconf -ivf %{conf-root};
+    fi
+
+  # Project-wide extra arguments to be passed to `configure`
+  conf-global: ''
+
+  # Element-specific extra arguments to be passed to `configure`.
+  conf-local: ''
+
+  conf-cmd: "%{conf-root}/configure"
+  
+  conf-args: |
+
+    --prefix=%{prefix} \
+    --exec-prefix=%{exec_prefix} \
+    --bindir=%{bindir} \
+    --sbindir=%{sbindir} \
+    --sysconfdir=%{sysconfdir} \
+    --datadir=%{datadir} \
+    --includedir=%{includedir} \
+    --libdir=%{libdir} \
+    --libexecdir=%{libexecdir} \
+    --localstatedir=%{localstatedir} \
+    --sharedstatedir=%{sharedstatedir} \
+    --mandir=%{mandir} \
+    --infodir=%{infodir} %{conf-global} %{conf-local}
+
+  configure: |
+
+    %{conf-cmd} %{conf-args}
+
+  make-args: ""
+  make-install-args: >-
+    %{make-args}
+    DESTDIR="%{install-root}"
+    install
+  make: make %{make-args}
+  make-install: make -j1 %{make-install-args}
+
+  # Set this if the sources cannot handle parallelization.
+  #
+  # notparallel: True
+
+
+  # Automatically remove libtool archive files
+  #
+  # Set remove-libtool-modules to "true" to remove .la files for 
+  # modules intended to be opened with lt_dlopen()
+  #
+  # Set remove-libtool-libraries to "true" to remove .la files for
+  # libraries
+  #
+  # Value must be "true" or "false"
+  remove-libtool-modules: "false"  
+  remove-libtool-libraries: "false"
+
+  delete-libtool-archives: |
+    if %{remove-libtool-modules} || %{remove-libtool-libraries}; then
+      find "%{install-root}" -name "*.la" -print0 | while read -d '' -r file; do
+        if grep '^shouldnotlink=yes$' "${file}" &>/dev/null; then
+          if %{remove-libtool-modules}; then
+            echo "Removing ${file}."
+            rm "${file}"
+          else
+            echo "Not removing ${file}."
+          fi
+        else
+          if %{remove-libtool-libraries}; then
+            echo "Removing ${file}."
+            rm "${file}"
+          else
+            echo "Not removing ${file}."
+          fi
+        fi
+      done
+    fi
+
+config:
+
+  # Commands for configuring the software
+  #
+  configure-commands:
+  - |
+    %{autogen}
+  - |
+    %{configure}
+
+  # Commands for building the software
+  #
+  build-commands:
+  - |
+    %{make}
+
+  # Commands for installing the software into a
+  # destination folder
+  #
+  install-commands:
+  - |
+    %{make-install}
+  - |
+    %{delete-libtool-archives}
+
+  # Commands for stripping debugging information out of
+  # installed binaries
+  #
+  strip-commands:
+  - |
+    %{strip-binaries}
+
+# Use max-jobs CPUs for building and enable verbosity
+environment:
+  MAKEFLAGS: -j%{max-jobs}
+  V: 1
+  CC: recc cc
+  CXX: recc c++
+  RECC_SERVER: unix:/tmp/casd.sock
+  RECC_DEPS_GLOBAL_PATHS: true
+  RECC_NO_PATH_REWRITE: true
+  RECC_INVALID_INPUT_PATHS_REGEX: .*/CMakeFiles/CMakeScratch/.*,.*/Modules/CMakeCCompilerABI.c,.*/Modules/CMakeCXXCompilerABI.cpp,.*/conftest.*
+  RECC_USE_LOCALCAS: 1
+
+# And dont consider MAKEFLAGS or V as something which may
+# affect build output.
+environment-nocache:
+- MAKEFLAGS
+- V
+- RECC_CACHE_ONLY
+- RECC_INVALID_INPUT_PATHS_REGEX
+- RECC_USE_LOCALCAS
+
+sandbox:
+  remote-apis-socket:
+    path: /tmp/casd.sock

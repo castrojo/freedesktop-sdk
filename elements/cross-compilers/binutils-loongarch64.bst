@@ -1,4 +1,4 @@
-kind: autotools
+kind: autotools-recc
 
 (@):
 - elements/cross-compilers/loongarch64-vars.yml
@@ -10,3 +10,6 @@ build-depends:
 - components/bison.bst
 - components/flex.bst
 - components/texinfo.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest

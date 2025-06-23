@@ -1,22 +1,25 @@
-kind: autotools
+kind: autotools-recc
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/asciidoc.bst
-- components/groff.bst
-- components/xmlto.bst
 - components/docbook-xml.bst
 - components/docbook-xsl.bst
+- components/groff.bst
 - components/libxslt.bst
+- components/xmlto.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
+
+depends:
+- public-stacks/runtime-minimal.bst
 
 variables:
   # Build script generates sources and if build-dir is used
   # it tries to generate them in directories that do not
   # exist
   build-dir: ''
-
-depends:
-- public-stacks/runtime-minimal.bst
 
 config:
   build-commands:

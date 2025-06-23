@@ -1,4 +1,4 @@
-kind: autotools
+kind: autotools-recc
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
@@ -8,6 +8,9 @@ build-depends:
 - components/systemd.bst
 - components/vala.bst
 - components/wayland-protocols.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/gtk3.bst

@@ -1,10 +1,13 @@
-kind: autotools
+kind: autotools-recc
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/python3-docutils.bst
 - components/dbus.bst
+- components/python3-docutils.bst
 - components/systemd.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

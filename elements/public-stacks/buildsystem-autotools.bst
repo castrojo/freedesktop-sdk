@@ -10,3 +10,4 @@ depends:
 - components/pkg-config.bst
 - components/recc.bst
 - components/which.bst
+- components/recc.bst

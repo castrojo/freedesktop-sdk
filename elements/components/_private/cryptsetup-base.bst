@@ -1,14 +1,17 @@
-kind: autotools
+kind: autotools-recc
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- components/_private/lvm2-stage1.bst
 - components/asciidoctor.bst
 - components/json-c.bst
+- components/openssl.bst
+- components/popt.bst
 - components/pwquality.bst
 - components/util-linux-full.bst
-- components/_private/lvm2-stage1.bst
-- components/popt.bst
-- components/openssl.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 variables:
   conf-local: >-

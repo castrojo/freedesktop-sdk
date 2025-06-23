@@ -1,12 +1,15 @@
-kind: autotools
+kind: autotools-recc
 
 (@):
 - elements/include/xz-source.yml
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/po4a.bst
 - components/doxygen.bst
+- components/po4a.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

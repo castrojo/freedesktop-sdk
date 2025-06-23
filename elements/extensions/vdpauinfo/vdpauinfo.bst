@@ -1,10 +1,13 @@
-kind: autotools
+kind: autotools-recc
 
 (@):
 - elements/extensions/include/app.yml
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/libvdpau.bst

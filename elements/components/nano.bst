@@ -1,10 +1,13 @@
-kind: autotools
+kind: autotools-recc
 description: GNU nano
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/groff.bst
 - components/texinfo.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/file.bst

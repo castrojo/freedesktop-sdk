@@ -1,11 +1,15 @@
-kind: autotools
+kind: autotools-recc
 description: X.org lib xcb
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/xorg-util-macros.bst
 - components/_private/python3-minimal.bst
 - components/xorg-proto-xcb.bst
+- components/xorg-util-macros.bst
+- components/xorg-util-macros.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

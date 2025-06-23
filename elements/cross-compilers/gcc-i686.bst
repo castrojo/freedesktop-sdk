@@ -1,4 +1,4 @@
-kind: autotools
+kind: autotools-recc
 
 (@):
 - elements/cross-compilers/i686-vars.yml
@@ -12,6 +12,9 @@ build-depends:
 - components/tar.bst
 - components/texinfo.bst
 - cross-compilers/standard-libs-i686.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - cross-compilers/binutils-i686.bst
