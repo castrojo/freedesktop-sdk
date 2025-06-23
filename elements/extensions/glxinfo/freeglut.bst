@@ -1,4 +1,4 @@
-kind: cmake
+kind: cmake_recc
 
 (@):
 - elements/extensions/include/app.yml
@@ -7,9 +7,10 @@ build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/mesa-headers.bst
 - components/xorg-lib-xi.bst
-
 - extensions/glxinfo/glu.bst
-
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 variables:
   local_flags: -std=gnu17
