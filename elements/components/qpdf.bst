@@ -1,9 +1,12 @@
-kind: cmake
+kind: cmake_recc
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
-- components/libxslt.bst
 - components/docbook-xsl.bst
+- components/libxslt.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/gnutls.bst

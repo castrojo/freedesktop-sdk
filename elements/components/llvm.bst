@@ -1,4 +1,4 @@
-kind: cmake
+kind: cmake_recc
 
 (@):
 - elements/include/llvm.yml
@@ -6,6 +6,10 @@ kind: cmake
 build-depends:
 - components/_private/buildsystem-cmake.bst
 - components/_private/python3-minimal.bst
+- components/_private/recc.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst
