@@ -1,8 +1,12 @@
 kind: meson
 
+(@):
+- include/_private/meson-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/grep.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/python3.bst

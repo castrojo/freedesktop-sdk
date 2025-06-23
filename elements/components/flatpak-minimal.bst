@@ -2,6 +2,7 @@ kind: meson
 
 (@):
 - elements/include/flatpak.yml
+- include/_private/meson-recc.yml
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
@@ -9,6 +10,7 @@ build-depends:
 - components/gettext.bst
 - components/gobject-introspection.bst
 - components/python3-pyparsing.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

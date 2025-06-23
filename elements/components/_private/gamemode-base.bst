@@ -4,9 +4,13 @@ kind: meson
 #  - components/libgamemode.bst
 #  - components/gamemode-daemon.bst
 
+(@):
+- include/_private/meson-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/systemd.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/dbus.bst

@@ -2,10 +2,12 @@ kind: meson
 
 (@):
 - elements/include/freetype.yml
+- include/_private/meson-recc.yml
 
 build-depends:
-- components/_private/freetype-stage1.bst
 - public-stacks/buildsystem-meson.bst
+- components/_private/freetype-stage1.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

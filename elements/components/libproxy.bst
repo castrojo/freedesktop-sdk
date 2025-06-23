@@ -1,12 +1,16 @@
 kind: meson
 
+(@):
+- include/_private/meson-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/gobject-introspection.bst
 - components/gsettings-desktop-schemas.bst
-- components/python3-gi-docgen.bst
 - components/patchelf.bst
+- components/python3-gi-docgen.bst
 - components/vala.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

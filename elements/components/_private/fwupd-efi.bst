@@ -1,10 +1,14 @@
 kind: meson
 
+(@):
+- include/_private/meson-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - bootstrap/grep.bst
 - components/genpeimg.bst
 - components/_private/gnu-efi.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   meson-local: >-

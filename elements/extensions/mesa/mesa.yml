@@ -1,8 +1,10 @@
 (@):
 - elements/extensions/mesa/config.yml
 - elements/extensions/mesa/mesa-sources.yml
+- include/_private/meson-recc.yml
 
 build-depends:
+- public-stacks/buildsystem-meson.bst
 - components/bison.bst
 - components/flex.bst
 - components/llvm.bst
@@ -20,7 +22,7 @@ build-depends:
 - components/vulkan-headers.bst
 - components/wayland-protocols.bst
 - components/glslang.bst
-- public-stacks/buildsystem-meson.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

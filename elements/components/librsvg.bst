@@ -1,5 +1,8 @@
 kind: meson
 
+(@):
+- include/_private/meson-recc.yml
+
 depends:
 - public-stacks/runtime-minimal.bst
 - components/gdk-pixbuf.bst
@@ -9,13 +12,14 @@ depends:
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/rust.bst
-- components/vala.bst
-- components/gtk-doc.bst
+- components/cargo-c.bst
 - components/gobject-introspection.bst
+- components/gtk-doc.bst
 - components/python3-docutils.bst
 - components/python3-gi-docgen.bst
-- components/cargo-c.bst
+- components/rust.bst
+- components/vala.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   meson-local: >-

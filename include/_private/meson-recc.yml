@@ -1,0 +1,6 @@
+(@): include/_private/recc.yml
+
+environment:
+  CC: recc cc
+  CXX: recc c++
+  RUSTC_LD: cc

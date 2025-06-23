@@ -1,5 +1,8 @@
 kind: meson
 
+(@):
+- include/_private/meson-recc.yml
+
 depends:
 - components/audit.bst
 - components/libeconf.bst
@@ -8,6 +11,7 @@ depends:
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/flex.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   meson-local: >-

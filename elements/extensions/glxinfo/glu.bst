@@ -2,10 +2,12 @@ kind: meson
 
 (@):
 - elements/extensions/include/app.yml
+- include/_private/meson-recc.yml
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/mesa-headers.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/xorg-lib-xi.bst

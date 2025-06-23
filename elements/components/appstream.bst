@@ -2,6 +2,7 @@ kind: meson
 
 (@):
 - elements/include/appstream-source.yml
+- include/_private/meson-recc.yml
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
@@ -11,6 +12,7 @@ build-depends:
 - components/itstool.bst
 - components/python3-gi-docgen.bst
 - components/xmlto.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/bash-completion.bst

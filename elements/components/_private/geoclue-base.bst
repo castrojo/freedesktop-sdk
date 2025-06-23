@@ -1,5 +1,8 @@
 kind: meson
 
+(@):
+- include/_private/meson-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/gtk-doc.bst
@@ -14,6 +17,7 @@ build-depends:
 - components/avahi-gobject.bst
 - components/avahi-libs.bst
 - components/modemmanager.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   meson-local: >-

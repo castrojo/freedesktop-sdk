@@ -1,10 +1,14 @@
 kind: meson
 
+(@):
+- include/_private/meson-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- components/wayland-protocols.bst
 - components/xorg-proto-xorgproto.bst
 - components/xorg-util-macros.bst
-- components/wayland-protocols.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

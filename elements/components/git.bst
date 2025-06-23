@@ -1,6 +1,7 @@
 kind: meson
 
 (@):
+- include/_private/meson-recc.yml
 - elements/include/git.yml
 
 build-depends:
@@ -13,6 +14,7 @@ build-depends:
 - components/sed.bst
 - components/tar.bst
 - components/xmlto.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

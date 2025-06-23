@@ -6,9 +6,9 @@ kind: meson
 
 (@):
 - elements/include/systemd.yml
+- include/_private/meson-recc.yml
 
 build-depends:
-- public-stacks/runtime-minimal.bst
 - public-stacks/buildsystem-meson.bst
 - bootstrap/sed.bst
 - bootstrap/gawk.bst
@@ -48,6 +48,7 @@ build-depends:
 - components/bpf-maybe.bst
 - components/libbpf.bst
 - components/llvm.bst
+- (@): include/_private/gcc-for-recc.yml
 
 config:
   install-commands:

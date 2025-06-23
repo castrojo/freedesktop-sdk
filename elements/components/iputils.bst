@@ -1,11 +1,15 @@
 kind: meson
 
+(@):
+- include/_private/meson-recc.yml
+
 depends:
 - components/libcap.bst
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/systemd.bst
+- (@): include/_private/gcc-for-recc.yml
 
 sources:
 - kind: git_repo
