@@ -5,6 +5,7 @@ kind: meson
 #  - components/pipewire-daemon.bst
 
 build-depends:
+- public-stacks/buildsystem-meson.bst
 - bootstrap/grep.bst
 - components/alsa-lib.bst
 - components/avahi.bst
@@ -28,8 +29,8 @@ build-depends:
 - components/vulkan-headers.bst
 - components/doxygen.bst
 - components/webrtc-audio-processing.bst
-- public-stacks/buildsystem-meson.bst
 - components/libebur128.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   meson-local: >-

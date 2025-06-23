@@ -14,6 +14,7 @@ build-depends:
 - components/avahi-gobject.bst
 - components/avahi-libs.bst
 - components/modemmanager.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   meson-local: >-

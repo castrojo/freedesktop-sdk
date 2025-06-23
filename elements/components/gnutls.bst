@@ -2,12 +2,13 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/bison.bst
 - components/_private/git-minimal.bst
+- components/bison.bst
 - components/gperf.bst
 - components/gtk-doc.bst
 - components/patch.bst
 - components/python3.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

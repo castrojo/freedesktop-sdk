@@ -1,10 +1,10 @@
 kind: meson
 description: X.Org combined protocol headers
 
-
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/xorg-util-macros.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

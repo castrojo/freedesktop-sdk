@@ -12,6 +12,7 @@ build-depends:
 - components/tar.bst
 - components/texinfo.bst
 - cross-compilers/standard-libs-i686.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - cross-compilers/binutils-i686.bst

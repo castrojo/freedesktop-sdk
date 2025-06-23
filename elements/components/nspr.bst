@@ -1,13 +1,14 @@
 kind: autotools
 
-build-depends:
-- public-stacks/buildsystem-autotools.bst
-
 (?):
 - target_arch == "loongarch64":
     build-depends:
       (>):
       - bootstrap/gnu-config.bst
+
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

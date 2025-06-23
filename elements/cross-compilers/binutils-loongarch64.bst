@@ -10,3 +10,4 @@ build-depends:
 - components/bison.bst
 - components/flex.bst
 - components/texinfo.bst
+- (@): include/_private/gcc-for-recc.yml

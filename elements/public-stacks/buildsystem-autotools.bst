@@ -9,4 +9,5 @@ depends:
 - components/gettext.bst
 - components/libtool.bst
 - components/pkg-config.bst
+- components/recc-wrapper.bst
 - components/which.bst

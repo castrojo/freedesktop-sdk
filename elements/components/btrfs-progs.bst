@@ -6,9 +6,10 @@ build-depends:
 - components/docbook-xsl.bst
 - components/libxslt.bst
 - components/python3-setuptools.bst
-- components/python3-sphinx.bst
 - components/python3-sphinx-rtd-theme.bst
+- components/python3-sphinx.bst
 - components/xmlto.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

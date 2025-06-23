@@ -3,15 +3,16 @@ kind: meson
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - bootstrap/diffutils.bst
-- components/systemd.bst
-- components/gtk-doc.bst
-- components/gobject-introspection.bst
 - components/cmake.bst
+- components/gobject-introspection.bst
+- components/gtk-doc.bst
+- components/help2man.bst
+- components/liberation-fonts.bst
 - components/polkit.bst
 - components/python3-gi-docgen.bst
 - components/python3-packaging.bst
-- components/help2man.bst
-- components/liberation-fonts.bst
+- components/systemd.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/fwupd-efi-maybe.bst

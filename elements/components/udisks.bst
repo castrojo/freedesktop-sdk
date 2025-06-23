@@ -5,6 +5,7 @@ build-depends:
 - components/docbook-xsl.bst
 - components/gobject-introspection.bst
 - components/gtk-doc.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/libatasmart.bst

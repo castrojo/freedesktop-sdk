@@ -6,6 +6,7 @@ depends:
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/systemd.bst
+- (@): include/_private/gcc-for-recc.yml
 
 sources:
 - kind: git_repo

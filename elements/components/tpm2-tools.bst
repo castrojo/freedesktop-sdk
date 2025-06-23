@@ -3,6 +3,7 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/_private/git-minimal.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/tpm2-tss.bst

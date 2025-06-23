@@ -9,6 +9,7 @@ build-depends:
 - components/gettext.bst
 - components/gobject-introspection.bst
 - components/python3-pyparsing.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

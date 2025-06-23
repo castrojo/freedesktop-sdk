@@ -2,6 +2,7 @@ kind: make
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

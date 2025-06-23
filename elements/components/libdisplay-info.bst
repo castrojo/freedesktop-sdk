@@ -3,6 +3,7 @@ kind: meson
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/hwdata.bst
+- (@): include/_private/gcc-for-recc.yml
 
 public:
   bst:

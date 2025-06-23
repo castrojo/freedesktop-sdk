@@ -3,11 +3,12 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/asciidoc.bst
-- components/groff.bst
-- components/xmlto.bst
 - components/docbook-xml.bst
 - components/docbook-xsl.bst
+- components/groff.bst
 - components/libxslt.bst
+- components/xmlto.bst
+- (@): include/_private/gcc-for-recc.yml
 
 environment:
   # Disable hash randomisation for reproducibility

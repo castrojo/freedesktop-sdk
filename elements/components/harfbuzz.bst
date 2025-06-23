@@ -5,6 +5,7 @@ build-depends:
 - components/_private/freetype-stage1.bst
 - components/gtk-doc.bst
 - components/gobject-introspection.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

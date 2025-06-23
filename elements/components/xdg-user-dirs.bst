@@ -5,6 +5,7 @@ build-depends:
 - components/docbook-xsl.bst
 - components/libxslt.bst
 - components/systemd.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

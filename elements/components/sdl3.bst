@@ -5,6 +5,7 @@ build-depends:
 - components/libibus.bst
 - components/pipewire.bst
 - components/wayland-protocols.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

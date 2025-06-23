@@ -14,6 +14,7 @@ build-depends:
 - components/gdbm.bst
 - components/openssl.bst
 - components/sqlite.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

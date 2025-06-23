@@ -4,10 +4,11 @@ kind: meson
 - elements/include/gstreamer-source.yml
 
 build-depends:
-- components/gobject-introspection.bst
 - public-stacks/buildsystem-meson.bst
-- components/nasm.bst
+- components/gobject-introspection.bst
 - components/hotdoc.bst
+- components/nasm.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

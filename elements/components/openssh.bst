@@ -4,6 +4,7 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/linux-pam.bst
 - components/openssl.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - bootstrap/libxcrypt.bst

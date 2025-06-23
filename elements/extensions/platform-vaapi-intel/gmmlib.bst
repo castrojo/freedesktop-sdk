@@ -2,6 +2,7 @@ kind: cmake
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   licensedir: "%{libdir}/dri/intel-vaapi-driver/share/licenses"

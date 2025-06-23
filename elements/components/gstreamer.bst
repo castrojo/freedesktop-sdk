@@ -10,6 +10,7 @@ build-depends:
 - components/gobject-introspection.bst
 - components/hotdoc.bst
 - components/rust.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

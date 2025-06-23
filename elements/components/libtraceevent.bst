@@ -5,6 +5,7 @@ build-depends:
 - bootstrap/gawk.bst
 - components/asciidoc.bst
 - components/xmlto.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

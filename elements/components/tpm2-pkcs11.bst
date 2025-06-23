@@ -4,6 +4,7 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/_private/git-minimal.bst
 - components/python3-pkcs11.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/libyaml.bst

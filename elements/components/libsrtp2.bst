@@ -1,8 +1,9 @@
 kind: meson
 
 build-depends:
-- components/doxygen.bst
 - public-stacks/buildsystem-meson.bst
+- components/doxygen.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

@@ -13,6 +13,7 @@ build-depends:
 - components/python3-pyparsing.bst
 - components/wayland-protocols.bst
 - components/xmlto.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst
