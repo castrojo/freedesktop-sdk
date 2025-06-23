@@ -1,0 +1,7 @@
+(@): include/_private/recc.yml
+
+environment:
+  CMAKE_C_COMPILER_LAUNCHER: recc
+  CMAKE_C_LINKER_LAUNCHER: recc
+  CMAKE_CXX_COMPILER_LAUNCHER: recc
+  CMAKE_CXX_LINKER_LAUNCHER: recc

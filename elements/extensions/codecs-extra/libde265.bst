@@ -1,10 +1,12 @@
 kind: cmake
 
 (@):
+- include/_private/cmake-recc.yml
 - elements/extensions/codecs-extra/config.yml
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

@@ -2,11 +2,13 @@ kind: cmake
 
 (@):
 - elements/extensions/codecs-extra/config.yml
+- include/_private/cmake-recc.yml
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
-- components/nasm.bst
 - components/_private/git-minimal.bst
+- components/nasm.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -63,20 +65,20 @@ config:
   configure-commands: []
 
   build-commands:
-    - |
-      cmake -B _builddir-12 -H"%{conf-root}" -G"%{generator}" %{cmake-hd-12}
-      cmake --build _builddir-12 -- ${JOBS}
+  - |
+    cmake -B _builddir-12 -H"%{conf-root}" -G"%{generator}" %{cmake-hd-12}
+    cmake --build _builddir-12 -- ${JOBS}
 
-    - |
-      cmake -B _builddir-10 -H"%{conf-root}" -G"%{generator}" %{cmake-hd-10}
-      cmake --build _builddir-10 -- ${JOBS}
+  - |
+    cmake -B _builddir-10 -H"%{conf-root}" -G"%{generator}" %{cmake-hd-10}
+    cmake --build _builddir-10 -- ${JOBS}
 
-    - |
-      mkdir -p %{build-dir}
-      cp -vf _builddir-12/libx265.a %{build-dir}/libx265_main12.a
-      cp -vf _builddir-10/libx265.a %{build-dir}/libx265_main10.a
-      cmake -B %{build-dir} -H"%{conf-root}" -G"%{generator}" %{cmake-final}
-      cmake --build %{build-dir} -- ${JOBS}
+  - |
+    mkdir -p %{build-dir}
+    cp -vf _builddir-12/libx265.a %{build-dir}/libx265_main12.a
+    cp -vf _builddir-10/libx265.a %{build-dir}/libx265_main10.a
+    cmake -B %{build-dir} -H"%{conf-root}" -G"%{generator}" %{cmake-final}
+    cmake --build %{build-dir} -- ${JOBS}
 
   install-commands:
     (>):

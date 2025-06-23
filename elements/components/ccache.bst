@@ -1,12 +1,16 @@
 kind: cmake
 
+(@):
+- include/_private/cmake-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-cmake.bst
+- components/_private/git-minimal.bst
 - components/asciidoc.bst
 - components/asciidoctor.bst
 - components/doctest.bst
-- components/_private/git-minimal.bst
 - components/perl.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

@@ -2,14 +2,14 @@ kind: cmake
 
 (@):
 - elements/extensions/include/app.yml
+- include/_private/cmake-recc.yml
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/mesa-headers.bst
 - components/xorg-lib-xi.bst
-
 - extensions/glxinfo/glu.bst
-
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   local_flags: -std=gnu17

@@ -1,9 +1,13 @@
 kind: cmake
 
+(@):
+- include/_private/cmake-recc.yml
+
 build-depends:
+- public-stacks/buildsystem-cmake.bst
 - components/gobject-introspection.bst
 - components/gtk-doc.bst
-- public-stacks/buildsystem-cmake.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - components/cairo.bst

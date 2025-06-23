@@ -1,7 +1,11 @@
 kind: cmake
 
+(@):
+- include/_private/cmake-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-cmake.bst
+- (@): include/_private/gcc-for-recc.yml
 
 variables:
   cmake-local: >-

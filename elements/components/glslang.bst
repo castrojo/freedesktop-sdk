@@ -2,10 +2,12 @@ kind: cmake
 
 (@):
 - elements/include/vulkan-stack.yml
+- include/_private/cmake-recc.yml
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/python3.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

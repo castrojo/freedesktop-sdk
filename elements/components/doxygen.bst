@@ -1,10 +1,15 @@
 kind: cmake
 
+(@):
+- include/_private/cmake-recc.yml
+
 build-depends:
 - components/_private/buildsystem-cmake.bst
+- components/_private/recc.bst
 - components/bison.bst
 - components/flex.bst
 - components/python3.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst

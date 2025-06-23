@@ -1,9 +1,13 @@
 kind: cmake
 description: Tool to record execution of a program and later replay it in a debugger.
 
+(@):
+- include/_private/cmake-recc.yml
+
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/capnproto.bst
+- (@): include/_private/gcc-for-recc.yml
 
 depends:
 - public-stacks/runtime-minimal.bst
