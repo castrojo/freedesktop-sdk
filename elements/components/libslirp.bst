@@ -2,8 +2,11 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- bootstrap/sed.bst
 - components/_private/git-minimal.bst
+- bootstrap/sed.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/glib.bst

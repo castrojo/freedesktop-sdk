@@ -4,11 +4,14 @@ kind: meson
 - elements/include/gstreamer-source.yml
 
 build-depends:
-- components/ffmpeg.bst
 - public-stacks/buildsystem-meson.bst
-- components/nasm.bst
-- components/hotdoc.bst
+- components/ffmpeg.bst
 - components/grep.bst
+- components/hotdoc.bst
+- components/nasm.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

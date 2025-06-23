@@ -3,6 +3,9 @@ kind: meson
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/grep.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/python3.bst

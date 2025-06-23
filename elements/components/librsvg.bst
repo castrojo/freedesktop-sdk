@@ -9,13 +9,16 @@ depends:
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/rust.bst
-- components/vala.bst
-- components/gtk-doc.bst
+- components/cargo-c.bst
 - components/gobject-introspection.bst
+- components/gtk-doc.bst
 - components/python3-docutils.bst
 - components/python3-gi-docgen.bst
-- components/cargo-c.bst
+- components/rust.bst
+- components/vala.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 variables:
   meson-local: >-

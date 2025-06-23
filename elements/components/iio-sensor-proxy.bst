@@ -4,6 +4,9 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/gtk-doc.bst
 - components/systemd.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/glib.bst

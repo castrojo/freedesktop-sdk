@@ -7,6 +7,9 @@ build-depends:
 - components/cargo-c.bst
 - components/hotdoc.bst
 - components/rust.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/gstreamer-plugins-bad.bst

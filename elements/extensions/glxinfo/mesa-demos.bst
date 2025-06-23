@@ -5,9 +5,12 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- public-stacks/buildsystem-autotools.bst
 - components/mesa-headers.bst
 - components/wayland-protocols.bst
+- public-stacks/buildsystem-autotools.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/libdrm.bst

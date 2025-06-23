@@ -8,7 +8,6 @@ kind: meson
 - elements/include/systemd.yml
 
 build-depends:
-- public-stacks/runtime-minimal.bst
 - public-stacks/buildsystem-meson.bst
 - bootstrap/sed.bst
 - bootstrap/gawk.bst
@@ -48,6 +47,9 @@ build-depends:
 - components/bpf-maybe.bst
 - components/libbpf.bst
 - components/llvm.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 config:
   install-commands:

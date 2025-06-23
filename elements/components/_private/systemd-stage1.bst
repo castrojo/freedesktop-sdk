@@ -10,10 +10,14 @@ build-depends:
 - bootstrap/grep.bst
 - bootstrap/sed.bst
 - components/docbook-xsl.bst
+- components/gdb.bst
 - components/gperf.bst
 - components/libxslt.bst
 - components/m4.bst
 - components/python3-jinja2.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

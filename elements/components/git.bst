@@ -13,6 +13,9 @@ build-depends:
 - components/sed.bst
 - components/tar.bst
 - components/xmlto.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

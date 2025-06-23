@@ -2,10 +2,13 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- components/docbook-xml.bst
 - components/docbook-xsl.bst
 - components/libxslt.bst
-- components/docbook-xml.bst
 - components/systemd.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

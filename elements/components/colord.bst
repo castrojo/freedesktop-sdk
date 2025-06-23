@@ -4,8 +4,11 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/gobject-introspection.bst
 - components/gtk-doc.bst
-- components/vala.bst
 - components/systemd.bst
+- components/vala.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/glib.bst

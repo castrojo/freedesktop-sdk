@@ -5,8 +5,11 @@ build-depends:
 - bootstrap/diffutils.bst
 - components/gobject-introspection.bst
 - components/gtk-doc.bst
-- components/vala.bst
 - components/help2man.bst
+- components/vala.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - components/glib.bst

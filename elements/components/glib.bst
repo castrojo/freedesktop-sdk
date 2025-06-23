@@ -9,6 +9,9 @@ build-depends:
 - components/_private/gobject-introspection-base.bst
 - components/_private/glib-stage1.bst
 - components/python3-gi-docgen.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

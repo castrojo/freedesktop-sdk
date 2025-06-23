@@ -2,9 +2,12 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/gstreamer.bst
 - components/gobject-introspection.bst
+- components/gstreamer.bst
 - components/gtk-doc.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

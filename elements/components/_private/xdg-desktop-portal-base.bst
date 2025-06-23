@@ -10,8 +10,11 @@ build-depends:
 - components/fuse3.bst
 - components/geoclue-libs.bst
 - components/glib.bst
-- components/pipewire.bst
 - components/libgudev.bst
+- components/pipewire.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 variables:
   meson-local: >-

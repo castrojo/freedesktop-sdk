@@ -5,6 +5,9 @@ build-depends:
 - bootstrap/gawk.bst
 - components/asciidoc.bst
 - components/xmlto.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst

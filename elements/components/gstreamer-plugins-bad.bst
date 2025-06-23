@@ -33,9 +33,12 @@ depends:
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/gobject-introspection.bst
-- components/wayland-protocols.bst
 - components/shaderc.bst
 - components/vulkan-headers.bst
+- components/wayland-protocols.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 variables:
   command-subdir: subprojects/gst-plugins-bad

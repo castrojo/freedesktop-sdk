@@ -10,14 +10,16 @@ description: |
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-  # It just needs one header from extension at build time to get a PCI ID.
-- extensions/mesa/libdrm.bst
-- components/python3.bst
+- components/bison.bst
+- components/flex.bst
 - components/python3-mako.bst
 - components/python3-packaging.bst
 - components/python3-pyyaml.bst
-- components/bison.bst
-- components/flex.bst
+- components/python3.bst
+- extensions/mesa/libdrm.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst
