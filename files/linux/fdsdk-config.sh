@@ -629,6 +629,7 @@ case "$arch" in
     ;;
     aarch64)
         module DRM_PANFROST
+        module DRM_MSM
     ;;
 esac
 
