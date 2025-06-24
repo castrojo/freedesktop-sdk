@@ -128,3 +128,13 @@ public:
       devel:
         (>):
         - '%{bootdir}/System.map'
+
+sources:
+  # Please do not move the kernel config to linux.yml. Each time we
+  # tweak the configuration, we need would need to rebuild:
+  # bpf -> systemd -> gtk -> webkitgtk...
+  (>):
+  - kind: local
+    path: files/linux/config-utils.sh
+  - kind: local
+    path: files/linux/fdsdk-config.sh
