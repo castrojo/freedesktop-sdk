@@ -1,3 +1,2332 @@
+Version: freedesktop-sdk-25.08beta.1
+Date: '2025-06-25'
+Description: |-
+  Changes in freedesktop-sdk-25.08beta.1
+   * Noteworthy changes since 24.08:
+   * [BREAKING CHANGE] openh264 and ffmpeg-full extensions have been replaced by codecs-extra runtime extension
+   * [BREAKING CHANGE] intel-vaapi-driver has been removed (replacement is intel-media-driver)
+   * [BREAKING CHANGE] Dropped elements from Flatpak SDK/Runtime: vulkan-validation-layers, ruby, tcl, tk,
+     libfdk-aac, gtk-doc, pygobject, python-six
+   * [BREAKING CHANGE] Dropped elements from project: shellingham, requests-toolbelt, pyexpect, html5lib, clikit,
+     cleo, cachecontrol, cachy, sdl2-(image,ttf)
+   * [BREAKING CHANGE] It's now possible to create more minimal runtimes thanks to
+     rework of `bootstrap-import.bst`. This adds a new stack `public-stacks/buildsystem-make.bst`
+     which is essentially same as the original `bootstrap-import.bst`. There is also a new stack
+     `public-stacks/runtime-minimal.bst` that is intended to provide a minimal environment
+     that you can shell into. More info in the related issues: #1728, #1523
+   * [BREAKING CHANGE]: Perl modules now use major.minor versioned directories and no longer uses the patch
+     version. PERL5LIB or PERLLIB variables may need to be updated.
+   * ZSTD compressed debuginfo resulting in smaller debuginfo size. GCC, LLVM, bitutils,
+     elfutils, valgrind, gdb built with ZSTD support
+   * GCC 15.1, Cmake 4.0.3 (-DCMAKE_POLICY_VERSION_MINIMUM=3.5 may be required when building), Meson 1.8.2
+   * OCI images now comes with necessary files and directories like /tmp, /var/tmp, /root, /etc/group etc
+     and the proper permissions on them
+   * New NVIDIA VA-API driver Flatpak extension
+   * GDB now supports extra targets for cross debugging
+   * Added elements: rr debugger, GNU parallel, skopeo, sdl3, sdl3-(image,ttf), sdl2-compat, fmt, libtree,
+     libsecret, taglib
+   * Reproducibility fixes: New buildstream-reprotest utility.
+   * Reproducibility fixes: binutils, sphinxcontrib-jsmath, oci-image, less, setuptools, gperf, open-iscsi
+     pcsc-lite
+   * RISC-V support has been improved, and we now run daily builds of the RISC-V variant
+     thanks to the support of the community (RISC-V foundation, Codethink and individials
+     that have donated RISC-V hardware)
+   * Added metainfo files to all apps and runtimes and validate them
+   * Most of the Python elements are built from git now
+   * librsvg is built with avif support
+   * Added libx264, libx265 and nvenc support to codecs-extra extension
+   * Pipewire is built with LE audio support
+   * GStreamer now comes with the id3v2mux element
+   * linux: Enabled lots of new modules
+   * gmp built with fat support
+   * sqlite built with geopoly and rtree support
+   * we started tracking stable flatpak releases
+   * gst-plugins-rs now builds only the most used libraries
+   * Added tests: to verify missing libraries in platform/sdk, verify missing debuginfo, test ffmpeg codecs, test GCC for
+     complex numbers, test branches for correctness, test mktime(), test meson simple project
+   * A lot of other fixes and improvements
+   * Full list of changes since 24.08:
+   * cargo-c: switch to git and update to latest version
+   * ovmf: Drop GCC 15 patch
+   * ovmf: Update to edk2-stable202505
+   * ovmf: Dropped removed submodule
+   * Update xfsprogs to v6.15.0-0
+   * Update mesa-sources to mesa-25.1.4-0
+   * Update fwupd to 2.0.12-0
+   * Update libp11 to libp11-0.4.16-0
+   * Update liburing to liburing-2.11-0
+   * Update colord to 1.4.8-0
+   * Update buildbox to 1.3.22-0
+   * Update ninja to v1.13.0-0
+   * clinfo: use make element
+   * keyutils: don't build depend on autotools
+   * Fix some redundant dependencies
+   * linux: Load kernel config only for the kernel not other elements
+   * Update linux to v6.15.3-0
+   * linux: Build module for DRM_MSM
+   * Update python3-dulwich to 0.23.0
+   * Update erofs-utils to v1.8.7-0
+   * Update libxml2 to v2.14.4-0
+   * Update passt to 2025_06_11.0293c6f-0
+   * More cosmetic improvements
+   * Reformat: always use build-depends and runtime-depends rather than dicts
+   * Reformat: move includes to the top and always use lists
+   * Update python3-smartypants to v2.0.2-0
+   * Update perl-ssl to 2.094
+   * Update llvm to llvmorg-20.1.7-0
+   * Move exclude-systemd split rule to project split rule
+   * cups-filters: Clean up unused avahi dependency
+   * cups-base: Add root system group
+   * cups: Add avahi-libs dependency
+   * Split avahi-libs from avahi
+   * avahi: Build without gtk3 support
+   * linux: Add I2C_I801 module for Intel
+   * linux: Add all PINCTRL config for Intel
+   * capnproto: Drop cmake 3.5 compat arg
+   * Update capnproto to v1.2.0-0
+   * python3-urllib3: Drop hatch-vcs patch
+   * Update python3-urllib3 to 2.5.0-0
+   * Update nvidia-vaapi-driver to v0.0.14-0
+   * Update libdrm to libdrm-2.4.125-0
+   * kernel-conf-utils: Fix build
+   * utils/release.py: Use the changelog as the tag message
+   * utils/release.py: Drop gitlab release creation
+   * ci: Add a job to automate release creation
+   * Update vim to v9.1.1473-0
+   * Update glibc to glibc-2.41-63
+   * Update fcitx5-gtk to 5.1.4-0
+   * Update abseil-cpp to 20250512.1-0
+   * Update python3-aiohttp to 3.12.13
+   * Update libwacom to libwacom-2.16.1-0
+   * linux: Make IPV6_SIT a module
+   * sof-firmware: Update to 2025.05
+   * linux: Add IWLMLD missing module
+   * Update pixman to pixman-0.46.2-0
+   * Update rust-bindgen to v0.72.0-0
+   * Update pkg-config to pkgconf-2.5.0-0
+   * Update glib to 2.84.3-0
+   * lvm2-base: Fix path to run dir
+   * Update wayland-protocols to 1.45-0
+   * Update extra-cmake-modules to v6.15.0-0
+   * Update libblockdev to 3.3.1-0
+   * Update netavark to v1.15.2-0
+   * dictionaries: Exclude android tag
+   * linux-pam: Disable elogind
+   * Update linux-pam-base to v1.7.1-0
+   * Update python3-certifi to 2025.06.15-0
+   * Update python3-multidict to v6.5.0-0
+   * Drop vulkan-validation-layers
+   * Create an integration element to symlink vulkan manifest dirs to datadir
+   * Update go to go1.24.4-0
+   * Update python3-frozenlist to v1.7.0-0
+   * Update cmake to v4.0.3-0
+   * Update ell to 0.78-0
+   * linux: Enable rtw_8821au driver
+   * vim: Hide from app grid
+   * Update apparmor-base to v4.1.1-0
+   * Update bluez to 5.83-0
+   * Update python3-maturin to v1.8.7-0
+   * Update libpng to v1.6.49-0
+   * ci: Update image
+   * Update containers-common to v0.63.1-0
+   * Update linux-firmware to 20250613-0
+   * Update iwd to 3.9-0
+   * Update python3-cryptography to 45.0.4-0
+   * ibus: Drop std-gnu17
+   * Rename ibus to libibus to reflect package contents
+   * ibus: Disable systemd services
+   * ibus: Add gtk-doc
+   * ibus: Enable vala to build tools
+   * ibus: Convert to git and update to 1.5.32
+   * Update python3 to v3.13.5-0
+   * libffi: Update to 3.5.1
+   * libffi: Exclude dev tags
+   * Update dwz to dwz-0.16-0
+   * Update vim to v9.1.1457-0
+   * Update sqlite to version-3.50.1-0
+   * Update genpeimg to v13.0.0-0
+   * tests: Add a test to ensure mktime is working
+   * flatpak-images: Don't exclude zoneinfo data
+   * Update python3-yarl to v1.21.1-0
+   * Update meson to 1.8.2-0
+   * Update buildbox to 1.3.21-0
+   * Update mesa-sdk to mesa-25.1.3-0
+   * ci: Bump the image
+   * gnupg: Skip DBUS_SESSION_BUS_ADDRESS inside Flatpak
+   * Update buildbox to 1.3.20-0
+   * Update jpeg to 3.1.1-0
+   * Update libvpx to v1.15.2-0
+   * Update libp11 to libp11-0.4.15-0
+   * buildstream2: Drop outdated patch
+   * Update buildstream2 to 2.5.0-0
+   * Update xorg-data-xkeyboard-config to xkeyboard-config-2.45-0
+   * Update cython to 3.1.2-0
+   * Update linux to v6.15.2-0
+   * weston: Disable tests and demo clients
+   * linux-headers: update to 6.12.32
+   * libabigail: runtime depend on xxhash
+   * util-linux-base: switch to meson
+   * Update python3-ruamel-yaml to 0.18.14
+   * Update taglib to v2.1-0
+   * Update podman to v5.5.1-0
+   * Update python3-requests to v2.32.4-0
+   * ci: Update image
+   * Revert "oci-builder: Add shadow to oci-builder compose"
+   * Put oci-builder in components
+   * oci_builder: Write the image to /var/tmp rather than /tmp
+   * Update poppler to poppler-25.06.0-0
+   * Update passt to 2025_06_06.754c6d7-0
+   * Update libarchive to v3.8.1-0
+   * Update linux to v6.15.1-0
+   * Update grpc to v1.72.1-0
+   * Update pipewire-base to 1.4.5-0
+   * Update fwupd to 2.0.11-0
+   * Update perl-ssl to 2.090
+   * Revert "ci: Update image"
+   * Update glibc to glibc-2.41-56
+   * oci-builder: Add shadow to oci-builder compose
+   * Update vim to v9.1.1435-0
+   * Update python3-ruamel-yaml to 0.18.13
+   * Update iputils to 20250605-0
+   * Update slirp4netns to v1.3.3-0
+   * Update audit to v4.0.5-0
+   * ci: Update image
+   * perf: Force -Wno-error through patch and local_flags
+   * perf: Use make variables instead of overriding build or install commands
+   * Update python3-tomlkit to 0.13.3-0
+   * Update dictionaries to libreoffice-25.2.4.3-0
+   * Update mesa to mesa-25.1.2-0
+   * Update libcamera to v0.5.1-0
+   * check-sdk: Blocks spirv-tools from SDK
+   * glslang: Don't build with spirv-tools
+   * ci: Collect casd logs from core build jobs
+   * gperf: Add patch to use SOURCE_DATE_EPOCH for man page header
+   * fontconfig: Use /usr/lib/fontconfig/cache as the cache
+   * ghostscript: Switch to github source
+   * mutool: Update to 1.26.2
+   * mutool: Switch to github source
+   * Update iputils to 20250602-0
+   * Update python3 to v3.13.4-0
+   * Update libusb to v1.0.29-0
+   * Update parallel to 20250522-0
+   * Update curl to curl-8_14_0-0
+   * poppler: Switch to gpgmepp
+   * Add element for gpgmepp
+   * Update gpgme to gpgme-2.0.0-0
+   * Update sdl3 to release-3.2.16-0
+   * signed-modules: Fix extension matching
+   * shim: Do not use 16.0
+   * Update hwdata to v0.396-0
+   * Update liburing to liburing-2.10-0
+   * Update sqlite to version-3.50.0-0
+   * Update python3-aiohttp to 3.12.7
+   * Update python3-typing-extensions to 4.14.0-0
+   * jq: Drop local_flags
+   * jq: Update to 1.8.0
+   * Update mutool to 1.26.1-0
+   * Update python3-aiohttp to 3.12.6
+   * Update dictionaries to libreoffice-25.2.4.2-0
+   * Update spirv-llvm-translator to v20.1.3-0
+   * Update gstreamer to 1.26.2-0
+   * Update python3-ruamel-yaml to 0.18.12
+   * Update python3-setuptools to v80.9.0-0
+   * Update pipewire-base to 1.4.4-0
+   * Move depmod call to prepare-image
+   * grpc: build shared libraries
+   * Update vim to v9.1.1418-0
+   * Update python3-networkx to networkx-3.5-0
+   * Update python3-protobuf to 6.31.1
+   * Update llvm to llvmorg-20.1.6-0
+   * Update buildbox to 1.3.19-0
+   * fontconfig: Backport patch to rename lohit oriya
+   * fontconfig: Backport upstream meson patch to install bitmap config
+   * fontconfig: Remove static libs
+   * fontconfig: Explicitly declare expat as xml backend
+   * fontconfig: Convert to meson
+   * Update libslirp to v4.9.1-0
+   * Update kbd to v2.8.0-0
+   * Update systemd to v257.6-0
+   * Update protobuf to v31.1-0
+   * python3-aiohttp: Add pkgconfig as a dependency
+   * Update python3-aiohttp to 3.12.2
+   * Update audit to v4.0.4-0
+   * Update libxkbcommon to xkbcommon-1.10.0-0
+   * Update netavark to v1.15.1-0
+   * audit: Exclude beta tags
+   * python3-urllib3: Add patch to build with latest hatch-vcs
+   * Update python3-hatch-vcs to v0.5.0-0
+   * Update strace to v6.15-0
+   * Update valgrind to VALGRIND_3_25_1-0
+   * linux: Drop outdated patch
+   * linux: update config for 6.15
+   * linux: Drop -std=gnu17
+   * Update linux to v6.15-0
+   * Update python3-cryptography to 45.0.3-0
+   * Update iproute2 to v6.15.0-0
+   * Update libarchive to v3.8.0-0
+   * buildstream2: Add patch to fix build against cython 3.1.1
+   * Update cython to 3.1.1-0
+   * Update dictionaries to libreoffice-25.2.4.1-0
+   * Update doxygen to Release_1_14_0-0
+   * Update meson to 1.8.1-0
+   * libsrtp2: Disable tests
+   * libsrtp2: Build with openssl support
+   * Update linux to v6.14.8-0
+   * Update glib to 2.84.2-0
+   * Update wireplumber to 0.5.10-0
+   * Update skopeo to v1.19.0-0
+   * Update glibc to glibc-2.41-55
+   * Update vim to v9.1.1406-0
+   * Update libunwind to v1.8.2-0
+   * Update buildbox to 1.3.17-0
+   * Update libnvme to v1.14-0
+   * Update mesa-sdk to mesa-25.1.1-0
+   * python3-setuptools: Drop upstreamed patch
+   * Update python3-setuptools to v80.8.0-0
+   * Update python3-click to 8.2.1-0
+   * Update pipewire-base to 1.4.3-0
+   * Update mesa to mesa-25.1.1-0
+   * Update fwupd to 2.0.10-0
+   * Update rust-cbindgen to v0.29.0-0
+   * Update xdg-desktop-portal-base to 1.20.3-0
+   * rust: Disable docs
+   * rust: Update to 1.87.0
+   * linux-pam-config: Order systemd_home before unix
+   * ruby: Update to 3.4.4
+   * mpg123: Update to 1.32.10
+   * man-db: Update to 2.13.1
+   * lzip: Update to 1.25
+   * apparmor: Switch to git and update to 4.1.0
+   * ffmpeg: Sync encoders and decoders with Fedora
+   * libbpf: Update to v1.5.1-0
+   * python3-multidict: Update to v6.4.4-0
+   * gpgme: Update to gpgme-1.24.3-0
+   * gnupg: Track stable releases only and downgrade to 2.4.8 stable
+   * gtk3: Fix path in devel split
+   * libxml2: Drop upstreamed patch
+   * python3-setuptools: Patch out coherent-license dependency
+   * llvm: Update to llvmorg-20.1.5-0
+   * sdl3: Update to release-3.2.14-0
+   * python3-cryptography: Update to 45.0.2-0
+   * linux: Update to v6.14.7-0
+   * intel-media-driver: Update to intel-media-25.2.2-0
+   * xdg-desktop-portal-base: Update to 1.20.2
+   * wireplumber: Update to 0.5.9-0
+   * python3-setuptools: Update to v80.7.1-0
+   * python3-pluggy: Update to 1.6.0-0
+   * protobuf: Update to v31.0-0
+   * libxml2: Update to v2.14.3-0
+   * liburcu: Update to v0.15.3-0
+   * fuse-overlayfs: Update to v1.15-0
+   * exfat-progs: Update to 1.2.9-0
+   * buildbox: Update to 1.3.16-0
+   * abseil-cpp: Update to 20250512.0-0
+   * aardvark-dns: Update to v1.15.0-0
+   * python3-protobuf: Update to 6.31.0
+   * netavark: Update to v1.15.0-0
+   * check-platform: Make xorg-proto-xcb SDK only
+   * xorg-lib-xcb: xorg-proto is a build dependency
+   * e2fsprogs: Mark et directory as devel
+   * gtk3: Mark desktop files and gtk-query-settings as devel
+   * scan-for-dev-files: Add valgrind suppression files and makefiles
+   * bash: Make Makefile.sample devel
+   * glib: Mark gettext po makefile as devel
+   * Mark some dtds as devel
+   * Mark gdb and valgrind files as devel
+   * Exclude tests and shells from all images
+   * split-rules: Create a split-rule for tests and shell completions
+   * split-rules: Mark gdb autoload files as devel
+   * graphene: Disable tests
+   * libx265: Disable altivec on ppc64le
+   * libx265: Enable assembly on x86_64, aarch64 and disable otherwise
+   * libx265: Disable hdr10 plus on ppc64le
+   * libx265: Build with 10 and 12 bit support
+   * libx265: Add patch to fix dynamic HDR build
+   * Update podman to v5.5.0-0
+   * libdecor: Drop applied patch
+   * Update libdecor to 0.2.3-0
+   * libp11: Update libpkcs11 devel split
+   * Update libp11 to libp11-0.4.14-0
+   * Update python3-setuptools to v80.5.0-0
+   * python3-lxml: Add patch to fix build with cython 3.1
+   * python3-lxml: Relax cython requirements
+   * python3-propcache: Relax cython requirements
+   * Update cython to 3.1.0-1-0
+   * ffmpeg: Add a patch to change clashing macro names
+   * Update v4l-utils to v4l-utils-1.30.1-0
+   * fuse3: runtime depend on util-linux
+   * Update libeconf to v0.7.9-0
+   * Update gstreamer-plugins-rs to 0.13.6-0
+   * Update python3-maturin to v1.8.6-0
+   * Update passt to 2025_05_12.8ec1341-0
+   * Update linux to v6.14.6-0
+   * Update harfbuzz to 11.2.1-0
+   * Update flatpak to 1.16.1-0
+   * Update python3-click to 8.2.0-0
+   * m4: Update to 1.4.20 and drop local_flags
+   * Update python3-maturin to v1.8.5-0
+   * Update gnupg to gnupg-2.5.6-0
+   * Update passt to 2025_05_07.eea8a76-0
+   * Update linux-firmware to 20250509-0
+   * Update extra-cmake-modules to v6.14.0-0
+   * Update python3-virtualenv to 20.31.2-0
+   * Update python3-snowballstemmer to 3.0.1
+   * Update glibc to glibc-2.41-50
+   * Update vim to v9.1.1374-0
+   * Update libavif to v1.3.0-0
+   * Update python3-trove-classifiers to 2025.5.9.12-0
+   * mesa: Replace swrast gallium drv with softpipe and llvmpipe
+   * Update mesa to mesa-25.1.0-0
+   * Update man-pages to man-pages-6.14-0
+   * ci: Update image
+   * Update python3-pyroaring to 1.0.1-0
+   * Update gmmlib to intel-gmmlib-22.7.2-0
+   * Update python3-snowballstemmer to 3.0.0.1
+   * Update python3-trove-classifiers to 2025.5.8.15-0
+   * python3-charset-normalizer: Update patch
+   * Update vulkan-stack to vulkan-sdk-1.4.313.0-0
+   * Update mesa-sdk to mesa-25.1.0-0
+   * Update llvm to llvmorg-20.1.4-0
+   * Update libheif to v1.19.8-0
+   * Update grpc to v1.72.0-0
+   * Update go to go1.24.3-0
+   * Update cmake to v4.0.2-0
+   * Update bluez to 5.82-0
+   * Update xorg-lib-xft to libXft-2.3.9-0
+   * Update sqlite to version-3.49.2-0
+   * Update qpdf to v12.2.0-0
+   * Update python3-virtualenv to 20.31.1-0
+   * Update python3-trove-classifiers to 2025.5.1.12-0
+   * Update python3-setuptools to v80.3.1-0
+   * Update python3-hatch-fancy-pypi-readme to 25.1.0-0
+   * Update python3-dulwich to 0.22.8
+   * Update python3-cryptography to 44.0.3-0
+   * Update python3-charset-normalizer to 3.4.2-0
+   * Update poppler to poppler-25.05.0-0
+   * Update pixman to pixman-0.46.0-0
+   * Update libxkbcommon to xkbcommon-1.9.2-0
+   * Update libgcrypt to libgcrypt-1.11.1-0
+   * Update libfido2 to 1.16.0-0
+   * Update libeconf to v0.7.8-0
+   * Update iwd to 3.8-0
+   * Update hwdata to v0.395-0
+   * Update harfbuzz to 11.2.0-0
+   * Update fwupd to 2.0.9-0
+   * Update ell to 0.77-0
+   * Update curl to curl-8_13_0-0
+   * Update mesa-sdk to mesa-25.0.5-0
+   * Update shaderc to v2025.2-0
+   * Update fmtlib to 11.2.0-0
+   * ffmpeg: Drop duplicate build-depends
+   * sdl3: Update to 3.2.12
+   * Update sdl2-compat to release-2.32.56-0
+   * Update intel-media-driver to intel-media-25.2.1-0
+   * dracut: Update patch
+   * Update dracut to 107-0
+   * Update lvm2 to v2_03_32-0
+   * Update ccache to v4.11.3-0
+   * Update python3-virtualenv to 20.31.0-0
+   * Update python3-poetry-core to 2.1.3-0
+   * Update passt to 2025_05_03.587980c-0
+   * Update python3-lxml to lxml-5.4.0-0
+   * libde265: Drop patch
+   * Update libde265 to v1.0.16-0
+   * Update python3-pil to 11.2.1-0
+   * Update buildbox to 1.3.14-0
+   * Update weston to 14.0.2-0
+   * Update linux to v6.14.5-0
+   * Update python3-pip to 25.1.1-0
+   * Update ghostscript to ghostpdl-10.05.1-0
+   * Update glibc to glibc-2.41-49
+   * Update vim to v9.1.1360-0
+   * Update podman to v5.4.2-0
+   * Update libpng to v1.6.48-0
+   * Update parallel to 20250422-0
+   * Update iso-codes to v4.18.0-0
+   * Make PACKAGE_PREFIX_DIR work for archtriplet libdir in libxml2, libxslt
+   * Update libgpg-error to libgpg-error-1.55-0
+   * Update mesa to mesa-25.0.5-0
+   * Update spirv-llvm-translator to v20.1.2-0
+   * pwquality: Fix build with setuptools 80
+   * Update python3-setuptools to v80.0.1-0
+   * Update fuse3 to fuse-3.17.2-0
+   * Update appstream to v1.0.5-0
+   * Update libei to 1.4.1-0
+   * Update python3-trove-classifiers to 2025.4.28.22-0
+   * Update go-md2man to v2.0.7-0
+   * Update linux to v6.14.4-0
+   * Update aom to v3.12.1-0
+   * nspr: Update to 4.36
+   * ci: Update image
+   * meson: Update to 1.8.0
+   * Update python3-mako to rel_1_3_10-0
+   * Update wayland-protocols to 1.44-0
+   * go: Add patch to fix git-lfs build on risc-v GCC 15
+   * Force C17 in some elements
+   * python3-tpm2-pytss: Fix build with GCC 15
+   * linux: Fix ppc build with GCC 15
+   * ovmf: Fix build with GCC 15
+   * efitools: Fix build with GCC 15
+   * flags: Disable gcs on aarch64
+   * highway: Fix build under GCC 15
+   * aspell: Fix build with GCC 15
+   * webrtc-audio-processing: Fix build with GCC 15
+   * graphite2: Disable tests
+   * gcc: Drop patches
+   * gcc: Update mpfr and isl
+   * Update gcc to releases/gcc-15.1.0-0
+   * Update dictionaries to libreoffice-25.2.3.2-0
+   * Update doctest to v2.4.12-0
+   * Update abseil-cpp to 20250127.1-0
+   * patch: Drop all patches
+   * Update patch to v2.8-0
+   * Update python3-calver to 2025.04.17-0
+   * Update python3-certifi to 2025.04.26-0
+   * valgrind: Drop zstd patch
+   * Update valgrind to VALGRIND_3_25_0-0
+   * util-linux: Update to 2.41
+   * util-linux: Exclude start tags
+   * Revert "Update util-linux-base to v2.42-start-0"
+   * Update gstreamer to 1.26.1-0
+   * Update perl-sasl to 2.1800
+   * Update python3-pip to 25.1-0
+   * Add a test to make sure the perl version doesn't regress
+   * perl: Drop the patch version from all perl dist directories
+   * Update glibc to glibc-2.41-48
+   * Update vim to v9.1.1346-0
+   * Update nss to NSS_3_101_4_RTM-0
+   * Update pycairo to v1.28.0-0
+   * Update python3-setuptools-scm to v8.3.1-0
+   * Update python3-setuptools to v79.0.1-0
+   * Update openssl to openssl-3.5.0-0
+   * Update linux-firmware to 20250410-0
+   * Update cups-base to v2.4.12-0
+   * Update linux to v6.14.3-0
+   * Add runtime-depends on sqlite for util-linux
+   * gdbm: Update to 1.25
+   * Update xfsprogs to v6.14.0-0
+   * Update pcsc-lite to 2.3.3-0
+   * Update python3-packaging to 25.0-0
+   * Update python3-yarl to v1.20.0-0
+   * Update python3-aiohttp to 3.11.18
+   * Update gdb to gdb-16.3-release-0
+   * Update containers-common to v0.63.0-0
+   * Update extra-cmake-modules to v6.13.0-0
+   * Special collect manifest element in polkit-gobject
+   * Update python3-frozenlist to v1.6.0-0
+   * Update python3-trove-classifiers to 2025.4.11.15-0
+   * Update swig to v4.3.1-0
+   * Update libgpg-error to libgpg-error-1.54-0
+   * gperf: Add patch to use SOURCE_DATE_EPOCH for html doc header
+   * gperf: Force -j1 for devel makefile in autogen
+   * gperf: Add python3 for gnulib script
+   * gperf: Update gnulib submodule
+   * gperf: Update to 3.3
+   * Update cmake to v4.0.1-0
+   * Update opencl to v2.3.3-0
+   * Update liburcu to v0.15.2-0
+   * Update python3-flit-core to 3.12.0-0
+   * Update fontconfig to 2.16.2-0
+   * Update mesa-sdk to mesa-25.0.4-0
+   * Update llvm to llvmorg-20.1.3-0
+   * Update harfbuzz to 11.1.0-0
+   * Update glibc to glibc-2.41-47
+   * components/nss: Remove target_arch = arm
+   * linux: Remove i686 and arm from the config
+   * Update perl to v5.40.2-0
+   * Update vim to v9.1.1322-0
+   * Update python3-wheel to 0.46.1-0
+   * Update libcamera to v0.5.0-0
+   * Update u-boot-unmatched to v2025.04-0
+   * Update python3-propcache to v0.3.1-0
+   * linux: Enable more sound modules
+   * linux: Enable CIFS
+   * linux: Enable VFIO support
+   * linux: Enable Phillips usb webcam drivers
+   * linux: Enable I2C VIDEO_ drivers
+   * linux: Enable HDMI CEC support
+   * linux: Enable I2C_HID_OF
+   * linux: Enable VGA_SWITCHEROO
+   * linux: Enable DEVICE_PRIVATE and HMM_MIRROR
+   * linux: Enable more sensors modules
+   * linux: Enable more edac modules
+   * linux: Enable more generic crypto modules
+   * Update libffi to v3.4.8-0
+   * Update libxml2 to v2.14.2-0
+   * split-rules: Move zoneinfo out of locales
+   * Update libvpx to v1.15.1-0
+   * sndfile: Add python to build depends
+   * sndfile: Port to cmake
+   * sndfile: Convert to git source
+   * Update mesa to mesa-25.0.4-0
+   * libmicrohttpd: Remove pngs in infodir
+   * libmicrohttpd: Enable largefile support
+   * libmicrohttpd: Enable https support
+   * libmicrohttpd: Disable examples and tools
+   * libmicrohttpd: Split to devel
+   * Add a gdb-debuginfod stack
+   * Add an export stack for elfutils and switch elements to it
+   * Update alsa-lib to v1.2.14-0
+   * Update python3-calver to 2025.04.02-0
+   * Update passt to 2025_04_15.2340bbf-0
+   * Update libabigail to libabigail-2.7-0
+   * json-c: Add devel split
+   * json-c: Stop building static libs
+   * debuginfod: Build and install the actual libdebuginfod lib and binaries
+   * Delete unused freedesktop-sdk alias
+   * Add mozilla's "RR" record&replay time-travelling debugger to the dev SDK
+   * Update gmmlib to intel-gmmlib-22.7.1-0
+   * Update python3-typing-extensions to 4.13.2-0
+   * Update python3-setuptools-scm to v8.2.1-0
+   * Update libcap to libcap-2.76-0
+   * ci: Update to latest image
+   * Add an export stack for file and switch elements to it
+   * libdecor: Add patch to fix crash
+   * Update libnftnl to libnftnl-1.2.9-0
+   * Update buildbox to 1.3.12-0
+   * Update python3-multidict to v6.4.3-0
+   * Update pipewire-base to 1.4.2-0
+   * sdl2-compat: Update pkgconf file name
+   * Update sdl2-compat to release-2.32.54-0
+   * Apply ruff formatting changes
+   * ci: Update image to latest commit
+   * file: Add zstd as runtime depends
+   * Update qpdf to v12.1.0-0
+   * Update erofs-utils to v1.8.6-0
+   * Update glib to 2.84.1-0
+   * Update openal to 1.24.3-0
+   * prepare-image.sh: Make --noroot not expect a value
+   * Update python3 to v3.13.3-0
+   * Update nano to v8.4-0
+   * Update ccache to v4.11.2-0
+   * Update linux to v6.14.2-0
+   * Update python3-tenacity to 9.1.2-0
+   * Makefile: Drop unused TARGET_BRANCH variable
+   * Unhardcode master from various places
+   * sdk: Drop ruby
+   * Remove obsolete preresolve tool
+   * Drop tcl
+   * linux: Build some missing mediatek modules
+   * Update glibc to glibc-2.41-43
+   * openssh: split more sshd bins into vm-only domain
+   * Update openssh to V_10_0_P2-0
+   * files/vm/prepare-image.sh: Allow no root in fstab
+   * Revert "dbus-base: Replace workaround with traditional activation disabled"
+   * Update vim to v9.1.1291-0
+   * Update gawk to gawk-5.3.2-0
+   * Update libgpg-error to libgpg-error-1.53-0
+   * Update libnvme to v1.13-0
+   * Update python3-urllib3 to 2.4.0-0
+   * Add new split-rule to sqlite for tcl files
+   * gstreamer-plugins-test: Add a test for avdec_aac and avenc_aac
+   * Drop libfdk-aac from the project
+   * Update wayland-protocols to 1.43-0
+   * Update mesa-sdk to mesa-25.0.3-0
+   * Update harfbuzz to 11.0.1-0
+   * Update fwupd to 2.0.8-0
+   * Update iwd to 0.76-0
+   * Update u-boot-qemu to v2025.04-0
+   * Update passt to 2025_03_20.32f6212-0
+   * Update go to go1.24.2-0
+   * Update buildstream-plugins-community
+   * Update python3-typing-extensions to 4.13.1-0
+   * Update c-ares to v1.34.5-0
+   * Update python3-lxml to lxml-5.3.2-0
+   * Update libxml2 to v2.14.1-0
+   * coreutils: re-enable groups
+   * Update inih to r60-0
+   * Update gpgme to gpgme-1.24.2-0
+   * Update systemd to v257.5-0
+   * Update spirv-llvm-translator to v20.1.1-0
+   * gperf: Do a partial doc build
+   * gperf: Disable tests
+   * gperf: Import filename header from gnulib
+   * gperf: Regenerate configure
+   * gperf: Use build-depends
+   * Update gperf to v3.2-0
+   * Update python3-setuptools-rust to v1.11.1-0
+   * Update meson to 1.7.2-0
+   * Update mutool to 1.25.6-0
+   * linux: Enable DRM_XE and PINCTRL_INTEL_PLATFORM
+   * Update protobuf to v30.2-0
+   * Update libinput to 1.28.1-0
+   * Update crun to 1.21-0
+   * Update python3-protobuf to 6.30.2
+   * Update fuse3 to fuse-3.17.1-0
+   * Update sdl3-ttf to release-3.2.2-0
+   * Update python3-pil to 11.2.0-0
+   * Update python3-pyparsing to 3.2.3-0
+   * man-db: Add libseccomp as depends
+   * components: Replace podman-config with contianers-common
+   * Update xz to v5.8.1-0
+   * Update glibc to glibc-2.41-41
+   * Drop flake8, mccabe, pycodestyle and pyflakes
+   * Add git-lfs to components stack
+   * Add initial ignore list
+   * Add a check to ensure all elements in components are in components stack
+   * Update llvm to llvmorg-20.1.2-0
+   * Update python3-wheel to 0.46.0-0
+   * Update python3-multidict to v6.3.2-0
+   * Update mesa to mesa-25.0.3-0
+   * Update vim to v9.1.1276-0
+   * components: Add skopeo
+   * Special collect manifest element for polkit
+   * Special collect manifest element for util-linux
+   * Update python3-aiohttp to 3.11.16
+   * Update python3-poetry-core to 2.1.2-0
+   * Update hwdata to v0.394-0
+   * Update ell to 0.76-0
+   * pipewire-base: Split modules with missing dependencies to daemon
+   * openssh: Split sshd-session to vm
+   * Add a check for missing dependencies in ELF files
+   * Update libarchive to v3.7.9-0
+   * Update sdl3 to release-3.2.10-0
+   * Update poppler to poppler-25.04.0-0
+   * Update iwd to 3.6-0
+   * Switch generate-cve-report to use nvd-cve-database gitlab mirror
+   * gnupg: depends on bzip2
+   * linux: delete uncompressed modules
+   * libx265: Add patch to fix compliation with cmake v4
+   * hotdoc: Add patch to bump minimum cmake to 3.5 in hotdoc's bundled cmark
+   * Use folded block scalar
+   * Force cmake minimum version to 3.5 for compat with cmake 4.0
+   * Update cmake to v4.0.0-0
+   * linux: Enable a couple more VIRTIO drivers
+   * linux: Enable ACPI_BGRT
+   * linux: Enable ACPI_DOCK
+   * linux: build BT_INTEL_PCIE
+   * linux: build  APPLE_MFI_FASTCHARGE
+   * Update python3-virtualenv to 20.30.0-0
+   * Update kmod to v34.2-0
+   * geoclue: Fix base element dependencies
+   * Update expat to R_2_7_1-0
+   * Update mesa to mesa-25.0.2-0
+   * Update python3-pyasn1-modules to v0.4.2-0
+   * Update strace to v6.14-0
+   * Update btrfs-progs to v6.14-0
+   * Update python3-typing-extensions to 4.13.0-0
+   * Update dictionaries to libreoffice-25.2.2.2-0
+   * openssh: Mark CVE-2025-26466 as ignored
+   * openssh: Mark CVE-2025-26465 as ignored
+   * openssh: Mark CVE-2023-51767 as ignored
+   * libarchive: Mark CVE-2025-1632 as ignored
+   * cpio: Ignore CVE-2010-4226
+   * avahi: Ignore CVE-2021-26720
+   * apparmor: Ignore old CVE-2016-1585
+   * coreutils: Ignore CVE-2016-2781
+   * libtheora: Disable examples
+   * libtheora: Enable doxygen, cairo and libpng support
+   * libtheora: Drop config and variables
+   * libtheora: Update to v1.2.0
+   * Update iproute2 to v6.14.0-0
+   * Update harfbuzz to 11.0.0-0
+   * Update iwd to 3.5-0
+   * Update llvm to llvmorg-20.1.1-0
+   * generate_cve_report: Use elif instead of if
+   * generate_cve_report: Log more about CVE decision process
+   * generate_cve_report: Log calculated version data from manifest
+   * generate_cve_report: Write a message if no database files were found
+   * generate_cve_report: Don't write empty tables
+   * check-debug-crc: Check for missing debug data too and fail if not found
+   * Set vendor and version-match in tar and lvm2
+   * Update vim to v9.1.1255-0
+   * Update xz to v5.8.0-0
+   * Update libxml2 to v2.14.0-0
+   * Update python3-setuptools to v78.1.0-0
+   * Update libevdev to libevdev-1.13.4-0
+   * Update libnotify to 0.8.6-0
+   * buildbox: Remove explicit latomic
+   * generate_cve_report.py: do not delete CVE from vulnerability map
+   * Update ell to 0.75-0
+   * Update buildbox to 1.3.8-0
+   * fwupd: Update plugin_logitech_bulkcontroller to protobuf
+   * fwupd: Remove dropped meson args
+   * fwupd: Drop pango patch
+   * Update fwupd to 2.0.7-0
+   * Update tzdata to 2025b-0
+   * Makefile: Drop clean-cve from clean
+   * libnotify: Set tentative vendor to gnome
+   * Add version-match data to a bunch of elements
+   * generate_cve_report: Write recent CVEs for unversioned git sources
+   * generate_cve_report: Hide CVE list for unversioned tarballs
+   * Makefile: Add a target to clean generated cve files
+   * Makefile: Clear cve-reports before moving
+   * Update bluez to 5.80-0
+   * libtheora: Exclude beta tags
+   * Update pygobject to 3.52.3-0
+   * Drop some unused configs
+   * Update linux to v6.14-0
+   * Update libsoup to 3.6.5-0
+   * Update buildstream2 to 2.4.1-0
+   * Update svt-av1 to v3.0.2-0
+   * Update python3-pytz to 2025.2
+   * sdk: drop org.freedesktop.Sdk.Compat.arm references
+   * openssl: Simplify dependencies
+   * python-minimal: Drop OpenSSL dependency
+   * Update sbc to 2.1-0
+   * Update libinput to 1.28.0-0
+   * Update wayland-protocols to 1.42-0
+   * Update parallel to 20250322-0
+   * glib: Depend on elfutils
+   * util-linux: Add dependency on libmagic through file
+   * Update jansson to v2.14.1-0
+   * Update shadow to 4.17.4-0
+   * sdk: Restore vulkan-headers
+   * vulkan-icd-loader: Fix dependencies
+   * vulkan-validation-layers: Fix dependency
+   * vulkan-tools: Fix dependencies
+   * mesa: Add missing dependency
+   * gstreamer-plugins-bad: Add missing dependency
+   * gstreamer-plugins-base: Add missing dependency
+   * gtk3: Fix dependency
+   * Update libwacom to libwacom-2.15.0-0
+   * Update netavark to v1.14.1-0
+   * python-bootstrap: Make installer capable of creating entrypoints
+   * ostree: Drop downstream patch
+   * ostree: Update to 2025.2
+   * Update libcbor to v0.12.0-0
+   * Update python3-setuptools to v77.0.3-0
+   * Update ghostscript to ghostpdl-10.05.0-0
+   * Update librsvg to 2.60.0-0
+   * Makefile: Drop mesa-git target
+   * Makefile: Drop export-docker target
+   * Add a buildability test for final OCI export
+   * Add fakecap to components stack
+   * extra-fs: Set correct permissions for root directory
+   * Update vim to v9.1.1230-0
+   * Update glibc to glibc-2.41-38
+   * Update python3-trove-classifiers to 2025.3.19.19-0
+   * Update shim to 16.0-0
+   * Update buildbox to 1.3.6-0
+   * Update mesa-sdk to mesa-25.0.2-0
+   * ncurses: Disable root environment
+   * ncurses: Refactor flags into common variable
+   * ncurses: Change to git source and update to 6.5
+   * gettext: Update to 0.24
+   * xdg-user-dirs: Set gettext macro and regenerate config
+   * xdg-user-dirs: Build docs
+   * xdg-user-dirs: Drop SUBDIRS=po
+   * Update python3-setuptools-rust to v1.11.0-0
+   * Update libsecret to 0.21.7-0
+   * Update gsettings-desktop-schemas to 48.0-0
+   * Update python3-filelock to 3.18.0-0
+   * ci: Add script to validate refs before repo push
+   * Update libusb to v1.0.28-0
+   * Update ccid to 1.6.2-0
+   * Update python3-gi-docgen to 2025.3-0
+   * libnvme: Enable liburing
+   * libnvme: Update to 1.12.0
+   * Update ccache to v4.11.1-0
+   * git: Drop version bootstrapping
+   * webrtc-audio-processing: Update devel split
+   * webrtc-audio-processing: Disable neon except aarch64
+   * webrtc-audio-processing: Drop arch-conf
+   * webrtc-audio-processing: Drop all patches
+   * Update webrtc-audio-processing to v2.1-0
+   * Update libavif to v1.2.1-0
+   * Update buildbox to 1.3.4-0
+   * Update expat to R_2_7_0-0
+   * Update pipewire-base to 1.4.1-0
+   * fwupd: Add patch for pango api break in shape()
+   * pango: Update to 1.56.3
+   * Update libsrtp2 to v2.7.0-0
+   * Update python3-multidict to v6.2.0-0
+   * rust: Add patch for LLVM 20
+   * rust: Set download-ci-llvm to false
+   * rust: Update to 1.85
+   * spirv-llvm-translator: Track v20 and update to 20.1.0
+   * Update llvm to llvmorg-20.1.0-0
+   * Update python3-aiohttp to 3.11.14
+   * ci: Update image
+   * buildstream-plugins: Update to 2.4.0
+   * Update libxslt to v1.1.43-0
+   * Add work-around to be able to setcap/getcap in Buildstream
+   * signed-boot: Use ukify to repack the UKI
+   * signed-boot: Fix missing dependencies
+   * signed-modules: Expect zstd modules
+   * signed-modules: Fix missing dependencies
+   * Makefile: Use prod keys for vm/minimal-secure
+   * efitools-efi: Fix import of keys
+   * shim: Use DB file instead of CERT file for vendor keys
+   * vm/minimal-secure: Fix partition sizes
+   * dracut: Work-around permission issue with systemd-sysusers
+   * dracut: Update to 106
+   * dracut: Fix dependencies
+   * Update extra-cmake-modules to v6.12.0-0
+   * Update gobject-introspection-base to 1.84.0-0
+   * oci-build: Add extended attributes
+   * ci: Update image
+   * git: Disable coccinelle
+   * Update git to v2.49.0-0
+   * glibc: fix unexpected ref for glibc
+   * Update python3-setuptools to v76.0.0-0
+   * flatpak_branch_validator: Add makefile branch validation
+   * flatpak_branch_validator: Use common variables for regex patterns
+   * Update python3-jinja2 to 3.1.6-0
+   * Update mutool to 1.25.5-0
+   * Update pkg-config to pkgconf-2.4.3-0
+   * Update vim to v9.1.1202-0
+   * Update glibc to glibc-2.38.9000-1845
+   * ffmpeg: Add patch for svt-av1 3.0
+   * svt-av1: Disable cpuinfo
+   * Update svt-av1 to v3.0.1-0
+   * shim: Add efi-arch as a stub to enable tracking
+   * Update spirv-llvm-translator to v19.1.5-0
+   * Update podman to v5.4.1-0
+   * Update fontconfig to 2.16.1-0
+   * Update libxkbcommon to xkbcommon-1.8.1-0
+   * xdg-desktop-portal-base: Track stable releases
+   * xdg-desktop-portal-base: Drop libportal meson arg
+   * xdg-desktop-portal-base: Drop patch and disable tests with meson arg
+   * pipewire: Add libebur128
+   * vulkan-stack: Update to vulkan-sdk-1.4.309.0-0
+   * systemd: Update to v257.4-0
+   * gstreamer-source: Update to 1.26.0-0
+   * mesa-sources: Update to mesa-25.0.1-0
+   * xorg-lib-xtrans: Update to xtrans-1.6.0-0
+   * xorg-lib-sm: Update to libSM-1.2.6-0
+   * xdg-desktop-portal-base: Update to 1.20.0-0
+   * qpdf: Update to v12.0.0-0
+   * python3-protobuf: Update to 6.30.1
+   * python3-maturin: Update to v1.8.3-0
+   * python3-dbus: Update to dbus-python-1.4.0-0
+   * python3-click: Update to 8.1.8-0
+   * python3-attrs: Update to 25.3.0-0
+   * python3-aiohappyeyeballs: Update to v2.6.1-0
+   * pygobject: Update to 3.52.2-0
+   * protobuf: Update to v30.1-0
+   * pipewire-base: Update to 1.4.0-0
+   * opensbi: Update to v1.6-0
+   * newt: Update to r0-52-25-0
+   * man-pages: Update to man-pages-6.13-0
+   * linux-firmware: Update to 20250311-0
+   * libxmlb: Update to 0.3.22-0
+   * libical: Update to v3.0.20-0
+   * iio-sensor-proxy: Update to 3.7-0
+   * hwdata: Update to v0.393-0
+   * gnupg: Update to gnupg-2.5.5-0
+   * dictionaries: Update to libreoffice-25.2.2.1-0
+   * dbus-base: Update to dbus-1.16.2-0
+   * gtk-doc: Add runtime dependency on lxml
+   * ovmf: Set some variables to stub values to enable tracking
+   * grpc: Update to 1.71.0
+   * Update protobuf to v30.0-0
+   * python3-sphinx: Convert runtime-depends to depends
+   * Update python3-sphinx to v8.2.3-0
+   * Update vala to 0.56.18-0
+   * Update python3-virtualenv to 20.29.3-0
+   * Update gmmlib to intel-gmmlib-22.7.0-0
+   * pygobject: Ensure wrap revision is consistent with source in element
+   * pygobject: Add pythoncapi-compat wrap and patch from wrap
+   * pygobject: Update to 3.52.1
+   * Update kmod to v34.1-0
+   * Update xorg-lib-x11 to libX11-1.8.12-0
+   * collect_initial_scripts: Fix usage of deprecated node_subst_vars
+   * Update iwd to 0.74-0
+   * Update sdl2-compat to release-2.32.52-0
+   * u-boot: Switch to github to make tracking work
+   * u-boot: Define board variable as a stub so that tracking works
+   * cairo: Enable lzo
+   * cairo: Update to 1.18.4
+   * flatpak-repo: Remove fsync when creating repo
+   * opensbi-u-boot: Use make-install variable to reduce boilerplate
+   * u-boot-unmatched: Convert to make element
+   * Update conmon to v2.1.13-0
+   * Update glib to 2.84.0-0
+   * Update gtk3 to 3.24.49-0
+   * Update python3-protobuf to 6.30.0
+   * Convert some elements to make from manual
+   * ci: Update docker image
+   * sof-firmware: Update to 2025.01
+   * rsync: Fix runtime dependencies
+   * tpm2-tss: Fix installation path for udev rules
+   * ed: Update to 1.21
+   * Update vim to v9.1.1182-0
+   * Update libsepol to libsepol-3.8.1-0
+   * Update glibc to glibc-2.41-29
+   * Update pkg-config to pkgconf-2.4.1-0
+   * u-boot-qemu: Add openssl and runtime-minimal to depends
+   * u-boot-qemu: Convert to make element
+   * Drop fscrypt-maybe
+   * track-elements: Add parents of maybe elements to track-elements
+   * binary-seed-source: Update to latest commit
+   * sdk: Drop gtk-doc
+   * platform: Drop pygobject
+   * curl: Build with cmake-stage1
+   * Update sdl3 to release-3.2.8-0
+   * Update sdl3-image to release-3.2.4-0
+   * ffmpeg: Drop libx264 patch
+   * Update ffmpeg to n7.1.1-0
+   * Update libselinux to libselinux-3.8.1-0
+   * Update python3-setuptools to v75.8.2-0
+   * Update go to go1.24.1-0
+   * libcap: Update to 2.75
+   * Update mesa-sdk to mesa-25.0.1-0
+   * Update python3-cryptography to 44.0.2-0
+   * Update networkmanager to 1.52.0-0
+   * Bump treshold to 16 CPU's
+   * Update poppler to poppler-25.03.0-0
+   * Update libnghttp2 to v1.65.0-0
+   * Update intel-media-driver to intel-media-25.1.3-0
+   * efitools: Convert to stack of bin and efi elements
+   * Add a efitools-efi element for the EFI files
+   * Add efitools-bin for adding to components
+   * efitools: Create a shared source and build-configuration
+   * efitools-maybe: Stop building on i686
+   * Update ell to 0.74-0
+   * Update libcap to libcap-2.74-0
+   * Update gstreamer-plugins-rs to 0.13.5-0
+   * Update exfat-progs to 1.2.8-0
+   * texinfo: Update to 7.2
+   * debugedit: Update to 5.1
+   * binutils: Add patch to make gprofng doc tarball reproducible
+   * stripper: Print ELF path,arch and toolchain paths if objdump is not found
+   * Use mkstemp instead of tmpnam_r
+   * Update python3-setuptools-scm to v8.2.0-0
+   * Drop cisco openh264
+   * go: Remove stray test library
+   * Update go to go1.24.0-0
+   * Update libheif to v1.19.7-0
+   * Update harfbuzz to 10.4.0-0
+   * sdl3-image: Add jxl support
+   * sdl3-image: Migrate cmake args to SDL3
+   * sdl2-ttf: Update to 3.2.0 and rename
+   * sdl3-image: Update to 3.2.2
+   * sdl3: Update to 3.2.6
+   * gstreamer-plugins-good: Disable ximagesrc (X11)
+   * Update linux to v6.13.5-0
+   * Update xwayland to xwayland-24.1.6-0
+   * Update binary seed
+   * ci: Update docker image
+   * Update glibc to glibc-2.41-25
+   * Update vim to v9.1.1160-0
+   * pcre2: Add sljit submodule
+   * Update pcre2 to pcre2-10.45-0
+   * Update cmake to v3.31.6-0
+   * Update lvm2 to v2_03_31-0
+   * Update btrfs-progs to v6.13-0
+   * Update ell to 0.73-0
+   * linux-firmware: Add git-minimal for check-whence
+   * Add GNU parallel for linux-firmware
+   * linux-firmware: Convert to make element and use upstream compress script
+   * Update python3-propcache to v0.3.0-0
+   * Update shaderc to v2025.1-0
+   * Update libassuan to libassuan-3.0.2-0
+   * Update dictionaries to libreoffice-25.2.1.2-0
+   * check-abi-mesa.bst: Allow symbols to be added
+   * Update libnotify to 0.8.4-0
+   * Update fmtlib to 11.1.4-0
+   * Update cunit to 3.5.2-0
+   * Update python3-roman-numerals-py to v3.1.0-0
+   * mesa: Update to 25.0.0
+   * libdrm: Move the main library to mesa extension
+   * files/linux/fdsdk-config.sh: Build VMD module
+   * Update shadow to 4.17.3-0
+   * Update clinfo to 3.0.25.02.14-0
+   * Update extra-cmake-modules to v6.11.0-0
+   * Update pyelftools to v0.32-0
+   * linux: Build ramdisk module (brd)
+   * components/wayland-protocols: Update to 1.41.0
+   * Add a bugtracker URL to all metainfo files
+   * Update man-pages to man-pages-6.12-0
+   * Update util-linux-base to v2.42-start-0
+   * Update passt to 2025_02_17.a1e48a0-0
+   * Update libavif to v1.2.0-0
+   * mesa: Drop clc_res_path patch
+   * Make codecs-extra follow branch-extra pattern to satisfy unification
+   * sdk: Add codecs-extra to sdk manifest
+   * Revert "autotools/make: Use parallel install"
+   * libdatrie: Build docs
+   * libdatrie: Modernise dependency specification
+   * Update open-iscsi to 2.1.11-0
+   * Update python3-aiohttp to 3.11.13
+   * Update kmod to v34-0
+   * Update python3-poetry-core to 2.1.1-0
+   * ci: Renable reproducible_x86_64, drop manual and allow_faliure
+   * Update libxml2 to v2.13.6-0
+   * Update liburcu to v0.15.1-0
+   * Update orc to 0.4.41-0
+   * Update sqlite to version-3.49.1-0
+   * Update linux to v6.13.4-0
+   * Update python3-pyelftools to v0.32-0
+   * Update libppd to 2.1.1-0
+   * ovmf: Disable tracking temporarily
+   * python3-roman-numerals-py: Disable stripping
+   * python3-roman-numerals-py: Move license file to expected location
+   * python3-sphinxcontrib-jsmath: Update reproducibility patch
+   * Add python3-roman-numerals-py for sphinx
+   * python3-sphinx: Update to 8.2.1
+   * python3-sphinx: Exclude rc tags
+   * Update harfbuzz to 10.3.0-0
+   * Update glibc to glibc-2.41-9
+   * Update vim to v9.1.1130-0
+   * Update zstd to v1.5.7-0
+   * Update glib to 2.82.5-0
+   * Update libblockdev to 3.3.0-0
+   * python3-flit-core: Drop license file pattern from vendor directory
+   * Update python3-flit-core to 3.11.0-0
+   * Update dictionaries to libreoffice-25.2.1.1-0
+   * Update openssh to V_9_9_P2-0
+   * Update python3-trove-classifiers to 2025.2.18.16-0
+   * flags: Enforce a rust debuginfo level of 2 globally
+   * rust: Override debug flags for rust itself
+   * Update xfsprogs to v6.13.0-0
+   * Update qpdf to v11.10.1-0
+   * Update libcupsfilters to 2.1.1-0
+   * gstreamer-plugins-ugly: drop orc as unnecessary dep
+   * tests: Add a test for x264enc and avdec_h264
+   * gstreamer-plugins-ugly: Split to build x264 encoder element in extension
+   * gst-libav: Add codecs-extra extension and adjust search paths
+   * tests: Adjust tests due to switch to runtime extension
+   * libheif: Adjust plugin install directory
+   * codecs-extra: Switch to lib as libdir
+   * platform: Add codecs-extra to platform manifest
+   * Rename to ffmpeg-full to codecs-extra
+   * platform: Disable openH264 autodownload
+   * ci: Print Flatpak ref's size information in after_script
+   * Update buildbox to 1.2.45-0
+   * Update libpng to v1.6.47-0
+   * Update cython to 3.0.12-0
+   * Update gnupg to gnupg-2.5.4-0
+   * Update erofs-utils to v1.8.5-0
+   * Update fwupd to 2.0.6-0
+   * Update exfat-progs to 1.2.7-0
+   * Update flat-manager-client-base to 0.4.5-0
+   * man-pages: Update to 6.11
+   * man-pages: Convert to make element
+   * gdb: Enable all languages
+   * gdb: Enable extra targets for cross debugging
+   * Update python3-psutil to release-7.0.0-0
+   * Update python3-cryptography to 44.0.1-0
+   * Update poppler to poppler-25.02.0-0
+   * Update slirp4netns to v1.3.2-0
+   * sdl3-image: Update split rules
+   * sdl3-image: Build with sdl3
+   * Rename sdl2-image to sdl3-image
+   * Update sdl2-image to release-3.2.0-0
+   * fuse3: Disable example and tests
+   * fuse3: Exclude rc releases
+   * ldconfig: Fix test for ldconfig cache
+   * Update aom to v3.12.0-0
+   * Update xorg-data-xkeyboard-config to xkeyboard-config-2.44-0
+   * Update iwd to 0.73-0
+   * pcsc-lite: Delete static library
+   * Update openssl to openssl-3.4.1-0
+   * Update glibc to glibc-2.41-7
+   * Update vim to v9.1.1113-0
+   * Update systemd to v257.3-0
+   * Update lcms to lcms2.17-0
+   * Update sdl2-mixer to release-2.8.1-0
+   * Update podman to v5.4.0-0
+   * Update curl to curl-8_12_1-0
+   * Update libei to 1.4.0-0
+   * Update sdl2-compat to release-2.32.50-0
+   * Update liblc3 to v1.1.3-0
+   * Update libffi to v3.4.7-0
+   * Update python3-lxml to lxml-5.3.1-0
+   * Update libflac to 1.5.0-0
+   * Update linux-firmware to 20250211-0
+   * Update so versions in gst-libav patch
+   * gstreamer-libav: Check that sonames from gstreamer-patch are found
+   * Update python3-maturin to v1.8.2-0
+   * Update python3-virtualenv to 20.29.2-0
+   * Update iwd to 3.4-0
+   * Update ell to 0.72-0
+   * linux-pam-base: Disable docs
+   * linux-pam-base: Disable selinux explicitly and remove var/run
+   * linux-pam-base: Disable nis due to no libnsl
+   * linux-pam-base: Disable logind support due to circular dep
+   * linux-pam-base: Enable libeconf
+   * linux-pam-base: Convert to meson
+   * linux-pam-base: Update to 1.7.0
+   * linux-pam-base: Convert to git_repo
+   * sqlite: Add explicit dependency on zlib
+   * sqlite: Enable geopoly and rtree
+   * Update netavark to v1.14.0-0
+   * Update hwdata to v0.392-0
+   * Update python3-pip to 25.0.1-0
+   * Update aardvark-dns to v1.14.0-0
+   * ovmf: Use tianocore subhook mirror
+   * rust: Always build using lld
+   * llvm: Enable lld also on i686
+   * gnutls: Add patch to disable fetching submodules and using wget
+   * Update gnutls to 3.8.9-0
+   * binutils: Drop gold as it's deprecated in 2.44
+   * sqlite: Drop duplicate option
+   * sqlite: Autosetup is now used instead of GNU Autoconf
+   * Update fwupd to 2.0.5-0
+   * Update go to go1.23.6-0
+   * Update xwayland to xwayland-24.1.5-0
+   * Update linux to v6.13.2-0
+   * Update sdl2-compat to release-2.30.54-0
+   * Update sdl3 to release-3.2.4-0
+   * Update python3-aiohappyeyeballs to v2.4.6-0
+   * Update vim to v9.1.1081-0
+   * Update curl to curl-8_12_0-0
+   * Update wireplumber to 0.5.8-0
+   * Update vulkan-stack to vulkan-sdk-1.4.304.1-0
+   * sqlite: Avoid rpath in libsqlite3 versioned library too
+   * sqlite: drop RPATH
+   * sqlite: Use legacy soname scheme
+   * sqlite: Adjust configure arguments
+   * sqlite: drop loongarch64-specific hack
+   * Update sqlite to version-3.49.0-0
+   * libtasn1: Update to v4.20
+   * libtasn1: Add a check to make sure right revision is tracked
+   * libtasn1: Convert gnulib to a seperate git_repo
+   * ci: Update docker image
+   * u-boot-unmatched: Add dependency on gnutls
+   * u-boot-unmatched: Update to v2025.01
+   * u-boot-unmatched: Track tags
+   * Update intel-media-driver to intel-media-25.1.1-0
+   * Update libxkbcommon to xkbcommon-1.8.0-0
+   * Update crun to 1.20-0
+   * Update abseil-cpp to 20250127.0-0
+   * Update python3 to v3.13.2-0
+   * Update nv-codec-headers to n13.0.19.0-0
+   * Update xorg-lib-x11 to libX11-1.8.11-0
+   * Update liblc3 to v1.1.2-0
+   * Update python3-mako to rel_1_3_9-0
+   * Update rdfind to releases/1.7.0-0
+   * libei: Exclude rc releases
+   * Update binutils to binutils-2_44-0
+   * sdl2-compat: Drop upstreamed patch
+   * Update sdl2-compat to release-2.30.52-0
+   * Update libjcat to 0.2.3-0
+   * ldconfig: Remove unreproducible aux-cache
+   * glibc: Update to 2.41
+   * Update python3-babel to 2.17.0
+   * Update hotdoc to 0.17.4
+   * Update linux to v6.13.1-0
+   * Update grpc to v1.70.1-0
+   * Revert "python3_sitecustomize: Drop enumerate as `position` was unused"
+   * Update spirv-llvm-translator to v19.1.4-0
+   * Update gdb to gdb-16.2-release-0
+   * Update glibc to glibc-2.40-69
+   * Update vim to v9.1.1061-0
+   * Update file to FILE5_46-0
+   * gtk-doc: Switch to meson and remove incorrect cpe data
+   * sdl2-compat: Add upstream patch to restore headers
+   * libde265: Add patch for missing cstring header
+   * Provide sdl2-compat
+   * sdl3: Drop config and update split rules
+   * sdl3: Disable test library, tests and examples
+   * sdl3: Drop removed options
+   * sdl3: Update to 3.2.0
+   * Update wayland-protocols to 1.40-0
+   * Update python3-certifi to 2025.01.31-0
+   * Update python3-pytz to 2025.1
+   * flags: enable Pointer Authentication for aarch64
+   * Update libsepol to libsepol-3.8-0
+   * Update libselinux to libselinux-3.8-0
+   * Update libslirp to v4.9.0-0
+   * Update gstreamer to 1.24.12-0
+   * Update wavpack to 5.8.1-0
+   * ci: Update image
+   * Also emit stderr when snap-review crashes
+   * snap: Change writing directly to /usr/lib/modules
+   * snap: Drop fix image scripts
+   * kmod: build with zstd library and add it as dependency
+   * kmod: add compression libraries as dependencies
+   * Update wavpack to 5.8.0-0
+   * Update buildbox to 1.2.43-0
+   * linux: add option needed for HDMI output on the Rock 5B
+   * Update meson to 1.7.0-0
+   * Update python3-pip to 25.0-0
+   * Update nss to NSS_3_101_3_RTM-0
+   * Update python3-filelock to 3.17.0-0
+   * Update grpc to v1.70.0-0
+   * Update mutool to 1.25.4-0
+   * Update fmtlib to 11.1.3-0
+   * Fix FUSE disable to be in before_script
+   * Update iio-sensor-proxy to 3.6-0
+   * Update gtk3 to 3.24.48-0
+   * Update python3-attrs to 25.1.0-0
+   * Update dav1d to 1.5.1-0
+   * Update xz to v5.6.4-0
+   * Update vim to v9.1.1050-0
+   * Update glibc to glibc-2.40-68
+   * Update libpng to v1.6.46-0
+   * Update cmake to v3.31.5-0
+   * Update strace to v6.13-0
+   * Update dictionaries to libreoffice-25.2.0.3-0
+   * Update abseil-cpp to 20240722.1-0
+   * Update man-pages to man-pages-6.10-0
+   * Update buildbox to 1.2.42-0
+   * libseccomp: Update to v2.6.0 and drop loongarch64-specific hack
+   * pipewire: Restrict minor version to even only
+   * Update mutool to 1.25.3-0
+   * Update mesa-sdk to mesa-24.3.4-0
+   * components: Remove base and stage1 elements
+   * sdl2: Track SDL2 versions only
+   * Disable buildbox-fuse if reflinks are usable
+   * Update fontconfig to 2.16.0-0
+   * Update libpaper to v2.2.6-0
+   * Update iproute2 to v6.13.0-0
+   * Update networkmanager to 1.50.2-0
+   * linux: Compress kernel modules with zstd
+   * Update fwupd to 2.0.4-0
+   * Update buildbox to 1.2.41-0
+   * Update mesa to mesa-24.3.4-0
+   * coreutils: Tweak variable formatting
+   * Update perl to v5.40.1-0
+   * Update python3-virtualenv to 20.29.1-0
+   * Update passt to 2025_01_21.4f2c8e7-0
+   * Update podman to v5.3.2-0
+   * chore: Remove unused pylint configuration
+   * chore: Replace unused dirs variables
+   * python3_sitecustomize: Drop enumerate as `position` was unused
+   * test_minimal_system: Fix logging format string
+   * yaml_diff: Explicitly set encoding with tempfile
+   * chore: Remove commented out debug lines
+   * chore: Apply new ruff formatting fixes
+   * ci: Run ruff directly
+   * chore: Extend ruff configuration
+   * linux: Drop unused configuration
+   * Update linux to v6.13-0
+   * .gitlab-ci.yml: Only run daily job in the big RISC-V machines
+   * Update hotdoc to 0.17.3
+   * Update xdg-desktop-portal-base to 1.19.2-0
+   * Update shaderc to v2024.4-0
+   * Update libexif to libexif-0_6_25-release-0
+   * Update go to go1.23.5-0
+   * Update lvm2 to v2_03_30-0
+   * Update pango to 1.56.1-0
+   * buildstream: Improve findability through rename
+   * Update gdb to gdb-16.1-release-0
+   * libsecret: Disable bash-completion
+   * Update libsecret to 0.21.6-0
+   * Update tzdata to 2025a-0
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-164
+   * Update git-lfs to v3.6.1-0
+   * Update linux to v6.12.10-0
+   * Update shadow to 4.17.2-0
+   * Update ostree to v2025.1-0
+   * git-minimal: Disable curl
+   * git: Build with meson
+   * ci: Make riscv job non-interruptible
+   * Update rsync to v3.4.1-0
+   * Update vim to v9.1.1029-0
+   * Update cmake to v3.31.4-0
+   * Update libsoup to 3.6.4-0
+   * Update rust-cbindgen to v0.28.0-0
+   * Update python3-click to 8.2.0-0
+   * wavpack: Exclude non production tags
+   * Update fmtlib to 11.1.2-0
+   * Update python3-trove-classifiers to 2025.1.15.22-0
+   * Update util-linux-base to v2.40.4-0
+   * binutils: Fix --enable-deterministic-archives to only affect these elements
+   * Update to new image
+   * Update llvm to llvmorg-19.1.7-0
+   * Update intel-media-driver to intel-media-25.1.0-0
+   * Update git to v2.48.1-0
+   * Update vulkan-stack to vulkan-sdk-1.4.304.0-0
+   * Update libxcrypt to v4.4.38-0
+   * image: Update to image with buildbox 1.2.39
+   * files/linux/fdsdk-config.sh: Reorganise and document
+   * Update libeconf to v0.7.7-0
+   * Update libsoup to 3.6.3-0
+   * Reduce fetchers
+   * Update openal to 1.24.2-0
+   * Update python3-poetry-core to 2.0.1-0
+   * Update dictionaries to libreoffice-25.2.0.2-0
+   * polkit: mozjs backend has been dropped and option removed
+   * Update polkit-base to 126-0
+   * Update to latest image
+   * Update doxygen to Release_1_13_2-0
+   * Update harfbuzz to 10.2.0-0
+   * Update python3-setuptools to v75.8.0-0
+   * Update protobuf to v29.3-0
+   * Update linux-firmware to 20250109-0
+   * pango: Disable docs
+   * Update pango to 1.56.0-0
+   * Update git to v2.48.0-0
+   * Revert "ci: Drop git fetch"
+   * Update xxhash to v0.8.3-0
+   * flatpak: Start tracking stable tags
+   * flatpak: Update to 1.16.0
+   * Update vim to v9.1.1000-0
+   * Update python3-trove-classifiers to 2025.1.10.15-0
+   * Update extra-cmake-modules to v6.10.0-0
+   * assign_marge: Fix branch calculation when running on stable branches
+   * assign_marge: Process MRs opened by everyone
+   * Update glib-networking to 2.80.1-0
+   * Update swig to v4.3.0-0
+   * ci: Drop git fetch
+   * Update util-linux-base to v2.40.3-0
+   * Update gnupg to gnupg-2.5.3-0
+   * Update python3-protobuf to 5.29.3
+   * Update systemd to v257.2-0
+   * Update python3-pygments to 2.19.1-0
+   * Update libpng to v1.6.45-0
+   * audit: Drop redundant patch
+   * Update audit to v4.0.3-0
+   * assign_marge: Skip if already assigned to marge
+   * assign_marge: Add a dry run mode for debugging
+   * assign_marge: Add some debug logging
+   * Update u-boot-qemu to v2025.01-0
+   * Update mesa-sdk to mesa-24.3.3-0
+   * Update python3-trove-classifiers to 2025.1.7.14-0
+   * Update gstreamer to 1.24.11-0
+   * assign_marge: Search only titles for NEWS MR
+   * vm/boot/u-boot: Fix /var/tmp dracut error
+   * assign_marge: List only approved MRs
+   * assign_marge: Drop max MR count to process to 30
+   * assign_marge: Drop a redundant parameter
+   * assign_marge: Improve the error when skipping on NEWS MRs
+   * assign_marge: Add some comments
+   * ci: Drop master branch condition from branch cleanup script
+   * Add script to assign to Marge automatically before running daily updates
+   * Update python3-ruamel-yaml to 0.18.10
+   * Update python3-setuptools to v75.7.0-0
+   * Update hwdata to v0.391-0
+   * Update libinput to 1.27.1-0
+   * Update python3-ruamel-yaml to 0.18.9
+   * Update python3-pygments to 2.19.0-0
+   * Update linux to v6.12.8-0
+   * Update python3-pil to 11.1.0-0
+   * Update mesa to mesa-24.3.3-0
+   * Update python3-poetry-core to 2.0.0-0
+   * Update python3-virtualenv to 20.28.1-0
+   * Update buildbox to 1.2.38-0
+   * Fix OpenH264 version definition
+   * Update noopenh264 to v2.5.0-0
+   * Update vim to v9.1.0988-0
+   * Update poppler to poppler-25.01.0-0
+   * Update composefs to v1.0.8-0
+   * Update sdl2-ttf to release-2.24.0-0
+   * Update sdl2 to release-2.30.11-0
+   * Enable aa-* utils by creating LibAppArmor.py at configure time
+   * Update python3-ruamel-yaml to 0.18.8
+   * Update e2fsprogs to v1.47.2-0
+   * Update erofs-utils to v1.8.4-0
+   * Update doxygen to Release_1_13_1-0
+   * image: Update to edcad4f0b35deca34fbf20ad38c078b463f627f4
+   * Update python3-pyparsing to 3.2.1-0
+   * Update spirv-llvm-translator to v19.1.3-0
+   * Update shadow to 4.17.1-0
+   * Update python3-ruamel-yaml to 0.18.7
+   * Update intel-media-driver to intel-media-24.4.4-0
+   * Update python3-maturin to v1.8.1-0
+   * Drop python-six from platform
+   * gstreamer-plugins-rs: Only enable plugins which are in use
+   * gstreamer-plugins-rs: Enable docs
+   * gstreamer-plugins-rs: Disable all plugins by default
+   * Update libxcrypt to v4.4.37-0
+   * Update nettle to nettle_3.10.1_release_20241230-0
+   * Cleanup merged branches
+   * mesa-default: Create symlinks for all paths defined in flatpak merge-dirs
+   * python3-click: Disable stripping
+   * python3-click: Switch to flit buildsystem
+   * python3-charset-normalizer: Add setuptools-scm to build depends
+   * python3-charset-normalizer: Drop mypy from dependencies
+   * llvm: Update to llvmorg-19.1.6-0
+   * grpc-source: Update to v1.69.0-0
+   * flatpak: Update to 1.15.91-0
+   * platform-vaapi-intel/gmmlib: Update to intel-gmmlib-22.6.0-0
+   * sdl2-image: Update to release-2.8.4-0
+   * python3-urllib3: Update to 2.3.0-0
+   * python3-click: Update to 8.1.8-0
+   * python3-charset-normalizer: Update to 3.4.1-0
+   * procps: Update to v4.0.5-0
+   * pcsc-lite: Update to 2.3.1-0
+   * libwebp: Update to v1.5.0-0
+   * hotdoc: Update to 0.17.2
+   * gstreamer-plugins-rs: Update to 0.13.4-0
+   * fmtlib: Update to 11.1.1-0
+   * erofs-utils: Update to v1.8.3-0
+   * dictionaries: Update to libreoffice-25.2.0.1-0
+   * bash-completion: Update to 2.16.0-0
+   * Add extensions pattern to auto_updater branch regex
+   * buildstream: Update to 2.4.0
+   * xorg-proto-xorgproto: Restore being built with meson
+   * opensbi-u-boot: Add `public-stacks/buildsystem-make`
+   * Replace `runtime-depends` in U-Boot+QEMU elements
+   * Fix U-Boot+QEMU elements for riscv64 platforms
+   * mesa: Enable intel-nullhw layer
+   * mesa: Enable vulkan screenshot layer
+   * Update shadow to 4.17.0-0
+   * Update doxygen to Release_1_13_0-0
+   * Update xorg-lib-xau to libXau-1.0.12-0
+   * Update glibc to glibc-2.40-64
+   * Update vim to v9.1.0967-0
+   * python3: Re-drop Tkinter
+   * iio-sensor-proxy: Ignore release candidates
+   * Update networkmanager to 1.50.1-0
+   * Update ostree to v2024.10-0
+   * Update linux to v6.12.7-0
+   * Update liburcu to v0.15.0-0
+   * Update protobuf to v29.2-0
+   * Update python3-maturin to v1.8.0-0
+   * Update curl to curl-8_11_1-0
+   * tk: Depend on libxss for optional features
+   * tcl, tk: Enable 64bit
+   * tcl, tk: Disable zipfs
+   * tcl: Update to 9.0.1
+   * Update tk to core-9-0-1-0
+   * Update cracklib to v2.10.3-0
+   * Update cmake to v3.31.3-0
+   * Update iwd to 3.3-0
+   * Update mesa-sdk to mesa-24.3.2-0
+   * Update libcamera to v0.4.0-0
+   * Update meson to 1.6.1-0
+   * Update python3-aiohttp to 3.11.11
+   * Update xorg-lib-sm to libSM-1.2.5-0
+   * Update nano to v8.3-0
+   * Update libical to v3.0.19-0
+   * ci: Decouple riscv build schedule from daily schedule
+   * Update buildbox to 1.2.37-0
+   * Update xorg-lib-xxf86vm to libXxf86vm-1.1.6-0
+   * Update python3-jinja2 to 3.1.5-0
+   * Update linux to v6.12.6-0
+   * Update perl-yaml-tiny to 1.76
+   * Update systemd to v257.1-0
+   * Update c-ares to v1.34.4-0
+   * Update python3-dulwich to 0.22.7
+   * Move GOMAXPROCS to global settings
+   * Makefile: Extract last tag version from news
+   * ci: Lower git depth to 20
+   * ci: Set GIT_STRATEGY to clone
+   * Use git rev-parse HEAD for flatpak commit
+   * Update xorg-lib-xrender to libXrender-0.9.12-0
+   * xdg-desktop-portal: Patch out tests
+   * xdg-desktop-portal: Drop doc dependencies
+   * xdg-desktop-portal: Add libgudev dependency
+   * Update xdg-desktop-portal-base to 1.19.1-0
+   * Update kbd to v2.7.1-0
+   * Update python3-hatchling to hatchling-v1.27.0-0
+   * Update python3-certifi to 2024.12.14-0
+   * Update python3-psutil to release-6.1.1-0
+   * Update mdadm to mdadm-4.4-0
+   * Update wayland-protocols to 1.39-0
+   * Apply ruff auto formatting fixes
+   * blob: Allow bare except
+   * ffmpeg-test: Use a descriptive variable name
+   * ci: Use ruff for formatting and linting
+   * Update glibc to glibc-2.40-63
+   * Update vim to v9.1.0950-0
+   * Update go-md2man to v2.0.6-0
+   * Update mesa to mesa-24.3.2-0
+   * Update sdl2-image to release-2.8.3-0
+   * Update python3-protobuf to 5.29.2
+   * rsync: depend on popt
+   * ci: Update docker image
+   * Fix tests for publish failures
+   * Update crun to 1.19.1-0
+   * Update passt to 2024_12_11.09478d5-0
+   * libp11: Add libpkcs11.so to devel
+   * libp11: Drop patch for openssl detection
+   * Update libp11 to libp11-0.4.13-0
+   * Update libeconf to v0.7.6-0
+   * Update python3-attrs to 24.3.0-0
+   * Update linux to v6.12.5-0
+   * Update gnupg to gnupg-2.5.2-0
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-163
+   * maturin: Move rust to depends
+   * dbus-base: Replace workaround with traditional activation disabled
+   * dbus-base: Enable doxygen and xml docs
+   * dbus-base: Disable other auto features with missing dependencies
+   * dbus-base: Disable relocation
+   * dbus-base: Disable tests
+   * dbus-base: Disable qt and duktype docs
+   * dbus-base: Port to meson
+   * dbus-base: Update to 1.16
+   * Update mutool to 1.25.2-0
+   * Update python3-aiosignal to v1.3.2-0
+   * Update btrfs-progs to v6.12-0
+   * Update cmake to v3.31.2-0
+   * crun: Use vendored yajl
+   * crun: use the notparallel variable
+   * libarchive: explicitly depend on zstd
+   * Update xorg-lib-xcvt to libxcvt-0.1.3-0
+   * Update systemd to v257-0
+   * Update glib to 2.82.4-0
+   * Update xorg-lib-xshmfence to libxshmfence-1.3.3-0
+   * Put boot-keys-test in components.bst only
+   * efitools, shim: Insert boot-keys element according to prod_keys option
+   * Drop generate-test-keys target
+   * Add a prod_keys boolean option
+   * Seperate elements for test and prod boot-keys
+   * ci: Update docker image to 24.08.9
+   * Drop wallclock from buildstream log messages
+   * ci: Enable FF_TIMESTAMPS flag globally
+   * Add separate target for building repo and don't build in export
+   * Update rust-bindgen to v0.71.1-0
+   * Update catatonit to v0.2.1-0
+   * Update xorg-lib-xv to libXv-1.0.13-0
+   * Update xorg-lib-ice to libICE-1.1.2-0
+   * release: Validate that versions are incremented by 1 for stable tags
+   * Validate Flatpak ref branch definitions in CI
+   * Update extra-cmake-modules to v6.9.0-0
+   * Update go to go1.23.4-0
+   * Update openjpeg to v2.5.3-0
+   * Update linux-firmware to 20241210-0
+   * Update efitools to v1.9.2-4
+   * Update vim to v9.1.0924-0
+   * Update crun to 1.19-0
+   * Update json-glib to 1.10.6-0
+   * Update jpeg to 3.1.0-0
+   * libarchive: add libxml2 support
+   * libarchive: add openssl support
+   * libarchive: add lz4 support
+   * Update glibc to glibc-2.40-61
+   * Update foomatic-db to 20240504-3
+   * Update pango to 1.55.5-0
+   * Update sqlite to version-3.47.2-0
+   * Update python3-protobuf to 5.29.1
+   * Update lvm2 to v2_03_29-0
+   * Update gmmlib to intel-gmmlib-22.5.5-0
+   * Update libeconf to v0.7.5-0
+   * Update python3-mako to rel_1_3_8-0
+   * Update llvm to llvmorg-19.1.5-0
+   * Update libcap to libcap-2.73-0
+   * Update hwdata to v0.390-0
+   * Update python3-maturin to v1.7.8-0
+   * linux: Drop libbpf patch
+   * Update linux to v6.12.4-0
+   * Update appstream to v1.0.4-0
+   * Update libdrm to libdrm-2.4.124-0
+   * Update mesa to mesa-24.3.1-0
+   * Update netavark to v1.13.1-0
+   * fwupd: Disable valgrind support
+   * Update fwupd to 2.0.3-0
+   * dummy-gbm: Remove obsolete patch
+   * Update mesa-sdk to mesa-24.3.1-0
+   * Update protobuf to v29.1-0
+   * Update libwacom to libwacom-2.14.0-0
+   * Update sdl2 to release-2.30.10-0
+   * Update vim to v9.1.0909-0
+   * Update python3-aiohttp to 3.11.10
+   * Update python3-six to 1.17.0-0
+   * Update libdrm to libdrm-2.4.124-0
+   * Update python3-mako to rel_1_3_7-0
+   * Collect only build logs when uploading artifacts for Flatpak pipelines
+   * ci: Check if publish_build.txt exists before running flat-manager purge
+   * Update gpgme to gpgme-1.24.1-0
+   * Update wireplumber to 0.5.7-0
+   * Update spirv-llvm-translator to v19.1.2-0
+   * Update grpc to v1.68.2-0
+   * Update glibc to glibc-2.40-56
+   * Update python3 to v3.13.1-0
+   * noto-emoji: Update to 2.047
+   * Update python3-propcache to v0.2.1-0
+   * Update gstreamer to 1.24.10-0
+   * Update python3-aiohappyeyeballs to v2.4.4-0
+   * Update pixman to pixman-0.44.2-0
+   * valgrind: Backport zstd support
+   * Update poppler to poppler-24.12.0-0
+   * Update python3-yarl to v1.18.3-0
+   * Update xfsprogs to v6.12.0-0
+   * Update python3-maturin to v1.7.7-0
+   * linux: Add CRYPTO_ZSTD module
+   * Update dictionaries to libreoffice-24.8.4.1-0
+   * Update openal to 1.24.1-0
+   * Update mutool to 1.25.1-0
+   * Update systemd to v256.9-0
+   * Update plocate to 1.1.23-0
+   * systemd: Build with bpf
+   * Update python3-virtualenv to 20.28.0-0
+   * Update python3-maturin to v1.7.6-0
+   * Update flatpak to 1.15.12-0
+   * Update pango to 1.55.0-0
+   * Update python3-yarl to v1.18.2-0
+   * Update protobuf to v29.0-0
+   * Update git-lfs to v3.6.0-0
+   * Update file to FILE5_46-0
+   * Update vim to v9.1.0895-0
+   * Update python3-protobuf to 5.29.0
+   * Update python3-aiohttp to 3.11.8
+   * Update iproute2 to v6.12.0-0
+   * ffmpeg-test: Ignore nvenc tests on riscv
+   * ffmpeg-test: Add a guard for running inside Flatpak only
+   * Update ell to 0.71-0
+   * Update wget2 to v2.2.0-0
+   * Update libjxl to v0.11.1-0
+   * Update sqlite to version-3.47.1-0
+   * python3-cryptography: Fix cargo lockfile path and update to 44.0.0
+   * perf: Explicitly set kernel_arch on riscv64
+   * perf: Backport libbpf include path fix
+   * Update fwupd to 2.0.2-0
+   * Update cmake to v3.31.1-0
+   * Update grpc to v1.68.1-0
+   * Update python3-maturin to v1.7.5-0
+   * Update passt to 2024_11_27.c0fbc7e-0
+   * Update ovmf to edk2-stable202411-0
+   * Update intel-media-driver to intel-media-24.4.3-0
+   * Update linux to v6.12.1-0
+   * ffmpeg: Disable ffnvcodec on risc-v
+   * mesa: Use crates alias for crates
+   * rust-stage1-riscv64: Bootstrap using 1.82
+   * Update pipewire-base to 1.2.7-0
+   * Update iwd to 3.2-0
+   * Update python3-yarl to v1.18.0-0
+   * Update sudo to SUDO_1_9_16p2-0
+   * Update git to v2.47.1-0
+   * Update podman to v5.3.1-0
+   * Update gpgme to gpgme-1.24.0-0
+   * Update bash-completion to 2.15.0-0
+   * pixman: Force disabling RISC-V Vector Intrinsic Support
+   * .gitlab-ci.yml: Run RISC-V job daily (apart from manual)
+   * Update python3-setuptools to v75.6.0-0
+   * Update python3-cryptography to 43.0.3-0
+   * ffmpeg: Add patch to fix build with libx265 4.1
+   * Update libx265 to 4.1-0
+   * ci: Allow aarch64 minimal systemd vm jobs to fail
+   * linux: Always enable BLK_DEV_SR module
+   * rust: Update to 1.82.0
+   * rust-stage1: Update to 1.81.0
+   * spirv-llvm-translator: Update to v19.1.1 and track v19 tags
+   * llvm: Update to 19.1.4
+   * Update python3-wheel to 0.45.1-0
+   * Update libsoup to 3.6.1-0
+   * u-boot-unmatched: Use make stack
+   * opensbi: Use make-install variable
+   * opensbi: Use make stack
+   * Update glibc to glibc-2.40-54
+   * linux: Enable ZRAM
+   * ci: Populate test keys before trying to fetch element sources
+   * Update vim to v9.1.0880-0
+   * Update libheif to v1.19.5-0
+   * Update go to go1.23.3-0
+   * Update passt to 2024_11_21.238c69f-0
+   * Update linux-firmware to 20241110-0
+   * libabigail: Add build dependency on xxhash
+   * pixman: Disable tests and demos
+   * pixman: Switch to new dependency layout
+   * shim-maybe: Stop building on i686 and riscv64
+   * spirv-llvm-translator: Use 18.1.6 tag
+   * spirv-llvm-translator: Track v18 tags
+   * Remove misleading comment
+   * Update ovmf to edk2-stable202408.01-0
+   * mesa: Enable Asahi vulkan driver
+   * mesa: Remove gallium omx
+   * mesa: Drop dri meson option
+   * mesa: Drop selinux option
+   * Update mesa to mesa-24.3.0-0
+   * Update libinput to 1.27.0-0
+   * aiohttp: Update to 3.11.6
+   * Update exfat-progs to 1.2.6-0
+   * Update perl-module-scandeps to 1.37
+   * Update libgpg-error to libgpg-error-1.51-0
+   * fcitx5: Rename element to reflect that this is packaging gtk im module
+   * fcitx5: Convert to newer element layout
+   * Simplify max-jobs computation
+   * audit: backport upstream patch
+   * plocate: Add to components
+   * findutils: Drop builtin mlocate
+   * python3-ruamel-yaml-clib: Drop patch
+   * desktop-file-utils: Drop patch
+   * systemd: Update to 256.8
+   * lvm2: Update to 2.03.28
+   * ostree: Update to 2024.9
+   * mesa-sdk: Update to 24.2.7
+   * libheif: Update to 1.19.3
+   * gstreamer: Update to 1.24.9
+   * grpc: Add missing submodules
+   * grpc: Update to 1.68
+   * cmake: Update to 3.31.0
+   * intel-media-driver: Update to 24.4.2
+   * gmmlib: Update to 22.5.3
+   * mesa: Update to 24.2.7
+   * zenity: Update to 3.44.5
+   * xorg-util-macros: Update to 1.20.2
+   * xorg-lib-xtrans: Update to 1.5.2
+   * xorg-lib-xt: Update to 1.3.1
+   * xorg-lib-xcursor: Update to 1.2.3
+   * vim: Update to 9.1.0873
+   * valgrind: Update to 3.24.0
+   * svt-av1: Update to 2.3.0
+   * sudo: Update to 1.9.6p1
+   * strace: Update to 6.12
+   * spirv-llvm-translator: Update to 18.1.6
+   * python3-yarl: Update to 1.17.2
+   * python3-wheezy-template: Update to 3.2.3
+   * python3-virtualenv: Update to 20.27.1
+   * python3-setuptools: Update to 75.5
+   * python3-ruamel-yaml-clib: Update to 0.2.12
+   * python3-protobuf: Update to 5.28.3
+   * python3-pip: Update to 24.3.1
+   * python3-packaging: Fix commit for 24.2 tag
+   * python3-markupsafe: Update to 3.0.2
+   * python3-mako: Update to 1.3.6
+   * python3-flit-core: Update to 3.10.1
+   * python3-dulwich: Update to 0.22.6
+   * protobuf: Update to v28.3
+   * pixman: Update to 0.44.0
+   * pipewire-base: Update to 1.2.6
+   * npth: Update to 1.8
+   * netavark: Update to 1.13.0
+   * mutool: Update to 1.24.11
+   * libxml2: Update to 2.13.5
+   * libnvme: Update to 1.11.1
+   * libnl: Update to 3.11.0
+   * libnghttp2: Update to 1.64.0
+   * libblockdev: Update to 3.2.1
+   * libabigail: Fix commit for 2.6 tag
+   * iwd: Update to 3.1
+   * iptables: Update to 1.8.11
+   * harfbuzz: Update to 10.1.0
+   * gstreamer-plugin-rs: Update to 0.13.3
+   * gnutls: Update to 3.8.8
+   * extra-cmake-modules: Update to 6.8.0
+   * ell: Update to 0.70
+   * dtc: Update to v1.7.2
+   * dictionaries: Update to 24.8.3.2
+   * desktop-file-utils: Update to 0.28
+   * curl: Update to 8.11.0
+   * crun: Update to 1.18.2
+   * c-ares: Update to 1.34.3
+   * buildbox: Stop creating buildbox-run symlink
+   * buildbox: Update to 1.2.33
+   * aom: Update to 3.11
+   * alsa-lib: Update to 1.2.13
+   * aardvark-dns: Update to 1.13.1
+   * linux: update to 6.12
+   * Update python3-sphinx-rtd-theme to 3.0.2-0
+   * Update nvidia-vaapi-driver to v0.0.13-0
+   * Update python3-wheel to 0.45.0-0
+   * Update python3-hatchling to hatchling-v1.26.3-0
+   * Use export stacks in various places
+   * Provide gcc and stripper in maturin build stack
+   * Provide gcc and stripper in setuptools build stack
+   * Opt out individual pyproject elements of stripper
+   * python3-async-timeout: Remove in favour of standard library
+   * Remove cert leftovers from template
+   * Use token authentication
+   * Hardcode gomp threads to reasonably low limit
+   * cmake-source: Update to v3.31.0
+   * libabigail: Use libabigail-2.6
+   * libabigail: Track tags
+   * Add diff find awk grep and sed back to make buildsystem stack
+   * Update glibc to glibc-2.40-53
+   * Drop mogwai and libgsystemservice
+   * Update vim to v9.1.0867-0
+   * Fix dependencies on systemd
+   * oci: Go back to building only layers in MR CI
+   * ci: Print cache sizes before cleaning them up
+   * shim: Use notparallel
+   * python3-packaging: Bump to 24.2
+   * Update python3-hatchling to hatchling-v1.26.1-0
+   * Increase after script timeout from 5 minutes to 30 minutes
+   * Fix flatpak-builder runtime dependencies
+   * Add export stacks for various bootstrap elements
+   * Update xfsprogs to v6.11.0-0
+   * Update utf8cpp to v4.0.6-0
+   * Update poppler to poppler-24.11.0-0
+   * Update mesa-sdk to mesa-24.2.6-0
+   * gcc: Enable zstd support
+   * Add minimal wheel installer
+   * Add absolutely minimal wheel build tool
+   * setuptools: Drop wheel dependency as it has been internalized
+   * ca-certificates: Remove util-linux runtime dependency
+   * libpsl,libnghttp2: Use python3-minimal
+   * generate-cve-report: Opt out of stripper
+   * python3-libversion: Add .git to url
+   * python3-libversion: Fix build dependencies
+   * Add python3-libversion to components
+   * Update libbpf to v1.5.0-0
+   * Update expat to R_2_6_4-0
+   * oci: Set gzip default compression to 5 and allow configuration
+   * cython: Exclude alpha beta and rc refs
+   * make strip-binaries explicit
+   * Use buildsystem-make for build, and runtime-minimal as runtime dependency
+   * Fix leftover snap version handling
+   * Update composefs to v1.0.7-0
+   * Update librsvg to 2.59.2-0
+   * Update libheif to v1.19.2-0
+   * oci: Switch from bootstrap as base to minimal runtime as base
+   * cmake: Add stage1 cmake to avoid depending on Python
+   * Update vim to v9.1.0847-0
+   * Update python3-frozenlist to v1.5.0-0
+   * Update libnvme to v1.11-0
+   * Update hwdata to v0.389-0
+   * Update mesa to mesa-24.2.6-0
+   * Update passt to 2024_10_30.ee7d0b6-0
+   * Update bluez to 5.79-0
+   * Update python3-setuptools to v75.3.0-0
+   * open-isns: Update to v0.103-0
+   * open-isns: Depend on openssl for security feature
+   * open-isns: Mark devel
+   * open-isns: Convert to meson
+   * Update to latest image
+   * intel-media-driver: Try building for i686
+   * Remove intel-vaapi-driver
+   * squashfs-tools: Move to components and update to 4.6.1
+   * Update python3-trove-classifiers to 2024.10.21.16-0
+   * Update python3-networkx to networkx-3.4.2-0
+   * Update sdl2 to release-2.30.9-0
+   * Update xwayland to xwayland-24.1.4-0
+   * Update grpc to v1.67.1-0
+   * Update libseat to 0.9.1-0
+   * Update python3-dulwich to 0.22.4
+   * Update libvpx to v1.15.0-0
+   * Update to new image that supports UploadTree in bst and buildbox
+   * libheif: Set cmake arg to disable werror
+   * libheif: Remove outdated patches
+   * libheif: Update to v1.19.1
+   * bubblewrap: Build docs
+   * bubblewrap: Disable tests
+   * bubblewrap: Switch to meson
+   * bubblewrap: Update to v0.11.0
+   * buildsystem-meson: remove setuptools
+   * python3-hatch-fancy-pypi-readme: Use hatchling buildsystem
+   * ci: Bump image to fix tracking errors related to dulwich
+   * Add fmt to platform
+   * ci: Bump image
+   * bootstrap/go: Add missing cross toolset
+   * bootstrap: add missing elements
+   * {gzip,go}: build-depend on debugutils
+   * python3-setuptools-git: setuptools-git depends on setuptools at runtime
+   * python3-pyyaml: drop workaround for cython
+   * ci: Bump docker image
+   * utils: Drop utils/test_reproducibility.py
+   * ci: Use buildstream-reprotest instead of the local utility
+   * ci: Update docker image
+   * ci: Bump docker image
+   * libvdpau: Remove tab character from element
+   * Update to latest image
+   * Re-enable compression in various elements
+   * Remove debug info compression through objcopy
+   * elfutils,debugedit: Add rpath to /cross/lib
+   * elfutils: Update to 0.192
+   * stripper: Ensure we compress with zstd
+   * binutils,elfutils: Build against zstd
+   * llvm: Enable zstd compression support
+   * Build ppc64 bootstrap from ppc64le
+   * open-iscsi: Set a fixed KBUILD_BUILD_TIMESTAMP
+   * composefs: Mark binaries as devel
+   * composefs: Delete static library
+   * python3-sphinxcontrib-jsmath: Make the build reproducible
+   * ca-certificates: Use a pinned copy of update-ca-trust script
+   * Update vim to v9.1.0814-0
+   * shim: Disable parallel make
+   * Update openssl to openssl-3.4.0-0
+   * Update glibc to glibc-2.40-50
+   * shim: Fix track and update to 15.8
+   * nss: update to 3.101.2
+   * u-boot-qemu: Update denx alias and update to v2024.10
+   * usbutils: Add explicit dependency on systemd-libs for libudev
+   * usbutils: Stop providing lsusb.py
+   * usbutils: Switch to meson
+   * usbutils: Update to v018-0
+   * python3-yarl: Exclude rc tags
+   * shim: Add maybe element and build in CI
+   * efitools: Add maybe element and build in CI
+   * Seperate boot key handling out of target element
+   * Add test keys to git and add makefile targets to generate and clean
+   * efitools: Fix build with newer gnu-efi
+   * Update weston to 14.0.1-0
+   * Update libseat to 0.9.0-0
+   * ninja: Use vendor to get rid of bogus reports
+   * Simplify binutils dependencies
+   * Update meson to 1.6.0-0
+   * cryptsetup: Require libdevmapper only
+   * parted: Require libdevmapper only
+   * lvm2: Split libdevmapper to a filter element
+   * Create loongarch64 cross-compiler
+   * ci: Reduce the number of jobs in MR pipelines
+   * e2fsprogs: Disable parallel make
+   * libmysofa: Split library to devel
+   * libmysofa: Disable tests and static libs
+   * ffmpeg: Enable libmysofa
+   * Update c-ares to v1.34.2-0
+   * libcupsfilters: Hack to fix header path
+   * Update libcupsfilters to 2.1.0-0
+   * llvm: Add patch to make sha1 build-id default for lld
+   * rust: Use LLVM lld as Rust bootstrap linker
+   * e2fsprogs: Try disabling ldconfig
+   * autotools/make: Use parallel install
+   * ci: Use when manual at job level instead of rule level
+   * ci: Remove duplicate manual from publish_aarch64_tar
+   * Add an element for libtree
+   * Update less to v668-rel-0
+   * Update libmysofa to v1.3.3-0
+   * Update python3-yarl to v1.15.5-0
+   * Update mesa to mesa-24.2.5-0
+   * cmake: Build with ninja and use as many system libs as possible
+   * Update dav1d to 1.5.0-0
+   * Update glib to 2.82.2-0
+   * Update libxmlb to 0.3.21-0
+   * Update libppd to 2.1.0-0
+   * Update vim to v9.1.0792-0
+   * project.conf: drop workaround for makemaker
+   * Update python3-psutil to release-6.1.0-0
+   * Update python3-yarl to v1.15.4-0
+   * Update python3-trove-classifiers to 2024.10.14-0
+   * Fix vdpauinfo track and update to 1.5
+   * python3-dulwich: Drop patch
+   * Update python3-dulwich to 0.22.3
+   * Update python3-setuptools to v75.2.0-0
+   * Update python3-poetry-core to 1.9.1-0
+   * fwupd: Disable libdrm
+   * Update fwupd to 2.0.1-0
+   * Add release data for apps
+   * systemd: Don't runtime-depend on libfido2
+   * systemd: Don't runtime-depend on tpm2-tss
+   * systemd: Don't runtime-depend on iptables
+   * Add metainfo for platform-vaapi-nvidia
+   * Add metainfo to intel-vaapi-driver
+   * Add metainfo files to all apps
+   * Update python3-distlib to 0.3.9-0
+   * Update python3-pil to 11.0.0-0
+   * Update python3-charset-normalizer to 3.4.0-0
+   * Update mesa-sdk to mesa-24.2.4-0
+   * Update libjcat to 0.2.2-0
+   * Update python3-yarl to v1.15.2-0
+   * Update buildbox to 1.2.24-0
+   * systemd: Don't runtime-depend on libqrencode
+   * systemd: Don't runtime-depend on libarchive
+   * Add extension for nvidia vaapi driver and package the driver for it
+   * Update xorg-lib-xtrans to xtrans-1.5.1-0
+   * Update libarchive to v3.7.7-0
+   * python3: Update to 3.13 and rebase patch
+   * Split all GCC libraries to a separate element
+   * Update dracut to 105-0
+   * Update c-ares to v1.34.1-0
+   * Add a description to ffmpeg metainfo
+   * python3-pyparsing: Update to 3.2.0
+   * python3-pyparsing: Exclude docs tag
+   * less: Remove timestamp generation to make it reproducible
+   * python3-ruamel-yaml-clib: Add patch to build without fpermissive
+   * python3-ruamel-yaml-clib: Use public-stacks/buildsystem-python-setuptools
+   * python3-ruamel-yaml-clib: Convert to git_repo and cythonise
+   * Fix some validation errors and standardise urls
+   * Validate generated appdata after installing
+   * Migrate to metainfo file extension
+   * Add an element for nv-codec-headers and enable it for ffmpeg
+   * ci: Make license checker job manual
+   * Add wildmidi for midi support and enable it in gst-plugins-bad
+   * wayland: Disable tests
+   * wayland-protocols: Disable tests
+   * Update python3-networkx to networkx-3.4.1-0
+   * Update libtraceevent to libtraceevent-1.8.4-0
+   * Update extra-cmake-modules to v6.7.0-0
+   * Update wayland-protocols to 1.38-0
+   * Update python3-sphinx-rtd-theme to 3.0.1-0
+   * Update python3-markupsafe to 3.0.1-0
+   * Update grpc to v1.67.0-0
+   * Update python3-yarl to v1.15.0-0
+   * reproducible: Always use custom config
+   * Update vim to v9.1.0774-0
+   * systemd-libs: Remove util-linux runtime dependency
+   * Update python3-aiohttp to 3.10.10
+   * Update git to v2.47.0-0
+   * Update linux to v6.11.3-0
+   * Add taglib and enable it in gst-plugins-good
+   * gmp: Build with fat support
+   * Add liblc3 and enable it for pipewire and gst-plugins-bad
+   * Keep libstdc++ static library in gcc.bst
+   * gcc: split gcc libraries into their own element
+   * Don't use runtime-minimal for gcc dependencies
+   * gnu-hello: Add mirrors.edge.kernel.org as fallback mirror
+   * xdg-desktop-portal-base: Disable docs
+   * Update xdg-desktop-portal-base to 1.19.0-0
+   * Update vulkan-stack to vulkan-sdk-1.3.296.0-0
+   * Update cmake to v3.30.5-0
+   * Update python3-setuptools-rust to v1.10.2-0
+   * python3-yarl: Add new elements for propcache
+   * Update python3-yarl to v1.14.0-0
+   * gcc: Add regression test for GCC
+   * libxkbcommon: Disable tools and remove dependencies
+   * fwupd: Add missing libcbor dependency
+   * Update mutool to 1.24.10-0
+   * Update podman to v5.2.4-0
+   * Update systemd to v256.7-0
+   * Build OCI images instead of layers
+   * Use dataclass for config so we can use type hints
+   * Have more flexible compression option
+   * Drop support for Docker images
+   * Switch to publishing OCI images to Docker Hub
+   * systemd: Don't runtime-depend on libxkbcommon
+   * v4l-utils: Disable v4l2-tracer
+   * Update python3-sphinx-rtd-theme to 3.0.0-0
+   * Update mesa to mesa-24.2.4-0
+   * systemd-base: Remove libbpf dependencies
+   * cleanup_leftover_branches: Fix argument to re
+   * ci: Fix bash syntax in if condition
+   * Update python3-aiohttp to 3.10.9
+   * Update python3-build to 1.2.2.post1-0
+   * Update xorg-data-xkeyboard-config to xkeyboard-config-2.43-0
+   * Make integration elements use runtime-minimal
+   * python3: Suppress private types and variables from ABI check
+   * Add script to cleanup leftover branches from auto_updater
+   * lvm2: Add dependency on public-stacks/buildsystem-autotools
+   * lvm2-source: Update to v2_03_27-0
+   * Fix map-aliases indentation for x86_64 ABI junction
+   * Stop copying aarch64 compat runtime to x86_64
+   * Remove armv7 leftovers from flatpak_repo element
+   * Drop x86_64 to aarch64 flatpak cross toolchain
+   * python3-pyparsing: Exclude rc tags
+   * Update libabigail to libabigail-2.5-119
+   * fwupd-efi: Update to 1.7
+   * fwupd: Disable umockdev tests
+   * fwupd: Set vendors_id_dir
+   * fwupd: Fix meson arguments
+   * fwupd: Update to 2.0.0-0
+   * setuptools: Remove timestamps from versions
+   * Update buildbox to 1.2.22-0
+   * Update spirv-llvm-translator to v18.1.5-1
+   * Update libproxy to 0.5.9-0
+   * Update vim to v9.1.0758-0
+   * Update glibc to glibc-2.40-49
+   * udisks: Exclude singular pre-release tag
+   * Update xz to v5.6.3-0
+   * Update python3 to v3.12.7-0
+   * Update libnftnl to libnftnl-1.2.8-0
+   * Update xwayland to xwayland-24.1.3-0
+   * Update libsecret to 0.21.4-0
+   * avahi: Don't runtime-depend on xmltoman
+   * Define aliases for junctions
+   * Update networkmanager to 1.50.0-0
+   * Update hwdata to v0.388-0
+   * Update go to go1.23.2-0
+   * Update linux to v6.11.1-0
+   * Update to automake 1.17
+   * ffmpeg-test: Use assert expression-info syntax instead of try-except
+   * Update gstreamer-plugins-rs to 0.13.2-0
+   * utf-locale: Move to components and drop one glibc build
+   * Update sdl2 to release-2.30.8-0
+   * Update python3-aiohttp to 3.10.8
+   * ffmpeg-test: Add h264_vulkan to enabled codec in ffmpeg-full
+   * ffmpeg: Sync decoder and encoder list with Fedora
+   * ffmpeg: Remove obsolete patches
+   * ffmpeg: Update to n7.1-0
+   * ffmpeg-test: Add tests for av1, vp8 and vp9 codecs
+   * Update python3-aiohappyeyeballs to v2.4.3-0
+   * Update cups-base to v2.4.11-0
+   * Update spirv-llvm-translator to v18.1.5-0
+   * Update grpc to v1.66.2-0
+   * Add libsecret
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-162
+   * Update gdb to gdb-15.2-release-0
+   * Update fribidi to v1.0.16-0
+   * Update python3-virtualenv to 20.26.6-0
+   * Update python3-pyproject-hooks to v1.2.0
+   * Update libabigail to libabigail-2.5-111
+   * Update pipewire-base to 1.2.5-0
+   * Update buildbox to 1.2.21-0
+   * Update python3-aiohappyeyeballs to v2.4.2-0
+   * ffmpeg-test: Adjust tests for libx264 and libopenh264 inclusion
+   * ffmpeg: Provide libopenh264 support in all ffmpeg builds
+   * libx264: Add patch to fix build on ppc
+   * ffmpeg-full: Add libx264
+   * Add an alias for videolan git repository
+   * Update cmake to v3.30.4-0
+   * Update glibc to glibc-2.40-48
+   * Update vim to v9.1.0744-0
+   * Update librsvg to 2.59.1-0
+   * Update libeconf to v0.7.4-0
+   * Update python3-yarl to v1.13.1-0
+   * ci: Replace deprecated only-except with rules
+   * ci: Fix whitespace
+   * Update fwupd to 1.9.25-0
+   * Update python3-maturin to v1.7.4-0
+   * Update python3-yarl to v1.13.0-0
+   * ffmpeg-test: Add tests for h264 encoder
+   * ffmpeg-test: Add tests to get information about a specific codec lib
+   * ci: Exclude validate-news from branch pipelines
+   * systemd: Move hwdb.d files to the devel domain
+   * libdisplay-info: Split to devel
+   * Update libabigail to libabigail-2.5-108
+   * Update at-spi2-core to AT_SPI2_CORE_2_54_0-0
+   * intel-media-driver: Update to 24.3.4
+   * gmmlib: Update to 22.5.2
+   * python3-maturin: Update to v1.7.2
+   * python3-aiohttp: Update to 3.10.6
+   * podman: Update to v5.2.3
+   * libcamera: Update to v0.3.2
+   * libarchive: Update to v3.7.6
+   * harfbuzz: Update to 10.0.1
+   * erofs-utils: Update to v1.8.2
+   * Update CI image
+   * harfbuzz: Update to 10.0.0
+   * vim: Update to v9.1.0741
+   * git: Update to 2.46.2
+   * tpm2-pkcs11: Update to 1.9.1
+   * strace: Update to v6.11
+   * shaderc: Update to v2024.3
+   * python3-yarl: Update to 1.12.1
+   * python3-virtualenv: Update to 20.26.5
+   * python3-trove-classifiers: Update to 2024.9.12
+   * python3-pytz: Update to 2024.2
+   * python3-pyasn1: Update to 0.6.1
+   * python3-pyasn1-modules: Update to 0.4.1
+   * python3-protobuf: Update to 5.28.2
+   * python3-multidict: Update to 6.1.0
+   * python3-idna: Update to 3.10
+   * python3-filelock: Update to 3.16.1
+   * protobuf: Update to 28.2
+   * linux-firmware: Update to 20240909
+   * json-c: Update to 0.18-20240915
+   * jpeg: Update to 3.0.4
+   * dictionaries: Update to 24.8.2.1
+   * ca-certificates: Update to 5fc41a4954175203ec430506d6c92e321c3ae13e
+   * bash: Update to 6794b5478f660256a1023712b5fc169196ed0a22
+   * release.py: Reformat with ruff
+   * release: Use push-option instead of short argument
+   * release.py: Add more validation of version inputs
+   * news_validator: Add some more validations and stricter date validation
+   * linux: Update to 6.11
+   * xcb-util: Update to 0.4.1-gitlab
+   * xcb-util-image: Update to 0.4.1-gitlab
+   * u-boot-qemu: Track tags and exclude rc tags properly
+   * glib-source: Update to 2.82.1
+   * ostree-source: Update to 2024.8
+   * mesa-sdk: Update to 24.2.3
+   * mesa-sources: Remove obsolete patch
+   * mesa-sources: Update to 24.2.3
+   * libheif: Disable werror via patch
+   * ffmpeg: Add patch to fix build with libx265 4.0
+   * libx265: Update to 4.0
+   * systemd: Update to v256.6
+   * gstreamer-source: Update to 1.24.7
+   * git: Update to 2.46.1
+   * bluez: Update to 5.78
+   * tk: Update to 56d86e87df03113f0a4190a503955417801c68da
+   * python3-setuptools: Update to v75.1
+   * pygobject: Update to 3.50
+   * pipewire-base: Update to 1.2.4
+   * orc: Update to 0.4.40
+   * openssh: Update to 9.9
+   * meson: Update to 1.5.2
+   * libxml2: Update to v2.13.4
+   * libtiff: Update to 4.7
+   * libpng: Update to v1.6.44
+   * libjxl: Update to v0.11.0
+   * libeconf: Update to v0.7.3
+   * iwd: Update to 2.22
+   * iso-codes: Update to v4.17.0
+   * iproute2: Update to v6.11
+   * gsettings-desktop-schemas: Update to 47.1
+   * go-md2man: Update to v2.0.5
+   * gnupg: Update to 2.5.1
+   * ghostscript: Update to 10.04.0
+   * flat-manager-client-base: Update to 0.4.3.3
+   * extra-modules-cmake: Update to v6.6.0
+   * ell: Update to 0.69
+   * dtc: Update to v1.7.1
+   * dictionaries: Update to 24.8.1.2
+   * cunit: Update to 3.4.4
+   * crun: Update to 1.17
+   * curl: Update to 8.10.1
+   * ca-certificates: Update to 9df6df0fd553fe3fe003720fecf6defa13bb2d10
+   * buildbox: Update to 1.2.20
+   * btrfs-progs: Update to v6.11
+   * glibc-source: Update to 7073164add3b874cf0c19ca0fb84236f6bb0985d
+   * gawk: Update to 5.3.1
+   * NEWS.yml: Add placeholder descriptions
+   * ci: Add a NEWS.yml validator and run it in CI
+   * audit: Set runstatedir to /run
+   * python3: Build with -O3 as this is upstream default
+   * glib: Disable debug explicitly also in stage1 glib
+   * Makefile: Add a target to clean oci exports
+   * u-boot-qemu: Fix arm64 board filename
+   * u-boot: Update riscv preload fdt patch
+   * Add maybe elements for u-boot
+   * u-boot-qemu: Update to v2023.04
+   * u-boot-unmatched: Use denx alias
+   * u-boot-qemu: Add missing swig and setuptools build dependencies
+   * oci: Move extra-fs to freedesktop-sdk
+   * updater: Remove obsolete entry about spirv-headers
+   * help2man: Use autotools buildsystem to simplify declaration
+   * {libseat,scdoc}: move ~ to the alias definition
+   * tcl: Update to 8.6.15
+   * Restructure project dependencies up to old bootstrap-import
+   * Fix bootstrap stack
+   * composefs: Build with fuse3 and openssl support
+   * composefs: Build man pages
+   * composefs: Switch to meson
+   * composefs: Update to to v1.0.6-0
+   * vm-test: Support using fixed machine-id
+   * Use python-minimal to build Rust, LLVM and their deps
+   * Fix issue templates
+   * Fix pylint warnings
+   * Update docker image used for CI
+   * python3: Avoid propagating X11 dependencies to python3
+   * python3-grpcio: add patch to fix linking to abseil
+   * python3-grpcio: build with system abseil and c-ares
+   * Make VM test have timeouts between read chunks instead of global timeout
+   * librsvg: Update to 2.59.0
+   * librsvg: Add dav1d for avif support
+   * librsvg: Convert to meson
+   * pygobject: Disable tests
+   * gobject-introspection-base: Add submodule
+   * gobject-introspection-base: Remove applied patches
+   * gobject-introspection-base: Update to 1.82.0-0
+   * tests: Add postive, negative and codec implementation tests
+   * Convert python packages to use git sources
+   * Remove shellingham
+   * Remove requests-toolbelt
+   * Remove pyexpect
+   * Remove html5lib
+   * Remove clikit
+   * Remove cleo
+   * Remove cachecontrol
+   * Remove cachy
+   * python3-urllib3: Update to to 2.2.3
+   * Provide hatch-vcs in buildsystem-python-hatchling
+   * Add a test to check common ffmpeg codec support is present
+   * ci: Actually install test.codecs.no-exts before running
+   * ci: Run test-codecs
+   * tests: Add a small test to check libheif plugin paths
+   * libheif: Separate plugin search and install path
+   * linux: Update to 6.10.10
+   * curl: Add CURLINFO_LASTONE to suppressed enumerator values
+   * harfbuzz: Enable graphite2 support
+   * libblockdev: Add dependency on json-glib and libatasmart
+   * libblockdev: Update to 3.2.0
+   * components/pcsc-lite: Install services under system
+   * less: switch to git_repo source
+   * jsontomd: Use f-strings
+   * ci: Disable building test-apps target on i686
+   * ci: Bump docker image to latest commit
+   * .gitlab-ci.yml: Use "riscv-native" in runner tag, not as "ARCH"
+   * Add element for hwdata needed by libdisplay-info
+   * Add element for libdisplay-info
+   * mesa: Rebase clang_res_path patch
+   * python3: Update to v3.12.6
+   * spirv-llvm-translator: Update to 43fb73fe120e854eddc2e1df9b4bfdc1efd92cd5
+   * python3-filelock: Update to 3.16.0
+   * libwacom: Update to 2.13.0
+   * mesa-sdk: Update to 24.2.2
+   * linux: Update to v6.10.8
+   * go-source: Update to 1.23.1
+   * intel-media-driver: Update to 24.3.3
+   * gmmlib: Update to 22.5.1
+   * mesa-sources: Update to 24.2.2
+   * xorg-lib-xi: Update to 1.8.2
+   * python3-yarl: Update to v1.10.0
+   * pycairo: Update to v1.27
+   * weston: Update to 14.0.0
+   * wireplumber: Update to 0.5.6
+   * vim: Update to v9.1.0720
+   * tzdata: Update to 2024b
+   * python3-virtualenv: Update to 20.26.4
+   * python3-setuptools: Update to v74.1.2
+   * python3-cffi: Update to 1.17.1
+   * passt: Update to 2024_09_06.6b38f07
+   * nano: Update to v8.2
+   * libbpf: Update to v1.4.6
+   * libabigail: Update to 0a6f55aabcbd03121ddb070ebb10e58e6f6fb64b
+   * iputils: Update to 20240905
+   * geoclue-base: Update to 2.7.2
+   * expat: Update to R_2_6_3
+   * cryptsetup-base: Update to v2.7.5
+   * Update aardvark-dns to v1.12.2-0
+   * Update sdl2 to release-2.30.7-0
+   * Update xfsprogs to v6.10.1-0
+   * Update python3-build to 1.2.2-0
+   * Force NEWS.yml to be written out with unix newlines
+   * grpc: Fix warning about abseil
+   * grpc: Build c-ares separately from grpc and update to 1.33.1
+   * Remove entire stanza
+   * Update libevdev to libevdev-1.13.3-0
+   * Update openssl to openssl-3.3.2-0
+   * Update python3-cryptography to 43.0.1-0
+   * Update gamemode-base to 1.8.2-0
+   * test_reproducibility: Pass config to bst correctly
+   * Change references from 24.08beta to 25.08beta
+---
 Version: freedesktop-sdk-24.08rc.2
 Date: '2024-09-01'
 Description: |-
