@@ -1,7 +1,6 @@
 kind: autotools
 
 build-depends:
-- public-stacks/runtime-minimal.bst
 - public-stacks/buildsystem-autotools.bst
 - components/dbus.bst
 - components/glib.bst
