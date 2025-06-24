@@ -14,7 +14,7 @@ sources:
   track: v*
   exclude:
   - "*beta*"
-  ref: v1.8.7-0-g53def9f880e0a6b5e20ed831cdbfd62a6fb0bc6a
+  ref: v1.9.0-0-g46dbaffbad6cb34521e30978a6c686e7d1da92c2
 - kind: cargo
   cargo-lock: Cargo.lock
   ref:
@@ -334,8 +334,8 @@ sources:
     version: 0.3.1
     sha: d2fabcfbdc87f4758337ca535fb41a6d701b65693ce38287d856d1674551ec9b
   - name: globset
-    version: 0.4.15
-    sha: 15f1ce686646e7f1e19bf7d5533fe443a45dbfb990e00629110797578b42fb19
+    version: 0.4.16
+    sha: 54a1028dfc5f5df5da8a56a73e6c153c9a9708ec57232470703592a3f18e49f5
   - name: goblin
     version: 0.9.2
     sha: 53ab3f32d1d77146981dea5d6b1e8fe31eedcb7013e5e00d6ccd1259a4b4d923
@@ -405,6 +405,9 @@ sources:
   - name: indoc
     version: 2.0.5
     sha: b248f5224d1d606005e02c97f5aa4e88eeb230488bcc03bc9ca4d7991399f2b5
+  - name: insta
+    version: 1.43.1
+    sha: 154934ea70c58054b556dd430b99a98c2a7ff5309ac9891597e339b5c28f4371
   - name: is_terminal_polyfill
     version: 1.70.0
     sha: f8478577c03552c21db0e2724ffb8986a5ce7af88107e6be5d2ee6e158c12800
@@ -580,8 +583,8 @@ sources:
     version: 0.2.3
     sha: b4596b6d070b27117e987119b4dac604f3c58cfb0b191112e24771b2faeac1a6
   - name: platform-info
-    version: 2.0.3
-    sha: d5ff316b9c4642feda973c18f0decd6c8b0919d4722566f6e4337cce0dd88217
+    version: 2.0.5
+    sha: 7539aeb3fdd8cb4f6a331307cf71a1039cee75e94e8a71725b9484f4a0d9451a
   - name: portable-atomic
     version: 1.6.0
     sha: 7170ef9988bc169ba16dd36a7fa041e5c4cbeb6a35b76d4c03daded371eae7c0
@@ -604,8 +607,8 @@ sources:
     version: 0.1.21
     sha: 5787f7cda34e3033a72192c018bc5883100330f362ef279a8cbccfce8bb4e874
   - name: pyproject-toml
-    version: 0.13.4
-    sha: 643af57c3f36ba90a8b53e972727d8092f7408a9ebfbaf4c3d2c17b07c58d835
+    version: 0.13.5
+    sha: 7b0f6160dc48298b9260d9b958ad1d7f96f6cd0b9df200b22329204e09334663
   - name: python-pkginfo
     version: 0.6.5
     sha: c21f58880fc45e91d29b2f639ab4051aaa6a2b054534c2d343a953347d0dd600
@@ -826,14 +829,14 @@ sources:
     version: 1.0.69
     sha: b6aaf5339b578ea85b50e080feb250a3e8ae8cfcdff9a461c9ec2904bc923f52
   - name: thiserror
-    version: 2.0.3
-    sha: c006c85c7651b3cf2ada4584faa36773bd07bac24acfb39f3c431b36d7e667aa
+    version: 2.0.12
+    sha: 567b8a2dae586314f7be2a752ec7474332959c6460e02bde30d702a66d488708
   - name: thiserror-impl
     version: 1.0.69
     sha: 4fee6c4efc90059e10f81e6d42c60a18f76588c3d74cb83a0b242a2b6c7504c1
   - name: thiserror-impl
-    version: 2.0.3
-    sha: f077553d607adc1caf65430528a576c757a71ed73944b66ebb58ef2bbd243568
+    version: 2.0.12
+    sha: 7f7cf42b4507d8ea322120659672cf1b9dbb93f8f2d4ecfd6e51350ff5b17a1d
   - name: thread_local
     version: 1.1.8
     sha: 8b9ef9bad013ada3808854ceac7b46812a6465ba368859a37e2100283d2d719c
