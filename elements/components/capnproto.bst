@@ -17,4 +17,4 @@ sources:
 - kind: git_repo
   url: github:capnproto/capnproto.git
   track: 'v*'
-  ref: v1.1.0-0-gb34ec28cceaf15b1082b74b50f03f770873c3636
+  ref: v1.2.0-0-gd135c9ca5e15219eaf131dfce1a41afdbaea9aab
