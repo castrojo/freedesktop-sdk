@@ -1,7 +1,7 @@
 kind: make
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-make.bst
 
 depends:
 - bootstrap-import.bst

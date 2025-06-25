@@ -14,11 +14,6 @@ variables:
   meson-local: |
     -Dlibproxy=enabled
 
-public:
-  bst:
-    split-rules:
-      (@): include/_private/exclude-systemd.yml
-
 sources:
 - kind: git_repo
   url: gnome:glib-networking.git

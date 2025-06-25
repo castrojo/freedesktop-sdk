@@ -66,6 +66,16 @@ locale:
   - "%{datadir}/i18n"
   - "%{datadir}/i18n/**"
 
+vm-only:
+  - "%{indep-libdir}/systemd"
+  - "%{indep-libdir}/systemd/**"
+  - "%{indep-libdir}/sysusers.d"
+  - "%{indep-libdir}/sysusers.d/**"
+  - "%{indep-libdir}/tmpfiles.d"
+  - "%{indep-libdir}/tmpfiles.d/**"
+  - "%{indep-libdir}/udev"
+  - "%{indep-libdir}/udev/**"
+
 zoneinfo:
   - "%{datadir}/zoneinfo"
   - "%{datadir}/zoneinfo/**"
