@@ -5,7 +5,7 @@ sources:
   exclude:
   - '*rc*'
   - '*branchpoint*'
-  ref: mesa-25.1.3-0-gba95e694fed5276f9b83dac70a0c19530ee47fb1
+  ref: mesa-25.1.4-0-gbcb723ed9eb536a931b9dcc66ca19124038f880b
 - kind: patch_queue
   path: patches/mesa
 # Rust dependencies:
