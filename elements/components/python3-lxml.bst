@@ -21,8 +21,9 @@ sources:
 - kind: git_repo
   url: github:lxml/lxml.git
   track: lxml-*
-  ref: lxml-5.4.0-0-g6e76d57af83d59d7a0456fd5889e392a7b366b43
+  ref: lxml-6.0.0-0-g2a67034bc21150e9cc14500f65c41fa4e9d51c9b
 - kind: patch
   path: patches/python3-lxml/relax-cython.patch
 - kind: patch
-  path: patches/python3-lxml/0001-Avoid-custom-tp_new-call-and-add-a-safe-guard-that-e.patch
+  path: 
+    patches/python3-lxml/0001-Avoid-custom-tp_new-call-and-add-a-safe-guard-that-e.patch
