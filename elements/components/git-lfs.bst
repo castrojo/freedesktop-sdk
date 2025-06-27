@@ -290,3 +290,10 @@ sources:
     go-version: v3.0.1
     git-ref: v3.0.1-0-gf6f7691b1fdeb513f56608cd2c32c51f8194bf51
     explicit: True
+- kind: go_module
+  url: github:golang/groupcache.git
+  module: github.com/golang/groupcache
+  ref:
+    go-version: v0.0.0-20241129210726-2c02b8208cf8
+    git-ref: 2c02b8208cf8c02a3e358cb1d9b60950647543fc
+    explicit: True
