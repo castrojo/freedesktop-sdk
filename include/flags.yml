@@ -152,3 +152,6 @@ environment:
   CXXFLAGS: "%{target_flags}"
   LDFLAGS:  "%{ldflags_defaults}"
   RUSTFLAGS:  "%{rust_target_flags}"
+  CGO_CFLAGS: "%{target_flags}"
+  CGO_CXXFLAGS: "%{target_flags}"
+  CGO_LDFLAGS: "%{ldflags_defaults}"
