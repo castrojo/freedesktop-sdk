@@ -29,5 +29,7 @@ config:
       parent:
         image: /parent
       layer: /layer
-      comment: "Import flatpak"
+      comment: "Import Flatpak layer from Freedesktop SDK"
+      index-annotations:
+        org.opencontainers.image.ref.name: localhost/freedesktopsdk/flatpak:latest
     EOF
