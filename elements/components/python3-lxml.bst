@@ -22,8 +22,3 @@ sources:
     sha256sum: 032e65120339d44cdc3efc326c9f660f5f7205f3a535c1fdbf898b29ea01fb72
     suffix: 
       c5/ed/60eb6fa2923602fba988d9ca7c5cdbd7cf25faa795162ed538b527a35411/lxml-6.0.0.tar.gz
-- kind: patch
-  path: patches/python3-lxml/relax-cython.patch
-- kind: patch
-  path: 
-    patches/python3-lxml/0001-Avoid-custom-tp_new-call-and-add-a-safe-guard-that-e.patch
