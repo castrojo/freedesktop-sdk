@@ -1,9 +1,9 @@
 kind: manual
 
 description: |
-    This element should be consumed through ovmf-maybe.bst
-    as this is specific to select arches. Certain variables are set to
-    a stub value to enable tracking
+  This element should be consumed through ovmf-maybe.bst
+  as this is specific to select arches. Certain variables are set to
+  a stub value to enable tracking
 
 build-depends:
 - bootstrap-import.bst
@@ -90,11 +90,11 @@ sources:
 - kind: git_repo
   url: github:tianocore/edk2.git
   track: edk2-stable*
-  ref: edk2-stable202411-0-g0f3867fa6ef0553e26c42f7d71ff6bdb98429742
+  ref: edk2-stable202505-0-g6951dfe7d59d144a3a980bd7eda699db2d8554ac
 - kind: git_module
   path: CryptoPkg/Library/OpensslLib/openssl
   url: github:openssl/openssl.git
-  ref: c523121f902fde2929909dc7f76b13ceb4961efe
+  ref: a26d85337dbdcd33c971f38eb3fa5150e75cea87
 - kind: git_module
   path: CryptoPkg/Library/MbedTlsLib/mbedtls
   url: github:Mbed-TLS/mbedtls.git
@@ -102,11 +102,7 @@ sources:
 - kind: git_module
   path: SecurityPkg/DeviceSecurity/SpdmLib/libspdm
   url: github:DMTF/libspdm.git
-  ref: 50924a4c8145fc721e17208f55814d2b38766fe6
-- kind: git_module
-  path: ArmPkg/Library/ArmSoftFloatLib/berkeley-softfloat-3
-  url: github:ucb-bar/berkeley-softfloat-3.git
-  ref: b64af41c3276f97f0e181920400ee056b9c88037
+  ref: 98ef964e1e9a0c39c7efb67143d3a13a819432e0
 - kind: git_module
   path: UnitTestFrameworkPkg/Library/CmockaLib/cmocka
   url: github:tianocore/edk2-cmocka.git
