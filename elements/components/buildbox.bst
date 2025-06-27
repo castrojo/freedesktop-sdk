@@ -6,6 +6,7 @@ build-depends:
 
 depends:
 - components/bubblewrap.bst
+- components/curl.bst
 - components/fuse3.bst
 - components/glog.bst
 - components/grpc.bst
