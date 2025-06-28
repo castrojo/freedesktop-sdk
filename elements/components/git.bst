@@ -34,6 +34,7 @@ variables:
   meson-local: >-
     -Dtests=false
     -Dcoccinelle=disabled
+    -Dbenchmarks=disabled
 
 public:
   bst:
