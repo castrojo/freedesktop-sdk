@@ -1,5 +1,5 @@
 diff --git a/python/Makefile.am b/python/Makefile.am
-index 1d00c0c..d4977f4 100644
+index 1d00c0c..e4ed622 100644
 --- a/python/Makefile.am
 +++ b/python/Makefile.am
 @@ -11,10 +11,10 @@ CLEANFILES = *~ constants.c *.so
@@ -11,7 +11,7 @@ index 1d00c0c..d4977f4 100644
  
  install-exec-local:
 -	CFLAGS="${CFLAGS} -fno-strict-aliasing" @PYTHONBINARY@ setup.py build --build-base py$(PYTHONREV) install --prefix=${DESTDIR}${prefix}
-+	CFLAGS="${CFLAGS} -fno-strict-aliasing" @PYTHONBINARY@ -minstaller py$(PYTHONREV)/*.whl --destdir ${DESTDIR}${prefix}
++	CFLAGS="${CFLAGS} -fno-strict-aliasing" @PYTHONBINARY@ -minstaller py$(PYTHONREV)/*.whl --destdir ${DESTDIR} --prefix=${prefix}
  
  clean-local:
  	rm -rf py$(PYTHONREV)
