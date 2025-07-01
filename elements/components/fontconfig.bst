@@ -44,7 +44,7 @@ sources:
   track: '*.*.*'
   exclude:
   - 2.*.9*
-  ref: 2.16.2-0-gc1bdf4f542f56d3b5035ec2806ed7a685f831c1b
+  ref: 2.17.0-0-ga7a03d6ce093042d1ad4c5cf68746f44b03d8bda
 - kind: patch
   path: patches/fontconfig/bitmap-block.patch
 - kind: patch
