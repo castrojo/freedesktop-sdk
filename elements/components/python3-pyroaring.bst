@@ -18,6 +18,6 @@ sources:
 - kind: pypi
   name: pyroaring
   ref:
-    sha256sum: e0ab5f8a18a7ba99b8f7a152dca300ef5bd9eff0a7df56a08714114497b63f10
-    suffix:
-      6a/3d/eb76bd6b8e0afe478206c274a328382fcda8788bb9e52d63c3035bb75f95/pyroaring-1.0.1.tar.gz
+    sha256sum: aa4a1de882bf4a245c7c0dee8594b898e76501bc32afc0cc9ff4138784462839
+    suffix: 
+      2a/b2/5e0ab902f3899ba8a3e2bc3d901a9c66a902d5e5344c46900165ce506636/pyroaring-1.0.2.tar.gz
