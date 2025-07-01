@@ -11,6 +11,6 @@ sources:
 - kind: pypi
   name: multidict
   ref:
-    sha256sum: c1e8b8b0523c0361a78ce9b99d9850c51cf25e1fa3c5686030ce75df6fdf2918
+    sha256sum: 798a9eb12dab0a6c2e29c1de6f3468af5cb2da6053a20dfa3344907eed0937cc
     suffix: 
-      03/5d/d72502cd6dd64b0c5a5117b1701f05c38e94ffb4a1b4ab65ff0cd9b974e8/multidict-6.6.2.tar.gz
+      3d/2c/5dad12e82fbdf7470f29bff2171484bf07cb3b16ada60a6589af8f376440/multidict-6.6.3.tar.gz
