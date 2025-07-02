@@ -29,12 +29,15 @@ config:
     (>):
     - |
       sed 's/#UsePAM.*/UsePAM yes/' -i "%{install-root}%{sysconfdir}/sshd_config"
+      install -Dm755 contrib/ssh-copy-id -t "%{install-root}%{bindir}"
+      install -Dm644 contrib/ssh-copy-id.1 -t "%{install-root}%{mandir}/man1"
 
 public:
   bst:
     split-rules:
       vm-only:
       - "%{bindir}/sshd"
+      - "%{bindir}/ssh-copy-id"
       - "%{sysconfdir}/sshd_config"
       - "%{libexecdir}/sftp-server"
       - "%{libexecdir}/sshd-session"
@@ -42,6 +45,8 @@ public:
       - "%{mandir}/man5/sshd_config.5"
       - "%{mandir}/man8/sftp-server.8"
       - "%{mandir}/man8/sshd.8"
+      - "%{mandir}/man1/ssh-copy-id.1"
+
   cpe:
     vendor: 'openbsd'
     # We ignore the patch version because this is set in a different component in CPE
