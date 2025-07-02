@@ -1,3 +1,239 @@
+Version: freedesktop-sdk-23.08.32
+Date: '2025-07-02'
+Description: |-
+  Changes in freedesktop-sdk-23.08.32
+   * python3-pyroaring: Add patch to relax cython requirements
+   * Update python3-pyroaring to 1.0.2
+   * Update python3-multidict to 6.6.3
+   * Update mutool to 1.26.3-0
+   * Update lvm2 to v2_03_33-0
+   * Update linux to v6.15.4-0
+   * Update linux-firmware to 20250627-0
+   * Update crun to 1.22-0
+   * Update python3-multidict to 6.6.2
+   * Update dictionaries to libreoffice-25.2.5.1-0
+   * Update erofs-utils to v1.8.9-0
+   * Update systemd to v254.27-0
+   * Update python3-multidict to 6.6.0
+   * ci: Move publish_gitlab_release to publish stage
+   * Update cryptsetup-base to v2.8.0-0
+   * Update python3-grpcio to 1.73.1
+   * buildbox: Add curl
+   * Update buildbox to 1.3.22-0
+   * python3-lxml: Drop patches
+   * Update python3-lxml to 6.0.0
+   * Update xfsprogs to v6.15.0-0
+   * Update erofs-utils to v1.8.8-0
+   * Update grpc to v1.73.1-0
+   * Update pkg-config to pkgconf-2.5.1-0
+   * Update python3-multidict to 6.5.1
+   * Update mutool to 1.26.2-0
+   * Update shadow to 4.18.0-0
+   * Update python3-markdown to 3.8.2
+   * Update vim to v9.1.1478-0
+   * Update glibc to glibc-2.38-139
+   * Update python3-maturin to v1.9.0-0
+   * Update btrfs-progs to v6.15-0
+   * Update erofs-utils to v1.8.7-0
+   * Update colord to 1.4.8-0
+   * Update parallel to 20250622-0
+   * Update python3-pygments to 2.19.2
+   * less: Drop reproducibility patch
+   * Update less to v679-rel-0
+   * Update python3-certifi to 2025.6.15
+   * dulwich: Track 0.22.x
+   * Update abseil-cpp to 20250512.1-0
+   * python3-urllib3: Drop hatch-vcs patch
+   * Update python3-urllib3 to 2.5.0-0
+   * Update fwupd to 2.0.12-0
+   * utils/release.py: Use the changelog as the tag message
+   * utils/release.py: Drop gitlab release creation
+   * ci: Add a job to automate release creation
+   * ci: Update image
+   * Update pkg-config to pkgconf-2.5.0-0
+   * Update python3-multidict to 6.5.0
+   * Update perl-ssl to 2.094
+   * Update linux to v6.15.3-0
+   * Update xwayland to xwayland-24.1.8-0
+   * Update mesa-sdk to mesa-25.1.4-0
+   * Update libblockdev to 3.3.1-0
+   * Update libogg to v1.3.6-0
+   * Update perl-ssl to 2.093
+   * Update python3-smartypants to v2.0.2-0
+   * Update git to v2.50.0-0
+   * Update xwayland to xwayland-24.1.7-0
+   * Update vim to v9.1.1466-0
+   * Update perl-ssl to 2.092
+   * Update fcitx5 to 5.1.4-0
+   * Update python3-maturin to v1.8.7-0
+   * Update libwacom to libwacom-2.16.1-0
+   * Update extra-cmake-modules to v6.15.0-0
+   * Update nano to v8.5-0
+   * Update buildbox to 1.3.21-0
+   * Update python3-requests to 2.32.4
+   * Update python3-aiohttp to 3.12.13
+   * Update iwd to 3.9-0
+   * Update linux-firmware to 20250613-0
+   * Update eos-metrics to Release_6.0.7-0
+   * Update python3-ruamel-yaml to 0.18.14
+   * Update wayland-protocols to 1.45-0
+   * Update ell to 0.78-0
+   * dictionaries: Exclude android tag
+   * yelp-xsl: Convert to meson
+   * Update yelp-xsl to 42.4-0
+   * Update python3-yarl to v1.21.1-0
+   * Update python3-aiohttp to 3.12.12
+   * Update perl-ssl to 2.091
+   * Update eos-updater to Release_6.0.7-0
+   * Update linux to v6.15.2-0
+   * Update passt to 2025_06_11.0293c6f-0
+   * Update dictionaries to libreoffice-25.2.4.3-0
+   * python3-lxml: Add patch to fix build with cython 3.1
+   * python3-lxml: Relax cython requirements
+   * python3-propcache: Relax cython requirements
+   * cyton-3: Update to 3.1.2
+   * Revert "cython-3: Track 3.0.x"
+   * Update python3-propcache to v0.3.2-0
+   * Update xorg-data-xkeyboard-config to xkeyboard-config-2.45-0
+   * Update python3-grpcio to 1.73.0
+   * Update mesa-sdk to mesa-25.1.3-0
+   * Update dwz to dwz-0.16-0
+   * Update vim to v9.1.1452-0
+   * Update buildbox to 1.3.20-0
+   * Update meson-mesa to 1.8.2-0
+   * Update python3-buildstream2 to 2.5.0-0
+   * Update python3-cryptography to 45.0.4-0
+   * Update libdrm to libdrm-2.4.125-0
+   * Update netavark to v1.15.2-0
+   * libffi: Freeze to 3.4.8 as it requires newer autoconf
+   * Update grpc to v1.73.0-0
+   * Update linux to v6.15.1-0
+   * Update python3-aiohttp to 3.12.11
+   * Update perl-ssl to 2.090
+   * Update passt to 2025_06_06.754c6d7-0
+   * Update audit to v4.0.5-0
+   * Update python3-ruamel-yaml to 0.18.13
+   * Update genpeimg to v13.0.0-0
+   * Update iputils to 20250605-0
+   * Update python3-typing-extensions to 4.14.0-0
+   * Update python3-aiohttp to 3.12.9
+   * Update fwupd to 2.0.11-0
+   * Update python3-tomlkit to 0.13.3
+   * Update mesa-sdk to mesa-25.1.2-0
+   * Update hwdata to v0.396-0
+   * python3-frozenlist: Freeze to 1.6.0
+   * Update curl to curl-8_14_1-0
+   * Update python3-grpcio to 1.72.1
+   * Update poppler to poppler-25.06.0-0
+   * Update slirp4netns to v1.3.3-0
+   * Update python3 to v3.11.13-0
+   * Update vim to v9.1.1427-0
+   * Update bluez to 5.83-0
+   * Update python3-aiohttp to 3.12.7
+   * Update iputils to 20250602-0
+   * Update grpc to v1.72.1-0
+   * Update libusb to v1.0.29-0
+   * Update audit to v4.0.4-0
+   * Update python3-aiohttp to 3.12.6
+   * Update dictionaries to libreoffice-25.2.4.2-0
+   * Update python3-ruamel-yaml to 0.18.12
+   * Update mesa to mesa-25.0.7-0
+   * Update python3-aiohttp to 3.12.4
+   * Update eos-metrics to Release_6.0.6-0
+   * Update kbd to v2.8.0-0
+   * Update curl to curl-8_14_0-0
+   * Update buildbox to 1.3.19-0
+   * Update systemd to v254.26-0
+   * Update python3-protobuf to 6.31.1
+   * Update protobuf to v31.1-0
+   * Update libslirp to v4.9.1-0
+   * Update eos-updater to Release_6.0.6-0
+   * Update netavark to v1.15.1-0
+   * Update parallel to 20250522-0
+   * python3-urllib3: Add patch to build with latest hatch-vcs
+   * Update python3-hatch-vcs to 0.5.0
+   * linux: update config for 6.15
+   * Update linux to v6.15-0
+   * Update glibc to glibc-2.38-137
+   * Update vim to v9.1.1415-0
+   * Update python3-aiohttp to 3.12.2
+   * Update strace to v6.15-0
+   * Update iproute2 to v6.15.0-0
+   * Update mutool to 1.26.1-0
+   * python3-aiohttp: Add pkgconfig as build-depends
+   * Update python3-aiohttp to 3.12.0
+   * Update python3-ruamel-yaml to 0.18.11
+   * Update python3-cryptography to 45.0.3-0
+   * Update doxygen to Release_1_14_0-0
+   * Update valgrind to VALGRIND_3_25_1-0
+   * Update python3-dbusmock to 0.35.0
+   * Update python3-click to 8.2.1-0
+   * Update mesa-sdk to mesa-25.1.1-0
+   * Update meson-mesa to 1.8.1-0
+   * Update xdg-desktop-portal-base to 1.20.3-0
+   * Update linux to v6.14.8-0
+   * audit: Exclude beta tags
+   * Update buildbox to 1.3.17-0
+   * Update dictionaries to libreoffice-25.2.4.1-0
+   * Update rust-cbindgen to v0.29.0-0
+   * Update libnvme to v1.14-0
+   * ci: Allow failure for minimal efi VM job
+   * Update fwupd to 2.0.10-0
+   * gnupg-source: Update to gnupg-2.4.8-0
+   * xdg-desktop-portal-base: Update to 1.20.2-0
+   * python3-protobuf: Update to 6.31.0
+   * python3-cryptography: Update to 45.0.2-0
+   * liburcu: Update to v0.15.3-0
+   * libdecor: Update to 0.2.3-0
+   * linux: Update to v6.14.7-0
+   * gmmlib: Update to intel-gmmlib-22.7.2-0
+   * python3-pluggy: Update to 1.6.0
+   * python3-multidict: Update to 6.4.4
+   * protobuf: Update to v31.0-0
+   * buildbox: Update to 1.3.16-0
+   * abseil-cpp: Update to 20250512.0-0
+   * mesa: Update to 25.0.6
+   * mesa: Freeze to 25.0.x
+   * ci: Update image
+   * Update python3-maturin to v1.8.6-0
+   * Update netavark to v1.15.0-0
+   * Update aardvark-dns to v1.15.0-0
+   * Update passt to 2025_05_12.8ec1341-0
+   * python3-pyroaring: Switch to cython 3
+   * Update python3-pyroaring to 1.0.1
+   * fuse3: runtime depend on util-linux
+   * Update vim to v9.1.1385-0
+   * python3-virtualenv: Update to 20.31.2
+   * python3-trove-classifiers: Update to 2025.5.9.12
+   * Update reference-abi to freedesktop-sdk-23.08.31-0
+   * Update python3-maturin to v1.8.5-0
+   * Update mutool to 1.26.0-0
+   * Update iwd to 3.8-0
+   * Update python3-snowballstemmer to 3.0.1
+   * Update flatpak to 1.16.1-0
+   * Update python3-click to 8.2.0-0
+   * Update extra-cmake-modules to v6.14.0-0
+   * Update linux to v6.14.6-0
+   * Update man-pages to man-pages-6.14-0
+   * Update passt to 2025_05_07.eea8a76-0
+   * Update linux-firmware to 20250509-0
+   * Update fuse-overlayfs to v1.15-0
+   * cython-3: Track 3.0.x
+   * Update ell to 0.77-0
+   * Update hwdata to v0.395-0
+   * Update fwupd to 2.0.9-0
+   * Update python3-trove-classifiers to 2025.5.7.19-0
+   * Update mesa-sdk to mesa-25.1.0-0
+   * shim: Force notparallel build
+   * libxml2: Put fixed CVEs under patches
+   * elfutils: Ignore CVE-2024-25260
+   * libxml2: Add patch for CVE-2025-32414 and CVE-2025-32415
+   * libxml2: Rename patches sequentially
+   * Update libfido2 to 1.16.0-0
+   * Update vim to v9.1.1366-0
+   * Update python3-virtualenv to 20.31.1-0
+   * Update lvm2 to v2_03_32-0
+---
 Version: freedesktop-sdk-23.08.31
 Date: '2025-05-05'
 Description: |-
