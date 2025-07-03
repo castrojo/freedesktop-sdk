@@ -146,6 +146,7 @@ depends:
 - components/libsoup.bst
 - components/systemd-libs.bst
 - components/libthai.bst
+- components/libusb.bst
 - components/libva.bst
 - components/libvdpau.bst
 - components/libxkbcommon.bst

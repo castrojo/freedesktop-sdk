@@ -7,6 +7,13 @@ build-depends:
 depends:
 - components/systemd-libs.bst
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libusb-1.0.so'
+
 sources:
 - kind: git_repo
   url: github:libusb/libusb.git
