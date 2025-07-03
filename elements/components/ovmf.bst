@@ -141,4 +141,4 @@ sources:
 - kind: git_module
   path: MdePkg/Library/MipiSysTLib/mipisyst
   url: github:MIPI-Alliance/public-mipi-sys-t.git
-  ref: 370b5944c046bab043dd8b133727b2135af7747
+  ref: 370b5944c046bab043dd8b133727b2135af7747a
