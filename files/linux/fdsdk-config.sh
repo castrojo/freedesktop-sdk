@@ -2073,6 +2073,7 @@ case "$arch" in
     x86_64|i686)
         enable CPU_FREQ_STAT
         enable X86_AMD_PSTATE
+        enable CPU_FREQ_DEFAULT_GOV_SCHEDUTIL
         module CPU_FREQ_GOV_CONSERVATIVE
         module CPU_FREQ_GOV_PERFORMANCE
         module CPU_FREQ_GOV_POWERSAVE
