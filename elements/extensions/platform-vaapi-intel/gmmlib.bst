@@ -23,4 +23,4 @@ sources:
   track: intel-gmmlib-*
   exclude:
   - 'intel-gmmlib-*.pre*'
-  ref: intel-gmmlib-22.7.2-0-g37cac4f8b226a9b7049b792da2d256d09813bf21
+  ref: intel-gmmlib-22.7.3-0-gd59b53ddc3928958b47ad99a4b610d52fcec5c72
