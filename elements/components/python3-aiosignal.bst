@@ -5,6 +5,7 @@ build-depends:
 
 depends:
 - components/python3.bst
+- components/python3-typing-extensions.bst
 
 runtime-depends:
 - components/python3-frozenlist.bst
