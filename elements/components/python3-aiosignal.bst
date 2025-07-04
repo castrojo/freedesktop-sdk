@@ -14,6 +14,6 @@ sources:
   name: aiosignal
 
   ref:
-    sha256sum: a8c255c66fafb1e499c9351d0bf32ff2d8a0321595ebac3b93713656d2436f54
+    sha256sum: f47eecd9468083c2029cc99945502cb7708b082c232f9aca65da147157b251c7
     suffix: 
-      ba/b5/6d55e80f6d8a08ce22b982eafa278d823b541c925f11ee774b0b9c43473d/aiosignal-1.3.2.tar.gz
+      61/62/06741b579156360248d1ec624842ad0edf697050bbaf7c3e46394e106ad1/aiosignal-1.4.0.tar.gz
