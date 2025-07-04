@@ -853,6 +853,8 @@ publish_docker_finish:
 publish_gitlab_release:
   image: registry.gitlab.com/gitlab-org/release-cli:latest
   stage: publish
+  tags:
+    - x86_64
   allow_failure: true
   timeout: 10 minutes
   before_script: []
