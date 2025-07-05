@@ -16,4 +16,4 @@ sources:
 - kind: git_repo
   url: github:pengutronix/genimage.git
   track: v*
-  ref: v18-0-g00009af6e29cfd46909bc8b4180147dda9f82ba8
+  ref: v19-0-g67a399476add05f29ef1ad722856728fb7639ba9
