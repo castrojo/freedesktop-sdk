@@ -1,14 +1,15 @@
-diff -ur perl.old/cpan/ExtUtils-MakeMaker/lib/ExtUtils/Liblist/Kid.pm perl/cpan/ExtUtils-MakeMaker/lib/ExtUtils/Liblist/Kid.pm
---- perl.old/cpan/ExtUtils-MakeMaker/lib/ExtUtils/Liblist/Kid.pm	2019-02-19 18:45:53.561188236 +0100
-+++ perl/cpan/ExtUtils-MakeMaker/lib/ExtUtils/Liblist/Kid.pm	2019-02-19 20:44:04.230820194 +0100
-@@ -57,6 +57,10 @@
-     my ( $pwd )   = cwd();    # from Cwd.pm
-     my ( $found ) = 0;
+diff --git a/cpan/ExtUtils-MakeMaker/lib/ExtUtils/Liblist/Kid.pm b/cpan/ExtUtils-MakeMaker/lib/ExtUtils/Liblist/Kid.pm
+index fbdc79aea2..1e2f7f6c7d 100644
+--- a/cpan/ExtUtils-MakeMaker/lib/ExtUtils/Liblist/Kid.pm
++++ b/cpan/ExtUtils-MakeMaker/lib/ExtUtils/Liblist/Kid.pm
+@@ -84,6 +84,10 @@ sub _unix_os2_ext {
+     }
+     @libpath = grep -d, @libpath;
  
 +    foreach my $path ( @libpath ) {
-+	$ld_run_path_seen{$path}++;
++        $ld_run_path_seen{$path}++;
 +    }
 +
-     if ( $^O eq 'darwin' or $^O eq 'next' )  {
+     if ($^O eq 'darwin')  {
          # 'escape' Mach-O ld -framework and -F flags, so they aren't dropped later on
-         $potential_libs =~ s/(^|\s)(-(?:weak_|reexport_|lazy_)?framework)\s+(\S+)/$1-Wl,$2 -Wl,$3/g;
+         $found++ if $potential_libs =~ s/(^|\s)(-(?:weak_|reexport_|lazy_)?framework)\s+(\S+)/$1-Wl,$2 -Wl,$3/g;
