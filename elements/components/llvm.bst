@@ -2,10 +2,16 @@ kind: cmake
 
 (@):
 - elements/include/llvm.yml
+- include/_private/recc.yml
 
 build-depends:
 - components/_private/buildsystem-cmake.bst
 - components/_private/python3-minimal.bst
+- components/sed.bst
+- components/recc.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -61,6 +67,10 @@ variables:
     -DLLVM_DEFAULT_TARGET_TRIPLE=%{build-triplet}
     -DLLVM_TARGETS_TO_BUILD="%{targets}"
     -DCMAKE_SKIP_RPATH:BOOL=ON
+    -DCMAKE_C_COMPILER_LAUNCHER=recc
+    -DCMAKE_C_LINKER_LAUNCHER=recc
+    -DCMAKE_CXX_COMPILER_LAUNCHER=recc
+    -DCMAKE_CXX_LINKER_LAUNCHER=recc
 
 config:
   install-commands:
