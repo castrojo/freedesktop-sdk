@@ -67,6 +67,10 @@ config:
         fi
       done
 
+    - |
+      mkdir -p "%{install-root}%{sysconfdir}/alsa/conf.d"
+      ln -svf "%{datadir}/alsa/alsa.conf.d/50-pipewire.conf" "%{install-root}%{sysconfdir}/alsa/conf.d/50-pipewire.conf"
+
 public:
   bst:
     split-rules:
