@@ -15,8 +15,9 @@ runtime-depends:
 (@): elements/bootstrap/include/target.yml
 
 variables:
-  conf-local: |
+  conf-local: >-
     gl_cv_func_getopt_gnu=yes
+    gl_cv_func_strcasecmp_works=yes
 
 config:
   install-commands:
