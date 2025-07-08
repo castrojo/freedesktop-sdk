@@ -27,5 +27,5 @@ config:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:diffutils/diffutils-3.10.tar.xz
-  ref: 90e5e93cc724e4ebe12ede80df1634063c7a855692685919bfe60b556c9bd09e
+  url: ftp_gnu_org:diffutils/diffutils-3.12.tar.xz
+  ref: 7c8b7f9fc8609141fdea9cece85249d308624391ff61dedaf528fcb337727dfd
