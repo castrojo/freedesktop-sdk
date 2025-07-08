@@ -13,5 +13,5 @@ depends:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:libtool/libtool-2.4.7.tar.xz
-  ref: 4f7f217f057ce655ff22559ad221a0fd8ef84ad1fc5fcb6990cecc333aa1635d
+  url: ftp_gnu_org:libtool/libtool-2.5.4.tar.xz
+  ref: f81f5860666b0bc7d84baddefa60d1cb9fa6fceb2398cc3baca6afaa60266675
