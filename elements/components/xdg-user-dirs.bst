@@ -9,7 +9,7 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 variables:
-  autogen: autoreconf -ivf
+  autogen: autoreconf -ivf -I %{datadir}/gettext/m4
   conf-link-args: ''
 
 sources:

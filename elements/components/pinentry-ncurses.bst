@@ -10,6 +10,7 @@ depends:
 - components/libgpg-error.bst
 
 variables:
+  autogen: autoreconf -vif -I %{datadir}/gettext/m4
   conf-local: >-
     --enable-pinentry-curses
     --disable-pinentry-qt

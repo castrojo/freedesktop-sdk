@@ -14,7 +14,7 @@ config:
   configure-commands:
     (<):
     - |
-      autoreconf -ivf
+      autoreconf -ivf -I %{datadir}/gettext/m4
 
 public:
   bst:
