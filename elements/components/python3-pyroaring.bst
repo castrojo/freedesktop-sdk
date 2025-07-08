@@ -2,7 +2,7 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
-- components/cython.bst
+- components/cython3-0.bst
 - components/git-minimal.bst
 
 depends:
