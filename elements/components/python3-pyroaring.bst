@@ -21,5 +21,3 @@ sources:
   exclude:
   - '*dev*'
   ref: 1.0.2-0-g369daeb212ad69b4cf68e05b7c632fd2b9473e49
-- kind: patch
-  path: patches/python3-pyroaring/relax-cython.patch
