@@ -70,3 +70,5 @@ sources:
   path: gnulib
   url: savannah:gnulib.git
   ref: c7f29c827df9284ec56233c515286c4d57361e4c
+- kind: patch
+  path: patches/wget2/fix-gettext-ver.patch
