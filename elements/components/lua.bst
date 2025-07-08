@@ -26,7 +26,7 @@ config:
 
 sources:
 - kind: tar
-  url: tar_https:www.lua.org/ftp/lua-5.4.7.tar.gz
-  ref: 9fbf5e28ef86c69858f6d3d34eccc32e911c1a28b4120ff3e84aaa70cfbf1e30
+  url: tar_https:www.lua.org/ftp/lua-5.4.8.tar.gz
+  ref: 4f18ddae154e793e46eeab727c59ef1c0c0c2b744e7b94219710d76f530629ae
 - kind: local
   path: files/lua/lua.pc.in
