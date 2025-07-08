@@ -15,6 +15,10 @@ depends:
 - components/tpm2-tools.bst
 - components/sqlite.bst
 
+variables:
+  local_flags: >-
+    -Wno-error
+
 sources:
 - kind: git_repo
   url: github:tpm2-software/tpm2-pkcs11.git

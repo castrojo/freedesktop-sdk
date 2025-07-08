@@ -7,6 +7,10 @@ build-depends:
 depends:
 - components/tpm2-tss.bst
 
+variables:
+  local_flags: >-
+    -Wno-error
+
 sources:
 - kind: git_repo
   url: github:tpm2-software/tpm2-tools.git
