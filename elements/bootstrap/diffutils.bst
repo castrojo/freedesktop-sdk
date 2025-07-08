@@ -16,8 +16,9 @@ runtime-depends:
 - bootstrap/glibc.bst
 
 variables:
-  conf-local: |
+  conf-local: >-
     gl_cv_func_getopt_gnu=yes
+    gl_cv_func_strcasecmp_works=yes
 
 config:
   install-commands:
