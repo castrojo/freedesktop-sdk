@@ -9,7 +9,7 @@ depends:
 variables:
   autogen: |
     cp /usr/share/gettext/config.rpath .
-    autoreconf -vif
+    autoreconf -vif -I %{datadir}/gettext/m4
 
 public:
   bst:

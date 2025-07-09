@@ -8,5 +8,5 @@ depends:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:mtools/mtools-4.0.44.tar.bz2
-  ref: 37dc4df022533c3d4b2ec1c78973c27c7e8b585374c2d46ab64c6a3db31eddb8
+  url: ftp_gnu_org:mtools/mtools-4.0.49.tar.bz2
+  ref: 6fe5193583d6e7c59da75e63d7234f76c0b07caf33b103894f46f66a871ffc9f
