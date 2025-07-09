@@ -19,11 +19,12 @@ variables:
 config:
   install-commands:
     (>):
-    - install -Dm755 -t "%{install-root}%{bindir}" "%{build-dir}/tools/llvm-spirv/llvm-spirv"
+    - install -Dm755 -t "%{install-root}%{bindir}" 
+      "%{build-dir}/tools/llvm-spirv/llvm-spirv"
 
 sources:
 - kind: git_repo
   # This needs to be in sync with LLVM version
   track: v20.*.*
   url: github:KhronosGroup/SPIRV-LLVM-Translator.git
-  ref: v20.1.3-0-g834db1a1985ac36d5a3e1b4b34dc1ca3f919ad5b
+  ref: v20.1.4-0-g74843f2186bb63b6802758222084da17fcbe603c
