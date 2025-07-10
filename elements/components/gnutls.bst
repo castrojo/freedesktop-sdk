@@ -41,7 +41,7 @@ sources:
 - kind: git_repo
   url: gitlab:gnutls/gnutls.git
   track: '*.*.*'
-  ref: 3.8.9-0-g477a733247460b94cd2b37a10579c27ca6fc196f
+  ref: 3.8.10-0-g8a36455fd75ce76391cfc00c53213d8b0e1648da
 - kind: patch
   path: patches/gnutls/drop-submodule.patch
 - kind: git_module
