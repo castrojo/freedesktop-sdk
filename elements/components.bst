@@ -322,6 +322,7 @@ depends:
 - components/nettle.bst
 - components/networkmanager.bst
 - components/newt.bst
+- components/nlohmann-json.bst
 - components/ninja.bst
 - components/noopenh264.bst
 - components/noto-emoji.bst
