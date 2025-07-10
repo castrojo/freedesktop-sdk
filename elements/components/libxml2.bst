@@ -39,3 +39,9 @@ sources:
 - kind: patch
   path: 
     patches/libxml2/libxml2-python-in-nodeWrap-deal-with-name-is-None-case.patch
+- kind: patch
+  path:
+    patches/libxml2/libxml2-xmllint-fix-xinclude-path.patch
+- kind: patch
+  path:
+    patches/libxml2/libxml2-xmllint-print-document-even-in-case-of-xinclude-errors.patch
