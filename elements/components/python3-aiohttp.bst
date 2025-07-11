@@ -19,6 +19,6 @@ sources:
 - kind: pypi
   name: aiohttp
   ref:
-    sha256sum: 47e2da578528264a12e4e3dd8dd72a7289e5f812758fe086473fab037a10fcce
+    sha256sum: 6e06e120e34d93100de448fd941522e11dafa78ef1a893c179901b7d66aa29f2
     suffix: 
-      42/6e/ab88e7cb2a4058bed2f7870276454f85a7c56cd6da79349eb314fc7bbcaa/aiohttp-3.12.13.tar.gz
+      e6/0b/e39ad954107ebf213a2325038a3e7a506be3d98e1435e1f82086eec4cde2/aiohttp-3.12.14.tar.gz
