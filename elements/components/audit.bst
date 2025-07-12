@@ -7,6 +7,12 @@ depends:
 - bootstrap-import.bst
 
 variables:
+  # intentionally
+  # enabled static libs
+  conf-link-args: >-
+    --enable-shared
+    --enable-static
+
   conf-local: >-
     --without-python
     --without-python3
@@ -20,6 +26,9 @@ config:
     - |
       install -Dm644 freedesktop-sdk/tmpfiles-audit.conf \
                      "%{install-root}%{indep-libdir}/tmpfiles.d/audit.conf"
+
+    - |
+      find "%{install-root}" -name "lib*.a" -delete
 
 sources:
 - kind: git_repo
