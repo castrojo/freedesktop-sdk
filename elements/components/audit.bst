@@ -7,6 +7,12 @@ depends:
 - bootstrap-import.bst
 
 variables:
+  # intentionally
+  # enabled static libs
+  conf-link-args: >-
+    --enable-shared
+    --enable-static
+
   conf-local: >-
     runstatedir=/run
     --without-python
@@ -25,6 +31,9 @@ config:
     - |
       install -Dm755 -d "%{install-root}%{sysconfdir}/audit/rules.d"
       ln -sr "%{install-root}%{datadir}/audit-rules/10-base-config.rules" "%{install-root}%{sysconfdir}/audit/rules.d/10-base-config.rules"
+
+    - |
+      find "%{install-root}" -name "lib*.a" -delete
 
 sources:
 - kind: git_repo
