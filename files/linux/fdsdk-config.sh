@@ -1286,6 +1286,9 @@ module I2C_VIAPRO
 module I2C_CHARDEV
 module I2C_STUB
 
+# Wine/Proton compatibility
+module NTSYNC
+
 # RTL Network
 module RTL8180
 module RTL8187
