@@ -16,7 +16,8 @@ variables:
     --disable-fsck
     --disable-uuidd
 
-  make-install: make -j1 DESTDIR="%{install-root}" LDCONFIG=true install install-libs
+  make-install: make -j1 DESTDIR="%{install-root}" LDCONFIG=true install 
+    install-libs
 
 config:
   install-commands:
@@ -65,4 +66,4 @@ sources:
   track: v*
   exclude:
   - v*rc*
-  ref: v1.47.2-0-gc3cce4a07efefc62bc7fc57a678cb870af27d0f2
+  ref: v1.47.3-0-gda631e117dcf8797bfda0f48bdaa05ac0fbcf7af
