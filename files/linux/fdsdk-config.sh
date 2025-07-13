@@ -1835,6 +1835,9 @@ module HID_PRIMAX
 module HID_PRODIKEYS
 module HID_RETRODE
 module HID_RMI
+# Touchscreen for OnePlus 6
+module RMI4_I2C
+enable RMI4_F55
 module HID_ROCCAT
 module HID_SAITEK
 module HID_SEMITEK
