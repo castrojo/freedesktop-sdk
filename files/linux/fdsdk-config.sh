@@ -2091,6 +2091,11 @@ case "$arch" in
     ;;
 esac
 
+# Scheduler
+if has ARCH_HAS_PREEMPT_LAZY; then
+    enable PREEMPT_LAZY
+fi
+
 # Platforms
 case "$arch" in
     aarch64|arm|x86_64|i686)
