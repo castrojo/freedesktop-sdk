@@ -6,9 +6,12 @@ build-depends:
 - components/bash-completion.bst
 - components/bison.bst
 - components/flex.bst
+- components/gawk.bst
 - components/git-minimal.bst
 - components/libcap-ng.bst
 - components/libeconf.bst
+- components/perl-yaml-tiny.bst
+- components/po4a.bst
 - components/sed.bst
 
 depends:
