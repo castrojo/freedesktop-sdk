@@ -2,9 +2,12 @@ kind: make
 
 build-depends:
 - public-stacks/buildsystem-make.bst
+- components/pkg-config.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/elfutils.bst
+- components/zlib.bst
 
 variables:
   command-subdir: src
