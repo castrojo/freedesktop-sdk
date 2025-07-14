@@ -34,4 +34,4 @@ sources:
 - kind: git_repo
   url: git_https:git.gnunet.org/libmicrohttpd.git
   track: v*
-  ref: v1.0.1-0-g3aee48fd77329ab37091a60602aa50d2fdee964a
+  ref: v1.0.2-0-gf2e3bbda41c6263527808187c45f90b1704332f9
