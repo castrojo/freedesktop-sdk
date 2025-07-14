@@ -1,5 +1,8 @@
 kind: make
 
+build-depends:
+- components/pkg-config.bst
+
 depends:
 - bootstrap-import.bst
 
