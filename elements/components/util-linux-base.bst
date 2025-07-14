@@ -6,9 +6,12 @@ build-depends:
 - components/bash-completion.bst
 - components/bison.bst
 - components/flex.bst
+- components/gawk.bst
 - components/git-minimal.bst
 - components/libcap-ng.bst
 - components/libeconf.bst
+- components/perl-yaml-tiny.bst
+- components/po4a.bst
 - components/sed.bst
 
 depends:
@@ -103,4 +106,4 @@ sources:
   - v*-rc*
   - v*-devel*
   - v*-start*
-  ref: v2.41-0-gcaa26876bc75041833c9644491cc2670d623f750
+  ref: v2.41.1-0-g67b6f19adad289cc4ff4071ae8eceda41bdce9e8
