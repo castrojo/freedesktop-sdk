@@ -56,7 +56,7 @@ sources:
   url: github:containers/storage.git
   directory: storage
   track: v*
-  ref: v1.58.0-0-g19ffd5bbbcceaba60eb9f60a7b361c61dcf50d13
+  ref: v1.59.0-0-g51223aa059d7dfdff76c2f242b4048c97e2fc972
 - kind: git_repo
   url: github:containers/shortnames.git
   directory: shortnames
