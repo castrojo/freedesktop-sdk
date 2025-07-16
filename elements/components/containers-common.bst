@@ -51,7 +51,7 @@ sources:
   url: github:containers/image.git
   directory: image
   track: v*
-  ref: v5.35.0-0-g617c288ea0420502677c6211b416b7d2dfecc67b
+  ref: v5.36.0-0-g08ce6b4207e7b151ea1c2830cdb1d4473cfd12aa
 - kind: git_repo
   url: github:containers/storage.git
   directory: storage
