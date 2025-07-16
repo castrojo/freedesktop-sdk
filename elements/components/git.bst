@@ -35,6 +35,7 @@ variables:
     -Dtests=false
     -Dcoccinelle=disabled
     -Dbenchmarks=disabled
+    -Ddocs=man
 
 public:
   bst:
