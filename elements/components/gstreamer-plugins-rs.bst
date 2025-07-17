@@ -28,6 +28,13 @@ variables:
     -Dwebrtc=disabled
     -Dwebrtchttp=disabled
     -Dquinn=disabled
+    -Dvvdec=disabled
+    -Dskia=disabled
+    -Delevenlabs=disabled
+    -Dhlsmultivariantsink=disabled
+    -Dstreamgrouper=disabled
+    -Dspeechmatics=disabled
+    -Danalytics=disabled
 
 sources:
 - kind: git_repo
