@@ -364,6 +364,7 @@ depends:
 - components/ostree.bst
 - components/ovmf-maybe.bst
 - components/p11-kit.bst
+- components/pahole.bst
 - components/pango.bst
 - components/parallel.bst
 - components/parted.bst
