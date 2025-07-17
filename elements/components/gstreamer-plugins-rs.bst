@@ -4,7 +4,6 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - public-stacks/buildsystem-cmake.bst
 - components/cargo-c.bst
-- components/hotdoc.bst
 - components/rust.bst
 
 depends:
@@ -35,6 +34,7 @@ variables:
     -Dstreamgrouper=disabled
     -Dspeechmatics=disabled
     -Danalytics=disabled
+    -Ddoc=disabled
 
 sources:
 - kind: git_repo
