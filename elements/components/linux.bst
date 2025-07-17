@@ -11,6 +11,7 @@ build-depends:
 - components/flex.bst
 - components/bc.bst
 - components/gzip.bst
+- components/pahole.bst
 - components/python3.bst
 - components/rsync.bst
 - components/util-linux.bst

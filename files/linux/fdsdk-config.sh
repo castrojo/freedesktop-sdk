@@ -2147,6 +2147,11 @@ if has HAVE_CBPF_JIT || has HAVE_EBPF_JIT; then
     enable BPF_JIT
 fi
 
+remove DEBUG_INFO_SPLIT
+remove DEBUG_INFO_REDUCED
+enable DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT
+enable DEBUG_INFO_BTF
+
 # Ramdisk
 module BLK_DEV_RAM
 
