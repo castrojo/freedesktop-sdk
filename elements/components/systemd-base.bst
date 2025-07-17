@@ -118,6 +118,8 @@ variables:
     -Ddbus=disabled
     -Dukify=%{efi}
     -Dkernel-install=true
+    -Dvmlinux-h=provided
+    -Dvmlinux-h-path='%{includedir}/%{gcc_triplet}/linux/vmlinux.h'
 
 public:
   cpe:
