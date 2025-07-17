@@ -31,4 +31,4 @@ sources:
 - kind: git_repo
   url: github:libbpf/libbpf.git
   track: v*
-  ref: v1.5.1-0-gb4fa3e39a77fd65574fb5f899486795fc3d89bd9
+  ref: v1.6.0-0-gda08818f4f3b6a8f6d15617184de9a6c34c5b642
