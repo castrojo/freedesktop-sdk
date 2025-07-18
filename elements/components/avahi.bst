@@ -8,6 +8,7 @@ runtime-depends:
 - components/dbus.bst
 - components/glib.bst
 - components/libdaemon.bst
+- components/avahi-libs.bst
 - components/avahi-manifest.bst
 
 config:
