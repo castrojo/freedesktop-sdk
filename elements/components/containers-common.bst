@@ -46,7 +46,7 @@ sources:
   track: v*
   exclude:
   - "v1.0.1"
-  ref: v0.63.1-0-gd6ac18135ce76f94603d9d426653dd37d2ea7ff1
+  ref: v0.64.0-0-ga849094a01aae1b15756c2817d952d5af115c4a4
 - kind: git_repo
   url: github:containers/image.git
   directory: image
