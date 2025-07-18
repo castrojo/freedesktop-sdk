@@ -15,15 +15,21 @@ depends:
 # disable everything by default to prevent new plugins getting added
 # on updates, only enable plugins which are in use by apps
 variables:
+  arch-conf: ''
+
+  (?):
+  - target_arch != "i686":
+      arch-conf: -Dspotify=enabled
+
   meson-local: >-
     -Dauto_features=disabled
     -Dtests=disabled
     -Ddoc=enabled
     -Drtp=enabled
     -Dgif=enabled
-    -Dspotify=enabled
     -Dhlssink3=enabled
     -Ddav1d=enabled
+    %{arch-conf}
 
 sources:
 - kind: git_repo
