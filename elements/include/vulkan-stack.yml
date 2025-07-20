@@ -3,22 +3,22 @@ sources:
   url: github:KhronosGroup/Vulkan-Headers.git
   directory: vulkan-headers
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.313.0-0-g409c16be502e39fe70dd6fe2d9ad4842ef2c9a53
+  ref: vulkan-sdk-1.4.321.0-0-g2cd90f9d20df57eac214c148f3aed885372ddcfe
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-Tools.git
   directory: vulkan-tools
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.313.0-0-gad2f0170f9466fadd96e3fdd65fad02cd3a3739b
+  ref: vulkan-sdk-1.4.321.0-0-g06ae73a3dc3a03466817d8370355203dac7b79b1
 - kind: git_repo
   url: github:KhronosGroup/SPIRV-Headers.git
   directory: spirv-headers
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.313.0-0-gaa6cef192b8e693916eb713e7a9ccadf06062ceb
+  ref: vulkan-sdk-1.4.321.0-0-g2a611a970fdbc41ac2e3e328802aed9985352dca
 - kind: git_repo
   url: github:KhronosGroup/SPIRV-Tools.git
   directory: spirv-tools
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.313.0-0-ga62abcb402009b9ca5975e6167c09f237f630e0e
+  ref: vulkan-sdk-1.4.321.0-0-g33e02568181e3312f49a3cf33df470bf96ef293a
 - kind: patch
   directory: spirv-tools
   path: patches/spirv-tools/Remove-libSPIRV-Tools-shared.so.patch
@@ -26,14 +26,14 @@ sources:
   url: github:KhronosGroup/glslang.git
   directory: glslang
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.313.0-0-gfc9889c889561c5882e83819dcaffef5ed45529b
+  ref: vulkan-sdk-1.4.321.0-0-g8a85691a0740d390761a1008b4696f57facd02c4
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-Loader.git
   directory: vulkan-icd-loader
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.313.0-0-gfb78607414e154c7a5c01b23177ba719c8a44909
+  ref: vulkan-sdk-1.4.321.0-0-gda8d2caad9341ca8c5a7c3deba217d7da50a7c24
 - kind: git_repo
   url: github:zeux/volk.git
   directory: volk
   track: vulkan-sdk-*
-  ref: vulkan-sdk-1.4.313.0-0-g43c29e655cb8117fd9cfb65ad9cefe2d40965102
+  ref: vulkan-sdk-1.4.321.0-0-ga8da8ef3368482b0ee9b0ec0c6079a16a89c6924
