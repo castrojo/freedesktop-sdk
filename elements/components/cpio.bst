@@ -2,15 +2,19 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- components/bison.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
 - components/tar.bst
 
 variables:
+  autogen: ./bootstrap --skip-po --no-git --gnulib-srcdir=%{build-root}/gnulib
   local_flags: -std=gnu17
   conf-local: >-
     --with-rmt="%{libexecdir}/rmt"
+  make-args: >-
+    MAKEINFO=true
 
 config:
   install-commands:
@@ -24,6 +28,15 @@ public:
     - CVE-2010-4226
 
 sources:
-- kind: tar
-  url: ftp_gnu_org:cpio/cpio-2.15.tar.bz2
-  ref: 937610b97c329a1ec9268553fb780037bcfff0dcffe9725ebc4fd9c1aa9075db
+- kind: git_repo
+  url: savannah:cpio.git
+  track: v*
+  ref: v2.15-0-g900bab656ff24db5e3099941fb909c79c07962ed
+- kind: git_module
+  url: savannah:paxutils.git
+  path: paxutils
+  ref: 9ad2a83e9c8de70d83dbe956c144be51f66a9abb
+- kind: git_module
+  url: savannah:gnulib.git
+  path: gnulib
+  ref: 29d705ead11382c8d608dcc254394439cb43b9b8
