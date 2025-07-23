@@ -138,7 +138,6 @@ config:
     install -p -m 644 README.etc %{install-root}%{catrustdir}/README
     install -p -m 644 README.extr %{install-root}%{catrustdir}/extracted/README
     install -p -m 644 README.java %{install-root}%{catrustdir}/extracted/java/README
-    install -p -m 644 README.openssl %{install-root}%{catrustdir}/extracted/openssl/README
     install -p -m 644 README.pem %{install-root}%{catrustdir}/extracted/pem/README
     install -p -m 644 README.edk2 %{install-root}%{catrustdir}/extracted/edk2/README
     install -p -m 644 README.src %{install-root}%{catrustdir}/source/README
