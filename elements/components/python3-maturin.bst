@@ -15,6 +15,8 @@ sources:
   exclude:
   - "*beta*"
   ref: v1.9.2-0-gf18f7760d4851946d421c019178582031d0dce83
+- kind: patch
+  path: patches/python3-maturin/revert-license-file.patch
 - kind: cargo
   cargo-lock: Cargo.lock
   ref:

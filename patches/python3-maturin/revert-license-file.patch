@@ -1,0 +1,30 @@
+From e3bef897549392dd1f6b2043866131f8131dcabe Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Mon, 28 Jul 2025 20:17:47 +0530
+Subject: [PATCH] Revert "pyproject.toml: add license-files (#2690)"
+
+This reverts commit 7402a482a40e8f40b6bef900b456b40f65782ccd.
+---
+ pyproject.toml | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 7bbc8ca6..e6d0d857 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -14,11 +14,7 @@ description = "Build and publish crates with pyo3, cffi and uniffi bindings as w
+ authors = [{ name = "konstin", email = "konstin@mailbox.org" }]
+ readme = { file = "README.md", content-type = "text/markdown" }
+ requires-python = ">=3.7"
+-license = "MIT OR Apache-2.0"
+-license-files = [
+-    "license-mit",
+-    "license-apache",
+-]
++license = { text = "MIT OR Apache-2.0" }
+ classifiers = [
+     "Topic :: Software Development :: Build Tools",
+     "Programming Language :: Rust",
+-- 
+2.49.0
+
