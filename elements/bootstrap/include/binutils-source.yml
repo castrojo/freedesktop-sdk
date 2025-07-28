@@ -25,6 +25,6 @@ sources:
   track: binutils-*
   exclude:
   - binutils-2_41
-  ref: binutils-2_44-0-g815d9a14cbbb3b81843f7566222c87fb22e7255d
+  ref: binutils-2_45-0-g2bc7af1ff7732451b6a7b09462a815c3284f9613
 - kind: patch
   path: patches/binutils/0001-CVE-2025-1153.patch
