@@ -1,12 +1,13 @@
-diff -ur u-boot-unmatched.old/configs/sifive_unmatched_defconfig u-boot-unmatched/configs/sifive_unmatched_defconfig
---- u-boot-unmatched.old/configs/sifive_unmatched_defconfig	2023-05-15 10:18:10.055528989 +0200
-+++ u-boot-unmatched/configs/sifive_unmatched_defconfig	2023-05-15 10:18:59.331178295 +0200
-@@ -25,7 +25,7 @@
+diff --git a/configs/sifive_unmatched_defconfig b/configs/sifive_unmatched_defconfig
+index f70e3db4441..53e3b1c6e04 100644
+--- a/configs/sifive_unmatched_defconfig
++++ b/configs/sifive_unmatched_defconfig
+@@ -27,7 +27,7 @@ CONFIG_FIT=y
  CONFIG_SPL_LOAD_FIT_ADDRESS=0x84000000
- CONFIG_DISTRO_DEFAULTS=y
+ CONFIG_BOOTSTD_DEFAULTS=y
  CONFIG_USE_PREBOOT=y
--CONFIG_PREBOOT="setenv fdt_addr ${fdtcontroladdr};fdt addr ${fdtcontroladdr};"
-+CONFIG_PREBOOT="setenv fdt_addr ${fdtcontroladdr};fdt addr ${fdtcontroladdr};load mmc 0:3 ${fdt_addr_r} /dtb/hifive-unmatched-a00.dtb;"
+-CONFIG_PREBOOT="setenv fdt_addr ${fdtcontroladdr};fdt addr ${fdtcontroladdr};nvme scan"
++CONFIG_PREBOOT="setenv fdt_addr ${fdtcontroladdr};fdt addr ${fdtcontroladdr};nvme scan;load mmc 0:3 ${fdt_addr_r} /dtb/hifive-unmatched-a00.dtb;"
  CONFIG_DEFAULT_FDT_FILE="sifive/hifive-unmatched-a00.dtb"
- CONFIG_DISPLAY_CPUINFO=y
- CONFIG_DISPLAY_BOARDINFO=y
+ CONFIG_SYS_CBSIZE=256
+ CONFIG_SYS_PBSIZE=276
