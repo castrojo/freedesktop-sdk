@@ -92,7 +92,7 @@ case "$arch" in
         module CRYPTO_AES_NI_INTEL
         module CRYPTO_GHASH_CLMUL_NI_INTEL
         module CRYPTO_SHA1_SSSE3
-        module CRYPTO_SHA256_SSSE3
+        module CRYPTO_SHA256_X86_64
         module CRYPTO_SHA512_SSSE3
         module CRYPTO_DES3_EDE_X86_64
     ;;
@@ -112,7 +112,6 @@ case "$arch" in
         module CRYPTO_SHA256_ARM64
         module CRYPTO_SHA512_ARM64
         module CRYPTO_SHA1_ARM64_CE
-        module CRYPTO_SHA2_ARM64_CE
         module CRYPTO_SHA512_ARM64_CE
         module CRYPTO_GHASH_ARM64_CE
         module CRYPTO_AES_ARM64
@@ -233,7 +232,6 @@ enable VIRTIO_BLK
 enable SCSI_VIRTIO
 enable VIRTIO_IOMMU
 
-enable BLK_MQ_VIRTIO
 module VIRTIO_CONSOLE
 module VIRTIO_MMIO
 module CRYPTO_DEV_VIRTIO
@@ -1947,6 +1945,9 @@ enable AUDIT
 
 # SPI
 if has HAS_IOMEM; then
+    enable PCI
+    enable SPI_MASTER
+    enable SPI_MEM
     enable SPI
     module SPI_AMD
 fi
