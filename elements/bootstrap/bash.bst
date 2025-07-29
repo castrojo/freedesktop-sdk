@@ -17,7 +17,6 @@ runtime-depends:
 - bootstrap/readline.bst
 
 variables:
-  local_flags: -std=gnu17
   # bash_cv_termcap_lib is for working around undetected of libtinfo
   # because termcap is detected
   conf-local: >-
