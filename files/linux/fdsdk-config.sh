@@ -100,7 +100,7 @@ module CRYPTO_MD4
 module CRYPTO_MD5
 module CRYPTO_PCBC
 module CRYPTO_PCRYPT
-module CRYPTO_POLY1305
+module CRYPTO_LIB_POLY1305
 module CRYPTO_RMD160
 module CRYPTO_SERPENT
 module CRYPTO_SHA1
@@ -122,7 +122,7 @@ case "$arch" in
         module CRYPTO_AES_NI_INTEL
         module CRYPTO_GHASH_CLMUL_NI_INTEL
         module CRYPTO_SHA1_SSSE3
-        module CRYPTO_SHA256_SSSE3
+        module CRYPTO_SHA256_X86_64
         module CRYPTO_SHA512_SSSE3
         module CRYPTO_DES3_EDE_X86_64
     ;;
@@ -130,7 +130,6 @@ case "$arch" in
         module CRYPTO_SHA256_ARM64
         module CRYPTO_SHA512_ARM64
         module CRYPTO_SHA1_ARM64_CE
-        module CRYPTO_SHA2_ARM64_CE
         module CRYPTO_SHA512_ARM64_CE
         module CRYPTO_GHASH_ARM64_CE
         module CRYPTO_AES_ARM64
@@ -266,7 +265,6 @@ module VDPA
 module VIRTIO_VDPA
 module VIRTIO_DMA_SHARED_BUFFER
 
-enable BLK_MQ_VIRTIO
 module VIRTIO_MMIO
 enable VIRTIO_MMIO_CMDLINE_DEVICES
 module CRYPTO_DEV_VIRTIO
@@ -2128,6 +2126,9 @@ enable AUDIT
 
 # SPI
 if has HAS_IOMEM; then
+    enable PCI
+    enable SPI_MASTER
+    enable SPI_MEM
     enable SPI
     module SPI_AMD
 fi
