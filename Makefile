@@ -420,7 +420,7 @@ ostree-repo:
 	$(MAKE) update-ostree
 
 ostree-serve: ostree-repo
-	python3 -m http.server 8000 --directory ostree-repo
+	utils/run-local-repo.sh
 
 $(VM_CHECKOUT_ROOT)/ostree-vm/disk.img: files/vm/ostree-config/fdsdk.gpg ostree-config.yml
 	$(BST) build vm/minimal-ostree/image.bst

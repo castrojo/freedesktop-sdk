@@ -51,6 +51,7 @@ config:
 
   - |
     cp -r "%{sysroot}"/ostree/boot.1/freedesktop-sdk/*/*/boot/EFI/ "%{sysroot}/boot/"
+    rm "%{sysroot}/boot/boot"
 
   - |
     mkdir -p genimage
