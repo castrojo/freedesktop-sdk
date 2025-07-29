@@ -1,0 +1,24 @@
+From 40513fc03b8c582ee0a2da7c4351ee0f0f358646 Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Tue, 29 Jul 2025 16:38:13 +0530
+Subject: [PATCH] This is only used for an internal ABI check should be safe
+
+---
+ src/kernel_abi.h | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/src/kernel_abi.h b/src/kernel_abi.h
+index 41deda4a..eb59fcac 100644
+--- a/src/kernel_abi.h
++++ b/src/kernel_abi.h
+@@ -748,7 +748,6 @@ struct BaseArch : public wordsize,
+     unsigned char c_line;
+     unsigned char c_cc[8];
+   };
+-  RR_VERIFY_TYPE(termio);
+ 
+   struct seccomp_notif_sizes {
+     uint16_t seccomp_notif;
+-- 
+2.49.0
+

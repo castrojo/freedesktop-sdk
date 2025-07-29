@@ -29,3 +29,5 @@ sources:
   url: github:mozilla/rr.git
   track: '*.*.*'
   ref: 5.9.0-0-gaaed29dc0324444e36503a26dcec96731d1942b0
+- kind: patch
+  path: patches/rr/drop_termio_check.patch
