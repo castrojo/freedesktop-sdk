@@ -39,3 +39,5 @@ sources:
     sha256sum: 398ad29dee7f63a75888314e9424d40f52ce5a6a87ae88e7071e80af296ec348
     suffix: 
       38/ad/4360e50ed56cb483667b8e6dadf2d3fda62359593faabbe749a27c4eaca6/sphinx-8.2.3.tar.gz
+- kind: patch
+  path: patches/python3-sphinx/docutils.patch
