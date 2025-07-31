@@ -586,6 +586,7 @@ depends:
 - components/volume-key.bst
 - components/vulkan-headers.bst
 - components/vulkan-icd-loader.bst
+- components/vulkan-validation-layers.bst
 - components/wavpack.bst
 - components/wayland-protocols.bst
 - components/wayland.bst

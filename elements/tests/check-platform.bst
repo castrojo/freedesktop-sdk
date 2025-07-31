@@ -46,6 +46,7 @@ config:
   - components/texinfo.bst
   - components/valgrind-maybe.bst
   - components/rr-maybe.bst
+  - components/vulkan-validation-layers.bst
   - components/protobuf.bst
   - components/python3-protobuf.bst
   - components/xorg-proto-xcb.bst
