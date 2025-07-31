@@ -12,6 +12,8 @@ depends:
 sources:
 - kind: pypi
   name: pip
+  include:
+  - "25.1.*"
   ref:
     sha256sum: 3de45d411d308d5054c2168185d8da7f9a2cd753dbac8acbfa88a8909ecd9077
     suffix: 
