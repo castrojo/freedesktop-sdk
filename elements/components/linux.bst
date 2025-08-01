@@ -24,6 +24,7 @@ variables:
   kernel_arch: '%{arch}'
   src-arch: '%{kernel_arch}'
   image-name: '$(make -s image_name)'
+  optimize-debug: false
   (?):
   - target_arch == "x86_64":
       src-arch: x86
@@ -84,10 +85,6 @@ config:
     install -Dm644 System.map '%{install-root}%{bootdir}/System.map'
     install -Dm644 .config '%{install-root}%{bootdir}/config'
     make -j1 INSTALL_MOD_PATH='%{install-root}%{prefix}' modules_install
-
-  - |
-    release=$(make -s kernelrelease)
-    find "%{install-root}%{indep-libdir}/modules/${release}" -type f -name '*.ko' | xargs -n 2 -r zstd --rm -19 -T${MAXJOBS};
 
   - |
     release=$(make -s kernelrelease)
