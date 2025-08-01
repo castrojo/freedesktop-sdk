@@ -153,7 +153,8 @@ struct script {
         if (bool(status.permissions() & exec)
             || (name.rfind(".so") != std::string::npos)
             || ((name.length() >= 5) && (name.compare(name.length()-5, 5, ".cmxs") == 0))
-            || ((name.length() >= 5) && (name.compare(name.length()-5, 5, ".node") == 0))) {
+            || ((name.length() >= 5) && (name.compare(name.length()-5, 5, ".node") == 0))
+            || ((name.length() >= 3) && (name.compare(name.length()-3, 3, ".ko") == 0))) {
           paths.push_back(p);
         }
       }
