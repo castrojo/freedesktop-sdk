@@ -106,6 +106,16 @@ def prepare(args):
             )
 
     run_git(["fetch", "--prune", args.remote])
+
+    if args.print_changelog:
+        with git_workdir(stable_branch) as git_dir:
+            previous_tag = run_git(
+                ["describe", "--abbrev=0", stable_branch], cwd=git_dir
+            )
+            changelog = generate_changelog(previous_tag, git_dir)
+            print("\n".join(f"  {line}" for line in changelog.splitlines()))
+            return
+
     with git_workdir(stable_branch, branch=news_branch) as git_dir:
         previous_tag = run_git(["describe", "--abbrev=0", stable_branch], cwd=git_dir)
         changelog = generate_changelog(previous_tag, git_dir)
@@ -193,6 +203,11 @@ def main():
     )
     prepare_parser.add_argument(
         "new_version", type=release_version, help="The new release tag/version"
+    )
+    prepare_parser.add_argument(
+        "--print-changelog",
+        action="store_true",
+        help="Print the generated changelog and exit",
     )
     prepare_parser.set_defaults(func=prepare)
 
