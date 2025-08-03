@@ -17,6 +17,7 @@ depends:
 - components/glib.bst
 - components/gnutls.bst
 - components/nss.bst
+- components/libnvme.bst
 - components/libpsl.bst
 - components/curl.bst
 - components/pygobject.bst
