@@ -31,6 +31,7 @@ variables:
     -Dmodem_manager=false
     -Dqt=false
     -Dtests=no
+    -Dnbft=false
 
 sources:
 - kind: git_repo
