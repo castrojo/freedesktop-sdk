@@ -24,7 +24,8 @@ variables:
     --enable-loadable-sqlite-extensions \
     --with-dbmliborder=gdbm \
     --with-lto \
-    --with-conf-includedir="%{includedir}/%{gcc_triplet}"
+    --with-conf-includedir="%{includedir}/%{gcc_triplet}" \
+    --without-static-libpython
 
   # Upstream default is -O3 and we should not override this
   local_flags: "-O3"
