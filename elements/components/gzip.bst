@@ -38,5 +38,5 @@ depends:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:gzip/gzip-1.13.tar.xz
-  ref: 7454eb6935db17c6655576c2e1b0fabefd38b4d0936e0f87f48cd062ce91a057
+  url: ftp_gnu_org:gzip/gzip-1.14.tar.xz
+  ref: 01a7b881bd220bfdf615f97b8718f80bdfd3f6add385b993dcf6efd14e8c0ac6
