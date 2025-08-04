@@ -9,9 +9,16 @@ depends:
 - components/libgpg-error.bst
 
 variables:
-  conf-local: |
-    --enable-maintainer-mode \
+  conf-local: >-
+    --enable-maintainer-mode
     --disable-doc
+    %{asm}
+  asm: --enable-asm
+  (?):
+    - target_arch == "riscv64":
+        # Enabling asm uses vector instructions which might not always work,
+        # causing SIGILL
+        asm: --disable-asm
 
 public:
   bst:
