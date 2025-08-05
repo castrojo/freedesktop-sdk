@@ -11,9 +11,6 @@ depends:
 sources:
 - kind: git_repo
   url: github:PyO3/maturin.git
-  track: v*
-  exclude:
-  - "*beta*"
   ref: v1.9.2-0-gf18f7760d4851946d421c019178582031d0dce83
 - kind: patch
   path: patches/python3-maturin/revert-license-file.patch
