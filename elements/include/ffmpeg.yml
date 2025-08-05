@@ -119,6 +119,6 @@ sources:
   track: n7.0.*
   exclude:
   - '*-dev'
-  ref: n7.0.2-0-ge3a61e91030696348b56361bdf80ea358aef4a19
+  ref: n7.0.3-0-geaddd1d7140bab19e5a4403d3c0f61fe5f59cb75
 - kind: patch_queue
   path: patches/ffmpeg
