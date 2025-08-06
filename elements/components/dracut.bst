@@ -27,5 +27,3 @@ sources:
   url: github:dracut-ng/dracut-ng.git
   track: '[0-9]*'
   ref: 108-0-g97c5568ec42abd5e6035f0cfa9d319ae6ae4e50a
-- kind: patch
-  path: patches/dracut/shadow-perm.patch
