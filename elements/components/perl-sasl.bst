@@ -9,5 +9,5 @@ build-depends:
 sources:
 - kind: cpan
   name: Authen::SASL
-  suffix: authors/id/E/EH/EHUELS/Authen-SASL-2.1800.tar.gz
-  sha256sum: 0b03686bddbbf7d5c6548e468d079a4051c9b73851df740ae28cfd2db234e922
+  suffix: authors/id/E/EH/EHUELS/Authen-SASL-2.1900.tar.gz
+  sha256sum: be3533a6891b2e677150b479c1a0d4bf11c8bbeebed3e7b8eba34053e93923b0
