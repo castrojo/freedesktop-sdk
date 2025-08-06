@@ -3,6 +3,7 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/asciidoc.bst
+- components/asciidoctor.bst
 - components/libxslt.bst
 - components/docbook-xsl.bst
 - components/systemd.bst
