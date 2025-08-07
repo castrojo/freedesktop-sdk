@@ -33,9 +33,6 @@ variables:
     EGL/eglext_angle.h
     EGL/eglmesaext.h
     EGL/eglplatform.h
-    d3dadapter/present.h
-    d3dadapter/d3dadapter9.h
-    d3dadapter/drm.h
 
 config:
   install-commands:
