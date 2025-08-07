@@ -33,7 +33,6 @@ variables:
     -Dgallium-drivers=""
     -Dplatforms=""
     -Dtools=""
-    -Dosmesa=false
     -Dselinux=false
     -Dgbm=enabled
     -Dgbm-backends-path="%{libdir}/GL/lib/gbm"
