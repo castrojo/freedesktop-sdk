@@ -8,9 +8,9 @@ sources:
   ref: mesa-25.1.7-0-g581a4f7e70f1fb37d8640d707105b2e4cea99144
 # Rust dependencies:
 - kind: tar
-  directory: subprojects/packagecache/syn-2.0.68
-  url: crates:crates/syn/syn-2.0.68.crate
-  ref: 901fa70d88b9d6c98022e23b4136f9f3e54e4662c3bc1bd1d84a42a9a0f0c1e9
+  directory: subprojects/packagecache/syn-2.0.87
+  url: crates:crates/syn/syn-2.0.87.crate
+  ref: 25aa4ce346d03a6dcd68dd8b4010bcb74e54e62c90c573f394c46eae99aba32d
 - kind: tar
   directory: subprojects/packagecache/unicode-ident-1.0.12
   url: crates:crates/unicode-ident/unicode-ident-1.0.12.crate
@@ -20,9 +20,9 @@ sources:
   url: crates:crates/proc-macro2/proc-macro2-1.0.86.crate
   ref: 5e719e8df665df0d1c8fbfd238015744736151d4445ec0836b8e628aae103b77
 - kind: tar
-  directory: subprojects/packagecache/quote-1.0.33
-  url: crates:crates/quote/quote-1.0.33.crate
-  ref: 5267fca4496028628a95160fc423a33e8b2e6af8a5302579e322e4b520293cae
+  directory: subprojects/packagecache/quote-1.0.35
+  url: crates:crates/quote/quote-1.0.35.crate
+  ref: 291ec9ab5efd934aaf503a6466c5d5251535d108ee747472c3977cc5acc868ef
 - kind: tar
   directory: subprojects/packagecache/paste-1.0.14
   url: crates:crates/paste/paste-1.0.14.crate
@@ -67,3 +67,7 @@ sources:
   directory: subprojects/packagecache/ucd-trie-0.1.6
   url: crates:crates/ucd-trie/ucd-trie-0.1.6.crate
   ref: ed646292ffc8188ef8ea4d1e0e0150fb15a5c2e12ad9b8fc191ae7a8a7f3c4b9
+- kind: tar
+  directory: subprojects/packagecache/rustc-hash-2.1.1
+  url: crates:crates/rustc-hash/rustc-hash-2.1.1.crate
+  ref: 357703d41365b4b27c590e3ed91eabb1b663f07c4c084095e60cbed4362dff0d
