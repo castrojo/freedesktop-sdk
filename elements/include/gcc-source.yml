@@ -2,7 +2,7 @@ sources:
 - kind: git_repo
   url: gcc_gnu_org:gcc.git
   track: refs/tags/releases/gcc-*
-  ref: releases/gcc-15.1.0-0-g1b306039ac49f8ad91ca71d3de3150a3c9fa792a
+  ref: releases/gcc-15.2.0-0-g5115c7e447fc07457443df874bf57840e8316d5f
 - kind: tar
   url: ftp_gnu_org:gmp/gmp-6.3.0.tar.xz
   directory: gmp
