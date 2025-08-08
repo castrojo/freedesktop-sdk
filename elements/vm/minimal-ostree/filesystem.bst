@@ -1,4 +1,9 @@
 kind: compose
+description:
+  Apply split-rules to the `deps.bst` artifact.
+
+  The split-rules filter unwanted files from the system, such as development
+  headers and debug symbols.
 
 build-depends:
 - vm/minimal-ostree/deps.bst

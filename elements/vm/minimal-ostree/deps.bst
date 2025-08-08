@@ -1,4 +1,6 @@
 kind: stack
+description: |
+  Contents of the minimal-ostree system are defined here.
 
 depends:
 - bootstrap-import.bst

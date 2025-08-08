@@ -272,7 +272,7 @@ All this process is done automatically with:
 
 * `make ostree-serve` to start a OSTree server.
 * `make update-ostree` to create a new commit.
-* `make run-ostree-vm` to run the a virtual machine.
+* `make run-ostree-vm` to run the virtual machine.
 
 ### Desktop
 

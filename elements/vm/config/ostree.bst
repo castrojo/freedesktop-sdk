@@ -1,4 +1,11 @@
 kind: manual
+description: |
+  Root filesystem setup and OSTree configuration.
+
+  The OSTree repo in the system is preconfigured with a `FreedesktopSDK`
+  remote and GPG key, following the local server defined in
+  `ostree-config.yaml` and the local GPG key. This enables the update
+  workflow documented in `BOOTABLE_IMAGES.md`.
 
 build-depends:
 - bootstrap-import.bst
