@@ -1,3 +1,285 @@
+Version: freedesktop-sdk-24.08.23
+Date: '2025-08-08'
+Description: |-
+  Changes in freedesktop-sdk-24.08.23
+   * Update buildbox to 1.3.28-0
+   * Update grpc to v1.74.1-0
+   * python3-ujson: Add patch to fix build with setuptools-scm 9
+   * python3-urllib3: Add patch to build with setuptools-scm>=9
+   * Update python3-setuptools-scm to v9.0.3-0
+   * Update libcamera to v0.5.2-0
+   * Update intel-media-driver to intel-media-25.3.1-0
+   * Update libgcrypt to libgcrypt-1.11.2-0
+   * Update buildbox to 1.3.27-0
+   * Update python3-cryptography to 45.0.6-0
+   * Update strace to v6.16-0
+   * Update perl-sasl to 2.1900
+   * Update python3-maturin to v1.9.3-0
+   * ffmpeg: Drop outdated patch
+   * Update ffmpeg to n7.0.3-0
+   * Update hwdata to v0.398-0
+   * Update poppler to poppler-25.08.0-0
+   * Update perl to v5.40.3-0
+   * Update python3-virtualenv to 20.33.0-0
+   * Update python3-certifi to 2025.08.03-0
+   * Disable nbft
+   * Update networkmanager to 1.54.0-0
+   * python3: Disable static libpython
+   * Revert "Remove unreproducible files from Python outputs"
+   * diffutils: Update to 3.12
+   * Remove recursive symlink in ostree image
+   * Serve ostree image faster where possible
+   * stripper: add support for stripping kernel modules
+   * utils/release: Add an argument to just dump the latest changelog
+   * mpfr: Update to 4.2.2
+   * libtirpc: Update to 1.3.6
+   * libidn2: Update to 2.3.8
+   * mtools: Update to 4.0.49
+   * coreutils: Update to 9.7
+   * gzip: Update to 1.14
+   * diffutils: Fix build with gnulib changes
+   * cpio: Build from git
+   * grep: Update to 3.12
+   * bc: Update to 1.08.2 and drop patch
+   * lua: Update to 5.4.8
+   * noto-emoji: Update to 2.048
+   * Update python3-build to 1.3.0-0
+   * Update audit to v4.1.1-0
+   * Update crun to 1.23.1-0
+   * Update python3-pip to 25.2-0
+   * Update libinput to 1.29.0-0
+   * Update mesa-sdk to mesa-25.1.7-0
+   * Update mesa to mesa-25.1.7-0
+   * Update lvm2 to v2_03_34-0
+   * Update buildbox to 1.3.26-0
+   * Update pinentry-ncurses to pinentry-1.3.2-0
+   * Update python3-aiohttp to 3.12.15
+   * python3-sphinx: Add patch to build with docutils 0.22
+   * Update python3-docutils to 0.22
+   * u-boot-unmatched: Update patch
+   * linux: Update config for 6.16
+   * Update linux to v6.16-0
+   * python3-cffi: Exclude beta tags
+   * Update mutool to 1.26.4-0
+   * Update iproute2 to v6.16.0-0
+   * Update python3-maturin to v1.9.2-0
+   * binutils: Drop outdated patch
+   * Update binutils to binutils-2_45-0
+   * Update vim to v9.1.1591-0
+   * wayland: Freeze to 1.23.1
+   * Update inih to r61-0
+   * Update python3-click to 8.2.2-0
+   * Update iwd to 0.79-0
+   * Update ell to 0.79-0
+   * Update libnvme to v1.15-0
+   * Update crun to 1.23-0
+   * Update linux to v6.15.8-0
+   * Update dictionaries to libreoffice-25.8.0.2-0
+   * Update grpc to v1.74.0-0
+   * Remove dropped readme
+   * Update ca-certificates to +    ca-certificates-2010_63-3_fc14-166
+   * Update fwupd to 2.0.13-0
+   * Update ostree to v2025.4-0
+   * Update python3-virtualenv to 20.32.0-0
+   * Update parallel to 20250722-0
+   * Update man-pages to man-pages-6.15-0
+   * Update vim to v9.1.1566-0
+   * Update fuse3 to fuse-3.17.3-0
+   * Update buildbox to 1.3.25-0
+   * Update gmmlib to intel-gmmlib-22.8.1-0
+   * Update intel-media-driver to intel-media-25.3.0-0
+   * Update python3-distlib to 0.4.0-0
+   * Update flat-manager-client-base to 0.4.6-0
+   * Update linux to v6.15.7-0
+   * Update curl to curl-8_15_0-0
+   * Update mesa to mesa-25.1.6-0
+   * gstreamer-plugins-rs: Disable docs
+   * gstreamer-plugins-rs: Disable all new elements
+   * gstreamer-plugins-rs: Add cmake to build deps
+   * Update gstreamer-plugins-rs to 0.14.0-0
+   * Update mesa-sdk to mesa-25.1.6-0
+   * Update erofs-utils to v1.8.10-0
+   * Update libmicrohttpd to v1.0.2-0
+   * linux: Add support for OnePlus 6 touchscreen
+   * linux: Build NTSYNC module to expose /dev/ntsync for Proton
+   * libbpf: Fix dynamic linking
+   * Update python3-certifi to 2025.07.14-0
+   * Update intel-media-driver to intel-media-25.2.6-0
+   * Update ostree to v2025.3-0
+   * Update po4a to v0.74-0
+   * Update networkmanager to 1.52.1-0
+   * Update python3-expandvars to v1.1.1-0
+   * Update gnu-config to a2287c3
+   * Update vim to v9.1.1538-0
+   * Update perl-ssl to 2.095
+   * Update extra-cmake-modules to v6.16.0-0
+   * Update linux to v6.15.6-0
+   * Update gnu-config to 484648c
+   * Update python3-aiohttp to 3.12.14
+   * Update gmmlib to intel-gmmlib-22.8.0-0
+   * audit: Enable static libs for mandatory tests
+   * Update audit to v4.1.0-0
+   * Update go to go1.24.5-0
+   * buildbox: Add nlohmann-json
+   * Update buildbox to 1.3.23-0
+   * Update git to v2.50.1-0
+   * Update ninja to v1.13.1-0
+   * Update gnutls to 3.8.10-0
+   * u-boot-qemu: Drop patch
+   * Update u-boot-qemu to v2025.07-0
+   * Update python3-maturin to v1.9.1-0
+   * Update python3-certifi to 2025.07.09-0
+   * Update dictionaries to libreoffice-25.8.0.1-0
+   * Update linux-firmware to 20250708-0
+   * bash: Freeze due to newer readline requirement
+   * python3-pyroaring: Build with cython 3.0
+   * Revert "python3-pyroaring: Add patch to relax cython requirements"
+   * Update podman to v5.5.2-0
+   * Update python3-gi-docgen to 2025.4-0
+   * Update u-boot-unmatched to v2025.07-0
+   * pipewire: Symlink 50-pipewire.conf to etc
+   * Update linux to v6.15.5-0
+   * Update jq to jq-1.8.1-0
+   * Update linux-firmware to 20250627-0
+   * Update vim to v9.1.1512-0
+   * Update libabigail to libabigail-2.8-0
+   * Update mutool to 1.26.3-0
+   * perl: Track 5.40
+   * Update poppler to poppler-25.07.0-0
+   * Update python3-typing-extensions to 4.14.1-0
+   * Update python3-pil to 11.3.0-0
+   * Update genimage to v19-0
+   * readline: Freeze due to ABI break
+   * Update openssl to openssl-3.3.4-0
+   * Update mesa-sdk to mesa-25.1.5-0
+   * Update systemd to v256.17-0
+   * python3-aiosignal: Add typing-extensions
+   * Update python3-aiosignal to v1.4.0-0
+   * ci: Tag publish_gitlab_release for x86_64 only
+   * Update cryptsetup-base to v2.8.0-0
+   * Update hwdata to v0.397-0
+   * Update python3-cryptography to 45.0.5-0
+   * Update mesa to mesa-25.1.5-0
+   * openssh: Install ssh-copy-id script
+   * pwquality: Fix installation path for Python module
+   * Update opensbi to v1.7-0
+   * Update linux to v6.15.4-0
+   * Update python3-multidict to v6.6.3-0
+   * python3-pyroaring: Add patch to relax cython requirements
+   * Update python3-pyroaring to 1.0.2-0
+   * Update crun to 1.22-0
+   * Update lvm2 to v2_03_33-0
+   * Update btrfs-progs to v6.15-0
+   * Update shadow to 4.18.0-0
+   * Update libproxy to 0.5.10-0
+   * cargo-c: Update cargo lock to 0.10.14
+   * Update cargo-c to v0.10.14-0
+   * Update dictionaries to libreoffice-25.2.5.1-0
+   * Update xfsprogs to v6.15.0-0
+   * Update vim to v9.1.1492-0
+   * flags: Set CGO CFLAGS, CXXFLAGS and LDFLAGS
+   * Update erofs-utils to v1.8.9-0
+   * Update python3-multidict to v6.6.2-0
+   * Update intel-media-driver to intel-media-25.2.5-0
+   * python3-lxml: Drop patches
+   * Update python3-lxml to lxml-6.0.0-0
+   * Update git to v2.50.0-0
+   * Update grpc to v1.73.1-0
+   * Update python3-multidict to v6.6.0-0
+   * ci: Move publish_gitlab_release to publish stage
+   * flatpak-oci: Add image annotation pointing the tag
+   * cargo-c: switch to git and update to latest version
+   * ovmf: Update to edk2-stable202505
+   * ovmf: Dropped removed submodule
+   * buildbox: Add curl
+   * Update buildbox to 1.3.22-0
+   * Update python3-pyflakes to '3.4.0-0
+   * Update pkg-config to pkgconf-2.5.1-0
+   * Update parallel to 20250622-0
+   * mesa: Drop outdated patches
+   * Update mesa to mesa-25.1.4-0
+   * Update erofs-utils to v1.8.7-0
+   * Update python3-markdown to 3.8.2-0
+   * Update python3-multidict to v6.5.1-0
+   * Update python3-maturin to v1.9.0-0
+   * linux: Add I2C_I801 module for Intel
+   * Move exclude-systemd split rule to project split rule
+   * linux: Build module for DRM_MSM
+   * linux: Load kernel config only for the kernel not other elements
+   * keyutils: don't build depend on autotools
+   * clinfo: use make element
+   * Update capnproto to v1.2.0-0
+   * Update colord to 1.4.8-0
+   * Update python3-multidict to v6.5.0-0
+   * Update pciutils to v3.14.0-0
+   * Update dictionaries to libreoffice-25.2.4.3-0
+   * less: Drop reproducibility patch
+   * Update less to v679-rel-0
+   * Update python3-pygments to 2.19.2-0
+   * kernel-conf-utils: Fix track
+   * lvm2-base: Fix path to run dir
+   * linux: Add all PINCTRL config for Intel
+   * linux: Make IPV6_SIT a module
+   * sof-firmware: Update to 2025.05
+   * linux: Add IWLMLD missing module
+   * linux: Enable rtw_8821au driver
+   * vim: Hide from app grid
+   * Update vim to v9.1.1473-0
+   * Update fwupd to 2.0.12-0
+   * Update python3-smartypants to v2.0.2-0
+   * linux-pam: Disable elogind
+   * Update linux-pam-base to v1.7.1-0
+   * python3-urllib3: Drop hatch-vcs patch
+   * Update python3-urllib3 to 2.5.0-0
+   * Update pkg-config to pkgconf-2.5.0-0
+   * utils/release.py: Use the changelog as the tag message
+   * utils/release.py: Drop gitlab release creation
+   * ci: Add a job to automate release creation
+   * ci: Update image
+   * Update python3-flake8 to '7.3.0-0
+   * Update python3-pycodestyle to '2.14.0-0
+   * Update ninja to v1.13.0-0
+   * Update xwayland to xwayland-24.1.8-0
+   * Update libblockdev to 3.3.1-0
+   * Update linux to v6.15.3-0
+   * Update perl-ssl to 2.094
+   * Update python3-yarl to v1.21.1-0
+   * Update mesa-sdk to mesa-25.1.4-0
+   * Update python3-markdown to 3.8.1-0
+   * Update cython to 3.1.2-0
+   * Update wayland-protocols to 1.45-0
+   * Update libnghttp2 to v1.66.0-0
+   * dictionaries: Exclude android tag
+   * Update extra-cmake-modules to v6.15.0-0
+   * scan-for-dev-files: Check for vulkan manifests too
+   * mesa: Copy additional layer manifests to mesa GL prefix
+   * Add a stack with vulkan layer manifests
+   * vulkan-validation-layers: Split vulkan manifests to seperate element
+   * Create an integration element to symlink vulkan manifest dirs to datadir
+   * Update python3-frozenlist to v1.7.0-0
+   * Update perl-ssl to 2.092
+   * Update libogg to v1.3.6-0
+   * Update fcitx5 to 5.1.4-0
+   * Update python3-cryptography to 45.0.4-0
+   * Update libwacom to libwacom-2.16.1-0
+   * Update python3-aiohttp to 3.12.13
+   * Update python3-certifi to 2025.06.15-0
+   * Update vim to v9.1.1457-0
+   * Update reference-abi to freedesktop-sdk-24.08.22-0
+   * Update passt to 2025_06_11.0293c6f-0
+   * Update iwd to 3.9-0
+   * Update linux-firmware to 20250613-0
+   * Update ell to 0.78-0
+   * ibus: Disable systemd services
+   * ibus: Add gtk-doc
+   * ibus: Enable vala to build tools
+   * ibus: Convert to git and update to 1.5.31
+   * Update rust-bindgen to v0.72.0-0
+   * python3-propcache: Update patch
+   * Update python3-propcache to v0.3.2-0
+   * Update libdrm to libdrm-2.4.125-0
+   * Update nano to v8.5-0
+---
 Version: freedesktop-sdk-24.08.22
 Date: '2025-06-13'
 Description: |-
