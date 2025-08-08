@@ -8,7 +8,7 @@ public:
 sources:
 - kind: git_repo
   url: freedesktop:mesa/mesa.git
-  track: mesa-*
+  track: mesa-25.1.*
   exclude:
   - '*rc*'
   - '*branchpoint*'
