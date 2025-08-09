@@ -13,4 +13,4 @@ sources:
 - kind: git_repo
   url: github:pallets/click.git
   track: 8.*
-  ref: 8.2.2-0-gf7cdff5cfc614f34025d1fc238642be029dca1f3
+  ref: 8.2.1-0-gfd183b2ced1cb5857784fe7fb22f4982f671f098
