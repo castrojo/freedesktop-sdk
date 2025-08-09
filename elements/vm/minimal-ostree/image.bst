@@ -1,4 +1,18 @@
 kind: script
+description: |
+  Construct a disk image for the minimal-ostree system.
+
+  This element produces a `disk.img` file, suitable for booting in a
+  virtual machine that supports UEFI.
+
+  The boot partition contains files deployed by `ostree admin deploy`.
+
+  The root partition holds the OSTree repo, and an initial deployment of the
+  filesystem created by `ostree admin deploy`.
+
+  The OSTree repo in the root partition is preconfigured to pull updates from
+  the `ostree-remote-url` defined in `ostree-config.yml`. This enables the
+  local development workflow documented in `BOOTABLE_IMAGES.md`.
 
 build-depends:
 - components/fakecap.bst
