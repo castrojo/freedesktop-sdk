@@ -5,4 +5,4 @@ sources:
   track: "*.*.*"
   exclude:
   - "*dev*"
-  ref: 2.4.0-0-gb623961ef968a6bdeb86c907360276374b79ebff
+  ref: 2.5.0-0-g79649529cffb695d0d22195ed9a4910c80ca6907
