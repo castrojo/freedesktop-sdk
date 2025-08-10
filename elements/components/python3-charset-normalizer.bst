@@ -7,6 +7,9 @@ build-depends:
 depends:
 - components/python3.bst
 
+environment:
+  CHARSET_NORMALIZER_USE_MYPYC: 0
+
 sources:
 - kind: git_repo
   url: github:jawah/charset_normalizer.git
@@ -15,5 +18,3 @@ sources:
   - "*rc*"
   - "*b*"
   ref: 3.4.3-0-g46f662da20edeced520c8819965a37eefbbc85de
-- kind: patch
-  path: patches/python3-charset-normalizer/rm-mypy.patch
