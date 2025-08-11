@@ -6,15 +6,9 @@ depends:
 build-depends:
 - components/rust.bst
 
-environment:
-  MAXJOBS: "%{max-jobs}"
-
-environment-nocache:
-- MAXJOBS
-
 config:
   build-commands:
-  - cargo build -j "${MAXJOBS}" --release --frozen
+  - cargo build --release --frozen
 
   install-commands:
   - install -Dm755 -t "%{install-root}%{bindir}" target/release/cbindgen

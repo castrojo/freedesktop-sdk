@@ -9,15 +9,9 @@ depends:
 - components/openssl.bst
 - components/curl.bst
 
-environment:
-  MAXJOBS: "%{max-jobs}"
-
-environment-nocache:
-- MAXJOBS
-
 config:
   build-commands:
-  - cargo build --release --frozen --offline --jobs "${MAXJOBS}"
+  - cargo build --release --frozen --offline
 
   install-commands:
   - |
