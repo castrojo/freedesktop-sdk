@@ -98,7 +98,6 @@ variables:
     -Dmicrosoft-clc=disabled
     -Dandroid-libbacktrace=disabled
     -Dplatforms=x11,wayland
-    -Dshared-glapi=enabled
     -Dvalgrind=disabled
     -Dvulkan-layers=device-select,overlay,intel-nullhw,screenshot
     -Dvulkan-drivers=%{vulkan_drivers}
