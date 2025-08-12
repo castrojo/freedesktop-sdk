@@ -15,10 +15,10 @@ variables:
     %{asm}
   asm: --enable-asm
   (?):
-    - target_arch == "riscv64":
+  - target_arch == "riscv64":
         # Enabling asm uses vector instructions which might not always work,
         # causing SIGILL
-        asm: --disable-asm
+      asm: --disable-asm
 
 public:
   bst:
@@ -32,4 +32,4 @@ sources:
 - kind: git_repo
   url: gnupg:libgcrypt.git
   track: libgcrypt-*
-  ref: libgcrypt-1.11.1-0-g81ce5321b1b79bde6dfdc3c164efb40c13cf656b
+  ref: libgcrypt-1.11.2-0-g737cc63600146f196738a6768679eb016cf866e9
