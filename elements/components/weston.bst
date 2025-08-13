@@ -49,3 +49,5 @@ sources:
   - '*.*.9[0-9]'
   url: freedesktop:wayland/weston.git
   ref: 14.0.2-0-g015b3b4d4c05da44a22349ea6e651d1a8f678c59
+- kind: patch
+  path: patches/weston/libdisplay_info_relax.patch
