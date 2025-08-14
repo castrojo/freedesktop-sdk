@@ -194,10 +194,12 @@ check-static-libraries:
 generate-cve-report: manifest
 	$(BST) build utils/generate-cve-report.bst
 
-	git clone -n --depth=1 --filter=tree:0 https://gitlab.com/freedesktop-sdk/nvd-cve-database.git && \
-	cd nvd-cve-database && git sparse-checkout set nvd-cve-database && \
-	git checkout && \
-	rm -rf ".git"
+	[ -d "nvd-cve-database" ] || ( \
+		git clone -n --depth=1 --filter=tree:0 https://gitlab.com/freedesktop-sdk/nvd-cve-database.git && \
+		cd nvd-cve-database && git sparse-checkout set nvd-cve-database && \
+		git checkout && \
+		rm -rf ".git" \
+	)
 
 	mkdir -p cve && cd cve &&	\
 	mkdir -p cve-reports && 	\
