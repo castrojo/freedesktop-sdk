@@ -4,6 +4,7 @@ kind: autotools
 - elements/include/tar-source.yml
 
 build-depends:
+- bootstrap/findutils.bst
 - bootstrap/gawk.bst
 - bootstrap/gcc.bst
 - bootstrap/grep.bst
