@@ -97,6 +97,7 @@ depends:
 - components/exfat-progs.bst
 - components/f2fs-tools.bst
 - components/fcitx5.bst
+- components/fdsdk-lic-dedup.bst
 - components/ffmpeg.bst
 - components/fftw.bst
 - components/flat-manager-client-base.bst
