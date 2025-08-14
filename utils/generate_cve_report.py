@@ -69,8 +69,8 @@ with open(sys.argv[1], "rb") as f:
 
 
 def extract_product_vulns_sub(node):
-    if "cpe_match" in node:
-        for cpe_match in node["cpe_match"]:
+    if "cpeMatch" in node:
+        for cpe_match in node["cpeMatch"]:
             if cpe_match["vulnerable"]:
                 yield cpe_match
     else:
@@ -79,21 +79,21 @@ def extract_product_vulns_sub(node):
 
 
 def extract_product_vulns(tree):
-    for item in tree["CVE_Items"]:
+    for item in tree["vulnerabilities"]:
         summary = (
-            item["cve"]["description"]["description_data"][0]["value"]
+            item["cve"]["descriptions"][0]["value"]
             .replace("\n", " ")
             .strip()
         )
         scorev2 = (
-            item["impact"].get("baseMetricV2", {}).get("cvssV2", {}).get("baseScore")
+            item["cve"]["metrics"].get("cvssMetricV2", [{}])[0].get("cvssData", {}).get("baseScore")
         )
         scorev3 = (
-            item["impact"].get("baseMetricV3", {}).get("cvssV3", {}).get("baseScore")
+            item["cve"]["metrics"].get("cvssMetricV31", [{}])[0].get("cvssData", {}).get("baseScore", None)
         )
 
-        cve_id = item["cve"]["CVE_data_meta"]["ID"]
-        for node in item["configurations"]["nodes"]:
+        cve_id = item["cve"]["id"]
+        for node in item["cve"].get("configurations", [{}])[0].get("nodes", []):
             for cpe_match in extract_product_vulns_sub(node):
                 yield cve_id, summary, scorev2, scorev3, cpe_match
 
@@ -153,7 +153,7 @@ def extract_vulnerabilities(filename):
     with gzip.open(filename) as file:
         tree = json.load(file)
         for cve_id, summary, scorev2, scorev3, cpe_match in extract_product_vulns(tree):
-            product_name = cpe_match["cpe23Uri"]
+            product_name = cpe_match["criteria"]
             vendor, name, version = product_name.split(":")[3:6]
 
             module = LOOKUP_TABLE.get(vendor, {}).get(name)
@@ -203,7 +203,7 @@ def check_unversioned_elements(filename, unversioned_git, unversioned_archive):
     with gzip.open(filename) as file:
         tree = json.load(file)
         for cve_id, _, _, _, cpe_match in extract_product_vulns(tree):
-            product_name = cpe_match["cpe23Uri"]
+            product_name = cpe_match["criteria"]
             _, name, _ = product_name.split(":")[3:6]
             for element in unversioned_git:
                 if name == unversioned_git[element]["product"]:
@@ -254,7 +254,7 @@ def is_recent_cve(cve_id: str) -> bool:
 
 if __name__ == "__main__":
     vuln_map = {}
-    database_files = sorted(glob.glob("nvdcve-1.1-*.json.gz"))
+    database_files = sorted(glob.glob("nvdcve-2.0-*.json.gz"))
     for filename in database_files:
         for (
             cve_id,
