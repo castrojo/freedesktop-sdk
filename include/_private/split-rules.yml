@@ -44,3 +44,7 @@ doc:
   - "%{datadir}/cmake-*/Help/**"
 
 static-blocklist: []
+
+license:
+  - "%{datadir}/licenses"
+  - "%{datadir}/licenses/**"
