@@ -10,6 +10,9 @@ config:
   install-commands:
   - install -Dm644 -t "%{install-root}%{indep-libdir}/firmware" regulatory.{db,db.p7s,bin}
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: git_repo
   url: kernel:linux/kernel/git/sforshee/wireless-regdb.git

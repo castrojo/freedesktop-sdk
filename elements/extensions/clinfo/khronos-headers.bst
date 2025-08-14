@@ -12,6 +12,9 @@ config:
     mkdir --parents %{install-root}%{includedir}
     cp -r CL/ %{install-root}%{includedir}
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: git_repo
   url: github:KhronosGroup/OpenCL-Headers.git

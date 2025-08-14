@@ -117,6 +117,9 @@ config:
     EOF
     install -Dm644 d3d.pc "%{install-root}%{libdir}/pkgconfig/d3d.pc"
 
+  - |
+    %{install-extra}
+
 public:
   bst:
     split-rules:

@@ -11,6 +11,9 @@ config:
     install -m 644 -D build.py "%{install-root}${LIBDEST}/build.py"
     python3 -m compileall -o 0 -o 1 -o 2 "%{install-root}${LIBDEST}/build.py"
 
+  - |
+    %{install-extra}
+
 variables:
   strip-binaries: ''
 

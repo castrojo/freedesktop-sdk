@@ -49,3 +49,5 @@ config:
   - |
     env DESTDIR="%{install-root}" ninja install -v -j ${JOBS} -C %{build-dir}
 
+  - |
+    %{install-extra}

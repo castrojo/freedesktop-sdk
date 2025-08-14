@@ -17,6 +17,9 @@ config:
   - |
     install -Dm644 -t '%{install-root}%{libexecdir}/fakecap' fakecap.so
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: local
   path: files/fakecap

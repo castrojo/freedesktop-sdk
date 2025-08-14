@@ -143,6 +143,9 @@ config:
     install -Dm644 -t "%{install-root}%{libdir}/" load-p11-kit-trust.so
     ln -s load-p11-kit-trust.so "%{install-root}%{libdir}/libnssckbi.so"
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: git_repo
   url: github:nss-dev/nss.git

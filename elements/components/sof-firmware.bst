@@ -22,6 +22,9 @@ config:
   - |
     bash -x install.sh
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: tar
   url: github_files:thesofproject/sof-bin/releases/download/v2025.05/sof-bin-2025.05.tar.gz

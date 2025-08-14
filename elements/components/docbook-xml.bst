@@ -72,6 +72,9 @@ config:
     install -D -m 644 -t "%{install-root}%{data}/ent" 4.5/ent/*.ent
     install -D -m 644 docbook "%{install-root}%{sysconfdir}/xml/docbook"
 
+  - |
+    %{install-extra}
+
 public:
   bst:
     integration-commands:
