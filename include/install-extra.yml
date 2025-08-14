@@ -1,0 +1,90 @@
+variables:
+  license-files: |
+    COPYING \
+    COPYING* \
+    COPYRIGHT \
+    Copyright \
+    copyright \
+    COPYRIGHT* \
+    Copyright* \
+    copyright* \
+    LICEN* \
+    Licen* \
+    licen*
+  license-files-extra: ""
+  license-files-final: >-
+    %{license-files}
+    %{license-files-extra}
+  license-root: "%{build-root}"
+  license-element-name: ""
+  install-licenses: |
+    # Force bash
+    set -euo pipefail
+
+    ELEMENT_NAME=%{element-name}
+
+    case "$ELEMENT_NAME" in
+      bootstrap/build/*|bootstrap/base-sdk/*) exit 0 ;;
+    esac
+
+    # Pure bash to avoid any dependencies
+
+    NAME=$ELEMENT_NAME
+    NAME=${NAME//\//-}   # Replace / with - (bash-ism)
+    NAME=${NAME%.bst}    # Strip .bst suffix
+    NAME=${NAME#*-}      # Remove prefix up to first -
+
+    case $NAME in
+      *-base|*-config|*-daemon|*-full|*-headers|*-libs|*-manifest|*-maybe|*-minimal|*-minimal-image|*-only|*-stage1)
+        NAME=${NAME%-*} # Trim suffix to normalise element name
+        ;;
+    esac
+
+    [ -n "%{license-element-name}" ] && NAME=%{license-element-name}
+
+    for pattern in %{license-files-final}; do
+      for file in "%{license-root}"/$pattern; do
+        [ -f "$file" ] || continue
+
+        FILENAME=${file##*/} # Basename
+
+        [ -n "$NAME" ] && [ -n "$FILENAME" ] || continue
+        DEST_PATH="%{install-root}%{datadir}/licenses/$NAME/$FILENAME"
+        [ -f "$DEST_PATH" ] || install -Dm0644 "$file" "$DEST_PATH"
+      done
+    done
+
+  install-extra: |
+    %{install-licenses}
+
+elements:
+  autotools:
+    config:
+      install-commands:
+        (>):
+        - "%{install-extra}"
+  cmake:
+    config:
+      install-commands:
+        (>):
+        - "%{install-extra}"
+  make:
+    config:
+      install-commands:
+        (>):
+        - "%{install-extra}"
+  makemaker:
+    config:
+      install-commands:
+        (>):
+        - "%{install-extra}"
+  meson:
+    config:
+      install-commands:
+        (>):
+        - "%{install-extra}"
+  pyproject:
+    config:
+      install-commands:
+        (>):
+        - "%{install-extra}"
