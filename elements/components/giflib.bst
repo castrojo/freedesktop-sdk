@@ -30,6 +30,9 @@ config:
   - |
     rm "%{install-root}%{libdir}/libgif.a"
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: tar
   url: sourceforge_download:giflib/giflib-5.2.2.tar.gz

@@ -116,6 +116,9 @@ config:
       fi
     done
 
+  - |
+    %{install-extra}
+
 public:
   bst:
     split-rules:

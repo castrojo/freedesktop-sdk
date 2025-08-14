@@ -24,6 +24,9 @@ config:
   - |
     install -m 0644 config.sub "%{install-root}%{datadir}/gnu-config"
 
+  - |
+    %{install-extra}
+
 public:
   bst:
     split-rules:

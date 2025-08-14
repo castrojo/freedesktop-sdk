@@ -26,6 +26,9 @@ config:
   - |
     install -Dm755 -t "%{install-root}%{bindir}" "${GOPATH}/bin"/*
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: git_repo
   url: github:cpuguy83/go-md2man.git

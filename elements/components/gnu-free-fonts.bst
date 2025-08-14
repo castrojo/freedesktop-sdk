@@ -16,6 +16,8 @@ config:
       install -p -m0644 "$i" "%{confdir}/conf.avail/69-$(basename "$i")"
       ln -s "../conf.avail/69-$(basename "$i")" "%{confdir}/conf.d/69-$(basename "$i")"
     done
+  - |
+    %{install-extra}
 
 sources:
 - kind: zip

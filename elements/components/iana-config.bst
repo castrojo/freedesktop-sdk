@@ -14,6 +14,9 @@ config:
   - |
     install -D -m644 -t "%{install-root}%{sysconfdir}" protocols services
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: git_repo
   url: gitlab:freedesktop-sdk/mirrors/iana-config.git

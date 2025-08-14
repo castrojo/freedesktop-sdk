@@ -12,6 +12,9 @@ config:
     udevdir="$(pkg-config --variable udevdir udev)"
     install -Dm644 -t "%{install-root}${udevdir}/rules.d" *.rules
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: git_repo
   url: github:ValveSoftware/steam-devices
