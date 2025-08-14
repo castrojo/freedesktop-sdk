@@ -60,6 +60,10 @@ shells:
 
 static-blocklist: []
 
+license:
+  - "%{datadir}/licenses"
+  - "%{datadir}/licenses/**"
+
 locale:
   - "%{datadir}/locale"
   - "%{datadir}/locale/**"
