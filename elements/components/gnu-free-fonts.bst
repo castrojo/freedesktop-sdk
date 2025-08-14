@@ -17,6 +17,9 @@ config:
       ln -s "../conf.avail/69-$(basename "$i")" "%{confdir}/conf.d/69-$(basename "$i")"
     done
 
+  - |
+    %{install-extra}
+
 public:
   cpe:
     version-match: '\d{8}'

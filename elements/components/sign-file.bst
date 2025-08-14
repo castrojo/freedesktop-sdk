@@ -11,5 +11,8 @@ config:
   install-commands:
   - install -Dm755 -t "%{install-root}%{bindir}" sign-file
 
+  - |
+    %{install-extra}
+
 (@):
 - elements/include/linux.yml

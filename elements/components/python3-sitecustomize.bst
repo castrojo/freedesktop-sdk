@@ -9,6 +9,9 @@ config:
     install -m 644 -D python3_sitecustomize.py "%{install-root}${LIBDEST}/sitecustomize.py"
     python3 -m compileall -o 0 -o 1 -o 2 "%{install-root}${LIBDEST}/sitecustomize.py"
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: local
   path: files/python3_sitecustomize.py

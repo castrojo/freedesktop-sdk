@@ -15,6 +15,9 @@ config:
     python bootstrap_install.py dist/*.whl --install-root "%{install-root}"
     python3 -m compileall -o 0 -o 1 -o 2 "%{install-root}"
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: git_repo
   url: github:pypa/flit.git

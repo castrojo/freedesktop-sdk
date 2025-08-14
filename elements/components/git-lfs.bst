@@ -18,6 +18,9 @@ config:
   install-commands:
   - install -Dm755 -t "%{install-root}%{bindir}" git-lfs
 
+  - |
+    %{install-extra}
+
 public:
   bst:
     integration-commands:

@@ -14,6 +14,9 @@ config:
   - |
     install -D -m644 -t "%{install-root}%{sysconfdir}" protocols services
 
+  - |
+    %{install-extra}
+
 public:
   cpe:
     version-match: '(\d+)-(\d+)-(\d+)'

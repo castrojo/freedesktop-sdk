@@ -17,6 +17,9 @@ config:
   - |
     find "target/release" -maxdepth 1 -type f -executable -exec install -Dm755 -t "%{install-root}%{bindir}" {} +
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: git_repo
   url: github:lu-zero/cargo-c.git
