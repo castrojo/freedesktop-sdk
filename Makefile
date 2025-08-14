@@ -208,16 +208,16 @@ generate-cve-report: manifest
 
 	$(BST) shell utils/generate-cve-report.bst --mount /etc/resolv.conf /etc/resolv.conf	\
 		--mount ./cve/ /buildstream-build						\
-		-- generate_cve_report /buildstream-build/sdk-manifest/usr/manifest.json	\
+		-- generate_cve_report --feed-version 2.0 /buildstream-build/sdk-manifest/usr/manifest.json	\
 		/buildstream-build/cve-reports/sdk.md.html
 	$(BST) shell utils/generate-cve-report.bst --mount /etc/resolv.conf /etc/resolv.conf	\
 		--mount ./cve/ /buildstream-build						\
-		-- generate_cve_report /buildstream-build/platform-manifest/usr/manifest.json	\
+		-- generate_cve_report --feed-version 2.0 /buildstream-build/platform-manifest/usr/manifest.json	\
 		/buildstream-build/cve-reports/platform.md.html
 
 	rm -rvf cve-reports
 	mv -v cve/cve-reports .
-	find cve -mindepth 1 ! -name 'nvdcve-1.1-*' -exec rm -rvf {} +
+	find cve -mindepth 1 ! -name 'nvdcve-2.0-*' -exec rm -rvf {} +
 	rm -rf nvd-cve-database
 
 manifest:
