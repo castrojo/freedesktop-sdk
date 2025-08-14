@@ -97,6 +97,7 @@ depends:
 - components/fakecap.bst
 - components/f2fs-tools.bst
 - components/fcitx5-gtk.bst
+- components/fdsdk-lic-dedup.bst
 - components/ffmpeg.bst
 - components/fftw.bst
 - components/file.bst
