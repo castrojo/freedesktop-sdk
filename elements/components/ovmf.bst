@@ -89,6 +89,9 @@ config:
   - |
     install -Dm644 -t "%{install-root}%{datadir}/ovmf" '%{code}' '%{vars}' '%{shell}'
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: git_repo
   url: github:tianocore/edk2.git

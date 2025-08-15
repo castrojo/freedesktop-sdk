@@ -29,6 +29,9 @@ config:
     install -v -m644 -D README "%{install-root}%{data}/README.txt"
     install -v -m644 RELEASE-NOTES* NEWS* "%{install-root}%{data}"
 
+  - |
+    %{install-extra}
+
 public:
   bst:
     integration-commands:

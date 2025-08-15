@@ -24,6 +24,9 @@ config:
     install -m 0644 -p "config/30-tex-gyre.conf" "%{confdir}/conf.avail/30-tex-gyre.conf"; \
     ln -s "../conf.avail/30-tex-gyre.conf" "%{confdir}/conf.d/30-tex-gyre.conf"
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: zip
   url: tar_https:mirrors.ctan.org/fonts/tex-gyre.zip

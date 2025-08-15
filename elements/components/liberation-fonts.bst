@@ -18,6 +18,9 @@ config:
       ln -s "../conf.avail/59-$(basename "$i")" "%{confdir}/conf.d/59-$(basename "$i")"
     done
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: tar
   url: github_files:liberationfonts/liberation-fonts/files/7261482/liberation-fonts-ttf-2.1.5.tar.gz

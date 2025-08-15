@@ -56,6 +56,9 @@ config:
   - |
     rm -vf "%{install-root}%{libdir}/go/src/debug/elf/testdata/libtiffxx.so_"
 
+  - |
+    %{install-extra}
+
 public:
   bst:
     split-rules:

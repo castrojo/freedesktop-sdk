@@ -18,6 +18,9 @@ config:
       ln -s "../conf.avail/$(basename "$i")" "%{confdir}/conf.d/$(basename "$i")"
     done
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: tar
   url: sourceforge:projects/dejavu/files/dejavu/2.37/dejavu-fonts-ttf-2.37.tar.bz2

@@ -41,6 +41,9 @@ config:
     install -D -m 755 bzlib.h --target-directory %{install-root}%{includedir}
     install -D -m 755 bzgrep.1 bzmore.1 bzdiff.1 --target-directory %{install-root}%{mandir}/man1
 
+  - |
+    %{install-extra}
+
 public:
   bst:
     split-rules:

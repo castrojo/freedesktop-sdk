@@ -18,6 +18,9 @@ config:
     mkdir -p "%{install-root}%{bindir}"
     ln -sr "%{install-root}${gemdir}/bin/asciidoctor" "%{install-root}%{bindir}/asciidoctor"
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: git_repo
   url: github:asciidoctor/asciidoctor.git

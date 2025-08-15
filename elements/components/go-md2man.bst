@@ -22,6 +22,9 @@ config:
     install -Dm755 go-md2man -t "%{install-root}%{bindir}"
     install -Dm644 go-md2man.1 "%{install-root}%{mandir}/man1/go-md2man.1"
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: git_repo
   url: github:cpuguy83/go-md2man.git

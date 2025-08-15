@@ -1,0 +1,134 @@
+#!/usr/bin/env python3
+
+import argparse
+import hashlib
+import logging
+import os
+import shutil
+
+
+def compute_license_hashes(root_dir: str) -> dict[str, list[str]]:
+    license_dir = os.path.join(root_dir, "share", "licenses")
+    spdx_dir = os.path.join(license_dir, "spdx")
+    common_dir = os.path.join(root_dir, "share", "licenses", "common")
+
+    hash_map: dict[str, list[str]] = {}
+
+    for dirpath, _, files in os.walk(license_dir):
+        if os.path.commonpath([dirpath, spdx_dir]) == spdx_dir:
+            continue
+
+        for file in files:
+            file_path = os.path.join(dirpath, file)
+
+            if os.path.commonpath([file_path, common_dir]) == common_dir:
+                continue
+
+            try:
+                with open(file_path, "rb") as f:
+                    content = f.read()
+                h = hashlib.sha256(file.encode("utf-8") + content).hexdigest()
+            except (OSError, FileNotFoundError, PermissionError) as err:
+                logging.warning(
+                    "Unexpected error while computing hash of %s: %s", file_path, err
+                )
+                continue
+
+            hash_map.setdefault(h, []).append(file_path)
+
+    return hash_map
+
+
+def deduplicate_licenses(
+    hash_dict: dict[str, list[str]], root_dir: str, dry_run: bool = False
+) -> bool:
+    if not hash_dict:
+        logging.warning("The license file hash dict is empty")
+        return True
+
+    common_dir = os.path.join(root_dir, "share", "licenses", "common")
+
+    if not dry_run:
+        try:
+            if os.path.exists(common_dir):
+                try:
+                    shutil.rmtree(common_dir)
+                except (OSError, PermissionError) as err:
+                    logging.error("Failed to remove %s: %s", common_dir, err)
+                    return False
+            os.makedirs(common_dir)
+        except PermissionError as err:
+            logging.error("No permission to create %s: %s", common_dir, err)
+            return False
+
+    total_bytes_saved = 0
+
+    try:
+        for h, files in hash_dict.items():
+            if len(files) > 1:
+                src_file = files[0]
+                dest_file = os.path.join(common_dir, f"LICENSE_{h[:12]}")
+                if not dry_run:
+                    shutil.move(src_file, dest_file)
+                    logging.info("Moved %s to %s", src_file, dest_file)
+
+                for f in files:
+                    symlink_path = os.path.join(os.path.dirname(f), "LICENSE")
+                    counter = 1
+                    while os.path.exists(symlink_path):
+                        symlink_path = os.path.join(
+                            os.path.dirname(f), f"LICENSE_{counter}"
+                        )
+                        counter += 1
+                    if os.path.exists(f):
+                        total_bytes_saved += os.path.getsize(f)
+                        if not dry_run:
+                            os.remove(f)
+                            os.symlink(dest_file, symlink_path)
+                            logging.info(
+                                "Created symlink from %s to %s", symlink_path, dest_file
+                            )
+        mb_saved = total_bytes_saved / (1024 * 1024)
+        logging.info("Space saved by deduplicating license files: %.2f MB", mb_saved)
+        return True
+    except (OSError, FileNotFoundError, shutil.Error, PermissionError) as err:
+        logging.error("Unexpected error while deduplicating: %s", err)
+        return False
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(
+        description="Deduplicate license files", usage=argparse.SUPPRESS, add_help=False
+    )
+    parser.add_argument(
+        "-h", "--help", action="help", help="Show this help message and exit"
+    )
+    parser.add_argument(
+        "--usr-root", type=str, default="/usr", help="Root path (default: /usr)"
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Do not modify the filesystem, just report space that would be saved",
+    )
+    args = parser.parse_args()
+
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+
+    root_dir = args.usr_root
+
+    if not os.path.isdir(root_dir):
+        logging.error("The root directory does not exist: %s")
+        return 1
+
+    hash_dict = compute_license_hashes(root_dir)
+
+    if not deduplicate_licenses(hash_dict, root_dir, dry_run=args.dry_run):
+        logging.error("Deduplication encountered errors")
+        return 1
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

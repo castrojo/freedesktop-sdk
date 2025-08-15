@@ -20,6 +20,9 @@ config:
   - |
     install -Dm755 -t "%{install-root}%{bindir}" flat-manager-client
 
+  - |
+    %{install-extra}
+
 public:
   bst:
     integration-commands:

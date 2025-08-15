@@ -20,6 +20,9 @@ depends:
 - bootstrap/symlinks.bst
 - components/utf-locale.bst
 
+variables:
+  license-element-name: "pkg-config"
+
 config:
   install-commands:
     (>):

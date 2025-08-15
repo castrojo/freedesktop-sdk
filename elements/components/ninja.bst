@@ -18,6 +18,9 @@ config:
   - |
     install -D -m 0755 ninja %{install-root}%{bindir}/ninja
 
+  - |
+    %{install-extra}
+
 public:
   cpe:
     vendor: ninja_build

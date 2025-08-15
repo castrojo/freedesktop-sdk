@@ -18,6 +18,9 @@ config:
   - |
     ln -s hunspell "%{install-root}%{datadir}/myspell"
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: git_repo
   url: git_https:git.libreoffice.org/dictionaries.git
