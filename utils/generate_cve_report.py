@@ -14,6 +14,7 @@ Files are not downloaded if not modified. But we still verify with the
 remote database we have the latest version of the files.
 """
 
+import argparse
 import datetime
 import glob
 import gzip
@@ -21,7 +22,6 @@ import html
 import json
 import os
 import re
-import sys
 
 import requests
 from libversion import Version
@@ -30,72 +30,67 @@ LOOKUP_TABLE = {}
 unversioned_git = {}
 unversioned_archive = {}
 
-with open(sys.argv[1], "rb") as f:
-    manifest = json.load(f)
-    for module in manifest["modules"]:
-        cpe = module["x-cpe"]
-        version = cpe.get("version")
-        if version:
-            print(f"Found version {version} for module {module['name']}")
-        else:
-            print(
-                f"Failed to find a version for module {module['name']}, assuming unversioned"
-            )
-            sources = module["sources"]
-            for element in sources:
-                if "commit" in element and element["type"] == "git":
-                    unversioned_git[module["name"]] = {
-                        "source": element["commit"],
-                        "url": element["url"],
-                        "product": cpe.get("product"),
-                        "cve_ids": set(),
-                    }
-                if "url" in element and element["type"] == "archive":
-                    unversioned_archive[module["name"]] = {
-                        "source": element["url"],
-                        "product": cpe.get("product"),
-                        "cve_ids": set(),
-                    }
-            continue
-        vendor = cpe.get("vendor")
-        vendor_dict = LOOKUP_TABLE.setdefault(cpe.get("vendor"), {})
-        vendor_dict[cpe["product"]] = {
-            "name": module["name"],
-            "version": version,
-            "patches": cpe.get("patches", []),
-            "ignored": cpe.get("ignored", []),
-            "exclude-vendor": cpe.get("exclude-vendor", []),
-        }
 
+def extract_product_vulns_sub(node, feed_version):
+    if feed_version == "2.0":
+        key = "cpeMatch"
+    else:
+        key = "cpe_match"
 
-def extract_product_vulns_sub(node):
-    if "cpe_match" in node:
-        for cpe_match in node["cpe_match"]:
+    if key in node:
+        for cpe_match in node[key]:
             if cpe_match["vulnerable"]:
                 yield cpe_match
     else:
         for child in node.get("children", []):
-            yield from extract_product_vulns_sub(child)
+            yield from extract_product_vulns_sub(child, feed_version)
 
 
-def extract_product_vulns(tree):
-    for item in tree["CVE_Items"]:
-        summary = (
-            item["cve"]["description"]["description_data"][0]["value"]
-            .replace("\n", " ")
-            .strip()
-        )
-        scorev2 = (
-            item["impact"].get("baseMetricV2", {}).get("cvssV2", {}).get("baseScore")
-        )
-        scorev3 = (
-            item["impact"].get("baseMetricV3", {}).get("cvssV3", {}).get("baseScore")
-        )
+def extract_product_vulns(tree, feed_version):
+    if feed_version == "2.0":
+        for item in tree["vulnerabilities"]:
+            summary = item["cve"]["descriptions"][0]["value"].replace("\n", " ").strip()
+            scorev2 = (
+                item["cve"]["metrics"]
+                .get("cvssMetricV2", [{}])[0]
+                .get("cvssData", {})
+                .get("baseScore")
+            )
+            scorev3 = (
+                item["cve"]["metrics"]
+                .get("cvssMetricV31", [{}])[0]
+                .get("cvssData", {})
+                .get("baseScore", None)
+            )
 
-        cve_id = item["cve"]["CVE_data_meta"]["ID"]
-        for node in item["configurations"]["nodes"]:
-            for cpe_match in extract_product_vulns_sub(node):
-                yield cve_id, summary, scorev2, scorev3, cpe_match
+            cve_id = item["cve"]["id"]
+            for node in item["cve"].get("configurations", [{}])[0].get("nodes", []):
+                for cpe_match in extract_product_vulns_sub(node, feed_version):
+                    yield cve_id, summary, scorev2, scorev3, cpe_match
+    else:
+        for item in tree["CVE_Items"]:
+            summary = (
+                item["cve"]["description"]["description_data"][0]["value"]
+                .replace("\n", " ")
+                .strip()
+            )
+            scorev2 = (
+                item["impact"]
+                .get("baseMetricV2", {})
+                .get("cvssV2", {})
+                .get("baseScore")
+            )
+            scorev3 = (
+                item["impact"]
+                .get("baseMetricV3", {})
+                .get("cvssV3", {})
+                .get("baseScore")
+            )
+
+            cve_id = item["cve"]["CVE_data_meta"]["ID"]
+            for node in item["configurations"]["nodes"]:
+                for cpe_match in extract_product_vulns_sub(node, feed_version):
+                    yield cve_id, summary, scorev2, scorev3, cpe_match
 
 
 api = os.environ.get("CI_API_V4_URL")
@@ -148,12 +143,18 @@ def check_version_range(version, cpe_match):
     return vulnerable
 
 
-def extract_vulnerabilities(filename):
+def extract_vulnerabilities(filename, feed_version):
     print(f"Processing {filename}")
     with gzip.open(filename) as file:
         tree = json.load(file)
-        for cve_id, summary, scorev2, scorev3, cpe_match in extract_product_vulns(tree):
-            product_name = cpe_match["cpe23Uri"]
+        for cve_id, summary, scorev2, scorev3, cpe_match in extract_product_vulns(
+            tree, feed_version
+        ):
+            if feed_version == "2.0":
+                product_name = cpe_match["criteria"]
+            else:
+                product_name = cpe_match["cpe23Uri"]
+
             vendor, name, version = product_name.split(":")[3:6]
 
             module = LOOKUP_TABLE.get(vendor, {}).get(name)
@@ -199,11 +200,16 @@ def extract_vulnerabilities(filename):
             )
 
 
-def check_unversioned_elements(filename, unversioned_git, unversioned_archive):
+def check_unversioned_elements(
+    filename, unversioned_git, unversioned_archive, feed_version
+):
     with gzip.open(filename) as file:
         tree = json.load(file)
-        for cve_id, _, _, _, cpe_match in extract_product_vulns(tree):
-            product_name = cpe_match["cpe23Uri"]
+        for cve_id, _, _, _, cpe_match in extract_product_vulns(tree, feed_version):
+            if feed_version == "2.0":
+                product_name = cpe_match["criteria"]
+            else:
+                product_name = cpe_match["cpe23Uri"]
             _, name, _ = product_name.split(":")[3:6]
             for element in unversioned_git:
                 if name == unversioned_git[element]["product"]:
@@ -253,8 +259,56 @@ def is_recent_cve(cve_id: str) -> bool:
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Generate CVE report")
+    parser.add_argument("manifest", help="Path to manifest.json")
+    parser.add_argument("output", help="Output HTML file")
+    parser.add_argument(
+        "--feed-version",
+        choices=["1.1", "2.0"],
+        default="2.0",
+        help="CVE feed version to process (default: 2.0)",
+    )
+    args = parser.parse_args()
+
+    with open(args.manifest, "rb") as f:
+        manifest = json.load(f)
+        for module in manifest["modules"]:
+            cpe = module["x-cpe"]
+            version = cpe.get("version")
+            if version:
+                print(f"Found version {version} for module {module['name']}")
+            else:
+                print(
+                    f"Failed to find a version for module {module['name']}, assuming unversioned"
+                )
+                sources = module["sources"]
+                for element in sources:
+                    if "commit" in element and element["type"] == "git":
+                        unversioned_git[module["name"]] = {
+                            "source": element["commit"],
+                            "url": element["url"],
+                            "product": cpe.get("product"),
+                            "cve_ids": set(),
+                        }
+                    if "url" in element and element["type"] == "archive":
+                        unversioned_archive[module["name"]] = {
+                            "source": element["url"],
+                            "product": cpe.get("product"),
+                            "cve_ids": set(),
+                        }
+                continue
+            vendor = cpe.get("vendor")
+            vendor_dict = LOOKUP_TABLE.setdefault(cpe.get("vendor"), {})
+            vendor_dict[cpe["product"]] = {
+                "name": module["name"],
+                "version": version,
+                "patches": cpe.get("patches", []),
+                "ignored": cpe.get("ignored", []),
+                "exclude-vendor": cpe.get("exclude-vendor", []),
+            }
+
     vuln_map = {}
-    database_files = sorted(glob.glob("nvdcve-1.1-*.json.gz"))
+    database_files = sorted(glob.glob(f"nvdcve-{args.feed_version}-*.json.gz"))
     for filename in database_files:
         for (
             cve_id,
@@ -264,18 +318,20 @@ if __name__ == "__main__":
             scorev2,
             scorev3,
             vulnerable,
-        ) in extract_vulnerabilities(filename):
+        ) in extract_vulnerabilities(filename, args.feed_version):
             if vulnerable:
                 print(f"Adding {cve_id} for {name} to final vulnerabilities map")
                 vuln_map[cve_id] = cve_id, name, version, summary, scorev2, scorev3
 
-        check_unversioned_elements(filename, unversioned_git, unversioned_archive)
+        check_unversioned_elements(
+            filename, unversioned_git, unversioned_archive, args.feed_version
+        )
 
     entries = list(vuln_map.values())
 
     entries.sort(key=by_score, reverse=True)
 
-    with open(sys.argv[2], "w", encoding="utf-8") as out:
+    with open(args.output, "w", encoding="utf-8") as out:
         if not database_files:
             out.write("No CVE database files found\n")
         elif database_files and not entries:

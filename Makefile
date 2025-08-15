@@ -194,10 +194,12 @@ check-static-libraries:
 generate-cve-report: manifest
 	$(BST) build utils/generate-cve-report.bst
 
-	git clone -n --depth=1 --filter=tree:0 https://gitlab.com/freedesktop-sdk/nvd-cve-database.git && \
-	cd nvd-cve-database && git sparse-checkout set nvd-cve-database && \
-	git checkout && \
-	rm -rf ".git"
+	[ -d "nvd-cve-database" ] || ( \
+		git clone -n --depth=1 --filter=tree:0 https://gitlab.com/freedesktop-sdk/nvd-cve-database.git && \
+		cd nvd-cve-database && git sparse-checkout set nvd-cve-database && \
+		git checkout && \
+		rm -rf ".git" \
+	)
 
 	mkdir -p cve && cd cve &&	\
 	mkdir -p cve-reports && 	\
@@ -208,16 +210,16 @@ generate-cve-report: manifest
 
 	$(BST) shell utils/generate-cve-report.bst --mount /etc/resolv.conf /etc/resolv.conf	\
 		--mount ./cve/ /buildstream-build						\
-		-- generate_cve_report /buildstream-build/sdk-manifest/usr/manifest.json	\
+		-- generate_cve_report --feed-version 2.0 /buildstream-build/sdk-manifest/usr/manifest.json	\
 		/buildstream-build/cve-reports/sdk.md.html
 	$(BST) shell utils/generate-cve-report.bst --mount /etc/resolv.conf /etc/resolv.conf	\
 		--mount ./cve/ /buildstream-build						\
-		-- generate_cve_report /buildstream-build/platform-manifest/usr/manifest.json	\
+		-- generate_cve_report --feed-version 2.0 /buildstream-build/platform-manifest/usr/manifest.json	\
 		/buildstream-build/cve-reports/platform.md.html
 
 	rm -rvf cve-reports
 	mv -v cve/cve-reports .
-	find cve -mindepth 1 ! -name 'nvdcve-1.1-*' -exec rm -rvf {} +
+	find cve -mindepth 1 ! -name 'nvdcve-2.0-*' -exec rm -rvf {} +
 	rm -rf nvd-cve-database
 
 manifest:
