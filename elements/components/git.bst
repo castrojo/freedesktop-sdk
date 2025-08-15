@@ -22,6 +22,7 @@ depends:
 - components/expat.bst
 - components/libffi.bst
 - components/openssl.bst
+- components/zstd.bst
 
 runtime-depends:
 - bootstrap/zlib.bst
