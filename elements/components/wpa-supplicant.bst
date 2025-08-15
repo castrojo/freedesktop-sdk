@@ -9,6 +9,8 @@ build-depends:
 - components/systemd.bst
 
 variables:
+  license-files-extra: README
+
   config: |
     # Add configuration here
     CONFIG_OWE=y
