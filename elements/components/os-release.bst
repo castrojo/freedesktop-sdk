@@ -4,6 +4,7 @@ variables:
   (@):
   - include/repo_branches.yml
   release-limit: "1"
+  license-element-name: "freedesktop-sdk"
 
 build-depends:
 - components/flatpak-minimal-image.bst
