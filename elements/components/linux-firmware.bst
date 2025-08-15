@@ -12,6 +12,7 @@ build-depends:
 - components/git-minimal.bst
 
 variables:
+  license-files-extra: WHENCE MIT
   make-args: >-
     PREFIX="%{prefix}"
     FIRMWAREDIR="%{indep-libdir}/firmware"

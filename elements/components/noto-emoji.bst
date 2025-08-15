@@ -3,6 +3,9 @@ kind: manual
 depends:
 - bootstrap-import.bst
 
+variables:
+  license-files-extra: fonts/LICENSE
+
 config:
   install-commands:
   - |
