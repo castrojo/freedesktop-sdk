@@ -9,6 +9,9 @@ build-depends:
 depends:
 - bootstrap-import.bst
 
+variables:
+  license-element-name: "pkg-config"
+
 config:
   install-commands:
     (>):
