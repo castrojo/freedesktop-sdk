@@ -8,6 +8,7 @@ build-depends:
 - components/avahi-libs.bst
 
 variables:
+  license-files-extra: NOTICE
   # Makefiles not added to build-dir which makes it unusable
   build-dir: ''
   conf-local: >-

@@ -19,6 +19,7 @@ depends:
 - components/sqlite.bst
 
 variables:
+  license-files-extra: README.licensing
   meson-local: >-
     -Dncurses=disabled
     -Dlibuser=disabled
