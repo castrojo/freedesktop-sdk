@@ -3,6 +3,12 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 
+(?):
+- target_arch == "loongarch64":
+    build-depends:
+      (>):
+      - bootstrap/gnu-config.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
 
@@ -25,7 +31,6 @@ public:
     product: netscape_portable_runtime
 
 config:
-  # FIXME: not needed in next release
   (?):
   - target_arch == "loongarch64":
       configure-commands:
@@ -44,6 +49,6 @@ config:
 sources:
 - kind: tar
   # https://hg-edge.mozilla.org/projects/nspr
-  url: tar_https:archive.mozilla.org/pub/nspr/releases/v4.36/src/nspr-4.36.tar.gz
-  ref: 55dec317f1401cd2e5dba844d340b930ab7547f818179a4002bce62e6f1c6895
+  url: tar_https:archive.mozilla.org/pub/nspr/releases/v4.37/src/nspr-4.37.tar.gz
+  ref: 5f9344ed0e31855bd38f88b33c9d9ab94f70ce547ef3213e488d1520f61840fa
   base-dir: '*/nspr'
