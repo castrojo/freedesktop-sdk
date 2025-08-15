@@ -3,6 +3,12 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 
+(?):
+- target_arch == "loongarch64":
+    build-depends:
+      (>):
+      - bootstrap/gnu-config.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
 
@@ -25,7 +31,6 @@ public:
     product: netscape_portable_runtime
 
 config:
-  # FIXME: not needed in next release
   (?):
   - target_arch == "loongarch64":
       configure-commands:
