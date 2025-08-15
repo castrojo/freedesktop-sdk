@@ -8,6 +8,9 @@ build-depends:
 - components/which.bst
 - components/rdfind.bst
 
+variables:
+  license-files-extra: WHENCE MIT
+
 config:
   build-commands:
   - python3 compress.py
