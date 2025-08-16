@@ -17,6 +17,6 @@ variables:
 
 sources:
 - kind: git_repo
-  url: gitlab:projects261/mirrors/passt.git
+  url: fdsdk_mirror:passt/passt.git
   track: '*_*_*.*'
   ref: 2025_08_05.309eefd-0-g309eefd6af5ba20f760b92b6131a9ea7f2e161d4
