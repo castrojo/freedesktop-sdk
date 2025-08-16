@@ -20,7 +20,7 @@ config:
 
 sources:
 - kind: git_repo
-  url: gitlab:freedesktop-sdk/mirrors/iana-config.git
+  url: fdsdk_mirror:iana-config.git
   track: '*-*-*'
   ref: 2019-07-16-0-g64c890c79086d9797c5fb76f9edf5a5bfe906bbb
 
