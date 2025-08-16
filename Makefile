@@ -219,7 +219,7 @@ generate-cve-report: manifest
 
 	rm -rvf cve-reports
 	mv -v cve/cve-reports .
-	find cve -mindepth 1 ! -name 'nvdcve-2.0-*' -exec rm -rvf {} +
+	find cve -mindepth 1 ! -name 'nvdcve-*.json.gz' -exec rm -rvf {} +
 	rm -rf nvd-cve-database
 
 manifest:
