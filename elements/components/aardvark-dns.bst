@@ -10,7 +10,7 @@ sources:
 - kind: git_repo
   url: github:containers/aardvark-dns.git
   track: v*
-  ref: v1.15.0-0-gd71294ced9ea2cc2ca2eea3b84510e6242ae9c6a
+  ref: v1.16.0-0-g56db1e0c07be11237528bde2fa6edd0a2a7cc8d0
 - kind: cargo
   ref:
   - name: addr2line
@@ -77,14 +77,14 @@ sources:
     version: 0.4.41
     sha: c469d952047f47f91b68d1cba3f10d63c11d73e4636f24f08daf0278abf01c4d
   - name: clap
-    version: 4.5.37
-    sha: eccb054f56cbd38340b380d4a8e69ef1f02f1af43db2f0cc817a4774d80ae071
+    version: 4.5.40
+    sha: 40b6887a1d8685cebccf115538db5c0efe625ccac9696ad45c409d96566e910f
   - name: clap_builder
-    version: 4.5.37
-    sha: efd9466fac8543255d3b1fcad4762c5e116ffe808c8a3043d4263cd4fd4862a2
+    version: 4.5.40
+    sha: e0c66c08ce9f0c698cbce5c0279d0bb6ac936d8674174fe48f736533b964f59e
   - name: clap_derive
-    version: 4.5.32
-    sha: 09176aae279615badda0765c0c0b3f6ed53f4709118af73cf4655d85d1530cd7
+    version: 4.5.40
+    sha: d2c7947ae4cc3d851207c1adb5b5e260ff0cca11446b1d6d1423788e442257ce
   - name: clap_lex
     version: 0.7.4
     sha: f46ad14479a25103f283c0f10005961cf086d8dc42205bb44c46ac563475dca6
@@ -202,6 +202,9 @@ sources:
   - name: idna_adapter
     version: 1.2.0
     sha: daca1df1c957320b2cf139ac61e7bd64fed304c5040df000a745aa1de3b4ef71
+  - name: io-uring
+    version: 0.7.8
+    sha: b86e202f00093dcba4275d4636b93ef9dd75d025ae560d2521b45ea28ab49013
   - name: ipnet
     version: 2.11.0
     sha: 469fb0b9cefa57e3ef31275ee7cacb78f2fdca44e4765491884a2b119d4eb130
@@ -215,8 +218,8 @@ sources:
     version: 0.3.77
     sha: 1cfaf33c695fc6e08064efbc1f72ec937429614f25eef83af942d0e227c3a28f
   - name: libc
-    version: 0.2.172
-    sha: d750af042f7ef4f724306de029d18836c26c1765a54a6a3f094cbd23a7267ffa
+    version: 0.2.175
+    sha: 6a82ae493e598baaea5209805c49bbf2ea7de956d50d7da0da1164f9c6d28543
   - name: litemap
     version: 0.7.4
     sha: 4ee93343901ab17bd981295f2cf0026d4ad018c7c31ba84549a4ddbb47a45104
@@ -335,8 +338,8 @@ sources:
     version: 1.13.2
     sha: 3c5e1a9a646d36c3599cd173a41282daf47c44583ad367b8e6837255952e5c67
   - name: socket2
-    version: 0.5.8
-    sha: c970269d99b64e60ec3bd6ad27270092a5394c4e309314b18ae3fe575695fbe8
+    version: 0.6.0
+    sha: 233504af464074f9d066d7b5416c5f9b894a5862a6506e306f7b816cdd6f1807
   - name: spin
     version: 0.9.8
     sha: 6980e8d7511241f8acf4aebddbb1ff938df5eebe98691418c4468d0b72a96a67
@@ -380,8 +383,8 @@ sources:
     version: 0.1.1
     sha: 1f3ccbac311fea05f86f61904b462b55fb3df8837a366dfc601a0161d0532f20
   - name: tokio
-    version: 1.45.0
-    sha: 2513ca694ef9ede0fb23fe71a4ee4107cb102b9dc1930f6d0fd77aae068ae165
+    version: 1.47.1
+    sha: 89e49afdadebb872d3145a5638b59eb0691ea23e46ca484037cfab3b76b95038
   - name: tokio-macros
     version: 2.5.0
     sha: 6e06d43f1345a3bcd39f6a56dbb7dcab2ba47e68e8ac134855e7e2bdbaf8cab8
