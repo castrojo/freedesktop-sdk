@@ -14,6 +14,9 @@ variables:
 config:
   build-commands:
   - |
+    mv -vf modules.txt vendor/modules.txt
+
+  - |
     go build
 
   install-commands:
@@ -39,6 +42,8 @@ sources:
   url: github:git-lfs/git-lfs.git
   track: v*
   ref: v3.7.0-0-g92dddf560e62ef7dd25877d87ce072f7595aa52d
+- kind: local
+  path: files/git-lfs/modules.txt
 - kind: go_module
   url: github:alexbrainman/sspi.git
   module: github.com/alexbrainman/sspi
