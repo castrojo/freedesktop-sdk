@@ -13,6 +13,9 @@ variables:
 config:
   build-commands:
   - |
+    mv -vf modules.txt vendor/modules.txt
+
+  - |
     go build
 
   install-commands:
@@ -37,7 +40,9 @@ sources:
 - kind: git_repo
   url: github:git-lfs/git-lfs.git
   track: v*
-  ref: v3.6.1-0-gea47a34bde1ba1ecf9eb8dc6d44fcf7aef42f5e3
+  ref: v3.7.0-0-g92dddf560e62ef7dd25877d87ce072f7595aa52d
+- kind: local
+  path: files/git-lfs/modules.txt
 - kind: go_module
   url: github:alexbrainman/sspi.git
   module: github.com/alexbrainman/sspi
@@ -77,8 +82,8 @@ sources:
   url: github:git-lfs/go-netrc.git
   module: github.com/git-lfs/go-netrc
   ref:
-    go-version: v0.0.0-20210914205454-f0c862dd687a
-    git-ref: f0c862dd687a9d9a7e15b3cd7cb3fd3e81cdd5ef
+    go-version: v0.0.0-20250218165306-ba0029b43d11
+    git-ref: ba0029b43d1190baf66986a87418593ed1a07f42
     explicit: True
 - kind: go_module
   url: github:git-lfs/pktline.git
@@ -252,36 +257,36 @@ sources:
   url: git_https:go.googlesource.com/crypto
   module: golang.org/x/crypto
   ref:
-    go-version: v0.21.0
-    git-ref: v0.21.0-0-g7067223927c4e3f3bb91a5c6e0d2aae83df74e7a
+    go-version: v0.36.0
+    git-ref: v0.36.0-0-g49bf5b80c8108983f588ecabd7bf996e6e63a515
     explicit: True
 - kind: go_module
   url: git_https:go.googlesource.com/net
   module: golang.org/x/net
   ref:
-    go-version: v0.23.0
-    git-ref: v0.23.0-0-gc48da131589f122489348be5dfbcb6457640046f
+    go-version: v0.38.0
+    git-ref: v0.38.0-0-ge1fcd82abba34df74614020343be8eb1fe85f0d9
     explicit: True
 - kind: go_module
   url: git_https:go.googlesource.com/sync
   module: golang.org/x/sync
   ref:
-    go-version: v0.1.0
-    git-ref: v0.1.0-0-g8fcdb60fdcc0539c5e357b2308249e4e752147f1
+    go-version: v0.12.0
+    git-ref: v0.12.0-0-gb637f27e40ad6e222f3d301cc113e635f0fa08be
     explicit: True
 - kind: go_module
   url: git_https:go.googlesource.com/sys
   module: golang.org/x/sys
   ref:
-    go-version: v0.18.0
-    git-ref: v0.18.0-0-g360f961f8978a4c9a7c2e849bb482780cd6bb553
+    go-version: v0.31.0
+    git-ref: v0.31.0-0-g74cfc93a99be6ca6f193856132e6799065b071af
     explicit: True
 - kind: go_module
   url: git_https:go.googlesource.com/text
   module: golang.org/x/text
   ref:
-    go-version: v0.14.0
-    git-ref: v0.14.0-0-g6c97a165dd661335ff7bce6104a008558123c353
+    go-version: v0.23.0
+    git-ref: v0.23.0-0-g566b44fc931e2542778a18423c655ce99b4f1402
     explicit: True
 - kind: go_module
   url: git_https:gopkg.in/yaml.v3
@@ -289,4 +294,11 @@ sources:
   ref:
     go-version: v3.0.1
     git-ref: v3.0.1-0-gf6f7691b1fdeb513f56608cd2c32c51f8194bf51
+    explicit: True
+- kind: go_module
+  url: github:golang/groupcache.git
+  module: github.com/golang/groupcache
+  ref:
+    go-version: v0.0.0-20241129210726-2c02b8208cf8
+    git-ref: 2c02b8208cf8c02a3e358cb1d9b60950647543fc
     explicit: True
