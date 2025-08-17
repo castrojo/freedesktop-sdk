@@ -21,7 +21,7 @@ config:
 sources:
 - kind: git_repo
   url: github:containers/netavark.git
-  track: v*
+  track: v1.15.*
   ref: v1.15.2-0-g01b002ffea76934739836bddabe223908f48eb76
 - kind: cargo
   ref:
