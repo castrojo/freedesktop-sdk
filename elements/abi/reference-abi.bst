@@ -8,5 +8,5 @@ config:
 sources:
 - kind: git_repo
   url: fdsdk_git:freedesktop-sdk.git
-  track: freedesktop-sdk-24.08*
-  ref: freedesktop-sdk-24.08rc.2-0-g9f82a20f319c837f80114a474d3d8d4776d6e7ba
+  track: freedesktop-sdk-25.08*
+  ref: freedesktop-sdk-25.08beta.2-123-g07c991281411d5305eb0f1accc93de6c7d0ec87b
