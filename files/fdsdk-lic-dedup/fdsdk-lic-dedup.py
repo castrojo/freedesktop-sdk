@@ -10,7 +10,7 @@ import shutil
 def compute_license_hashes(root_dir: str) -> dict[str, list[str]]:
     license_dir = os.path.join(root_dir, "share", "licenses")
     spdx_dir = os.path.join(license_dir, "spdx")
-    common_dir = os.path.join(root_dir, "share", "licenses", "common")
+    common_dir = os.path.join(license_dir, "common")
 
     hash_map: dict[str, list[str]] = {}
 
@@ -19,7 +19,7 @@ def compute_license_hashes(root_dir: str) -> dict[str, list[str]]:
             continue
 
         for file in files:
-            file_path = os.path.join(dirpath, file)
+            file_path = os.path.realpath(os.path.join(dirpath, file))
 
             if os.path.commonpath([file_path, common_dir]) == common_dir:
                 continue
