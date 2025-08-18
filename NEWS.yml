@@ -1,3 +1,123 @@
+Version: freedesktop-sdk-25.08rc.1
+Date: '2025-08-17'
+Description: |-
+  Changes in freedesktop-sdk-25.08rc.1
+   * Mark ABI as stable
+   * Update aardvark-dns to v1.16.0-0
+   * Update harfbuzz to 11.4.1-0
+   * Update python3-protobuf to 6.32.0
+   * Update netavark to v1.16.0-0
+   * shim: Temporarily convert gitmodule to git repo
+   * Update shim to 16.1-0
+   * git-lfs: Temporarily build with a locally generated modules.txt
+   * git-lfs: Add golang/groupcache go module
+   * Update git-lfs to v3.7.0-0
+   * Update python3-filelock to 3.19.1-0
+   * Update podman to v5.6.0-0
+   * Update protobuf to v32.0-0
+   * Update linux to v6.16.1-0
+   * passt: Switch to fdsdk mirror
+   * Use fdsdk_mirror alias
+   * Ignore all cve database files
+   * Replace update_local_cve_database with nvd_database_downloader
+   * highway: Drop outdated patch
+   * Update highway to 1.3.0-0
+   * Update glibc to glibc-2.42-18
+   * Update python3 to v3.13.7-0
+   * Update vim to v9.1.1634-0
+   * perf: define kernel_arch for loongarch64
+   * Update librsvg to 2.61.0-0
+   * Update mutool to 1.26.5-0
+   * Add script to deduplicate license files in Flatpak runtime
+   * Add a licence domain
+   * Override license-element-name for pkg-config and os-release
+   * Install a common license file for everything fdsdk origin shipped
+   * Add install-extra snippet to all manual elements
+   * Add configuration to install licenses for all elements
+   * git: Depend on zstd
+   * Only clone if the directory does not exist
+   * Generate report from 2.0 CVE feeds
+   * Keep v1 CVE feed processing behind an arg and default to v2
+   * Add support for processing v2 feeds
+   * nspr: gnu-config is still needed for loongarch64
+   * nspr: Update to 4.37
+   * Update appstream to v1.0.6-0
+   * Update cython to 3.1.3-0
+   * Update python3-multidict to v6.6.4-0
+   * tar: Build depend on find
+   * gnu-efi: Update to 4.0.2 with new upstream URL
+   * Update python3-filelock to 3.19.0-0
+   * Update dictionaries to libreoffice-25.8.0.4-0
+   * Update python3-virtualenv to 20.34.0-0
+   * weston: Import upstream patch to build with libdisplay-info 0.3.0
+   * Update libdisplay-info to 0.3.0-0
+   * vulkan-tools: Import upstream patch to fix build with wayland 1.24
+   * Update wayland to 1.24.0-0
+   * Revert "project: Specify more limits to the CAS configs"
+   * Update perl-sasl to 2.1900
+   * Update go to go1.24.6-0
+   * Update libgcrypt to libgcrypt-1.11.2-0
+   * Update iio-sensor-proxy to 3.8-0
+   * Update python3-setuptools-scm to v9.1.1-0
+   * Update openssl to openssl-3.5.2-0
+   * Update libxkbcommon to xkbcommon-1.11.0-0
+   * passt: Switch passt to my mirror
+   * Update passt to 2025_08_05.309eefd-0
+   * Update gtk3 to 3.24.50-0
+   * Update gstreamer-plugins-rs to 0.14.1-0
+   * Update dictionaries to libreoffice-25.8.0.3-0
+   * Update python3-click to 8.2.2-0
+   * Set CARGO_BUILD_JOBS to max-jobs project-wide
+   * Update cargo-c to v0.10.15-0
+   * Update libcamera to v0.5.2-0
+   * Update python3-cryptography to 45.0.6-0
+   * ci: Use new 25.08beta.2 based image
+   * Update glib to 2.84.4-0
+   * Update gstreamer to 1.26.5-0
+   * Update hwdata to v0.398-0
+   * buildstream-plugins: Update to 2.5.0
+   * buildstream-plugins-community: Update to 2.1.0
+   * Revert "Update python3-click to 8.2.2-0"
+   * gcc: Drop upstreamed patch
+   * Update gcc to releases/gcc-15.2.0-0
+   * Update vim to v9.1.1610-0
+   * Update glibc to glibc-2.42-13
+   * Update python3 to v3.13.6-0
+   * Update grpc to v1.74.1-0
+   * Update libxmlb to 0.3.23-0
+   * Update extra-cmake-modules to v6.17.0-0
+   * python3-ujson: Add patch to fix build with setuptools-scm 9
+   * python3-setuptools-scm: Update to 9.0.3
+   * Add descriptions to the elements in the minimal-ostree system
+   * Update buildbox to 1.3.28-0
+   * Update systemd to v257.8-0
+   * Update python3-maturin to v1.9.3-0
+   * Update python3-trove-classifiers to 2025.8.6.13-0
+   * python3-urllib3: Add patch to build with setuptools-scm>=9
+   * Update python3-setuptools-scm to v9.0.1-0
+   * Update containers-common to v0.64.1-0
+   * Update strace to v6.16-0
+   * Update cmake to v4.1.0-0
+   * Update libheif to v1.20.2-0
+   * Update skopeo to v1.20.0-0
+   * Update sdl3 to release-3.2.20-0
+   * libgcrypt: Disable asm on RISC V
+   * Update poppler to poppler-25.08.0-0
+   * Update intel-media-driver to intel-media-25.3.1-0
+   * project: Specify more limits to the CAS configs
+   * Update libffi to v3.5.2-0
+   * Update mesa to mesa-25.1.7-0
+   * Update python3-dulwich to 0.24.1
+   * Update python3-virtualenv to 20.33.0-0
+   * Update libeconf to v0.7.10-0
+   * Update python3-certifi to 2025.08.03-0
+   * Update python3-build to 1.3.0-0
+   * python3: Disable static libpython
+   * Revert "Remove unreproducible files from Python outputs"
+   * networkmanager: Add libnvme for nbft
+   * Update networkmanager to 1.54.0-0
+   * utils/release: Add an argument to just dump the latest changelog
+---
 Version: freedesktop-sdk-25.08beta.2
 Date: '2025-08-02'
 Description: |-
