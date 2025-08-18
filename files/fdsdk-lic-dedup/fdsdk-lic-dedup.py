@@ -9,15 +9,11 @@ import shutil
 
 def compute_license_hashes(root_dir: str) -> dict[str, list[str]]:
     license_dir = os.path.join(root_dir, "share", "licenses")
-    spdx_dir = os.path.join(license_dir, "spdx")
     common_dir = os.path.join(license_dir, "common")
 
     hash_map: dict[str, list[str]] = {}
 
     for dirpath, _, files in os.walk(license_dir):
-        if os.path.commonpath([dirpath, spdx_dir]) == spdx_dir:
-            continue
-
         for file in files:
             file_path = os.path.realpath(os.path.join(dirpath, file))
 
