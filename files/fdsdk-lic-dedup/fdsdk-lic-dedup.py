@@ -80,14 +80,16 @@ def deduplicate_licenses(
                             os.path.dirname(f), f"LICENSE_{counter}"
                         )
                         counter += 1
-                    if os.path.exists(f):
+                    if os.path.exists(f):  # files[0] dosn't exist since it was moved
                         total_bytes_saved += os.path.getsize(f)
                         if not dry_run:
                             os.remove(f)
-                            os.symlink(dest_file, symlink_path)
-                            logging.info(
-                                "Created symlink from %s to %s", symlink_path, dest_file
-                            )
+                    if not dry_run:
+                        os.symlink(dest_file, symlink_path)
+                        logging.info(
+                            "Created symlink from %s to %s", symlink_path, dest_file
+                        )
+
         mb_saved = total_bytes_saved / (1024 * 1024)
         logging.info("Space saved by deduplicating license files: %.2f MB", mb_saved)
         return True
