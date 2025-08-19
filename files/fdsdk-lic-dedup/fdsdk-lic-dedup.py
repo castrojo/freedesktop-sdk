@@ -29,6 +29,12 @@ def compute_license_hashes(license_dir: str, common_dir: str) -> dict[str, list[
 
             hash_map.setdefault(h, []).append(file_path)
 
+    if not any(len(files) > 1 for files in hash_map.values()):
+        logging.warning(
+            "No duplicate license files found. There is nothing to deduplicate"
+        )
+        return {}
+
     return hash_map
 
 
