@@ -4,6 +4,7 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 variables:
+  license-files-extra: fonts/LICENSE
   strip-binaries: ''
 
 config:

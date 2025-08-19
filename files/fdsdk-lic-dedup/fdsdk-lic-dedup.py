@@ -9,17 +9,13 @@ import shutil
 
 def compute_license_hashes(root_dir: str) -> dict[str, list[str]]:
     license_dir = os.path.join(root_dir, "share", "licenses")
-    spdx_dir = os.path.join(license_dir, "spdx")
-    common_dir = os.path.join(root_dir, "share", "licenses", "common")
+    common_dir = os.path.join(license_dir, "common")
 
     hash_map: dict[str, list[str]] = {}
 
     for dirpath, _, files in os.walk(license_dir):
-        if os.path.commonpath([dirpath, spdx_dir]) == spdx_dir:
-            continue
-
         for file in files:
-            file_path = os.path.join(dirpath, file)
+            file_path = os.path.realpath(os.path.join(dirpath, file))
 
             if os.path.commonpath([file_path, common_dir]) == common_dir:
                 continue
@@ -73,21 +69,14 @@ def deduplicate_licenses(
                     logging.info("Moved %s to %s", src_file, dest_file)
 
                 for f in files:
-                    symlink_path = os.path.join(os.path.dirname(f), "LICENSE")
-                    counter = 1
-                    while os.path.exists(symlink_path):
-                        symlink_path = os.path.join(
-                            os.path.dirname(f), f"LICENSE_{counter}"
-                        )
-                        counter += 1
-                    if os.path.exists(f):
+                    if os.path.exists(f):  # files[0] dosn't exist since it was moved
                         total_bytes_saved += os.path.getsize(f)
                         if not dry_run:
                             os.remove(f)
-                            os.symlink(dest_file, symlink_path)
-                            logging.info(
-                                "Created symlink from %s to %s", symlink_path, dest_file
-                            )
+                    if not dry_run:
+                        os.symlink(dest_file, f)
+                        logging.info("Created symlink from %s to %s", f, dest_file)
+
         mb_saved = total_bytes_saved / (1024 * 1024)
         logging.info("Space saved by deduplicating license files: %.2f MB", mb_saved)
         return True
