@@ -45,22 +45,11 @@ def deduplicate_licenses(
         logging.warning("The license file hash dict is empty")
         return True
 
-    if not dry_run:
-        try:
-            if os.path.exists(common_dir):
-                try:
-                    shutil.rmtree(common_dir)
-                except (OSError, PermissionError) as err:
-                    logging.error("Failed to remove %s: %s", common_dir, err)
-                    return False
-            os.makedirs(common_dir)
-        except PermissionError as err:
-            logging.error("No permission to create %s: %s", common_dir, err)
-            return False
-
     total_bytes_saved = 0
 
     try:
+        if not dry_run:
+            os.makedirs(common_dir, exist_ok=True)
         for h, files in hash_dict.items():
             if len(files) > 1:
                 src_file = files[0]
@@ -84,6 +73,51 @@ def deduplicate_licenses(
     except (OSError, FileNotFoundError, shutil.Error, PermissionError) as err:
         logging.error("Unexpected error while deduplicating: %s", err)
         return False
+
+
+def cleanup_unused_licenses(license_dir: str, common_dir: str) -> bool:
+    referenced_files = set()
+
+    if not (os.path.isdir(license_dir) and os.path.isdir(common_dir)):
+        logging.error(
+            "License directory or common directory does not exist while cleanup"
+        )
+        return False
+
+    try:
+        for dirpath, _, files in os.walk(license_dir):
+            for file in files:
+                file_path = os.path.join(dirpath, file)
+                if os.path.islink(file_path):
+                    real_path = os.path.realpath(file_path)
+                    if (
+                        os.path.exists(real_path)
+                        and os.path.commonpath([real_path, common_dir]) == common_dir
+                    ):
+                        referenced_files.add(real_path)
+
+        for file in os.listdir(common_dir):
+            file_path = os.path.join(common_dir, file)
+            if os.path.isfile(file_path) and file_path not in referenced_files:
+                os.remove(file_path)
+                logging.info(
+                    "Cleaned up unused file from common directory %s", file_path
+                )
+
+        for dirpath, _, files in os.walk(license_dir):
+            for file in files:
+                file_path = os.path.join(dirpath, file)
+                if os.path.islink(file_path):
+                    real_path = os.path.realpath(file_path)
+                    if not os.path.exists(real_path):
+                        os.remove(file_path)
+                        logging.info("Cleaned up dangling symlink %s", file_path)
+
+    except (OSError, FileNotFoundError, PermissionError) as err:
+        logging.error("Unexpected error while cleanup: %s", err)
+        return False
+
+    return True
 
 
 def main() -> int:
@@ -118,6 +152,9 @@ def main() -> int:
         dry_run=args.dry_run,
     ):
         logging.error("Deduplication encountered errors")
+        return 1
+
+    if not (args.dry_run or cleanup_unused_licenses(license_dir, common_dir)):
         return 1
 
     return 0
