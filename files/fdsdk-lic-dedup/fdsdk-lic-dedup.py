@@ -7,10 +7,7 @@ import os
 import shutil
 
 
-def compute_license_hashes(root_dir: str) -> dict[str, list[str]]:
-    license_dir = os.path.join(root_dir, "share", "licenses")
-    common_dir = os.path.join(license_dir, "common")
-
+def compute_license_hashes(license_dir: str, common_dir: str) -> dict[str, list[str]]:
     hash_map: dict[str, list[str]] = {}
 
     for dirpath, _, files in os.walk(license_dir):
@@ -36,13 +33,11 @@ def compute_license_hashes(root_dir: str) -> dict[str, list[str]]:
 
 
 def deduplicate_licenses(
-    hash_dict: dict[str, list[str]], root_dir: str, dry_run: bool = False
+    hash_dict: dict[str, list[str]], common_dir: str, dry_run: bool = False
 ) -> bool:
     if not hash_dict:
         logging.warning("The license file hash dict is empty")
         return True
-
-    common_dir = os.path.join(root_dir, "share", "licenses", "common")
 
     if not dry_run:
         try:
@@ -104,15 +99,16 @@ def main() -> int:
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-    root_dir = args.usr_root
+    license_dir = os.path.join(args.usr_root, "share", "licenses")
+    common_dir = os.path.join(license_dir, "common")
 
-    if not os.path.isdir(root_dir):
-        logging.error("The root directory does not exist: %s")
+    if not os.path.isdir(license_dir):
+        logging.error("The license directory does not exist: %s", license_dir)
         return 1
 
-    hash_dict = compute_license_hashes(root_dir)
+    hash_dict = compute_license_hashes(license_dir, common_dir)
 
-    if not deduplicate_licenses(hash_dict, root_dir, dry_run=args.dry_run):
+    if not deduplicate_licenses(hash_dict, common_dir, dry_run=args.dry_run):
         logging.error("Deduplication encountered errors")
         return 1
 
