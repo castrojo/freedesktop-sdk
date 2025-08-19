@@ -106,9 +106,11 @@ def main() -> int:
         logging.error("The license directory does not exist: %s", license_dir)
         return 1
 
-    hash_dict = compute_license_hashes(license_dir, common_dir)
-
-    if not deduplicate_licenses(hash_dict, common_dir, dry_run=args.dry_run):
+    if not deduplicate_licenses(
+        compute_license_hashes(license_dir, common_dir),
+        common_dir,
+        dry_run=args.dry_run,
+    ):
         logging.error("Deduplication encountered errors")
         return 1
 
