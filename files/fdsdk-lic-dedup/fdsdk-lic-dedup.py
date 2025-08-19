@@ -50,7 +50,8 @@ def deduplicate_licenses(
     try:
         if not dry_run:
             os.makedirs(common_dir, exist_ok=True)
-        for h, files in hash_dict.items():
+        for h, files in sorted(hash_dict.items()):
+            files.sort()
             if len(files) > 1:
                 src_file = files[0]
                 dest_file = os.path.join(common_dir, f"LICENSE_{h[:12]}")
