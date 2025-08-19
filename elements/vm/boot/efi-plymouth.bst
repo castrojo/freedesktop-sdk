@@ -29,6 +29,9 @@ config:
     EOF
 
   - |
+    echo '%{libdir}' >/etc/ld.so.conf
+
+  - |
     . /tmp/vars
     dracut -v --xz --reproducible --fstab \
            --no-machineid --kernel-image /boot/vmlinuz \

@@ -23,6 +23,9 @@ config:
                      >/tmp/vars
 
   - |
+    echo '%{libdir}' >/etc/ld.so.conf
+
+  - |
     dracut -v --reproducible --fstab \
            --no-machineid \
            --kver $(ls -1 /lib/modules | head -n1) \

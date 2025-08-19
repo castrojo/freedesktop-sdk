@@ -30,6 +30,9 @@ config:
     cp -r /usr/lib/modules "%{install-root}/usr/lib/"
 
   - |
+    echo '%{libdir}' >/etc/ld.so.conf
+
+  - |
     . /tmp/vars
     version="$(ls -1 /lib/modules | head -n1)"
     mkdir -p "%{install-root}/usr/lib/modules/${version}"

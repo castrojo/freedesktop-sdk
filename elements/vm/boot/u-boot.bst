@@ -24,6 +24,9 @@ config:
        --rootpasswd "root" >/tmp/vars
 
   - |
+    echo '%{libdir}' >/etc/ld.so.conf
+
+  - |
     . /tmp/vars
     mkdir -p /var/tmp
     dracut -v --xz --reproducible --fstab \

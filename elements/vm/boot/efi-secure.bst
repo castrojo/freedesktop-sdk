@@ -30,6 +30,9 @@ config:
   - rm /etc/machine-id
 
   - |
+    echo '%{libdir}' >/etc/ld.so.conf
+
+  - |
     dracut -v --xz --reproducible --fstab \
            --uefi \
            --no-machineid --kernel-image /boot/vmlinuz \
