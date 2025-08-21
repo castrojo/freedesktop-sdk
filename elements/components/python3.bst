@@ -14,7 +14,13 @@ depends:
 - components/sqlite.bst
 
 variables:
-  install-conf: MAX_COMPILEALL_JOBS=1  # Used for deterministic compiling
+  # Used for deterministic compiling
+  compileall-opts: MAX_COMPILEALL_JOBS=1
+  make-install-args: >-
+    DESTDIR="%{install-root}"
+    COMPILEALL_OPTS=%{compileall-opts}
+    DESTSHARED=/usr/lib/python%{version_long}/lib-dynload
+    install
   conf-local: |
     --enable-shared \
     --without-ensurepip \
@@ -29,60 +35,55 @@ variables:
 
 config:
   install-commands:
-  - |
-    if [ -n "%{build-dir}" ]; then
-    cd %{build-dir}
-    fi
-    %{make-install} %{install-conf} DESTSHARED=/usr/lib/python%{version_long}/lib-dynload
+    (>):
+    - |
+      rm -rf %{install-root}%{bindir}/idle*
+    - |
+      rm -rf %{install-root}%{indep-libdir}/python%{version_long}/idlelib
+    - |
+      rm -rf %{install-root}%{indep-libdir}/python%{version_long}/tkinter
+    - |
+      rm -rf %{install-root}%{indep-libdir}/python%{version_long}/turtle*
+    - |
+      rm -rf %{install-root}%{indep-libdir}/python%{version_long}/__pycache__/turtle.*
+    - |
+      rm -rf %{install-root}%{indep-libdir}/python%{version_long}/test
+    - |
+      rm -rf %{install-root}%{indep-libdir}/python%{version_long}/*/test
+    - |
+      rm -rf %{install-root}%{indep-libdir}/python%{version_long}/*/tests
+    - |
+      rm -r %{install-root}/'%{indep-libdir}/python%{version_long}/config-%{version_long}-%{gcc_triplet}'
 
-  - |
-    rm -rf %{install-root}%{bindir}/idle*
-  - |
-    rm -rf %{install-root}%{indep-libdir}/python%{version_long}/idlelib
-  - |
-    rm -rf %{install-root}%{indep-libdir}/python%{version_long}/tkinter
-  - |
-    rm -rf %{install-root}%{indep-libdir}/python%{version_long}/turtle*
-  - |
-    rm -rf %{install-root}%{indep-libdir}/python%{version_long}/__pycache__/turtle.*
-  - |
-    rm -rf %{install-root}%{indep-libdir}/python%{version_long}/test
-  - |
-    rm -rf %{install-root}%{indep-libdir}/python%{version_long}/*/test
-  - |
-    rm -rf %{install-root}%{indep-libdir}/python%{version_long}/*/tests
-  - |
-    rm -r %{install-root}/'%{indep-libdir}/python%{version_long}/config-%{version_long}-%{gcc_triplet}'
+    - |
+      find "%{install-root}" -name "lib*.a" -exec rm {} ";"
 
-  - |
-    find "%{install-root}" -name "lib*.a" -exec rm {} ";"
+    - |
+      cat <<EOF >"%{install-root}%{includedir}/python%{version_long}/pyconfig.h"
+      #if defined(__x86_64__)
+      # include "x86_64-linux-gnu/python%{version_long}/pyconfig.h"
+      #elif defined(__i386__)
+      # include "i386-linux-gnu/python%{version_long}/pyconfig.h"
+      #elif defined(__aarch64__)
+      # include "aarch64-linux-gnu/python%{version_long}/pyconfig.h"
+      #elif defined(__arm__)
+      # include "arm-linux-gnueabihf/python%{version_long}/pyconfig.h"
+      #elif defined(__powerpc64__)
+      #if defined(__BIG_ENDIAN__)
+      # include "powerpc64-linux-gnu/python%{version_long}/pyconfig.h"
+      #else
+      # include "powerpc64le-linux-gnu/python%{version_long}/pyconfig.h"
+      #endif
+      #elif defined(__riscv) && (__riscv_xlen == 64)
+      # include "riscv64-linux-gnu/python%{version_long}/pyconfig.h"
+      #else
+      # error "Unknown cross-compiler"
+      #endif
+      EOF
 
-  - |
-    cat <<EOF >"%{install-root}%{includedir}/python%{version_long}/pyconfig.h"
-    #if defined(__x86_64__)
-    # include "x86_64-linux-gnu/python%{version_long}/pyconfig.h"
-    #elif defined(__i386__)
-    # include "i386-linux-gnu/python%{version_long}/pyconfig.h"
-    #elif defined(__aarch64__)
-    # include "aarch64-linux-gnu/python%{version_long}/pyconfig.h"
-    #elif defined(__arm__)
-    # include "arm-linux-gnueabihf/python%{version_long}/pyconfig.h"
-    #elif defined(__powerpc64__)
-    #if defined(__BIG_ENDIAN__)
-    # include "powerpc64-linux-gnu/python%{version_long}/pyconfig.h"
-    #else
-    # include "powerpc64le-linux-gnu/python%{version_long}/pyconfig.h"
-    #endif
-    #elif defined(__riscv) && (__riscv_xlen == 64)
-    # include "riscv64-linux-gnu/python%{version_long}/pyconfig.h"
-    #else
-    # error "Unknown cross-compiler"
-    #endif
-    EOF
-
-  - |
-    mkdir -p %{install-root}%{bindir}
-    ln -s %{bindir}/python%{version_short} %{install-root}%{bindir}/python
+    - |
+      mkdir -p %{install-root}%{bindir}
+      ln -s %{bindir}/python%{version_short} %{install-root}%{bindir}/python
 
 public:
   bst:

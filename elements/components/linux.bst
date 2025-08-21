@@ -113,6 +113,9 @@ config:
 
     ln -sr "${targetdir}" "%{install-root}%{indep-libdir}/modules/${release}/build"
 
+  - |
+    %{install-extra}
+
   (?):
   - target_arch in ["aarch64", "arm", "riscv64"]:
       install-commands:
