@@ -16,6 +16,9 @@ config:
     install -m 755 -D -t "%{install-root}%{bindir}" zip zipcloak zipnote zipsplit
     install -m 644 -D -t "%{install-root}%{datadir}/man/man1" man/zip.1 man/zipcloak.1 man/zipnote.1 man/zipsplit.1
 
+  - |
+    %{install-extra}
+
 public:
   cpe:
     vendor: 'info-zip'

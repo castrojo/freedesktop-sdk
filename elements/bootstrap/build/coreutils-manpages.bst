@@ -15,9 +15,6 @@ variables:
   conf-local: |
     --enable-install-program=hostname \
     --mandir=/coreutils-manpages
-
-config:
-  install-commands:
-  - |
-    cd "%{build-dir}"
-    make -j1 install-man DESTDIR="%{install-root}"
+  make-install-args: >-
+    install-man
+    DESTDIR="%{install-root}"
