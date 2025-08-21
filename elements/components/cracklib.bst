@@ -12,36 +12,16 @@ runtime-depends:
 - bootstrap/grep.bst # needed for create-cracklib-dict
 
 variables:
-  conf-local: >-
-    --without-python
-
-config:
-  configure-commands:
-  - |
+  autogen: |
     cd src
     autopoint -f
     cd m4
     echo EXTRA_DIST = *.m4 > Makefile.am
     cd ..
     autoreconf -f -v -i
-
-  - |
-    mkdir build
-    cd build
-    ../src/%{configure}
-
-  build-commands:
-  - |
-    cd build
-    %{make}
-
-  install-commands:
-  - |
-    cd build
-    %{make-install}
-
-  - |
-    %{delete-libtool-archives}
+  conf-cmd: src/configure
+  conf-local: >-
+    --without-python
 
 public:
   bst:

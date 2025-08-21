@@ -16,6 +16,8 @@ config:
   - |
     install -Dm0644 "%{build-dir}/ext/x264/libgstx264.so" "%{install-root}%{libdir}/gstreamer-1.0/libgstx264.so"
     install -Dm0644 "ext/x264/GstX264Enc.prs" "%{install-root}%{prefix}/share/gstreamer-1.0/presets/GstX264Enc.prs"
+  - |
+    %{install-extra}
 
 variables:
   meson-extra: >-

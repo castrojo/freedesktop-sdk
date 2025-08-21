@@ -33,6 +33,8 @@ config:
   - make %{make-args} build/release/mutool
   install-commands:
   - install -Dm755 -t "%{install-root}%{bindir}" build/release/mutool
+  - |
+    %{install-extra}
 
 sources:
 - kind: git_repo
