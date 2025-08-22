@@ -21,7 +21,7 @@ sources:
   track: jq-*
   exclude:
   - jq-*rc*
-  ref: jq-1.8.0-0-gd23a7b9db932be706fecf5f4c9711fd4214bb64e
+  ref: jq-1.8.1-0-g4467af7068b1bcd7f882defff6e7ea674c5357f4
 - kind: git_module
   path: vendor/oniguruma
   url: github:kkos/oniguruma.git
