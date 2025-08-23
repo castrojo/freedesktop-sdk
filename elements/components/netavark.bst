@@ -22,7 +22,7 @@ sources:
 - kind: git_repo
   url: github:containers/netavark.git
   track: v*
-  ref: v1.16.0-0-g99f73d4e9569069e8fa3c2accd2a9b12b7d9afaa
+  ref: v1.16.1-0-gc95689f62cfff050b5e5b5bda32c8bdb7c8e209f
 - kind: cargo2
   ref:
   - kind: registry
@@ -623,8 +623,8 @@ sources:
     sha: 16c903aa70590cb93691bf97a767c8d1d6122d2cc9070433deb3bbf36ce8bd23
   - kind: registry
     name: nftables
-    version: 0.6.2
-    sha: 180f5f3983a76df4a48e01b9317832cc6fa6aa90ef0c73328658e0e5653f175a
+    version: 0.6.3
+    sha: 3c57e7343eed9e9330e084eef12651b15be3c8ed7825915a0ffa33736b852bed
   - kind: registry
     name: nispor
     version: 1.2.24
@@ -766,6 +766,14 @@ sources:
     version: 0.9.3
     sha: 99d9a13982dcf210057a8a78572b2217b667c3beacbf3a0d8b454f6f82837d38
   - kind: registry
+    name: ref-cast
+    version: 1.0.24
+    sha: 4a0ae411dbe946a674d89546582cea4ba2bb8defac896622d6496f14c23ba5cf
+  - kind: registry
+    name: ref-cast-impl
+    version: 1.0.24
+    sha: 1165225c21bff1f3bbce98f5a1f889949bc902d3575308cc7b0de30b4f6d27c7
+  - kind: registry
     name: regex
     version: 1.11.1
     sha: b544ef1b4eac5dc2db33ea63606ae9ffcfac26c1416a2806ae0bf5f56b201191
@@ -803,12 +811,12 @@ sources:
     sha: 28d3b2b1366ec20994f1fd18c3c594f05c5dd4bc44d8bb0c1c632c8d6829481f
   - kind: registry
     name: schemars
-    version: 0.8.22
-    sha: 3fbf2ae1b8bc8e02df939598064d22402220cd5bbcca1c76f7d6a310974d5615
+    version: 1.0.4
+    sha: 82d20c4491bc164fa2f6c5d44565947a52ad80b9505d8e36f8d54c27c739fcd0
   - kind: registry
     name: schemars_derive
-    version: 0.8.22
-    sha: 32e265784ad618884abaea0600a9adf15393368d840e0222d101a072f3f7534d
+    version: 1.0.4
+    sha: 33d020396d1d138dc19f1165df7545479dcd58d93810dc5d646a16e55abefa80
   - kind: registry
     name: serde
     version: 1.0.219
@@ -875,12 +883,12 @@ sources:
     sha: 7da8b5736845d9f2fcb837ea5d9e2628564b3b043a70948a3f0b778838c5fb4f
   - kind: registry
     name: strum
-    version: 0.27.1
-    sha: f64def088c51c9510a8579e3c5d67c65349dcf755e5479ad3d010aa6454e2c32
+    version: 0.27.2
+    sha: af23d6f6c1a224baef9d3f61e287d2761385a5b88fdab4eb4c6f11aeb54c4bcf
   - kind: registry
     name: strum_macros
-    version: 0.27.1
-    sha: c77a8c5abcaf0f9ce05d62342b7d298c346515365c36b673df4ebe3ced01fde8
+    version: 0.27.2
+    sha: 7695ce3845ea4b33927c055a39dc438a45b059f7c1b3d91d38d10355fb8cbca7
   - kind: registry
     name: syn
     version: 1.0.109
@@ -907,16 +915,16 @@ sources:
     sha: b6aaf5339b578ea85b50e080feb250a3e8ae8cfcdff9a461c9ec2904bc923f52
   - kind: registry
     name: thiserror
-    version: 2.0.12
-    sha: 567b8a2dae586314f7be2a752ec7474332959c6460e02bde30d702a66d488708
+    version: 2.0.14
+    sha: 0b0949c3a6c842cbde3f1686d6eea5a010516deb7085f79db747562d4102f41e
   - kind: registry
     name: thiserror-impl
     version: 1.0.69
     sha: 4fee6c4efc90059e10f81e6d42c60a18f76588c3d74cb83a0b242a2b6c7504c1
   - kind: registry
     name: thiserror-impl
-    version: 2.0.12
-    sha: 7f7cf42b4507d8ea322120659672cf1b9dbb93f8f2d4ecfd6e51350ff5b17a1d
+    version: 2.0.14
+    sha: cc5b44b4ab9c2fdd0e0512e6bece8388e214c0749f5862b114cc5b7a25daf227
   - kind: registry
     name: tinystr
     version: 0.7.6
