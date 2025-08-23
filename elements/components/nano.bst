@@ -20,7 +20,7 @@ sources:
 - kind: git_repo
   url: savannah:nano.git
   track: v*
-  ref: v8.5-0-ga74e326448c8272f728dde6f32c8e4c584b70402
+  ref: v8.6-0-g326e4146b2267d8683a8eb3333aa49c9023d0dbf
 - kind: git_repo
   url: savannah:gnulib.git
   directory: gnulib
