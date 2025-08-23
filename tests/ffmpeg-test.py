@@ -89,7 +89,10 @@ def get_runtime_arch():
     try:
         with open("/.flatpak-info", encoding="utf-8") as f:
             config.read_file(f)
-        runtime = config.get("Application", "runtime")
+        if config.has_section("Application"):
+            runtime = config.get("Application", "runtime")
+        else:
+            runtime = config.get("Runtime", "runtime")
     except (OSError, configparser.Error) as e:
         raise e
 
@@ -177,7 +180,14 @@ exp_libx265_encoder_noext = []
 av1_decoders = get_codec_info("decoder", "av1")
 av1_encoders = get_codec_info("encoder", "av1")
 exp_av1_decoder = ["Decoder av1"]
-exp_av1_encoder = [
+exp_av1_encoder_platform = [
+    "Encoder libaom-av1",
+    "Encoder libsvtav1",
+    "Encoder av1_nvenc",
+    "Encoder av1_vaapi",
+    "Encoder av1_vulkan",
+]
+exp_av1_encoder_noext = [
     "Encoder libaom-av1",
     "Encoder libsvtav1",
     "Encoder av1_nvenc",
@@ -200,7 +210,8 @@ if get_runtime_arch() == "riscv64":
     exp_h264_encoder_noext.remove("Encoder h264_nvenc")
     exp_hevc_encoder_platform.remove("Encoder hevc_nvenc")
     exp_hevc_encoder_noext.remove("Encoder hevc_nvenc")
-    exp_av1_encoder.remove("Encoder av1_nvenc")
+    exp_av1_encoder_platform.remove("Encoder av1_nvenc")
+    exp_av1_encoder_noext.remove("Encoder av1_nvenc")
 
 # Common to both codecs-extra and platform ffmpeg
 
@@ -210,7 +221,6 @@ assert check_hw.issubset(get_hwaccels()), get_hwaccels()
 assert check_common.issubset(dec_and_enc), check_common - dec_and_enc
 
 assert av1_decoders == exp_av1_decoder, av1_decoders
-assert av1_encoders == exp_av1_encoder, av1_encoders
 
 assert vp8_decoders == exp_vp8_decoder, vp8_decoders
 assert vp8_encoders == exp_vp8_encoder, vp8_encoders
@@ -225,6 +235,8 @@ if has_codecs_extra():
 
     assert all(x in dec_and_enc for x in ["hevc", "h264"]), dec_and_enc
     assert all(x in dec_only for x in ["vvc", "vc1"]), dec_only
+
+    assert av1_encoders == exp_av1_encoder_platform, av1_encoders
 
     assert h264_decoders == exp_h264_decoder_platform, h264_decoders
     assert h264_encoders == exp_h264_encoder_platform, h264_encoders
@@ -241,6 +253,8 @@ if not has_codecs_extra():
     assert all(x not in dec_and_enc for x in ["hevc", "vvc", "vc1"]), dec_and_enc
     assert all(x not in dec_only for x in ["hevc", "vvc", "vc1"]), dec_only
     assert all(x not in enc_only for x in ["vvc", "vc1"]), enc_only
+
+    assert av1_encoders == exp_av1_encoder_noext, av1_encoders
 
     assert h264_decoders == exp_h264_decoder_noext, h264_decoders
     assert h264_encoders == exp_h264_encoder_noext, h264_encoders
