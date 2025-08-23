@@ -89,7 +89,10 @@ def get_runtime_arch():
     try:
         with open("/.flatpak-info", encoding="utf-8") as f:
             config.read_file(f)
-        runtime = config.get("Application", "runtime")
+        if config.has_section("Application"):
+            runtime = config.get("Application", "runtime")
+        else:
+            runtime = config.get("Runtime", "runtime")
     except (OSError, configparser.Error) as e:
         raise e
 
