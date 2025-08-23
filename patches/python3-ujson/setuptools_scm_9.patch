@@ -1,10 +1,10 @@
 diff --git a/pyproject.toml b/pyproject.toml
-index e306064..fc32563 100644
+index 0a70dd3..a86c901 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
-@@ -6,3 +6,5 @@ target_version = ["py38"]
- 
+@@ -11,3 +11,5 @@ target_version = ["py39"]
  [tool.isort]
  profile = "black"
+ known_first_party = ["ujson"]
 +
 +[tool.setuptools_scm]
