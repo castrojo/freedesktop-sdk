@@ -40,6 +40,6 @@ sources:
   track: fuse-*
   exclude:
   - "*rc*"
-  ref: fuse-3.17.3-0-gcaf108881fcf7b6fee8a67bd833cd48ad2eddbfa
+  ref: fuse-3.17.4-0-gddcb1a075995500bd6c91327a1dfcee346acd075
 - kind: patch
   path: patches/fuse3/gcc-11.patch
