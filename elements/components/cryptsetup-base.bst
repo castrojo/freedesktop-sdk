@@ -1,7 +1,7 @@
-kind: autotools
+kind: meson
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 - components/asciidoctor.bst
 - components/json-c.bst
 - components/pwquality.bst
@@ -11,10 +11,10 @@ build-depends:
 - components/openssl.bst
 
 variables:
-  conf-local: >-
-    --enable-pwquality
-    --disable-ssh-token
-    --with-tmpfilesdir="%{indep-libdir}/tmpfiles.d"
+  meson-local: >-
+    -Dpwquality=true
+    -Dssh-token=false
+    -Dtmpfilesdir="%{indep-libdir}/tmpfiles.d"
 
 public:
   cpe:
