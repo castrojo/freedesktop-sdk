@@ -76,6 +76,11 @@ config:
     fi
 
   - |
+    rm -rfv "%{build-root}/%{build-dir}"
+    mkdir -p "%{build-root}/%{build-dir}"
+    cp -vf StackCookieValues*.json "%{build-root}/%{build-dir}"
+
+  - |
     . ./edksetup.sh
     make -C BaseTools/Source/C -j${JOBS}
     build %{build-args}
@@ -145,3 +150,5 @@ sources:
   path: MdePkg/Library/MipiSysTLib/mipisyst
   url: github:MIPI-Alliance/public-mipi-sys-t.git
   ref: 370b5944c046bab043dd8b133727b2135af7747a
+- kind: local
+  path: files/ovmf
