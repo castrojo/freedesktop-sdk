@@ -30,7 +30,7 @@ install-licenses: |
       RESOLVED=${file#"%{license-root}"/} # Strip off root from the path
 
       [ -n "$NAME" ] && [ -n "$RESOLVED" ] || continue
-      DEST_PATH="%{install-root}%{datadir}/licenses/freedesktop-sdk/$NAME/$RESOLVED"
+      DEST_PATH="%{install-root}%{datadir}/licenses/$NAME/$RESOLVED"
       [ -f "$DEST_PATH" ] || install -Dm0644 "$file" "$DEST_PATH"
     done
   done
