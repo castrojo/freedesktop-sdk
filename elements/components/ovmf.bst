@@ -93,11 +93,11 @@ sources:
 - kind: git_repo
   url: github:tianocore/edk2.git
   track: edk2-stable*
-  ref: edk2-stable202505-0-g6951dfe7d59d144a3a980bd7eda699db2d8554ac
+  ref: edk2-stable202508-0-gd46aa46c8361194521391aa581593e556c707c6e
 - kind: git_module
   path: CryptoPkg/Library/OpensslLib/openssl
   url: github:openssl/openssl.git
-  ref: a26d85337dbdcd33c971f38eb3fa5150e75cea87
+  ref: aea7aaf2abb04789f5868cbabec406ea43aa84bf
 - kind: git_module
   path: CryptoPkg/Library/MbedTlsLib/mbedtls
   url: github:Mbed-TLS/mbedtls.git
@@ -113,7 +113,7 @@ sources:
 - kind: git_module
   path: MdeModulePkg/Universal/RegularExpressionDxe/oniguruma
   url: github:kkos/oniguruma.git
-  ref: abfc8ff81df4067f309032467785e06975678f0d
+  ref: 4ef89209a239c1aea328cf13c05a2807e5c146d1
 - kind: git_module
   path: MdeModulePkg/Library/BrotliCustomDecompressLib/brotli
   url: github:google/brotli.git
