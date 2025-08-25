@@ -22,6 +22,16 @@ public:
         - '%{libdir}/libjxl.so'
         - '%{libdir}/libjxl_cms.so'
         - '%{libdir}/libjxl_threads.so'
+      pixbufloader:
+      - "%{libdir}/gdk-pixbuf-2.0"
+      - "%{libdir}/gdk-pixbuf-2.0/**"
+      - "%{debugdir}%{libdir}/gdk-pixbuf-2.0"
+      - "%{debugdir}%{libdir}/gdk-pixbuf-2.0/**"
+      - "%{sourcedir}/%{element-name}/plugins/gdk-pixbuf"
+      - "%{sourcedir}/%{element-name}/plugins/gdk-pixbuf/**"
+      thumbnailer:
+      - "%{datadir}/thumbnailers"
+      - "%{datadir}/thumbnailers/**"
 
 variables:
   cmake-local: >-
