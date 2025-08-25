@@ -1,3 +1,92 @@
+Version: freedesktop-sdk-25.08rc.2
+Date: '2025-08-24'
+Description: |-
+  Changes in freedesktop-sdk-25.08rc.2
+   * Noteworthy changes since 25.08rc.1:
+   * Reproducibility fixes: python3-cryptography (python3-installer),
+     python3-frozenlist and python3-propcache
+   * New "install-licenses" variable: Downstream projects who wish to install licences should
+     override that variable with their own script, and others should set it to empty in project.conf.
+     Note this is not final and can change before final 25.08.0 release
+   * Update meson to 1.9.0-0
+   * Update harfbuzz to 11.4.3-0
+   * Update mutool to 1.26.7-0
+   * Update liburing to liburing-2.12-0
+   * Update mutool to 1.26.6-0
+   * Update fuse3 to fuse-3.17.4-0
+   * Update svt-av1 to v3.1.1-0
+   * Update meson to 1.8.4-0
+   * Update python3-lxml to lxml-6.0.1-0
+   * linux: Update to v6.16.3
+   * Revert "ffmpeg: Update tests for ffmpeg 8.0"
+   * Revert "ffmpeg: Update to 8.0"
+   * python3-ujson: Update patch
+   * Update python3-ujson to 5.11.0-0
+   * Update nano to v8.6-0
+   * Update linux to v6.16.2-0
+   * Update ovmf to edk2-stable202508-0
+   * Update glibc to glibc-2.42-22
+   * ca-certificates: Update to a173c80540e5134eef959c5316827da53a6aa507
+   * ffmpeg: Update to 8.0
+   * ffmpeg-test: Support running inside a runtime
+   * ffmpeg: Update tests for ffmpeg 8.0
+   * Update vim to v9.1.1665-0
+   * Update mesa-sdk to mesa-25.2.1-0
+   * Update buildbox to 1.3.31-0
+   * Update harfbuzz to 11.4.2-0
+   * ci: Update image
+   * python3-frozenlist: Add patch to make build reproducible
+   * python3-propcache: Add patch to make build reproducible
+   * python3-installer: Backport upstream patch to fix reproducibility
+   * python3-click: Disable click track
+   * Revert "Update python3-click to 8.2.2-0"
+   * Update python3-ruamel-yaml to 0.18.15
+   * Update python3-requests to v2.32.5-0
+   * Revert "ci: Update to latest image"
+   * mesa: Update to 25.2.1
+   * mesa: Drop deprecated shared-glapi build arg
+   * mesa: Update syn, quote and rustc-hash
+   * mesa-headers: Drop d3adapter header
+   * mesa-sdk: Update to 25.2.0
+   * mesa: Enable RustICL on asahi and radeonsi
+   * mesa: Drop gallium-{nine, xa}
+   * mesa: Disable gallium mediafoundation
+   * mesa: Drop osmesa
+   * ci: Update to latest image
+   * Update reference-abi to freedesktop-sdk-25.08rc.1-0
+   * Update cryptsetup-base to v2.8.1-0
+   * Update btrfs-progs to v6.16-0
+   * Update git to v2.51.0-0
+   * python3-charset-normalizer: Drop patch and use env var to disable mypyc
+   * Update python3-charset-normalizer to 3.4.3-0
+   * fdsdk-lic-dedup: Ensure consistent iteration order when symlinking
+   * fdsdk-lic-dedup: Cleanup unused files post deduplication
+   * fdsdk-lic-dedup: Return early if nothing to deduplicate
+   * fdsdk-lic-dedup: Remove redundant hash_dict variable
+   * fdsdk-lic-dedup: Move license dir and common dir to main
+   * vm/boot: Work-around dracut-install not finding libraries
+   * dracut: Add asciidoctor for docs
+   * dracut: Drop shadow perm patch
+   * Update dracut to 108-0
+   * Update libnftnl to libnftnl-1.3.0-0
+   * Update python3-setuptools-scm to v9.2.0-0
+   * go: Disable experimental dwarf 5
+   * go: Drop outdated gcc 15 patch
+   * Update go to go1.25.0-0
+   * Update linux-firmware to 20250808-0
+   * Add loongarch64 to base-sdk architectures
+   * linux: default to lazy preemption
+   * linux: default to schedutil on x86
+   * install-licenses: Add namespace for package names
+   * include/install-extra: Make partially private
+   * runtime: Include install-extra.yml
+   * fdsdk-lic-dedup: Allow SPDX dir to be dedup'd
+   * fdsdk-lic-dedup: Check for common with realpath
+   * fdsdk-lic-dedup: Don't cobber filenames
+   * fdsdk-lic-dedup: Fix creating the first symlink
+   * install-licenses: Preserve license subdirs
+   * Add some missing extra license files
+---
 Version: freedesktop-sdk-25.08rc.1
 Date: '2025-08-17'
 Description: |-
