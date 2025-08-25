@@ -1,0 +1,28 @@
+diff --git a/setup.py b/setup.py
+index 6cad7b4..2b48795 100644
+--- a/setup.py
++++ b/setup.py
+@@ -22,17 +22,18 @@ uchardet_dir = join("src", "ext", "uchardet", "src")
+ uchardet_lang_models_dir = join(uchardet_dir, "LangModels")
+ 
+ cchardet_sources = [join("src", "cchardet", "_cchardet.pyx")]
+-uchardet_sources = [
++uchardet_sources = sorted([
+     join(uchardet_dir, file)
+     for file in os.listdir(uchardet_dir)
+     if file.endswith(".cpp")
+-]
+-uchardet_lang_source = [
++])
++
++uchardet_lang_source = sorted([
+     join(uchardet_lang_models_dir, file)
+     for file in os.listdir(uchardet_lang_models_dir)
+     if file.endswith(".cpp")
+-]
+-sources = cchardet_sources + uchardet_sources + uchardet_lang_source
++])
++sources = sorted(cchardet_sources + uchardet_sources + uchardet_lang_source)
+ 
+ ext_args = {
+     "include_dirs": uchardet_dir.split(os.pathsep),

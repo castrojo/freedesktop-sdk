@@ -17,3 +17,5 @@ sources:
   path: src/ext/uchardet
   url: github:PyYoshi/uchardet.git
   ref: bdb8a0376ddf5d3cab6397be0bad98dad106d77f
+- kind: patch
+  path: patches/python3-faust-cchardet/repro.patch
