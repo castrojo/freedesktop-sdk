@@ -5,6 +5,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- bootstrap/xxhash.bst
 - components/util-linux.bst
 - components/lz4.bst
 # FIXME: No fuse3 support yet
