@@ -239,6 +239,7 @@ enable EROFS_FS_SECURITY
 enable EROFS_FS_ZIP
 enable EROFS_FS_ZIP_LZMA
 enable EROFS_FS_ZIP_DEFLATE
+enable EROFS_FS_ZIP_ZSTD
 
 # Some useful drivers when running as virtual machine
 enable EXCLUSIVE_SYSTEM_RAM
