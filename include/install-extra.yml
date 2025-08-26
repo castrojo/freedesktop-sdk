@@ -30,9 +30,8 @@ variables:
     # Pure bash to avoid any dependencies
 
     NAME=$ELEMENT_NAME
-    NAME=${NAME//\//-}   # Replace / with - (bash-ism)
+    NAME=${NAME##*/}     # Basename
     NAME=${NAME%.bst}    # Strip .bst suffix
-    NAME=${NAME#*-}      # Remove prefix up to first -
 
     case $NAME in
       *-base|*-config|*-daemon|*-full|*-headers|*-libs|*-manifest|*-maybe|*-minimal|*-minimal-image|*-only|*-stage1)
