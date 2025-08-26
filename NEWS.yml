@@ -1,3 +1,25 @@
+Version: freedesktop-sdk-25.08rc.3
+Date: '2025-08-26'
+Description: |-
+  Changes in freedesktop-sdk-25.08rc.3
+   * Noteworthy changes since 25.08rc.2:
+   * The "install-licenses" variable will install licenses with the default script as defined in freedesktop-sdk;
+     Downstream projects can override that variable with their own script
+   * Reproducibility fixes: ovmf, python3-faust-cchardet
+   * install-extra: Simplify license subdir extraction
+   * install-extra: Use the project-name builtin variable for namespace
+   * Update ostree to v2025.5-0
+   * Update svt-av1 to v3.1.2-0
+   * Update python3-typing-extensions to 4.15.0-0
+   * NOOP to make this more easily reviewable
+   * ffmpeg sync codec list with fedora
+   * ovmf: Add static copies of stack cookie files to make ovmf reproducible
+   * Add a domain for gdk-pixbuf loaders and thumbnailers
+   * python3-faust-cchardet: Add patch to fix reproducibility
+   * install-licenses: Add namespace for package names
+   * Revert "include/install-extra: Make partially private"
+   * Revert "install-licenses: Add namespace for package names"
+---
 Version: freedesktop-sdk-25.08rc.2
 Date: '2025-08-24'
 Description: |-
