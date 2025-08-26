@@ -16,6 +16,7 @@ variables:
     --enable-lzma
     --enable-lz4
     --disable-fuse
+    --enable-multithreading
 
 sources:
 - kind: git_repo
