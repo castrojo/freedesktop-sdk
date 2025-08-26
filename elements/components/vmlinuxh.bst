@@ -1,17 +1,9 @@
-kind: manual
+kind: stack
 
-build-depends:
-- components/linux.bst
-- components/bpf.bst
-
-variables:
-  strip-binaries: ''
-
-config:
-  build-commands:
-  - |
-    bpftool btf dump file /boot/vmlinux format c >vmlinux.h
-
-  install-commands:
-  - |
-    install -Dm644 -t "%{install-root}%{includedir}/%{gcc_triplet}/linux" vmlinux.h
+(?):
+- target_arch in ["x86_64", "aarch64"]:
+    depends:
+    - components/vmlinuxh-pregenerated.bst
+- target_arch not in ["x86_64", "aarch64"]:
+    depends:
+    - components/vmlinuxh-rebuild.bst
