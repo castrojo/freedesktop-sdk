@@ -48,7 +48,7 @@ sources:
   track: pcre2-*
   exclude:
   - '*-RC*'
-  ref: pcre2-10.45-0-g2dce7761b1831fd3f82a9c2bd5476259d945da4d
+  ref: pcre2-10.46-0-gb2bd4254b379b9d7dc9a3dda060a7e27009ccdff
 - kind: git_module
   path: deps/sljit
   url: github:zherczeg/sljit.git
