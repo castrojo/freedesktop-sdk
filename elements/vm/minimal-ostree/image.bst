@@ -1,11 +1,14 @@
 kind: script
 description: |
-  Construct a disk image for the minimal-ostree system.
+  Construct a bootable disk image from the minimal-ostree system's OSTree repo.
 
   This element produces a `disk.img` file, suitable for booting in a
   virtual machine that supports UEFI.
 
-  The boot partition contains files deployed by `ostree admin deploy`.
+  The boot partition or ESP contains:
+
+    * The bootloader, constructed in `vm/boot/efi-ostree.bst`.
+    * Bootloader configuration files created by `ostree admin deploy`.
 
   The root partition holds the OSTree repo, and an initial deployment of the
   filesystem created by `ostree admin deploy`.
@@ -34,14 +37,17 @@ environment:
 
 config:
   commands:
+  # Create a new OSTree repo in the sysroot and pull the minimal-ostree tree.
   - mkdir -p "${OSTREE_REPO}"
   - ostree init --repo="${OSTREE_REPO}" --mode=bare
-
-  - ostree config --group sysroot set bootloader none
   - ostree pull-local /source-repo/ostree/repo %{ostree-branch}
 
+  # Disable legacy bootloader compatibility in OSTree. In this mode, it deploys
+  # UAPI-compatible bootloader config to `/boot/loader/`.
+  - ostree config --group sysroot set bootloader none
   - mkdir -p "%{sysroot}/boot"
 
+  # Prepare the root filesystem and deploy the minimal-ostree tree.
   - ostree admin init-fs "%{sysroot}"
   - ostree admin os-init --sysroot="%{sysroot}" freedesktop-sdk
   - |
@@ -49,6 +55,7 @@ config:
          --sysroot="%{sysroot}" %{ostree-branch} \
          --karg="rw" --karg=console=ttyS0
 
+  # Add the remote and configure OSTree to pull updates from it.
   - |
     mkdir -p "%{sysroot}/etc/ostree"
     cp -r "%{sysroot}"/ostree/boot.1/freedesktop-sdk/*/*/etc/ostree/remotes.d "%{sysroot}/etc/ostree/remotes.d"
@@ -59,10 +66,16 @@ config:
            FreedesktopSDK dummy \
            %{ostree-branch}
 
+  # Install the UEFI bootloader that we prepared in `vm/boot/efi-ostree.bst`.
   - |
     cp -r "%{sysroot}"/ostree/boot.1/freedesktop-sdk/*/*/boot/EFI/ "%{sysroot}/boot/"
     rm "%{sysroot}/boot/boot"
 
+  # Generate the final disk image.
+  #
+  # This is the simplest UEFI-compliant image layout, with just an EFI System
+  # Partition and a root partition. The files in the sysroot at `/boot` move
+  # into the ESP and everything else stays in the root partition.
   - |
     mkdir -p genimage
 
@@ -103,6 +116,7 @@ config:
     cd genimage
     genimage --rootpath "%{sysroot}"
 
+  # Copy the disk image into the output directory.
   - |
     install -Dm644 -t "%{install-root}" genimage/images/disk.img
     du -BM "%{install-root}/disk.img"
