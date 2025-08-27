@@ -524,14 +524,67 @@ secure-images/SHA256SUMS:
 secure-images-serve: secure-images/SHA256SUMS
 	python3 -m http.server 8080 --directory secure-images
 
+ifdef CI_COMMIT_BRANCH
+ifeq ($(CI_COMMIT_BRANCH),master)
+vmlinux_h_branch:=main
+else
+vmlinux_h_branch:=$(CI_COMMIT_BRANCH)
+endif
+vmlinux_h_branch:=main
+endif
+
+ifdef FREEDESKTOP_API_KEY
+git_user_name:=-c user.name=freedesktop_sdk_updater
+git_user_email:=-c user.email=freedesktop_sdk_updater@libreml.com
+git_push_login:=-c credential.username=freedesktop_sdk_updater
+git_push_crendential:=-c credential.helper='!case '$$1' in get) echo "password=$${FREEDESKTOP_API_KEY}";; esac'
+else
+git_user_name:=
+git_user_email:=
+git_push_login:=
+git_push_crendential:=
+endif
+
+ifeq ($(PUSH_VMLINUX_H_UPDATE),1)
+git_push:=git $(git_push_login) $(git_push_crendential) -C vmlinux-h push --push-option=merge_request.create --push-option=merge_request.target='$(vmlinux_h_branch)' origin "$${branch}"
+else
+git_push:=echo "push disabled"
+endif
+
+update-vmlinux-h:
+	$(BST) build components/vmlinuxh-rebuild.bst
+	rm -rf vmlinuxh-rebuild
+	$(BST) artifact checkout components/vmlinuxh-rebuild.bst --directory vmlinuxh-rebuild
+	set -e;								\
+	if [ -d vmlinux-h/.git ]; then					\
+	  git -C vmlinux-h fetch origin $(vmlinux_h_branch);		\
+	  git -C vmlinux-h checkout -f origin/$(vmlinux_h_branch);	\
+	else								\
+	  rm -rf vmlinux-h;						\
+	  git clone https://gitlab.com/freedesktop-sdk/vmlinux-h.git;	\
+	fi
+	cp -rT vmlinuxh-rebuild/usr/include vmlinux-h
+	set -eu;											\
+	if git -C vmlinux-h/ status --porcelain | grep -q '^.M'; then					\
+	  branch="update-$$(cat vmlinux-h/*/linux/vmlinux.h | sha256sum | cut -d" " -f1)";		\
+	  git -C vmlinux-h checkout -b "$${branch}}";							\
+	  git -C vmlinux-h add .;									\
+	  git $(git_user_name) $(git_user_email) -C vmlinux-h commit -m 'Update header for $(ARCH)';	\
+	  $(git_push);											\
+	else												\
+	   echo "No update";										\
+	fi
+
 .PHONY:									\
-	build check-dev-files clean clean-oci clean-test clean-repo clean-runtime	\
+	build check-dev-files clean clean-oci clean-test clean-repo	\
+	clean-runtime							\
 	export test-apps manifest markdown-manifest check-rpath		\
 	build-tar export-tar clean-vm build-vm run-vm export-snap	\
-	export-oci bootstrap test-codecs test-ldd test-minimal-oci	 \
+	export-oci bootstrap test-codecs test-ldd test-minimal-oci	\
 	clean-efi-vm build-efi-vm run-efi-vm				\
 	update-ostree ostree-serve run-ostree-vm			\
 	test-runtime-inheritance generate-keys clean-ostree-vm		\
 	download-microsoft-keys						\
 	run-secure-vm clean-secure-vm clean-ostree-vm			\
-	export-secure-images secure-images-serve update-secure-version
+	export-secure-images secure-images-serve update-secure-version	\
+	update-vmlinux-h
