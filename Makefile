@@ -204,7 +204,8 @@ generate-cve-report: manifest
 	mkdir -p cve && cd cve &&	\
 	mkdir -p cve-reports && 	\
 	cp -r ../sdk-manifest . &&	\
-	cp -r ../platform-manifest .
+	cp -r ../platform-manifest . && \
+	cp -r ../components-manifest .
 
 	cp -r nvd-cve-database/nvd-cve-database/*.json.gz cve/
 
@@ -216,6 +217,10 @@ generate-cve-report: manifest
 		--mount ./cve/ /buildstream-build						\
 		-- generate_cve_report --feed-version 2.0 /buildstream-build/platform-manifest/usr/manifest.json	\
 		/buildstream-build/cve-reports/platform.md.html
+	$(BST) shell utils/generate-cve-report.bst --mount /etc/resolv.conf /etc/resolv.conf	\
+		--mount ./cve/ /buildstream-build						\
+		-- generate_cve_report --feed-version 2.0 /buildstream-build/components-manifest/usr/manifest.json	\
+		/buildstream-build/cve-reports/components.md.html
 
 	rm -rvf cve-reports
 	mv -v cve/cve-reports .
@@ -225,11 +230,13 @@ generate-cve-report: manifest
 manifest:
 	rm -rf sdk-manifest/
 	rm -rf platform-manifest/
+	rm -rf components-manifest/
 
-	$(BST) build manifests/platform-manifest.bst manifests/sdk-manifest.bst
+	$(BST) build manifests/platform-manifest.bst manifests/sdk-manifest.bst manifests/components-manifest.bst
 
 	$(BST) artifact checkout manifests/platform-manifest.bst --directory platform-manifest/
 	$(BST) artifact checkout manifests/sdk-manifest.bst --directory sdk-manifest/
+	$(BST) artifact checkout manifests/components-manifest.bst --directory components-manifest/
 
 markdown-manifest: manifest
 	python3 utils/jsontomd.py platform-manifest/usr/manifest.json
