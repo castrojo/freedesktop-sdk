@@ -41,3 +41,5 @@ sources:
   path: patches/vulkan-tools/unbreak_wayland_1_24.patch
 - kind: patch
   path: patches/spirv-headers/llvm21.patch
+- kind: patch
+  path: patches/spirv-tools/llvm21.patch
