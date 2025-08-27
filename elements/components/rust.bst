@@ -88,6 +88,7 @@ config:
     rpath = false
     lto = "off"
     use-lld = true
+    lld = false
     default-linker = "/usr/bin/gcc"
     [target.%{rust-target}]
     cc = "/usr/bin/%{host-triplet}-gcc"
