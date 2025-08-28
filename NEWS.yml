@@ -1,3 +1,132 @@
+Version: freedesktop-sdk-24.08.24
+Date: '2025-08-27'
+Description: |-
+  Changes in freedesktop-sdk-24.08.24
+   * install-extra: Simplify license subdir extraction
+   * install-extra: Use the project-name builtin variable for namespace
+   * install-licenses: Add namespace for package names
+   * Revert "include/install-extra: Make partially private"
+   * Revert "install-licenses: Add namespace for package names"
+   * Update ostree to v2025.5-0
+   * Update dictionaries to libreoffice-25.8.1.1-0
+   * Update python3-lxml to lxml-6.0.1-0
+   * Update parallel to 20250822-0
+   * Update ovmf to edk2-stable202508-0
+   * Update buildbox to 1.3.31-0
+   * Update mutool to 1.26.7-0
+   * Update linux to v6.16.3-0
+   * Update vim to v9.1.1680-0
+   * python3-ujson: Update patch
+   * Update python3-ujson to 5.11.0-0
+   * Update mesa-sdk to mesa-25.2.1-0
+   * Update python3-requests to v2.32.5-0
+   * Update fuse3 to fuse-3.17.4-0
+   * Update git to v2.51.0-0
+   * Update netavark to v1.16.1-0
+   * Update linux to v6.16.2-0
+   * Update mutool to 1.26.6-0
+   * Freeze cups-base
+   * ffmpeg: Add a patch to change clashing macro names
+   * Update v4l-utils to v4l-utils-1.30.1-0
+   * Update cryptsetup-base to v2.8.1-0
+   * Update python3-ruamel-yaml to 0.18.15
+   * Update nano to v8.6-0
+   * ca-certificates: Update to latest commit
+   * mesa: Update to 25.2.1
+   * mesa: Drop deprecated shared-glapi build arg
+   * Add a private meson for mesa
+   * mesa-sdk: Update to 25.2.0
+   * mesa-headers: Drop d3adapter header
+   * mesa: Update syn, quote and rustc-hash
+   * mesa: Enable RustICL on asahi and radeonsi
+   * mesa: Drop gallium-{nine, xa}
+   * mesa: Disable gallium mediafoundation
+   * mesa: Drop osmesa
+   * Freeze glibc
+   * linux: default to lazy preemption
+   * linux: default to schedutil on x86
+   * fdsdk-lic-dedup: Ensure consistent iteration order when symlinking
+   * fdsdk-lic-dedup: Cleanup unused files post deduplication
+   * fdsdk-lic-dedup: Return early if nothing to deduplicate
+   * fdsdk-lic-dedup: Remove redundant hash_dict variable
+   * fdsdk-lic-dedup: Move license dir and common dir to main
+   * install-licenses: Add namespace for package names
+   * include/install-extra: Make partially private
+   * runtime: Include install-extra.yml
+   * fdsdk-lic-dedup: Allow SPDX dir to be dedup'd
+   * fdsdk-lic-dedup: Check for common with realpath
+   * fdsdk-lic-dedup: Don't cobber filenames
+   * fdsdk-lic-dedup: Fix creating the first symlink
+   * install-licenses: Preserve license subdirs
+   * Add some missing extra license files
+   * vm/boot: Work-around dracut-install not finding libraries
+   * dracut: Add asciidoctor for docs
+   * dracut: Drop shadow perm patch
+   * Update dracut to 108-0
+   * Update tk to core-8-6-17-0
+   * Update shim to 16.1-0
+   * glibc: Patch CVE-2025-8058
+   * Update vim to v9.1.1640-0
+   * Update linux to v6.16.1-0
+   * Update python3-setuptools-scm to v9.2.0-0
+   * appstream: Freeze to 1.0.5
+   * Update protobuf to v32.0-0
+   * git-lfs: Temporarily build with a locally generated modules.txt
+   * git-lfs: Add golang/groupcache go module
+   * Update git-lfs to v3.7.0-0
+   * Use fdsdk_mirror alias
+   * Update aardvark-dns to v1.16.0-0
+   * Update python3-filelock to 3.19.1-0
+   * Update passt to 2025_08_05.309eefd-0
+   * Update podman to v5.6.0-0
+   * Ignore all cve database files
+   * Replace update_local_cve_database with nvd_database_downloader
+   * Add script to deduplicate license files in Flatpak runtime
+   * Add a licence domain
+   * Override license-element-name for pkg-config and os-release
+   * Install a common license file for everything fdsdk origin shipped
+   * Add install-extra snippet to all manual elements
+   * Add configuration to install licenses for all elements
+   * Only clone if the directory does not exist
+   * Generate report from 2.0 CVE feeds
+   * Keep v1 CVE feed processing behind an arg and default to v2
+   * Add support for processing v2 feeds
+   * libgcrypt: Disable asm on RISC V
+   * Add descriptions to the elements in the minimal-ostree system
+   * gnu-efi: Update to 4.0.2 with new upstream URL
+   * Update cython to 3.1.3-0
+   * Update netavark to v1.16.0-0
+   * Update python3-protobuf to 6.32.0
+   * Update python3-virtualenv to 20.34.0-0
+   * Update btrfs-progs to v6.16-0
+   * Update go to go1.25.0-0
+   * Update dictionaries to libreoffice-25.8.0.4-0
+   * weston: Import upstream patch to build with libdisplay-info 0.3.0
+   * Update libdisplay-info to 0.3.0-0
+   * python3-dulwich: Drop outdated patch
+   * Update python3-dulwich to 0.24.1
+   * Update mutool to 1.26.5-0
+   * Update reference-abi to freedesktop-sdk-24.08.23-0
+   * cargo-c: Update to v0.10.15
+   * Update iio-sensor-proxy to 3.8-0
+   * Update python3-multidict to v6.6.4-0
+   * Update python3-setuptools-scm to v9.1.1-0
+   * Set CARGO_BUILD_JOBS to max-jobs project-wide
+   * Move GOMAXPROCS to global settings
+   * Update gstreamer-plugins-rs to 0.14.1-0
+   * Update extra-cmake-modules to v6.17.0-0
+   * Update libxmlb to 0.3.23-0
+   * Update python3-virtualenv to 20.33.1-0
+   * Update vim to v9.1.1616-0
+   * python3-charset-normalizer: Drop patch and use env var to disable mypyc
+   * Update python3-charset-normalizer to 3.4.3-0
+   * Update libnftnl to libnftnl-1.3.0-0
+   * Update python3-trove-classifiers to 2025.8.6.13-0
+   * Update gtk3 to 3.24.50-0
+   * Update go to go1.24.6-0
+   * Update dictionaries to libreoffice-25.8.0.3-0
+   * Update linux-firmware to 20250808-0
+---
 Version: freedesktop-sdk-24.08.23
 Date: '2025-08-08'
 Description: |-
