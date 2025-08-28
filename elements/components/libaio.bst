@@ -8,6 +8,9 @@ variables:
     prefix="%{install-root}"
     includedir="%{install-root}/%{includedir}"
     libdir="%{install-root}%{libdir}"
+  make-install-args: >-
+    %{make-args}
+    install
 
 sources:
 - kind: tar
