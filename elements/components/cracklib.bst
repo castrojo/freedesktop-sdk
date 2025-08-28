@@ -19,6 +19,7 @@ variables:
     echo EXTRA_DIST = *.m4 > Makefile.am
     cd ..
     autoreconf -f -v -i
+    cd ..
   conf-cmd: src/configure
   conf-local: >-
     --without-python
