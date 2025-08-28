@@ -42,5 +42,5 @@ doc:
 static-blocklist: []
 
 license:
-  - "%{datadir}/licenses"
-  - "%{datadir}/licenses/**"
+  - "%{licensedir}"
+  - "%{licensedir}/**"
