@@ -130,6 +130,8 @@ public:
       devel:
         (>):
         - '%{bootdir}/System.map'
+    overlap-whitelist:
+    - "%{project_licensedir}/linux/COPYING"
 
 sources:
   # Please do not move the kernel config to linux.yml. Each time we
