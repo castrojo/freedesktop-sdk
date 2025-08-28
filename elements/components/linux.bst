@@ -140,6 +140,8 @@ public:
       devel:
         (>):
         - '%{bootdir}/System.map'
+    overlap-whitelist:
+    - "%{project_licensedir}/linux/COPYING"
 
 (@):
 - elements/include/linux.yml
