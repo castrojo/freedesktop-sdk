@@ -7,3 +7,5 @@ variables:
   debugdir: "%{indep-libdir}/debug"
   sourcedir: "%{debugdir}/source"
   flatpak_xmldir: "%{prefix}/share/app-info/xmls"
+  licensedir: "%{datadir}/licenses"
+  project_licensedir: "%{licensedir}/%{project-name}"
