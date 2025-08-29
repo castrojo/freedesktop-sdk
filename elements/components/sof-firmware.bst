@@ -10,6 +10,9 @@ config:
     cp -aT sof-v* '%{install-root}%{indep-libdir}/firmware/intel/sof'
     cp -aT sof-tplg-v* '%{install-root}%{indep-libdir}/firmware/intel/sof-tplg'
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: tar
   url: github_files:thesofproject/sof-bin/releases/download/v2.2.5/sof-bin-v2.2.5.tar.gz

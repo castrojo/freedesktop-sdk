@@ -19,6 +19,9 @@ config:
   install-commands:
   - install -Dm755 -t "%{install-root}%{bindir}" target/release/cbindgen
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: git_repo
   track: v*

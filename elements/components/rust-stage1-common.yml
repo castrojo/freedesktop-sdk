@@ -9,6 +9,9 @@ config:
       --destdir="%{install-root}" \
       --disable-ldconfig
 
+  - |
+    %{install-extra}
+
   # Disable debug handling in stage1 which is unnecessary and can cause
   # failures during dwz optimizations.
   strip-commands: []

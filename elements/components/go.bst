@@ -52,6 +52,9 @@ config:
   - |
     find "%{install-root}%{libdir}/go/src" -perm -111 -type f -exec chmod 0644 {} ";"
 
+  - |
+    %{install-extra}
+
 public:
   bst:
     split-rules:

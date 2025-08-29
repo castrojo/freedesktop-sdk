@@ -12,4 +12,7 @@ config:
   - |
     install -D -m644 -t "%{install-root}%{includedir}/bluetooth" lib/*.h
 
+  - |
+    %{install-extra}
+
 (@): elements/include/bluez.yml
