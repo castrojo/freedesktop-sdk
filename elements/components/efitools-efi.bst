@@ -51,3 +51,6 @@ config:
 
     - |
       install -Dm644 -t '%{install-root}%{datadir}/efitools/efi' {PK,KEK,DB}.auth
+
+    - |
+      %{install-extra}

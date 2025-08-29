@@ -15,3 +15,5 @@ sources:
   exclude:
   - "*a*"
   ref: v1.7.0-0-g63cbd49b3df13fcd661ae79e5e2eb66c46a1684a
+- kind: patch
+  path: patches/python3-frozenlist/reproducible.patch

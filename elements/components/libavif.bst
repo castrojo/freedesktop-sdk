@@ -31,6 +31,16 @@ public:
       devel:
         (>):
         - '%{libdir}/libavif.so'
+      pixbufloader:
+      - "%{libdir}/gdk-pixbuf-2.0"
+      - "%{libdir}/gdk-pixbuf-2.0/**"
+      - "%{debugdir}%{libdir}/gdk-pixbuf-2.0"
+      - "%{debugdir}%{libdir}/gdk-pixbuf-2.0/**"
+      - "%{sourcedir}/%{element-name}/contrib/gdk-pixbuf"
+      - "%{sourcedir}/%{element-name}/contrib/gdk-pixbuf/**"
+      thumbnailer:
+      - "%{datadir}/thumbnailers"
+      - "%{datadir}/thumbnailers/**"
 
 sources:
 - kind: git_repo

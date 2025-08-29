@@ -13,6 +13,7 @@ depends:
 variables:
   # Uses generated header md5global.h into source directory
   build-dir: ''
+  make-args: sasldir="%{libdir}/sasl2"
   conf-local: >-
     --with-plugindir="%{libdir}/sasl2"
     --with-sqlite3
@@ -22,18 +23,6 @@ variables:
     --without-pam
     --without-opie
     --without-des
-
-config:
-  build-commands:
-  - |
-    %{make} sasldir="%{libdir}/sasl2"
-
-  install-commands:
-  - |
-    %{make-install} sasldir="%{libdir}/sasl2"
-
-  - |
-    %{delete-libtool-archives}
 
 public:
   bst:

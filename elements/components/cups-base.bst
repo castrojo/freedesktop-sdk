@@ -10,6 +10,7 @@ variables:
   license-files-extra: NOTICE
   # Makefiles not added to build-dir which makes it unusable
   build-dir: ''
+  make-install-args: DSTROOT="%{install-root}" install
   conf-local: >-
     --enable-debug
     --with-components=all
@@ -24,16 +25,14 @@ variables:
 
 config:
   install-commands:
-  - |
-    make -j1 DSTROOT="%{install-root}" install
+    (>):
+    - |
+      tmpfilesdir="$(pkg-config --variable tmpfilesdir systemd)"
+      install -Dm644 tmpfiles.conf "%{install-root}${tmpfilesdir}/cups.conf"
 
-  - |
-    tmpfilesdir="$(pkg-config --variable tmpfilesdir systemd)"
-    install -Dm644 tmpfiles.conf "%{install-root}${tmpfilesdir}/cups.conf"
-
-  - |
-    sysusersdir="$(pkg-config --variable sysusersdir systemd)"
-    install -Dm644 sysusers.conf "%{install-root}${sysusersdir}/cups.conf"
+    - |
+      sysusersdir="$(pkg-config --variable sysusersdir systemd)"
+      install -Dm644 sysusers.conf "%{install-root}${sysusersdir}/cups.conf"
 
 public:
   bst:

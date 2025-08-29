@@ -19,6 +19,9 @@ config:
   install-commands:
   - install -m 755 -D -t "%{install-root}%{bindir}" git
 
+  - |
+    %{install-extra}
+
 public:
   cpe:
     vendor: git-scm

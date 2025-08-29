@@ -13,3 +13,10 @@ public:
       devel:
         (>):
         - '%{libdir}/libheif.so'
+      pixbufloader:
+      - "%{libdir}/gdk-pixbuf-2.0"
+      - "%{libdir}/gdk-pixbuf-2.0/**"
+      - "%{debugdir}%{libdir}/gdk-pixbuf-2.0"
+      - "%{debugdir}%{libdir}/gdk-pixbuf-2.0/**"
+      - "%{sourcedir}/%{element-name}/gdk-pixbuf"
+      - "%{sourcedir}/%{element-name}/gdk-pixbuf/**"

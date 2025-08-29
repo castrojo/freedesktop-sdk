@@ -87,6 +87,9 @@ config:
   - |
     %{delete-libtool-archives}
 
+  - |
+    %{install-extra}
+
 public:
   bst:
     split-rules:
