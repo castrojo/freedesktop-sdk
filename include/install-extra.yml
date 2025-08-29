@@ -48,7 +48,7 @@ variables:
         RESOLVED=${file#"%{license-root}"/} # Strip off root from the path
 
         [ -n "$NAME" ] && [ -n "$RESOLVED" ] || continue
-        DEST_PATH="%{install-root}%{datadir}/licenses/%{project-name}/$NAME/$RESOLVED"
+        DEST_PATH="%{install-root}%{project_licensedir}/$NAME/$RESOLVED"
         [ -f "$DEST_PATH" ] || install -Dm0644 "$file" "$DEST_PATH"
       done
     done

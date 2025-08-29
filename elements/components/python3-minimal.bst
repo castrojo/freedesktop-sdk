@@ -20,15 +20,12 @@ depends:
 - components/utf-locale.bst
 
 variables:
-  install-conf: COMPILEALL_OPTS=-j1  # Used for deterministic compiling
+  compileall-opts: -j1  # Used for deterministic compiling
+  make-install-args: >-
+    DESTDIR="%{install-root}"
+    COMPILEALL_OPTS=%{compileall-opts}
+    DESTSHARED=/usr/lib/python%{version_long}/lib-dynload
+    install
 
   # Upstream default is -O3 and we should not override this
   local_flags: "-O3"
-
-config:
-  install-commands:
-  - |
-    if [ -n "%{build-dir}" ]; then
-    cd %{build-dir}
-    fi
-    %{make-install} %{install-conf} DESTSHARED=/usr/lib/python%{version_long}/lib-dynload

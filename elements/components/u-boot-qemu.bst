@@ -46,6 +46,8 @@ config:
   install-commands:
   - install -Dm644 -t "%{install-root}%{datadir}/u-boot/%{board}" u-boot.bin
   - install -Dm755 -t "%{install-root}%{bindir}" tools/mkimage
+  - |
+    %{install-extra}
 
 sources:
 - kind: git_repo

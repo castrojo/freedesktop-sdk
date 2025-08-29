@@ -29,6 +29,8 @@ config:
   - |
     cd %{build-dir}
     install -m 755 -D -t "%{install-root}%{bindir}" git
+  - |
+    %{install-extra}
 
 public:
   cpe:

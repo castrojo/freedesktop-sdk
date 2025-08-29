@@ -23,6 +23,8 @@ config:
       real_lib=$(objdump -p "/usr/lib/%{gcc_triplet}/${lib}"  | sed '/^ *SONAME */{;s///;q;};d')
       install -Dm644 -t '%{install-root}%{libdir}' "/usr/lib/%{gcc_triplet}/${real_lib}"
     done
+  - |
+    %{install-extra}
 
   # Strip was already done
   strip-commands: []

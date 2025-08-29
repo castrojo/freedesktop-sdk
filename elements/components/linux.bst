@@ -114,6 +114,9 @@ config:
 
     ln -sr "${targetdir}" "%{install-root}%{indep-libdir}/modules/${release}/build"
 
+  - |
+    %{install-extra}
+
   (?):
   - target_arch in ["aarch64", "riscv64"]:
       install-commands:
@@ -127,6 +130,8 @@ public:
       devel:
         (>):
         - '%{bootdir}/System.map'
+    overlap-whitelist:
+    - "%{project_licensedir}/linux/COPYING"
 
 sources:
   # Please do not move the kernel config to linux.yml. Each time we
