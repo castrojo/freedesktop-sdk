@@ -22,4 +22,5 @@ sources:
   track: udisks-*
   exclude:
   - "udisks-2.10.90"
-  ref: udisks-2.10.1-0-g18c9faf089e306ad6f3f51f5cb887a6b9aa08350
+  - "udisks-2.10.91"
+  ref: udisks-2.10.2-0-gbc623acf9e7488dc105e4b00069d57e303e2616b
