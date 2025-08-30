@@ -1,7 +1,7 @@
 {
     "app-id": "org.gnu.hello",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "25.08beta",
+    "runtime-version": "25.08",
     "sdk": "org.freedesktop.Sdk",
     "command": "hello",
     "build-options": {

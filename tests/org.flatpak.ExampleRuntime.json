@@ -2,7 +2,7 @@
     "id": "org.flatpak.ExampleRuntime.Sdk",
     "sdk": "org.freedesktop.Sdk",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "25.08beta",
+    "runtime-version": "25.08",
     "branch": "eternal-beta",
     "build-runtime": true,
     "id-platform": "org.flatpak.ExampleRuntime.Platform",
