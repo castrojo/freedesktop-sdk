@@ -489,7 +489,6 @@ depends:
 - components/python3-setuptools-scm.bst
 - components/python3-setuptools.bst
 - components/python3-sitecustomize.bst
-- components/python3-six.bst
 - components/python3-smartypants.bst
 - components/python3-snowballstemmer.bst
 - components/python3-sphinx.bst
