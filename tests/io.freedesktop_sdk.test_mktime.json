@@ -1,7 +1,7 @@
 {
     "app-id": "io.freedesktop_sdk.test_mktime",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "25.08beta",
+    "runtime-version": "26.08beta",
     "sdk": "org.freedesktop.Sdk",
     "command": "test_mktime",
     "modules": [
