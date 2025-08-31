@@ -4,8 +4,8 @@ variables:
   # directory.
   XDG_CACHE_HOME: "${CI_PROJECT_DIR}/cache"
   GET_SOURCES_ATTEMPTS: 3
-  RUNTIME_VERSION: '25.08'
-  STABLE_ABI: 'true'
+  RUNTIME_VERSION: '26.08'
+  STABLE_ABI: 'false'
   EXPIRED: '0'
   MAX_MERGE_REQUESTS: '4'
   CACHE_PUSH: 'true'
