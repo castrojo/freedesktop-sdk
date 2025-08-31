@@ -11,8 +11,3 @@ PYTHON: "/usr/bin/python3"
 # reproducible pycs. Setting seed to 0 is the canonical way to disable
 # hash randomization
 PYTHONHASHSEED: 0
-
-# By default gzip adds name and timestamp into various files for unpacking
-# purposes. This breaks reproducibility of such packages. Hypothetically
-# name would be valuable but in reality packed name just has .gz suffix.
-GZIP: "--no-name"
