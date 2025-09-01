@@ -1,3 +1,105 @@
+Version: freedesktop-sdk-25.08.0
+Date: '2025-08-30'
+Description: |-
+  Changes in freedesktop-sdk-25.08.0
+   * Noteworthy changes since 24.08:
+   * [BREAKING CHANGE] openh264 and ffmpeg-full extensions have been replaced by codecs-extra runtime extension
+   * [BREAKING CHANGE] intel-vaapi-driver has been removed (replacement is intel-media-driver)
+   * [BREAKING CHANGE] Dropped elements from Flatpak SDK/Runtime: vulkan-validation-layers, ruby, tcl, tk,
+     libfdk-aac, gtk-doc, pygobject, python-six
+   * [BREAKING CHANGE] Dropped elements from project: shellingham, requests-toolbelt, pyexpect, html5lib, clikit,
+     cleo, cachecontrol, cachy, sdl2-(image,ttf)
+   * [BREAKING CHANGE] It's now possible to create more minimal runtimes thanks to
+     rework of `bootstrap-import.bst`. This adds a new stack `public-stacks/buildsystem-make.bst`
+     which is essentially same as the original `bootstrap-import.bst`. There is also a new stack
+     `public-stacks/runtime-minimal.bst` that is intended to provide a minimal environment
+     that you can shell into. More info in the related issues: #1728, #1523
+   * [BREAKING CHANGE]: Perl modules now use major.minor versioned directories and no longer uses the patch
+     version. PERL5LIB or PERLLIB variables may need to be updated.
+   * [BREAKING CHANGE] gettext: >=0.24 changed location of m4 files. They are now in /usr/share/gettext/m4
+     Configure scripts etc. needs to updated but this path can also be passed to autoreconf -I /path/to/m4
+   * [BREAKING CHANGE] automake/autoconf-archive: newer versions perform stricter verifications of flags etc.
+   * [BREAKING CHANGE] glibc: 2.42 dropped the deprecated and obsolete termio.h header.
+     Anything using it should probably change to termios.h or drop it.
+   * New "install-licenses" variable: It will install licenses with the default script as defined in freedesktop-sdk;
+     Downstream projects can override that variable with their own script
+   * ZSTD compressed debuginfo resulting in smaller debuginfo size. GCC, LLVM, bitutils,
+     elfutils, valgrind, gdb built with ZSTD support
+   * GCC 15.1, Cmake 4.0.3 (-DCMAKE_POLICY_VERSION_MINIMUM=3.5 may be required when building), Meson 1.8.2
+   * OCI images now comes with necessary files and directories like /tmp, /var/tmp, /root, /etc/group etc
+     and the proper permissions on them
+   * New NVIDIA VA-API driver Flatpak extension
+   * GDB now supports extra targets for cross debugging
+   * Added elements: rr debugger, GNU parallel, skopeo, sdl3, sdl3-(image,ttf), sdl2-compat, fmt, libtree,
+     libsecret, taglib, pahole, nlohmann-json
+   * Reproducibility fixes: New buildstream-reprotest utility.
+   * Reproducibility fixes: binutils, sphinxcontrib-jsmath, oci-image, less, setuptools, gperf, open-iscsi
+     pcsc-lite, python3-cryptography (python3-installer), python3-frozenlist, python3-propcache, ovmf,
+     python3-faust-cchardet and probably more
+   * RISC-V support has been improved, and we now run daily builds of the RISC-V variant
+     thanks to the support of the community (RISC-V foundation, Codethink and individials
+     that have donated RISC-V hardware)
+   * Added metainfo files to all apps and runtimes and validate them
+   * Most of the Python elements are built from git now
+   * librsvg is built with avif support
+   * Added libx264, libx265 and nvenc support to codecs-extra extension
+   * Pipewire is built with LE audio support
+   * GStreamer now comes with the id3v2mux element
+   * linux: Enabled lots of new modules
+   * gmp built with fat support
+   * sqlite built with geopoly and rtree support
+   * we started tracking stable flatpak releases
+   * gst-plugins-rs now builds only the most used libraries
+   * Added tests: to verify missing libraries in platform/sdk, verify missing debuginfo, test ffmpeg codecs, test GCC for
+     complex numbers, test branches for correctness, test mktime(), test meson simple project
+   * Added to Flatpak sdk/runtime: libusb
+   * linux: Stop compressing modules to let them be stripped
+   * stripper: add support for stripping kernel modules
+   * Updates on all elements to the most recent versions
+   * A lot of other fixes and improvements
+   * Changes since 25.08rc.3:
+   * Change versions everywhere to 25.08 instead of 25.08beta
+   * git: Allow license to overlap
+   * gyp: Move to gyp-next
+   * Update vim to v9.1.1713-0
+   * Update fwupd to 2.0.14-0
+   * Update intel-media-driver to intel-media-25.3.3-0
+   * Update linux to v6.16.4-0
+   * udisks: Update to 2.10.2
+   * udisks: Exclude 2.10.91
+   * Update cmake to v4.1.1-0
+   * Update libinput to 1.29.1-0
+   * .gitlab-ci.yml: Use latest container based in 25.08rc.3
+   * linux: Allow license file to overlap
+   * install-dirs: Define licensedir variables
+   * cracklib: cd to build-root after autogen
+   * libaio: Override make-install-args as well
+   * Fix some elements that were missing install-extra
+   * Update dictionaries to libreoffice-25.8.1.1-0
+   * Update intel-media-driver to intel-media-25.3.2-0
+   * Update python3-maturin to v1.9.4-0
+   * Update pcre2 to pcre2-10.46-0
+   * Generate cve reports for everything in components stack too
+   * Update reference-abi to freedesktop-sdk-25.08rc.3-0
+   * Add documentation comments to the minimal-ostree bootloader setup.
+   * Update ca-certificates to +    ca-certificates-2010_63-3_fc14-168
+   * rust: Set lld to false
+   * spirv-tools: Add patch to build with llvm 21
+   * rust: Update to 1.89.0
+   * spirv-headers: Add patch to fix build with LLVM 21
+   * spirv-llvm-translator: Update to 21.1.0
+   * Update llvm to llvmorg-21.1.0-0
+   * Update xfsprogs to v6.16.0-0
+   * Update parallel to 20250822-0
+   * Update libei to 1.5.0-0
+   * Update harfbuzz to 11.4.4-0
+   * vmlinux-h: Download pregenerated headers
+   * Update python3-trove-classifiers to 2025.8.26.11-0
+   * linux: Enable zstd for erofs
+   * erofs-utils: Enable multithreaded compression
+   * erofs-utils: Fix dependencies
+   * Update netavark to v1.16.1-0
+---
 Version: freedesktop-sdk-25.08rc.3
 Date: '2025-08-26'
 Description: |-
