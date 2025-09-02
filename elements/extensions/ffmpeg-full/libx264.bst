@@ -21,5 +21,3 @@ sources:
   url: videolan:x264.git
   track: stable
   ref: b35605ace3ddf7c1a5d67a2eb553f034aef41d55
-- kind: patch
-  path: patches/libx264/ppc-incompatible-pointer-types.patch
