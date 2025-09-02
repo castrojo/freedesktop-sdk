@@ -2318,10 +2318,18 @@ if has SPI; then
 fi
 
 # BPF
+enable FTRACE
+if has HAVE_KPROBES; then
+    enable KPROBES
+fi
+if has ARCH_SUPPORTS_UPROBES; then
+    enable UPROBE_EVENTS
+fi
 enable BPF_SYSCALL
 enable CGROUP_BPF
 if has HAVE_CBPF_JIT || has HAVE_EBPF_JIT; then
     enable BPF_JIT
+    enable BPF_LSM
 fi
 
 remove DEBUG_INFO_SPLIT
