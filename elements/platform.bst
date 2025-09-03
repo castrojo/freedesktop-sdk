@@ -14,6 +14,7 @@ depends:
 - components/expat.bst
 - components/fdsdk-lic-dedup.bst
 - components/frei0r.bst
+- components/gawk.bst
 - components/gdk-pixbuf.bst
 - components/gdbm.bst
 - components/gettext.bst
