@@ -92,3 +92,5 @@ sources:
   - openssl*alpha*
   - openssl*beta*
   ref: openssl-3.3.4-0-g3a0a382ca4c41e514ef3161de516c54be2a73252
+- kind: patch
+  path: patches/openssl/by_store_ctrl_ex.patch
