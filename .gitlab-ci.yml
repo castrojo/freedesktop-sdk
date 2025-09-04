@@ -264,13 +264,13 @@ check_mirrors:
 
 .builder-x86_64:
   tags:
-    - x86_64
+    - x86_64_m3
   variables:
     ARCH: x86_64
 
 .builder-i686:
   tags:
-    - x86_64
+    - x86_64_m3
   variables:
     ARCH: i686
 
@@ -295,13 +295,13 @@ check_mirrors:
 
 .builder-ppc64:
   tags:
-  - x86_64
+  - x86_64_m3
   variables:
     ARCH: ppc64
 
 .builder-loongarch64:
   tags:
-  - x86_64
+  - x86_64_m3
   variables:
     ARCH: loongarch64
 
@@ -918,7 +918,7 @@ publish_gitlab_release:
   image: registry.gitlab.com/gitlab-org/release-cli:latest
   stage: publish
   tags:
-    - x86_64
+    - x86_64_m3
   allow_failure: true
   timeout: 10 minutes
   before_script: []
