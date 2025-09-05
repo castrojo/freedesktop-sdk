@@ -20,8 +20,6 @@ variables:
   PYTHONPYCACHEPREFIX: "${XDG_CACHE_HOME}/python"
 
   GIT_SUBMODULE_STRATEGY: "recursive"
-  BUILD_TASKS: 4
-  BUILD_CPU_MULTIPLIER: 1
 
 default:
   image: "${DOCKER_REGISTRY}/bst2:${DOCKER_IMAGE_ID}"
@@ -66,7 +64,6 @@ before_script:
 
   - |
     # Force higher parallelity
-    export MAX_JOBS=$(python -c "print(round(($(nproc) * ${BUILD_CPU_MULTIPLIER}) / ${BUILD_TASKS}))")
     mkdir -p ~/.config
     echo $CACHE_TOKEN > ~/.config/freedesktop-sdk.token
     [ -S /run/casd/casd.sock ] && export LOCAL_CAS=true
@@ -275,40 +272,30 @@ license_checker:
     - x86_64
   variables:
     ARCH: x86_64
-    BUILD_TASKS: 2
-    BUILD_CPU_MULTIPLIER: 2
 
 .builder-i686:
   tags:
     - x86_64
   variables:
     ARCH: i686
-    BUILD_TASKS: 2
-    BUILD_CPU_MULTIPLIER: 2
 
 .builder-aarch64:
   tags:
     - aarch64
   variables:
     ARCH: aarch64
-    BUILD_TASKS: 4
-    BUILD_CPU_MULTIPLIER: 1
 
 .builder-ppc64le:
   tags:
   - ppc64le
   variables:
     ARCH: ppc64le
-    BUILD_TASKS: 2
-    BUILD_CPU_MULTIPLIER: 1
 
 .builder-riscv64:
   tags:
-    - riscv
+    - riscv-native
   variables:
     ARCH: riscv64
-    BUILD_TASKS: 2
-    BUILD_CPU_MULTIPLIER: 2
 
 app_x86_64:
   extends:
