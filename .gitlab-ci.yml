@@ -72,7 +72,7 @@ before_script:
   - |
     source utils/publisher_env.sh
 
-pylint:
+.pylint:
   stage: flatpak
   script:
     - find . -path 'files/oci' -prune -o -iname "*.py" -exec pylint {} +
