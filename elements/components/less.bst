@@ -1,6 +1,9 @@
 kind: autotools
 description: GNU less
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
 - filename: bootstrap-import.bst
 
