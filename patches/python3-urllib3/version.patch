@@ -1,0 +1,12 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 60fce65..59fd29f 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -118,6 +118,7 @@ docs = [
+ [tool.hatch.version]
+ source = "vcs"
+ [tool.hatch.version.raw-options]
++version_scheme = "only-version"
+ local_scheme = "no-local-version"
+ [tool.hatch.build.hooks.vcs]
+ version-file = "src/urllib3/_version.py"
