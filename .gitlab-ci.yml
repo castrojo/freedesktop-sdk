@@ -16,7 +16,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "139874668492249998e0cfe1277e41e598e61f2f"
+  DOCKER_IMAGE_ID: "5c8733912fbe2db38fe921df02a093d44695af76"
 
   # Generic variable for invoking buildstream
   BST: bst --colors
@@ -915,12 +915,12 @@ publish_docker_finish:
   - publish_docker_ppc64le
 
 publish_gitlab_release:
-  image: registry.gitlab.com/gitlab-org/release-cli:latest
   stage: publish
-  tags:
-    - x86_64
   allow_failure: true
   timeout: 10 minutes
+  variables:
+    GLAB_CHECK_UPDATE: "false"
+    GLAB_SEND_TELEMETRY: "false"
   before_script: []
   after_script: []
   script:
@@ -929,10 +929,11 @@ publish_gitlab_release:
         | sed '/^-----BEGIN/,$d' \
         | sed 's/"/\\"/g' \
         > tag_message.txt
-  release:
-    name: "$CI_COMMIT_TAG"
-    tag_name: "$CI_COMMIT_TAG"
-    description: "./tag_message.txt"
-    ref: "$CI_COMMIT_SHA"
+
+    - glab auth login --hostname "$CI_SERVER_HOST" --job-token "$CI_JOB_TOKEN"
+
+    - |
+      glab release create "$CI_COMMIT_TAG" --name "$CI_COMMIT_TAG" \
+        --notes-file tag_message.txt --ref "$CI_COMMIT_SHA"
   rules:
   - if: '$CI_COMMIT_TAG && $CI_COMMIT_REF_PROTECTED == "true" && $CI_PIPELINE_SOURCE != "schedule"'
