@@ -36,4 +36,4 @@ sources:
 - kind: git_repo
   url: freedesktop:poppler/poppler.git
   track: poppler-*
-  ref: poppler-25.09.0-0-g7bbac7ef48f35b4adad68513785afc74a07fb0d4
+  ref: poppler-25.09.1-0-gafdec00e75200fa8d831901c6d53ce96d9ba88cb
