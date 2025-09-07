@@ -1,3 +1,75 @@
+Version: freedesktop-sdk-24.08.25
+Date: '2025-09-07'
+Description: |-
+  Changes in freedesktop-sdk-24.08.25
+   * project.conf: Bump "min-version" to 2.5
+   * Update vim to v9.1.1738-0
+   * Update kbd to v2.9.0-0
+   * Update python3-markdown to 3.9.0-0
+   * python3-urllib3: Patch to ignore git dirty versions
+   * ci: Use glab directly to create gitlab releases instead of release-cli
+   * ci: Update to latest image
+   * Update python3-cryptography to ref: 45.0.7-0
+   * Update linux to v6.16.5-0
+   * Update mesa-sdk to mesa-25.2.2-0
+   * Update ostree to v2025.6-0
+   * buildbox: Update to 1.3.35
+   * Update podman to v5.6.1-0
+   * Update go to go1.25.1-0
+   * Update buildbox to 1.3.34-0
+   * Update mesa to mesa-25.2.2-0
+   * buildstream-plugins: Update to 2.5.0
+   * buildstream-plugins-community: Update to 2.1.0
+   * Fix regression in OpenSSL
+   * Update frei0r to v2.4.0-0
+   * ci: Update to latest image
+   * Update wireplumber to 0.5.11-0
+   * Update hwdata to v0.399-0
+   * Update xorg-lib-xfixes to libXfixes-6.0.2-0
+   * Update sdl2 to release-2.32.10-0
+   * python3-click: Downgrade to 8.2.1
+   * Update xcb-util-cursor to xcb-util-cursor-0.1.6-0
+   * poppler: Freeze to 25.08
+   * Update audit to v4.1.2-0
+   * libx264: Drop outdated patch
+   * Update libx264 to b35605a
+   * Update rust-bindgen to v0.72.1-0
+   * Update vim to v9.1.1713-0
+   * Update buildbox to 1.3.32-0
+   * Update geoclue-base to 2.8.0-0
+   * Update intel-media-driver to intel-media-25.3.3-0
+   * Update libcbor to v0.13.0-0
+   * Update fwupd to 2.0.14-0
+   * Update python3-setuptools-rust to v1.12.0-0
+   * udisks: Update to 2.10.2
+   * udisks: Exclude 2.10.91
+   * Update reference-abi to freedesktop-sdk-24.08.24-0
+   * Update linux to v6.16.4-0
+   * Update libinput to 1.29.1-0
+   * git: Allow license to overlap
+   * Generate cve reports for everything in components stack too
+   * python3-installer: Backport upstream patch to fix reproducibility
+   * python3-propcache: Add patch to make build reproducible
+   * python3-frozenlist: Add patch to make build reproducible
+   * python3-faust-cchardet: Add patch to fix reproducibility
+   * Add a domain for gdk-pixbuf loaders and thumbnailers
+   * ovmf: Add static copies of stack cookie files to make ovmf reproducible
+   * erofs-utils: Enable multithreaded compression
+   * linux: Enable zstd for erofs
+   * Add documentation comments to the minimal-ostree bootloader setup.
+   * linux: Allow license file to overlap
+   * install-dirs: Define licensedir variables
+   * cracklib: cd to build-root after autogen
+   * libaio: Override make-install-args as well
+   * Fix some elements that were missing install-extra
+   * Update python3-trove-classifiers to 2025.8.26.11-0
+   * Update python3-maturin to v1.9.4-0
+   * Update python3-typing-extensions to 4.15.0-0
+   * Update libei to 1.5.0-0
+   * Update intel-media-driver to intel-media-25.3.2-0
+   * Update xfsprogs to v6.16.0-0
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-168
+---
 Version: freedesktop-sdk-24.08.24
 Date: '2025-08-27'
 Description: |-
