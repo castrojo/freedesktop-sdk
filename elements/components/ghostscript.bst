@@ -13,6 +13,7 @@ depends:
 - components/libtiff.bst
 - components/openjpeg.bst
 - components/xorg-lib-xt.bst
+- components/cups.bst
 
 variables:
   local_flags: -std=gnu17
