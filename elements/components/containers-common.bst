@@ -46,12 +46,12 @@ sources:
   track: v*
   exclude:
   - "v1.0.1"
-  ref: v0.64.1-0-gffacc4610d2281511f6875f3cf73e81d4a32a865
+  ref: v0.64.2-0-g82146f3af4750038f936ec9cd804d12a837e5cde
 - kind: git_repo
   url: github:containers/image.git
   directory: image
   track: v*
-  ref: v5.36.1-0-gf6ca2da2ec9e4b86231ea7a27499e2a0b35b0d8c
+  ref: v5.36.2-0-gd464a2540c2f0554dc27c268bfcfa181b2061ab3
 - kind: git_repo
   url: github:containers/storage.git
   directory: storage
