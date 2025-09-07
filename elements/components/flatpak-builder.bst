@@ -18,7 +18,7 @@ runtime-depends:
 - components/git.bst
 - components/tar.bst
 - components/gzip.bst
-- components/zip.bst
+- components/libarchive.bst
 
 variables:
   meson-local: >-
