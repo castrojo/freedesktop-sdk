@@ -86,7 +86,6 @@ depends:
 - components/speex.bst
 - components/speexdsp.bst
 - components/tzdata.bst
-- components/unzip.bst
 - components/util-linux.bst
 - components/wget2.bst
 - components/which.bst
