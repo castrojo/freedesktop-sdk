@@ -11,7 +11,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "f30b2e8a70601743aab685faefa2c1159f7519b7"
+  DOCKER_IMAGE_ID: "34b50c4b93ca53ce67aafa7b54ce35e9bd336090"
 
   # Generic variable for invoking buildstream
   BST: bst --colors
@@ -20,8 +20,6 @@ variables:
   PYTHONPYCACHEPREFIX: "${XDG_CACHE_HOME}/python"
 
   GIT_SUBMODULE_STRATEGY: "recursive"
-  BUILD_TASKS: 4
-  BUILD_CPU_MULTIPLIER: 1
 
 default:
   image: "${DOCKER_REGISTRY}/bst2:${DOCKER_IMAGE_ID}"
@@ -37,6 +35,9 @@ default:
   retry:
     max: 2
     when: runner_system_failure
+  id_tokens:
+    CACHE_TOKEN:
+      aud: cache.freedesktop-sdk.io
 
 workflow:
   rules:
@@ -63,8 +64,8 @@ before_script:
 
   - |
     # Force higher parallelity
-    export MAX_JOBS=$(python -c "print(round(($(nproc) * ${BUILD_CPU_MULTIPLIER}) / ${BUILD_TASKS}))")
     mkdir -p ~/.config
+    echo $CACHE_TOKEN > ~/.config/freedesktop-sdk.token
     [ -S /run/casd/casd.sock ] && export LOCAL_CAS=true
     python3 -mmako.cmd templates/buildstream.conf --output-file ~/.config/buildstream.conf
     cat ~/.config/buildstream.conf
@@ -72,7 +73,7 @@ before_script:
   - |
     source utils/publisher_env.sh
 
-pylint:
+.pylint:
   stage: flatpak
   script:
     - find . -path 'files/oci' -prune -o -iname "*.py" -exec pylint {} +
@@ -271,40 +272,30 @@ license_checker:
     - x86_64
   variables:
     ARCH: x86_64
-    BUILD_TASKS: 2
-    BUILD_CPU_MULTIPLIER: 2
 
 .builder-i686:
   tags:
     - x86_64
   variables:
     ARCH: i686
-    BUILD_TASKS: 2
-    BUILD_CPU_MULTIPLIER: 2
 
 .builder-aarch64:
   tags:
     - aarch64
   variables:
     ARCH: aarch64
-    BUILD_TASKS: 4
-    BUILD_CPU_MULTIPLIER: 1
 
 .builder-ppc64le:
   tags:
   - ppc64le
   variables:
     ARCH: ppc64le
-    BUILD_TASKS: 2
-    BUILD_CPU_MULTIPLIER: 1
 
 .builder-riscv64:
   tags:
-    - riscv
+    - riscv-native
   variables:
     ARCH: riscv64
-    BUILD_TASKS: 2
-    BUILD_CPU_MULTIPLIER: 2
 
 app_x86_64:
   extends:

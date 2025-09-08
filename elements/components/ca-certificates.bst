@@ -177,6 +177,9 @@ config:
     ln -s %{catrustdir}/extracted/%{java_bundle} \
     %{install-root}%{pkidir}/%{java_bundle}
 
+  - |
+    %{install-extra}
+
 public:
   bst:
     integration-commands:

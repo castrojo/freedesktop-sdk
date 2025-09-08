@@ -32,6 +32,9 @@ config:
     mv "%{install-root}%{includedir}/linux/kvm_para.h" \
        "%{install-root}%{includedir}/%{gcc_triplet}/linux/" || true
 
+  - |
+    %{install-extra}
+
 public:
   bst:
     split-rules:

@@ -4,6 +4,7 @@ variables:
   (@):
   - include/repo_branches.yml
   release-limit: "1"
+  license-element-name: "freedesktop-sdk"
 
 build-depends:
 - components/flatpak-minimal-image.bst
@@ -33,8 +34,13 @@ config:
     appstreamcli compose --components=org.freedesktop.Platform --result-root=%{install-root} --data-dir %{install-root}%{flatpak_xmldir} --origin=org.freedesktop.Platform  %{install-root}
     appstreamcli compose --components=org.freedesktop.Sdk --result-root=%{install-root} --data-dir %{install-root}%{flatpak_xmldir} --origin=org.freedesktop.Sdk %{install-root}
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: local
   path: files/os-release
 - kind: local
   path: NEWS.yml
+- kind: local
+  path: LICENSE

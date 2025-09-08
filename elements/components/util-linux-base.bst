@@ -8,6 +8,7 @@ build-depends:
 - components/libcap-ng.bst
 
 variables:
+  license-files-extra: README.licensing
   conf-local: >-
     --without-python
     --disable-wall

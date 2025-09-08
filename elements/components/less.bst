@@ -1,6 +1,9 @@
 kind: autotools
 description: GNU less
 
+build-depends:
+- public-stacks/buildsystem-autotools.bst
+
 depends:
 - filename: bootstrap-import.bst
 
@@ -10,6 +13,12 @@ public:
     version-match: '\d+'
     patches:
     - CVE-2022-46663
+
+config:
+  configure-commands:
+    (<):
+    # workaround #1649 and https://github.com/python/cpython/issues/108254
+    - chmod +x configure mkinstalldirs
 
 sources:
 - kind: tar

@@ -12,6 +12,9 @@ config:
     python3 -O -m compileall "%{install-root}${LIBDEST}/sitecustomize.py"
     python3 -OO -m compileall "%{install-root}${LIBDEST}/sitecustomize.py"
 
+  - |
+    %{install-extra}
+
 sources:
 - kind: local
   path: files/python3_sitecustomize.py
