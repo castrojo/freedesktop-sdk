@@ -1,3 +1,48 @@
+Version: freedesktop-sdk-22.08.28
+Date: '2025-09-08'
+Description: |-
+  Changes in freedesktop-sdk-22.08.28
+   * NOTE: this is a special release on the EOL branch to allow some fixes
+     to be able to publish license information.
+     Users are encouraged to use a version from the currently maintained
+     branches instead (23.08/24.08/25.08)
+   * less: workaround an issue in tarfile.py
+   * less: Add autotools stack
+   * Hardcode gomp threads to reasonably low limit
+   * Simplify max-jobs computation
+   * Use token authentication
+   * Update abi image to same commit as mr
+   * ci: Disable pylint job
+   * .gitlab-ci.yml: Update container
+   * git: Allow license to overlap
+   * linux: Allow license file to overlap
+   * install-dirs: Define licensedir variables
+   * install-extra: Simplify license subdir extraction
+   * install-extra: Use the project-name builtin variable for namespace
+   * install-licenses: Add namespace for package names
+   * Revert "include/install-extra: Make partially private"
+   * Revert "install-licenses: Add namespace for package names"
+   * fdsdk-lic-dedup: Ensure consistent iteration order when symlinking
+   * fdsdk-lic-dedup: Cleanup unused files post deduplication
+   * fdsdk-lic-dedup: Return early if nothing to deduplicate
+   * fdsdk-lic-dedup: Remove redundant hash_dict variable
+   * fdsdk-lic-dedup: Move license dir and common dir to main
+   * install-licenses: Add namespace for package names
+   * include/install-extra: Make partially private
+   * runtime: Include install-extra.yml
+   * fdsdk-lic-dedup: Allow SPDX dir to be dedup'd
+   * fdsdk-lic-dedup: Check for common with realpath
+   * fdsdk-lic-dedup: Don't cobber filenames
+   * fdsdk-lic-dedup: Fix creating the first symlink
+   * install-licenses: Preserve license subdirs
+   * Add some missing extra license files
+   * Add script to deduplicate license files in Flatpak runtime
+   * Add a licence domain
+   * Override license-element-name for pkg-config and os-release
+   * Install a common license file for everything fdsdk origin shipped
+   * Add install-extra snippet to all manual elements
+   * Add configuration to install licenses for all elements
+---
 Version: freedesktop-sdk-22.08.27
 Date: '2024-09-23'
 Description: |-
