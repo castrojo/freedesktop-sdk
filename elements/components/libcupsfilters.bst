@@ -2,13 +2,13 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/ghostscript.bst
 - components/mutool.bst
 
 depends:
 - components/cups.bst
 - components/dbus.bst
 - components/fontconfig.bst
+- components/ghostscript.bst
 - components/jpeg.bst
 - components/lcms.bst
 - components/libexif.bst
