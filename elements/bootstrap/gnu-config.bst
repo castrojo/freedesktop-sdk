@@ -8,6 +8,7 @@ build-depends:
 - bootstrap/base-sdk/binary-seed.bst
 
 variables:
+  license-element-name: gnu-config
   lib: lib
   strip-binaries: ''
 
