@@ -19,7 +19,7 @@ variables:
     -Dbuiltin_loaders=png,jpeg
     -Dinstalled_tests=false
     -Dtests=false
-    -Dgtk_doc=true
+    -Ddocumentation=true
     -Dman=true
 
 public:
