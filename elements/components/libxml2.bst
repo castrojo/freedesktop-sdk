@@ -33,8 +33,10 @@ sources:
 - kind: git_repo
   url: gnome:libxml2.git
   track: v2.13.*
-  ref: v2.13.8-0-geb0a2f2b91566384f378d870ffcd69c0a24162cc
+  ref: v2.13.9-0-g04af2cabb9f859c198b8a553c028a87481199410
 - kind: patch
-  path: patches/libxml2/libxml2-python-in-nodeWrap-deal-with-name-is-None-case.patch
+  path: 
+    patches/libxml2/libxml2-python-in-nodeWrap-deal-with-name-is-None-case.patch
 - kind: patch
-  path: patches/libxml2/0001-CMAKE_CURRENT_LIST_DIR-is-usr-lib-arch-triplet-cmake.patch
+  path: 
+    patches/libxml2/0001-CMAKE_CURRENT_LIST_DIR-is-usr-lib-arch-triplet-cmake.patch
