@@ -9,14 +9,11 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/libglycin.bst
 - components/shared-mime-info.bst
-- components/libtiff.bst
-- components/libpng.bst
-- components/jpeg.bst
 
 variables:
   meson-local: >
-    -Dbuiltin_loaders=png,jpeg
     -Dinstalled_tests=false
     -Dtests=false
     -Ddocumentation=true
