@@ -11,3 +11,10 @@ runtime-depends:
 config:
   include:
   - ukify
+  - systemd-license
+
+public:
+  bst:
+    overlap-whitelist:
+    - "%{project_licensedir}/systemd"
+    - "%{project_licensedir}/systemd/**"

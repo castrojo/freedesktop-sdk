@@ -26,3 +26,6 @@ public:
         - '%{libdir}/libsmartcols.so'
         - '%{libdir}/libmount.so'
         - '%{libdir}/libuuid.so'
+    overlap-whitelist:
+    - "%{project_licensedir}/util-linux"
+    - "%{project_licensedir}/util-linux/**"

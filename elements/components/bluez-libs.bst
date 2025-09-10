@@ -13,7 +13,11 @@ public:
       devel:
         (>):
         - '%{libdir}/libbluetooth.so'
+    overlap-whitelist:
+    - "%{project_licensedir}/bluez"
+    - "%{project_licensedir}/bluez/**"
 
 config:
   include:
   - bluez-libs
+  - bluez-license

@@ -11,3 +11,10 @@ runtime-depends:
 config:
   include:
   - kernel-install
+  - systemd-license
+
+public:
+  bst:
+    overlap-whitelist:
+    - "%{project_licensedir}/systemd"
+    - "%{project_licensedir}/systemd/**"

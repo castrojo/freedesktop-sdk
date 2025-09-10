@@ -34,6 +34,9 @@ public:
       - '%{debugdir}/dwz/%{stripdir-suffix}/*'
       - '%{debugdir}%{libdir}/libbluetooth*.so*'
       - '%{sourcedir}/**'
+      bluez-license:
+      - "%{project_licensedir}"
+      - "%{project_licensedir}/**"
 
   cpe:
     product: bluez
