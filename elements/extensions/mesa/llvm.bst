@@ -25,6 +25,8 @@ config:
     done
   - |
     %{install-extra}
+    mkdir -p "%{install-root}%{project_licensedir}"
+    cp -rv "/usr/share/licenses/freedesktop-sdk/llvm" "%{install-root}%{project_licensedir}"
 
   # Strip was already done
   strip-commands: []

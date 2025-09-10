@@ -20,6 +20,7 @@ depends:
 - components/wayland.bst
 
 variables:
+  license-files-extra: vulkan-tools/LICENSE.txt
   cmake-local: |
     -DCMAKE_SKIP_RPATH:BOOL=yes \
     -DBUILD_CUBE=ON \
