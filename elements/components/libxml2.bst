@@ -35,4 +35,4 @@ sources:
 - kind: git_repo
   url: gnome:libxml2.git
   track: v*
-  ref: v2.14.5-0-g74f3154320df8950eceae4951975cc9dfc3a254d
+  ref: v2.14.6-0-gd23960a130c5bb82779c9405fbbf85e65fb3c57c
