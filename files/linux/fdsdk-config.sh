@@ -651,6 +651,7 @@ fi
 
 # Common DRM drivers
 module DRM_NOUVEAU
+enable DRM_NOUVEAU_GSP_DEFAULT
 module DRM_RADEON
 module DRM_AMDGPU
 enable DRM_AMDGPU_SI
