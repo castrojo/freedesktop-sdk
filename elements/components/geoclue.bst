@@ -11,3 +11,9 @@ config:
   exclude:
   - libgeoclue
   include-orphans: True
+
+public:
+  bst:
+    overlap-whitelist:
+    - "%{project_licensedir}/geoclue"
+    - "%{project_licensedir}/geoclue/**"

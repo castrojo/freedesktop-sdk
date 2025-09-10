@@ -14,3 +14,9 @@ config:
   exclude:
   - bluez-libs
   include-orphans: true
+
+public:
+  bst:
+    overlap-whitelist:
+    - "%{project_licensedir}/bluez"
+    - "%{project_licensedir}/bluez/**"

@@ -13,3 +13,9 @@ config:
   - dbus-libs
   - dbus-tools
   include-orphans: true
+
+public:
+  bst:
+    overlap-whitelist:
+    - "%{project_licensedir}/dbus"
+    - "%{project_licensedir}/dbus/**"
