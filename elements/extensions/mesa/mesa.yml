@@ -132,6 +132,11 @@ config:
       ln -sr '%{install-root}%{libdir}/OpenCL' '%{install-root}%{prefix}/OpenCL'
       ln -sr '%{install-root}%{libdir}/vdpau' '%{install-root}%{prefix}/vdpau'
 
+    - |
+      DIR="%{install-root}%{project_licensedir}/mesa"
+      mkdir -p "$DIR"
+      cp -rv licenses/* "$DIR"
+
 public:
   bst:
     split-rules:

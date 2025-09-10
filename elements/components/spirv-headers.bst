@@ -10,4 +10,5 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 variables:
+  license-files-extra: spirv-headers/LICENSE
   command-subdir: spirv-headers

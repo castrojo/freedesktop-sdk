@@ -12,6 +12,7 @@ depends:
 - components/spirv-headers.bst
 
 variables:
+  license-files-extra: spirv-tools/LICENSE
   cmake-local: >-
     -DCMAKE_SKIP_RPATH:BOOL=yes
     -DSPIRV_WERROR=Off

@@ -8,6 +8,7 @@ depends:
 - components/util-linux.bst
 
 variables:
+  license-files-extra: NOTICE
   conf-local: >-
     --enable-elf-shlibs
     --disable-fuse2fs

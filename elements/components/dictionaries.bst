@@ -1,6 +1,7 @@
 kind: manual
 
 build-depends:
+- components/findutils.bst
 - components/python3.bst
 - components/perl.bst
 
@@ -20,6 +21,10 @@ config:
 
   - |
     %{install-extra}
+    DIR="%{install-root}%{project_licensedir}/dictionaries"
+    mkdir -p "$DIR"
+    find . \( -iname "readme*" -o -iname "copying*" -o -iname "licen*" \) \
+      -exec cp --parents -t "$DIR" {} +
 
 sources:
 - kind: git_repo
