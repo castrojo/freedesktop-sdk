@@ -10,6 +10,7 @@ depends:
 - components/libglvnd.bst
 
 variables:
+  licensedir: "%{libdir}/dri/nvidia-vaapi-driver/share/licenses"
   meson-local: >-
     -Ddriverdir="%{libdir}/dri/nvidia-vaapi-driver"
 

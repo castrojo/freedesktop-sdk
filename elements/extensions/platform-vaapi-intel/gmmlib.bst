@@ -4,6 +4,7 @@ build-depends:
 - public-stacks/buildsystem-cmake.bst
 
 variables:
+  licensedir: "%{libdir}/dri/intel-vaapi-driver/share/licenses"
   cmake-local: >-
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     -DCMAKE_INSTALL_LIBDIR="%{libdir}/dri/intel-vaapi-driver/lib"
