@@ -54,7 +54,8 @@ public:
     overlap-whitelist:
     - "%{bindir}/git"
     - "%{debugdir}%{bindir}/git.debug"
-    - "%{project_licensedir}/git/COPYING"
+    - "%{project_licensedir}/git"
+    - "%{project_licensedir}/git/**"
   cpe:
     vendor: git-scm
 
