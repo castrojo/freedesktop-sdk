@@ -10,6 +10,7 @@ runtime-depends:
 config:
   include:
   - libs
+  - avahi-license
 
 public:
   bst:
@@ -18,3 +19,6 @@ public:
         (>):
         - "%{libdir}/libavahi-common.so"
         - "%{libdir}/libavahi-client.so"
+    overlap-whitelist:
+    - "%{project_licensedir}/avahi"
+    - "%{project_licensedir}/avahi/**"

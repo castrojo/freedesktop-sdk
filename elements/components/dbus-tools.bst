@@ -10,4 +10,11 @@ runtime-depends:
 config:
   include:
   - dbus-tools
+  - dbus-license
   include-orphans: false
+
+public:
+  bst:
+    overlap-whitelist:
+    - "%{project_licensedir}/dbus"
+    - "%{project_licensedir}/dbus/**"

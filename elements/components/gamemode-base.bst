@@ -40,6 +40,9 @@ public:
       - '%{debugdir}%{libdir}/libgamemode.so*'
       - '%{debugdir}%{libdir}/libgamemodeauto.so*'
       - '%{sourcedir}/**'
+      gamemode-license:
+      - "%{project_licensedir}"
+      - "%{project_licensedir}/**"
 
   cpe:
     product: gamemode

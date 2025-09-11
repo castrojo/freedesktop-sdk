@@ -11,6 +11,7 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 variables:
+  license-files-extra: glslang/LICENSE.txt
   cmake-local: >-
     -DCMAKE_SKIP_RPATH:BOOL=yes
     -DBUILD_SHARED_LIBS:BOOL=yes

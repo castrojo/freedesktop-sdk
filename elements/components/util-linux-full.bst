@@ -10,6 +10,7 @@ runtime-depends:
 config:
   include:
   - vm-tools
+  - util-linux-license
   include-orphans: false
 
 public:
@@ -25,3 +26,6 @@ public:
       devel:
         (>):
         - '%{libdir}/libfdisk.so'
+    overlap-whitelist:
+    - "%{project_licensedir}/util-linux"
+    - "%{project_licensedir}/util-linux/**"

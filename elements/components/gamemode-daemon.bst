@@ -14,3 +14,9 @@ config:
   exclude:
   - libgamemode
   include-orphans: true
+
+public:
+  bst:
+    overlap-whitelist:
+    - "%{project_licensedir}/gamemode"
+    - "%{project_licensedir}/gamemode/**"

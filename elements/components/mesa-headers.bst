@@ -117,6 +117,9 @@ config:
 
   - |
     %{install-extra}
+    DIR="%{install-root}%{project_licensedir}/mesa"
+    mkdir -p "$DIR"
+    cp -rv licenses/* "$DIR"
 
 public:
   bst:

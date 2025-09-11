@@ -54,6 +54,9 @@ public:
       - '%{debugdir}/dwz/**'
       - '%{sourcedir}'
       - '%{sourcedir}/**'
+      cups-license:
+      - "%{project_licensedir}"
+      - "%{project_licensedir}/**"
   cpe:
     product: cups
 
