@@ -12,7 +12,7 @@ environment:
 
 variables:
   local_flags: -D_FILE_OFFSET_BITS=64
-
+  licensedir: "%{libdir}/dri/intel-vaapi-driver/share/licenses"
   arch-conf: ''
   (?):
   - target_arch == "i686":
