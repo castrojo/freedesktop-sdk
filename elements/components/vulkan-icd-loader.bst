@@ -12,7 +12,7 @@ depends:
 
 variables:
   local_flags: -DEXTRASYSCONFDIR=\"%{vulkan-extra-dir}\"
-
+  license-files-extra: vulkan-icd-loader/LICENSE.txt
   cmake-local: >-
     -DCMAKE_SKIP_RPATH:BOOL=yes
     -DCMAKE_INSTALL_SYSCONFDIR:PATH=%{sysconfdir}

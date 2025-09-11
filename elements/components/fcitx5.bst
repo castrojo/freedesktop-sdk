@@ -9,6 +9,7 @@ depends:
 - components/gtk3.bst
 
 variables:
+  license-files-extra: LICENSES/LGPL-2.1-or-later.txt
   cmake-local: >-
     -DENABLE_GTK3_IM_MODULE=On
     -DENABLE_GTK2_IM_MODULE=Off

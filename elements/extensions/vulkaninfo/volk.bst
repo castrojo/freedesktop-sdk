@@ -12,6 +12,7 @@ depends:
 - bootstrap-import.bst
 
 variables:
+  license-files-extra: volk/LICENSE.md
   cmake-local: >-
     -DVOLK_INSTALL:BOOL=ON
   command-subdir: volk
