@@ -16,8 +16,12 @@ public:
         (>):
         - "%{libdir}/libgamemodeauto.so"
         - "%{libdir}/libgamemode.so"
+    overlap-whitelist:
+    - "%{project_licensedir}/gamemode"
+    - "%{project_licensedir}/gamemode/**"
 
 config:
   include:
   - libgamemode
+  - gamemode-license
   include-orphans: False

@@ -11,6 +11,7 @@ runtime-depends:
 config:
   include:
   - gobject
+  - avahi-license
 
 public:
   bst:
@@ -18,3 +19,6 @@ public:
       devel:
         (>):
         - "%{libdir}/libavahi-gobject.so"
+    overlap-whitelist:
+    - "%{project_licensedir}/avahi"
+    - "%{project_licensedir}/avahi/**"

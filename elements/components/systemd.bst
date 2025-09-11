@@ -58,3 +58,6 @@ public:
       devel:
         (>):
         - '%{indep-libdir}/udev/hwdb.d/**'
+    overlap-whitelist:
+    - "%{project_licensedir}/systemd"
+    - "%{project_licensedir}/systemd/**"

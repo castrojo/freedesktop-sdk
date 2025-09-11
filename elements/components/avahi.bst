@@ -28,3 +28,6 @@ public:
         - "%{libdir}/libavahi-common.so"
         - "%{libdir}/libavahi-core.so"
         - "%{libdir}/libavahi-glib.so"
+    overlap-whitelist:
+    - "%{project_licensedir}/avahi"
+    - "%{project_licensedir}/avahi/**"

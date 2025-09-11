@@ -10,3 +10,9 @@ config:
   exclude:
   - cups-libs
   include-orphans: true
+
+public:
+  bst:
+    overlap-whitelist:
+    - "%{project_licensedir}/cups"
+    - "%{project_licensedir}/cups/**"

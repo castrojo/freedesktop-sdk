@@ -51,6 +51,9 @@ public:
 
   bst:
     split-rules:
+      util-linux-license:
+      - "%{project_licensedir}"
+      - "%{project_licensedir}/**"
       vm-tools:
       - '%{bindir}/mkfs*'
       - '%{bindir}/fsck*'
