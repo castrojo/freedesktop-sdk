@@ -26,6 +26,9 @@ public:
       - "%{datadir}/pkgconfig/*.pc"
       - "%{datadir}/dbus-1/interfaces"
       - "%{datadir}/dbus-1/interfaces/org.freedesktop.portal*"
+      xdp-license:
+      - "%{project_licensedir}"
+      - "%{project_licensedir}/**"
   cpe:
     product: xdg-desktop-portal
 

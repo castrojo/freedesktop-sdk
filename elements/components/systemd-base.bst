@@ -120,6 +120,9 @@ public:
       - '%{debugdir}%{libdir}/libnss_resolve.so*'
       - '%{sourcedir}'
       - '%{sourcedir}/**'
+      systemd-license:
+      - "%{project_licensedir}"
+      - "%{project_licensedir}/**"
 
 (@):
 - elements/include/systemd.yml

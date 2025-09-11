@@ -15,6 +15,7 @@ runtime-depends:
 config:
   include:
   - systemd-libs
+  - systemd-license
 
 public:
   bst:
@@ -23,3 +24,6 @@ public:
         (>):
         - '%{libdir}/libsystemd.so'
         - '%{libdir}/libudev.so'
+    overlap-whitelist:
+    - "%{project_licensedir}/systemd"
+    - "%{project_licensedir}/systemd/**"
