@@ -1,16 +1,10 @@
 variables:
-  license-files: |
-    COPYING \
-    COPYING* \
-    COPYRIGHT \
-    Copyright \
-    copyright \
-    COPYRIGHT* \
-    Copyright* \
-    copyright* \
-    LICEN* \
-    Licen* \
-    licen*
+  license-files: >-
+    {.,**}/COPYING*
+    {.,**}/COPYRIGHT*
+    {.,**}/[Cc]opyright*
+    {.,**}/LICEN*
+    {.,**}/[Ll]icen*
   license-files-extra: ""
   license-files-final: >-
     %{license-files}
@@ -20,6 +14,8 @@ variables:
   install-licenses: |
     # Force bash
     set -euo pipefail
+
+    shopt -s globstar nullglob
 
     ELEMENT_NAME=%{element-name}
 

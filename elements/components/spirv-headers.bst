@@ -7,6 +7,7 @@ depends:
 - bootstrap-import.bst
 
 variables:
+  license-files-extra: spirv-headers/LICENSE
   command-subdir: spirv-headers
 
 (@):

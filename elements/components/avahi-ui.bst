@@ -10,6 +10,7 @@ runtime-depends:
 config:
   include:
   - ui
+  - avahi-license
   include-orphans: False
 
 public:
@@ -18,3 +19,6 @@ public:
       devel:
         (>):
         - "%{libdir}/libavahi-ui-gtk3.so"
+    overlap-whitelist:
+    - "%{project_licensedir}/avahi"
+    - "%{project_licensedir}/avahi/**"

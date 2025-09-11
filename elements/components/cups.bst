@@ -10,6 +10,7 @@ runtime-depends:
 config:
   include:
   - cups-libs
+  - cups-license
   include-orphans: false
 
 public:
@@ -20,3 +21,6 @@ public:
         - '%{bindir}/cups-config'
         - '%{libdir}/libcups.so'
         - '%{libdir}/libcupsimage.so'
+    overlap-whitelist:
+    - "%{project_licensedir}/cups"
+    - "%{project_licensedir}/cups/**"

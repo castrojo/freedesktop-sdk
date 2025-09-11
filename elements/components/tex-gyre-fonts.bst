@@ -4,6 +4,7 @@ depends:
 - filename: bootstrap-import.bst
 
 variables:
+  license-files-extra: README.txt
   fontdir: '%{install-root}%{datadir}/fonts'
   confdir: '%{install-root}%{sysconfdir}/fonts'
 

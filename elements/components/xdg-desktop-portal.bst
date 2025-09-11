@@ -18,3 +18,9 @@ config:
   include-orphans: true
   exclude:
   - interfaces
+
+public:
+  bst:
+    overlap-whitelist:
+    - "%{project_licensedir}/xdg-desktop-portal"
+    - "%{project_licensedir}/xdg-desktop-portal/**"

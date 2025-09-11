@@ -11,6 +11,7 @@ environment:
   PKG_CONFIG_PATH: "%{libdir}/dri/intel-vaapi-driver/lib/pkgconfig:"
 
 variables:
+  licensedir: "%{libdir}/dri/intel-vaapi-driver/share/licenses"
   cmake-local: >-
     -DCMAKE_INSTALL_LIBDIR="%{libdir}/dri/intel-vaapi-driver/lib"
     -DLIBVA_DRIVERS_PATH="%{libdir}/dri/intel-vaapi-driver"

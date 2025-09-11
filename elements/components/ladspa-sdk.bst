@@ -5,6 +5,7 @@ depends:
 - components/sndfile.bst
 
 variables:
+  license-files-extra: doc/COPYING
   install-conf: |
     INSTALL_PLUGINS_DIR=%{install-root}%{libdir}/ladspa \
     INSTALL_INCLUDE_DIR=%{install-root}%{includedir} \

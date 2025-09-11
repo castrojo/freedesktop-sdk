@@ -76,6 +76,9 @@ public:
       - "%{datadir}/gir-1.0"
       - "%{datadir}/gir-1.0/**"
       - "%{debugdir}%{libdir}/libavahi-gobject.so*.debug"
+      avahi-license:
+      - "%{project_licensedir}"
+      - "%{project_licensedir}/**"
   cpe:
     product: avahi
     ignored:

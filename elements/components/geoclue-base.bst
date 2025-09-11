@@ -56,6 +56,9 @@ public:
       - '%{datadir}/gtk-doc/html/libgeoclue/**'
       - '%{datadir}/vala'
       - '%{datadir}/vala/**'
+      geoclue-license:
+      - "%{project_licensedir}"
+      - "%{project_licensedir}/**"
 
 sources:
 - kind: git_repo

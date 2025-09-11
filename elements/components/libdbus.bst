@@ -11,6 +11,7 @@ runtime-depends:
 config:
   include:
   - dbus-libs
+  - dbus-license
   include-orphans: false
 
 public:
@@ -21,3 +22,6 @@ public:
         - '%{libdir}/libdbus-1.so'
         - '%{libdir}/dbus-1.0/include'
         - '%{libdir}/dbus-1.0/include/**'
+    overlap-whitelist:
+    - "%{project_licensedir}/dbus"
+    - "%{project_licensedir}/dbus/**"

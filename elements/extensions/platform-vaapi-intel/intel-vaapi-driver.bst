@@ -12,6 +12,7 @@ environment:
   PKG_CONFIG_PATH: "/usr/lib/%{gcc_triplet}/GL/default/lib/pkgconfig:"
 
 variables:
+  licensedir: "%{libdir}/dri/intel-vaapi-driver/share/licenses"
   meson-local: >-
     -Ddriverdir="%{libdir}/dri/intel-vaapi-driver"
 

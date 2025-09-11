@@ -47,7 +47,9 @@ public:
       dbus-tools:
       - '%{bindir}/dbus-send'
       - '%{debugdir}%{bindir}/dbus-send.debug'
-
+      dbus-license:
+      - "%{project_licensedir}"
+      - "%{project_licensedir}/**"
 
   cpe:
     product: d-bus
