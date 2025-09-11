@@ -9,7 +9,7 @@ depends:
 
 variables:
   datadir: "%{libdir}/GL"
-
+  licensedir: "%{prefix}/share/licenses"
   asm: 'enabled'
   meson-local: >-
     -Dheaders=false
