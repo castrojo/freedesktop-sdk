@@ -16,6 +16,6 @@ sources:
 - kind: git_repo
   url: github:vim/vim.git
   track: v*
-  ref: v9.1.1734-0-g37e77282949786bb178c8fb8d6717afcaa40688e
+  ref: v9.1.1754-0-g6f020cde569073622cc085251e47d82323d5c4bd
 - kind: patch
   path: patches/vim/vim-not-show-in-gnome.patch
