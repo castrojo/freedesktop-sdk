@@ -2,6 +2,6 @@ sources:
 - kind: git_repo
   url: savannah:freetype/freetype2.git
   track: VER-*
-  ref: VER-2-14-0-0-g007c46ebbf45fc9debeebc01c7739f725faee342
+  ref: VER-2-14-1-0-g526ec5c47b9ebccc4754c85ac0c0cdf7c85a5e9b
 - kind: patch
   path: patches/freetype/enable-cleartype-subpixel.patch
