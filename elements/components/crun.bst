@@ -24,21 +24,21 @@ sources:
 - kind: git_repo
   url: github:containers/crun.git
   track: '*.*'
-  ref: 1.23.1-0-gd20b23dba05e822b93b82f2f34fd5dada433e0c2
+  ref: 1.24-0-g54693209039e5e04cbe3c8b1cd5fe2301219f0a1
 - kind: git_module
   path: libocispec
   url: github:containers/libocispec.git
-  ref: 68397329bc51a66c56938fc4111fac751d6fd3b0
+  ref: 552ccbbad3aaff8e07e8fbad210ec3b4c9c95a66
 - kind: git_module
   path: runtime-spec
   url: github:opencontainers/runtime-spec.git
   directory: libocispec
-  ref: d2f4f9097a834934fd8232cfc54ddc3679a44764
+  ref: e3c8d12d94cdd269a145a263ace7457f56c74eff
 - kind: git_module
   path: image-spec
   url: github:opencontainers/image-spec.git
   directory: libocispec
-  ref: 64294bd7a2bf2537e1a6a34d687caae70300b0c4
+  ref: 2daaaaf0e7c16a6a147be91fde277f38573be672
 - kind: git_module
   path: yajl
   url: github:containers/yajl.git
