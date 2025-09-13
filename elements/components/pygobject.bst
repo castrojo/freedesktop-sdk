@@ -38,4 +38,4 @@ sources:
 - kind: git_repo
   url: github:python/pythoncapi-compat.git
   directory: subprojects/pythoncapi-compat
-  ref: 2d18aecd7b2f549d38a13e27b682ea4966f37bd8
+  ref: 632d1aa0c4be6c67498d6b97630ddd7d7eb0f90a
