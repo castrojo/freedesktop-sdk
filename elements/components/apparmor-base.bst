@@ -18,7 +18,8 @@ variables:
   conf-link-args: --enable-shared --enable-static
   conf-cmd: ./configure --with-python
   make: make -C libraries/libapparmor
-  make-install: make -C libraries/libapparmor -j1 install DESTDIR='%{install-root}'
+  make-install: make -C libraries/libapparmor -j1 install 
+    DESTDIR='%{install-root}'
   autogen: "true"
 
   other-make-args: >-
@@ -29,7 +30,8 @@ variables:
     BINDIR='%{install-root}%{bindir}'
 
   other-make: make %{other-make-args}
-  other-make-install: make %{other-make-args} -j1 install DESTDIR='%{install-root}'
+  other-make-install: make %{other-make-args} -j1 install 
+    DESTDIR='%{install-root}'
   subdirs: >-
     binutils
     parser
@@ -88,4 +90,4 @@ sources:
   - "*alpha*"
   - "*cherry-pick*"
   url: gitlab:apparmor/apparmor.git
-  ref: v4.1.1-0-g6f83b3491a3a3df776ed9bdebeaca294c3cd0ce8
+  ref: v4.1.2-0-gd6ea0dc35c04b6dcf175bc1a870267d6dad13ec9
