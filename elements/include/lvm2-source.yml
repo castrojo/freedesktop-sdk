@@ -10,6 +10,6 @@ sources:
 - kind: git_repo
   url: sourceware:lvm2.git
   track: v*
-  ref: v2_03_34-0-gf6abf8abe2bf8493806ed549e92fcc8d41ed8dfb
+  ref: v2_03_35-0-g38c1124a478fa3889c649338b6e8ccdc0370e201
 - kind: patch
   path: patches/lvm2/force-run-dir.patch

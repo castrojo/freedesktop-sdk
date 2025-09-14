@@ -21,23 +21,15 @@ variables:
 config:
   install-commands:
     (>):
-    - install -Dm644 ../../../../image/default-policy.json 
-      "%{install-root}%{sysconfdir}/containers/policy.json"
-    - install -Dm644 ../../../../image/default.yaml 
-      "%{install-root}%{sysconfdir}/containers/registries.d/default.yaml"
-    - install -Dm644 ../../../../image/registries.conf 
-      "%{install-root}%{sysconfdir}/containers/registries.conf"
-    - install -Dm644 ../../../../shortnames/shortnames.conf 
-      "%{install-root}%{sysconfdir}/containers/registries.conf.d/000-shortnames.conf"
+    - install -Dm644 ../../../../image/default-policy.json "%{install-root}%{sysconfdir}/containers/policy.json"
+    - install -Dm644 ../../../../image/default.yaml "%{install-root}%{sysconfdir}/containers/registries.d/default.yaml"
+    - install -Dm644 ../../../../image/registries.conf "%{install-root}%{sysconfdir}/containers/registries.conf"
+    - install -Dm644 ../../../../shortnames/shortnames.conf "%{install-root}%{sysconfdir}/containers/registries.conf.d/000-shortnames.conf"
 
-    - install -Dm644 ../../../../storage/storage.conf 
-      "%{install-root}%{datadir}/containers/storage.conf"
-    - install -Dm644 pkg/config/containers.conf 
-      "%{install-root}%{datadir}/containers/containers.conf"
-    - install -Dm644 pkg/seccomp/seccomp.json 
-      "%{install-root}%{datadir}/containers/seccomp.json"
-    - install -Dm644 pkg/subscriptions/mounts.conf 
-      "%{install-root}%{datadir}/containers/mounts.conf"
+    - install -Dm644 ../../../../storage/storage.conf "%{install-root}%{datadir}/containers/storage.conf"
+    - install -Dm644 pkg/config/containers.conf "%{install-root}%{datadir}/containers/containers.conf"
+    - install -Dm644 pkg/seccomp/seccomp.json "%{install-root}%{datadir}/containers/seccomp.json"
+    - install -Dm644 pkg/subscriptions/mounts.conf "%{install-root}%{datadir}/containers/mounts.conf"
 
 sources:
 - kind: git_repo
@@ -46,12 +38,12 @@ sources:
   track: v*
   exclude:
   - "v1.0.1"
-  ref: v0.64.1-0-gffacc4610d2281511f6875f3cf73e81d4a32a865
+  ref: v0.64.2-0-g82146f3af4750038f936ec9cd804d12a837e5cde
 - kind: git_repo
   url: github:containers/image.git
   directory: image
   track: v*
-  ref: v5.36.1-0-gf6ca2da2ec9e4b86231ea7a27499e2a0b35b0d8c
+  ref: v5.36.2-0-gd464a2540c2f0554dc27c268bfcfa181b2061ab3
 - kind: git_repo
   url: github:containers/storage.git
   directory: storage
