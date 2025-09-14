@@ -14,4 +14,4 @@ sources:
   - "*b*"
   - "*rc*"
   - "*docs*"
-  ref: 3.2.3-0-g4dace945ce8cd7211c5d935b6d7be21c86cad8da
+  ref: 3.2.4-0-g57923cd6a651d81c72b4e60b2baa02fbedf217ba
