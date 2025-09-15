@@ -128,7 +128,7 @@ sources:
   track: n7.*
   exclude:
   - '*-dev'
-  ref: n7.1.1-0-gdb69d06eeeab4f46da15030a80d539efb4503ca8
+  ref: n7.1.2-0-gf893221c8d89cb798b829bebe71d55e1a3f242fd
 - kind: patch
   path: patches/ffmpeg/svt-av1-v3.patch
 - kind: patch
