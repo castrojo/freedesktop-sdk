@@ -101,18 +101,21 @@ lint:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
   needs: []
 
+.setup_branch: &setup_branch
+  - git remote set-url origin "https://gitlab-ci-token:${FREEDESKTOP_API_KEY}@gitlab.com/freedesktop-sdk/freedesktop-sdk.git"
+  - git config user.name "freedesktop_sdk_updater"
+  - git config user.email "freedesktop_sdk_updater@libreml.com"
+  - git branch -f "${CI_COMMIT_REF_NAME}" "origin/${CI_COMMIT_REF_NAME}"
+  - git fetch --prune
+  - python utils/cleanup_leftover_branches.py
+  - python utils/assign_marge.py
+
 .check_update_elements:
   stage: update
   variables:
     GIT_SUBMODULE_STRATEGY: none
   script:
-    - git remote set-url origin "https://gitlab-ci-token:${FREEDESKTOP_API_KEY}@gitlab.com/freedesktop-sdk/freedesktop-sdk.git"
-    - git config user.name "freedesktop_sdk_updater"
-    - git config user.email "freedesktop_sdk_updater@libreml.com"
-    - git branch -f "${CI_COMMIT_REF_NAME}" "origin/${CI_COMMIT_REF_NAME}"
-    - git fetch --prune
-    - python utils/cleanup_leftover_branches.py
-    - python utils/assign_marge.py
+    - *setup_branch
     - |
       case "${CI_COMMIT_REF_NAME}" in
         "${CI_DEFAULT_BRANCH}")
