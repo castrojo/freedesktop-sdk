@@ -162,7 +162,21 @@ weekly_update_elements:
     EXTRA_TRACK_ARGS: >-
       --bstignore=/dev/null
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly"'
+  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH =~ /^release\/.*/'
+
+weekly_update_combined:
+  stage: update
+  timeout: 1h
+  variables:
+    TRACK_ELEMENTS: track-elements.bst
+    GIT_SUBMODULE_STRATEGY: none
+    # @freedesktop_sdk_updater
+    GITLAB_MR_BOT_USER_ID: "4969990"
+  script:
+    - *setup_branch
+    - bst-single-updater --base-branch "$CI_DEFAULT_BRANCH" --element "$TRACK_ELEMENTS" --create-mr --skip-open-updates
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH'
 
 check_mirrors:
   stage: update
