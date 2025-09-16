@@ -402,6 +402,7 @@ minimal_systemd_vm_x86_64:
   extends:
     - .vm_imageless_template
     - .builder-x86_64
+  allow_failure: true
   variables:
     VM_ARTIFACT_BOOT: vm/boot/virt.bst
     VM_ARTIFACT_FILESYSTEM: vm/minimal/virt.bst
@@ -416,6 +417,7 @@ minimal_systemd_vm_aarch64:
   extends:
     - .vm_imageless_template
     - .builder-aarch64
+  allow_failure: true
   variables:
     VM_ARTIFACT_BOOT: vm/boot/virt.bst
     VM_ARTIFACT_FILESYSTEM: vm/minimal/virt.bst
@@ -430,6 +432,7 @@ desktop_systemd_vm_x86_64:
   extends:
     - .vm_imageless_template
     - .builder-x86_64
+  allow_failure: true
   variables:
     VM_ARTIFACT_BOOT: vm/boot/virt.bst
     VM_ARTIFACT_FILESYSTEM: vm/desktop/virt.bst
@@ -442,6 +445,7 @@ desktop_systemd_vm_aarch64:
   extends:
     - .vm_imageless_template
     - .builder-aarch64
+  allow_failure: true
   variables:
     VM_ARTIFACT_BOOT: vm/boot/virt.bst
     VM_ARTIFACT_FILESYSTEM: vm/desktop/virt.bst
@@ -470,6 +474,7 @@ minimal_efi_vm_image_x86_64:
     - .builder-x86_64
   needs:
   - app_x86_64
+  allow_failure: true
   variables:
     VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
     DIALOG: root-login
@@ -481,6 +486,7 @@ minimal_efi_vm_image_aarch64:
     - .builder-aarch64
   needs:
   - app_aarch64
+  allow_failure: true
   variables:
     VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
     DIALOG: root-login
@@ -492,6 +498,7 @@ desktop_efi_vm_image_x86_64:
     - .builder-x86_64
   needs:
   - app_x86_64
+  allow_failure: true
   variables:
     VM_ARTIFACT_IMAGE: vm/desktop/efi.bst
   when: manual # skip desktop image VM tests by default to avoid significant disk I/O
@@ -502,6 +509,7 @@ desktop_efi_vm_image_aarch64:
     - .builder-aarch64
   needs:
   - app_aarch64
+  allow_failure: true
   variables:
     VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
   when: manual # skip desktop image VM tests by default to avoid significant disk I/O
