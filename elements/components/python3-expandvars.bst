@@ -7,4 +7,4 @@ sources:
 - kind: git_repo
   url: github:sayanarijit/expandvars.git
   track: v*
-  ref: v1.1.1-0-gb128b97573f4d70f0b1812a3ad8dc3d3c23416d1
+  ref: v1.1.2-0-gbfdd3f6cf86934f2c3318dd949676aa382be4a89
