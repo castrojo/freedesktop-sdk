@@ -15,6 +15,10 @@ config:
     %{install-extra}
 
 sources:
-- kind: tar
-  url: github_files:googlefonts/noto-emoji/archive/refs/tags/v2.051.tar.gz
-  ref: 04f3d1e5605edebebac00a7a0becb390a4a3ead015066905b27935b30c18e745
+- kind: git_repo
+  url: github:googlefonts/noto-emoji.git
+  track: v*
+  exclude:
+  - "v202*"
+  - "v201*"
+  ref: v2.051-0-g8998f5dd683424a73e2314a8c1f1e359c19e8742
