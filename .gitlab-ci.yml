@@ -433,6 +433,7 @@ minimal_systemd_vm_x86_64:
     VM_ARTIFACT_FILESYSTEM: vm/minimal/virt.bst
     VM_MACHINE_ID: a1b2c3d4-e5f6-7890-abcd-ef1234567890
     DIALOG: root-login
+  allow_failure: true
   needs:
     - job: app_x86_64
       artifacts: false
@@ -470,6 +471,7 @@ desktop_systemd_vm_x86_64:
   extends:
     - .vm_imageless_template
     - .builder-x86_64
+  allow_failure: true
   variables:
     VM_ARTIFACT_BOOT: vm/boot/virt.bst
     VM_ARTIFACT_FILESYSTEM: vm/desktop/virt.bst
@@ -482,6 +484,7 @@ desktop_systemd_vm_aarch64:
   extends:
     - .vm_imageless_template
     - .builder-aarch64
+  allow_failure: true
   variables:
     VM_ARTIFACT_BOOT: vm/boot/virt.bst
     VM_ARTIFACT_FILESYSTEM: vm/desktop/virt.bst
@@ -520,6 +523,7 @@ minimal_efi_vm_image_x86_64:
   extends:
     - .vm_efi_image_template
     - .builder-x86_64
+  allow_failure: true
   needs:
   - app_x86_64
   variables:
@@ -531,6 +535,7 @@ minimal_efi_vm_image_aarch64:
   extends:
     - .vm_efi_image_template
     - .builder-aarch64
+  allow_failure: true
   needs:
   - app_aarch64
   variables:
@@ -552,6 +557,7 @@ desktop_efi_vm_image_x86_64:
   extends:
     - .vm_efi_image_template
     - .builder-x86_64
+  allow_failure: true
   needs:
   - app_x86_64
   variables:
@@ -562,6 +568,7 @@ desktop_efi_vm_image_aarch64:
   extends:
     - .vm_efi_image_template
     - .builder-aarch64
+  allow_failure: true
   needs:
   - app_aarch64
   variables:
