@@ -26,6 +26,7 @@ variables:
     -DRECC=ON
     -DRUN_BUBBLEWRAP=ON
     -DWORKER=ON
+    -DCMAKE_DISABLE_PRECOMPILE_HEADERS=ON
 
 sources:
 - kind: git_repo
