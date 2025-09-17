@@ -13,6 +13,7 @@ rootfstype="ext4"
 rootfsopts="errors=remount-ro,relatime"
 root_source=
 noroot=
+nodepmod=
 
 while [ $# -gt 0 ]; do
     param="$1"
@@ -68,15 +69,19 @@ while [ $# -gt 0 ]; do
         --noroot)
             noroot="1"
             ;;
+        --nodepmod)
+            nodepmod="1"
+            ;;
     esac
 done
 
-echo "Running depmod" 1>&2
+if [ -z "${nodepmod}" ]; then
+    echo "Running depmod" 1>&2
 
-for version in $(ls "${sysroot}"/lib/modules/); do
-    depmod -b "${sysroot}" -a "${version}";
-done
-
+    for version in $(ls "${sysroot}"/lib/modules/); do
+        depmod -b "${sysroot}" -a "${version}";
+    done
+fi
 
 mkdir -p "${sysroot}/etc"
 
