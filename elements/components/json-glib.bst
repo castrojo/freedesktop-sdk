@@ -29,4 +29,4 @@ sources:
 - kind: git_repo
   url: gnome:json-glib.git
   track: '*.*.*'
-  ref: 1.10.6-0-gf2828132971ee7c2665ed53a5ac5029ffd6a8cea
+  ref: 1.10.8-0-g8273a7d2539c115c0eb1bcc9e8cd9d26fcde204a
