@@ -16,7 +16,7 @@ variables:
 config:
   install-commands:
   - |
-    install -D -m644 -t "%{install-root}%{includedir}/bluetooth" lib/*.h
+    install -D -m644 -t "%{install-root}%{includedir}/bluetooth" lib/bluetooth/*.h
 
   - |
     %{install-extra}
