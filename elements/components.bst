@@ -243,6 +243,7 @@ depends:
 - components/libfido2.bst
 - components/libfl.bst
 - components/libflac.bst
+- components/libfyaml.bst
 - components/libgamemode.bst
 - components/libgcrypt.bst
 - components/libglvnd.bst

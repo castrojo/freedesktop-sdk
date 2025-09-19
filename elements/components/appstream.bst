@@ -21,7 +21,7 @@ depends:
 - components/glib.bst
 - components/glib-networking.bst
 - components/gobject-introspection.bst
-- components/libyaml.bst
+- components/libfyaml.bst
 - components/librsvg.bst
 - components/libxml2.bst
 - components/libxmlb.bst
