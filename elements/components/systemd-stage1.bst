@@ -58,6 +58,7 @@ variables:
     -Dapparmor=disabled
     -Dxenctrl=disabled
     -Dmicrohttpd=disabled
+    -Dlibmount=enabled
 
 public:
   cpe:
