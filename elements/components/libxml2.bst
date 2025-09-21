@@ -2,6 +2,7 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- components/doxygen.bst
 - components/python3-minimal.bst
 
 depends:
