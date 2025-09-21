@@ -597,6 +597,8 @@ if has PCMCIA; then
 fi
 
 # Common DRM drivers
+enable DRM_SIMPLEDRM
+enable SYSFB_SIMPLEFB
 module DRM_NOUVEAU
 module DRM_RADEON
 module DRM_AMDGPU
