@@ -16,7 +16,7 @@ variables:
     --with-http
     --with-zlib
     --with-lzml
-    --with-python=%{bindir}/python3
+    --with-python
     CPPFLAGS="$(pkg-config --cflags-only-I python3)"
 
 public:
