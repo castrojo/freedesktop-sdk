@@ -34,6 +34,16 @@ variables:
     -Dqcam=disabled
     -Ddocumentation=disabled
     -Dpycamera=disabled
+    --native-file=native.ini
+
+config:
+  configure-commands:
+    (<):
+    - |
+      cat > native.ini << EOF
+      [binaries]
+      openssl = '/.invalid'
+      EOF
 
 sources:
 - kind: git_repo
