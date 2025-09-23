@@ -22,4 +22,4 @@ sources:
 - kind: git_repo
   url: github:abseil/abseil-cpp.git
   track: '[0-9]*.[0-9]'
-  ref: 20250512.1-0-g76bb24329e8bf5f39704eb10d21b9a80befa7c81
+  ref: 20250814.1-0-gd38452e1ee03523a208362186fd42248ff2609f6

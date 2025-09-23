@@ -31,3 +31,5 @@ sources:
   ref: v2.1-0-g846fe90a289f58b7c9303a635142aa2c7caa93e5
 - kind: patch
   path: patches/webrtc-audio-processing/gcc15.patch
+- kind: patch
+  path: patches/webrtc-audio-processing/0001-Fix-build-with-abseil-cpp-202508.patch
