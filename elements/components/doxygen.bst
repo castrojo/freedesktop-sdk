@@ -1,10 +1,15 @@
 kind: cmake
 
 build-depends:
-- public-stacks/buildsystem-cmake.bst
-- components/flex.bst
 - components/bison.bst
+- components/cmake-vendored.bst
+- components/flex.bst
+- components/gcc.bst
+- components/gettext.bst
+- components/ninja.bst
+- components/pkg-config.bst
 - components/python3.bst
+- components/stripper.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

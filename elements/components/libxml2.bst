@@ -2,6 +2,7 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- components/doxygen.bst
 - components/python3-minimal.bst
 
 depends:
@@ -16,7 +17,7 @@ variables:
     --with-http
     --with-zlib
     --with-lzml
-    --with-python=%{bindir}/python3
+    --with-python
     CPPFLAGS="$(pkg-config --cflags-only-I python3)"
 
 public:
@@ -35,4 +36,4 @@ sources:
 - kind: git_repo
   url: gnome:libxml2.git
   track: v*
-  ref: v2.14.6-0-gd23960a130c5bb82779c9405fbbf85e65fb3c57c
+  ref: v2.15.0-0-g0bea77c8289324483c0504d36ac730bb03f6a70b
