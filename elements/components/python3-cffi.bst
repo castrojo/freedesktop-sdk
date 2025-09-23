@@ -12,9 +12,8 @@ depends:
 sources:
 - kind: pypi
   name: cffi
-  exclude:
-  # cffi-1.0.2-2.tar.gz gets parsed as version 2 by packaging as non-canonical format
-  - '2'
+  include:
+  - "1.17.*"
   ref:
     sha256sum: 1c39c6016c32bc48dd54561950ebd6836e1670f2ae46128f67cf49e789c52824
     suffix: 

@@ -1,7 +1,6 @@
 sources:
 - kind: git_repo
   url: freedesktop:gstreamer/gstreamer.git
-  track: 1.22.*
   ref: 1.22.12-89-gb138ed5f09d7c2f818572344f624bb045a3085b2
 - kind: patch_queue
   path: patches/gstreamer
