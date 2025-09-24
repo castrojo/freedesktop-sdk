@@ -23,7 +23,6 @@ config:
 sources:
 - kind: git_repo
   url: github:lu-zero/cargo-c.git
-  track: v*.*.*
   ref: v0.10.15-0-g3e178d5609e5dcc20de3cb0de1bf579329e43784
 - kind: remote
   url: github_files:lu-zero/cargo-c/releases/download/v0.10.15/Cargo.lock
