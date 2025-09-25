@@ -114,6 +114,7 @@ depends:
 - components/geoclue-libs.bst
 - components/glib-networking.bst
 - components/glslang.bst
+- components/glycin.bst
 - components/gnu-free-fonts.bst
 - components/gobject-introspection.bst
 - components/google-crosextra-caladea.bst

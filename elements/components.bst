@@ -146,6 +146,7 @@ depends:
 - components/glib-networking.bst
 - components/glib.bst
 - components/glibc-gconv-cache.bst
+- components/glycin.bst
 - components/glslang.bst
 - components/gmp.bst
 - components/gnu-efi-maybe.bst
