@@ -2,7 +2,6 @@ kind: meson
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/gdk-pixbuf.bst
 - components/pango.bst
 - components/cairo.bst
 - components/dav1d.bst
@@ -21,6 +20,8 @@ variables:
   meson-local: >-
     -Dtests=false
     -Dpixbuf-loader=disabled
+    -Dintrospection=disabled
+    -Dpixbuf=disabled
 
 public:
   bst:
