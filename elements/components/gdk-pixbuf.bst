@@ -29,10 +29,6 @@ public:
         - '%{bindir}/gdk-pixbuf-thumbnailer'
         - '%{libdir}/libgdk_pixbuf-2.0.so'
 
-    integration-commands:
-    - |
-      gdk-pixbuf-query-loaders --update-cache
-
 sources:
 - kind: git_repo
   url: gnome:gdk-pixbuf.git

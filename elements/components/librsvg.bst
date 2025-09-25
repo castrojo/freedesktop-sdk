@@ -21,6 +21,7 @@ variables:
   local_flags: -std=gnu17
   meson-local: >-
     -Dtests=false
+    -Dpixbuf-loader=disabled
 
 public:
   bst:

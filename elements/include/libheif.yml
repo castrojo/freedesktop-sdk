@@ -6,7 +6,6 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/aom.bst
 - components/dav1d.bst
-- components/gdk-pixbuf.bst
 - components/libpng.bst
 - components/libwebp.bst
 - components/openjpeg.bst
