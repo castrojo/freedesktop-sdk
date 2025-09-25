@@ -18,7 +18,6 @@ variables:
     -Dtests=false
     -Ddocumentation=true
     -Dman=true
-    -Dglycin=disabled
     -Dandroid=disabled
 
 public:
