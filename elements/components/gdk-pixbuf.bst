@@ -18,6 +18,7 @@ variables:
     -Dtests=false
     -Ddocumentation=true
     -Dman=true
+    -Dandroid=disabled
 
 public:
   bst:
