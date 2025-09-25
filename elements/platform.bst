@@ -183,7 +183,6 @@ depends:
 - components/v4l-utils.bst
 - components/vulkan-icd-loader.bst
 - components/wayland.bst
-- components/webp-pixbuf-loader.bst
 - components/webrtc-audio-processing.bst
 - components/xcb-util-cursor.bst
 - components/xcb-util-image.bst
