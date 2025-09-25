@@ -20,6 +20,7 @@ build-depends:
 variables:
   meson-local: >-
     -Dtests=false
+    -Dpixbuf-loader=disabled
 
 public:
   bst:
