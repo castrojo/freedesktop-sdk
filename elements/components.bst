@@ -602,7 +602,6 @@ depends:
 - components/wavpack.bst
 - components/wayland-protocols.bst
 - components/wayland.bst
-- components/webp-pixbuf-loader.bst
 - components/webrtc-audio-processing.bst
 - components/weston.bst
 - components/wget2.bst
