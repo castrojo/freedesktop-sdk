@@ -40,3 +40,5 @@ sources:
   url: git_https:git.libcamera.org/libcamera/libcamera.git
   track: v*.*
   ref: v0.5.2-0-gaa0a91c48ddb38c302390d5c4899cb9e093ddd24
+- kind: patch
+  path: patches/libcamera/disable-ipa-sign.patch
