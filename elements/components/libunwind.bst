@@ -32,8 +32,4 @@ public:
 sources:
 - kind: git_repo
   url: github:libunwind/libunwind.git
-  track: v*
-  exclude:
-  - "*-rc*"
-  - "*branchpoint*"
   ref: v1.8.1-0-g9cc4d98b22ae57bc1d8c253988feb85d4298a634
