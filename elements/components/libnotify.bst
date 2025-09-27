@@ -30,4 +30,4 @@ sources:
 - kind: git_repo
   url: gnome:libnotify.git
   track: '*.*.*'
-  ref: 0.8.6-0-g131aad01ff5f563b4863becbb6ed84dac6e75d5a
+  ref: 0.8.7-0-g1d9767a392cbac7e899e7ab80235cfceebd52731
