@@ -45,7 +45,4 @@ public:
 sources:
 - kind: git_repo
   url: github:SELinuxProject/selinux.git
-  track: libselinux-*
-  exclude:
-  - '*rc*'
   ref: libselinux-3.7-0-g2eb286bc0841791043567437ba5413f3014fb94e

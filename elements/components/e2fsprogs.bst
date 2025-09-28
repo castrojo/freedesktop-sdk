@@ -63,7 +63,4 @@ public:
 sources:
 - kind: git_repo
   url: kernel:fs/ext2/e2fsprogs.git
-  track: v*
-  exclude:
-  - v*rc*
   ref: v1.47.2-0-gc3cce4a07efefc62bc7fc57a678cb870af27d0f2
