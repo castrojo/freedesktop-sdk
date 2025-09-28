@@ -20,6 +20,7 @@ depends:
 
 runtime-depends:
 - components/git.bst
+- components/git-lfs.bst
 - components/tar.bst
 - components/gzip.bst
 - components/libarchive.bst
