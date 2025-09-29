@@ -120,3 +120,8 @@ public:
     ignored:
     - CVE-2007-4559
     - CVE-2015-20107
+
+sources:
+  (>):
+  - kind: patch
+    path: patches/python3/python3-multiarch-include.patch
