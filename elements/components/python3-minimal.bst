@@ -21,10 +21,11 @@ depends:
 
 variables:
   compileall-opts: -j1  # Used for deterministic compiling
+  conf-local: >-
+    --with-platlibdir=lib
   make-install-args: >-
     DESTDIR="%{install-root}"
     COMPILEALL_OPTS=%{compileall-opts}
-    DESTSHARED=/usr/lib/python%{version_long}/lib-dynload
     install
 
   # Upstream default is -O3 and we should not override this

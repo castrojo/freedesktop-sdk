@@ -1,3 +1,0 @@
-variables:
-  version_short: "3"
-  version_long: "%{version_short}.13"

@@ -1,6 +1,3 @@
-(@):
-- elements/include/python3-variables.yml
-
 sources:
 - kind: git_repo
   track: v*

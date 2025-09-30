@@ -31,18 +31,18 @@ variables:
   make-install-args: >-
     DESTDIR="%{install-root}"
     COMPILEALL_OPTS=%{compileall-opts}
-    DESTSHARED=/usr/lib/python%{version_long}/lib-dynload
     install
-  conf-local: |
-    --enable-shared \
-    --without-ensurepip \
-    --with-system-expat \
-    --with-system-ffi \
-    --enable-loadable-sqlite-extensions \
-    --with-dbmliborder=gdbm \
-    --with-lto \
-    --with-conf-includedir="%{includedir}/%{gcc_triplet}" \
+  conf-local: >-
+    --enable-shared
+    --without-ensurepip
+    --with-system-expat
+    --with-system-ffi
+    --enable-loadable-sqlite-extensions
+    --with-dbmliborder=gdbm
+    --with-lto
+    --with-conf-includedir="%{includedir}/%{gcc_triplet}"
     --without-static-libpython
+    --with-platlibdir=lib
 
   # Upstream default is -O3 and we should not override this
   local_flags: "-O3"
@@ -53,43 +53,44 @@ config:
     - |
       rm -rf %{install-root}%{bindir}/idle*
     - |
-      rm -rf %{install-root}%{indep-libdir}/python%{version_long}/idlelib
+      rm -rf %{install-root}%{indep-libdir}/python*/idlelib
     - |
-      rm -rf %{install-root}%{indep-libdir}/python%{version_long}/tkinter
+      rm -rf %{install-root}%{indep-libdir}/python*/tkinter
     - |
-      rm -rf %{install-root}%{indep-libdir}/python%{version_long}/turtle*
+      rm -rf %{install-root}%{indep-libdir}/python*/turtle*
     - |
-      rm -rf %{install-root}%{indep-libdir}/python%{version_long}/__pycache__/turtle.*
+      rm -rf %{install-root}%{indep-libdir}/python*/__pycache__/turtle.*
     - |
-      rm -rf %{install-root}%{indep-libdir}/python%{version_long}/test
+      rm -rf %{install-root}%{indep-libdir}/python*/test
     - |
-      rm -rf %{install-root}%{indep-libdir}/python%{version_long}/*/test
+      rm -rf %{install-root}%{indep-libdir}/python*/*/test
     - |
-      rm -rf %{install-root}%{indep-libdir}/python%{version_long}/*/tests
+      rm -rf %{install-root}%{indep-libdir}/python*/*/tests
 
     - |
       find "%{install-root}" -name "lib*.a" -delete
 
     - |
-      cat <<EOF >"%{install-root}%{includedir}/python%{version_long}/pyconfig.h"
+      PYTHON_VERSION=$(./configure --version | grep -m1 'python configure' | awk '{print $3}')
+      cat <<EOF >"%{install-root}%{includedir}/python${PYTHON_VERSION}/pyconfig.h"
       #if defined(__x86_64__)
-      # include "x86_64-linux-gnu/python%{version_long}/pyconfig.h"
+      # include "x86_64-linux-gnu/python${PYTHON_VERSION}/pyconfig.h"
       #elif defined(__i386__)
-      # include "i386-linux-gnu/python%{version_long}/pyconfig.h"
+      # include "i386-linux-gnu/python${PYTHON_VERSION}/pyconfig.h"
       #elif defined(__aarch64__)
-      # include "aarch64-linux-gnu/python%{version_long}/pyconfig.h"
+      # include "aarch64-linux-gnu/python${PYTHON_VERSION}/pyconfig.h"
       #elif defined(__arm__)
-      # include "arm-linux-gnueabihf/python%{version_long}/pyconfig.h"
+      # include "arm-linux-gnueabihf/python${PYTHON_VERSION}/pyconfig.h"
       #elif defined(__powerpc64__)
       #if defined(__BIG_ENDIAN__)
-      # include "powerpc64-linux-gnu/python%{version_long}/pyconfig.h"
+      # include "powerpc64-linux-gnu/python${PYTHON_VERSION}/pyconfig.h"
       #else
-      # include "powerpc64le-linux-gnu/python%{version_long}/pyconfig.h"
+      # include "powerpc64le-linux-gnu/python${PYTHON_VERSION}/pyconfig.h"
       #endif
       #elif defined(__riscv) && (__riscv_xlen == 64)
-      # include "riscv64-linux-gnu/python%{version_long}/pyconfig.h"
+      # include "riscv64-linux-gnu/python${PYTHON_VERSION}/pyconfig.h"
       #elif defined(__loongarch__) && defined(__loongarch_double_float)
-      # include "loongarch64-linux-gnu/python%{version_long}/pyconfig.h"
+      # include "loongarch64-linux-gnu/python${PYTHON_VERSION}/pyconfig.h"
       #else
       # error "Unknown cross-compiler"
       #endif
@@ -97,7 +98,7 @@ config:
 
     - |
       mkdir -p %{install-root}%{bindir}
-      ln -s %{bindir}/python%{version_short} %{install-root}%{bindir}/python
+      ln -s %{bindir}/python3 %{install-root}%{bindir}/python
 
 public:
   bst:
@@ -105,13 +106,12 @@ public:
       devel:
         (>):
         - '%{bindir}/2to3*'
-        - '%{bindir}/python%{version_short}-config'
-        - '%{bindir}/python%{version_long}-config'
-        - '%{libdir}/libpython%{version_long}.so'
-        - '%{indep-libdir}/python%{version_long}/config-%{version_long}-%{gcc_triplet}'
-        - '%{indep-libdir}/python%{version_long}/config-%{version_long}-%{gcc_triplet}/**'
-        - '%{indep-libdir}/python%{version_long}/lib2to3'
-        - '%{indep-libdir}/python%{version_long}/lib2to3/**'
+        - '%{bindir}/python*-config'
+        - '%{libdir}/libpython*.so'
+        - '%{indep-libdir}/python*/config-*-%{gcc_triplet}'
+        - '%{indep-libdir}/python*/config-*-%{gcc_triplet}/**'
+        - '%{indep-libdir}/python*/lib2to3'
+        - '%{indep-libdir}/python*/lib2to3/**'
 
   cpe:
     product: python
