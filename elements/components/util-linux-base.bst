@@ -110,4 +110,4 @@ sources:
   - v*-rc*
   - v*-devel*
   - v*-start*
-  ref: v2.41.1-0-g67b6f19adad289cc4ff4071ae8eceda41bdce9e8
+  ref: v2.41.2-0-g3410c4bf80207ceea017a0062c0298c767dcc0e2
