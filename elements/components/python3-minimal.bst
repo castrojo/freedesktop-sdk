@@ -29,3 +29,9 @@ variables:
 
   # Upstream default is -O3 and we should not override this
   local_flags: "-O3"
+
+config:
+  configure-commands:
+    (<):
+    - |
+      grep PYTHON_VERSION configure.ac | grep %{version_long}
