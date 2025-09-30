@@ -11,6 +11,7 @@ sources:
   url: github:pyparsing/pyparsing.git
   track: "*.*.*"
   exclude:
+  - "*a*"
   - "*b*"
   - "*rc*"
   - "*docs*"
