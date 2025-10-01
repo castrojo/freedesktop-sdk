@@ -3,6 +3,7 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/git-minimal.bst
+- components/python3-pkcs11.bst
 
 depends:
 - components/libyaml.bst
