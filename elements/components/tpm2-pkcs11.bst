@@ -26,5 +26,3 @@ sources:
   exclude:
   - '*rc*'
   ref: 1.9.2-0-gb95c802d588295e12db7caee805bfb54595c6845
-- kind: patch
-  path: patches/tpm2-pkcs11/fix-hardening-flags.patch
