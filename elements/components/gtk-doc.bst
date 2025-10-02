@@ -15,4 +15,4 @@ sources:
 - kind: git_repo
   url: gnome:gtk-doc.git
   track: '*.*'
-  ref: 1.34.0-0-gb7c8317bf023b5116250b4c5381737d5b9786976
+  ref: 1.35.0-0-g519e65379a9278950c848084cf6686bdd333567c
