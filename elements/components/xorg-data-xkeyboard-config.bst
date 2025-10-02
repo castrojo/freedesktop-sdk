@@ -15,7 +15,6 @@ variables:
   license-element-name: xorg-data-xkeyboard-config
   meson-local: >-
     -Dcompat-rules=true
-    -Dxkb-base=/usr/share/X11/xkb
     -Dxorg-rules-symlinks=true
 
 sources:
