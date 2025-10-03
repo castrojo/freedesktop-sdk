@@ -13,7 +13,7 @@ build-depends:
 - bootstrap/build/debug-utils.bst
 - filename:
   - bootstrap/bzip2.bst
-  - bootstrap/zlib.bst
+  - bootstrap/zlib-ng.bst
   - bootstrap/zstd.bst
   - bootstrap/xz.bst
   config:
@@ -21,7 +21,7 @@ build-depends:
 
 runtime-depends:
 - bootstrap/bzip2.bst
-- bootstrap/zlib.bst
+- bootstrap/zlib-ng.bst
 - bootstrap/zstd.bst
 - bootstrap/xz.bst
 

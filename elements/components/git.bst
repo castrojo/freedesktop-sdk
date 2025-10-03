@@ -25,7 +25,7 @@ depends:
 - components/zstd.bst
 
 runtime-depends:
-- bootstrap/zlib.bst
+- bootstrap/zlib-ng.bst
 - components/ca-certificates.bst
 - components/perl-ssl.bst
 - components/perl-sasl.bst

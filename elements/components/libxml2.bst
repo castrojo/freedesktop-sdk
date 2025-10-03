@@ -7,7 +7,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/zlib.bst
+- bootstrap/zlib-ng.bst
 - bootstrap/xz.bst
 - components/icu.bst
 

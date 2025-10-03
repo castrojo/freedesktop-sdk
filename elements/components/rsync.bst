@@ -10,7 +10,7 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - bootstrap/xxhash.bst
-- bootstrap/zlib.bst
+- bootstrap/zlib-ng.bst
 - components/lz4.bst
 - components/openssl.bst
 - components/popt.bst

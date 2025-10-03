@@ -5,7 +5,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/zlib.bst
+- bootstrap/zlib-ng.bst
 - bootstrap/libxcrypt.bst
 - components/libffi.bst
 - components/gdbm.bst

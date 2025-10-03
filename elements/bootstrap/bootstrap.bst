@@ -29,5 +29,5 @@ depends:
 - bootstrap/sed.bst
 - bootstrap/stripper.bst
 - bootstrap/symlinks.bst
-- bootstrap/zlib.bst
+- bootstrap/zlib-ng.bst
 - bootstrap/zstd.bst

@@ -5,7 +5,7 @@ build-depends:
 - components/curl.bst
 
 depends:
-- bootstrap/zlib.bst
+- bootstrap/zlib-ng.bst
 - public-stacks/runtime-minimal.bst
 
 runtime-depends:

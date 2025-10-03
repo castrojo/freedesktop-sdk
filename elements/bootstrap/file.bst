@@ -11,13 +11,13 @@ build-depends:
 - bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
 - bootstrap/build/file-stage1.bst
-- filename: bootstrap/zlib.bst
+- filename: bootstrap/zlib-ng.bst
   config:
     location: "%{sysroot}"
 
 runtime-depends:
 - bootstrap/zstd.bst
-- bootstrap/zlib.bst
+- bootstrap/zlib-ng.bst
 
 variables:
   conf-local: >-

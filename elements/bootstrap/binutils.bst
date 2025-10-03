@@ -18,7 +18,7 @@ build-depends:
 - bootstrap/build/libgcc_s.bst
 - filename:
   - bootstrap/glibc.bst
-  - bootstrap/zlib.bst
+  - bootstrap/zlib-ng.bst
   - bootstrap/elfutils.bst
   - bootstrap/zstd.bst
   config:
@@ -27,7 +27,7 @@ build-depends:
 runtime-depends:
 - bootstrap/elfutils.bst
 - bootstrap/glibc.bst
-- bootstrap/zlib.bst
+- bootstrap/zlib-ng.bst
 - bootstrap/zstd.bst
 
 variables:
