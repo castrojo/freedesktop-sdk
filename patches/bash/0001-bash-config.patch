@@ -1,0 +1,13 @@
+diff --git a/config-top.h b/config-top.h
+index c47ab01b..2ba29737 100644
+--- a/config-top.h
++++ b/config-top.h
+@@ -99,7 +99,7 @@
+ 
+ /* Define this to make non-interactive shells begun with argv[0][0] == '-'
+    run the startup files when not in posix mode. */
+-/* #define NON_INTERACTIVE_LOGIN_SHELLS */
++#define NON_INTERACTIVE_LOGIN_SHELLS
+ 
+ /* Define this if you want bash to try to check whether it's being run by
+    sshd and source the .bashrc if so (like the rshd behavior).  This checks

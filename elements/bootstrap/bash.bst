@@ -80,4 +80,5 @@ sources:
   # When reviewing an update, please review what patches it introduces
   track: master
   ref: bash-5.3-4-ga8a1c2fac029404d3f42cd39f5a20f24b6e4fe4b
-
+- kind: patch
+  path: patches/bash/0001-bash-config.patch
