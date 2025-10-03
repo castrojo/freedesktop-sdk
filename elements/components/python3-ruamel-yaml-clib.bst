@@ -25,4 +25,4 @@ sources:
 - kind: git_repo
   url: github:ruamel/yaml.clib.git
   track: '*.*.*'
-  ref: 0.2.12-0-gb2b8d47b4294e74c4cc5685c6937022ac71276cb
+  ref: 0.2.14-0-g1fb527c36978592aca8e59399f8b5c55421f4677
