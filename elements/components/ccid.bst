@@ -17,4 +17,4 @@ sources:
 - kind: git_repo
   url: debian_salsa:rousseau/ccid.git
   track: '*.*.*'
-  ref: 1.6.2-0-g2044e518c42a630dda80d270e2c3dee8c6f42f2c
+  ref: 1.7.0-0-gae37104ee889634210f87ed5f0d7027846470866
