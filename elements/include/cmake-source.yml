@@ -4,6 +4,6 @@ sources:
   track: v*
   exclude:
   - v*-rc*
-  ref: v4.1.1-0-gba8c4a15f10e2636405106ff0dc92b79d94a616c
+  ref: v4.1.2-0-g11f3f34077ba6fc1a2be6fe0f1ae542ebf884675
 - kind: patch
   path: patches/cmake/0001-curl8_16.patch
