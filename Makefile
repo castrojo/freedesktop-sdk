@@ -171,8 +171,8 @@ run-vm: build-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/vmlinuz $(VM_CHECKOUT_R
 	unshare --map-root-user $(QEMU) $(QEMU_COMMON_ARGS) $(QEMU_VIRTFS_ARGS)
 
 check-abi:
-	$(BST) build tests/check-abi-mesa.bst
-	$(BST) build tests/check-abi.bst; \
+	$(BST) build tests/check-abi-mesa.bst \
+				 tests/check-abi.bst; \
 	exit_code="$$?"; \
 	if [ "$${CI}" = "true" ]; then \
 		mv $${XDG_CACHE_HOME}/buildstream/build/tests-check-abi-*/root/libabigail-tars .; \
