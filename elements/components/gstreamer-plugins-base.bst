@@ -50,6 +50,10 @@ variables:
     -Dlibvisual=disabled
     -Dtremor=disabled
     -Dexamples=disabled
+    -Dx11=disabled
+    -Dxi=disabled
+    -Dxshm=disabled
+    -Dxvideo=disabled
 
 public:
   bst:
