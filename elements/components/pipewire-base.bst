@@ -56,6 +56,8 @@ variables:
     -Dlibffado=disabled
     -Dsdl2=disabled
     -Dsnap=disabled
+    -Dx11=disabled
+    -Dx11-xfixes=disabled
 
 config:
   install-commands:
