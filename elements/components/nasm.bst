@@ -26,7 +26,7 @@ config:
 sources:
 - kind: git_repo
   url: github:netwide-assembler/nasm.git
-  track: nasm-*
+  track: nasm-2.*
   exclude:
   - nasm-*rc*
   ref: nasm-2.16.03-0-gcd37b81b320ead83ca5a6bbce5da0a6456663bc6
