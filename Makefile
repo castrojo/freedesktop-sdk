@@ -172,6 +172,7 @@ run-vm: build-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/vmlinuz $(VM_CHECKOUT_R
 
 check-abi:
 	$(BST) build tests/check-abi-mesa.bst \
+				 tests/check-abi-extra.bst \
 				 tests/check-abi.bst; \
 	exit_code="$$?"; \
 	if [ "$${CI}" = "true" ]; then \
