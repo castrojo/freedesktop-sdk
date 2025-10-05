@@ -61,7 +61,8 @@ public:
 sources:
 - kind: git_repo
   url: github:openssl/openssl.git
-  track: refs/tags/openssl-3.*
+  # Track LTS
+  track: refs/tags/openssl-3.5.*
   exclude:
   - openssl*alpha*
   - openssl*beta*
