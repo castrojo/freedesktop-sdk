@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:repology/libversion.git
   track: '*.*.*'
-  ref: 3.0.3-0-gf851fec7d976820061952f6d90d3b60f2bae774b
+  ref: 3.0.4-0-g0c2c247a6c7ed562e6bc85f02cc4709621226c33
