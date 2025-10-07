@@ -14,6 +14,6 @@ sources:
   track: "*.*.*"
   exclude:
   - "*a*"
-  ref: v1.7.0-0-g63cbd49b3df13fcd661ae79e5e2eb66c46a1684a
+  ref: v1.8.0-0-g48324affeecc2fff8f84f38368f720426c0354cf
 - kind: patch
   path: patches/python3-frozenlist/reproducible.patch
