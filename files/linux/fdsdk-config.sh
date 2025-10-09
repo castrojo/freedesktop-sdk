@@ -121,16 +121,9 @@ case "$arch" in
     x86_64)
         module CRYPTO_AES_NI_INTEL
         module CRYPTO_GHASH_CLMUL_NI_INTEL
-        module CRYPTO_SHA1_SSSE3
-        module CRYPTO_SHA256_X86_64
-        module CRYPTO_SHA512_SSSE3
         module CRYPTO_DES3_EDE_X86_64
     ;;
     aarch64)
-        module CRYPTO_SHA256_ARM64
-        module CRYPTO_SHA512_ARM64
-        module CRYPTO_SHA1_ARM64_CE
-        module CRYPTO_SHA512_ARM64_CE
         module CRYPTO_GHASH_ARM64_CE
         module CRYPTO_AES_ARM64
         module CRYPTO_AES_ARM64_CE
@@ -2092,6 +2085,9 @@ enable FB
 enable FB_EFI
 enable DRM_FBDEV_EMULATION
 enable FRAMEBUFFER_CONSOLE
+
+# TODO: remove NETFILTER_XTABLES_LEGACY
+enable NETFILTER_XTABLES_LEGACY
 
 # Network
 module BRIDGE
