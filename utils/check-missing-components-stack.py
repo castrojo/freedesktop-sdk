@@ -98,21 +98,24 @@ def collect_deps(directory: str) -> set[str]:
     deps_data: set[str] = set()
     parsed_files = set()
 
-    for filename in os.listdir(directory):
-        filepath = os.path.join(directory, filename)
-        if os.path.isfile(filepath) and filename.endswith(".bst"):
-            if filepath in parsed_files:
-                continue
-            parsed_files.add(filepath)
-            try:
-                with open(filepath, "r", encoding="utf-8") as f:
-                    data = yaml.load(f)
-                    extract_deps_from_object(
-                        data, deps_data, dependency_keys, directory, parsed_files
-                    )
-            except YAMLError as err:
-                logger.error("Failed to parse YAML for %s: %s", filename, err)
-                raise
+    for root, _, files in os.walk(directory):
+        for filename in files:
+            if os.path.isfile(os.path.join(root, filename)) and filename.endswith(
+                ".bst"
+            ):
+                filepath = os.path.join(root, filename)
+                if filepath in parsed_files:
+                    continue
+                parsed_files.add(filepath)
+                try:
+                    with open(filepath, "r", encoding="utf-8") as f:
+                        data = yaml.load(f)
+                        extract_deps_from_object(
+                            data, deps_data, dependency_keys, directory, parsed_files
+                        )
+                except YAMLError as err:
+                    logger.error("Failed to parse YAML for %s: %s", filename, err)
+                    raise
 
     return {
         entry.split("/")[-1]
@@ -135,8 +138,9 @@ def load_components_stack(path: str) -> set[str]:
 def load_elements(directory: str) -> set[str]:
     return {
         file.split("/")[-1]
-        for file in os.listdir(directory)
-        if os.path.isfile(os.path.join(directory, file)) and file.endswith(".bst")
+        for root, _, files in os.walk(directory)
+        for file in files
+        if file.endswith(".bst")
     }
 
 
