@@ -10,13 +10,13 @@ config:
   - components/bc.bst
   - components/bluez.bst
   - components/ccid.bst
-  - components/cmake-vendored.bst
+  - components/_private/cmake-vendored.bst
   - components/dracut.bst
   - components/ed.bst
   - components/fakecap.bst
-  - components/gamemode-base.bst
+  - components/_private/gamemode-base.bst
   - components/gtk-doc.bst
-  - components/glib-stage1.bst
+  - components/_private/glib-stage1.bst
   - components/iproute2.bst
   - components/libapparmor.bst
   - components/libdisplay-info.bst

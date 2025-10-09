@@ -2,7 +2,7 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/freetype-stage1.bst
+- components/_private/freetype-stage1.bst
 - components/gtk-doc.bst
 - components/gobject-introspection.bst
 

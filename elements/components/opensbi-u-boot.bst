@@ -3,7 +3,7 @@ kind: make
 build-depends:
 - public-stacks/buildsystem-make.bst
 - public-stacks/runtime-minimal.bst
-- components/u-boot-qemu.bst
+- components/_private/u-boot-qemu.bst
 
 variables:
   notparallel: true

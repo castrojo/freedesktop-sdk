@@ -4,7 +4,7 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/doxygen.bst
 - components/git-minimal.bst
-- components/systemd-stage1.bst
+- components/_private/systemd-stage1.bst
 
 depends:
 - components/libgcrypt.bst

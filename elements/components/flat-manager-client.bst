@@ -1,5 +1,5 @@
 kind: stack
 
 depends:
-- components/flat-manager-client-base.bst
+- components/_private/flat-manager-client-base.bst
 - components/ostree.bst

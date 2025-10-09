@@ -9,7 +9,7 @@ build-depends:
 - public-stacks/buildsystem-make.bst
 - components/git-minimal.bst
 - components/openssl.bst
-- components/sbsigntools.bst
+- components/_private/sbsigntools.bst
 
 (?):
 - not prod_keys:

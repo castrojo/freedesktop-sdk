@@ -1,4 +1,4 @@
 kind: collect_manifest
 
 build-depends:
-- components/cryptsetup-base.bst
+- components/_private/cryptsetup-base.bst

@@ -1,7 +1,7 @@
 kind: filter
 
 build-depends:
-- components/avahi-base.bst
+- components/_private/avahi-base.bst
 
 runtime-depends:
 - components/avahi.bst

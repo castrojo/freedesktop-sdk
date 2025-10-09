@@ -6,7 +6,7 @@ build-depends:
 - components/flex.bst
 - components/git-minimal.bst
 - components/gobject-introspection.bst
-- components/vala-bootstrap.bst
+- components/_private/vala-bootstrap.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

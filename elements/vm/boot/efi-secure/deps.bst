@@ -13,7 +13,7 @@ depends:
 - components/tzdata.bst
 - components/pkg-config.bst
 - vm/boot/efi-secure/signed-modules.bst
-- components/shim.bst
+- components/_private/shim.bst
 - vm/minimal-secure/repart-config.bst
 - components/tpm2-tss.bst
 - components/tpm2-tools.bst

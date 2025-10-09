@@ -1,7 +1,7 @@
 kind: script
 
 build-depends:
-- components/systemd-stage1.bst
+- components/_private/systemd-stage1.bst
 
 config:
   commands:

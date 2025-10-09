@@ -6,7 +6,7 @@ build-depends:
   config:
     location: /usr-image
 - components/os-release.bst
-- components/sbsigntools.bst
+- components/_private/sbsigntools.bst
 - components/sign-file.bst
 - components/systemd.bst
 - components/systemd-ukify.bst

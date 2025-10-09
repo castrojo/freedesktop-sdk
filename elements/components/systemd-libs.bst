@@ -1,7 +1,7 @@
 kind: filter
 
 build-depends:
-- components/systemd-base.bst
+- components/_private/systemd-base.bst
 
 runtime-depends:
 - public-stacks/runtime-minimal.bst

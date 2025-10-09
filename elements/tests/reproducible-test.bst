@@ -8,16 +8,16 @@ depends:
 - components.bst
 
 # Base elements:
-- components/avahi-base.bst
-- components/cryptsetup-base.bst
-- components/cups-base.bst
-- components/dbus-base.bst
-- components/flex-base.bst
+- components/_private/avahi-base.bst
+- components/_private/cryptsetup-base.bst
+- components/_private/cups-base.bst
+- components/_private/dbus-base.bst
+- components/_private/flex-base.bst
 - components/gstreamer-plugins-base.bst
-- components/linux-pam-base.bst
-- components/pipewire-base.bst
-- components/systemd-base.bst
-- components/xdg-desktop-portal-base.bst
+- components/_private/linux-pam-base.bst
+- components/_private/pipewire-base.bst
+- components/_private/systemd-base.bst
+- components/_private/xdg-desktop-portal-base.bst
 
 # Outputs
 - flatpak-release-repo-deps.bst

@@ -48,7 +48,7 @@ depends:
 - components/ccid.bst
 - components/clean-xml-catalog.bst
 - components/cmake.bst
-- components/cmake-vendored.bst
+- components/_private/cmake-vendored.bst
 - components/colord.bst
 - components/conmon.bst
 - components/compat-vulkan-link.bst
@@ -580,7 +580,7 @@ depends:
 - components/util-linux-full.bst
 - components/util-linux.bst
 - components/v4l-utils.bst
-- components/vala-bootstrap.bst
+- components/_private/vala-bootstrap.bst
 - components/vala.bst
 - components/valgrind-maybe.bst
 - components/vim.bst

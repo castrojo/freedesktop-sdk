@@ -1,7 +1,7 @@
 kind: filter
 
 build-depends:
-- components/cups-base.bst
+- components/_private/cups-base.bst
 
 runtime-depends:
 - components/cups.bst

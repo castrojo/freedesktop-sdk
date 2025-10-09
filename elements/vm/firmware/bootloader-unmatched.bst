@@ -2,7 +2,7 @@ kind: script
 
 build-depends:
 - vm/deploy-tools.bst
-- components/u-boot-unmatched.bst
+- components/_private/u-boot-unmatched.bst
 - components/linux.bst
 
 variables:

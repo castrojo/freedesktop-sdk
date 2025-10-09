@@ -11,15 +11,15 @@ depends:
 
 # Parents of maybe elements from components.bst
 
-- components/libsmbios.bst
-- components/ovmf.bst
-- components/u-boot-qemu.bst
-- components/u-boot-unmatched.bst
-- components/bpf.bst
-- components/efitools-bin.bst
-- components/fwupd-efi.bst
-- components/gnu-efi.bst
-- components/sbsigntools.bst
-- components/valgrind.bst
-- components/shim.bst
-- components/rr.bst
+- components/_private/libsmbios.bst
+- components/_private/ovmf.bst
+- components/_private/u-boot-qemu.bst
+- components/_private/u-boot-unmatched.bst
+- components/_private/bpf.bst
+- components/_private/efitools-bin.bst
+- components/_private/fwupd-efi.bst
+- components/_private/gnu-efi.bst
+- components/_private/sbsigntools.bst
+- components/_private/valgrind.bst
+- components/_private/shim.bst
+- components/_private/rr.bst

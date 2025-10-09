@@ -4,7 +4,7 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/bison.bst
 - components/flex.bst
-- components/glib-stage1.bst
+- components/_private/glib-stage1.bst
 - components/gtk-doc.bst
 
 depends:

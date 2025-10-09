@@ -1,7 +1,7 @@
 kind: filter
 
 build-depends:
-- components/apparmor-base.bst
+- components/_private/apparmor-base.bst
 
 runtime-depends:
 - components/apparmor-manifest.bst

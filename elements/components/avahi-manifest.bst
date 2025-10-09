@@ -1,4 +1,4 @@
 kind: collect_manifest
 
 build-depends:
-- components/avahi-base.bst
+- components/_private/avahi-base.bst

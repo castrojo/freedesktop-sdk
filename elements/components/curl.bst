@@ -3,7 +3,7 @@ kind: cmake
 build-depends:
 - components/gcc.bst
 - components/stripper.bst
-- components/cmake-stage1.bst
+- components/_private/cmake-stage1.bst
 - components/gettext.bst
 - components/ninja.bst
 - components/pkg-config.bst

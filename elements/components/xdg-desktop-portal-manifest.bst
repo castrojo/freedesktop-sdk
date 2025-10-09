@@ -1,4 +1,4 @@
 kind: collect_manifest
 
 build-depends:
-- components/xdg-desktop-portal-base.bst
+- components/_private/xdg-desktop-portal-base.bst

@@ -1,4 +1,4 @@
 kind: collect_manifest
 
 build-depends:
-- components/bluez-base.bst
+- components/_private/bluez-base.bst
