@@ -25,6 +25,7 @@ depends:
 - components/gdbm.bst
 - components/openssl.bst
 - components/sqlite.bst
+- components/zstd.bst
 
 variables:
   compileall-opts: -j1  # Used for deterministic compiling
