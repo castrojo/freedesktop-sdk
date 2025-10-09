@@ -14,9 +14,12 @@ build-depends:
 
 depends:
 - bootstrap/bash.bst
+- bootstrap/bzip2.bst
 - bootstrap/coreutils.bst
 - bootstrap/glibc.bst
 - bootstrap/symlinks.bst
+- bootstrap/zlib-ng.bst
+- bootstrap/zstd.bst
 - components/utf-locale.bst
 
 variables:
