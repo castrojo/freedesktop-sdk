@@ -44,7 +44,7 @@ def get_gzip_opts():
     return {"mtime": int(epoch)}
 
 
-def extract_oci_image_info(path, index, global_conf, new_layer):
+def extract_oci_image_info(path, index, global_conf):
     with open(os.path.join(path, "index.json"), "r", encoding="utf-8") as index_file:
         indexed_manifest = json.load(index_file)
     image_desc = indexed_manifest["manifests"][index]
@@ -68,42 +68,40 @@ def extract_oci_image_info(path, index, global_conf, new_layer):
         _, diff_id = diff_ids[i].split(":", 1)
         algo, digest = layer["digest"].split(":", 1)
         origfile = os.path.join(path, "blobs", algo, digest)
-        if new_layer or i + 1 != len(image_manifest["layers"]):
-            if global_conf.compression == Compression.gzip:
-                output_blob = Blob(
-                    global_conf,
-                    media_type="application/vnd.oci.image.layer.v1.tar+gzip",
-                )
-            else:
-                output_blob = Blob(
-                    global_conf, media_type="application/vnd.oci.image.layer.v1.tar"
-                )
-            with ExitStack() as stack:
-                outp = stack.enter_context(output_blob.create())
-                inp = stack.enter_context(open(origfile, "rb"))
-                if layer["mediaType"].endswith("+gzip"):
-                    if global_conf.compression == Compression.gzip:
-                        shutil.copyfileobj(inp, outp)
-                    else:
-                        gzfile = stack.enter_context(gzip.open(filename=inp, mode="rb"))
-                        shutil.copyfileobj(gzfile, outp)
+        if global_conf.compression == Compression.gzip:
+            output_blob = Blob(
+                global_conf, media_type="application/vnd.oci.image.layer.v1.tar+gzip"
+            )
+        else:
+            output_blob = Blob(
+                global_conf, media_type="application/vnd.oci.image.layer.v1.tar"
+            )
+        with ExitStack() as stack:
+            outp = stack.enter_context(output_blob.create())
+            inp = stack.enter_context(open(origfile, "rb"))
+            if layer["mediaType"].endswith("+gzip"):
+                if global_conf.compression == Compression.gzip:
+                    shutil.copyfileobj(inp, outp)
                 else:
-                    if global_conf.compression == Compression.gzip:
-                        gzfile = stack.enter_context(
-                            gzip.GzipFile(
-                                filename=diff_id,
-                                fileobj=outp,
-                                mode="wb",
-                                compresslevel=global_conf.compression_level,
-                                **get_gzip_opts(),
-                            )
+                    gzfile = stack.enter_context(gzip.open(filename=inp, mode="rb"))
+                    shutil.copyfileobj(gzfile, outp)
+            else:
+                if global_conf.compression == Compression.gzip:
+                    gzfile = stack.enter_context(
+                        gzip.GzipFile(
+                            filename=diff_id,
+                            fileobj=outp,
+                            mode="wb",
+                            compresslevel=global_conf.compression_level,
+                            **get_gzip_opts(),
                         )
-                        shutil.copyfileobj(inp, gzfile)
-                    else:
-                        shutil.copyfileobj(inp, outp)
+                    )
+                    shutil.copyfileobj(inp, gzfile)
+                else:
+                    shutil.copyfileobj(inp, outp)
 
-            layer_descs.append(output_blob.descriptor)
-            layer_files.append(output_blob.filename)
+        layer_descs.append(output_blob.descriptor)
+        layer_files.append(output_blob.filename)
 
     return layer_descs, layer_files, diff_ids, history
 
@@ -182,7 +180,7 @@ def build_image(global_conf, image):
     if "parent" in image:
         parent = image["parent"]
         layer_descs, layer_files, diff_ids, history = extract_oci_image_info(
-            parent["image"], parent.get("index", 0), global_conf, "layer" in image
+            parent["image"], parent.get("index", 0), global_conf
         )
 
     if "layer" in image:
