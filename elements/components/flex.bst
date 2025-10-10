@@ -1,7 +1,7 @@
 kind: filter
 
 build-depends:
-- components/flex-base.bst
+- components/_private/flex-base.bst
 
 runtime-depends:
 - bootstrap/bash.bst

@@ -1,7 +1,7 @@
 kind: filter
 
 build-depends:
-- components/dbus-base.bst
+- components/_private/dbus-base.bst
 
 runtime-depends:
 - components/expat.bst

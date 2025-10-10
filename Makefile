@@ -100,8 +100,8 @@ OVMF_CODE=$(VM_CHECKOUT_ROOT)/ovmf/usr/share/ovmf/OVMF_CODE.fd
 endif
 
 $(OVMF_VARS_TEMPLATE) $(OVMF_CODE):
-	$(BST) build components/ovmf.bst
-	$(BST) artifact checkout components/ovmf.bst --directory $(VM_CHECKOUT_ROOT)/ovmf
+	$(BST) build components/_private/ovmf.bst
+	$(BST) artifact checkout components/_private/ovmf.bst --directory $(VM_CHECKOUT_ROOT)/ovmf
 
 $(OVMF_VARS): $(OVMF_VARS_TEMPLATE)
 	cp "$<" "$@"
@@ -246,8 +246,8 @@ markdown-manifest: manifest
 url-manifest:
 	python3 utils/url_manifest.py release-url-manifest/url-manifest-no-mirrors.json \
 	  flatpak-release-repo.bst components.bst \
-	  components/rust-stage1-x86_64.bst components/rust-stage1-i686.bst components/rust-stage1-aarch64.bst \
-	  components/rust-stage1-powerpc64le.bst \
+	  components/_private/rust-stage1-x86_64.bst components/_private/rust-stage1-i686.bst components/_private/rust-stage1-aarch64.bst \
+	  components/_private/rust-stage1-powerpc64le.bst \
 	  oci/layers/flatpak.bst oci/layers/debug.bst oci/layers/platform.bst oci/layers/sdk.bst
 
 test-apps: export XDG_DATA_HOME=$(CURDIR)/runtime

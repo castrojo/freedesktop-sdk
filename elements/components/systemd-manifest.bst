@@ -1,4 +1,4 @@
 kind: collect_manifest
 
 build-depends:
-- components/systemd-base.bst
+- components/_private/systemd-base.bst

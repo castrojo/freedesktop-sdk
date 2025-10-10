@@ -1,5 +1,5 @@
 kind: stack
 
 depends:
-- components/gobject-introspection-base.bst
+- components/_private/gobject-introspection-base.bst
 - components/glib.bst

@@ -4,7 +4,7 @@ kind: meson
 - elements/include/freetype.yml
 
 build-depends:
-- components/freetype-stage1.bst
+- components/_private/freetype-stage1.bst
 - public-stacks/buildsystem-meson.bst
 
 depends:

@@ -1,7 +1,7 @@
 kind: filter
 
 build-depends:
-- components/lvm2-base.bst
+- components/_private/lvm2-base.bst
 
 runtime-depends:
 - components/libaio.bst

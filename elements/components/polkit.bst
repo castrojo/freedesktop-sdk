@@ -1,7 +1,7 @@
 kind: filter
 
 build-depends:
-- components/polkit-base.bst
+- components/_private/polkit-base.bst
 
 runtime-depends:
 - components/polkit-gobject.bst

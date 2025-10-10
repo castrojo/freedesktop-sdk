@@ -8,7 +8,7 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/cracklib.bst
 - components/gzip.bst
-- components/linux-pam-base.bst
+- components/_private/linux-pam-base.bst
 
 variables:
   # Python package built as part of project does not support

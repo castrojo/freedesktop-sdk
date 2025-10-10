@@ -4,7 +4,7 @@ kind: cmake
 - elements/include/llvm.yml
 
 build-depends:
-- components/cmake-stage1.bst
+- components/_private/cmake-stage1.bst
 - components/gcc.bst
 - components/gettext.bst
 - components/ninja.bst

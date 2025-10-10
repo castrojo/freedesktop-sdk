@@ -31,7 +31,7 @@ build-depends:
 - components/pyelftools.bst
 - components/libxslt.bst
 - components/docbook-xsl.bst
-- components/cryptsetup-lvm2-stage1.bst
+- components/_private/cryptsetup-lvm2-stage1.bst
 - components/p11-kit.bst
 - components/libfido2.bst
 - components/libidn2.bst

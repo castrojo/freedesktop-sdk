@@ -1,7 +1,7 @@
 kind: filter
 
 build-depends:
-- components/util-linux-base.bst
+- components/_private/util-linux-base.bst
 
 runtime-depends:
 - components/util-linux.bst

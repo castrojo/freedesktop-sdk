@@ -2,7 +2,7 @@ kind: cmake
 
 build-depends:
 - components/bison.bst
-- components/cmake-vendored.bst
+- components/_private/cmake-vendored.bst
 - components/flex.bst
 - components/gcc.bst
 - components/gettext.bst

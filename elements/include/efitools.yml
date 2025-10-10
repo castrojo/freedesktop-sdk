@@ -1,6 +1,6 @@
 build-depends:
 - public-stacks/buildsystem-make.bst
-- components/gnu-efi.bst
+- components/_private/gnu-efi.bst
 - components/help2man.bst
 - components/perl-slurp.bst
 
@@ -17,7 +17,7 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/openssl.bst
-- components/sbsigntools.bst
+- components/_private/sbsigntools.bst
 
 variables:
   fdsdk-keys-uuid: 3eaca6a1-86fa-4580-9487-cccae358e9e4

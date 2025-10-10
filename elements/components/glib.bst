@@ -6,8 +6,8 @@ description: Glib
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/gobject-introspection-base.bst
-- components/glib-stage1.bst
+- components/_private/gobject-introspection-base.bst
+- components/_private/glib-stage1.bst
 - components/python3-gi-docgen.bst
 
 depends:

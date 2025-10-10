@@ -2,7 +2,7 @@ kind: cmake
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
-- components/systemd-stage1.bst # Depends on udev
+- components/_private/systemd-stage1.bst # Depends on udev
 
 depends:
 - components/libcbor.bst

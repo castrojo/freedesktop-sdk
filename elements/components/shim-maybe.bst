@@ -3,4 +3,4 @@ kind: stack
 (?):
 - target_arch in ("x86_64", "aarch64"):
     depends:
-    - components/shim.bst
+    - components/_private/shim.bst

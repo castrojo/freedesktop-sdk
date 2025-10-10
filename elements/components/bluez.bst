@@ -1,7 +1,7 @@
 kind: filter
 
 build-depends:
-- components/bluez-base.bst
+- components/_private/bluez-base.bst
 
 runtime-depends:
 - public-stacks/runtime-minimal.bst

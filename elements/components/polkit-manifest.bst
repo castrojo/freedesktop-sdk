@@ -1,4 +1,4 @@
 kind: collect_manifest
 
 build-depends:
-- components/polkit-base.bst
+- components/_private/polkit-base.bst

@@ -1,7 +1,7 @@
 kind: filter
 
 build-depends:
-- components/gcc-base.bst
+- components/_private/gcc-base.bst
 
 runtime-depends:
 - components/gcc-manifest.bst

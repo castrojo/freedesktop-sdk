@@ -1,7 +1,7 @@
 kind: filter
 
 build-depends:
-- components/geoclue-base.bst
+- components/_private/geoclue-base.bst
 
 runtime-depends:
 - components/geoclue-libs.bst

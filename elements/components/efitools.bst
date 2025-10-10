@@ -1,5 +1,5 @@
 kind: stack
 
 depends:
-- components/efitools-bin.bst
+- components/_private/efitools-bin.bst
 - components/efitools-efi.bst

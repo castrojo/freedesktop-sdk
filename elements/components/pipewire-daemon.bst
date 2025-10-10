@@ -1,7 +1,7 @@
 kind: filter
 
 build-depends:
-- components/pipewire-base.bst
+- components/_private/pipewire-base.bst
 
 runtime-depends:
 - components/avahi.bst

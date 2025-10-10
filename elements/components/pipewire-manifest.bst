@@ -1,4 +1,4 @@
 kind: collect_manifest
 
 build-depends:
-- components/pipewire-base.bst
+- components/_private/pipewire-base.bst
