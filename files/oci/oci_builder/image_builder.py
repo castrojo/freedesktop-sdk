@@ -44,9 +44,7 @@ def get_gzip_opts():
     return {"mtime": int(epoch)}
 
 
-def extract_oci_image_info(
-    path, index, global_conf, os_value, new_layer, legacy_parent, config
-):
+def extract_oci_image_info(path, index, global_conf, new_layer):
     with open(os.path.join(path, "index.json"), "r", encoding="utf-8") as index_file:
         indexed_manifest = json.load(index_file)
     image_desc = indexed_manifest["manifests"][index]
@@ -70,17 +68,7 @@ def extract_oci_image_info(
         _, diff_id = diff_ids[i].split(":", 1)
         algo, digest = layer["digest"].split(":", 1)
         origfile = os.path.join(path, "blobs", algo, digest)
-        if not new_layer and i + 1 == len(image_manifest["layers"]):
-            # The case were we do not add a layer,
-            # the last imported layer has to be fully reconfigured
-            legacy_config = {}
-            legacy_config.update(config)
-            if legacy_parent:
-                legacy_config["parent"] = legacy_parent
-        else:
-            legacy_config = {"os": os_value}
-            if legacy_parent:
-                legacy_config["parent"] = legacy_parent
+        if new_layer or i + 1 != len(image_manifest["layers"]):
             if global_conf.compression == Compression.gzip:
                 output_blob = Blob(
                     global_conf,
@@ -88,9 +76,7 @@ def extract_oci_image_info(
                 )
             else:
                 output_blob = Blob(
-                    global_conf,
-                    media_type="application/vnd.oci.image.layer.v1.tar",
-                    legacy_config=legacy_config,
+                    global_conf, media_type="application/vnd.oci.image.layer.v1.tar"
                 )
             with ExitStack() as stack:
                 outp = stack.enter_context(output_blob.create())
@@ -118,14 +104,12 @@ def extract_oci_image_info(
 
             layer_descs.append(output_blob.descriptor)
             layer_files.append(output_blob.filename)
-            legacy_parent = output_blob.legacy_id
 
-    return layer_descs, layer_files, diff_ids, history, legacy_parent
+    return layer_descs, layer_files, diff_ids, history
 
 
-def build_layer(upper, lowers, legacy_config, global_conf):
+def build_layer(upper, lowers, global_conf):
     new_layer_descs = []
-    new_legacy_parent = None
 
     with ExitStack() as stack:
         # By default tempfile will place it in /tmp, but since its an image we should
@@ -164,18 +148,15 @@ def build_layer(upper, lowers, legacy_config, global_conf):
             new_layer_descs.append(targz_blob.descriptor)
         else:
             copied_blob = Blob(
-                global_conf,
-                media_type="application/vnd.oci.image.layer.v1.tar",
-                legacy_config=legacy_config,
+                global_conf, media_type="application/vnd.oci.image.layer.v1.tar"
             )
             with copied_blob.create() as copiedfile:
                 shutil.copyfileobj(tfile, copiedfile)
             new_layer_descs.append(copied_blob.descriptor)
-            new_legacy_parent = copied_blob.legacy_id
 
         new_diff_ids = [f"sha256:{tar_hash.hexdigest()}"]
 
-    return new_layer_descs, new_legacy_parent, new_diff_ids
+    return new_layer_descs, new_diff_ids
 
 
 def build_image(global_conf, image):
@@ -183,7 +164,6 @@ def build_image(global_conf, image):
     layer_files = []
     diff_ids = []
     history = None
-    legacy_parent = None
 
     config = {
         "created": time.strftime(
@@ -201,31 +181,16 @@ def build_image(global_conf, image):
 
     if "parent" in image:
         parent = image["parent"]
-        layer_descs, layer_files, diff_ids, history, legacy_parent = (
-            extract_oci_image_info(
-                parent["image"],
-                parent.get("index", 0),
-                global_conf,
-                image["os"],
-                "layer" in image,
-                legacy_parent,
-                config,
-            )
+        layer_descs, layer_files, diff_ids, history = extract_oci_image_info(
+            parent["image"], parent.get("index", 0), global_conf, "layer" in image
         )
 
-    legacy_config = {}
-    legacy_config.update(config)
-    if legacy_parent:
-        legacy_config["parent"] = legacy_parent
-
     if "layer" in image:
-        new_layer_descs, new_legacy_parent, new_diff_ids = build_layer(
-            image["layer"], layer_files, legacy_config, global_conf
+        new_layer_descs, new_diff_ids = build_layer(
+            image["layer"], layer_files, global_conf
         )
         layer_descs.extend(new_layer_descs)
         diff_ids.extend(new_diff_ids)
-        if new_legacy_parent is not None:
-            legacy_parent = new_legacy_parent
 
     if not history:
         history = []
@@ -268,17 +233,15 @@ def build_image(global_conf, image):
     if "index-annotations" in image:
         manifest_blob.descriptor["annotations"] = image["index-annotations"]
 
-    return manifest_blob.descriptor, {}
+    return manifest_blob.descriptor
 
 
 def build_images(global_conf, images, annotations):
     manifests = []
-    legacy_repositories = {}
 
     for image in images:
-        manifest, legacy_repositories_part = build_image(global_conf, image)
+        manifest = build_image(global_conf, image)
         manifests.append(manifest)
-        legacy_repositories.update(legacy_repositories_part)
 
     index = {"schemaVersion": 2}
     index["manifests"] = manifests
