@@ -17,7 +17,9 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+import dataclasses
 import enum
+import functools
 import gzip
 import hashlib
 import json
@@ -27,14 +29,18 @@ import tarfile
 import tempfile
 import time
 from contextlib import ExitStack
+from typing import Optional
 
 from .blob import Blob
 from .layer_builder import create_layer
 
 
-class Compression(enum.StrEnum):
-    gzip = enum.auto()
-    disabled = enum.auto()
+@dataclasses.dataclass(frozen=True)
+class CompressionInfo:
+    mime: str
+    tar_flags: str
+    default_level: int | None
+    wrap: callable | None
 
 
 def get_gzip_opts():
@@ -44,7 +50,38 @@ def get_gzip_opts():
     return {"mtime": int(epoch)}
 
 
-def extract_oci_image_info(path, index, global_conf):
+class LayerCompression(CompressionInfo, enum.Enum):
+    gzip = (
+        "application/vnd.oci.image.layer.v1.tar+gzip",
+        "r:gz",
+        5,
+        functools.partial(gzip.GzipFile, **get_gzip_opts()),
+    )
+    no_compression = ("application/vnd.oci.image.layer.v1.tar", "r:", None, None)
+
+    @classmethod
+    def from_mime(cls, mime: str) -> "LayerCompression":
+        for member in cls:
+            if member.mime == mime:
+                return member
+        raise ValueError(f"Unknown layer mime type: {mime}")
+
+    @classmethod
+    def from_key(cls, key: str) -> "LayerCompression":
+        try:
+            return cls[key]
+        except KeyError as e:
+            raise ValueError(f"Unknown compression key: {key}") from e
+
+
+@dataclasses.dataclass
+class GlobalConfig:
+    compression: LayerCompression
+    compression_level: Optional[int]
+    output: str
+
+
+def extract_oci_image_info(path: str, index: int, global_conf: GlobalConfig):
     with open(os.path.join(path, "index.json"), "r", encoding="utf-8") as index_file:
         indexed_manifest = json.load(index_file)
     image_desc = indexed_manifest["manifests"][index]
@@ -68,37 +105,22 @@ def extract_oci_image_info(path, index, global_conf):
         _, diff_id = diff_ids[i].split(":", 1)
         algo, digest = layer["digest"].split(":", 1)
         origfile = os.path.join(path, "blobs", algo, digest)
-        if global_conf.compression == Compression.gzip:
-            output_blob = Blob(
-                global_conf, media_type="application/vnd.oci.image.layer.v1.tar+gzip"
-            )
-        else:
-            output_blob = Blob(
-                global_conf, media_type="application/vnd.oci.image.layer.v1.tar"
-            )
+        output_blob = Blob(global_conf, media_type=global_conf.compression.mime)
+        layer_compression = LayerCompression.from_mime(layer["mediaType"])
         with ExitStack() as stack:
             outp = stack.enter_context(output_blob.create())
             inp = stack.enter_context(open(origfile, "rb"))
-            if layer["mediaType"].endswith("+gzip"):
-                if global_conf.compression == Compression.gzip:
-                    shutil.copyfileobj(inp, outp)
-                else:
-                    gzfile = stack.enter_context(gzip.open(filename=inp, mode="rb"))
-                    shutil.copyfileobj(gzfile, outp)
-            else:
-                if global_conf.compression == Compression.gzip:
-                    gzfile = stack.enter_context(
-                        gzip.GzipFile(
-                            filename=diff_id,
-                            fileobj=outp,
-                            mode="wb",
-                            compresslevel=global_conf.compression_level,
-                            **get_gzip_opts(),
-                        )
+            if layer_compression != global_conf.compression:
+                if layer_compression.wrap is not None:
+                    inp = layer_compression.wrap(filename=inp, mode="rb")
+                if global_conf.compression.wrap is not None:
+                    outp = global_conf.compression.wrap(
+                        filename=diff_id,
+                        mode="wb",
+                        compresslevel=global_conf.compression_level,
+                        **get_gzip_opts(),
                     )
-                    shutil.copyfileobj(inp, gzfile)
-                else:
-                    shutil.copyfileobj(inp, outp)
+            shutil.copyfileobj(inp, outp)
 
         layer_descs.append(output_blob.descriptor)
         layer_files.append(output_blob.filename)
@@ -106,7 +128,7 @@ def extract_oci_image_info(path, index, global_conf):
     return layer_descs, layer_files, diff_ids, history
 
 
-def build_layer(upper, lowers, global_conf):
+def build_layer(upper, lowers: list[dict[str, str]], global_conf: GlobalConfig):
     new_layer_descs = []
 
     with ExitStack() as stack:
@@ -116,8 +138,9 @@ def build_layer(upper, lowers, global_conf):
         tfile = stack.enter_context(tempfile.TemporaryFile(mode="w+b", dir="/var/tmp"))
         tar = stack.enter_context(tarfile.open(fileobj=tfile, mode="w:"))
         lower_tars = []
-        read_mode = "r:gz" if global_conf.compression == Compression.gzip else "r:"
         for lower in lowers:
+            layer_compression = LayerCompression.from_mime(lower["mediaType"])
+            read_mode = layer_compression.tar_flags
             lower_tars.append(
                 stack.enter_context(tarfile.open(name=lower, mode=read_mode))
             )
@@ -130,27 +153,18 @@ def build_layer(upper, lowers, global_conf):
                 break
             tar_hash.update(data)
         tfile.seek(0)
-        if global_conf.compression == Compression.gzip:
-            targz_blob = Blob(
-                global_conf, media_type="application/vnd.oci.image.layer.v1.tar+gzip"
-            )
-            with targz_blob.create() as gzipfile:
-                with gzip.GzipFile(
-                    filename=tar_hash.hexdigest(),
-                    fileobj=gzipfile,
-                    mode="wb",
-                    compresslevel=global_conf.compression_level,
-                    **get_gzip_opts(),
-                ) as gzip_file:
-                    shutil.copyfileobj(tfile, gzip_file)
-            new_layer_descs.append(targz_blob.descriptor)
-        else:
-            copied_blob = Blob(
-                global_conf, media_type="application/vnd.oci.image.layer.v1.tar"
-            )
-            with copied_blob.create() as copiedfile:
+        blob = Blob(global_conf, media_type=global_conf.compression.mime)
+        if global_conf.compression == LayerCompression.no_compression:
+            with blob.create() as copiedfile:
                 shutil.copyfileobj(tfile, copiedfile)
-            new_layer_descs.append(copied_blob.descriptor)
+            new_layer_descs.append(blob.descriptor)
+        else:
+            with blob.create() as gzipfile:
+                with global_conf.compression.wrap(
+                    filename=tar_hash.hexdigest(), fileobj=gzipfile, mode="wb"
+                ) as compressed_file:
+                    shutil.copyfileobj(tfile, compressed_file)
+            new_layer_descs.append(blob.descriptor)
 
         new_diff_ids = [f"sha256:{tar_hash.hexdigest()}"]
 
