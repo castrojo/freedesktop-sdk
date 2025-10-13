@@ -9,7 +9,7 @@ variables:
 config:
   install-commands:
   - |
-    install -Dpm 644 fonts/NotoColorEmoji.ttf "%{install-root}%{datadir}/fonts/noto-emoji"
+    install -Dpm 644 fonts/NotoColorEmoji.ttf "%{install-root}%{datadir}/fonts/noto-emoji/NotoColorEmoji.ttf"
 
   - |
     %{install-extra}
