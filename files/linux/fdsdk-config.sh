@@ -1487,6 +1487,14 @@ module USB_VL600
 # Parallel ports
 module PARPORT
 
+# Serial
+if has SERIAL_8250; then
+    if has PCMCIA; then
+        module SERIAL_8250_CS
+    fi
+    module SERIAL_8250_DW
+fi
+
 # USB Serial
 enable USB_SERIAL
 module USB_SERIAL_SIMPLE
