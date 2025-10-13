@@ -61,4 +61,4 @@ sources:
 - kind: git_repo
   url: github:openssh/openssh-portable.git
   track: V_*
-  ref: V_10_1_P1-0-g1dfb2c1db06d7c5831a0315692f7e51f5ac03e2f
+  ref: V_10_2_P1-0-gd01efaa1c9ed84fd9011201dbc3c7cb0a82bcee3
