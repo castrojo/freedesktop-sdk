@@ -38,4 +38,4 @@ sources:
   url: freedesktop:mesa/drm.git
   # On release branches, we need to lock it to a specific version.
   track: libdrm-*
-  ref: libdrm-2.4.126-0-g22d70b6a8fb0e7a4255203a84bb4549d93314fcc
+  ref: libdrm-2.4.127-0-gf7013effc3a2055f967c99d1858d48aad2751e2d
