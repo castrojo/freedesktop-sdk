@@ -19,4 +19,4 @@ sources:
 - kind: git_repo
   url: github:pypa/virtualenv.git
   track: '*.*.*'
-  ref: 20.35.2-0-g02607a1eb146bf8a74f4d90ae4072d0e5d7bad66
+  ref: 20.35.3-0-g8a1160e2bab063f6d6ab6295052cece8dd805cba
