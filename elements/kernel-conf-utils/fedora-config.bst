@@ -41,6 +41,7 @@ config:
 sources:
 - kind: git_repo
   url: gitlab:cki-project/kernel-ark.git
+  ref-format: sha1
   # It's intended to not have a pinned ref, as this module is only
   # for local utility and you are expected to track every time you
   # need to use it.
