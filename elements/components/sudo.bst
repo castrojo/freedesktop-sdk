@@ -6,7 +6,7 @@ build-depends:
 - components/perl.bst
 
 depends:
-- components/_private/linux-pam-base.bst
+- components/linux-pam-base.bst
 - public-stacks/runtime-minimal.bst
 
 config:

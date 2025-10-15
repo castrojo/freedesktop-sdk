@@ -4,7 +4,7 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 runtime-depends:
-- components/_private/linux-pam-base.bst
+- components/linux-pam-base.bst
 - components/pwquality.bst
 
 variables:

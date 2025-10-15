@@ -14,7 +14,7 @@ depends:
 - components/_private/dbus-base.bst
 - components/_private/flex-base.bst
 - components/gstreamer-plugins-base.bst
-- components/_private/linux-pam-base.bst
+- components/linux-pam-base.bst
 - components/_private/pipewire-base.bst
 - components/_private/systemd-base.bst
 - components/_private/xdg-desktop-portal-base.bst

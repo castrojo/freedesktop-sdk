@@ -5,7 +5,7 @@ build-depends:
 
 runtime-depends:
 - components/libapparmor.bst
-- components/_private/linux-pam-base.bst
+- components/linux-pam-base.bst
 
 config:
   exclude:

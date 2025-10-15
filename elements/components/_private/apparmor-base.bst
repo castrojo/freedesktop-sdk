@@ -6,7 +6,7 @@ build-depends:
 - components/flex.bst
 - components/python3.bst
 - components/python3-setuptools.bst
-- components/_private/linux-pam-base.bst
+- components/linux-pam-base.bst
 - components/swig.bst
 
 variables:
