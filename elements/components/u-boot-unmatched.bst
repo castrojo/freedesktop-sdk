@@ -52,7 +52,7 @@ sources:
   track: v*
   exclude:
   - "*-rc*"
-  ref: v2025.07-0-ge37de002fac3895e8d0b60ae2015e17bb33e2b5b
+  ref: v2025.10-0-ge50b1e8715011def8aff1588081a2649a2c6cd47
 - kind: patch
   # This patch is a hack for vm/firmware/bootloader-unmatched.bst
   # The DTB from U-Boot is not in sync with the one from the kernel
