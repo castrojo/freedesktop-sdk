@@ -318,9 +318,13 @@ if __name__ == "__main__":
             }
 
     vuln_map = {}
-    database_files = sorted(
-        glob.glob(os.path.join(args.db_path, f"nvdcve-{args.feed_version}-*.json.gz"))
-    )
+
+    db_file_pat = f"nvdcve-{args.feed_version}-*.json.gz"
+    database_files = sorted(glob.glob(os.path.join(args.db_path, db_file_pat)))
+    if not database_files:
+        raise SystemExit(
+            f"No CVE database files matching '{db_file_pat}' found in '{args.db_path}'"
+        )
 
     for filename in database_files:
         for (
@@ -345,9 +349,7 @@ if __name__ == "__main__":
     entries.sort(key=by_score, reverse=True)
 
     with open(args.output, "w", encoding="utf-8") as out:
-        if not database_files:
-            out.write("No CVE database files found\n")
-        elif database_files and not entries:
+        if not entries:
             out.write("No CVE data affecting any element found\n")
         else:
             out.write(
