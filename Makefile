@@ -192,7 +192,7 @@ check-rpath:
 check-static-libraries:
 	$(BST) build tests/check-static-libraries.bst
 
-generate-cve-report: manifest
+generate-cve-report: $(if $(filter 1,$(REUSE_MANIFESTS)),,manifest)
 	$(BST) build utils/generate-cve-report.bst
 
 	[ -d "nvd-cve-database" ] || ( \
@@ -219,7 +219,11 @@ generate-cve-report: manifest
 
 	rm -rvf cve-reports
 	mv -v cve/cve-reports .
-	rm -rf cve sdk-manifest platform-manifest components-manifest
+	rm -rf cve
+
+ifneq ($(REUSE_MANIFESTS),1)
+	rm -rf sdk-manifest platform-manifest components-manifest
+endif
 
 ifneq ($(REUSE_CVE_DB),1)
 	rm -rf nvd-cve-database
