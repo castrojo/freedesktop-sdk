@@ -210,15 +210,15 @@ generate-cve-report: manifest
 
 	cp -r nvd-cve-database/nvd-cve-database/*.json.gz cve/
 
-	$(BST) shell utils/generate-cve-report.bst --mount /etc/resolv.conf /etc/resolv.conf	\
+	$(BST) shell utils/generate-cve-report.bst \
 		--mount ./cve/ /buildstream-build						\
 		-- generate_cve_report --feed-version 2.0 /buildstream-build/sdk-manifest/usr/manifest.json	\
 		/buildstream-build/cve-reports/sdk.md.html
-	$(BST) shell utils/generate-cve-report.bst --mount /etc/resolv.conf /etc/resolv.conf	\
+	$(BST) shell utils/generate-cve-report.bst \
 		--mount ./cve/ /buildstream-build						\
 		-- generate_cve_report --feed-version 2.0 /buildstream-build/platform-manifest/usr/manifest.json	\
 		/buildstream-build/cve-reports/platform.md.html
-	$(BST) shell utils/generate-cve-report.bst --mount /etc/resolv.conf /etc/resolv.conf	\
+	$(BST) shell utils/generate-cve-report.bst \
 		--mount ./cve/ /buildstream-build						\
 		-- generate_cve_report --feed-version 2.0 /buildstream-build/components-manifest/usr/manifest.json	\
 		/buildstream-build/cve-reports/components.md.html
