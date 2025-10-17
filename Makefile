@@ -226,7 +226,10 @@ generate-cve-report: manifest
 	rm -rvf cve-reports
 	mv -v cve/cve-reports .
 	find cve -mindepth 1 ! -name 'nvdcve-*.json.gz' -exec rm -rvf {} +
+
+ifneq ($(REUSE_CVE_DB),1)
 	rm -rf nvd-cve-database
+endif
 
 manifest:
 	rm -rf sdk-manifest/
