@@ -80,11 +80,11 @@ config:
     rpath = false
     lto = "off"
     lld = false
-    default-linker = "/usr/bin/gcc"
+    default-linker = "/usr/bin/clang"
     [target.%{rust-target}]
     cc = "/usr/bin/%{host-triplet}-gcc"
     cxx = "/usr/bin/%{host-triplet}-g++"
-    linker = "/usr/bin/%{host-triplet}-gcc"
+    linker = "/usr/bin/clang"
     ar = "/usr/bin/%{host-triplet}-gcc-ar"
     llvm-config = "/usr/bin/llvm-config"
     EOF
