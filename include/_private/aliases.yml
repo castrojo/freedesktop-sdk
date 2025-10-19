@@ -43,7 +43,7 @@ git_https: https://
 #File Aliases (Single file sources, zip files, tar files, etc.)
 #(github_files is an alias for the same url as github, but doesn't use the same mirror)
 cpan: https://cpan.metacpan.org/
-ftp_gnu_org: https://ftp.gnu.org/gnu/
+ftp_gnu_org: https://ftpmirror.gnu.org/gnu/
 github_files: https://github.com/
 oasis_open_xml: https://www.oasis-open.org/docbook/xml/
 pagure_releases: https://releases.pagure.org/
