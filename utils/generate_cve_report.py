@@ -268,7 +268,17 @@ if __name__ == "__main__":
         default="2.0",
         help="CVE feed version to process (default: 2.0)",
     )
+    parser.add_argument(
+        "--db-path",
+        default=".",
+        help="Path to directory containing CVE database files (default: current directory)",
+    )
     args = parser.parse_args()
+
+    if not os.path.isdir(args.db_path):
+        raise SystemExit(
+            f"CVE database path '{args.db_path}' is non-existent or not a directory"
+        )
 
     with open(args.manifest, "rb") as f:
         manifest = json.load(f)
@@ -308,7 +318,14 @@ if __name__ == "__main__":
             }
 
     vuln_map = {}
-    database_files = sorted(glob.glob(f"nvdcve-{args.feed_version}-*.json.gz"))
+
+    db_file_pat = f"nvdcve-{args.feed_version}-*.json.gz"
+    database_files = sorted(glob.glob(os.path.join(args.db_path, db_file_pat)))
+    if not database_files:
+        raise SystemExit(
+            f"No CVE database files matching '{db_file_pat}' found in '{args.db_path}'"
+        )
+
     for filename in database_files:
         for (
             cve_id,
@@ -332,9 +349,7 @@ if __name__ == "__main__":
     entries.sort(key=by_score, reverse=True)
 
     with open(args.output, "w", encoding="utf-8") as out:
-        if not database_files:
-            out.write("No CVE database files found\n")
-        elif database_files and not entries:
+        if not entries:
             out.write("No CVE data affecting any element found\n")
         else:
             out.write(

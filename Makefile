@@ -192,7 +192,7 @@ check-rpath:
 check-static-libraries:
 	$(BST) build tests/check-static-libraries.bst
 
-generate-cve-report: manifest
+generate-cve-report: $(if $(filter 1,$(REUSE_MANIFESTS)),,manifest)
 	$(BST) build utils/generate-cve-report.bst
 
 	[ -d "nvd-cve-database" ] || ( \
@@ -202,31 +202,32 @@ generate-cve-report: manifest
 		rm -rf ".git" \
 	)
 
-	mkdir -p cve && cd cve &&	\
-	mkdir -p cve-reports && 	\
-	cp -r ../sdk-manifest . &&	\
-	cp -r ../platform-manifest . && \
-	cp -r ../components-manifest .
+	mkdir -p cve/cve-reports
+
+	$(foreach name,sdk platform components, \
+		cp -vf $(name)-manifest/usr/manifest.json cve/$(name)-manifest.json;)
 
 	cp -r nvd-cve-database/nvd-cve-database/*.json.gz cve/
 
-	$(BST) shell utils/generate-cve-report.bst --mount /etc/resolv.conf /etc/resolv.conf	\
-		--mount ./cve/ /buildstream-build						\
-		-- generate_cve_report --feed-version 2.0 /buildstream-build/sdk-manifest/usr/manifest.json	\
-		/buildstream-build/cve-reports/sdk.md.html
-	$(BST) shell utils/generate-cve-report.bst --mount /etc/resolv.conf /etc/resolv.conf	\
-		--mount ./cve/ /buildstream-build						\
-		-- generate_cve_report --feed-version 2.0 /buildstream-build/platform-manifest/usr/manifest.json	\
-		/buildstream-build/cve-reports/platform.md.html
-	$(BST) shell utils/generate-cve-report.bst --mount /etc/resolv.conf /etc/resolv.conf	\
-		--mount ./cve/ /buildstream-build						\
-		-- generate_cve_report --feed-version 2.0 /buildstream-build/components-manifest/usr/manifest.json	\
-		/buildstream-build/cve-reports/components.md.html
+	$(BST) shell utils/generate-cve-report.bst \
+		--mount ./cve/ /buildstream-build \
+		-- sh -c '\
+			generate_cve_report --feed-version 2.0 /buildstream-build/sdk-manifest.json /buildstream-build/cve-reports/sdk.md.html && \
+			generate_cve_report --feed-version 2.0 /buildstream-build/platform-manifest.json /buildstream-build/cve-reports/platform.md.html && \
+			generate_cve_report --feed-version 2.0 /buildstream-build/components-manifest.json /buildstream-build/cve-reports/components.md.html \
+		'
 
 	rm -rvf cve-reports
 	mv -v cve/cve-reports .
-	find cve -mindepth 1 ! -name 'nvdcve-*.json.gz' -exec rm -rvf {} +
+	rm -rf cve
+
+ifneq ($(REUSE_MANIFESTS),1)
+	rm -rf sdk-manifest platform-manifest components-manifest
+endif
+
+ifneq ($(REUSE_CVE_DB),1)
 	rm -rf nvd-cve-database
+endif
 
 manifest:
 	rm -rf sdk-manifest/
