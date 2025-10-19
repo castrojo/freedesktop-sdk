@@ -1,0 +1,48 @@
+From f1f248d5caac6fe9b4297827ef44a3ad445f4132 Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Sun, 19 Oct 2025 20:06:33 +0530
+Subject: [PATCH] Drop pybind11
+
+This is only used for parallel compilation of the C extension but
+pybind11 depends on a bunch of things like boost, scikit etc. which
+makes it annoying to package, so drop this.
+---
+ pyproject.toml | 1 -
+ setup.py       | 2 --
+ 2 files changed, 3 deletions(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 0006ccd12..3f49d886b 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,7 +1,6 @@
+ [build-system]
+ build-backend = "backend"
+ requires = [
+-  "pybind11",
+   "setuptools>=77",
+ ]
+ backend-path = [
+diff --git a/setup.py b/setup.py
+index 3a72a0742..7c2ff7f9f 100644
+--- a/setup.py
++++ b/setup.py
+@@ -17,7 +17,6 @@ import sys
+ import warnings
+ from collections.abc import Iterator
+ 
+-from pybind11.setup_helpers import ParallelCompile
+ from setuptools import Extension, setup
+ from setuptools.command.build_ext import build_ext
+ 
+@@ -33,7 +32,6 @@ while sys.argv[-1].startswith("--pillow-configuration="):
+     configuration.setdefault(key, []).append(value)
+ 
+ default = int(configuration.get("parallel", ["0"])[-1])
+-ParallelCompile("MAX_CONCURRENCY", default).install()
+ 
+ 
+ def get_version() -> str:
+-- 
+2.51.0
+
