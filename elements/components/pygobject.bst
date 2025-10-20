@@ -17,4 +17,4 @@ sources:
 - kind: git_repo
   url: gnome:pygobject.git
   track: '3.50.*'
-  ref: 3.50.1-0-gf40a614068c9912fbf22fae62a7d3eb640549113
+  ref: 3.50.2-0-gad3de74ee96f21102475297779a44965d3333a06
