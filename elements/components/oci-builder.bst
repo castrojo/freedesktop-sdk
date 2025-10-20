@@ -1,11 +1,16 @@
 kind: pyproject
 
 build-depends:
-- public-stacks/buildsystem-python-setuptools.bst
+- components/python3-build.bst
+- components/python3-installer.bst
+- components/python3-setuptools.bst
 
 depends:
 - components/python3-pyyaml.bst
 - components/fakecap.bst
+
+variables:
+  strip-binaries: ''
 
 sources:
 - kind: local

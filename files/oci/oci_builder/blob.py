@@ -26,16 +26,12 @@ from contextlib import contextmanager
 
 
 class Blob:
-    def __init__(self, global_conf, media_type=None, text=False, legacy_config=None):
+    def __init__(self, global_conf, media_type=None, text=False):
         self.global_conf = global_conf
         self.descriptor = None
         self.media_type = media_type
         self.text = text
         self.filename = None
-        self.legacy_config = {}
-        if legacy_config:
-            self.legacy_config.update(legacy_config)
-        self.legacy_id = None
 
     @contextmanager
     def create(self):
