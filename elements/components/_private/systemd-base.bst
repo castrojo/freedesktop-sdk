@@ -120,6 +120,7 @@ variables:
     -Dkernel-install=true
     -Dvmlinux-h=provided
     -Dvmlinux-h-path='%{includedir}/%{gcc_triplet}/linux/vmlinux.h'
+    -Dselinux=disabled
 
 public:
   cpe:
