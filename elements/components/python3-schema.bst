@@ -13,4 +13,4 @@ sources:
 - kind: git_repo
   url: github:keleshev/schema.git
   track: v*
-  ref: v0.7.7-0-g9cabb8d060b630482c2b7a965f4cb9f8be8bc9b8
+  ref: v0.7.8-0-g7434a6b3c9cd1672f0d491ed45114054750627af
