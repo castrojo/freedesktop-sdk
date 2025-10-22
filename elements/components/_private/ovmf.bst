@@ -81,6 +81,10 @@ config:
     cp -vf StackCookieValues*.json "%{build-root}/%{build-dir}"
 
   - |
+    sed -i 's/\r$//' UefiCpuPkg/Library/CpuExceptionHandlerLib/X64/ExceptionHandlerAsm.nasm
+    patch -p1 -i nasm_3.patch
+
+  - |
     . ./edksetup.sh
     make -C BaseTools/Source/C -j${JOBS}
     build %{build-args}
@@ -152,3 +156,5 @@ sources:
   ref: 370b5944c046bab043dd8b133727b2135af7747a
 - kind: local
   path: files/ovmf
+- kind: local
+  path: patches/ovmf/nasm_3.patch
