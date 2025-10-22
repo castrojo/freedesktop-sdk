@@ -213,9 +213,9 @@ generate-cve-report: $(if $(filter 1,$(REUSE_MANIFESTS)),,manifest)
 	$(BST) shell utils/generate-cve-report.bst \
 		--mount ./cve/ /buildstream-build \
 		-- sh -c '\
-			generate_cve_report --feed-version 2.0 /buildstream-build/sdk-manifest.json /buildstream-build/cve-reports/sdk.md.html && \
-			generate_cve_report --feed-version 2.0 /buildstream-build/platform-manifest.json /buildstream-build/cve-reports/platform.md.html && \
-			generate_cve_report --feed-version 2.0 /buildstream-build/components-manifest.json /buildstream-build/cve-reports/components.md.html \
+			generate_cve_report --db-path /buildstream-build --feed-version 2.0 /buildstream-build/sdk-manifest.json /buildstream-build/cve-reports/sdk.md.html && \
+			generate_cve_report --db-path /buildstream-build --feed-version 2.0 /buildstream-build/platform-manifest.json /buildstream-build/cve-reports/platform.md.html && \
+			generate_cve_report --db-path /buildstream-build --feed-version 2.0 /buildstream-build/components-manifest.json /buildstream-build/cve-reports/components.md.html \
 		'
 
 	rm -rvf cve-reports
