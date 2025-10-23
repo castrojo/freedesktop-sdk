@@ -40,7 +40,7 @@ sources:
   - '*.*.9[0-9]'
   - '*beta*'
   - '*rc*'
-  ref: 2.61.1-0-g7a19a9216b4d81ba48c834351ab1e75793ae80f7
+  ref: 2.61.2-0-g569c2c2b755c367f49128c66c0c890b69e41b2e0
 - kind: cargo2
   ref:
   - kind: registry
@@ -91,10 +91,6 @@ sources:
     name: anstyle-wincon
     version: 3.0.10
     sha: 3e0633414522a32ffaac8ac6cc8f748e090c5717661fddeea04219e2344f5f2a
-  - kind: registry
-    name: anyhow
-    version: 1.0.99
-    sha: b0674a1ddeecb70197781e945de4b3b8ffb61fa939a5597bcf48503737663100
   - kind: registry
     name: approx
     version: 0.5.1
@@ -633,8 +629,8 @@ sources:
     sha: 13dc2df351e3202783a1fe0d44375f7295ffb4049267b0f3018346dc122a1d94
   - kind: registry
     name: lopdf
-    version: 0.36.0
-    sha: 59fa2559e99ba0f26a12458aabc754432c805bbb8cba516c427825a997af1fb7
+    version: 0.38.0
+    sha: c7184fdea2bc3cd272a1acec4030c321a8f9875e877b3f92a53f2f6033fdc289
   - kind: registry
     name: mac
     version: 0.1.1
@@ -1155,6 +1151,10 @@ sources:
     name: toml_edit
     version: 0.22.27
     sha: 41fe8c660ae4257887cf66394862d21dbca4a6ddd26f04a3560410406a2f819a
+  - kind: registry
+    name: ttf-parser
+    version: 0.25.1
+    sha: d2df906b07856748fa3f6e0ad0cbaa047052d4a7dd609e231c4f72cee8c36f31
   - kind: registry
     name: typenum
     version: 1.18.0
