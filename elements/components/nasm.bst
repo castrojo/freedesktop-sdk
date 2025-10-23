@@ -29,4 +29,4 @@ sources:
   track: nasm-*
   exclude:
   - nasm-*rc*
-  ref: nasm-2.16.03-0-gcd37b81b320ead83ca5a6bbce5da0a6456663bc6
+  ref: nasm-3.01-0-ge9fac2faa62647bb50f1a61c26212c63c87090ae
