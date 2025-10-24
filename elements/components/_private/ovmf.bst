@@ -105,7 +105,7 @@ sources:
 - kind: git_repo
   url: github:tianocore/edk2.git
   track: edk2-stable*
-  ref: edk2-stable202508-0-gd46aa46c8361194521391aa581593e556c707c6e
+  ref: edk2-stable202508.01-0-g3d244c3b364bd4e21261380662186d064659161c
 - kind: git_module
   path: CryptoPkg/Library/OpensslLib/openssl
   url: github:openssl/openssl.git
