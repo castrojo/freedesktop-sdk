@@ -286,3 +286,7 @@ libraries as well the following services:
 * XWayland
 
 It boots directly to Weston as user.
+
+In order to have a visible window where to see your graphical session
+run `make` with `QEMU_GRAPHICS='-display gtk'`. Note that for this to
+work you'll need `qemu-ui-gtk` installed alongside QEMU.
