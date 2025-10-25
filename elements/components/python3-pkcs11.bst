@@ -13,4 +13,4 @@ sources:
 - kind: git_repo
   url: github:pyauth/python-pkcs11.git
   track: v*
-  ref: v0.9.0-0-g5a258d7027454ee01b6ef9d2c733a6543520a053
+  ref: v0.9.1-0-g22e501ea5d1d3a3c37aa59d1490ae943a282a410
