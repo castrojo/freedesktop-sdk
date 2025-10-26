@@ -35,6 +35,20 @@ variables:
     %{arch_options}
 
 config:
+  configure-commands:
+    (<):
+    - |
+      cat <<EOF >>"sshd_config"
+
+      Include %{sysconfdir}/sshd_config.d/*.conf
+      EOF
+
+    - |
+      cat <<EOF >>"ssh_config"
+
+      Include %{sysconfdir}/ssh_config.d/*.conf
+      EOF
+
   install-commands:
     (>):
     - |
