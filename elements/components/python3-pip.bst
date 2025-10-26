@@ -9,6 +9,9 @@ depends:
 runtime-depends:
 - components/python3-wheel.bst
 
+variables:
+  strip-binaries: ''
+
 sources:
 - kind: git_repo
   url: github:pypa/pip.git
