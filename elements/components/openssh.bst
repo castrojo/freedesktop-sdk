@@ -14,6 +14,7 @@ runtime-depends:
 - components/sed.bst
 
 variables:
+  sysconfdir: '/etc/ssh'
   arch_options: ''
   (?):
   # ppc64le doesn't support --fzero-call-used-regs=used flag
@@ -27,6 +28,7 @@ variables:
     --with-pam
     --with-pam-service=sshd
     --without-zlib-version-check
+    --with-pid-dir=/run
     %{arch_options}
 
 config:
