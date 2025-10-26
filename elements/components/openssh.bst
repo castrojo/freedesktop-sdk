@@ -2,6 +2,7 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- components/libfido2.bst
 - components/linux-pam.bst
 - components/openssl.bst
 
