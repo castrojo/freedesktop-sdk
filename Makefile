@@ -20,6 +20,7 @@ VM_ARTIFACT_BOOT?=vm/boot/virt.bst
 VM_ARTIFACT_IMAGE?=vm/minimal/efi.bst
 VM_MACHINE_ID?=
 RUNTIME_VERSION?=master
+QEMU_GRAPHICS?=-nographic
 
 FLATPAK_SUBJECT := $(shell git rev-parse HEAD)
 LAST_VERSION := $(shell awk '/^Version:/ {print $$2; exit}' NEWS.yml)
@@ -119,7 +120,7 @@ QEMU_COMMON_ARGS=										\
 	-m 2G											\
 	-smp 4											\
 	-object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0	\
-	-nographic
+	$(QEMU_GRAPHICS)
 
 ifdef VM_MACHINE_ID
 QEMU_COMMON_ARGS += 								\
@@ -212,9 +213,9 @@ generate-cve-report: $(if $(filter 1,$(REUSE_MANIFESTS)),,manifest)
 	$(BST) shell utils/generate-cve-report.bst \
 		--mount ./cve/ /buildstream-build \
 		-- sh -c '\
-			generate_cve_report --feed-version 2.0 /buildstream-build/sdk-manifest.json /buildstream-build/cve-reports/sdk.md.html && \
-			generate_cve_report --feed-version 2.0 /buildstream-build/platform-manifest.json /buildstream-build/cve-reports/platform.md.html && \
-			generate_cve_report --feed-version 2.0 /buildstream-build/components-manifest.json /buildstream-build/cve-reports/components.md.html \
+			generate_cve_report --db-path /buildstream-build --feed-version 2.0 /buildstream-build/sdk-manifest.json /buildstream-build/cve-reports/sdk.md.html && \
+			generate_cve_report --db-path /buildstream-build --feed-version 2.0 /buildstream-build/platform-manifest.json /buildstream-build/cve-reports/platform.md.html && \
+			generate_cve_report --db-path /buildstream-build --feed-version 2.0 /buildstream-build/components-manifest.json /buildstream-build/cve-reports/components.md.html \
 		'
 
 	rm -rvf cve-reports
