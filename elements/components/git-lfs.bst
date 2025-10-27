@@ -41,7 +41,7 @@ sources:
 - kind: git_repo
   url: github:git-lfs/git-lfs.git
   track: v*
-  ref: v3.7.0-0-g92dddf560e62ef7dd25877d87ce072f7595aa52d
+  ref: v3.7.1-0-gb84b33847fe6458f36ef521534dc0eac953cb379
 - kind: local
   path: files/git-lfs/modules.txt
 - kind: go_module
