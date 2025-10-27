@@ -5,6 +5,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/bzip2.bst
 
 variables:
   make-args: >-
