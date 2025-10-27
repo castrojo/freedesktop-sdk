@@ -5,4 +5,4 @@ sources:
   exclude:
   - llvmorg-*-rc*
   - llvmorg-*-init*
-  ref: llvmorg-21.1.3-0-g450f52eec88f728c89a9efd667dbeaf2dad93826
+  ref: llvmorg-21.1.4-0-g222fc11f2b8f25f6a0f4976272ef1bb7bf49521d
