@@ -16,7 +16,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "5c8733912fbe2db38fe921df02a093d44695af76"
+  DOCKER_IMAGE_ID: "b66e19fb81b048724a7c973bb3ba7260874d70f1"
 
   # Generic variable for invoking buildstream
   BST: bst --colors
@@ -101,18 +101,28 @@ lint:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
   needs: []
 
+.setup_branch: &setup_branch
+  - git remote set-url origin "https://gitlab-ci-token:${FREEDESKTOP_API_KEY}@gitlab.com/freedesktop-sdk/freedesktop-sdk.git"
+  - git config user.name "freedesktop_sdk_updater"
+  - git config user.email "freedesktop_sdk_updater@libreml.com"
+  - git branch -f "${CI_COMMIT_REF_NAME}" "origin/${CI_COMMIT_REF_NAME}"
+  - git fetch --prune --quiet
+  - cleanup_leftover_branches.py
+  - python utils/assign_marge.py
+
 .check_update_elements:
   stage: update
   variables:
     GIT_SUBMODULE_STRATEGY: none
   script:
-    - git remote set-url origin "https://gitlab-ci-token:${FREEDESKTOP_API_KEY}@gitlab.com/freedesktop-sdk/freedesktop-sdk.git"
-    - git config user.name "freedesktop_sdk_updater"
-    - git config user.email "freedesktop_sdk_updater@libreml.com"
-    - git branch -f "${CI_COMMIT_REF_NAME}" "origin/${CI_COMMIT_REF_NAME}"
-    - git fetch --prune
-    - python utils/cleanup_leftover_branches.py
-    - python utils/assign_marge.py
+    - |
+      if [ "${CI_COMMIT_REF_NAME}" = "${CI_DEFAULT_BRANCH}" ] && [ -n "${SKIP_DAY_NUM}" ]; then
+        if [ "$(date +%u)" -eq "${SKIP_DAY_NUM}" ]; then
+          echo "Skipping job on day ${SKIP_DAY_NUM} of the week"
+          exit 0
+        fi
+      fi
+    - *setup_branch
     - |
       case "${CI_COMMIT_REF_NAME}" in
         "${CI_DEFAULT_BRANCH}")
@@ -146,6 +156,7 @@ daily_update_elements:
     - .check_update_elements
   timeout: 1h
   variables:
+    SKIP_DAY_NUM: '5'
     TRACK_ELEMENTS: track-elements.bst
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
@@ -159,7 +170,21 @@ weekly_update_elements:
     EXTRA_TRACK_ARGS: >-
       --bstignore=/dev/null
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly"'
+  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH =~ /^release\/.*/'
+
+weekly_update_combined:
+  stage: update
+  timeout: 1h
+  variables:
+    TRACK_ELEMENTS: track-elements.bst
+    GIT_SUBMODULE_STRATEGY: none
+    # @freedesktop_sdk_updater
+    GITLAB_MR_BOT_USER_ID: "4969990"
+  script:
+    - *setup_branch
+    - bst-single-updater --base-branch "$CI_DEFAULT_BRANCH" --element "$TRACK_ELEMENTS" --create-mr --skip-open-updates
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH'
 
 check_mirrors:
   stage: update
