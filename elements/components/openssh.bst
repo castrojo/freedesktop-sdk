@@ -2,13 +2,14 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/libfido2.bst
 - components/linux-pam.bst
 - components/openssl.bst
 
 depends:
 - bootstrap/libxcrypt.bst
 - public-stacks/runtime-minimal.bst
+- components/libfido2.bst
+- components/systemd-libs.bst # libfido2 depends on udev
 
 runtime-depends:
 - components/grep.bst
@@ -28,6 +29,7 @@ variables:
     --with-pam
     --with-pam-service=sshd
     --without-zlib-version-check
+    --with-security-key-builtin
     %{arch_options}
 
 config:

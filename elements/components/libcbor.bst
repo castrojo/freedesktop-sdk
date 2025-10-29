@@ -16,6 +16,13 @@ config:
     (>):
     - find %{install-root} -name '*.o' -delete
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libcbor.so'
+
 sources:
 - kind: git_repo
   url: github:PJK/libcbor.git
