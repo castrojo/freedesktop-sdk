@@ -17,4 +17,4 @@ sources:
 - kind: git_repo
   url: github:di/calver.git
   track: '*.*.*'
-  ref: 2025.04.17-0-g3b74bdce35f2814eb2b65db39a133d5c849ddea7
+  ref: 2025.10.20-0-g36c6977d6e2d9b9912c2afb83b4e36bb1289dbdd
