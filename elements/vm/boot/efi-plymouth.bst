@@ -48,8 +48,3 @@ config:
     linux /vmlinuz
     initrd /initramfs-$(ls -1 /lib/modules | head -n1).img
     EOF
-
-  - |
-    if [ -e /boot/vmlinuz ]; then
-      rm /boot/vmlinux
-    fi

@@ -37,8 +37,3 @@ config:
 
   - |
     cp /boot/initramfs-$(ls -1 /lib/modules | head -n1).img /boot/initramfs.img
-
-  - |
-    if [ -e /boot/vmlinuz ]; then
-      rm /boot/vmlinux
-    fi
