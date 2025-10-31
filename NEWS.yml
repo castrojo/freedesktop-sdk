@@ -1,3 +1,99 @@
+Version: freedesktop-sdk-25.08.3
+Date: '2025-10-30'
+Description: |-
+  Changes in freedesktop-sdk-25.08.3
+   * Update mesa to mesa-25.2.6-0
+   * Update python3-aiohttp to 3.13.2
+   * Update python3-dulwich to 0.24.8
+   * Update linux to v6.17.6-0
+   * Update gdk-pixbuf to 2.44.4-0
+   * Update buildbox to 1.3.42-0
+   * Update gstreamer to 1.26.7-0
+   * Update rust-cbindgen to ref: v0.29.2-0
+   * Update pcsc-lite to 2.4.0-0
+   * Update python3-virtualenv to 20.35.4-0
+   * Update asciidoctor to v2.0.26-0
+   * Update brotli to v1.2.0-0
+   * Update libarchive to v3.8.2-0
+   * Update cython to 3.1.6-0
+   * Update python3-calver to 2025.10.20-0
+   * Update linux to v6.17.5-0
+   * Update mesa to mesa-25.2.5-0
+   * Update gyp to v0.20.5-0
+   * Update pygobject to 3.54.5-0
+   * Update llvm to llvmorg-21.1.4-0
+   * Update git-lfs to v3.7.1-0
+   * Update libcap to libcap-2.77-0
+   * vm: Filter uncompressed vmlinux from bootable images
+   * Add two common Serial kernel drivers
+   * Update to buildstream-plugins-community 2.1.1
+   * ci: Skip the daily job on Fridays
+   * ci: Update image to 25.08.2
+   * ci: Add a weekly combined update job
+   * ci: Use cleanup_leftover_branches script from fdsdk-utils repo
+   * ci: Run prune with quiet
+   * ci: Factor out branch setup to a common script
+   * Specify nvd feed data path with db-path argument
+   * Add a QEMU_GRAPHICS argument to the Makefile
+   * openssh: Add missing dependency to libfido2
+   * Update dictionaries to libreoffice-25.8.3.1-0
+   * Update valgrind to VALGRIND_3_26_0-0
+   * Update xfsprogs to v6.17.0-0
+   * Update python3-gi-docgen to 2025.5-0
+   * Update python3-pkcs11 to v0.9.1-0
+   * Update libdecor to 0.2.4-0
+   * Update python3-setuptools-scm to v9.2.2-0
+   * Update frei0r to v2.5.0-0
+   * Update glibc to glibc-2.42-31
+   * Update linux-firmware to 20251021-0
+   * Update vim to v9.1.1868-0
+   * librsvg: Keep pixbuf loader enabled
+   * Update librsvg to ref: 2.61.2-0
+   * Update python3-aiohttp to 3.13.1
+   * Update usbutils to v019-0
+   * Update grpc to v1.76.0-0
+   * Update cython to 3.1.5-0
+   * Update python3-ruamel-yaml to 0.18.16
+   * Update python3-propcache to v0.4.1-0
+   * Update python3-dulwich to 0.24.6
+   * Update swig to v4.4.0-0
+   * Update protobuf to v33.0-0
+   * Update python3-psutil to release-7.1.1-0
+   * Update python3-idna to v3.11-0
+   * Update ovmf to edk2-stable202508.01-0
+   * Update flatpak-builder to 1.4.7-0
+   * linux.bst: Update to 6.17.2
+   * python3-pil: Track v11
+   * Update libdrm to libdrm-2.4.127-0
+   * Update exfat-progs to 1.3.0-0
+   * Update less to v685-rel-0
+   * components/go: Make Go no longer force `gold` for arm64 linking
+   * *-config: Use sha1 ref format
+   * Allow to reuse manifests
+   * Simplify generate-cve-report target
+   * Drop resolvf.conf mount
+   * Cleanup leftovers after CVE script runs
+   * Keep git checkout of CVE databases if REUSE_CVE_DB is set
+   * Raise an error if no cve database files found
+   * Allow specifying a path to the CVE database directory
+   * Use lld as linker when building Rust
+   * Switch to ftpmirror.gnu.org
+   * buildstream-plugins-community: Update to master tarball
+   * Update python3-charset-normalizer to 3.4.4-0
+   * Update python3-protobuf to 6.33.0
+   * Update libdrm to libdrm-2.4.127-0
+   * Update git to v2.51.1-0
+   * Update python3 to v3.13.9-0
+   * Update vim to v9.1.1863-0
+   * Update reference-abi to freedesktop-sdk-25.08.2-0
+   * Update python3-cryptography to ref: 46.0.3-0
+   * Update python3-yarl to v1.22.0-0
+   * Update python3-virtualenv to 20.35.3-0
+   * Update python3-dulwich to 0.24.4
+   * Update systemd to v257.10-0
+   * Update go to go1.25.3-0
+   * Update gsettings-desktop-schemas to 49.1-0
+---
 Version: freedesktop-sdk-25.08.2
 Date: '2025-10-15'
 Description: |-
