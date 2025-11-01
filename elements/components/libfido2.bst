@@ -7,6 +7,17 @@ build-depends:
 depends:
 - components/libcbor.bst
 
+variables:
+  cmake-local: >-
+    -DBUILD_STATIC_LIBS:BOOL=FALSE
+
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libfido2.so'
+
 sources:
 - kind: git_repo
   url: github:Yubico/libfido2.git
