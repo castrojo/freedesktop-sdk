@@ -1,0 +1,22 @@
+{
+  "app-id": "test.library.tracker",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "25.08",
+  "sdk": "org.freedesktop.Sdk",
+  "command": "library-tracker",
+  "modules": [
+    {
+      "name": "library-tracker",
+      "buildsystem": "simple",
+      "build-commands": [
+        "install -Dm0755 library_tracker.py /app/bin/library-tracker"
+      ],
+      "sources": [
+        {
+          "type": "file",
+          "path": "library_tracker.py"
+        }
+      ]
+    }
+  ]
+}
