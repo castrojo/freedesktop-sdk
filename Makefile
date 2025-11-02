@@ -316,8 +316,13 @@ test-ldd: $(REPO)
 	flatpak install -y --arch=$(FLATPAK_ARCH) --user fdo-sdk-test-repo org.freedesktop.{Platform,Sdk}//$(BRANCH)
 
 	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean --user --install app tests/test.ldd.check.json
+	flatpak-builder --arch=$(FLATPAK_ARCH) --force-clean --user --install app tests/test.library.tracker.json
+
 	flatpak --arch=$(FLATPAK_ARCH) run --devel test.ldd.check
 	flatpak --arch=$(FLATPAK_ARCH) run test.ldd.check
+
+	flatpak --arch=$(FLATPAK_ARCH) run --filesystem=$(CURDIR) --devel test.library.tracker --list
+	flatpak --arch=$(FLATPAK_ARCH) run --filesystem=$(CURDIR) test.library.tracker --check --ignore tests/sdk_only_libs.json
 
 	flatpak uninstall -y --all
 

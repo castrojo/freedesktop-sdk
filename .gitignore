@@ -17,6 +17,8 @@ runtimes/
 app/
 runtime/
 
+libs.json
+
 files/boot-keys/DB.crt
 files/boot-keys/DB.key
 files/boot-keys/KEK.crt
