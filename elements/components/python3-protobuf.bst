@@ -6,6 +6,12 @@ build-depends:
 depends:
 - components/python3.bst
 
+variables:
+# https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/issues/1913
+  (?):
+  - target_arch == "aarch64":
+      local_flags: -mbranch-protection=none
+
 sources:
 # requires pypi tarball specifically
 - kind: pypi
