@@ -13,6 +13,7 @@ depends:
 variables:
   cmake-local: >-
     -DSHADERC_SKIP_TESTS:BOOL=YES
+    -DSHADERC_SKIP_EXAMPLES:BOOL=ON
 
 config:
   configure-commands:
