@@ -39,9 +39,6 @@ variables:
 sources:
 - kind: git_repo
   url: freedesktop:gstreamer/gst-plugins-rs.git
-  track: '*.*'
-  exclude:
-  - "gstreamer-*"
   ref: 0.14.2-0-g5ae76f542721fd4cf8bf68a02c40a94cb640bb51
 - kind: cargo2
   ref:
