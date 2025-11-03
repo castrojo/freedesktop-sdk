@@ -12,6 +12,7 @@ depends:
 
 variables:
   cmake-local: >-
+    -Dglslang_SOURCE_DIR="%{includedir}/glslang"
     -DSHADERC_SKIP_TESTS:BOOL=YES
     -DSHADERC_SKIP_EXAMPLES:BOOL=ON
 

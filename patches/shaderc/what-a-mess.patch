@@ -27,16 +27,3 @@ index ffcb54b..dfdf14f 100644
  function(define_pkg_config_file NAME LIBS)
    add_custom_target(${NAME}-pkg-config ALL
      COMMAND ${CMAKE_COMMAND}
-diff --git a/libshaderc_util/src/compiler.cc b/libshaderc_util/src/compiler.cc
-index e5f5d10..5fd6d3c 100644
---- a/libshaderc_util/src/compiler.cc
-+++ b/libshaderc_util/src/compiler.cc
-@@ -20,7 +20,7 @@
- #include <thread>
- #include <tuple>
- 
--#include "SPIRV/GlslangToSpv.h"
-+#include "glslang/SPIRV/GlslangToSpv.h"
- #include "libshaderc_util/format.h"
- #include "libshaderc_util/io_shaderc.h"
- #include "libshaderc_util/message.h"
