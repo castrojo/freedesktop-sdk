@@ -3,6 +3,7 @@ kind: cmake
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/git-minimal.bst
+- bootstrap/grep.bst
 - components/python3.bst
 - components/spirv-tools.bst
 
@@ -29,6 +30,16 @@ config:
       "spriv-tools $(spirv-cfg --version | sed '/^SPIRV-Tools v\([^ ]*\) .*$/{;s//\1/;q;};d')"
       "glslang $(glslangValidator --version | sed '/^Glslang Version: /{;s///;q;};d')"
       EOF
+
+  install-commands:
+    (>):
+    - |
+      if ldd -r "%{install-root}%{libdir}/libshaderc_shared.so" 2>&1 | grep -q "^undefined symbol:"; then
+          echo "Undefined symbols found in libshaderc_shared.so" >&2
+          exit 1
+      else
+          echo "No undefined symbols found in libshaderc_shared.so"
+      fi
 
 public:
   bst:
