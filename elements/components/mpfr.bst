@@ -6,6 +6,13 @@ build-depends:
 depends:
 - components/gmp.bst
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libmpfr.so'
+
 sources:
 - kind: tar
   url: ftp_gnu_org:mpfr/mpfr-4.2.2.tar.xz
