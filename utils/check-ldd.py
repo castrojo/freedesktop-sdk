@@ -40,6 +40,18 @@ def load_ignore_list(path: str):
         return json.load(f)
 
 
+def parse_undefined_symbols(output: str) -> list[str]:
+    undefined = []
+    pattern = r"undefined symbol:\s+(\S+)"
+
+    for line in output.splitlines():
+        match = re.search(pattern, line)
+        if match:
+            undefined.append(match.group(1))
+
+    return undefined
+
+
 def has_undefined_symbols(output: str) -> bool:
     pattern = r"undefined symbol:"
     return bool(re.search(pattern, output))
@@ -111,12 +123,11 @@ def find_missing_libs(root: str, libdir: str) -> dict[str, dict[str, list[str] |
                 file_result["missing_libs"] = list(missing)
 
             if check_symbols:
-                has_undefined = has_undefined_symbols(
-                    output.stdout
-                ) or has_undefined_symbols(output.stderr)
+                undefined_syms = parse_undefined_symbols(output.stdout)
+                undefined_syms.extend(parse_undefined_symbols(output.stderr))
 
-                if has_undefined:
-                    file_result["has_undefined_symbols"] = True
+                if undefined_syms:
+                    file_result["undefined_symbols"] = list(set(undefined_syms))
 
             if file_result:
                 results[file_basename] = file_result
@@ -142,7 +153,7 @@ def filter_ignored_items(
     {
         "binary_name": {
             "ignore-missing": ["lib1.so", "lib2.so.*"],
-            "ignore-undefined-syms": true
+            "ignore-undefined-syms": ["symbol1", "symbol2", "_Z*"]
         }
     }
     """
@@ -178,11 +189,27 @@ def filter_ignored_items(
             if non_ignored_libs:
                 filtered_issues["missing_libs"] = non_ignored_libs
 
-        if "has_undefined_symbols" in issues:
-            if not ignore_config.get("ignore-undefined-syms", False):
-                filtered_issues["has_undefined_symbols"] = True
-            else:
-                logging.info("Ignoring undefined symbols for %s", file_name)
+        if "undefined_symbols" in issues:
+            ignore_patterns = ignore_config.get("ignore-undefined-syms", [])
+
+            ignored_syms: list[str] = []
+            non_ignored_syms: list[str] = []
+
+            for sym in issues["undefined_symbols"]:
+                if any(matches_pattern(sym, pattern) for pattern in ignore_patterns):
+                    ignored_syms.append(sym)
+                else:
+                    non_ignored_syms.append(sym)
+
+            if ignored_syms:
+                logging.info(
+                    "Ignoring undefined symbols for %s: %s",
+                    file_name,
+                    ", ".join(ignored_syms),
+                )
+
+            if non_ignored_syms:
+                filtered_issues["undefined_symbols"] = non_ignored_syms
 
         if filtered_issues:
             filtered_result[file_name] = filtered_issues
