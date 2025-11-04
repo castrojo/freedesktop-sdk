@@ -8,6 +8,7 @@ import logging
 import os
 import re
 import subprocess
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
@@ -93,49 +94,63 @@ def should_check_symbols(file: str, libdir: str) -> bool:
     return bool(file_basename.endswith(".so"))
 
 
+def check_elf_file(file: str, libdir: str) -> tuple[str, dict | None]:
+    if not (should_check(file) and os.access(file, os.X_OK)):
+        return (os.path.basename(file), None)
+
+    file_basename = os.path.basename(file)
+    file_result = {}
+
+    try:
+        check_symbols = should_check_symbols(file, libdir)
+        ldd_cmd = ["ldd", "-r", file] if check_symbols else ["ldd", file]
+
+        output = subprocess.run(
+            ldd_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
+        )
+
+        if "not a dynamic executable" in output.stderr.strip():
+            return (file_basename, None)
+
+        missing = {
+            line.split("=>")[0].strip()
+            for line in output.stdout.splitlines()
+            if "not found" in line
+        }
+        if missing:
+            file_result["missing_libs"] = list(missing)
+
+        if check_symbols:
+            undefined_syms = parse_undefined_symbols(output.stdout)
+            undefined_syms.extend(parse_undefined_symbols(output.stderr))
+
+            if undefined_syms:
+                file_result["undefined_symbols"] = list(set(undefined_syms))
+
+        return (file_basename, file_result if file_result else None)
+
+    except subprocess.CalledProcessError as err:
+        raise RuntimeError(
+            f"Error processing {file_basename}: {err.stderr.strip()}"
+        ) from err
+
+
 def find_missing_libs(root: str, libdir: str) -> dict[str, dict[str, list[str] | bool]]:
     results: dict[str, dict[str, list[str] | bool]] = {}
 
-    for file in glob.iglob(f"{root}/**", recursive=True):
-        if not (should_check(file) and os.access(file, os.X_OK)):
-            continue
+    files_to_check = list(glob.iglob(f"{root}/**", recursive=True))
+    max_workers = min(32, (os.cpu_count() or 1) * 2)
 
-        file_basename = os.path.basename(file)
-        file_result = {}
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {
+            executor.submit(check_elf_file, file, libdir): file
+            for file in files_to_check
+        }
 
-        try:
-            check_symbols = should_check_symbols(file, libdir)
-            ldd_cmd = ["ldd", "-r", file] if check_symbols else ["ldd", file]
-
-            output = subprocess.run(
-                ldd_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
-            )
-
-            if "not a dynamic executable" in output.stderr.strip():
-                continue
-
-            missing = {
-                line.split("=>")[0].strip()
-                for line in output.stdout.splitlines()
-                if "not found" in line
-            }
-            if missing:
-                file_result["missing_libs"] = list(missing)
-
-            if check_symbols:
-                undefined_syms = parse_undefined_symbols(output.stdout)
-                undefined_syms.extend(parse_undefined_symbols(output.stderr))
-
-                if undefined_syms:
-                    file_result["undefined_symbols"] = list(set(undefined_syms))
-
+        for future in as_completed(futures):
+            file_basename, file_result = future.result()
             if file_result:
                 results[file_basename] = file_result
-
-        except subprocess.CalledProcessError as err:
-            raise RuntimeError(
-                f"Error processing {file_basename}: {err.stderr.strip()}"
-            ) from err
 
     return results
 
