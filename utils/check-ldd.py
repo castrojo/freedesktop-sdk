@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import fnmatch
 import glob
 import json
 import logging
@@ -128,6 +129,10 @@ def find_missing_libs(root: str, libdir: str) -> dict[str, dict[str, list[str] |
     return results
 
 
+def matches_pattern(lib_name: str, pattern: str) -> bool:
+    return fnmatch.fnmatch(lib_name, pattern)
+
+
 def filter_ignored_items(
     result: dict[str, dict[str, list[str] | bool]],
     ignore_map: dict[str, dict[str, list[str] | bool]],
@@ -152,25 +157,23 @@ def filter_ignored_items(
         filtered_issues = {}
 
         if "missing_libs" in issues:
-            ignore_map_ignored_libs = ignore_config.get("ignore-missing", [])
-            non_ignored_libs = [
-                lib
-                for lib in issues["missing_libs"]
-                if lib not in ignore_map_ignored_libs
-            ]
+            ignore_patterns = ignore_config.get("ignore-missing", [])
 
-            if ignore_map_ignored_libs:
-                ignored_libs = [
-                    lib
-                    for lib in issues["missing_libs"]
-                    if lib in ignore_map_ignored_libs
-                ]
-                if ignored_libs:
-                    logging.info(
-                        "Ignoring missing libs for %s: %s",
-                        file_name,
-                        ", ".join(ignored_libs),
-                    )
+            ignored_libs: list[str] = []
+            non_ignored_libs: list[str] = []
+
+            for lib in issues["missing_libs"]:
+                if any(matches_pattern(lib, pattern) for pattern in ignore_patterns):
+                    ignored_libs.append(lib)
+                else:
+                    non_ignored_libs.append(lib)
+
+            if ignored_libs:
+                logging.info(
+                    "Ignoring missing libs for %s: %s",
+                    file_name,
+                    ", ".join(ignored_libs),
+                )
 
             if non_ignored_libs:
                 filtered_issues["missing_libs"] = non_ignored_libs
