@@ -25,4 +25,4 @@ sources:
 - kind: git_repo
   url: github:dracut-ng/dracut-ng.git
   track: '[0-9]*'
-  ref: 108-0-g97c5568ec42abd5e6035f0cfa9d319ae6ae4e50a
+  ref: 109-0-g13c5e5feee9ba86b960d351f87aa0eb25f242ff0
