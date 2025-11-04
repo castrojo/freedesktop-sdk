@@ -30,6 +30,7 @@ depends:
 - components/icu.bst
 - components/iso-codes.bst
 - components/jpeg.bst
+- components/jq.bst
 - components/ladspa-sdk.bst
 - components/lcms.bst
 - components/less.bst
@@ -152,6 +153,7 @@ depends:
 - components/libxkbcommon.bst
 - components/mesa-headers.bst
 - components/mpg123.bst
+- components/mpfr.bst
 - components/mythes.bst
 - components/openal.bst
 - components/opencl.bst
@@ -161,6 +163,8 @@ depends:
 - components/pciutils.bst
 - components/pipewire.bst
 - components/pixman.bst
+- components/libpipeline.bst
+- components/libtraceevent.bst
 - components/libpulse.bst
 - components/sdl3-image.bst
 - components/sdl2-mixer.bst
@@ -170,6 +174,7 @@ depends:
 - components/sdl3.bst
 - components/shaderc.bst
 - components/shared-mime-info.bst
+- components/slang.bst
 - components/svt-av1.bst
 - components/tex-gyre-fonts.bst
 - components/v4l-utils.bst
@@ -212,6 +217,7 @@ depends:
 - components/xorg-lib-xtst.bst
 - components/xorg-lib-xv.bst
 - components/xorg-lib-xxf86vm.bst
+- components/xxhash.bst
 - components/zenity.bst
 - integration/mtab.bst
 - components/zstd.bst

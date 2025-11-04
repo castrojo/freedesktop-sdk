@@ -43,7 +43,6 @@ depends:
 - components/valgrind-maybe.bst
 - components/desktop-file-utils.bst
 - components/itstool.bst
-- components/jq.bst
 - components/vulkan-headers.bst
 - components/wayland-protocols.bst
 - components/xdg-portal-interfaces.bst
