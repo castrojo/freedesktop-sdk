@@ -8,7 +8,6 @@ config:
   - components/desktop-file-utils.bst
   - components/gtk-doc.bst
   - components/itstool.bst
-  - components/jq.bst
   - components/xorg-util-macros.bst
   - components/autoconf-archive.bst
   - components/autoconf.bst
@@ -27,7 +26,6 @@ config:
   - components/gperf.bst
   - components/groff.bst
   - components/help2man.bst
-  - components/libpipeline.bst
   - components/m4.bst
   - components/man-db.bst
   - components/man-pages.bst
