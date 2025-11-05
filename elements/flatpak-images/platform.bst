@@ -101,6 +101,15 @@ config:
       add-ld-path: lib
       download-if: have-kernel-module-nvidia
       autoprune-unless: have-kernel-module-nvidia
+    
+    Extension org.freedesktop.Platform.amd:
+      directory: '%{lib}/dri/amd'
+      autodelete: 'false'
+      no-autodownload: 'true'
+      add-ld-path: lib
+      download-if: have-kernel-module-amdgpu
+      autoprune-unless: have-kernel-module-amdgpu
+      subdirectories: "true"
 
     Extension org.freedesktop.Platform.codecs-extra:
       directory: '%{lib}/codecs-extra'
