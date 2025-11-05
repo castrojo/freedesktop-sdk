@@ -11,6 +11,13 @@ variables:
   build-dir: ''
   notparallel: true
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libslang.so'
+
 sources:
 - kind: tar
   url: tar_https:www.jedsoft.org/releases/slang/slang-2.3.3.tar.bz2

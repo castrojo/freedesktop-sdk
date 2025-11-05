@@ -1,1 +1,17 @@
-{}
+{
+    "libfl.so": {
+        "ignore-undefined-syms": [
+            "yylex"
+        ]
+    },
+    "libthread_db.so": {
+        "ignore-undefined-syms": [
+            "ps_*"
+        ]
+    },
+    "libitm.so": {
+        "ignore-undefined-syms": [
+            "__gxx_personality_v0"
+        ]
+    }
+}

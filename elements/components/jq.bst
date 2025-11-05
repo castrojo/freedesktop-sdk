@@ -15,6 +15,15 @@ config:
       autoreconf -v -f -i
       cd ../..
 
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libjq.so'
+        - '%{libdir}/libonig.so'
+        - '%{bindir}/onig-config'
+
 sources:
 - kind: git_repo
   url: github:jqlang/jq.git

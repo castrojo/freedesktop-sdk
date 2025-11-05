@@ -1,0 +1,12 @@
+diff --git a/lib/Makefile.am b/lib/Makefile.am
+index 89ce261..3d3404a 100644
+--- a/lib/Makefile.am
++++ b/lib/Makefile.am
+@@ -79,6 +79,7 @@ encoder_sources = \
+ 	apiwrapper.c \
+ 	fragment.c \
+ 	idct.c \
++	info.c \
+ 	internal.c \
+ 	state.c \
+ 	quant.c \

@@ -29,3 +29,5 @@ sources:
 - kind: git_repo
   url: xiph:theora.git
   ref: v1.1.1-0-g7ffd8b2ecfc2d93ae5e16028e7528e609266bfbf
+- kind: patch
+  path: patches/libtheora/enc-no-dep-dec.patch
