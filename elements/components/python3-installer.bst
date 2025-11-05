@@ -1,9 +1,9 @@
 kind: pyproject
 
 build-depends:
-- components/python3-build-bootstrap.bst
+- components/_private/python3-build-bootstrap.bst
 - components/python3-flit-core.bst
-- components/python3-installer-bootstrap.bst
+- components/_private/python3-installer-bootstrap.bst
 
 depends:
 - components/python3.bst
