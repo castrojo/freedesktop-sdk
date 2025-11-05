@@ -54,4 +54,4 @@ sources:
 - kind: git_repo
   url: github:curl/curl.git
   track: curl-*
-  ref: curl-8_16_0-0-g11b991232fbcaa88e2b1faecac224416b0001e35
+  ref: curl-8_17_0-0-g400fffa90f30c7a2dc762fa33009d24851bd2016
