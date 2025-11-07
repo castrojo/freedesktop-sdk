@@ -53,6 +53,7 @@ variables:
     -Dumockdev_tests=disabled
     -Dlibdrm=disabled
     -Dvalgrind=disabled
+    -Dlibmnl=disabled
 
 sources:
 - kind: git_repo
