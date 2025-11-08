@@ -46,4 +46,6 @@ sources:
 - kind: git_repo
   url: github:zlib-ng/zlib-ng.git
   track: "*.*.*"
+  exclude:
+  - "*rc*"
   ref: 2.2.5-0-g425439062b114a0f6cf625022c41d929c7e879f9
