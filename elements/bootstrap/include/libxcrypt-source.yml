@@ -2,7 +2,7 @@ sources:
 - kind: git_repo
   url: github:besser82/libxcrypt.git
   track: v*
-  ref: v4.5.0-0-g096296cb6fbecd9ad46c93a410d76c752a5d6206
+  ref: v4.5.1-0-g99da23588acc5986159acca85b97cb7b208e739f
 
 config:
   configure-commands:
