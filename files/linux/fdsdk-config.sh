@@ -2340,7 +2340,8 @@ module ZRAM
 enable ZRAM_WRITEBACK
 enable ZRAM_MEMORY_TRACKING
 enable ZRAM_MULTI_COMP
-value_str ZRAM_DEF_COMP "zstd"
+enable ZRAM_BACKEND_ZSTD
+enable ZRAM_DEF_COMP_ZSTD
 module CRYPTO_ZSTD
 
 # Secure boot
