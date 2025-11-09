@@ -346,7 +346,6 @@ depends:
 - components/npth.bst
 - components/nspr.bst
 - components/nss.bst
-- components/nsswitch-config-bootable.bst
 - components/nsswitch-config.bst
 - components/nv-codec-headers.bst
 - components/oci-builder.bst
