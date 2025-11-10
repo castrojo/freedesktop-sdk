@@ -2,13 +2,13 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- components/libfido2.bst
 - components/linux-pam.bst
 - components/openssl.bst
 
 depends:
 - bootstrap/libxcrypt.bst
 - public-stacks/runtime-minimal.bst
-- components/libfido2.bst
 - components/systemd-libs.bst # libfido2 depends on udev
 
 runtime-depends:
@@ -49,6 +49,7 @@ public:
       - "%{sysconfdir}/sshd_config"
       - "%{libexecdir}/sftp-server"
       - "%{libexecdir}/sshd-*"
+      - "%{libexecdir}/ssh-sk-helper"
       - "%{mandir}/man5/sshd_config.5"
       - "%{mandir}/man8/sftp-server.8"
       - "%{mandir}/man8/sshd.8"
