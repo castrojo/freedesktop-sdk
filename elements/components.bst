@@ -259,6 +259,7 @@ depends:
 - components/libjxl.bst
 - components/libksba.bst
 - components/liblc3.bst
+- components/libmbim.bst
 - components/libmicrohttpd.bst
 - components/libmnl.bst
 - components/libmysofa.bst
@@ -278,6 +279,8 @@ depends:
 - components/libproxy.bst
 - components/libpsl.bst
 - components/libpulse.bst
+- components/libqmi.bst
+- components/libqrtr-glib.bst
 - components/librsvg.bst
 - components/libsamplerate.bst
 - components/libseat.bst
@@ -329,6 +332,7 @@ depends:
 - components/mdadm.bst
 - components/mesa-headers.bst
 - components/meson.bst
+- components/modemmanager.bst
 - components/mpfr.bst
 - components/mpg123.bst
 - components/mtdev.bst

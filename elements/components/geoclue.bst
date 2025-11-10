@@ -6,6 +6,7 @@ build-depends:
 runtime-depends:
 - components/geoclue-libs.bst
 - components/avahi-gobject.bst
+- components/modemmanager.bst
 
 config:
   exclude:
