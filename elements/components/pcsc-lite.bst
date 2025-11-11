@@ -21,6 +21,6 @@ config:
 
 sources:
 - kind: git_repo
-  url: debian_salsa:rousseau/PCSC.git
+  url: github:LudovicRousseau/PCSC.git
   track: '*.*.*'
   ref: 2.4.0-0-g4c8fce0c70a8c61c1a5db5566f9ffb20dacef347
