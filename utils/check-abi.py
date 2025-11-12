@@ -75,6 +75,12 @@ def get_parser():
         "--full-abi-diff", type=int, default=False, help="Force full ABI diff on"
     )
 
+    parser.add_argument(
+        "--only-libs",
+        metavar="FILE",
+        help="JSON file containing list of library patterns to check",
+    )
+
     return parser
 
 
@@ -282,6 +288,30 @@ def create_header_archive(archive_directory, old_include_dir, new_include_dir):
         tar.add(new_include_dir)
 
 
+def matches_lib_filter(lib_key, only_libs_patterns):
+    if not only_libs_patterns:
+        return True
+
+    for pattern in only_libs_patterns:
+        if fnmatch(lib_key, pattern):
+            return True
+
+    return False
+
+
+def load_lib_patterns(json_file):
+    if not json_file:
+        return None
+
+    with open(json_file, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    if not isinstance(data, list):
+        raise ValueError("JSON file must contain a list of library patterns")
+
+    return data
+
+
 def compare_tree_abis(
     old_checkout,
     new_checkout,
@@ -290,6 +320,7 @@ def compare_tree_abis(
     archive_on_core,
     archive_directory,
     full_abi_diff,
+    only_libs_patterns,
 ):
     print(format_title("Comparing ABIs", level=1), end="\n\n")
     success = True
@@ -307,6 +338,9 @@ def compare_tree_abis(
     for lib_key in all_keys:
         if suppression_regex_obj.match(lib_key):
             print(f"Skipping file {lib_key}", file=sys.stderr)
+            continue
+
+        if not matches_lib_filter(lib_key, only_libs_patterns):
             continue
 
         try:
@@ -403,6 +437,8 @@ if __name__ == "__main__":
         print(f"Creating archive directory {archive_directory}")
         os.makedirs(archive_directory)
 
+    only_libs_patterns = load_lib_patterns(args.only_libs)
+
     abi_compatible = compare_tree_abis(
         args.old,
         args.new,
@@ -411,6 +447,7 @@ if __name__ == "__main__":
         args.archive_on_core,
         archive_directory,
         args.full_abi_diff,
+        only_libs_patterns,
     )
 
     if abi_compatible:

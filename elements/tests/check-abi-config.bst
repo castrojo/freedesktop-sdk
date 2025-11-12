@@ -8,3 +8,5 @@ sources:
   path: tests/check-abi/abidiff-suppressions.ini
 - kind: local
   path: tests/check-abi/check-abi-suppressions.json
+- kind: local
+  path: tests/check-abi/check-abi-extra-libs.json
