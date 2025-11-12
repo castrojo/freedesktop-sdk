@@ -4,9 +4,8 @@ build-depends:
 - extensions/vdpauinfo/vdpauinfo.bst
 - extensions/vdpauinfo/appdata.bst
 
-variables:
-  lib: lib
-  prefix: /app
+(@):
+- elements/extensions/include/app.yml
 
 config:
   directory: '%{prefix}'
