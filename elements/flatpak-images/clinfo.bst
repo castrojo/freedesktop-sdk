@@ -1,7 +1,7 @@
 kind: flatpak_image
 
-variables:
-  prefix: /app
+(@):
+- elements/extensions/include/app.yml
 
 config:
   directory: "%{prefix}"
