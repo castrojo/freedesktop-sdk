@@ -13,13 +13,13 @@ build-depends:
 - components/libsoup.bst
 - components/avahi-gobject.bst
 - components/avahi-libs.bst
+- components/modemmanager.bst
 
 variables:
-  # FIXME: Need modem-manager
   meson-local: >-
-    -D3g-source=false
-    -Dcdma-source=false
-    -Dmodem-gps-source=false
+    -D3g-source=true
+    -Dcdma-source=true
+    -Dmodem-gps-source=true
     -Ddemo-agent=false
 
 config:
