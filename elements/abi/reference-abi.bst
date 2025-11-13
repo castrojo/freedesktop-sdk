@@ -9,4 +9,4 @@ sources:
 - kind: git_repo
   url: fdsdk_git:freedesktop-sdk.git
   track: freedesktop-sdk-25.08*
-  ref: freedesktop-sdk-25.08.3-37-g5451671beb693df5e15cc42f3dd76653340960c7
+  ref: freedesktop-sdk-25.08.4-0-g75bcc79ec520f0d7fd6e86f13c2528f05f1d7a29
