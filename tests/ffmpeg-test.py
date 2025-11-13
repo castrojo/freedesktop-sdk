@@ -101,7 +101,9 @@ def get_runtime_arch():
 
 dec_only, enc_only, dec_and_enc, codecs_dict = get_codecs()
 
-check_hw = {"vdpau", "vaapi", "drm", "vulkan", "cuda"}
+check_hw = {"vdpau", "vaapi", "drm", "vulkan", "cuda", "amf"}
+if get_runtime_arch() != "x86_64":
+    check_hw.remove("amf")
 check_common = {
     "y41p",
     "ffv1",
@@ -143,6 +145,7 @@ exp_h264_decoder_noext = []
 exp_h264_encoder_platform = [
     "Encoder libx264",
     "Encoder libx264rgb",
+    "Encoder h264_amf",
     "Encoder h264_nvenc",
     "Encoder h264_v4l2m2m",
     "Encoder h264_vaapi",
@@ -150,6 +153,7 @@ exp_h264_encoder_platform = [
 ]
 
 exp_h264_encoder_noext = [
+    "Encoder h264_amf",
     "Encoder h264_nvenc",
     "Encoder h264_v4l2m2m",
     "Encoder h264_vaapi",
@@ -161,6 +165,7 @@ exp_hevc_decoder_platform = ["Decoder hevc"]
 exp_hevc_decoder_noext = []
 exp_hevc_encoder_platform = [
     "Encoder libx265",
+    "Encoder hevc_amf",
     "Encoder hevc_nvenc",
     "Encoder hevc_v4l2m2m",
     "Encoder hevc_vaapi",
@@ -168,6 +173,7 @@ exp_hevc_encoder_platform = [
 ]
 
 exp_hevc_encoder_noext = [
+    "Encoder hevc_amf",
     "Encoder hevc_nvenc",
     "Encoder hevc_v4l2m2m",
     "Encoder hevc_vaapi",
@@ -184,6 +190,7 @@ exp_av1_encoder_platform = [
     "Encoder libaom-av1",
     "Encoder libsvtav1",
     "Encoder av1_nvenc",
+    "Encoder av1_amf",
     "Encoder av1_vaapi",
     "Encoder av1_vulkan",
 ]
@@ -191,6 +198,7 @@ exp_av1_encoder_noext = [
     "Encoder libaom-av1",
     "Encoder libsvtav1",
     "Encoder av1_nvenc",
+    "Encoder av1_amf",
     "Encoder av1_vaapi",
 ]
 
@@ -212,6 +220,14 @@ if get_runtime_arch() == "riscv64":
     exp_hevc_encoder_noext.remove("Encoder hevc_nvenc")
     exp_av1_encoder_platform.remove("Encoder av1_nvenc")
     exp_av1_encoder_noext.remove("Encoder av1_nvenc")
+
+if get_runtime_arch() != "x86_64":
+    exp_h264_encoder_platform.remove("Encoder h264_amf")
+    exp_h264_encoder_noext.remove("Encoder h264_amf")
+    exp_hevc_encoder_platform.remove("Encoder hevc_amf")
+    exp_hevc_encoder_noext.remove("Encoder hevc_amf")
+    exp_av1_encoder_platform.remove("Encoder av1_amf")
+    exp_av1_encoder_noext.remove("Encoder av1_amf")
 
 # Common to both codecs-extra and platform ffmpeg
 
