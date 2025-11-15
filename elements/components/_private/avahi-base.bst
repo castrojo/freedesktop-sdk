@@ -54,6 +54,7 @@ public:
       - "%{libdir}/libavahi-common.so*"
       - "%{debugdir}%{libdir}/libavahi-client.so*.debug"
       - "%{debugdir}%{libdir}/libavahi-common.so*.debug"
+      - '%{debugdir}/dwz/%{stripdir-suffix}/*'
       - "%{sourcedir}/%{element-name}/avahi-client"
       - "%{sourcedir}/%{element-name}/avahi-client/**"
       - "%{sourcedir}/%{element-name}/avahi-common"
