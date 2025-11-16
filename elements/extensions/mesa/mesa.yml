@@ -83,7 +83,6 @@ variables:
     -Dgallium-drivers=%{gallium_drivers}
     -Dgallium-rusticl=true
     -Dgallium-va=enabled
-    -Dgallium-vdpau=enabled
     -Dgallium-mediafoundation=disabled
     -Dgallium-rusticl-enable-drivers=%{rusticl_enabled}
     -Dgbm=enabled
