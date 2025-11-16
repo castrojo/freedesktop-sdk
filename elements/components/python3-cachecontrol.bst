@@ -5,6 +5,8 @@ build-depends:
 
 depends:
 - components/python3.bst
+- components/python3-msgpack.bst
+- components/python3-requests.bst
 
 sources:
 - kind: pypi

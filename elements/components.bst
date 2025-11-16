@@ -455,6 +455,7 @@ depends:
 - components/python3-markdown.bst
 - components/python3-markupsafe.bst
 - components/python3-maturin.bst
+- components/python3-msgpack.bst
 - components/python3-multidict.bst
 - components/python3-networkx.bst
 - components/python3-packaging.bst
