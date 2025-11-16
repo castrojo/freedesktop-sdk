@@ -103,6 +103,7 @@ variables:
     -Drust_std=2021
     -Dintel-rt=%{intel-rt}
     -Dteflon=true
+    -Ddisplay-info=disabled
 
 config:
   install-commands:
