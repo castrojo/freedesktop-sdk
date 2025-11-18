@@ -9,6 +9,7 @@ build-depends:
 - components/docbook-xsl.bst
 - components/grep.bst
 - components/libxslt.bst
+- components/rust.bst
 - components/sed.bst
 - components/tar.bst
 - components/xmlto.bst
