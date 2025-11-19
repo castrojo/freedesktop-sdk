@@ -7,6 +7,7 @@ build-depends:
 - components/docbook-xsl.bst
 - components/xmlto.bst
 - components/libxslt.bst
+- components/rust.bst
 
 depends:
 - bootstrap-import.bst
