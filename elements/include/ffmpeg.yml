@@ -128,6 +128,6 @@ sources:
   track: n7.*
   exclude:
   - '*-dev'
-  ref: n7.1.2-0-gf893221c8d89cb798b829bebe71d55e1a3f242fd
+  ref: n7.1.3-0-gf46e514491172d15bd74b4abb1814cd2f05a763e
 - kind: patch
   path: patches/ffmpeg/posix-ioctl-hack.patch
