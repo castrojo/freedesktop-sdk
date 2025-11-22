@@ -2,4 +2,4 @@ sources:
 - kind: git_repo
   url: kernel:bluetooth/bluez.git
   track: '*.*'
-  ref: 5.84-0-gda5daf532409812c41a237a6a6126868f6867079
+  ref: 5.85-0-gf6f6abf8d5ccf3c4bc42cf578c4ef7ab6c2ec9d9
