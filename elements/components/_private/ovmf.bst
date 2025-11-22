@@ -105,7 +105,7 @@ sources:
 - kind: git_repo
   url: github:tianocore/edk2.git
   track: edk2-stable*
-  ref: edk2-stable202508.01-0-g3d244c3b364bd4e21261380662186d064659161c
+  ref: edk2-stable202511-0-g46548b1adac82211d8d11da12dd914f41e7aa775
 - kind: git_module
   path: CryptoPkg/Library/OpensslLib/openssl
   url: github:openssl/openssl.git
@@ -129,11 +129,11 @@ sources:
 - kind: git_module
   path: MdeModulePkg/Library/BrotliCustomDecompressLib/brotli
   url: github:google/brotli.git
-  ref: f4153a09f87cbb9c826d8fc12c74642bb2d879ea
+  ref: e230f474b87134e8c6c85b630084c612057f253e
 - kind: git_module
   path: BaseTools/Source/C/BrotliCompress/brotli
   url: github:google/brotli.git
-  ref: f4153a09f87cbb9c826d8fc12c74642bb2d879ea
+  ref: e230f474b87134e8c6c85b630084c612057f253e
 - kind: git_module
   path: RedfishPkg/Library/JsonLib/jansson
   url: github:akheron/jansson.git
