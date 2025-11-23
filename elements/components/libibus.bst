@@ -60,4 +60,5 @@ sources:
   exclude:
   - "*rc*"
   - "*beta*"
+  - "*alpha*"
   ref: 1.5.33-0-g3b3f22b871aac9cb4d856531bf2be73edf5cf4de
