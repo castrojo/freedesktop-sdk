@@ -15,6 +15,7 @@ variables:
   meson-local: >-
     -Ddocbook_docs=disabled
     -Dman=false
+    -Dtests=false
 
 public:
   bst:
