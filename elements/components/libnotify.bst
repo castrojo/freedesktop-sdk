@@ -4,7 +4,6 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/gobject-introspection.bst
 - components/python3-gi-docgen.bst
-- components/gtk3.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
