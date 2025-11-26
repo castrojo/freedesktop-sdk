@@ -11,6 +11,7 @@ depends:
 - components/mtdev.bst
 - components/libevdev.bst
 - components/libwacom.bst
+- components/lua.bst
 
 variables:
   meson-local: >-
