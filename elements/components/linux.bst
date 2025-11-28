@@ -3,29 +3,32 @@ description: Linux kernel configured for use in virtual machines.
 
 (@):
 - elements/include/linux.yml
+- include/_private/make-recc.yml
 
 build-depends:
-- public-stacks/buildsystem-make.bst
-- components/bison.bst
-- components/cpio.bst  # loongarch64 build enabled CONFIG_IKHEADERS by default
-- components/flex.bst
-- components/bc.bst
-- components/gzip.bst
-- components/pahole.bst
-- components/python3.bst
-- components/rsync.bst
-- components/rust.bst
-- components/rust-bindgen.bst
-- components/rust-src.bst
-- components/util-linux.bst
-- components/zstd.bst
-- filename: components/linux-module-cert.bst
-  strict: true
+  (>):
+  - public-stacks/buildsystem-make.bst
+  - components/bison.bst
+  - components/cpio.bst  # loongarch64 build enabled CONFIG_IKHEADERS by default
+  - components/flex.bst
+  - components/bc.bst
+  - components/gzip.bst
+  - components/pahole.bst
+  - components/python3.bst
+  - components/rsync.bst
+  - components/rust.bst
+  - components/rust-bindgen.bst
+  - components/rust-src.bst
+  - components/util-linux.bst
+  - components/zstd.bst
+  - filename: components/linux-module-cert.bst
+    strict: true
 
 variables:
   bootdir: /boot
   kernel_arch: '%{arch}'
   src-arch: '%{kernel_arch}'
+  make-args: CC="recc gcc" HOSTCC="recc gcc"
   image-name: '$(make -s image_name)'
   optimize-debug: false
   (?):
@@ -48,7 +51,8 @@ environment:
   MAXJOBS: "%{max-jobs}"
 
 environment-nocache:
-- MAXJOBS
+  (>):
+  - MAXJOBS
 
 config:
   configure-commands:
