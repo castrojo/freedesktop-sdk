@@ -5,6 +5,7 @@ depends:
 - components/acpica-tools.bst
 - components/alsa-lib.bst
 - components/alsa-plugins.bst
+- components/amf-headers.bst
 - components/aom.bst
 - components/apparmor-manifest.bst
 - components/apparmor.bst
