@@ -79,5 +79,5 @@ sources:
   # to backport them one by one.
   # When reviewing an update, please review what patches it introduces
   track: master
-  ref: bash-5.3-4-ga8a1c2fac029404d3f42cd39f5a20f24b6e4fe4b
+  ref: bash-5.3-9-g11ff9325c1497c5ef1de7cf6fde84e1094eae178
 
