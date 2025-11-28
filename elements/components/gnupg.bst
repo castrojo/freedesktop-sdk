@@ -40,7 +40,7 @@ variables:
 
 sources:
 - kind: git_repo
-  url: gnupg:gnupg.git
+  url: github:gpg/gnupg.git
   track: gnupg-*.*[02468].*
   exclude:
   - '*-base'
