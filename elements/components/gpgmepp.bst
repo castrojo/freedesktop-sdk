@@ -24,7 +24,7 @@ public:
 
 sources:
 - kind: git_repo
-  url: gnupg:gpgmepp.git
+  url: github:gpg/gpgmepp.git
   track: gpgmepp-*
   exclude:
   - "*-base"

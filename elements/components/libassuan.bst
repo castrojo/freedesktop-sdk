@@ -27,7 +27,7 @@ public:
 
 sources:
 - kind: git_repo
-  url: gnupg:libassuan.git
+  url: github:gpg/libassuan.git
   track: libassuan-*
   exclude:
   - '*-base'

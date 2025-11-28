@@ -28,6 +28,6 @@ public:
 
 sources:
 - kind: git_repo
-  url: gnupg:libksba.git
+  url: github:gpg/libksba.git
   track: libksba-*
   ref: libksba-1.6.7-0-gb14e68b97df754b2bb7a90bb904d143d8e896afb
