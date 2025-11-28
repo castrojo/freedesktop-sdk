@@ -30,6 +30,6 @@ public:
 
 sources:
 - kind: git_repo
-  url: gnupg:libgcrypt.git
+  url: github:gpg/libgcrypt.git
   track: libgcrypt-*
   ref: libgcrypt-1.11.2-0-g737cc63600146f196738a6768679eb016cf866e9
