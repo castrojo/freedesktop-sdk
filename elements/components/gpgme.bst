@@ -39,7 +39,7 @@ config:
 
 sources:
 - kind: git_repo
-  url: gnupg:gpgme.git
+  url: github:gpg/gpgme.git
   track: gpgme-*
   exclude:
   - "*-base"
