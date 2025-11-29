@@ -20,4 +20,4 @@ sources:
 - kind: git_repo
   url: github:tlwg/libdatrie.git
   track: v*
-  ref: v0.2.13-0-ge697a665f3590af9dc2d5d8b4f714c5e4a5f7fbd
+  ref: v0.2.14-0-g45e981da7cd1d448663d901f2c1e180401ce09f1
