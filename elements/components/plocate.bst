@@ -15,7 +15,6 @@ config:
     - ln -sf plocate %{install-root}%{bindir}/locate
 
 sources:
-- kind: git_repo
-  url: sesse:plocate
-  track: refs/tags/*
-  ref: 1.1.23-0-gfd7e1f0a1a3836b62438cdfce0b272e7c548e61a
+- kind: tar
+  url: tar_https:plocate.sesse.net/download/plocate-1.1.23.tar.gz
+  ref: 06bd3b284d5d077b441bef74edb0cc6f8e3f0a6f58b4c15ef865d3c460733783
