@@ -41,6 +41,6 @@ sources:
   track: v*
   exclude:
   - "*rc*"
-  ref: v8.2.3-0-g847ad0c991e21db9daa02fec09acbd456f353300
+  ref: v9.0.0-0-gaea90c92aadb186b82e96c2b7ad6f2b865f70df1
 - kind: patch
   path: patches/python3-sphinx/docutils.patch
