@@ -18,6 +18,7 @@ variables:
     -Ddocumentation=false
     -Dtests=false
     -Dzshcompletiondir=no
+    -Dlua-plugins=disabled
 
 sources:
 - kind: git_repo
