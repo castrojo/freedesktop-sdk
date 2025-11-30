@@ -23,6 +23,7 @@ config:
   install-commands:
     (>):
     - |
+      find "%{install-root}" -name "lib*.a" -delete
       patchelf --remove-rpath "%{install-root}%{libdir}/libproxy/libpxbackend-1.0.so"
 
 public:
