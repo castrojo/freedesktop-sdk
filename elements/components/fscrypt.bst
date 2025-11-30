@@ -112,13 +112,6 @@ sources:
     git-ref: v0.13.0-0-gb5e55d198461206bca9558e65cdd518f8e4f2735
     explicit: True
 - kind: go_module
-  url: github:golang/xerrors.git
-  module: golang.org/x/xerrors
-  ref:
-    go-version: v0.0.0-20191204190536-9bdfabe68543
-    git-ref: 9bdfabe68543c54f90421aeb9a60ef8061b5b544
-    explicit: False
-- kind: go_module
   url: github:protocolbuffers/protobuf-go.git
   module: google.golang.org/protobuf
   ref:
