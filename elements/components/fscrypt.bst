@@ -15,17 +15,24 @@ variables:
   ldflags_defaults: ""
   optimize-debug: "false"
 
+config:
+  build-commands:
+    (<):
+    - mv -vf modules.txt vendor/modules.txt
+
 sources:
 - kind: git_repo
   url: github:google/fscrypt.git
   track: v*
-  ref: v0.3.5-0-g49c71dedfee544fd74808d3a18972fb65d6e9f02
+  ref: v0.3.6-0-g37b292434bbb79b2b145a6ede9d53dadacb6870e
+- kind: local
+  path: files/fscrypt/modules.txt
 - kind: go_module
   url: github:BurntSushi/toml.git
   module: github.com/BurntSushi/toml
   ref:
-    go-version: v1.3.2
-    git-ref: v1.3.2-0-gb324da5ffbb2a87e4a611b1703bd03bffbe7ffbf
+    go-version: v1.5.0
+    git-ref: v1.5.0-0-gd97def528e83313822a9f98946334ffccd542bdf
     explicit: True
 - kind: go_module
   url: github:client9/misspell.git
@@ -38,8 +45,8 @@ sources:
   url: github:cpuguy83/go-md2man.git
   module: github.com/cpuguy83/go-md2man/v2
   ref:
-    go-version: v2.0.2
-    git-ref: v2.0.2-0-gd97078115282836e16d0dca10b4b42ce60fc70e6
+    go-version: v2.0.7
+    git-ref: v2.0.7-0-g061b6c7cbecd6752049221aa15b7a05160796698
     explicit: True
 - kind: go_module
   url: github:pkg/errors.git
@@ -59,8 +66,8 @@ sources:
   url: github:urfave/cli.git
   module: github.com/urfave/cli
   ref:
-    go-version: v1.22.14
-    git-ref: v1.22.14-0-gf5ca62f301d773bdc9c800aa0e24aec82ad01a1d
+    go-version: v1.22.17
+    git-ref: v1.22.17-0-g992e53d11ad06c124eb4809a0591f15af670d401
     explicit: True
 - kind: go_module
   url: github:wadey/gocovmerge.git
@@ -73,55 +80,55 @@ sources:
   url: github:golang/crypto.git
   module: golang.org/x/crypto
   ref:
-    go-version: v0.17.0
-    git-ref: v0.17.0-0-g9d2ee975ef9fe627bf0a6f01c1f69e8ef1d4f05d
+    go-version: v0.41.0
+    git-ref: v0.41.0-0-gef5341b70697ceb55f904384bd982587224e8b0c
     explicit: True
 - kind: go_module
   url: github:golang/exp.git
   module: golang.org/x/exp/typeparams
   ref:
-    go-version: v0.0.0-20221208152030-732eee02a75a
-    git-ref: 732eee02a75a571a8347fdf60af8c8b9e3ca9254
+    go-version: v0.0.0-20231108232855-2478ac86f678
+    git-ref: 2478ac86f6784cc492495a49c25cd184d471d9de
     explicit: True
 - kind: go_module
   url: github:golang/mod.git
   module: golang.org/x/mod
   ref:
-    go-version: v0.12.0
-    git-ref: v0.12.0-0-gbaa5c2d058db25484c20d76985ba394e73176132
+    go-version: v0.27.0
+    git-ref: v0.27.0-0-gf8a9fe217cff893cb67f4acad96a0021c13ee6e7
     explicit: True
 - kind: go_module
   url: github:golang/sys.git
   module: golang.org/x/sys
   ref:
-    go-version: v0.15.0
-    git-ref: v0.15.0-0-g13b15b780d9013988b1fb0e79e30b2528a877638
+    go-version: v0.35.0
+    git-ref: v0.35.0-0-g5b936e1f126baa13682eff91c2e4d5d9e3a0b71d
     explicit: True
 - kind: go_module
   url: github:golang/term.git
   module: golang.org/x/term
   ref:
-    go-version: v0.15.0
-    git-ref: v0.15.0-0-gee66497fa39f03ba841b568a7b4f4ee4e4546f74
+    go-version: v0.34.0
+    git-ref: v0.34.0-0-ga35244d18d7756b12deca31a518c0fa1327d050a
     explicit: True
 - kind: go_module
   url: github:golang/tools.git
   module: golang.org/x/tools
   ref:
-    go-version: v0.13.0
-    git-ref: v0.13.0-0-gb5e55d198461206bca9558e65cdd518f8e4f2735
+    go-version: v0.36.0
+    git-ref: v0.36.0-0-g44d18e11572cd133e1eec6811ba57d78ff20addf
     explicit: True
 - kind: go_module
   url: github:protocolbuffers/protobuf-go.git
   module: google.golang.org/protobuf
   ref:
-    go-version: v1.33.0
-    git-ref: v1.33.0-0-gec47fd138f9221b19a2afd6570b3c39ede9df3dc
+    go-version: v1.36.10
+    git-ref: v1.36.10-0-gf9fa50e26c0ffec610c509850484a5fdecdb26ec
     explicit: True
 - kind: go_module
   url: github:dominikh/go-tools.git
   module: honnef.co/go/tools
   ref:
-    go-version: v0.4.5
-    git-ref: v0.4.5-0-g9e12e6014d3b0a854950490051ad1338fc6badd1
+    go-version: v0.6.1
+    git-ref: v0.6.1-0-gb8ec13ce4d00445d75da053c47498e6f9ec5d7d6
     explicit: True
