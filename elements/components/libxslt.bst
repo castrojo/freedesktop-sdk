@@ -31,7 +31,6 @@ public:
 sources:
 - kind: git_repo
   url: gnome:libxslt.git
-  track: v*
   ref: v1.1.43-0-g71be7a32637760d769b193d95e0c745ecb86b679
 - kind: patch
   path: patches/libxslt/0001-Make-PACKAGE_PREFIX_DIR-honour-arch-triplet-libdir.patch
