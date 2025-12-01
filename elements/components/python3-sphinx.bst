@@ -35,7 +35,7 @@ public:
 sources:
 - kind: git_repo
   url: github:sphinx-doc/sphinx.git
-  track: v*
+  track: v8.*
   exclude:
   - "*rc*"
   ref: v8.2.3-0-g847ad0c991e21db9daa02fec09acbd456f353300
