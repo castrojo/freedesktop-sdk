@@ -20,3 +20,5 @@ sources:
   url: github:AA-Turner/roman-numerals.git
   track: v*
   ref: v3.1.0-0-gec81337f99d8b557a6fce10f674c054050551444
+- kind: patch
+  path: patches/python3-roman-numerals/rename.patch

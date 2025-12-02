@@ -1,0 +1,50 @@
+From cc8ec3aca53c9246965500f8fc14aee636fd5307 Mon Sep 17 00:00:00 2001
+From: Adam Turner <9087854+aa-turner@users.noreply.github.com>
+Date: Wed, 12 Mar 2025 00:56:13 +0000
+Subject: [PATCH] Rename Python package to 'roman-numerals'
+
+---
+ README.rst            | 4 ++--
+ python/pyproject.toml | 6 +++---
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/README.rst b/README.rst
+index 5ca55df..eb4efdd 100644
+--- a/README.rst
++++ b/README.rst
+@@ -2,8 +2,8 @@
+  roman-numerals
+ ===============
+ 
+-.. image:: https://img.shields.io/pypi/v/roman-numerals-py.svg
+-   :target: https://pypi.org/project/roman-numerals-py/
++.. image:: https://img.shields.io/pypi/v/roman-numerals.svg
++   :target: https://pypi.org/project/roman-numerals/
+    :alt: Package on PyPI
+ 
+ .. image:: https://img.shields.io/crates/v/roman-numerals-rs
+diff --git a/python/pyproject.toml b/python/pyproject.toml
+index ff1a23d..162bd86 100644
+--- a/python/pyproject.toml
++++ b/python/pyproject.toml
+@@ -1,4 +1,4 @@
+-# Project configuration file for the "roman-numerals-py" package (see PEP 518)
++# Project configuration file for the "roman-numerals" package (see PEP 518)
+ 
+ # Use flit as a build backend (https://flit.pypa.io/)
+ # Build with (https://build.pypa.io/)
+@@ -9,12 +9,12 @@ build-backend = "flit_core.buildapi"
+ # Project metadata
+ # cf. https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
+ [project]
+-name = "roman-numerals-py"
++name = "roman-numerals"
+ description = "Manipulate well-formed Roman numerals"
+ readme = "README.rst"
+ urls.Changelog = "https://github.com/AA-Turner/roman-numerals/blob/master/CHANGES.rst"
+ urls.Code = "https://github.com/AA-Turner/roman-numerals/"
+-urls.Download = "https://pypi.org/project/roman-numerals-py/"
++urls.Download = "https://pypi.org/project/roman-numerals/"
+ urls."Issue tracker" = "https://github.com/AA-Turner/roman-numerals/issues"
+ license.file = "LICENCE.rst"
+ requires-python = ">=3.9"
