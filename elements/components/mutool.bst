@@ -41,7 +41,7 @@ sources:
   track: '*.*.*'
   exclude:
   - '*-*'
-  ref: 1.26.11-0-gd189cc13194a1e32026b6161b543df02c120aac2
+  ref: 1.26.12-0-g4b34e2ee9ed0171f16c2891fee1601bc844334ac
 - kind: git_module
   path: thirdparty/mujs
   url: github:ArtifexSoftware/mujs.git
