@@ -9,3 +9,5 @@ sources:
   ref: v3.14.1-0-g57e0d177c26d4a508ef46adae9cbae46fca39f70
 - kind: patch
   path: patches/python3/python3-multiarch-include.patch
+- kind: patch
+  path: patches/python3/pr-142277.patch
