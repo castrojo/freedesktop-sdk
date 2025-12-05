@@ -48,4 +48,4 @@ sources:
   track: "*.*.*"
   exclude:
   - "*rc*"
-  ref: 2.3.1-0-g68c83bf42055a4313c16ae1073dd50cd72bbfb69
+  ref: 2.3.2-0-g6d9f3dc072369dc719a5fbe71d4e086a96a680bd
