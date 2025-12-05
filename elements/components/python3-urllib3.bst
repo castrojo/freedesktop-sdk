@@ -17,7 +17,7 @@ sources:
   - '*a*'
   - '*b*'
   - '*rc*'
-  ref: 2.5.0-0-gaaab4eccc10c965897540b21e15f11859d0b62e7
+  ref: 2.6.0-0-g720f484b605f18887a48eef448d0084e2b76902d
 - kind: patch
   path: patches/python3-urllib3/setuptools_scm_version.patch
 - kind: patch
