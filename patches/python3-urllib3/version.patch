@@ -1,8 +1,8 @@
 diff --git a/pyproject.toml b/pyproject.toml
-index 60fce65..59fd29f 100644
+index 45538a6e..ef7a3677 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
-@@ -118,6 +118,7 @@ docs = [
+@@ -116,6 +116,7 @@ docs = [
  [tool.hatch.version]
  source = "vcs"
  [tool.hatch.version.raw-options]
