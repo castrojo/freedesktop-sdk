@@ -14,4 +14,4 @@ sources:
 - kind: git_repo
   url: github:gflags/gflags.git
   track: v*
-  ref: v2.2.2-0-ge171aa2d15ed9eb17054558e0b3a6a413bb01067
+  ref: v2.3.0-0-g33bb3461e10864b5406353d3a1fb7ff34c2314b8
