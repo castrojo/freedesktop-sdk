@@ -19,4 +19,4 @@ sources:
 - kind: git_repo
   url: github:ncroxon/gnu-efi.git
   track: '*.*.*'
-  ref: 4.0.2-0-g1fee8ab566ce91b9cbab9f2c85db96566d79063b
+  ref: 4.0.4-0-g37cd8f069bde6715eebdc5e38a8f15ee6de5edcf
