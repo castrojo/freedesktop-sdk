@@ -13,4 +13,4 @@ sources:
   exclude:
   - "networkx-*rc*"
   - "networkx-*b*"
-  ref: networkx-3.6-0-gbb9a6ded1889f182d7a5b76831c389c335d52910
+  ref: networkx-3.6.1-0-g7530809bfa1ea7ed6fdf918a4d1431488953cb1f
