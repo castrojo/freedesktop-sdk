@@ -22,7 +22,7 @@ sources:
 - kind: git_repo
   url: github:containers/netavark.git
   track: v*
-  ref: v1.17.0-0-g53a710a5ec44271a69f8063f54a3e3895805e5cf
+  ref: v1.17.1-0-g7ffb8ec4c2e490a3884451e20aa8ad0471d78579
 - kind: cargo2
   ref:
   - kind: registry
@@ -451,8 +451,8 @@ sources:
     sha: 69d83b0086dc8ecf3ce9ae2874b2d1290252e2a30720bea58a5c6639b0092873
   - kind: registry
     name: mozim
-    version: 0.3.0
-    sha: c65785bc34f52e5e2d28009bdefd8250ede9614e705be61f8e5097effda3c0be
+    version: 0.3.1
+    sha: f0437e58b082a444d57ee1e67eff5f5b98e4c3c64063bffc447ac9ae29a5ca3a
   - kind: registry
     name: multimap
     version: 0.10.1
