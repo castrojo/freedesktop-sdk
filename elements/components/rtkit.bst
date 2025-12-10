@@ -18,7 +18,7 @@ config:
 
 sources:
 - kind: git_repo
-  url: github:heftig/rtkit.git
+  url: freedesktop:pipewire/rtkit.git
   track: v*
   ref: v0.13-0-gb9169402fe5e82d20efb754509eb0b191f214599
 - kind: local
