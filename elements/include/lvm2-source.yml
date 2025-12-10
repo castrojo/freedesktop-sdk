@@ -2,14 +2,11 @@ variables:
   # Uses generated header cmds.h into source directory
   build-dir: ''
 
-public:
-  cpe:
-    version-match: '(\d+)_(\d)+_(\d+)'
-
 sources:
 - kind: git_repo
   url: gitlab:lvmteam/lvm2.git
   track: v*
   ref: v2_03_38-0-g657e10bd75fcb3dffbd40bb1ffc6f1bfd768a10e
+  version-guess-pattern: '(\d+)_(\d)+_(\d+)'
 - kind: patch
   path: patches/lvm2/force-run-dir.patch

@@ -47,11 +47,9 @@ public:
         - '%{bindir}/curl-config'
         - '%{libdir}/libcurl.so'
 
-  cpe:
-    version-match: '(\d+)_(\d+)_(\d+)'
-
 sources:
 - kind: git_repo
   url: github:curl/curl.git
   track: curl-*
   ref: curl-8_17_0-0-g400fffa90f30c7a2dc762fa33009d24851bd2016
+  version-guess-pattern: '(\d+)_(\d+)_(\d+)'

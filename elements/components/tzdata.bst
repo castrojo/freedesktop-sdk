@@ -10,10 +10,6 @@ variables:
   make-args: >-
     PREFIX="%{prefix}" CC=gcc ZFLAGS='-b fat'
 
-public:
-  cpe:
-    version-match: '^\d{4}[a-z]'
-
 config:
   install-commands:
     (>):
@@ -43,3 +39,4 @@ sources:
   url: github:eggert/tz.git
   track: 20*
   ref: 2025c-0-gb81d0be187f04ca856fc5a68a7ec2b8e460bafef
+  version-guess-pattern: '^\d{4}[a-z]'

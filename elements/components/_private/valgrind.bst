@@ -29,12 +29,9 @@ config:
       mkdir -p "%{install-root}%{includedir}/%{gcc_triplet}/valgrind"
       mv "%{install-root}%{includedir}/valgrind/config.h" "%{install-root}%{includedir}/%{gcc_triplet}/valgrind/"
 
-public:
-  cpe:
-    version-match: '(\d+)_(\d+)_(\d+)'
-
 sources:
 - kind: git_repo
   url: sourceware:valgrind.git
   track: VALGRIND_*
   ref: VALGRIND_3_26_0-0-g218cee2feb2556b6b4b8991cf0977256b801e3e5
+  version-guess-pattern: '(\d+)_(\d+)_(\d+)'

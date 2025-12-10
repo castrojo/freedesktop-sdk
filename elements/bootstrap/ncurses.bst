@@ -99,6 +99,3 @@ public:
         - '%{libdir}/libncursesw.so'
         - '%{libdir}/libncurses.so'
         - '%{libdir}/libpanelw.so'
-
-  cpe:
-    version-match: '(\d+)_(\d+)'

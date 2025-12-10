@@ -21,7 +21,6 @@ public:
         - '%{libdir}/libfreetype.so'
 
   cpe:
-    version-match: '(\d+)-(\d+)-(\d+)-\d*-g'
     product: 'freetype2'
     vendor: 'freetype'
 

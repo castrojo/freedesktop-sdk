@@ -21,11 +21,9 @@ public:
         (>):
         - '%{libdir}/libexpat.so'
 
-  cpe:
-    version-match: '(\d+)_(\d+)_(\d+)'
-
 sources:
 - kind: git_repo
   url: github:libexpat/libexpat.git
   track: R_*
   ref: R_2_7_3-0-g4575e52f83e0d6d7bd24939eab8952bbc7bc358f
+  version-guess-pattern: '(\d+)_(\d+)_(\d+)'
