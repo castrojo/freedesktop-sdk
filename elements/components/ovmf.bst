@@ -59,7 +59,7 @@ variables:
         --arch=AARCH64
       arch-opts: ''
       platform: ArmVirtPkg/ArmVirtQemu.dsc
-      build-dir: Build/ArmVirtQemu-AARCH64/RELEASE_GCC5
+      build-dir: Build/ArmVirtQemu-AArch64/RELEASE_GCC5
       code: '%{build-dir}/FV/QEMU_EFI.fd'
       vars: '%{build-dir}/FV/QEMU_VARS.fd'
       shell: '%{build-dir}/AARCH64/Shell.efi'
