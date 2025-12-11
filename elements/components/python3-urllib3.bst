@@ -17,6 +17,6 @@ sources:
   - '*a*'
   - '*b*'
   - '*rc*'
-  ref: 2.6.1-0-gbfe8e198a13800e3ee8ef8124a8928acb170c843
+  ref: 2.6.2-0-g83f8643ffb5b7f197457379148e2fa118ab0fcdc
 - kind: patch
   path: patches/python3-urllib3/version.patch
