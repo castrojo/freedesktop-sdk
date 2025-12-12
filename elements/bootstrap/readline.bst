@@ -48,6 +48,6 @@ sources:
   # to backport them one by one.
   # When reviewing an update, please review what patches it introduces
   track: master
-  ref: readline-8.3-1-g15970c431517a046099d8294c91d778b1da9b29d
+  ref: readline-8.3-3-g553d6bb272f26400d6d4d1cac7c1df84c447449b
 - kind: patch
   path: patches/readline/readline-disable-rpath.patch
