@@ -17,6 +17,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+import datetime
 import enum
 import gzip
 import hashlib
@@ -26,6 +27,7 @@ import shutil
 import tarfile
 import tempfile
 import time
+
 from contextlib import ExitStack
 
 from .blob import Blob
@@ -157,18 +159,35 @@ def build_layer(upper, lowers, global_conf):
     return new_layer_descs, new_diff_ids
 
 
+def created(global_conf):
+    _timestamp = global_conf.timestamp
+
+    if not _timestamp:
+        # Return deterministic value, this option hasn't been set.
+        return time.strftime(
+            "%Y-%m-%dT%H:%M:%SZ", time.gmtime(int(os.environ.get("SOURCE_DATE_EPOCH")))
+        )
+
+    if _timestamp == "now":
+        # The element wants the current timestamp.
+        return datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+    elif _timestamp == "deterministic":
+        # This element has explicitly specified a deterministic value, return that.
+        return time.strftime(
+            "%Y-%m-%dT%H:%M:%SZ", time.gmtime(int(os.environ.get("SOURCE_DATE_EPOCH")))
+        )
+    else:
+        # The element has explicitly defined a value for the timestamp, use that.
+        return _timestamp
+
+
 def build_image(global_conf, image):
     layer_descs = []
     layer_files = []
     diff_ids = []
     history = None
 
-    config = {
-        "created": time.strftime(
-            "%Y-%m-%dT%H:%M:%SZ",
-            time.gmtime(int(os.environ.get("SOURCE_DATE_EPOCH", time.time()))),
-        )
-    }
+    config = {"created": created(global_conf)}
 
     if "author" in image:
         config["author"] = image["author"]

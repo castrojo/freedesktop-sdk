@@ -31,6 +31,7 @@ from .image_builder import Compression, build_images
 class GlobalConfig:
     compression: Compression
     compression_level: Optional[int]
+    timestamp: str
     output: str
 
 
@@ -43,6 +44,7 @@ def main():
             compression_level = 5
     if compression not in Compression:
         raise RuntimeError("Compression must be in " + ",".join(Compression))
+    timestamp = data.get("timestamp", "deterministic")
 
-    global_conf = GlobalConfig(compression, compression_level, os.getcwd())
+    global_conf = GlobalConfig(compression, compression_level, timestamp, os.getcwd())
     build_images(global_conf, data.get("images", []), data.get("annotations"))
