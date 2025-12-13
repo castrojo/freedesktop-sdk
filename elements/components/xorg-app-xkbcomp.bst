@@ -15,4 +15,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/app/xkbcomp.git
   track: xkbcomp-*
-  ref: xkbcomp-1.4.7-0-ge26102f28f08e5432b1ad44bbaef7f32aff199f6
+  ref: xkbcomp-1.5.0-0-g2c7789785981ad1fce3858c726615b49293f7de0
