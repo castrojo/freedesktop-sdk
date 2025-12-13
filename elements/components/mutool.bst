@@ -41,15 +41,15 @@ sources:
   track: '*.*.*'
   exclude:
   - '*-*'
-  ref: 1.26.12-0-g4b34e2ee9ed0171f16c2891fee1601bc844334ac
+  ref: 1.27.0-0-gd3b7556577b790e9761868c314ad6fd9b6dd86a9
 - kind: git_module
   path: thirdparty/mujs
   url: github:ArtifexSoftware/mujs.git
-  ref: 0df0707f2f10187127e36acfbc3ba9b9ca5b5cf0
+  ref: 33c83d8553048fd7710a518821cdefa5818e1559
 - kind: git_module
   path: thirdparty/jbig2dec
   url: github:ArtifexSoftware/jbig2dec.git
-  ref: 1d1347e38a55e657dcc4c8f1c77bb3a26bfc9ff3
+  ref: d915733ec69260c1fd2c458b06835cb57bb85ac7
 - kind: git_module
   path: thirdparty/gumbo-parser
   url: github:ArtifexSoftware/thirdparty-gumbo-parser.git
