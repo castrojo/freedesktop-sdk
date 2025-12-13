@@ -1590,6 +1590,11 @@ case "$arch" in
     ;;
 esac
 module VHOST_VSOCK
+module VHOST_NET
+module TARGET_CORE
+module VHOST_SCSI
+module VDPA_USER
+module VHOST_VDPA
 
 # Useful filesystems
 for fs in XFS BTRFS EXFAT VFAT F2FS ISO9660 UDF NTFS3; do
