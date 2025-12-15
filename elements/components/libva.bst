@@ -34,4 +34,4 @@ sources:
   url: github:intel/libva.git
   track: '2.*.*'
   # WARNING: Tracking must be pinned to a major.minor version on stable release.
-  ref: 2.22.0-0-g217da1c28336d6a7e9c0c4cb8f1c303968a675f1
+  ref: 2.23.0-0-gdbf83dc3b1ce6bad46e1628aaf2da5ef731157b8
