@@ -16,4 +16,4 @@ sources:
 - kind: git_repo
   url: github:AA-Turner/roman-numerals.git
   track: v*
-  ref: v3.1.0-0-gec81337f99d8b557a6fce10f674c054050551444
+  ref: v4.0.0-0-gc3e1b6b4e6e02e5e19c26dc6f72bbb7b1060cca5
