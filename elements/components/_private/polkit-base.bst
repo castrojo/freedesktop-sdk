@@ -38,4 +38,4 @@ sources:
 - kind: git_repo
   url: github:polkit-org/polkit.git
   track: '[0-9]*'
-  ref: 126-0-gd627b0d1e1108563658dabe3fb8d2a065e64df10
+  ref: 127-0-g9e4894c969eecf26a3ba762f4f7a268aa0fb3e51
