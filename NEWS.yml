@@ -1,3 +1,85 @@
+Version: freedesktop-sdk-25.08.6
+Date: '2025-12-16'
+Description: |-
+  Changes in freedesktop-sdk-25.08.6
+   * Update extra-cmake-modules to v6.21.0-0
+   * Update bash to bash-5.3-10
+   * Update skopeo to v1.21.0-0
+   * Update xorg-app-xkbcomp to xkbcomp-1.5.0-0
+   * Update dictionaries to libreoffice-25.8.4.2-0
+   * Update python3-networkx to networkx-3.6.1-0
+   * Update python3 to v3.13.11-0
+   * Update glibc to glibc-2.42-43
+   * Update readline to readline-8.3-3
+   * Update vim to v9.1.1972-0
+   * ovmf: Update builddir for aarch64
+   * Update ovmf to edk2-stable202511-0
+   * Update libnftnl to libnftnl-1.3.1-0
+   * Update netavark to ref: v1.17.1-0
+   * Update tzdata to 2025c-0
+   * Update libbytesize to 2.12-0
+   * Update libdrm to libdrm-2.4.130-0
+   * Update gnu-efi to 4.0.4-0
+   * Update mutool to 1.26.12-0
+   * Update c-ares to v1.34.6-0
+   * Update python3-urllib3 to 2.6.1-0
+   * Update swig to v4.4.1-0
+   * Update strace to v6.18-0
+   * Update sdl2-compat to release-2.32.60-0
+   * Update mesa-sdk to mesa-25.3.1-0
+   * Update gstreamer-plugins-rs to ref: 0.14.4-0
+   * python3-urllib3: Drop outdated patch and update the rest
+   * Update python3-urllib3 to 2.6.0-0
+   * Update poppler to poppler-25.12.0-0
+   * Update gflags to v2.3.0-0
+   * Update libpaper to v2.2.7-0
+   * Update meson to 1.9.2-0
+   * Update libpng to v1.6.53-0
+   * Update python3-protobuf to 6.33.2
+   * Update go to go1.25.5-0
+   * Update gnu-efi to 4.0.3-0
+   * Update intel-media-driver to intel-media-25.4.5-0
+   * Update spirv-llvm-translator to v21.1.3-0
+   * Update sdl3 to release-3.2.28-0
+   * Update vim to v9.1.1952-0
+   * Update python3 to v3.13.10-0
+   * Update buildbox to 1.3.46-0
+   * Update fwupd to 2.0.18-0
+   * Update frei0r to v2.5.1-0
+   * Update llvm to llvmorg-21.1.7-0
+   * Update hwdata to v0.402-0
+   * Update libarchive to v3.8.4-0
+   * Update python3-trove-classifiers to 2025.12.1.14-0
+   * Update dictionaries to libreoffice-25.8.4.1-0
+   * Update gstreamer to 1.26.9-0
+   * Update buildbox to 1.3.45-0
+   * Update crun to 1.25.1-0
+   * Update libevdev to libevdev-1.13.6-0
+   * python3-sphinx: Freeze to v8
+   * Update cython to 3.2.2-0
+   * pipewire: Update to 1.4.9
+   * pipewire: Stop excluding tags ending in `9*`
+   * Update libcamera to v0.6.0-0
+   * fscrypt: Update to 0.3.6
+   * fscrypt: Remove xerrors to fix track
+   * plocate: Switch to tarball
+   * libinput: Disable lua plugins
+   * Update libinput to 1.30.0-0
+   * Update libdatrie to v0.2.14-0
+   * libproxy: Drop static library
+   * Update libproxy to 0.5.12-0
+   * Update libnice to 0.1.23-0
+   * Update linux-firmware to 20251125-0
+   * libxslt: Freeze to 1.1.43
+   * Update reference-abi to freedesktop-sdk-25.08.5-0
+   * Update ccache to v4.12.2-0
+   * Update python3-hatchling to hatchling-v1.28.0-0
+   * Switch libmicrohttpd to fdsdk mirror as source
+   * Switch gnupg sources to GitHub mirror
+   * Update glibc to glibc-2.42-42
+   * Update bash to bash-5.3-9
+   * Update vim to v9.1.1933-0
+---
 Version: freedesktop-sdk-25.08.5
 Date: '2025-11-27'
 Description: |-
