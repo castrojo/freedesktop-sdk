@@ -290,18 +290,21 @@ check_mirrors:
 .builder-x86_64:
   tags:
     - x86_64
+    - m3
   variables:
     ARCH: x86_64
 
 .builder-i686:
   tags:
     - x86_64
+    - m3
   variables:
     ARCH: i686
 
 .builder-aarch64:
   tags:
     - aarch64
+    - m3
   variables:
     ARCH: aarch64
 
@@ -321,12 +324,14 @@ check_mirrors:
 .builder-ppc64:
   tags:
   - x86_64
+  - m3
   variables:
     ARCH: ppc64
 
 .builder-loongarch64:
   tags:
   - x86_64
+  - m3
   variables:
     ARCH: loongarch64
 
