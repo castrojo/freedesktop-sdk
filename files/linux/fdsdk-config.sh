@@ -406,6 +406,25 @@ module ATH10K_PCI
 module RTW88
 enable RTW88_8822BE
 enable RTW88_8822CE
+module RTW88_8822BS
+module RTW88_8822BU
+module RTW88_8822CS
+module RTW88_8822CU
+module RTW88_8723DS
+module RTW88_8723CS
+module RTW88_8723DU
+module RTW88_8821CS
+module RTW88_8821CU
+module RTW88_8812AU
+module RTW88_8814AE
+module RTW88_8814AU
+module RTW89_8851BE
+module RTW89_8851BU
+module RTW89_8852BE
+module RTW89_8852BU
+module RTW89_8852BTE
+module RTW89_8852CE
+module RTW89_8922AE
 enable WLAN_VENDOR_ATH
 module AR5523
 module ATH10K_USB
@@ -1571,6 +1590,11 @@ case "$arch" in
     ;;
 esac
 module VHOST_VSOCK
+module VHOST_NET
+module TARGET_CORE
+module VHOST_SCSI
+module VDPA_USER
+module VHOST_VDPA
 
 # Useful filesystems
 for fs in XFS BTRFS EXFAT VFAT F2FS ISO9660 UDF NTFS3; do
@@ -2318,10 +2342,18 @@ if has SPI; then
 fi
 
 # BPF
+enable FTRACE
+if has HAVE_KPROBES; then
+    enable KPROBES
+fi
+if has ARCH_SUPPORTS_UPROBES; then
+    enable UPROBE_EVENTS
+fi
 enable BPF_SYSCALL
 enable CGROUP_BPF
 if has HAVE_CBPF_JIT || has HAVE_EBPF_JIT; then
     enable BPF_JIT
+    enable BPF_LSM
 fi
 
 remove DEBUG_INFO_SPLIT
