@@ -15,4 +15,4 @@ sources:
   track: xorgproto-*
   exclude:
   - xorgproto-*.*.99.*
-  ref: xorgproto-2024.1-0-g67469711055522b8adb2d795b01e7ba98cb8816c
+  ref: xorgproto-2025.1-0-gc18d2bc22813793bba7f0e4e603c0104d7724802
