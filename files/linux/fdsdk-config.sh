@@ -102,7 +102,6 @@ module CRYPTO_CMAC
 module CRYPTO_CRC32
 module CRYPTO_CRC32C
 module CRYPTO_CTS
-module CRYPTO_CURVE25519
 module CRYPTO_DEFLATE
 module CRYPTO_DES
 module CRYPTO_DH
@@ -357,7 +356,7 @@ esac
 # Hyper-V
 case "$arch" in
     x86_64|aarch64)
-        module HYPERV
+        enable HYPERV
         module PCI_HYPERV
         module HYPERV_BALLOON
         module HYPERV_NET
@@ -686,7 +685,6 @@ fi
 enable DRM_SIMPLEDRM
 enable SYSFB_SIMPLEFB
 module DRM_NOUVEAU
-enable DRM_NOUVEAU_GSP_DEFAULT
 module DRM_RADEON
 module DRM_AMDGPU
 enable DRM_AMDGPU_SI
