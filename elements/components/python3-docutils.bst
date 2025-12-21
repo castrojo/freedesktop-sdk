@@ -10,5 +10,5 @@ sources:
 - kind: pypi
   name: docutils
   ref:
-    sha256sum: 21486ae730e4ca9f622677b1412b879af1791efcfba517e4c6f60be543fc8cdd
-    suffix: d9/02/111134bfeb6e6c7ac4c74594e39a59f6c0195dc4846afbeac3cba60f1927/docutils-0.22.3.tar.gz
+    sha256sum: 4db53b1fde9abecbb74d91230d32ab626d94f6badfc575d6db9194a49df29968
+    suffix: ae/b6/03bb70946330e88ffec97aefd3ea75ba575cb2e762061e0e62a213befee8/docutils-0.22.4.tar.gz
