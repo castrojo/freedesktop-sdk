@@ -288,7 +288,7 @@ esac
 # Hyper-V
 case "$arch" in
     i686|x86_64|aarch64)
-        module HYPERV
+        enable HYPERV
         module PCI_HYPERV
         module HYPERV_BALLOON
         module HYPERV_NET
