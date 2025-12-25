@@ -283,29 +283,35 @@ if __name__ == "__main__":
     with open(args.manifest, "rb") as f:
         manifest = json.load(f)
         for module in manifest["modules"]:
+            # Look for x-cpe version in manifest generated before source API was implemented (pre buildstream 2.5)
             cpe = module["x-cpe"]
             version = cpe.get("version")
             if version:
                 print(f"Found version {version} for module {module['name']}")
             else:
-                print(
-                    f"Failed to find a version for module {module['name']}, assuming unversioned"
-                )
                 sources = module["sources"]
                 for element in sources:
-                    if "commit" in element and element["type"] == "git":
-                        unversioned_git[module["name"]] = {
-                            "source": element["commit"],
-                            "url": element["url"],
-                            "product": cpe.get("product"),
-                            "cve_ids": set(),
-                        }
-                    if "url" in element and element["type"] == "archive":
-                        unversioned_archive[module["name"]] = {
-                            "source": element["url"],
-                            "product": cpe.get("product"),
-                            "cve_ids": set(),
-                        }
+                    if "x-cpe" in element:
+                        cpe = element["x-cpe"]
+                        version = cpe.get("version")
+                        print(f"Found version {version} for module {module['name']}")
+                    else:
+                        print(
+                            f"Failed to find a version for module {module['name']}, assuming unversioned"
+                        )
+                        if "commit" in element and element["type"] == "git":
+                            unversioned_git[module["name"]] = {
+                                "source": element["commit"],
+                                "url": element["url"],
+                                "product": cpe.get("product"),
+                                "cve_ids": set(),
+                            }
+                        if "url" in element and element["type"] == "archive":
+                            unversioned_archive[module["name"]] = {
+                                "source": element["url"],
+                                "product": cpe.get("product"),
+                                "cve_ids": set(),
+                            }
                 continue
             vendor = cpe.get("vendor")
             vendor_dict = LOOKUP_TABLE.setdefault(cpe.get("vendor"), {})
