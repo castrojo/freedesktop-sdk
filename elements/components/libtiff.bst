@@ -33,7 +33,4 @@ public:
 sources:
 - kind: git_repo
   url: gitlab:libtiff/libtiff.git
-  track: v*
-  exclude:
-  - '*rc*'
   ref: v4.7.0-0-g9dff73bebc5661f2dace6f16e14cf9e857172f4e
