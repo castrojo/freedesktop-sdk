@@ -2,22 +2,18 @@ sources:
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-Headers.git
   directory: vulkan-headers
-  track: vulkan-sdk-*
   ref: vulkan-sdk-1.4.321.0-0-g2cd90f9d20df57eac214c148f3aed885372ddcfe
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-Tools.git
   directory: vulkan-tools
-  track: vulkan-sdk-*
   ref: vulkan-sdk-1.4.321.0-0-g06ae73a3dc3a03466817d8370355203dac7b79b1
 - kind: git_repo
   url: github:KhronosGroup/SPIRV-Headers.git
   directory: spirv-headers
-  track: vulkan-sdk-*
   ref: vulkan-sdk-1.4.321.0-0-g2a611a970fdbc41ac2e3e328802aed9985352dca
 - kind: git_repo
   url: github:KhronosGroup/SPIRV-Tools.git
   directory: spirv-tools
-  track: vulkan-sdk-*
   ref: vulkan-sdk-1.4.321.0-0-g33e02568181e3312f49a3cf33df470bf96ef293a
 - kind: patch
   directory: spirv-tools
@@ -25,17 +21,14 @@ sources:
 - kind: git_repo
   url: github:KhronosGroup/glslang.git
   directory: glslang
-  track: vulkan-sdk-*
   ref: vulkan-sdk-1.4.321.0-0-g8a85691a0740d390761a1008b4696f57facd02c4
 - kind: git_repo
   url: github:KhronosGroup/Vulkan-Loader.git
   directory: vulkan-icd-loader
-  track: vulkan-sdk-*
   ref: vulkan-sdk-1.4.321.0-0-gda8d2caad9341ca8c5a7c3deba217d7da50a7c24
 - kind: git_repo
   url: github:zeux/volk.git
   directory: volk
-  track: vulkan-sdk-*
   ref: vulkan-sdk-1.4.321.0-0-ga8da8ef3368482b0ee9b0ec0c6079a16a89c6924
 - kind: patch
   path: patches/vulkan-tools/unbreak_wayland_1_24.patch
