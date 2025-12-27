@@ -33,6 +33,7 @@ variables:
   optimize-debug: "false"
   compress-debug: "false"
   command-subdir: src/github.com/containers/podman
+  make-install: make -j1 %{make-install-args} install.completions
 
 sources:
 - kind: git_repo
