@@ -45,9 +45,6 @@ public:
 sources:
 - kind: git_repo
   url: github:PCRE2Project/pcre2.git
-  track: pcre2-*
-  exclude:
-  - '*-RC*'
   ref: pcre2-10.46-0-gb2bd4254b379b9d7dc9a3dda060a7e27009ccdff
 - kind: git_module
   path: deps/sljit
