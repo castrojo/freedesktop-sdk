@@ -22,6 +22,6 @@ public:
 
 sources:
 - kind: git_repo
-  url: fdsdk_mirror:git_https/git.gnunet.org/libmicrohttpd.git
+  url: fdsdk_mirror:git_gnunet_org/libmicrohttpd.git
   track: v*
   ref: v1.0.2-0-gf2e3bbda41c6263527808187c45f90b1704332f9
