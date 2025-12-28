@@ -20,6 +20,6 @@ sources:
 - kind: git_repo
   url: freedesktop:pipewire/rtkit.git
   track: v*
-  ref: v0.13-0-gb9169402fe5e82d20efb754509eb0b191f214599
+  ref: v0.14-0-gc52db0a9849908613ab8775b519834671b7bec8b
 - kind: local
   path: files/rtkit/rtkit.conf
