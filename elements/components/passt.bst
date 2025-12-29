@@ -19,4 +19,4 @@ sources:
 - kind: git_repo
   url: fdsdk_mirror:passt/passt.git
   track: '*_*_*.*'
-  ref: 2025_09_19.623dbf6-0-g623dbf6f16d8dedac5a361a0d1daadc772ac842b
+  ref: 2025_12_15.b40f5cd-0-gb40f5cd8c8e16c6eceb1f26eb895527fda84068b
