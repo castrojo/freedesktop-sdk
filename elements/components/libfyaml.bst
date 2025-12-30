@@ -8,10 +8,17 @@ depends:
 - components/libyaml.bst
 
 variables:
+  arch-conf: ''
+  (?):
+  - target_arch == "i686":
+      arch-conf: >-
+        -DENABLE_PORTABLE_TARGET=ON
+
   cmake-local: >-
     -DENABLE_NETWORK=OFF
     -DBUILD_TESTING=OFF
     -DENABLE_LIBCLANG=OFF
+    %{arch-conf}
 
 public:
   bst:
