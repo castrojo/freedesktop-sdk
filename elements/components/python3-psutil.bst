@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:giampaolo/psutil.git
   track: release-*
-  ref: release-7.1.3-0-g5904ff94e3fd0fea3d0734a936834bef6e63369a
+  ref: release-7.2.1-0-g6130c19da2d01383befa0dfca2371a792f8881af
