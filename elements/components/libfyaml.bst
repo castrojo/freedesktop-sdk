@@ -10,6 +10,7 @@ variables:
   cmake-local: >-
     -DENABLE_NETWORK=OFF
     -DBUILD_TESTING=OFF
+    -DENABLE_LIBCLANG=OFF
 
 public:
   bst:
