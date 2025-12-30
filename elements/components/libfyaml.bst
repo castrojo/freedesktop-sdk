@@ -1,10 +1,15 @@
-kind: autotools
+kind: cmake
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-cmake.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
+
+variables:
+  cmake-local: >-
+    -DENABLE_NETWORK=OFF
+    -DBUILD_TESTING=OFF
 
 public:
   bst:
