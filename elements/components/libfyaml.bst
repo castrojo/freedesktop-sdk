@@ -5,6 +5,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/libyaml.bst
 
 variables:
   cmake-local: >-
