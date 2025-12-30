@@ -43,6 +43,9 @@ variables:
     -DBUILD_TESTING=OFF
     -DWITH_SvtEnc=ON
     -DWITH_SvtEnc_PLUGIN=OFF
+    -DWITH_OpenH264_ENCODER=OFF
+    -DWITH_OpenH264_DECODER=OFF
+    -DWITH_X264=OFF
 
   cmake-extra: ''
 
