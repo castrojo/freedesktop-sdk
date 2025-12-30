@@ -6,6 +6,8 @@ kind: cmake
 variables:
   cmake-extra: >-
     -DWITH_GDK_PIXBUF=ON
+    -DWITH_X265=OFF
+    -DWITH_LIBDE265=OFF
 
 public:
   bst:
