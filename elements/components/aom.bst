@@ -30,12 +30,6 @@ variables:
     -DBUILD_SHARED_LIBS=YES
     %{arch-options}
 
-config:
-  install-commands:
-    (>):
-    - |
-      rm '%{install-root}%{libdir}/libaom.a'
-
 public:
   bst:
     split-rules:
@@ -52,3 +46,5 @@ sources:
   ref: v3.13.1-0-gd772e334cc724105040382a977ebb10dfd393293
 - kind: patch
   path: patches/aom/nasm3.patch
+- kind: patch
+  path: patches/aom/disable-aom-static.patch
