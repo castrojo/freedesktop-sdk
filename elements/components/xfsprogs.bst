@@ -18,8 +18,7 @@ variables:
     PKG_ROOT_LIB_DIR='%{libdir}'
     PKG_LIB_DIR='%{libdir}'
   make: make %{make-args}
-  make-install: make %{make-args} -j1 install install-dev 
-    DESTDIR='%{install-root}'
+  make-install: make %{make-args} -j1 install install-dev DESTDIR='%{install-root}'
 
 public:
   bst:
@@ -32,4 +31,4 @@ sources:
 - kind: git_repo
   url: kernel:fs/xfs/xfsprogs-dev.git
   track: v*.*.*
-  ref: v6.17.0-0-gde85869984a4095826fb170fc9bd6ae0053c9006
+  ref: v6.18.0-0-g8b892adad226bb9fef4009c4cba4dbc25b70b011
