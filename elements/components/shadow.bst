@@ -20,6 +20,7 @@ variables:
     --without-selinux
     --without-libbsd
     --enable-man
+    --disable-logind
 
   make-install: make -j1 %{make-install-args} ubindir="%{bindir}" usbindir="%{sbindir}"
 
