@@ -6,7 +6,6 @@ build-depends:
 - components/python3-pkgconfig.bst
 - components/python3-pycparser.bst
 - components/python3-setuptools-scm.bst
-- components/tpm2-tss.bst
 
 depends:
 - components/python3.bst
@@ -14,6 +13,7 @@ depends:
 - components/python3-cryptography.bst
 - components/python3-packaging.bst
 - components/python3-asn1crypto.bst
+- components/tpm2-tss.bst
 
 sources:
 - kind: git_repo
