@@ -8,11 +8,10 @@ variables:
   make-args: >-
     O=build-generic
     PLATFORM=generic
-  make-install: make -j1 %{make-args} 
-    install_root_dir="%{install-root}%{prefix}" install
+  make-install: make -j1 %{make-args} install_root_dir="%{install-root}%{prefix}" install
 
 sources:
 - kind: git_repo
   url: github:riscv/opensbi.git
   track: v*
-  ref: v1.7-0-ga32a91069119e7a5aa31e6bc51d5e00860be3d80
+  ref: v1.8-0-ge7fa66c2160ec139de1853a00f669c09320a9256
