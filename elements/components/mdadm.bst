@@ -32,7 +32,7 @@ sources:
   track: mdadm-*
   exclude:
   - mdadm-*rc*
-  ref: mdadm-4.4-0-g8e56efac9afd7080bb42bae4b77cdad5f345633a
+  ref: mdadm-4.5-0-g8f0c7692d48414ff7b3fe927ce75799c65ef24b1
 - kind: local
   path: files/mdadm
   directory: extra
