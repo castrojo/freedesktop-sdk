@@ -65,10 +65,10 @@ sources:
 - kind: git_repo
   url: gitlab:gnuwget/wget2.git
   track: v*
-  ref: v2.2.0-0-gf2071aaaf6f947fd03d243c6b619302d31d497f1
+  ref: v2.2.1-0-g485c6aa5ba38cb369c6eb8564ea97cddc854049e
 - kind: git_module
   path: gnulib
   url: savannah:gnulib.git
-  ref: c7f29c827df9284ec56233c515286c4d57361e4c
+  ref: 075df63ae24e351535a5f2c7b6b3b3acb2ed9a1a
 - kind: patch
   path: patches/wget2/fix-gettext-ver.patch
