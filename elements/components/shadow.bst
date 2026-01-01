@@ -21,8 +21,7 @@ variables:
     --without-libbsd
     --enable-man
 
-  make-install: make -j1 %{make-install-args} ubindir="%{bindir}" 
-    usbindir="%{sbindir}"
+  make-install: make -j1 %{make-install-args} ubindir="%{bindir}" usbindir="%{sbindir}"
 
 config:
   install-commands:
@@ -60,4 +59,4 @@ sources:
   track: '*.*'
   exclude:
   - '*-rc*'
-  ref: 4.18.0-0-g045652a925a4c8016dfae8d42c03f8c23df2103e
+  ref: 4.19.0-0-gd7ce7e868ed0dd6c17d4a422700e3da1e111e01c
