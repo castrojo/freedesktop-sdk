@@ -1,12 +1,13 @@
-diff -ur ncurses.old/misc/run_tic.in ncurses/misc/run_tic.in
---- ncurses.old/misc/run_tic.in	2021-05-07 00:00:36.068264071 +0200
-+++ ncurses/misc/run_tic.in	2021-05-07 00:08:55.916910389 +0200
-@@ -63,7 +63,7 @@
+diff --git a/misc/run_tic.in b/misc/run_tic.in
+index 60fbdcc7..770c9e41 100644
+--- a/misc/run_tic.in
++++ b/misc/run_tic.in
+@@ -72,7 +72,7 @@ unset CDPATH
  # Allow tic to run either from the install-path, or from the build-directory.
  # Do not do this if we appear to be cross-compiling.  In that case, we rely
  # on the host's copy of tic to compile the terminfo database.
--if test "x$cross_compiling" = "xno"
-+if test "x$cross_compiling" = "xno" && test "x${TIC_PATH}" = "xtic"
+-if test "$cross_compiling" = "no"
++if test "$cross_compiling" = "no" && test "x$tic_path" = "xtic"
  then
- 	if test -f ../progs/tic$suffix
+ 	if test -f ../progs/tic"$suffix"
  	then
