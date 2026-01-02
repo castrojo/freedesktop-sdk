@@ -19,4 +19,4 @@ sources:
 - kind: git_repo
   url: github:tlwg/libthai.git
   track: v*
-  ref: v0.1.29-0-g618e442c340cff089f29743d35392a6aba21a9fb
+  ref: v0.1.30-0-ge10e6af55634a993e60e80521ab03b1947044f38
