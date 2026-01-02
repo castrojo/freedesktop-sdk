@@ -1,6 +1,7 @@
-kind: autotools
+kind: meson
 
 build-depends:
+- public-stacks/buildsystem-meson.bst
 - components/gettext.bst
 - components/python3.bst
 
