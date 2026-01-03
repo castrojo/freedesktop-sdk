@@ -37,6 +37,7 @@ sources:
   track: '*.*'
   exclude:
   - "gstreamer-*"
+  - "*alpha*"
   ref: 0.14.4-0-g95a7172f82d0ec816e4e89111a762c24d5c47b22
 - kind: cargo2
   ref:

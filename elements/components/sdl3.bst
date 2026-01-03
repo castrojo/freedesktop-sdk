@@ -32,6 +32,8 @@ variables:
     -DSDL_RPATH:BOOL=OFF
     -DSDL_WAYLAND_LIBDECOR=ON
     -DSDL_PIPEWIRE_SHARED:BOOL=ON
+    -DSDL_X11_XSCRNSAVER:BOOL=OFF
+    -DSDL_X11_XTEST:BOOL=OFF
 
 public:
   bst:
@@ -44,4 +46,4 @@ sources:
 - kind: git_repo
   url: github:libsdl-org/SDL.git
   track: release-*
-  ref: release-3.2.28-0-g7f3ae3d57459e59943a4ecfefc8f6277ec6bf540
+  ref: release-3.4.0-0-ga962f40bbba175e9716557a25d5d7965f134a3d3

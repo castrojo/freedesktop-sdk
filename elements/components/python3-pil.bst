@@ -11,6 +11,6 @@ sources:
 - kind: git_repo
   url: github:python-pillow/Pillow.git
   track: "*.*.*"
-  ref: 12.0.0-0-g693df7b42c666f88c719f9973be0ad71607328e0
+  ref: 12.1.0-0-g46f45f674d47b5d8bc54230dda8fe9e214598b87
 - kind: patch
   path: patches/python3-pil/drop-pybind.patch
