@@ -4,6 +4,6 @@ sources:
   track: "v*"
   exclude:
   - "v*_*_*"
-  ref: v6_5-0-ge12a453fc23c5ac586d72af46465e8ba92adb707
+  ref: v6_6-0-g0096bd402c4a9c8f39bd7ed266e1b8920327e4d8
 - kind: patch
   path: patches/ncurses/always-cross-compile.patch
