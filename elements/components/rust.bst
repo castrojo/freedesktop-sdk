@@ -133,7 +133,5 @@ public:
         - '%{indep-libdir}/rustlib'
         - '%{indep-libdir}/rustlib/**'
 
-sources:
-- kind: tar
-  url: tar_https:static.rust-lang.org/dist/rustc-1.92.0-src.tar.xz
-  ref: ebee170bfe4c4dfc59521a101de651e5534f4dae889756a5c97ca9ea40d0c307
+(@):
+- elements/include/rust-source.yml

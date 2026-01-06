@@ -7,6 +7,8 @@ arch=$1
 
 # Modify the kernel config for additional features
 
+enable RUST
+
 # PinePhone Pro kernel configs
 case "$arch" in
     aarch64)

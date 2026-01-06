@@ -14,6 +14,9 @@ build-depends:
 - components/pahole.bst
 - components/python3.bst
 - components/rsync.bst
+- components/rust.bst
+- components/rust-bindgen.bst
+- components/rust-src.bst
 - components/util-linux.bst
 - components/zstd.bst
 - filename: components/linux-module-cert.bst
