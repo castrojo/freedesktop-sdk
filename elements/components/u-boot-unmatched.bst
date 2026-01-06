@@ -40,8 +40,7 @@ config:
       fi
 
   install-commands:
-  - install -Dm644 -t "%{install-root}%{datadir}/u-boot/%{board}" u-boot.bin 
-    spl/u-boot-spl.bin u-boot.itb
+  - install -Dm644 -t "%{install-root}%{datadir}/u-boot/%{board}" u-boot.bin spl/u-boot-spl.bin u-boot.itb
   - install -Dm755 -t "%{install-root}%{bindir}" tools/mkimage
   - |
     %{install-extra}
@@ -52,7 +51,7 @@ sources:
   track: v*
   exclude:
   - "*-rc*"
-  ref: v2025.10-0-ge50b1e8715011def8aff1588081a2649a2c6cd47
+  ref: v2026.01-0-g127a42c7257a6ffbbd1575ed1cbaa8f5408a44b3
 - kind: patch
   # This patch is a hack for vm/firmware/bootloader-unmatched.bst
   # The DTB from U-Boot is not in sync with the one from the kernel
