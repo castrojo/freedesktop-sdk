@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:cpburnz/python-pathspec.git
   track: v*
-  ref: v0.12.1-0-g6485791e1b5cf2ef4e756ae392fa80f2c5045d4c
+  ref: v1.0.1-0-g75f4d0672305dfe3d0a6f182b870c3edec29f316
