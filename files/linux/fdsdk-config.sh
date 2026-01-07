@@ -385,6 +385,9 @@ case "$arch" in
     ;;
 esac
 
+# Android (through Waydroid)
+enable ANDROID_BINDER_IPC_RUST
+
 # Needed by some devices
 case "$arch" in
     x86_64)
