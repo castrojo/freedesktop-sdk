@@ -2810,3 +2810,8 @@ module BLK_DEV_SR
 module APPLE_MFI_FASTCHARGE
 
 enable IDLE_PAGE_TRACKING
+
+# Tablet mode on Framework 12
+if has ACPI; then
+  module INPUT_SOC_BUTTON_ARRAY
+fi
