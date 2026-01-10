@@ -15,4 +15,6 @@ sources:
 - kind: git_repo
   url: github:pypa/packaging.git
   track: '*.*'
+  exclude:
+  - "*rc*"
   ref: 25.0-0-gf58537628042c7f29780b9d33f31597e7fc9d664
