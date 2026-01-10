@@ -126,7 +126,6 @@ public:
   cpe:
     vendor: 'freedesktop'
     product: 'systemd'
-    version-match: '\d+'
 
   bst:
     split-rules:

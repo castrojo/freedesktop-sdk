@@ -39,3 +39,4 @@ sources:
   url: github:polkit-org/polkit.git
   track: '[0-9]*'
   ref: 127-0-g9e4894c969eecf26a3ba762f4f7a268aa0fb3e51
+  version-guess-pattern: '\d+'
