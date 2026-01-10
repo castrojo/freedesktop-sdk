@@ -2,7 +2,6 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/gtk-doc.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -13,6 +12,7 @@ variables:
     -Dexamples=disabled
     -Dbenchmarks=disabled
     -Dtests=disabled
+    -Dhotdoc=disabled
 
 public:
   bst:
