@@ -54,4 +54,4 @@ sources:
 - kind: git_repo
   directory: gnulib
   url: savannah:gnulib.git
-  ref: c89cd2fbd3b9f3d7c5a146247256599714c91ec7
+  ref: e93789db7e86c51d6cb9683ea508e676a55cdefa
