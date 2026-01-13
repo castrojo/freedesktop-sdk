@@ -48,7 +48,7 @@ sources:
 - kind: git_repo
   url: gitlab:gnutls/libtasn1.git
   track: v*
-  ref: v4.20.0-0-g6b45b25e94ea538192cc0f97e9ad57171d1c6374
+  ref: v4.21.0-0-g4c9554ea0307678abc7952ee301aa5f68aa64aad
 # Update manually according to
 # https://gitlab.com/gnutls/libtasn1/-/blob/TAG/bootstrap.conf?ref_type=heads#L19
 - kind: git_repo
