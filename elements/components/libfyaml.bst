@@ -31,4 +31,4 @@ sources:
 - kind: git_repo
   url: github:pantoniou/libfyaml.git
   track: v*
-  ref: v0.9.2-0-gd1e670a8940cb762263c6cce3e8fabf065d6d809
+  ref: v0.9.3-0-g433d75fabd2b746e11c01d66348549625653e961
