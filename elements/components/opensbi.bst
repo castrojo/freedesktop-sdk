@@ -14,4 +14,4 @@ sources:
 - kind: git_repo
   url: github:riscv/opensbi.git
   track: v*
-  ref: v1.8-0-ge7fa66c2160ec139de1853a00f669c09320a9256
+  ref: v1.8.1-0-g74434f255873d74e56cc50aa762d1caf24c099f8
