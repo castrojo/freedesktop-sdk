@@ -3,7 +3,7 @@ variables:
     {.,**}/COPYING*
     {.,**}/COPYRIGHT*
     {.,**}/[Cc]opyright*
-    {.,**}/LICEN*
+    {.,**}/LICEN*{/*,}
     {.,**}/[Ll]icen*
   license-files-extra: ""
   license-files-final: >-
