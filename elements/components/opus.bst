@@ -38,4 +38,4 @@ sources:
 - kind: git_repo
   url: xiph:opus.git
   track: v*
-  ref: v1.6-0-ga8b13e40d751c7b40833b94fc9437c5c3439da89
+  ref: v1.6.1-0-g22244de5a79bd1d6d623c32e72bf1954b56235be
