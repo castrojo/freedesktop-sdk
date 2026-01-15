@@ -23,4 +23,4 @@ sources:
   exclude:
   - v*alpha*
   - v*beta*
-  ref: v1.6.53-0-g4e3f57d50f552841550a36eabbb3fbcecacb7750
+  ref: v1.6.54-0-g02f2b4f4699f0ef9111a6534f093b53732df4452
