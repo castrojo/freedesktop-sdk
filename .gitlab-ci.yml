@@ -302,6 +302,7 @@ check_mirrors:
 .builder-aarch64:
   tags:
     - aarch64
+    - osuosl
   variables:
     ARCH: aarch64
 
