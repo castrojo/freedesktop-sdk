@@ -194,7 +194,7 @@ sources:
 - kind: git_repo
   url: fedora_rpms:ca-certificates.git
   track: rawhide
-  ref: ca-certificates-2010_63-3_fc14-169-gf4b01a3d59464f892cd9bf98c0cc1a864c0ee8ed
+  ref: ca-certificates-2010_63-3_fc14-171-g7ea76062abd4f364ff7b98aa42174d7c34cf9d25
 - kind: git_repo
   url: fedora_rpms:ca-certificates.git
   # Manually update: This is only used for update-ca-trust and its man
