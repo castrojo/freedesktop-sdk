@@ -10,7 +10,7 @@ depends:
 sources:
 - kind: git_repo
   url: github:mesonbuild/meson.git
-  track: '*.*.*'
+  track: '1.9.*'
   exclude:
   - '*rc*'
   ref: 1.9.2-0-gd11b8f26f372c844fcd24a82fa745244bb13c6e0
