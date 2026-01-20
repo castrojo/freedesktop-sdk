@@ -25,7 +25,7 @@ sources:
 - kind: git_repo
   url: github:p11-glue/p11-kit.git
   track: '*.*.*'
-  ref: 0.26.0-0-g680ebb0f925bc912c32372b04413706ac9ddee26
+  ref: 0.26.1-0-g49ccc27a1e433d6128d40a43c7ecc4624b0dbfde
 - kind: git_module
   path: subprojects/pkcs11-json
   url: github:p11-glue/pkcs11-json.git
