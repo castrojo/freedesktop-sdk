@@ -6,11 +6,6 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 
-variables:
-  autogen: |
-    cp /usr/share/gettext/config.rpath .
-    autoreconf -vif -I %{datadir}/gettext/m4
-
 public:
   bst:
     split-rules:
