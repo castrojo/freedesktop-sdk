@@ -79,6 +79,10 @@ config:
     }
     EOF
 
+  - |
+    find /sysroot -type f -exec du -B1 {} '+' | sort -n > "%{install-root}/file_sizes_B.tsv"
+    du -B1 /sysroot | sort -n > "%{install-root}/dir_sizes_B.tsv"
+
   - du -h --max-depth=3 /sysroot | grep '^[^0]' | sort -rh
   - genimage --config "%{build-root}/genimage.cfg" --rootpath /sysroot
   - du -BM "%{install-root}/disk.img"
