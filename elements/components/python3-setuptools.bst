@@ -8,12 +8,6 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/python3.bst
 
-config:
-  build-commands:
-    (<):
-    # For reproducible builds
-    - rm setup.cfg
-
 variables:
   strip-binaries: ''
 
