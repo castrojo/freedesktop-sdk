@@ -9,12 +9,6 @@ depends:
 - bootstrap-import.bst
 - components/python3.bst
 
-config:
-  build-commands:
-    (<):
-    # For reproducible builds
-    - rm setup.cfg
-
 sources:
 - kind: git_repo
   url: github:pypa/setuptools.git
