@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:eliben/pycparser.git
   track: release_v*
-  ref: release_v2.23-0-g5b60167602e7914139b3e277266ccdff5c24dbf2
+  ref: release_v3.00-0-g77de509f0268f44ee587b5a4d9f0d680e269fcae
