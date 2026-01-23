@@ -18,6 +18,7 @@ variables:
     -Dselinux=disabled
     -Ddocs=disabled
     -Delogind=disabled
+    -Dpwaccess=disabled
 
 config:
   install-commands:
