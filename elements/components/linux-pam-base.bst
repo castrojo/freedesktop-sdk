@@ -18,6 +18,7 @@ variables:
     -Dselinux=disabled
     -Ddocs=disabled
     -Delogind=disabled
+    -Dpwaccess=disabled
 
 config:
   install-commands:
@@ -48,4 +49,4 @@ sources:
 - kind: git_repo
   url: github:linux-pam/linux-pam.git
   track: v*
-  ref: v1.7.1-0-g693c4f75b10b25e09f70fe0b22f41bdcf9a48968
+  ref: v1.7.2-0-gfe03a10115c082a8486ccbab7462139d7e4bb067
