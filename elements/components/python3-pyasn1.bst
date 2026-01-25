@@ -10,6 +10,5 @@ sources:
 - kind: pypi
   name: pyasn1
   ref:
-    sha256sum: 6f580d2bdd84365380830acf45550f2511469f673cb4a5ae3857a3170128b034
-    suffix: 
-      ba/e9/01f1a64245b89f039897cb0130016d79f77d52669aae6ee7b159a6c4c018/pyasn1-0.6.1.tar.gz
+    sha256sum: 9b59a2b25ba7e4f8197db7686c09fb33e658b98339fadb826e9512629017833b
+    suffix: fe/b6/6e630dff89739fcd427e3f72b3d905ce0acb85a45d4ec3e2678718a3487f/pyasn1-0.6.2.tar.gz
