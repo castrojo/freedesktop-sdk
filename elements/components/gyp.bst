@@ -12,4 +12,4 @@ sources:
 - kind: git_repo
   url: github:nodejs/gyp-next.git
   track: v*
-  ref: v0.21.0-0-g0dd0534a6492512d07581e26ad50b370fbd15209
+  ref: v0.21.1-0-geae394d0b489fa62235dfb82cc549d3422372542
