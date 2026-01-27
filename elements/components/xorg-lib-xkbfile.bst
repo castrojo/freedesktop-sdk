@@ -1,8 +1,8 @@
-kind: autotools
+kind: meson
 
 build-depends:
 - components/xorg-util-macros.bst
-- public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -19,4 +19,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libxkbfile.git
   track: libxkbfile-*
-  ref: libxkbfile-1.1.3-0-g39a5f8e67615f443e76146769d5f5f9abc5ebd2f
+  ref: libxkbfile-1.2.0-0-g42e5dedd7fd3c7c73f3870a8751893c03c1afc69
