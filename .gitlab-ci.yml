@@ -553,20 +553,12 @@ minimal_efi_vm_image_x86_64:
     - .builder-x86_64
   needs:
   - app_x86_64
+  script:
+    - !reference [.vm_efi_image_template, script]
+    - utils/test_minimal_size.py # Warn if image size grows
   variables:
     VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
     DIALOG: root-login
-  allow_failure: true
-
-test_minimal_efi_vm_image:
-  stage: vm
-  extends:
-    - .builder-x86_64
-  needs:
-    - job: minimal_efi_vm_image_x86_64
-      artifacts: true
-  script:
-    - utils/test_minimal_size.py
   allow_failure: true
 
 minimal_efi_vm_image_aarch64:
