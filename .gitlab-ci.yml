@@ -541,6 +541,7 @@ desktop_systemd_vm_aarch64:
     when: always
     paths:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
+      - "${CI_PROJECT_DIR}/checkout/**/*sizes*.tsv"
   rules:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 

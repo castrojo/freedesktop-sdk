@@ -86,7 +86,7 @@ export-tar: build-tar
 		$(BST) artifact checkout "tarballs/$${tarball}.bst" --tar - | xz -T0 > "$(TAR_CHECKOUT_ROOT)/$${dir}/freedesktop-$${tarball}-$(ARCH).tar.xz"; \
 	done
 
-clean-vm:
+clean-vm: copy-artifacts
 	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
 	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
 	rm -rf $(OVMF_VARS)
@@ -406,7 +406,15 @@ OSTREE_BRANCH=freedesktop-sdk/minimal/$(BRANCH)/$(ARCH)
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img:
 	$(BST) artifact checkout $(VM_ARTIFACT_IMAGE) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
 
-clean-efi-vm:
+copy-artifacts:
+	if [ -d "$(VM_CHECKOUT_ROOT)" ]; then \
+	    echo "Saving file size report artifacts"; \
+	    find $(VM_CHECKOUT_ROOT) -type f -iname "*sizes*.tsv" -exec echo "File size report {}" ';'  -exec cp {} $(VM_CHECKOUT_ROOT)/ ';' ; \
+	else \
+	    echo "$(VM_CHECKOUT_ROOT) not found"; \
+	fi;
+
+clean-efi-vm: copy-artifacts
 	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
 	rm -rf $(OVMF_VARS)
 
@@ -542,4 +550,4 @@ secure-images-serve: secure-images/SHA256SUMS
 	test-runtime-inheritance generate-keys clean-ostree-vm		\
 	download-microsoft-keys						\
 	run-secure-vm clean-secure-vm clean-ostree-vm			\
-	export-secure-images secure-images-serve update-secure-version
+	export-secure-images secure-images-serve update-secure-version copy-artifacts
