@@ -407,9 +407,11 @@ $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img:
 	$(BST) artifact checkout $(VM_ARTIFACT_IMAGE) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
 
 copy-artifacts:
+	rm -rf $(VM_CHECKOUT_ROOT)/*sizes*.tsv
 	if [ -d "$(VM_CHECKOUT_ROOT)" ]; then \
 	    echo "Saving file size report artifacts"; \
 	    find $(VM_CHECKOUT_ROOT) -type f -iname "*sizes*.tsv" -exec echo "File size report {}" ';'  -exec cp {} $(VM_CHECKOUT_ROOT)/ ';' ; \
+	    find $(VM_CHECKOUT_ROOT) -mindepth 2 -type f -iname "*sizes*.tsv" -delete ; \
 	else \
 	    echo "$(VM_CHECKOUT_ROOT) not found"; \
 	fi;
