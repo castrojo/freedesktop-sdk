@@ -568,6 +568,8 @@ test_minimal_efi_vm_image:
   script:
     - utils/test_minimal_size.py
   allow_failure: true
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 
 minimal_efi_vm_image_aarch64:
   extends:
