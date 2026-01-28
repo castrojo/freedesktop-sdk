@@ -567,6 +567,9 @@ minimal_efi_vm_image_aarch64:
     - .builder-aarch64
   needs:
   - app_aarch64
+  script:
+    - !reference [.vm_efi_image_template, script]
+    - utils/test_minimal_size.py # Warn if image size grows
   variables:
     VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
     DIALOG: root-login
@@ -579,6 +582,9 @@ minimal_efi_vm_image_aarch64:
     - .builder-loongarch64
   needs:
   - app_loongarch64
+  script:
+    - !reference [.vm_efi_image_template, script]
+    - utils/test_minimal_size.py # Warn if image size grows
   variables:
     VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
   allow_failure: true
