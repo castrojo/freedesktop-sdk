@@ -30,6 +30,12 @@ config:
       # Remove PO-Revision-Date line
       sed -i '/^"PO-Revision-Date.*$/d' po/en@quot.po po/en@boldquot.po
 
+  install-commands:
+    (>):
+    - |
+      install -Dm644 -t '%{install-root}%{indep-libdir}/systemd/user' \
+          doc/examples/systemd-user/*.{socket,service}
+
 variables:
   conf-local: |
     --enable-maintainer-mode \
@@ -51,3 +57,8 @@ sources:
   path: patches/gnupg/remove-Werror-from-configure.ac.patch
 - kind: patch
   path: patches/gnupg/0001-session-env-Skip-DBUS_SESSION_BUS_ADDRESS-inside-Fla.patch
+  # On update, if patches do not apply, please fetch the latest version of
+  # freepg patch set from https://gitlab.com/freepg/gnupg
+  # 0001-Add-gitlab-build-toolchain.patch is not needed
+- kind: patch_queue
+  path: patches/gnupg-freepg
