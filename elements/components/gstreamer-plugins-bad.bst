@@ -97,5 +97,6 @@ public:
         - '%{libdir}/libgstwayland-1.0.so'
         - '%{libdir}/libgstwebrtc-1.0.so'
         - '%{libdir}/libgstwebrtcnice-1.0.so'
+        - '%{libdir}/libgsthip.so'
   cpe:
     product: gstreamer
