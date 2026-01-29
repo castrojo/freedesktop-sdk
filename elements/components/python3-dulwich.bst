@@ -15,5 +15,5 @@ runtime-depends:
 sources:
 - kind: git_repo
   url: github:jelmer/dulwich.git
-  track: dulwich-*.*.*
+  track: dulwich-0.*.*
   ref: dulwich-0.25.2-0-g287097f0514783d35e2a427bb4451ab3f804aee8
