@@ -17,11 +17,13 @@ depends:
 variables:
   pipelines: uvcvideo%{arch-pipelines}
   arch-pipelines: ''
+  arch-conf: ''
   (?):
   - target_arch == "i686" or target_arch == "x86_64":
       arch-pipelines: ',ipu3'
   - target_arch == "aarch64":
       arch-pipelines: ',imx8-isi,rkisp1,rpi/vc4,simple'
+      arch-conf: -Drpi-awb-nn=disabled
 
   meson-local: >-
     -Dgstreamer=enabled
@@ -34,6 +36,7 @@ variables:
     -Dqcam=disabled
     -Ddocumentation=disabled
     -Dpycamera=disabled
+    %{arch-conf}
 
 sources:
 - kind: git_repo
