@@ -11,6 +11,7 @@ build-depends:
 - components/docbook-xsl.bst
 
 depends:
+- components/bash-completion.bst
 - components/cairo.bst
 - components/curl.bst
 - components/fontconfig.bst
