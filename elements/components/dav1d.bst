@@ -22,5 +22,4 @@ public:
 sources:
 - kind: git_repo
   url: videolan:dav1d.git
-  track: '*.*.*'
   ref: 1.5.1-0-g42b2b24fb8819f1ed3643aa9cf2a62f03868e3aa
