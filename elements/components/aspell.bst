@@ -37,5 +37,3 @@ sources:
   exclude:
   - 'rel-*-*'
   ref: rel-0.60.8.2-0-g3de79d40aee4e9ccdc0d83856637949801a3d33b
-- kind: patch
-  path: patches/aspell/gcc15.patch
