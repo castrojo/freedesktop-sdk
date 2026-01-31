@@ -88,4 +88,4 @@ sources:
   - "*alpha*"
   - "*cherry-pick*"
   url: gitlab:apparmor/apparmor.git
-  ref: v4.1.3-0-ga52bb9f0f3bd46db911411a2e29b986303954ab1
+  ref: v4.1.4-0-g72a46420c568cc5f2966efeb21e34f3e67738b3a
