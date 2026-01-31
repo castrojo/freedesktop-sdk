@@ -51,7 +51,4 @@ public:
 sources:
 - kind: git_repo
   url: chromium:webm/libvpx.git
-  track: v*
-  exclude:
-  - v*rc*
   ref: v1.15.2-0-gd168454ecd099805c675d4a98c66f4891373302a
