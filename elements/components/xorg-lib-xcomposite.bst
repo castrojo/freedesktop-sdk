@@ -21,4 +21,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libxcomposite.git
   track: libXcomposite-*
-  ref: libXcomposite-0.4.6-0-gcecff847395deb553b6331f31776f9cbfc809add
+  ref: libXcomposite-0.4.7-0-ga6d5d773e2a4e5a11b58f3a894f2085686baa6f4
