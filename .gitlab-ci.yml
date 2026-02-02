@@ -616,6 +616,20 @@ publish_flatpak:
       start_in: 1 minute
   interruptible: false
 
+spdx_sbom_report:
+  stage: finish-publish
+  script:
+    - make generate-spdx-sbom-reports
+  artifacts:
+    paths:
+      - "${CI_PROJECT_DIR}/sbom-reports"
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK != "daily"'
+    when: never
+  - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+  - if: '$CI_COMMIT_BRANCH =~ /^release\/.*/'
+  needs: []
+
 cve_report:
   stage: finish-publish
   script:
