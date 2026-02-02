@@ -41,6 +41,7 @@ ABI=gnu
 endif
 
 BST=bst $(ARCH_OPTS)
+BST_SBOM?=buildstream-sbom
 QEMU=qemu-system-$(QEMU_ARCH)
 
 all: build
@@ -229,6 +230,31 @@ endif
 ifneq ($(REUSE_CVE_DB),1)
 	rm -rf nvd-cve-database
 endif
+
+# Generate SPDX-SBOM reports using buildstream-sbom
+SPDX_SBOM_DIR := sbom-reports
+SPDX_SBOM_COMMON_ARGS := \
+    --spdx-creator "Organization: freedesktop-sdk (freedesktop-sdk@lists.freedesktop.org)" \
+    --deps all
+UUID-sdk := $(shell uuidgen)
+UUID-platform := $(shell uuidgen)
+UUID-components := $(shell uuidgen)
+
+${SPDX_SBOM_DIR}:
+	rm -rf "$@"
+	mkdir -p "$@"
+
+${SPDX_SBOM_DIR}/%.spdx.json: ${SPDX_SBOM_DIR}
+	@echo -e "\nCreating $@ report"
+	BST=bst $(BST_SBOM) $(SPDX_SBOM_COMMON_ARGS) \
+		--spdx-name freedesktop-sdk-${ARCH}-$* \
+		--spdx-namespace https://freedesktop-sdk.io/freedesktop_sdk/spdxdocs/$*.spdx.json-${UUID-$*} \
+		--output "$@" $*.bst
+
+generate-spdx-sbom-reports: \
+    ${SPDX_SBOM_DIR}/platform.spdx.json \
+    ${SPDX_SBOM_DIR}/sdk.spdx.json \
+    ${SPDX_SBOM_DIR}/components.spdx.json
 
 manifest:
 	rm -rf sdk-manifest/
@@ -552,4 +578,5 @@ secure-images-serve: secure-images/SHA256SUMS
 	test-runtime-inheritance generate-keys clean-ostree-vm		\
 	download-microsoft-keys						\
 	run-secure-vm clean-secure-vm clean-ostree-vm			\
-	export-secure-images secure-images-serve update-secure-version copy-artifacts
+	export-secure-images secure-images-serve update-secure-version copy-artifacts \
+	generate-spdx-sbom-reports
