@@ -40,6 +40,7 @@ depends:
 - components/bubblewrap.bst
 - components/buildbox.bst
 - components/buildstream2.bst
+- components/buildstream-sbom.bst
 - components/bzip2.bst
 - components/ca-certificates.bst
 - components/cairo.bst
