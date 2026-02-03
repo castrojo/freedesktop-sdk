@@ -16,7 +16,7 @@ sources:
 - kind: git_repo
   url: github:pyca/cryptography.git
   track: '*.*.*'
-  ref: 46.0.3-0-gc0af4dd7b75921bbe9f1d41a03dbd4b64a9e3403
+  ref: 46.0.4-0-ge6f44fc8e6391f05d719fb9d369692325b87a471
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
