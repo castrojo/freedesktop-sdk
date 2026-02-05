@@ -80,6 +80,11 @@ config:
     EOF
 
   - |
+    if [ -e "/sysroot/boot/vmlinuz" ]; then
+      rm /sysroot/boot/vmlinux
+    fi
+
+  - |
     find /sysroot -type f -exec du -B1 {} '+' | sort -n > "%{install-root}/file_sizes_B.tsv"
     du -B1 /sysroot | sort -n > "%{install-root}/dir_sizes_B.tsv"
 
