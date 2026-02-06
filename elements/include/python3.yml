@@ -9,6 +9,6 @@ sources:
   - v*b*
   - v*rc*
   url: github:python/cpython.git
-  ref: v3.13.11-0-g627894459a84be3488a1789919679c997056a03c
+  ref: v3.13.12-0-g1cbe481834751b0125e006042ffbd8cd5eaec8a8
 - kind: patch
   path: patches/python3/python3-multiarch-include.patch
