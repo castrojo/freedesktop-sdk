@@ -2814,3 +2814,7 @@ enable IDLE_PAGE_TRACKING
 if has ACPI; then
   module INPUT_SOC_BUTTON_ARRAY
 fi
+
+# MPTCP support
+enable MPTCP
+enable MPTCP_IPV6
