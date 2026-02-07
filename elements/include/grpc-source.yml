@@ -31,3 +31,5 @@ sources:
   ref: 7b06248484ceeaa947e93ca2747eccf336a88ecc
 - kind: patch
   path: patches/grpc/absl.patch
+- kind: patch
+  path: patches/grpc/unpin_cython.patch
