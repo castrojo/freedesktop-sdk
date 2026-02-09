@@ -40,3 +40,5 @@ sources:
   path: patches/efitools/c99.patch
 - kind: patch
   path: patches/efitools/gnu-efi.patch
+- kind: patch
+  path: patches/efitools/binutils_2_46.patch
