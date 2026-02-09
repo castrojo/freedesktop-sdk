@@ -18,3 +18,5 @@ sources:
   - "*rc*"
   - "*b*"
   ref: 3.4.4-0-gb30ffdcc2f11043c0d34e60fe66d3815cd49b32b
+- kind: patch
+  path: patches/python3-charset-normalizer/drop-setuptools-constraint.patch
