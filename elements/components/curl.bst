@@ -13,6 +13,8 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/libnghttp2.bst
+- components/libnghttp3.bst
+- components/libngtcp2.bst
 - components/libpsl.bst
 - components/openssl.bst
 
@@ -24,6 +26,7 @@ variables:
     -DCURL_CA_BUNDLE=none
     -DCURL_CA_FALLBACK=ON
     -DBUILD_TESTING=OFF
+    -DUSE_NGTCP2=ON
 
 config:
   configure-commands:

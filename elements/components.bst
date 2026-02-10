@@ -267,6 +267,8 @@ depends:
 - components/libndp.bst
 - components/libnftnl.bst
 - components/libnghttp2.bst
+- components/libnghttp3.bst
+- components/libngtcp2.bst
 - components/libnice.bst
 - components/libnl.bst
 - components/libnotify.bst
