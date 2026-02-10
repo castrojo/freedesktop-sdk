@@ -28,7 +28,7 @@ variables:
   GIT_STRATEGY: clone
   GIT_DEPTH: "20"
 
-  MAX_SIZE_EFI_VM: "1800000000" # 1.8 G
+  MAX_SIZE_EFI_VM: "650000000" # 650 MB
 
 default:
   image: "${DOCKER_REGISTRY}/bst2:${DOCKER_IMAGE_ID}"
