@@ -26,7 +26,7 @@ FLATPAK_SUBJECT := $(shell git rev-parse HEAD)
 LAST_VERSION := $(shell awk '/^Version:/ {print $$2; exit}' NEWS.yml)
 
 SNAP_GRADE?=devel
-MINIMAL_VM?=firmware,locale
+MINIMAL_VM?=locale
 ARCH_OPTS=-o bootstrap_build_arch $(BOOTSTRAP_ARCH) -o target_arch $(ARCH) -o snap_grade $(SNAP_GRADE) -o minimal_vm "${MINIMAL_VM}"
 TARBALLS=            \
 	sdk          \
