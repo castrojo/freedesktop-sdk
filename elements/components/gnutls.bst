@@ -41,13 +41,13 @@ sources:
 - kind: git_repo
   url: gitlab:gnutls/gnutls.git
   track: '*.*.*'
-  ref: 3.8.11-0-gb841c70e101311f5711ad9fd5d24d33684c2c76d
+  ref: 3.8.12-0-g34fb40faadf16e641c34458f12a848bbf5bfaab5
 - kind: patch
   path: patches/gnutls/drop-submodule.patch
 - kind: git_module
   url: gitlab:gnutls/cligen.git
   path: cligen
-  ref: 59911854af60377b045ec8db88ae969b5bad1f66
+  ref: f6ff7a8611d67a4ffa8ad17d40bbc6cef348cddb
 - kind: patch
   path: patches/gnutls/cli-codegen-no-passwd.patch
 - kind: git_module
