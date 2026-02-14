@@ -2,6 +2,7 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- components/docbook-xsl.bst
 - bootstrap/grep.bst
 - bootstrap/sed.bst
 - components/gobject-introspection.bst
