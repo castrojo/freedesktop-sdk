@@ -11,4 +11,4 @@ sources:
   (@):
   - elements/bootstrap/base-sdk/binary-seed-source.yml
   architecture: "loong64"
-  ref: 8fbfd3fa35a6e4010b008b83817b5dcde4f3935f0f299014e14490cd0acf4bae
+  ref: 7e2ee6a60f6069f47f3236c122461fb9421e1e4e646bd9f735f31011a401b0c5
