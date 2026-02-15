@@ -2,6 +2,7 @@ kind: meson
 
 build-depends:
 - components/gobject-introspection.bst
+- components/docbook-xsl.bst
 - components/libxslt.bst
 - components/perl.bst
 - public-stacks/buildsystem-meson.bst
