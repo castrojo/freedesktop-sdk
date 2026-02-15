@@ -1,5 +1,4 @@
 bootstrap/include/glibc-source.yml # We track commits, fewer world rebuilds a week please.
-components/vim.bst # Hopeless, there's closer to ten updates a day
 components/google-crosextra-carlito.bst # No release tags
 components/google-crosextra-caladea.bst # No release tags
 kernel-conf-utils/debian-config.bst # Utility, expected to be tracked manually when needed
