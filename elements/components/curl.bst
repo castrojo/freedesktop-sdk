@@ -17,6 +17,8 @@ depends:
 - components/libngtcp2.bst
 - components/libpsl.bst
 - components/openssl.bst
+- components/zlib.bst
+- components/zstd.bst
 
 runtime-depends:
 - components/ca-certificates.bst
