@@ -14,7 +14,7 @@ sources:
   track: v*
   exclude:
   - "*beta*"
-  ref: v1.12.0-0-g17a008d36da1de0e5cebacabf67ba1930b32cec1
+  ref: v1.12.2-0-gadb2906f90bb6b70722d0546c907b03e545c02f9
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
