@@ -194,6 +194,10 @@ enable VIRTIO_PCI
 
 # Strongly Recommended
 enable IPV6
+
+# Required for IPv6 support in Tailscale and other VPNs
+enable IPV6_MULTIPLE_TABLES
+
 enable AUTOFS_FS
 enable TMPFS_XATTR
 enable TMPFS_POSIX_ACL
