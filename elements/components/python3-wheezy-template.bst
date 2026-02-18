@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:akornatskyy/wheezy.template.git
   track: '*.*.*'
-  ref: 3.2.4-0-g4f75fe4a83f0b9a32a8a7114eb7ae093b255dc97
+  ref: 3.2.5-0-g23517899b7c5fbf6846b36b834bfbd8ffc32b16a
