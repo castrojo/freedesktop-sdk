@@ -56,6 +56,10 @@ variables:
     -Dlibffado=disabled
     -Dsdl2=disabled
     -Dsnap=disabled
+    -Dfftw=disabled
+    -Dbluez5-codec-ldac-dec=disabled
+    -Dbluez5-plc-spandsp=disabled
+    -Donnxruntime=disabled
 
 config:
   install-commands:
@@ -142,4 +146,5 @@ public:
 sources:
 - kind: git_repo
   url: freedesktop:PipeWire/pipewire.git
-  ref: 1.4.9-0-gfd60e04525f3a04d90bf50085222e0cc9139b4a4
+  track: "*.*.*"
+  ref: 1.6.7-0-g3b2cb4fb037bf6033b87d3c87ee917b2f686d309
