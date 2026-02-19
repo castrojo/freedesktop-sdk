@@ -14,7 +14,7 @@ sources:
   track: v*
   exclude:
   - "*beta*"
-  ref: v1.12.2-0-gadb2906f90bb6b70722d0546c907b03e545c02f9
+  ref: v1.12.3-0-gad9021c23cc52f6e5524dbf038a73d010fdf0657
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
@@ -160,8 +160,8 @@ sources:
     sha: 44f9aad85446b44556fc1afd2b1110b1f7bac3d61d67f38f83bcb4bf6ab3d9ac
   - kind: registry
     name: cargo-zigbuild
-    version: 0.22.0
-    sha: 41e8a44660dbbfed47703c23423cbb93814b6d16e357d1c6b2d8a8b158ef0e52
+    version: 0.22.1
+    sha: 6a72970dc4f54505e68b934ae90af6040a3edea6af820f535421e00d510b7984
   - kind: registry
     name: cargo_metadata
     version: 0.18.1
@@ -504,8 +504,8 @@ sources:
     sha: 52dfc19153a48bde0cbd630453615c8151bce3a5adfac7a0aebfbf0a1e1f57e3
   - kind: registry
     name: goblin
-    version: 0.10.4
-    sha: 4db6758c546e6f81f265638c980e5e84dfbda80cfd8e89e02f83454c8e8124bd
+    version: 0.10.5
+    sha: 983a6aafb3b12d4c41ea78d39e189af4298ce747353945ff5105b54a056e5cd9
   - kind: registry
     name: hashbrown
     version: 0.15.5
