@@ -11,4 +11,4 @@ sources:
 - kind: git_repo
   url: netfilter:iptables
   track: v*
-  ref: v1.8.11-0-g0506bea1dcc8f12d94e7c32bf2fb04abb3fdd269
+  ref: v1.8.12-0-gb176df1c23b458b4510034281a86f0a96341d7a1
