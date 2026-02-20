@@ -56,6 +56,10 @@ variables:
     -Dlibffado=disabled
     -Dsdl2=disabled
     -Dsnap=disabled
+    -Dfftw=disabled
+    -Dbluez5-codec-ldac-dec=disabled
+    -Dbluez5-plc-spandsp=disabled
+    -Donnxruntime=disabled
 
 config:
   install-commands:
