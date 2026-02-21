@@ -5,6 +5,8 @@ build-depends:
 - components/wayland-protocols.bst
 - extensions/mesa/libdrm.bst
 - components/xcb-util-cursor.bst
+- components/glslang.bst
+- components/vulkan-headers.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -27,6 +29,7 @@ depends:
 - components/gstreamer.bst
 - components/gstreamer-plugins-base.bst
 - components/pipewire.bst
+- components/vulkan-icd-loader.bst
 
 environment:
   # FIXME, extract the required headers from libdrm that are needed
