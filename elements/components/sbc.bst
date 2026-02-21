@@ -11,6 +11,6 @@ sources:
 - kind: git_repo
   url: kernel:bluetooth/sbc.git
   track: '*.*'
-  ref: 2.2-0-gb3deb8a5dcfb42d8c10ba1f2f1ac9bd7bf7271cc
+  ref: 2.1-0-g9b6c775f02b1ea944c8a203452ce23d7854e9187
 - kind: patch
   path: patches/sbc/only-run-x86-code-on-x86.patch
