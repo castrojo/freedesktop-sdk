@@ -32,4 +32,4 @@ sources:
 - kind: git_repo
   url: github:gpg/libgcrypt.git
   track: libgcrypt-*
-  ref: libgcrypt-1.12.0-0-gefd5e1e7b4e7861b53eafdbf197fd6d4ff6f45e1
+  ref: libgcrypt-1.12.1-0-g7e91b2a334d568297b7d81e05acd74e1d841b69d
