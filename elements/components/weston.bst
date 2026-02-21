@@ -39,6 +39,7 @@ variables:
     -Dtests=false
     -Dtest-junit-xml=false
     -Ddemo-clients=false
+    -Dshell-lua=false
 
   meson-lto-flags: ""
 
