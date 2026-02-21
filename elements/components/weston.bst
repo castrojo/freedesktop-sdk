@@ -40,6 +40,7 @@ variables:
     -Dtest-junit-xml=false
     -Ddemo-clients=false
     -Dshell-lua=false
+    -Drenderer-vulkan=false
 
   meson-lto-flags: ""
 
