@@ -5,6 +5,8 @@ build-depends:
 - components/wayland-protocols.bst
 - extensions/mesa/libdrm.bst
 - components/xcb-util-cursor.bst
+- components/glslang.bst
+- components/vulkan-headers.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -27,6 +29,7 @@ depends:
 - components/gstreamer.bst
 - components/gstreamer-plugins-base.bst
 - components/pipewire.bst
+- components/vulkan-icd-loader.bst
 
 environment:
   # FIXME, extract the required headers from libdrm that are needed
@@ -39,6 +42,7 @@ variables:
     -Dtests=false
     -Dtest-junit-xml=false
     -Ddemo-clients=false
+    -Dshell-lua=false
 
   meson-lto-flags: ""
 
@@ -48,6 +52,4 @@ sources:
   exclude:
   - '*.*.9[0-9]'
   url: freedesktop:wayland/weston.git
-  ref: 14.0.2-0-g015b3b4d4c05da44a22349ea6e651d1a8f678c59
-- kind: patch
-  path: patches/weston/libdisplay_info_relax.patch
+  ref: 15.0.0-0-gc9c305121cfb3427182eaf3761961094b1196b99
