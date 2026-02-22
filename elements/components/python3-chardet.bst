@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:chardet/chardet.git
   track: "*.*.*"
-  ref: 5.2.0-0-g78250d917a2883aa60215c04480aeb27a545f1d9
+  ref: 6.0.0-0-g8a4636b1d4ef21d11cc8190f6ff271670b9d20ee
