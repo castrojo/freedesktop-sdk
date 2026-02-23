@@ -102,11 +102,6 @@ We also have CI to automatically track the latest tags of git repos, but this
 requires use of the `git_repo` plugin rather than `git`. If adding a new git
 source please use `git_repo` rather than `git`.
 
-
-## Request developer access to the freedesktop-sdk repo
-Go to our GitLab [project page](https://gitlab.com/freedesktop-sdk/freedesktop-sdk) and click the "Request Developer Access" button near the top of the page. One of the maintainers will review your request. Developer access allows you to push directly to our repo, enabling a simpler "push and merge request" workflow instead of using the GitHub "fork and pull request" workflow.
-This has the added benefit of allowing you to use our CI, which is equipped with runners for aarch64, armv7, i686 and x86_64 architectures.
-
 ## Push your changes to the remote
 Run the following commands:
 
