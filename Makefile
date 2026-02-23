@@ -19,6 +19,7 @@ VM_ARTIFACT_FILESYSTEM?=vm/minimal/virt.bst
 VM_ARTIFACT_BOOT?=vm/boot/virt.bst
 VM_ARTIFACT_IMAGE?=vm/minimal/efi.bst
 VM_MACHINE_ID?=
+VM_MKOSI_OUTPUT?=$(VM_CHECKOUT_ROOT)/mkosi
 RUNTIME_VERSION?=master
 QEMU_GRAPHICS?=-nographic
 
@@ -40,8 +41,16 @@ else
 ABI=gnu
 endif
 
+MKOSI_ARCH?=$(ARCH)
+ifeq ($(ARCH),x86_64)
+MKOSI_ARCH=x86-64
+else ifeq ($(ARCH),aarch64)
+MKOSI_ARCH=arm64
+endif
+
 BST=bst $(ARCH_OPTS)
 BST_SBOM?=buildstream-sbom
+MKOSI?=mkosi
 QEMU=qemu-system-$(QEMU_ARCH)
 
 all: build
@@ -114,8 +123,24 @@ $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)/usr/lib/os-release:
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/vmlinuz:
 	$(BST) artifact checkout $(VM_ARTIFACT_BOOT) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
 
+$(VM_CHECKOUT_ROOT)/vm/boot/efi.bst/vmlinuz:
+	$(BST) build vm/boot/efi.bst
+	$(BST) artifact checkout vm/boot/efi.bst --directory $(VM_CHECKOUT_ROOT)/vm/boot/efi.bst
+
 build-vm:
 	$(BST) build $(VM_ARTIFACT_FILESYSTEM) $(VM_ARTIFACT_BOOT)
+
+${VM_CHECKOUT_ROOT}/mkosi/freedesktop-sdk.raw: $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)/usr/lib/os-release $(VM_CHECKOUT_ROOT)/vm/boot/efi.bst/vmlinuz
+	$(MKOSI) \
+	    --architecture $(MKOSI_ARCH) \
+	    --extra-tree $(VM_CHECKOUT_ROOT)/vm/boot/efi.bst:/boot \
+	    --base-tree $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM) \
+	    --repart-directory files/vm/repart-config-simple \
+	    --postinst-script files/vm/mkosi-postinst.sh \
+	    --output-directory $(VM_MKOSI_OUTPUT) \
+	    build
+
+build-mkosi-vm: ${VM_CHECKOUT_ROOT}/mkosi/freedesktop-sdk.raw
 
 QEMU_COMMON_ARGS=										\
 	-m 2G											\
@@ -375,7 +400,7 @@ clean-boot-keys:
 clean-cve:
 	rm -rf cve-reports cve platform-manifest sdk-manifest
 
-clean: clean-repo clean-runtime clean-test clean-vm clean-efi-vm clean-oci clean-boot-keys
+clean: clean-repo clean-runtime clean-test clean-vm clean-efi-vm clean-mkosi-vm clean-oci clean-boot-keys
 
 export-snap:
 	bst $(ARCH_OPTS) build "snap-images/images.bst"
@@ -446,6 +471,9 @@ clean-efi-vm: copy-artifacts
 	rm -rf $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)
 	rm -rf $(OVMF_VARS)
 
+clean-mkosi-vm:
+	rm -rf $(VM_MKOSI_OUTPUT)
+
 build-efi-vm:
 	$(BST) build $(VM_ARTIFACT_IMAGE)
 
@@ -455,6 +483,12 @@ run-efi-vm: build-efi-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img $(OVM
 	    $(QEMU_COMMON_ARGS)					\
 	    $(QEMU_EFI_ARGS)					\
 	    -drive file=$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_IMAGE)/disk.img,format=raw,media=disk
+
+run-mkosi-vm: ${VM_CHECKOUT_ROOT}/mkosi/freedesktop-sdk.raw $(OVMF_VARS) $(OVMF_CODE)
+	$(QEMU)							\
+	    $(QEMU_COMMON_ARGS)					\
+	    $(QEMU_EFI_ARGS)					\
+	    -drive file=${VM_CHECKOUT_ROOT}/mkosi/freedesktop-sdk.raw,format=raw,if=virtio,media=disk
 
 ostree-config.yml:
 	echo 'ostree-remote-url: "http://$(LOCAL_ADDRESS):8000/"' >"$@.tmp"
