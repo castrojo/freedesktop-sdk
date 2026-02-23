@@ -51,7 +51,7 @@ git checkout master
 ```
 to make sure you're branching from the current development branch. If you are
 targeting a specific release of freedesktop-sdk then you simply need to replace
-master with the relevant release branch, for example `19.08`. Now run
+master with the relevant release branch, for example `release/25.08`. Now run
 ```
 git checkout -b my-branch-name
 ```
@@ -114,13 +114,13 @@ Crypto components may break forward ABI (not backward ABI) compatibility for sec
 
 It is also good practice to rebase your changes before pushing (so that your commits are on top of the target branch), to do this run
 ```
-git rebase origin/19.08
+git rebase origin/master
 ```
 while your branch is checked out. This may require you to force-push your branch, to do this add the `-f` switch to the git push command.
 
 ## Open a merge request
-Navigate to the [New Merge Request Page](https://gitlab.com/freedesktop-sdk/freedesktop-sdk/merge_requests/new) on our GitLab, add your branch as the source branch and 19.08 as the target branch.
-Once your MR is open it will be reviewed before merging. Once it passes our CI and any discussions are resolved, it will be assigned to our merge bot, which will continually rebase onto the latest commit in 19.08 until it merges your branch.
+Navigate to the [New Merge Request Page](https://gitlab.com/freedesktop-sdk/freedesktop-sdk/merge_requests/new) on our GitLab, add your branch as the source branch and master as the target branch.
+Once your MR is open it will be reviewed before merging. Once it passes our CI and any discussions are resolved, it will be assigned to our merge bot, which will continually rebase onto the latest commit in master until it merges your branch.
 
 Congratulations, you are now a freedesktop-sdk contributor!
 
