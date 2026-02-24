@@ -7,6 +7,11 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/cairo.bst
 
+variables:
+  cmake-local: >-
+    -DWITHOUT_OPENCV=ON
+    -DWITHOUT_GAVL=ON
+
 sources:
 - kind: git_repo
   url: github:dyne/frei0r.git
