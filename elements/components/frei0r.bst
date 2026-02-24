@@ -9,7 +9,6 @@ depends:
 
 variables:
   cmake-local: >-
-    -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     -DWITHOUT_OPENCV=ON
     -DWITHOUT_GAVL=ON
 
