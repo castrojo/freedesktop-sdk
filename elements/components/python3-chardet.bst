@@ -9,5 +9,5 @@ depends:
 sources:
 - kind: git_repo
   url: github:chardet/chardet.git
-  track: "*.*.*"
+  track: "5.*.*"
   ref: 5.2.0-0-g78250d917a2883aa60215c04480aeb27a545f1d9
