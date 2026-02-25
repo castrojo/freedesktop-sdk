@@ -366,12 +366,12 @@ export-oci:
 	  $(BST) artifact checkout "oci/$${name}-oci.bst" --tar "$${name}-oci.tar"; \
 	done
 
-test-minimal-oci:
-	$(BST) build oci/minimal-oci.bst; \
-	$(BST) artifact checkout "oci/minimal-oci.bst" --tar "minimal-oci.tar"; \
+test-oci:
+	$(BST) build oci/flatpak-oci.bst; \
+	$(BST) artifact checkout "oci/flatpak-oci.bst" --tar "flatpak-oci.tar"; \
 	set -e; \
 	if podman --version >/dev/null 2>&1; then \
-		IMAGE=$$(podman load -i minimal-oci.tar | grep -E "^Loaded image:" | cut -d' ' -f3); \
+		IMAGE=$$(podman load -i flatpak-oci.tar | grep -E "^Loaded image:" | cut -d' ' -f3); \
 		podman run --rm $$IMAGE sh --version; \
 	fi
 
@@ -546,7 +546,7 @@ secure-images-serve: secure-images/SHA256SUMS
 	build check-dev-files clean clean-oci clean-test clean-repo clean-runtime	\
 	export test-apps manifest markdown-manifest check-rpath		\
 	build-tar export-tar clean-vm build-vm run-vm export-snap	\
-	export-oci bootstrap test-codecs test-ldd test-minimal-oci	 \
+	export-oci bootstrap test-codecs test-ldd test-oci	 \
 	clean-efi-vm build-efi-vm run-efi-vm				\
 	update-ostree ostree-serve run-ostree-vm			\
 	test-runtime-inheritance generate-keys clean-ostree-vm		\
