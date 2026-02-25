@@ -14,7 +14,7 @@ sources:
   track: v*
   exclude:
   - "*beta*"
-  ref: v1.12.3-0-gad9021c23cc52f6e5524dbf038a73d010fdf0657
+  ref: v1.12.4-0-g8495767a57c5060fbcdf5a33d670efe2d5af1f0b
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
@@ -716,8 +716,8 @@ sources:
     sha: f8ca58f447f06ed17d5fc4043ce1b10dd205e060fb3ce5b979b8ed8e59ff3f79
   - kind: registry
     name: memmap2
-    version: 0.9.9
-    sha: 744133e4a0e0a658e1374cf3bf8e415c4052a15a111acd372764c55b4177d490
+    version: 0.9.10
+    sha: 714098028fe011992e1c3962653c96b2d578c4b4bce9036e15ff220319b1e0e3
   - kind: registry
     name: mimalloc
     version: 0.1.48
