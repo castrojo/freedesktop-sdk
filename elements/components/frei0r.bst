@@ -6,8 +6,13 @@ depends:
   type: build
 - filename: components/cairo.bst
 
+variables:
+  cmake-local: >-
+    -DWITHOUT_OPENCV=ON
+    -DWITHOUT_GAVL=ON
+
 sources:
 - kind: git_repo
   url: github:dyne/frei0r.git
   track: v*
-  ref: v2.5.1-0-gf081aa64d4fb99fb1f16dce7dff8d6a989794afa
+  ref: v2.5.4-0-gfc9320063a0ae3f0e14b0ba408d71ca03db5b54f
