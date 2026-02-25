@@ -30,7 +30,10 @@ public:
     script: |
       #!/bin/bash
       sysroot="${1}"
-      chmod 4755 "${sysroot}%{bindir}/unix_chkpwd"
+      file="${sysroot}%{bindir}/unix_chkpwd"
+      if [ -f "$file" ]; then
+          chmod 4755 "$file"
+      fi
   bst:
     split-rules:
       devel:
