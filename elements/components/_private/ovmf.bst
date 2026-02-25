@@ -12,6 +12,7 @@ build-depends:
 - components/util-linux.bst
 - components/python3.bst
 - components/nasm.bst
+- components/patch.bst
 - components/sed.bst
 
 environment:
@@ -73,6 +74,10 @@ config:
       echo "Unsupported arch, use ovmf-maybe"
       exit 1
     fi
+
+  - |
+    sed -i 's/\r$//' BaseTools/Source/C/VfrCompile/GNUmakefile
+    patch -p1 -i pr-12199.patch
 
   - |
     rm -rfv "%{build-root}/%{build-dir}"
@@ -151,3 +156,5 @@ sources:
   ref: 370b5944c046bab043dd8b133727b2135af7747a
 - kind: local
   path: files/ovmf
+- kind: local
+  path: patches/ovmf/pr-12199.patch
