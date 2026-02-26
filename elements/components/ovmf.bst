@@ -101,7 +101,7 @@ sources:
 - kind: git_repo
   url: github:tianocore/edk2.git
   track: edk2-stable*
-  ref: edk2-stable202511-0-g46548b1adac82211d8d11da12dd914f41e7aa775
+  ref: edk2-stable202602-0-gb7a715f7c03c45c6b4575bf88596bfd79658b8ce
 - kind: git_module
   path: CryptoPkg/Library/OpensslLib/openssl
   url: github:openssl/openssl.git
@@ -109,11 +109,11 @@ sources:
 - kind: git_module
   path: CryptoPkg/Library/MbedTlsLib/mbedtls
   url: github:Mbed-TLS/mbedtls.git
-  ref: 8c89224991adff88d53cd380f42a2baa36f91454
+  ref: e185d7fd85499c8ce5ca2a54f5cf8fe7dbe3f8df
 - kind: git_module
   path: SecurityPkg/DeviceSecurity/SpdmLib/libspdm
   url: github:DMTF/libspdm.git
-  ref: 98ef964e1e9a0c39c7efb67143d3a13a819432e0
+  ref: 1be116c7b7713fa9003e1bd53b53a34758549eb9
 - kind: git_module
   path: UnitTestFrameworkPkg/Library/CmockaLib/cmocka
   url: github:tianocore/edk2-cmocka.git
