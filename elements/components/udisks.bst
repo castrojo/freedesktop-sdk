@@ -23,4 +23,4 @@ sources:
   exclude:
   - "udisks-2.10.90"
   - "udisks-2.10.91"
-  ref: udisks-2.11.0-0-gf4d454560e82361ca4e2245f6373b5d2f7567b46
+  ref: udisks-2.11.1-0-g6375ff14d3fed5f20c66ff50cfc02844473294a1
