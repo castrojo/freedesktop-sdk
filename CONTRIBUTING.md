@@ -11,7 +11,7 @@ In order to contribute your first patch, you will need to follow these steps:
 4. [Make your changes in the branch](#make-your-changes-in-the-branch)
 5. [Push your changes to the remote](#push-your-changes-to-the-remote)
 6. [Open a merge request](#open-a-merge-request)
-7. [Open a merge request](#open-a-merge-request)
+7. [Request developer access to the freedesktop-sdk repo](#request-developer-access-to-the-freedesktop-sdk-repo)
 
 Additionally you can [test your changes](#testing-locally) locally using our Makefile
 
@@ -134,6 +134,15 @@ MRs can be in "review" for a maximum of 6 months, after this time limit, if the 
 blocked or frozen for a future release, a maintainer will message to check if anything is
 blocking the MR or if any assistance is needed, if there is no response or it is deemed to be no
 longer required, then the MR will be *closed*.
+
+## Request developer access to the freedesktop-sdk repo
+If you become a regular contributor, you can request developer access to push branches directly to the main repository instead of working from a fork. This has the added benefit of allowing you to use our CI, which is equipped with runners for aarch64, armv7, i686 and x86_64 architectures.
+
+Our CI runners build the SDK on multiple architectures to ensure that your changes have not caused a break anywhere. Additionally it will check for ABI changes.
+
+Crypto components may break forward ABI (not backward ABI) compatibility for security updates on a stable branch.
+
+To request access, reach out to us [on Matrix](#help--contact).
 
 ## Testing locally
 If you want to test your changes locally then you will need to first install [BuildStream](https://buildstream.build). The installation instructions can be found [here](https://buildstream.build/install.html). Note that we use the latest stable version of BuildStream, so ensure you use this version too (otherwise you may not hit our cache server, and have to build everything from scratch). At time of writing, we use BuildStream 2.1.
