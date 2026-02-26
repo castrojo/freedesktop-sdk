@@ -26,6 +26,14 @@ config:
     - rm -rf "%{install-root}/var/run"
 
 public:
+  initial-script:
+    script: |
+      #!/bin/bash
+      sysroot="${1}"
+      file="${sysroot}%{bindir}/unix_chkpwd"
+      if [ -f "$file" ]; then
+          chmod 4755 "$file"
+      fi
   bst:
     split-rules:
       devel:
