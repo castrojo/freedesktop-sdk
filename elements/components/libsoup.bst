@@ -37,4 +37,4 @@ sources:
 - kind: git_repo
   url: gnome:libsoup.git
   track: 3.[02468].*
-  ref: 3.6.5-0-g766e17528251c9b696a6076300ac61adc95536ac
+  ref: 3.6.6-0-g25eac153004f777581ca2d95e31a02ca96844332
