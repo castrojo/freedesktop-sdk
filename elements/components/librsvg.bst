@@ -41,7 +41,7 @@ sources:
   - '*.*.9[0-9]'
   - '*beta*'
   - '*rc*'
-  ref: 2.61.3-0-g65d2189af6d7bd30529a25dc7f8b3c2490d5db61
+  ref: 2.61.4-0-g28b37154cddfda8a0782ee684f34a18964384b41
 - kind: cargo2
   ref:
   - kind: registry
@@ -698,8 +698,8 @@ sources:
     sha: 73f88a1307638156682bada9d7604135552957b7818057dcef22705b4d509495
   - kind: registry
     name: num-conv
-    version: 0.1.0
-    sha: 51d515d32fb182ee37cda2ccdcb92950d6a3c2893aa280e540671c2cd0f3b1d9
+    version: 0.2.0
+    sha: cf97ec579c3c42f953ef76dbf8d55ac91fb219dde70e49aa4a6b7d74e9919050
   - kind: registry
     name: num-derive
     version: 0.4.2
@@ -1110,16 +1110,16 @@ sources:
     sha: 3ff15c8ecd7de3849db632e14d18d2571fa09dfc5ed93479bc4485c7a517c913
   - kind: registry
     name: time
-    version: 0.3.44
-    sha: 91e7d9e3bb61134e77bde20dd4825b97c010155709965fedf0f49bb138e52a9d
+    version: 0.3.47
+    sha: 743bd48c283afc0388f9b8827b976905fb217ad9e647fae3a379a9283c4def2c
   - kind: registry
     name: time-core
-    version: 0.1.6
-    sha: 40868e7c1d2f0b8d73e4a8c7f0ff63af4f6d19be117e90bd73eb1d62cf831c6b
+    version: 0.1.8
+    sha: 7694e1cfe791f8d31026952abf09c69ca6f6fa4e1a1229e18988f06a04a12dca
   - kind: registry
     name: time-macros
-    version: 0.2.24
-    sha: 30cfb0125f12d9c277f35663a0a33f8c30190f4e4574868a330595412d34ebf3
+    version: 0.2.27
+    sha: 2e70e4c5a0e0a8a4823ad65dfe1a6930e4f4d756dcd9dd7939022b5e8c501215
   - kind: registry
     name: tinystr
     version: 0.8.2
