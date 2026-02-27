@@ -47,6 +47,9 @@ config:
     echo '%{libdir}' >/etc/ld.so.conf
 
   - |
+    cp "/lib/modules/$(ls -1 /lib/modules | head -n1)/vmlinuz" /boot/vmlinuz
+
+  - |
     . /tmp/vars
     dracut -v --xz --reproducible --fstab \
            --no-machineid --kernel-image /boot/vmlinuz \

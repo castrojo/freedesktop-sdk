@@ -83,15 +83,12 @@ config:
 
   install-commands:
   - |
-    install -Dm644 "%{image-name}" '%{install-root}%{bootdir}/vmlinuz'
+    release=$(make -s kernelrelease)
+    install -Dm644 "%{image-name}" "%{install-root}%{indep-libdir}/modules/${release}/vmlinuz"
     install -Dm644 vmlinux '%{install-root}%{bootdir}/vmlinux'
     install -Dm644 System.map '%{install-root}%{bootdir}/System.map'
     install -Dm644 .config '%{install-root}%{bootdir}/config'
     make -j1 INSTALL_MOD_PATH='%{install-root}%{prefix}' modules_install
-    # mkosi expects the kernel in the kernel-install layout
-    release=$(make -s kernelrelease)
-    ln -sr "%{install-root}%{bootdir}/vmlinuz" \
-          "%{install-root}%{indep-libdir}/modules/${release}/vmlinuz"
 
   - |
     release=$(make -s kernelrelease)
