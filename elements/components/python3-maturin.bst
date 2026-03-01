@@ -14,7 +14,7 @@ sources:
   track: v*
   exclude:
   - "*beta*"
-  ref: v1.12.4-0-g8495767a57c5060fbcdf5a33d670efe2d5af1f0b
+  ref: v1.12.6-0-gb61a28edb1bd435ed876f22cc5281e6dab082119
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
@@ -692,8 +692,8 @@ sources:
     sha: 5e5032e24019045c762d3c0f28f5b6b8bbf38563a65908389bf7978758920897
   - kind: registry
     name: lzma-rust2
-    version: 0.13.0
-    sha: c60a23ffb90d527e23192f1246b14746e2f7f071cb84476dd879071696c18a4a
+    version: 0.16.2
+    sha: 47bb1e988e6fb779cf720ad431242d3f03167c1b3f2b1aae7f1a94b2495b36ae
   - kind: registry
     name: lzma-sys
     version: 0.1.20
@@ -936,8 +936,8 @@ sources:
     sha: f6d755483ad14b49e76713b52285235461a5b4f73f17612353e11a5de36a5fd2
   - kind: registry
     name: python-pkginfo
-    version: 0.6.6
-    sha: 464e5e2e0fb6c8c2c7aedc0cd6615258a3def4e34b417f6bf8835e76e7d441d4
+    version: 0.6.8
+    sha: 229fe47647d6602b9b0934b21fab8aece1c5a5aeb0a934196a14355fec656623
   - kind: registry
     name: quote
     version: 1.0.44
@@ -998,6 +998,10 @@ sources:
     name: ref-cast-impl
     version: 1.0.25
     sha: b7186006dcb21920990093f30e3dea63b7d6e977bf1256be20c3563a5db070da
+  - kind: registry
+    name: reflink-copy
+    version: 0.1.28
+    sha: 23bbed272e39c47a095a5242218a67412a220006842558b03fe2935e8f3d7b92
   - kind: registry
     name: regex
     version: 1.12.3
@@ -1399,6 +1403,10 @@ sources:
     version: 2.1.2
     sha: 9ea3136b675547379c4bd395ca6b938e5ad3c3d20fad76e7fe85f9e0d011419c
   - kind: registry
+    name: typed-path
+    version: 0.12.3
+    sha: 8e28f89b80c87b8fb0cf04ab448d5dd0dd0ade2f8891bae878de66a75a28600e
+  - kind: registry
     name: typenum
     version: 1.19.0
     sha: 562d481066bde0658276a35467c4af00bdc6ee726305698a55b86e61d7ad82bb
@@ -1567,9 +1575,45 @@ sources:
     version: 0.4.0
     sha: 712e227841d057c1ee1cd2fb22fa7e5a5461ae8e48fa2ca79ec42cfc1931183f
   - kind: registry
+    name: windows
+    version: 0.62.2
+    sha: 527fadee13e0c05939a6a05d5bd6eec6cd2e3dbd648b9f8e447c6518133d8580
+  - kind: registry
+    name: windows-collections
+    version: 0.3.2
+    sha: 23b2d95af1a8a14a3c7367e1ed4fc9c20e0a26e79551b1454d72583c97cc6610
+  - kind: registry
+    name: windows-core
+    version: 0.62.2
+    sha: b8e83a14d34d0623b51dce9581199302a221863196a1dde71a7663a4c2be9deb
+  - kind: registry
+    name: windows-future
+    version: 0.3.2
+    sha: e1d6f90251fe18a279739e78025bd6ddc52a7e22f921070ccdc67dde84c605cb
+  - kind: registry
+    name: windows-implement
+    version: 0.60.2
+    sha: 053e2e040ab57b9dc951b72c264860db7eb3b0200ba345b4e4c3b14f67855ddf
+  - kind: registry
+    name: windows-interface
+    version: 0.59.3
+    sha: 3f316c4a2570ba26bbec722032c4099d8c8bc095efccdc15688708623367e358
+  - kind: registry
     name: windows-link
     version: 0.2.1
     sha: f0805222e57f7521d6a62e36fa9163bc891acd422f971defe97d64e70d0a4fe5
+  - kind: registry
+    name: windows-numerics
+    version: 0.3.1
+    sha: 6e2e40844ac143cdb44aead537bbf727de9b044e107a0f1220392177d15b0f26
+  - kind: registry
+    name: windows-result
+    version: 0.4.1
+    sha: 7781fa89eaf60850ac3d2da7af8e5242a5ea78d1a11c49bf2910bb5a73853eb5
+  - kind: registry
+    name: windows-strings
+    version: 0.5.1
+    sha: 7837d08f69c77cf6b07689544538e017c1bfcf57e34b4c0ff58e6c2cd3b37091
   - kind: registry
     name: windows-sys
     version: 0.45.0
@@ -1602,6 +1646,10 @@ sources:
     name: windows-targets
     version: 0.53.5
     sha: 4945f9f551b88e0d65f3db0bc25c33b8acea4d9e41163edf90dcd0b19f9069f3
+  - kind: registry
+    name: windows-threading
+    version: 0.2.1
+    sha: 3949bd5b99cafdf1c7ca86b43ca564028dfe27d66958f2470940f73d86d75b37
   - kind: registry
     name: windows_aarch64_gnullvm
     version: 0.42.2
@@ -1776,8 +1824,8 @@ sources:
     sha: caa8cd6af31c3b31c6631b8f483848b91589021b28fffe50adada48d4f4d2ed1
   - kind: registry
     name: zip
-    version: 6.0.0
-    sha: eb2a05c7c36fde6c09b08576c9f7fb4cda705990f73b58fe011abf7dfb24168b
+    version: 8.1.0
+    sha: 6e499faf5c6b97a0d086f4a8733de6d47aee2252b8127962439d8d4311a73f72
   - kind: registry
     name: zlib-rs
     version: 0.6.0
