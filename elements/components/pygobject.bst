@@ -33,7 +33,6 @@ config:
 sources:
 - kind: git_repo
   url: gnome:pygobject.git
-  track: '*.*[02468].*'
   ref: 3.54.5-0-gda2717480488ed93f1038ea106c7a9c394059e1d
 - kind: git_repo
   url: github:python/pythoncapi-compat.git
