@@ -26,7 +26,7 @@ variables:
 
   debug_flags: "-g1"
   optimize-debug: "false"
-  enabled-projects: "clang;compiler-rt;lld"
+  enabled-projects: "clang;compiler-rt;lld;clang-tools-extra"
 
   (?):
   - target_arch == "i686":
