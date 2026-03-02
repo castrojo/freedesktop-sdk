@@ -6,4 +6,4 @@ sources:
 - kind: git_repo
   url: github:file/file.git
   track: FILE*
-  ref: FILE5_46-0-gb310a0c2d3e4a1c12d579ad5c0266f1092a91340
+  ref: FILE5_47-0-g7d20612996567ecedec7f5c58f7bf15c2cf42c19
