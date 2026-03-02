@@ -3,7 +3,6 @@ kind: meson
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/grep.bst
-- components/patch.bst
 
 depends:
 - components/python3.bst
@@ -28,7 +27,6 @@ config:
         echo "Found:  $PYCAPI_COMPAT_REV_FOUND"
         exit 1
       fi
-    - patch -p1 -d subprojects/pythoncapi-compat -i ../packagefiles/pythoncapi-compat-meson.diff
 
 sources:
 - kind: git_repo
@@ -38,4 +36,4 @@ sources:
 - kind: git_repo
   url: github:python/pythoncapi-compat.git
   directory: subprojects/pythoncapi-compat
-  ref: 632d1aa0c4be6c67498d6b97630ddd7d7eb0f90a
+  ref: 22811c3f0e69908894d2bd724f572b32667f2141
