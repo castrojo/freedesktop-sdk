@@ -23,6 +23,21 @@ config:
       real_lib=$(objdump -p "/usr/lib/%{gcc_triplet}/${lib}"  | sed '/^ *SONAME */{;s///;q;};d')
       install -Dm644 -t '%{install-root}%{libdir}' "/usr/lib/%{gcc_triplet}/${real_lib}"
     done
+
+  - |
+    resource_dir="$(clang -print-resource-dir)"
+    clang_version="$(basename "${resource_dir}")"
+
+    src_path="${resource_dir}/include"
+    dest_path="%{install-root}%{prefix}/%{lib}/%{gcc_triplet}/clang/${clang_version}/include"
+
+    mkdir -p "${dest_path}"
+
+    echo "Copying clang headers from $src_path to $dest_path for rusticl"
+    cp -avf "${src_path}/." "${dest_path}/"
+
+    test -f "${dest_path}/opencl-c-base.h"
+
   - |
     %{install-extra}
     mkdir -p "%{install-root}%{project_licensedir}"
