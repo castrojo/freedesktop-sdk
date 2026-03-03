@@ -1,0 +1,25 @@
+From ec01e7b83558ceaa4543b918537346a3c48b3ec1 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?J=C3=BCrg=20Billeter?= <j@bitron.ch>
+Date: Thu, 19 Feb 2026 09:56:42 +0100
+Subject: [PATCH] recc: Add missing include
+
+Fixes #198.
+---
+ recc/parsedcommand.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/recc/parsedcommand.cpp b/recc/parsedcommand.cpp
+index 691a86baa..7c0fca9a4 100644
+--- a/recc/parsedcommand.cpp
++++ b/recc/parsedcommand.cpp
+@@ -21,6 +21,7 @@
+ #include <buildboxcommon_logging.h>
+ #include <buildboxcommon_systemutils.h>
+ 
++#include <fstream>
+ #include <system_error>
+ 
+ namespace recc {
+-- 
+GitLab
+
