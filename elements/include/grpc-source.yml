@@ -33,3 +33,5 @@ sources:
   path: patches/grpc/absl.patch
 - kind: patch
   path: patches/grpc/unpin_cython.patch
+- kind: patch
+  path: patches/grpc/unvendor_absl.patch
