@@ -10,6 +10,10 @@ depends:
 - components/libgudev.bst
 - components/polkit.bst
 
+variables:
+  meson-local: >-
+    -Dssc-support=disabled
+
 sources:
 - kind: git_repo
   url: freedesktop:hadess/iio-sensor-proxy.git
