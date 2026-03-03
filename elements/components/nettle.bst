@@ -24,7 +24,7 @@ public:
 sources:
 - kind: git_repo
   url: nettle:nettle.git
-  track: nettle_*
+  track: nettle_3.*
   exclude:
   - nettle_*rc*
   ref: 
