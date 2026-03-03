@@ -1,5 +1,5 @@
 kind: junction
 sources:
 - kind: tar
-  url: pypi:cb/52/9920d97e8cff65dcebdc829f3ce41672b4958d04ee690bc40ce38bab8367/buildstream_plugins_community-2.1.1.tar.gz
-  ref: 6cd10dc85ecb92dda926f60e67893571014fd7d739486d0d66233a03f8a5ca99
+  url: gitlab:freedesktop-sdk/buildstream-plugins-community/-/archive/6fd8ca43c9e5440835d41e300357ec8680b18c72/buildstream-plugins-community-master.tar.gz
+  ref: 5a90ebab019d6984a3ad47def6024a11fa72a141ed477eeb6da8bef4fce38b16
