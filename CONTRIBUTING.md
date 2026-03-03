@@ -6,12 +6,12 @@ This document outlines the basic guidelines before contributing to freedesktop-s
 
 In order to contribute your first patch, you will need to follow these steps:
 1. [Create a GitLab account](#create-a-gitlab-account)
-2. [Clone our GitLab repo](#clone-our-gitlab-repo)
+2. [Fork and clone the repo](#fork-and-clone-the-repo)
 3. [Make a local branch](#make-a-local-branch)
 4. [Make your changes in the branch](#make-your-changes-in-the-branch)
-5. [Request developer access to the freedesktop-sdk repo](#request-developer-access-to-the-freedesktop-sdk-repo)
-6. [Push your changes to the remote](#push-your-changes-to-the-remote)
-7. [Open a merge request](#open-a-merge-request)
+5. [Push your changes to the remote](#push-your-changes-to-the-remote)
+6. [Open a merge request](#open-a-merge-request)
+7. [Request developer access to the freedesktop-sdk repo](#request-developer-access-to-the-freedesktop-sdk-repo)
 
 Additionally you can [test your changes](#testing-locally) locally using our Makefile
 
@@ -24,16 +24,23 @@ Let's go through each step in more detail:
 ## Create a GitLab account
 Simply click "sign in/register" in the top right corner and fill in the form.
 
-## Clone our GitLab repo
-Open a terminal and type:
+## Fork and clone the repo
+Go to the [fork page](https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/forks/new) on GitLab to create your own copy of our repo under your account.
+
+Once you have forked the repo, open a terminal and clone your fork (replace MY_USERNAME with your GitLab username):
 ```
-git clone https://gitlab.com/freedesktop-sdk/freedesktop-sdk.git
+git clone https://gitlab.com/MY_USERNAME/freedesktop-sdk.git
 ```
 If you have an SSH key associated with your GitLab account you can alternatively type
 ```
-git clone git@gitlab.com:freedesktop-sdk/freedesktop-sdk.git
+git clone git@gitlab.com:MY_USERNAME/freedesktop-sdk.git
 ```
 to avoid having to type your password when pushing.
+
+It is also useful to add the upstream repository as a remote so you can keep your fork up to date:
+```
+git remote add upstream https://gitlab.com/freedesktop-sdk/freedesktop-sdk.git
+```
 
 Please make sure that your git is connected with your email and name using
 ```
@@ -41,7 +48,7 @@ git config user.name "MY_NAME"
 git config user.email "MY_EMAIL@example.com"
 ```
 
-There are also many GUI git interfaces, such as integration with IDEs and GitHub's UI, however running through all of these alternative methods would be a mammoth task. Feel free to add instructions for your personal preferred git workflow.
+There are also many GUI git interfaces, such as integration with IDEs and GitLab's UI, however running through all of these alternative methods would be a mammoth task. Feel free to add instructions for your personal preferred git workflow.
 
 ## Make a local branch
 [//]: # (If someone knows a better way to do this please tell me)
@@ -51,7 +58,7 @@ git checkout master
 ```
 to make sure you're branching from the current development branch. If you are
 targeting a specific release of freedesktop-sdk then you simply need to replace
-master with the relevant release branch, for example `19.08`. Now run
+master with the relevant release branch, for example `release/25.08`. Now run
 ```
 git checkout -b my-branch-name
 ```
@@ -102,30 +109,23 @@ We also have CI to automatically track the latest tags of git repos, but this
 requires use of the `git_repo` plugin rather than `git`. If adding a new git
 source please use `git_repo` rather than `git`.
 
-
-## Request developer access to the freedesktop-sdk repo
-Go to our GitLab [project page](https://gitlab.com/freedesktop-sdk/freedesktop-sdk) and click the "Request Developer Access" button near the top of the page. One of the maintainers will review your request. Developer access allows you to push directly to our repo, enabling a simpler "push and merge request" workflow instead of using the GitHub "fork and pull request" workflow.
-This has the added benefit of allowing you to use our CI, which is equipped with runners for aarch64, armv7, i686 and x86_64 architectures.
-
 ## Push your changes to the remote
-Run the following commands:
+Run the following commands to push your branch to your fork:
 
 ```
 git push --set-upstream origin my-branch-name
 ```
-Your branch will now begin going through our CI runners, which build the SDK on multiple architectures to ensure that your changes have not caused a break anywhere. Additionally it will check for ABI changes.
-
-Crypto components may break forward ABI (not backward ABI) compatibility for security updates on a stable branch
 
 It is also good practice to rebase your changes before pushing (so that your commits are on top of the target branch), to do this run
 ```
-git rebase origin/19.08
+git fetch upstream
+git rebase upstream/master
 ```
 while your branch is checked out. This may require you to force-push your branch, to do this add the `-f` switch to the git push command.
 
 ## Open a merge request
-Navigate to the [New Merge Request Page](https://gitlab.com/freedesktop-sdk/freedesktop-sdk/merge_requests/new) on our GitLab, add your branch as the source branch and 19.08 as the target branch.
-Once your MR is open it will be reviewed before merging. Once it passes our CI and any discussions are resolved, it will be assigned to our merge bot, which will continually rebase onto the latest commit in 19.08 until it merges your branch.
+Navigate to your fork's New Merge Request page at https://gitlab.com/MY_USERNAME/freedesktop-sdk/-/merge_requests/new (replace MY_USERNAME with your GitLab username). There, select your fork and branch as the source, and master as the target branch.
+Once your MR is open it will be reviewed before merging. Once it passes our CI and any discussions are resolved, it will be assigned to our merge bot, which will continually rebase onto the latest commit in master until it merges your branch.
 
 Congratulations, you are now a freedesktop-sdk contributor!
 
@@ -134,6 +134,15 @@ MRs can be in "review" for a maximum of 6 months, after this time limit, if the 
 blocked or frozen for a future release, a maintainer will message to check if anything is
 blocking the MR or if any assistance is needed, if there is no response or it is deemed to be no
 longer required, then the MR will be *closed*.
+
+## Request developer access to the freedesktop-sdk repo
+If you become a regular contributor, you can request developer access to push branches directly to the main repository instead of working from a fork. This has the added benefit of allowing you to use our CI, which is equipped with runners for aarch64, armv7, i686 and x86_64 architectures.
+
+Our CI runners build the SDK on multiple architectures to ensure that your changes have not caused a break anywhere. Additionally it will check for ABI changes.
+
+Crypto components may break forward ABI (not backward ABI) compatibility for security updates on a stable branch.
+
+To request access, reach out to us [on Matrix](#help--contact).
 
 ## Testing locally
 If you want to test your changes locally then you will need to first install [BuildStream](https://buildstream.build). The installation instructions can be found [here](https://buildstream.build/install.html). Note that we use the latest stable version of BuildStream, so ensure you use this version too (otherwise you may not hit our cache server, and have to build everything from scratch). At time of writing, we use BuildStream 2.1.
