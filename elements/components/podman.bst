@@ -4,7 +4,7 @@ build-depends:
 - components/pkg-config.bst
 - components/go.bst
 - components/go-md2man.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - components/python3.bst
 - public-stacks/buildsystem-make.bst
 

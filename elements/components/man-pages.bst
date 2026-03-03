@@ -2,7 +2,7 @@ kind: make
 
 build-depends:
 - public-stacks/buildsystem-make.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

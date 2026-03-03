@@ -3,7 +3,7 @@ kind: meson
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - public-stacks/buildsystem-cmake.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - components/gobject-introspection.bst
 - components/doxygen.bst
 - components/flex.bst

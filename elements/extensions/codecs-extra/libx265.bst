@@ -6,7 +6,7 @@ kind: cmake
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/nasm.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

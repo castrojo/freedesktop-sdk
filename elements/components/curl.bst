@@ -7,7 +7,7 @@ build-depends:
 - components/gettext.bst
 - components/ninja.bst
 - components/pkg-config.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - components/sed.bst
 
 depends:

@@ -2,7 +2,7 @@ kind: cmake
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - components/grep.bst
 - components/python3.bst
 - components/spirv-tools.bst

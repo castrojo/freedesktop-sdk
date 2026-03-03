@@ -5,7 +5,7 @@
 build-depends:
 - bootstrap/sed.bst
 - components/appstream-minimal.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - components/m4.bst
 
 variables:

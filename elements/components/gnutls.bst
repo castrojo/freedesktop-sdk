@@ -3,7 +3,7 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/bison.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - components/gperf.bst
 - components/gtk-doc.bst
 - components/patch.bst

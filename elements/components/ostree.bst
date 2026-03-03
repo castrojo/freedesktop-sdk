@@ -5,7 +5,7 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - components/gobject-introspection.bst
 - components/bison.bst
 - components/systemd.bst

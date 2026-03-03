@@ -2,7 +2,7 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/bison.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - components/help2man.bst
 - components/texinfo.bst
 - components/patch.bst

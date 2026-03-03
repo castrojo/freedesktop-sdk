@@ -1,7 +1,7 @@
 kind: make
 
 build-depends:
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - components/go-md2man.bst
 - components/go.bst
 - public-stacks/buildsystem-make.bst

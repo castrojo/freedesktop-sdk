@@ -3,7 +3,7 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/doxygen.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - components/_private/systemd-stage1.bst
 
 depends:

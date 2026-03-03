@@ -5,7 +5,7 @@ kind: manual
 
 build-depends:
 - public-stacks/runtime-minimal.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - bootstrap/sed.bst
 
 runtime-depends:

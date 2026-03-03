@@ -7,7 +7,7 @@ build-depends:
 - components/bison.bst
 - components/flex.bst
 - components/gawk.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - components/libcap-ng.bst
 - components/libeconf.bst
 - components/perl-yaml-tiny.bst

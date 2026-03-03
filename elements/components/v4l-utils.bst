@@ -5,7 +5,7 @@ build-depends:
 - bootstrap/grep.bst
 - bootstrap/sed.bst
 - components/doxygen.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - components/llvm.bst  # bpf support
 - components/perl.bst
 - components/systemd.bst     # To properly place udev rules

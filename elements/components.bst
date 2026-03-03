@@ -141,7 +141,7 @@ depends:
 - components/gflags.bst
 - components/ghostscript.bst
 - components/giflib.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - components/git.bst
 - components/git-lfs.bst
 - components/glib-networking.bst

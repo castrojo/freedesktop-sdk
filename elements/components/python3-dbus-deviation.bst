@@ -2,7 +2,7 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - components/python3-setuptools-git.bst
 - components/python3-sphinx.bst
 

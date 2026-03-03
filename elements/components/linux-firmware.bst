@@ -9,7 +9,7 @@ build-depends:
 - components/which.bst
 - components/rdfind.bst
 - components/parallel.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 
 variables:
   license-files-extra: WHENCE MIT

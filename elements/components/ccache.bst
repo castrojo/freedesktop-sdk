@@ -5,7 +5,7 @@ build-depends:
 - components/asciidoc.bst
 - components/asciidoctor.bst
 - components/doctest.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - components/perl.bst
 
 depends:

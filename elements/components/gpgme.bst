@@ -3,7 +3,7 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/gnupg.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - components/texinfo.bst
 
 depends:

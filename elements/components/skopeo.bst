@@ -2,7 +2,7 @@ kind: make
 
 build-depends:
 - components/btrfs-progs.bst
-- components/git-minimal.bst
+- components/_private/git-minimal.bst
 - components/glib.bst
 - components/go-md2man.bst
 - components/go.bst
