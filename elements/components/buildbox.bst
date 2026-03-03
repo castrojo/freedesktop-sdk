@@ -35,3 +35,5 @@ sources:
   url: gitlab:BuildGrid/buildbox/buildbox.git
   track: '*.*.*'
   ref: 1.3.53-0-gaefb517c4eae95e962dac911af1d2951fe36c322
+- kind: patch
+  path: patches/buildbox/fix_build.patch
