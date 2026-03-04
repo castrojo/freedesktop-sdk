@@ -54,10 +54,6 @@ sources:
   path: devel/libtasn1
   url: gitlab:gnutls/libtasn1.git
   ref: 6b45b25e94ea538192cc0f97e9ad57171d1c6374
-- kind: git_module
-  path: devel/nettle
-  url: gitlab:gnutls/nettle.git
-  ref: 40178e78ae73ec2a8cda8cd53664df9c73ac1961
 - kind: patch
   path: patches/gnutls/cli-codegen-no-passwd.patch
 - kind: patch
