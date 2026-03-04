@@ -182,6 +182,7 @@ depends:
 - components/harfbuzz.bst
 - components/help2man.bst
 - components/hicolor-icon-theme.bst
+- components/hidapi.bst
 - components/highway.bst
 - components/hosts.bst
 - components/hotdoc.bst

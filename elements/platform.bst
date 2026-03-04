@@ -128,6 +128,7 @@ depends:
 - components/gtk3.bst
 - components/harfbuzz.bst
 - components/hicolor-icon-theme.bst
+- components/hidapi.bst
 - components/hunspell.bst
 - components/hyphen.bst
 - components/libibus.bst
