@@ -47,9 +47,6 @@ config:
     echo '%{libdir}' >/etc/ld.so.conf
 
   - |
-    cp "/lib/modules/$(ls -1 /lib/modules | head -n1)/vmlinuz" /boot/vmlinuz
-
-  - |
     . /tmp/vars
     version="$(ls -1 /lib/modules | head -n1)"
     dracut -v --xz --reproducible --fstab \
@@ -57,6 +54,7 @@ config:
            --kernel-image "/lib/modules/${version}/vmlinuz" \
            --kver ${version} \
            --kernel-cmdline "rw console=tty0 console=ttyS0 quiet root=UUID=${uuid_root}" \
+           --kernel-image "/lib/modules/$(ls -1 /lib/modules | head -n1)/vmlinuz" \
            --install 'fsck.ext4'
 
   - |
