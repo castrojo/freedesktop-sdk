@@ -23,9 +23,6 @@ config:
   - mkdir -p /boot
 
   - |
-    cp "/lib/modules/$(ls -1 /lib/modules | head -n1)/vmlinuz" /boot/vmlinuz
-
-  - |
     prepare-image.sh --rootpasswd root --seed "%{uuidnamespace}" \
                      --noboot \
                      --rootfstype 9p \
@@ -41,4 +38,5 @@ config:
            --kver $(ls -1 /lib/modules | head -n1) \
            --add "virtfs" \
            --gzip \
+           --kernel-image "/lib/modules/$(ls -1 /lib/modules | head -n1)/vmlinuz" \
            /boot/initramfs.gz

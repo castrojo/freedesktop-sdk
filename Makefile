@@ -120,7 +120,7 @@ $(OVMF_VARS): $(OVMF_VARS_TEMPLATE)
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)/usr/lib/os-release:
 	$(BST) artifact checkout $(VM_ARTIFACT_FILESYSTEM) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
 
-$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/vmlinuz:
+$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)/usr/lib/modules/*/vmlinuz:
 	$(BST) artifact checkout $(VM_ARTIFACT_BOOT) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
 
 $(VM_CHECKOUT_ROOT)/vm/boot/efi.bst/vmlinuz:
@@ -154,7 +154,7 @@ QEMU_COMMON_ARGS += 								\
 endif
 
 QEMU_VIRTFS_ARGS=													\
-	-kernel $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/vmlinuz								\
+	-kernel $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)/usr/lib/modules/*/vmlinuz								\
 	-initrd $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/initramfs.gz							\
 	-virtfs local,id=virtfs,path=$(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM),security_model=none,mount_tag=virtfs
 
@@ -194,7 +194,7 @@ QEMU_VIRTFS_ARGS+=																\
 	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap init=/usr/lib/systemd/systemd console=ttyS0'
 endif
 
-run-vm: build-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)/vmlinuz $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)/usr/lib/os-release
+run-vm: build-vm $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)/usr/lib/modules/*/vmlinuz $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)/usr/lib/os-release
 	unshare --map-root-user $(QEMU) $(QEMU_COMMON_ARGS) $(QEMU_VIRTFS_ARGS)
 
 check-abi:
