@@ -166,7 +166,7 @@ it means swtpm needs to be installed.
 To be build the image and run the image, you can run:
 
 ```
-make run-secure-vm
+just build-secure-vm export-secure-vm run-secure-vm
 ```
 
 #### Secure boot keys
@@ -189,7 +189,7 @@ with `.crt` extension in PEM format.
 
 To add the Microsoft certificates, you can run:
 ```
-make download-microsoft-keys
+just download-microsoft-keys
 ```
 
 This is useful if you intend to install other operating systems on the
@@ -199,15 +199,15 @@ same machine without having to re-enroll the keys.
 
 Run a server with:
 ```
-make secure-images-serve
+just secure-images-serve
 ```
 
 Update the version in `secure-version.yml`. Or add a new git tag and
-regenerate `secure-version.yml` with `make update-secure-version`.
+regenerate `secure-version.yml` with `just setup-secure-vm`.
 
 Then build the update with:
 ```
-make export-secure-images
+just build-secure-vm export-secure-images
 ```
 
 Finally, on the VM, you can update with:
@@ -239,7 +239,7 @@ Because Dracut mounts 9p root named `virtfs`, this has to be used as
 mount tag for the virtfs parameter, e.g. `-virtfs
 local,mount_tag=virtfs,path=<path>`.
 
-It is possible to run the demo with `make run-vm`.
+It is possible to run the demo with `just run-vm`.
 
 ### OSTree update
 
@@ -270,9 +270,9 @@ Or you can use `ostree admin upgrade`.
 
 All this process is done automatically with:
 
-* `make ostree-serve` to start a OSTree server.
-* `make update-ostree` to create a new commit.
-* `make run-ostree-vm` to run the virtual machine.
+* `just ostree-serve` to start a OSTree server.
+* `just update-ostree` to create a new commit.
+* `just run-ostree-vm` to run the virtual machine.
 
 ### Desktop
 
@@ -288,5 +288,5 @@ libraries as well the following services:
 It boots directly to Weston as user.
 
 In order to have a visible window where to see your graphical session
-run `make` with `QEMU_GRAPHICS='-display gtk'`. Note that for this to
+run `just` with `QEMU_GRAPHICS='-display gtk'`. Note that for this to
 work you'll need `qemu-ui-gtk` installed alongside QEMU.
