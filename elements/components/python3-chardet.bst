@@ -10,7 +10,7 @@ depends:
 sources:
 - kind: git_repo
   url: github:chardet/chardet.git
-  track: "*.*.*"
+  track: "6.*.*"
   exclude:
   - "*post*"
   - "*rc*"
