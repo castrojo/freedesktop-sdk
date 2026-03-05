@@ -1,5 +1,9 @@
 kind: make
 
+description: |
+  This element should be consumed through opensbi-u-boot-maybe.bst
+  as this is specific to arch RISC-V.
+
 build-depends:
 - public-stacks/buildsystem-make.bst
 - public-stacks/runtime-minimal.bst

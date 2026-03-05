@@ -362,6 +362,7 @@ depends:
 - components/openal.bst
 - components/opencl.bst
 - components/openjpeg.bst
+- components/opensbi-u-boot-maybe.bst
 - components/openssh-systemd.bst
 - components/openssh.bst
 - components/openssl.bst
