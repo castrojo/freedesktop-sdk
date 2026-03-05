@@ -203,6 +203,7 @@ depends:
 - components/jq.bst
 - components/json-c.bst
 - components/json-glib.bst
+- components/just.bst
 - components/kbd.bst
 - components/keyutils.bst
 - components/kmod.bst
