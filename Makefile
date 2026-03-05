@@ -118,22 +118,25 @@ $(OVMF_VARS): $(OVMF_VARS_TEMPLATE)
 	cp "$<" "$@"
 
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)/usr/lib/os-release:
+	$(BST) build $(VM_ARTIFACT_FILESYSTEM)
 	$(BST) artifact checkout $(VM_ARTIFACT_FILESYSTEM) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)
 
 $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)/usr/lib/modules/*/vmlinuz:
 	$(BST) artifact checkout $(VM_ARTIFACT_BOOT) --directory $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_BOOT)
 
-$(VM_CHECKOUT_ROOT)/vm/boot/efi.bst/vmlinuz:
-	$(BST) build vm/boot/efi.bst
-	$(BST) artifact checkout vm/boot/efi.bst --directory $(VM_CHECKOUT_ROOT)/vm/boot/efi.bst
+$(VM_CHECKOUT_ROOT)/vm/boot/efi-uki.bst/loader/entries/freedesktopsdk-uki.conf: elements/vm/boot/efi-uki.bst
+	rm -rf $(VM_CHECKOUT_ROOT)/vm/boot/efi-uki.bst
+	$(BST) build vm/boot/efi-uki.bst
+	$(BST) artifact checkout vm/boot/efi-uki.bst --directory $(VM_CHECKOUT_ROOT)/vm/boot/efi-uki.bst
 
 build-vm:
 	$(BST) build $(VM_ARTIFACT_FILESYSTEM) $(VM_ARTIFACT_BOOT)
 
-${VM_CHECKOUT_ROOT}/mkosi/freedesktop-sdk.raw: $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)/usr/lib/os-release $(VM_CHECKOUT_ROOT)/vm/boot/efi.bst/vmlinuz
+${VM_CHECKOUT_ROOT}/mkosi/freedesktop-sdk.raw: $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM)/usr/lib/os-release $(VM_CHECKOUT_ROOT)/vm/boot/efi-uki.bst/loader/entries/freedesktopsdk-uki.conf
+	rm -f ${VM_CHECKOUT_ROOT}/mkosi/freedesktop-sdk.raw
 	$(MKOSI) \
 	    --architecture $(MKOSI_ARCH) \
-	    --extra-tree $(VM_CHECKOUT_ROOT)/vm/boot/efi.bst:/boot \
+	    --extra-tree $(VM_CHECKOUT_ROOT)/vm/boot/efi-uki.bst:/boot \
 	    --base-tree $(VM_CHECKOUT_ROOT)/$(VM_ARTIFACT_FILESYSTEM) \
 	    --repart-directory files/vm/repart-config-simple \
 	    --postinst-script files/vm/mkosi-postinst.sh \
