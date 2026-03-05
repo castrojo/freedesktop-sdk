@@ -3,19 +3,21 @@ kind: make
 build-depends:
 - public-stacks/buildsystem-make.bst
 - public-stacks/runtime-minimal.bst
+- components/dtc.bst
+- components/python3.bst
 - components/_private/u-boot-qemu.bst
 
 variables:
   notparallel: true
   make-args: >-
+    FW_TEXT_START=0x80000000
+    FW_PAYLOAD_PATH="/usr/share/u-boot/qemu-riscv64_smode/u-boot.bin"
     O=build-generic
     PLATFORM=generic
-    FW_PAYLOAD_PATH="/usr/share/u-boot/qemu-riscv64_smode/u-boot.bin"
-
-  make-install: make -j1 %{make-args} install_root_dir="%{install-root}%{prefix}"
+  make-install: make -j1 %{make-args} install_root_dir="%{install-root}%{prefix}" install
 
 sources:
 - kind: git_repo
   url: github:riscv/opensbi.git
   track: master
-  ref: v1.1-0-g4489876e933d8ba0d8bc6c64bae71e295d45faac
+  ref: v1.8.1-32-g8d1c21b38752301fc6c727eece45c15c663649b0
