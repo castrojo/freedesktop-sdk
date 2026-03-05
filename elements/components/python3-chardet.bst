@@ -13,4 +13,4 @@ sources:
   track: "*.*.*"
   exclude:
   - "*post*"
-  ref: 7.0.0.rc4-0-gcc951583cf34e283b04e15942b1a053eb195c2cd
+  ref: 6.0.0-0-g8a4636b1d4ef21d11cc8190f6ff271670b9d20ee
