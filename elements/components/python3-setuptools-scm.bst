@@ -14,4 +14,7 @@ sources:
 - kind: git_repo
   url: github:pypa/setuptools_scm.git
   track: v*
+  exclude:
+  - "*dev*"
+  - "*vcs-*"
   ref: v9.2.2-0-ge56b78fcd4c1e79aa36c1e4700fca34c8ff540fe
