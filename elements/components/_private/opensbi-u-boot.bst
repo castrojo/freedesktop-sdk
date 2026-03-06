@@ -23,5 +23,5 @@ variables:
 sources:
 - kind: git_repo
   url: github:riscv/opensbi.git
-  track: master
-  ref: v1.8.1-32-g8d1c21b38752301fc6c727eece45c15c663649b0
+  track: v*.*
+  ref: v1.8.1-0-g74434f255873d74e56cc50aa762d1caf24c099f8
