@@ -18,9 +18,7 @@ def validate(args):
         news_obj = yaml.load_all(yaml_in)
         for item in news_obj:
             news_dict = json.loads(json.dumps(item))
-            assert all(
-                k in news_dict.keys() for k in ("Version", "Date", "Description")
-            )
+            assert all(k in news_dict for k in ("Version", "Date", "Description"))
             assert list(news_dict)[:3] == ["Version", "Date", "Description"]
             tag = news_dict["Version"]
             tag_list.append(tag)
