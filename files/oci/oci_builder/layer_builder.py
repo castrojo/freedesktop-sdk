@@ -68,10 +68,7 @@ def analyze_lowers(lowers):
             dirname, basename = os.path.split(lower_member.name)
             if basename == ".wh..wh..opq":
                 prefix = dirname + "/"
-                to_delete = []
-                for k in lower_files:
-                    if k.startswith(prefix):
-                        to_delete.append(k)
+                to_delete = [k for k in lower_files if k.startswith(prefix)]
                 for k in to_delete:
                     del lower_files[k]
             elif basename.startswith(".wh."):
@@ -125,8 +122,9 @@ def create_layer(output, upper, lowers):
                 else:
                     files.append(entry.name)
 
-        for directory in reversed(sorted(dirs)):
-            stack.append(os.path.join(root, directory))
+        stack.extend(
+            os.path.join(root, directory) for directory in reversed(sorted(dirs))
+        )
 
         for old_file in lower_dir_contents.get(root_rel, []):
             if old_file not in files and old_file not in dirs:
