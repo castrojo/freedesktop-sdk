@@ -51,7 +51,7 @@ def getallxattr(filename):
 
 
 def attr_set(items):
-    return set([(k, v) for k, v in items if k.startswith(PAX_HEADER_XATTR)])
+    return {(k, v) for k, v in items if k.startswith(PAX_HEADER_XATTR)}
 
 
 def file_sha256(file_handle):
