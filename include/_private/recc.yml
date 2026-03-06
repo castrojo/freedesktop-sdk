@@ -1,0 +1,7 @@
+environment:
+  RECC_USE_LOCALCAS: 1
+  (?):
+  - recc == "passthrough":
+      RECC_PASSTHROUGH: 1
+  - recc == "cache-only":
+      RECC_CACHE_ONLY: 1
