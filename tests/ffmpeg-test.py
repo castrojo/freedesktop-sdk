@@ -43,11 +43,11 @@ def get_codecs():
 
 
 def get_hwaccels():
-    return set(
+    return {
         hwaccel.strip()
         for hwaccel in get_stdout([ffmpeg, "-hide_banner", "-hwaccels"]).split("\n")[1:]
         if hwaccel.strip()
-    )
+    }
 
 
 def get_codec_info(codec_type, codec_name):
