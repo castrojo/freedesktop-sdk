@@ -86,15 +86,12 @@ if not is_flatpaked():
 # light on dependencies and it is fine for getting simple values
 def get_runtime_arch():
     config = configparser.ConfigParser()
-    try:
-        with open("/.flatpak-info", encoding="utf-8") as f:
-            config.read_file(f)
-        if config.has_section("Application"):
-            runtime = config.get("Application", "runtime")
-        else:
-            runtime = config.get("Runtime", "runtime")
-    except (OSError, configparser.Error) as e:
-        raise e
+    with open("/.flatpak-info", encoding="utf-8") as f:
+        config.read_file(f)
+    if config.has_section("Application"):
+        runtime = config.get("Application", "runtime")
+    else:
+        runtime = config.get("Runtime", "runtime")
 
     return runtime.split("/")[2]
 
