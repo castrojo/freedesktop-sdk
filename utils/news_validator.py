@@ -21,9 +21,7 @@ def validate(args):
             assert all(
                 k in news_dict.keys() for k in ("Version", "Date", "Description")
             )
-            assert list(news_dict.keys())[0] == "Version"
-            assert list(news_dict.keys())[1] == "Date"
-            assert list(news_dict.keys())[2] == "Description"
+            assert list(news_dict)[:3] == ["Version", "Date", "Description"]
             tag = news_dict["Version"]
             tag_list.append(tag)
             tag_date = news_dict["Date"]
