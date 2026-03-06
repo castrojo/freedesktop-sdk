@@ -84,6 +84,17 @@ config:
       mkdir -p "%{install-root}%{datadir}/gdb/auto-load%{multiarch_libdir}"
       mv -f %{install-root}%{multiarch_libdir}/libstdc++.so.*-gdb.py "%{install-root}%{datadir}/gdb/auto-load%{multiarch_libdir}/"
 
+    - |
+      gcc_version="$(gcc -dumpfullversion)"
+      bfd_plugin_dir="%{install-root}%{prefix}/%{triplet}/%{lib}/%{gcc_triplet}/bfd-plugins"
+      gcc_plugin_path="%{libexecdir}/gcc/%{triplet}/${gcc_version}/liblto_plugin.so"
+
+      test -f "%{install-root}$gcc_plugin_path"
+      mkdir -p "$bfd_plugin_dir"
+
+      echo "Creating liblto plugin symlink for binutils in $bfd_plugin_dir"
+      ln -sfv "$gcc_plugin_path" "$bfd_plugin_dir/liblto_plugin.so"
+
 public:
   bst:
     split-rules:
