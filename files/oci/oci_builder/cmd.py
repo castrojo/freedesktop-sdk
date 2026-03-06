@@ -20,7 +20,6 @@
 import dataclasses
 import os
 import sys
-from typing import Optional
 
 import yaml
 
@@ -30,7 +29,7 @@ from .image_builder import Compression, build_images
 @dataclasses.dataclass
 class GlobalConfig:
     compression: Compression
-    compression_level: Optional[int]
+    compression_level: int | None
     output: str
 
 
