@@ -16,12 +16,7 @@ logger = logging.getLogger(__name__)
 
 def is_ldd_up() -> bool:
     try:
-        output = subprocess.run(
-            ["ldd", "--version"],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True,
-        )
+        output = subprocess.run(["ldd", "--version"], capture_output=True, text=True)
     except FileNotFoundError:
         return False
     else:
@@ -107,9 +102,7 @@ def check_elf_file(file: str, libdir: str) -> tuple[str, dict | None]:
         check_symbols = should_check_symbols(file, libdir)
         ldd_cmd = ["ldd", "-r", file] if check_symbols else ["ldd", file]
 
-        output = subprocess.run(
-            ldd_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
-        )
+        output = subprocess.run(ldd_cmd, capture_output=True, text=True)
 
         if "not a dynamic executable" in output.stderr.strip():
             return (file_basename, None)
