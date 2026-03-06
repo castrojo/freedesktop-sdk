@@ -85,10 +85,10 @@ config:
   - |
     release=$(make -s kernelrelease)
     install -Dm644 "%{image-name}" "%{install-root}%{indep-libdir}/modules/${release}/vmlinuz"
-    install -Dm644 vmlinux '%{install-root}%{bootdir}/vmlinux'
-    install -Dm644 System.map '%{install-root}%{bootdir}/System.map'
-    install -Dm644 .config '%{install-root}%{bootdir}/config'
-    make -j1 INSTALL_MOD_PATH='%{install-root}%{prefix}' modules_install
+    install -Dm644 vmlinux "%{install-root}%{indep-libdir}/modules/${release}/vmlinux"
+    install -Dm644 System.map "%{install-root}%{indep-libdir}/modules/${release}/System.map"
+    install -Dm644 .config "%{install-root}%{indep-libdir}/modules/${release}/config"
+    make -j1 INSTALL_MOD_PATH="%{install-root}%{prefix}" modules_install
 
   - |
     release=$(make -s kernelrelease)
@@ -126,7 +126,7 @@ config:
       install-commands:
         (>):
         - |
-          make -j1 INSTALL_DTBS_PATH='%{install-root}%{bootdir}/dtbs' dtbs_install
+          make -j1 INSTALL_DTBS_PATH='%{install-root}%{indep-libdir}/modules/${release}/dtbs' dtbs_install
 
 public:
   bst:
