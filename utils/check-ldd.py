@@ -265,7 +265,7 @@ def main() -> int:
         result = filter_ignored_items(result, ignore_map)
 
     if result:
-        print(json.dumps(result, indent=4))  # noqa: T201
+        print(json.dumps(result, indent=4))
         return 1
     else:
         logging.info("No ELFs found with missing dependencies or undefined symbols")

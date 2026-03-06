@@ -3,7 +3,6 @@ __license__ = "MIT"
 import os
 import re
 import sys
-import typing as t
 
 from elftools.common.exceptions import ELFError
 from elftools.elf.dynamic import DynamicSection
@@ -42,7 +41,7 @@ def resolve_path(path: str, root="/"):
 
 
 def parse_elf(elf_path: str):
-    tags: t.Dict[str, t.List[str]] = {}
+    tags: dict[str, list[str]] = {}
     try:
         with open(elf_path, "rb") as f:
             elf = ELFFile(f)
@@ -80,9 +79,7 @@ def find_elfs(directory: str):
                 yield (elf_path, elf_dyn)
 
 
-def check_elf(
-    elf_path: str, elf_dyn: t.Dict[str, t.List[str]], root="/", libdir="/lib"
-):
+def check_elf(elf_path: str, elf_dyn: dict[str, list[str]], root="/", libdir="/lib"):
     found_error = False
     elf_dir = _replace_prefix(os.path.dirname(elf_path), root, "/")
 

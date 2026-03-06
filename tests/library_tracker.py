@@ -97,7 +97,7 @@ def check_libraries(input_file: str, libdir: str, ignore_file: str) -> bool:
     if missing:
         logging.error("%d libraries are missing:", len(missing))
         for lib, pc in missing:
-            print(f"  {lib} ({pc}.pc)")  # noqa: T201
+            print(f"  {lib} ({pc}.pc)")
         return False
     logging.info("All libraries are still installed")
     return True
