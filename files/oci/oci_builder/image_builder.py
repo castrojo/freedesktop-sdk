@@ -64,9 +64,12 @@ def extract_docker_image_info(path, index, global_conf, os_value, legacy_parent)
                     global_conf,
                     media_type="application/vnd.oci.image.layer.v1.tar+gzip",
                 )
-                with targz_blob.create() as gzipfile, gzip.GzipFile(
-                    filename=diff_id, fileobj=gzipfile, mode="wb", **get_gzip_opts()
-                ) as gzstream:
+                with (
+                    targz_blob.create() as gzipfile,
+                    gzip.GzipFile(
+                        filename=diff_id, fileobj=gzipfile, mode="wb", **get_gzip_opts()
+                    ) as gzstream,
+                ):
                     shutil.copyfileobj(origblob, gzstream)
                 layer_descs.append(targz_blob.descriptor)
                 layer_files.append(targz_blob.filename)
@@ -205,12 +208,15 @@ def build_layer(upper, lowers, legacy_config, global_conf):
             targz_blob = Blob(
                 global_conf, media_type="application/vnd.oci.image.layer.v1.tar+gzip"
             )
-            with targz_blob.create() as gzipfile, gzip.GzipFile(
-                filename=tar_hash.hexdigest(),
-                fileobj=gzipfile,
-                mode="wb",
-                **get_gzip_opts(),
-            ) as gzip_file:
+            with (
+                targz_blob.create() as gzipfile,
+                gzip.GzipFile(
+                    filename=tar_hash.hexdigest(),
+                    fileobj=gzipfile,
+                    mode="wb",
+                    **get_gzip_opts(),
+                ) as gzip_file,
+            ):
                 shutil.copyfileobj(tfile, gzip_file)
             new_layer_descs.append(targz_blob.descriptor)
         else:
