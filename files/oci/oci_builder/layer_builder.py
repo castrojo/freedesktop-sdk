@@ -123,7 +123,7 @@ def create_layer(output, upper, lowers):
                     files.append(entry.name)
 
         stack.extend(
-            os.path.join(root, directory) for directory in reversed(sorted(dirs))
+            os.path.join(root, directory) for directory in sorted(dirs, reverse=True)
         )
 
         for old_file in lower_dir_contents.get(root_rel, []):
