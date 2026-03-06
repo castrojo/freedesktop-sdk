@@ -56,7 +56,7 @@ def get_codec_info(codec_type, codec_name):
         for i in map(
             str.strip,
             get_stdout(
-                ["ffmpeg", "-hide_banner", "-h", "=".join([codec_type, codec_name])]
+                ["ffmpeg", "-hide_banner", "-h", f"{codec_type}={codec_name}"]
             ).split("\n"),
         )
         if re.match(codec_type, i, re.IGNORECASE)
