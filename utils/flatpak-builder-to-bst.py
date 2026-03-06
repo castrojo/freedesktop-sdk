@@ -14,7 +14,7 @@ import gi
 import yaml
 
 gi.require_version("Json", "1.0")
-from gi.repository import (  # type: ignore[attr-defined] # noqa: E402 # noqa: I001 # type: ignore[attr-defined]
+from gi.repository import (  # type: ignore[attr-defined] # noqa: E402, I001, RUF100
     GLib,
     Json,
 )
