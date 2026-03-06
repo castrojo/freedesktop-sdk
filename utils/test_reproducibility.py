@@ -134,9 +134,8 @@ def bst_show(
     print("BST SHOW:", bst_call, file=sys.stderr)
 
     proc = subprocess.run(bst_call, check=True, capture_output=True)
-    result = bst_show_extract_result(proc.stdout)
 
-    return result
+    return bst_show_extract_result(proc.stdout)
 
 
 def is_reproducible(
