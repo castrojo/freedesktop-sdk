@@ -76,7 +76,6 @@ def main(dry_run):
             print(f"Skipping branch {branch}, NEWS MR found")
             continue
 
-        mergeable_mrs = []
         open_mrs = []
 
         try:
@@ -106,9 +105,7 @@ def main(dry_run):
             print(f"Skipping branch {branch}, too many open MRs to process")
             continue
 
-        for mr in open_mrs:
-            if not should_skip_mr(mr):
-                mergeable_mrs.append(mr)
+        mergeable_mrs = [mr for mr in open_mrs if not should_skip_mr(mr)]
 
         if not mergeable_mrs:
             print(f"No mergeable MRs found for branch {branch}")
