@@ -33,7 +33,7 @@ with open(args.allow_list_filename, "r", encoding="utf-8") as allow_list_file:
     allow_list = allow_list_file.read().split("\n")
 
 # filter the allow_list to remove empty lines, and hash-marked comments
-allow_list = set(line for line in allow_list if line and not line.startswith("#"))
+allow_list = {line for line in allow_list if line and not line.startswith("#")}
 
 # walk the file directory
 for root, _, files in os.walk(args.target_dir):
