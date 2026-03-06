@@ -25,7 +25,9 @@ def validate(args):
             tag_date = news_dict["Date"]
             desc = [i.strip() for i in news_dict["Description"].split("\n")]
             assert re.match(FD_SDK_TAG_FORMAT, tag)
-            datetime.datetime.strptime(tag_date, "%Y-%m-%d")
+            datetime.datetime.strptime(tag_date, "%Y-%m-%d").replace(
+                tzinfo=datetime.UTC
+            )
             assert len(desc) >= 1
             assert desc[0].startswith(f"Changes in {tag}")
     assert len(tag_list) == len(set(tag_list))

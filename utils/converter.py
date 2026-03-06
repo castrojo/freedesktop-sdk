@@ -19,7 +19,7 @@ def query_date(identifier):
         text=True,
     )
     timestamp = process.stdout.strip('" \n')
-    date = datetime.date.fromtimestamp(int(timestamp))
+    date = datetime.datetime.fromtimestamp(int(timestamp), tz=datetime.UTC).date()
     return date.isoformat()
 
 
