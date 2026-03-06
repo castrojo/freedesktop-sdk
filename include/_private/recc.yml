@@ -1,0 +1,24 @@
+environment:
+  RECC_SERVER: unix:/tmp/casd.sock
+  RECC_DEPS_GLOBAL_PATHS: true
+  RECC_NO_PATH_REWRITE: true
+  RECC_INVALID_INPUT_PATHS_REGEX: .*/CMakeFiles/CMakeScratch/.*,.*/Modules/CMakeCCompilerABI.c,.*/Modules/CMakeCXXCompilerABI.cpp,.*/conftest.*
+  RECC_USE_LOCALCAS: 1
+  (?):
+  - recc == "passthrough":
+      RECC_PASSTHROUGH: 1
+  - recc == "cache-only":
+      RECC_CACHE_ONLY: 1
+      RECC_CACHE_UPLOAD_LOCAL_BUILD: 1
+
+environment-nocache:
+  - RECC_CACHE_ONLY
+  - RECC_CACHE_UPLOAD_LOCAL_BUILD
+  - RECC_INVALID_INPUT_PATHS_REGEX
+  - RECC_USE_LOCALCAS
+  - RECC_PASSTHROUGH
+
+sandbox:
+  remote-apis-socket:
+    path: /tmp/casd.sock
+    action-cache-enable-update: true
