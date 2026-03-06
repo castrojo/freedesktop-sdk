@@ -33,6 +33,6 @@ sources:
 - kind: git_repo
   url: gitlab:BuildGrid/buildbox/buildbox.git
   track: '*.*.*'
-  ref: 1.3.53-0-gaefb517c4eae95e962dac911af1d2951fe36c322
+  ref: 1.3.54-0-g61ab64b1123d5d19f3ec1308fcf2eb6857982aba
 - kind: patch
   path: patches/buildbox/fix_build.patch
