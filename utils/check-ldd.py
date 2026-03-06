@@ -11,6 +11,7 @@ import subprocess
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+logger = logging.getLogger(__name__)
 
 
 def is_ldd_up() -> bool:
@@ -74,13 +75,13 @@ def get_libdir(sysroot: str) -> str | None:
     if triplet:
         libdir = os.path.join(sysroot, "lib", triplet)
     else:
-        logging.error("Failed to determine triplet for arch: %s", m_arch)
+        logger.error("Failed to determine triplet for arch: %s", m_arch)
         return None
 
     if libdir and os.path.exists(libdir):
         return libdir
     else:
-        logging.error("libdir does not exist: %s", libdir)
+        logger.error("libdir does not exist: %s", libdir)
         return None
 
 
@@ -195,7 +196,7 @@ def filter_ignored_items(
                     non_ignored_libs.append(lib)
 
             if ignored_libs:
-                logging.info(
+                logger.info(
                     "Ignoring missing libs for %s: %s",
                     file_name,
                     ", ".join(ignored_libs),
@@ -217,7 +218,7 @@ def filter_ignored_items(
                     non_ignored_syms.append(sym)
 
             if ignored_syms:
-                logging.info(
+                logger.info(
                     "Ignoring undefined symbols for %s: %s",
                     file_name,
                     ", ".join(ignored_syms),
@@ -234,7 +235,7 @@ def filter_ignored_items(
 
 def main() -> int:
     if not is_ldd_up():
-        logging.error("ldd is not available or not working")
+        logger.error("ldd is not available or not working")
         return 1
 
     parser = argparse.ArgumentParser(
@@ -268,7 +269,7 @@ def main() -> int:
         print(json.dumps(result, indent=4))
         return 1
     else:
-        logging.info("No ELFs found with missing dependencies or undefined symbols")
+        logger.info("No ELFs found with missing dependencies or undefined symbols")
         return 0
 
 

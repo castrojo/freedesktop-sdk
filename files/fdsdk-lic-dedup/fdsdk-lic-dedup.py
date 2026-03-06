@@ -6,6 +6,8 @@ import logging
 import os
 import shutil
 
+logger = logging.getLogger(__name__)
+
 
 def compute_license_hashes(license_dir: str, common_dir: str) -> dict[str, list[str]]:
     hash_map: dict[str, list[str]] = {}
@@ -22,7 +24,7 @@ def compute_license_hashes(license_dir: str, common_dir: str) -> dict[str, list[
                     content = f.read()
                 h = hashlib.sha256(file.encode("utf-8") + content).hexdigest()
             except (OSError, FileNotFoundError, PermissionError) as err:
-                logging.warning(
+                logger.warning(
                     "Unexpected error while computing hash of %s: %s", file_path, err
                 )
                 continue
@@ -30,7 +32,7 @@ def compute_license_hashes(license_dir: str, common_dir: str) -> dict[str, list[
             hash_map.setdefault(h, []).append(file_path)
 
     if not any(len(files) > 1 for files in hash_map.values()):
-        logging.warning(
+        logger.warning(
             "No duplicate license files found. There is nothing to deduplicate"
         )
         return {}
@@ -42,7 +44,7 @@ def deduplicate_licenses(
     hash_dict: dict[str, list[str]], common_dir: str, dry_run: bool = False
 ) -> bool:
     if not hash_dict:
-        logging.warning("The license file hash dict is empty")
+        logger.warning("The license file hash dict is empty")
         return True
 
     total_bytes_saved = 0
@@ -57,7 +59,7 @@ def deduplicate_licenses(
                 dest_file = os.path.join(common_dir, f"LICENSE_{h[:12]}")
                 if not dry_run:
                     shutil.move(src_file, dest_file)
-                    logging.info("Moved %s to %s", src_file, dest_file)
+                    logger.info("Moved %s to %s", src_file, dest_file)
 
                 for f in files:
                     if os.path.exists(f):  # files[0] dosn't exist since it was moved
@@ -66,13 +68,13 @@ def deduplicate_licenses(
                             os.remove(f)
                     if not dry_run:
                         os.symlink(dest_file, f)
-                        logging.info("Created symlink from %s to %s", f, dest_file)
+                        logger.info("Created symlink from %s to %s", f, dest_file)
 
         mb_saved = total_bytes_saved / (1024 * 1024)
-        logging.info("Space saved by deduplicating license files: %.2f MB", mb_saved)
+        logger.info("Space saved by deduplicating license files: %.2f MB", mb_saved)
         return True
     except (OSError, FileNotFoundError, shutil.Error, PermissionError) as err:
-        logging.error("Unexpected error while deduplicating: %s", err)
+        logger.error("Unexpected error while deduplicating: %s", err)
         return False
 
 
@@ -80,7 +82,7 @@ def cleanup_unused_licenses(license_dir: str, common_dir: str) -> bool:
     referenced_files = set()
 
     if not (os.path.isdir(license_dir) and os.path.isdir(common_dir)):
-        logging.error(
+        logger.error(
             "License directory or common directory does not exist while cleanup"
         )
         return False
@@ -101,7 +103,7 @@ def cleanup_unused_licenses(license_dir: str, common_dir: str) -> bool:
             file_path = os.path.join(common_dir, file)
             if os.path.isfile(file_path) and file_path not in referenced_files:
                 os.remove(file_path)
-                logging.info(
+                logger.info(
                     "Cleaned up unused file from common directory %s", file_path
                 )
 
@@ -112,10 +114,10 @@ def cleanup_unused_licenses(license_dir: str, common_dir: str) -> bool:
                     real_path = os.path.realpath(file_path)
                     if not os.path.exists(real_path):
                         os.remove(file_path)
-                        logging.info("Cleaned up dangling symlink %s", file_path)
+                        logger.info("Cleaned up dangling symlink %s", file_path)
 
     except (OSError, FileNotFoundError, PermissionError) as err:
-        logging.error("Unexpected error while cleanup: %s", err)
+        logger.error("Unexpected error while cleanup: %s", err)
         return False
 
     return True
@@ -144,7 +146,7 @@ def main() -> int:
     common_dir = os.path.join(license_dir, "common")
 
     if not os.path.isdir(license_dir):
-        logging.error("The license directory does not exist: %s", license_dir)
+        logger.error("The license directory does not exist: %s", license_dir)
         return 1
 
     if not deduplicate_licenses(
@@ -152,7 +154,7 @@ def main() -> int:
         common_dir,
         dry_run=args.dry_run,
     ):
-        logging.error("Deduplication encountered errors")
+        logger.error("Deduplication encountered errors")
         return 1
 
     if not (args.dry_run or cleanup_unused_licenses(license_dir, common_dir)):
