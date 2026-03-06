@@ -152,15 +152,17 @@ def build_layer(upper, lowers, legacy_config, global_conf):
             targz_blob = Blob(
                 global_conf, media_type="application/vnd.oci.image.layer.v1.tar+gzip"
             )
-            with targz_blob.create() as gzipfile:
-                with gzip.GzipFile(
+            with (
+                targz_blob.create() as gzipfile,
+                gzip.GzipFile(
                     filename=tar_hash.hexdigest(),
                     fileobj=gzipfile,
                     mode="wb",
                     compresslevel=global_conf.compression_level,
                     **get_gzip_opts(),
-                ) as gzip_file:
-                    shutil.copyfileobj(tfile, gzip_file)
+                ) as gzip_file,
+            ):
+                shutil.copyfileobj(tfile, gzip_file)
             new_layer_descs.append(targz_blob.descriptor)
         else:
             copied_blob = Blob(

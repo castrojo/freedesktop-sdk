@@ -7,7 +7,7 @@ import re
 import subprocess
 import sys
 
-CODECS_REG = re.compile(r"^ ([A-Z.]{6}) ([^ \=]+) +(.+)$", re.M)
+CODECS_REG = re.compile(r"^ ([A-Z.]{6}) ([^ \=]+) +(.+)$", re.MULTILINE)
 DECODERS_REG = re.compile(r" \(decoders: ([^)]+)\)")
 ENCODERS_REG = re.compile(r" \(encoders: ([^)]+)\)")
 ffprobe = "ffprobe"
@@ -69,7 +69,7 @@ def get_codec_info(codec_type, codec_name):
                 ["ffmpeg", "-hide_banner", "-h", "=".join([codec_type, codec_name])]
             ).split("\n"),
         )
-        if re.match(codec_type, i, re.I)
+        if re.match(codec_type, i, re.IGNORECASE)
     ]
 
 
