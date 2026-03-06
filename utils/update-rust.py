@@ -45,17 +45,18 @@ yaml.preserve_quotes = True
 
 def fetch_manifest(url: str) -> Manifest | None:
     try:
-        with urllib.request.urlopen(url) as f:  # noqa: S310
+        with urllib.request.urlopen(url) as f:
             manifest: Manifest = tomllib.loads(f.read().decode())
         manifest_ver = manifest.get("manifest-version")
         if manifest_ver != "2":
             log.error("Unsupported manifest version: %s", manifest_ver)
             return None
-        return manifest
     except URLError as e:
         log.error("Failed to download manifest %s: %s", url, e)
     except tomllib.TOMLDecodeError as e:
         log.error("Failed to parse manifest %s: %s", url, e)
+    else:
+        return manifest
     return None
 
 
@@ -125,10 +126,11 @@ def dump_yaml(path: str, data: Any) -> bool:
     try:
         with open(path, "w", encoding="utf-8") as f:
             yaml.dump(data, f)
-        return True
     except YAMLError as e:
         log.error("Failed to write %s: %s", path, e)
         return False
+    else:
+        return True
 
 
 def update_elements(

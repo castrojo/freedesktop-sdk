@@ -22,9 +22,10 @@ def is_ldd_up() -> bool:
             stderr=subprocess.PIPE,
             text=True,
         )
-        return output.returncode == 0
     except FileNotFoundError:
         return False
+    else:
+        return output.returncode == 0
 
 
 def should_check(fname: str) -> bool:
@@ -128,12 +129,12 @@ def check_elf_file(file: str, libdir: str) -> tuple[str, dict | None]:
             if undefined_syms:
                 file_result["undefined_symbols"] = list(set(undefined_syms))
 
-        return (file_basename, file_result if file_result else None)
-
     except subprocess.CalledProcessError as err:
         raise RuntimeError(
             f"Error processing {file_basename}: {err.stderr.strip()}"
         ) from err
+    else:
+        return (file_basename, file_result if file_result else None)
 
 
 def find_missing_libs(root: str, libdir: str) -> dict[str, dict[str, list[str] | bool]]:

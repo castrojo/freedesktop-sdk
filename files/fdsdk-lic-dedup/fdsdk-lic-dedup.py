@@ -69,13 +69,13 @@ def deduplicate_licenses(
                     if not dry_run:
                         os.symlink(dest_file, f)
                         logger.info("Created symlink from %s to %s", f, dest_file)
-
-        mb_saved = total_bytes_saved / (1024 * 1024)
-        logger.info("Space saved by deduplicating license files: %.2f MB", mb_saved)
-        return True
     except (OSError, FileNotFoundError, shutil.Error, PermissionError) as err:
         logger.error("Unexpected error while deduplicating: %s", err)
         return False
+    else:
+        mb_saved = total_bytes_saved / (1024 * 1024)
+        logger.info("Space saved by deduplicating license files: %.2f MB", mb_saved)
+        return True
 
 
 def cleanup_unused_licenses(license_dir: str, common_dir: str) -> bool:
