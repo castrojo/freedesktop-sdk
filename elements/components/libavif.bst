@@ -49,5 +49,3 @@ sources:
   exclude:
   - "*rc*"
   ref: v1.4.0-0-gd145e1a32af2915779b27e3b0521b6db08dd6bb8
-- kind: patch
-  path: patches/libavif/svtav1v4.patch
