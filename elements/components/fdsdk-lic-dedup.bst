@@ -7,7 +7,7 @@ runtime-depends:
 - components/python3.bst
 
 variables:
-  strip-binaries: ""
+  strip-binaries: ''
 
 config:
   install-commands:

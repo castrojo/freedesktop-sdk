@@ -13,6 +13,7 @@ depends:
 
 - components/_private/libsmbios.bst
 - components/_private/ovmf.bst
+- components/_private/opensbi-u-boot.bst
 - components/_private/u-boot-qemu.bst
 - components/_private/u-boot-unmatched.bst
 - components/_private/bpf.bst

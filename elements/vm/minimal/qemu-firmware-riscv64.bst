@@ -1,7 +1,7 @@
 kind: script
 
 build-depends:
-- components/opensbi-u-boot.bst
+- components/_private/opensbi-u-boot.bst
 - public-stacks/runtime-minimal.bst
 
 config:
