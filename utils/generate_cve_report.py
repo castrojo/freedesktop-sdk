@@ -238,7 +238,7 @@ def by_score(entry):
 
 def format_score(score):
     if score is None:
-        return ""
+        return "&nbsp;"
     return score
 
 
