@@ -132,7 +132,7 @@ def prepare(args):
             0,
             {
                 "Version": args.new_version,
-                "Date": datetime.date.today().isoformat(),
+                "Date": datetime.datetime.now(tz=datetime.UTC).date().isoformat(),
                 "Description": LS(f"Changes in {args.new_version}\n" + changelog),
             },
         )

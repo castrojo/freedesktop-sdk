@@ -307,7 +307,7 @@ def load_lib_patterns(json_file):
         data = json.load(f)
 
     if not isinstance(data, list):
-        raise ValueError("JSON file must contain a list of library patterns")
+        raise TypeError("JSON file must contain a list of library patterns")
 
     return data
 

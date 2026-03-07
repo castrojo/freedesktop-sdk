@@ -31,6 +31,8 @@ QEMU_EXTRA_ARGS = ["-m", "256"]
 FAILURE_TIMEOUT = 300  # seconds
 BUFFER_SIZE = 80  # how many characters to read at once
 
+logger = logging.getLogger(__name__)
+
 DIALOGS = {
     "minimal": ["Started '/init' script from initramfs.", "\nuname -a", "Linux"],
     "systemd-firstboot": [
@@ -138,7 +140,7 @@ async def run_test(command, dialog):
     success = False
 
     try:
-        logging.debug("Starting process: %s", command)
+        logger.debug("Starting process: %s", command)
         process = await asyncio.create_subprocess_exec(
             *command,
             stdin=asyncio.subprocess.PIPE,
