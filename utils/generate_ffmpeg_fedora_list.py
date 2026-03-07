@@ -31,7 +31,7 @@ def main():
     print(
         "  encoders: |-\n" + f"    {get_fedora_file(encoders)}" + ",%{extra-encoders}"
     )
-    print("")
+    print()
     print(
         "  decoders: |-\n" + f"    {get_fedora_file(decoders)}" + ",%{extra-decoders}"
     )

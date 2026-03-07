@@ -5,7 +5,6 @@ import os
 import subprocess
 import sys
 import tempfile
-from typing import List, Optional
 
 from yattag import Doc, indent
 
@@ -36,7 +35,7 @@ def bst_build(
     element_info: ElementInfo,
     disallow_artifact_pull: bool,
     dependency_kind: str,
-    max_jobs: Optional[int] = None,
+    max_jobs: int | None = None,
 ):
     """Builds a single element without network connection
     to make sure we are not downloading from a artifacts server."""
@@ -99,7 +98,7 @@ def bst_checkout_files_to(
     subprocess.run(bst_call, check=True)
 
 
-def bst_show_extract_result(output) -> List[ElementInfo]:
+def bst_show_extract_result(output) -> list[ElementInfo]:
     """Parses the output of the bst show command and returns the matches, if exists."""
     result = []
     for line in output.decode("utf-8").splitlines():
@@ -118,9 +117,9 @@ def bst_show_extract_result(output) -> List[ElementInfo]:
 # we use this to compare later on with a second build.
 def bst_show(
     bst_config: BuildstreamConfiguration,
-    element_infos: List[ElementInfo],
+    element_infos: list[ElementInfo],
     dependency_kind: str,
-) -> List[ElementInfo]:
+) -> list[ElementInfo]:
     """Gather all of the results of the build, name and ref,
     so we can build all of them again to compare.
     dependency kind is"""
@@ -135,9 +134,8 @@ def bst_show(
     print("BST SHOW:", bst_call, file=sys.stderr)
 
     proc = subprocess.run(bst_call, check=True, capture_output=True)
-    result = bst_show_extract_result(proc.stdout)
 
-    return result
+    return bst_show_extract_result(proc.stdout)
 
 
 def is_reproducible(
@@ -242,7 +240,7 @@ def is_single_project_reproducible(
 
 def bst_check_reproducibility_v2(
     bst_config: BuildstreamConfiguration, element_name: str, output_dir: str
-) -> List[str]:
+) -> list[str]:
     """First checks if all the dependencies of element are reproducible, then
     checks if element is reproducible"""
     element_info = ElementInfo(element_name)
@@ -273,44 +271,40 @@ def bst_check_reproducibility_v2(
 def write_html_report(results, output_dir: str, output_filename: str) -> None:
     doc, tag, text = Doc().tagtext()
 
-    with tag("html"):
-        with tag("body"):
-            with tag("table", border=1):
-                with tag("tr"):
-                    with tag("td"):
-                        text("Element Name")
-                    with tag("td"):
-                        text("Build Status")
-                    with tag("td"):
-                        text("Error log")
+    with tag("html"), tag("body"), tag("table", border=1):
+        with tag("tr"):
+            with tag("td"):
+                text("Element Name")
+            with tag("td"):
+                text("Build Status")
+            with tag("td"):
+                text("Error log")
 
-                with tag("tr"):
-                    with tag("td", colspan=3):
-                        text("Non Reproducible Elements")
+        with tag("tr"), tag("td", colspan=3):
+            text("Non Reproducible Elements")
 
-                for line in results["non_reproducible"]:
-                    with tag("tr"):
-                        with tag("td"):
-                            text(line)
-                        with tag("td"):
-                            text("Failure")
-                        with tag("td"):
-                            dirname = output_dir + f"/{line}/index.html"
-                            with tag("a", href=dirname):
-                                text("index.html")
+        for line in results["non_reproducible"]:
+            with tag("tr"):
+                with tag("td"):
+                    text(line)
+                with tag("td"):
+                    text("Failure")
+                with tag("td"):
+                    dirname = output_dir + f"/{line}/index.html"
+                    with tag("a", href=dirname):
+                        text("index.html")
 
-                with tag("tr"):
-                    with tag("td", colspan=3):
-                        text("Reproducible Elements")
+        with tag("tr"), tag("td", colspan=3):
+            text("Reproducible Elements")
 
-                for line in results["reproducible"]:
-                    with tag("tr"):
-                        with tag("td"):
-                            text(line)
-                        with tag("td"):
-                            text("Success")
-                        with tag("td"):
-                            text(" - ")
+        for line in results["reproducible"]:
+            with tag("tr"):
+                with tag("td"):
+                    text(line)
+                with tag("td"):
+                    text("Success")
+                with tag("td"):
+                    text(" - ")
 
     with open(output_filename, "w", encoding="utf-8") as file:
         result = indent(doc.getvalue())
@@ -325,7 +319,7 @@ def handle_results(results, output_dir: str) -> bool:
 
     # Generate some overall stdout and report a successful exit status
     # only if everything was found to be reproducible
-    print("", file=sys.stderr)
+    print(file=sys.stderr)
     if len(results["non_reproducible"]) == 0:
         print("Project is reproducible.", file=sys.stderr)
         return True

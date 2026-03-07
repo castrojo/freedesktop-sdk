@@ -4,7 +4,7 @@ import os
 import re
 import subprocess
 
-CODECS_REG = re.compile(r"^ ([A-Z.]{6}) ([^ \=]+) +(.+)$", re.M)
+CODECS_REG = re.compile(r"^ ([A-Z.]{6}) ([^ \=]+) +(.+)$", re.MULTILINE)
 DECODERS_REG = re.compile(r" \(decoders: ([^)]+)\)")
 ENCODERS_REG = re.compile(r" \(encoders: ([^)]+)\)")
 ffprobe = "ffprobe"
@@ -43,11 +43,11 @@ def get_codecs():
 
 
 def get_hwaccels():
-    return set(
+    return {
         hwaccel.strip()
         for hwaccel in get_stdout([ffmpeg, "-hide_banner", "-hwaccels"]).split("\n")[1:]
         if hwaccel.strip()
-    )
+    }
 
 
 def get_codec_info(codec_type, codec_name):
@@ -56,10 +56,10 @@ def get_codec_info(codec_type, codec_name):
         for i in map(
             str.strip,
             get_stdout(
-                ["ffmpeg", "-hide_banner", "-h", "=".join([codec_type, codec_name])]
+                ["ffmpeg", "-hide_banner", "-h", f"{codec_type}={codec_name}"]
             ).split("\n"),
         )
-        if re.match(codec_type, i, re.I)
+        if re.match(codec_type, i, re.IGNORECASE)
     ]
 
 

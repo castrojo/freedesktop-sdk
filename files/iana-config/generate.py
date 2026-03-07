@@ -38,31 +38,32 @@ with open("services", "w", encoding="utf-8") as out:
             f"{add_delim(name)}{add_delim(port)}{add_delim(aliases)}{description}\n"
         )
 
-with open("protocols", "w", encoding="utf-8") as out:
-    with open("protocol-numbers-1.csv", "r", encoding="utf-8") as f:
-        reader = csv.reader(f)
-        next(reader)
-        # TODO check if PORTS is same as above
-        ports = {}
-        for row in reader:
-            number, keyword, description = tuple(row[:3])
-            if not keyword:
-                name = "#"
-            else:
-                name = keyword.lower()
+with (
+    open("protocols", "w", encoding="utf-8") as out,
+    open("protocol-numbers-1.csv", "r", encoding="utf-8") as f,
+):
+    reader = csv.reader(f)
+    next(reader)
+    # TODO check if PORTS is same as above
+    ports = {}
 
-            if keyword.endswith(" (deprecated)"):
-                name = "#"
+    for row in reader:
+        number, keyword, description = tuple(row[:3])
 
-            description = description.splitlines()
-            if description:
-                description = f"# {description[0]}"
-            else:
-                description = ""
+        if not keyword:
+            name = "#"
+        else:
+            name = keyword.lower()
 
-            out.write(
-                f"{add_delim(name)}"
-                f"{add_delim(number)}"
-                f"{add_delim(keyword)}"
-                f"{description}\n"
-            )
+        if keyword.endswith(" (deprecated)"):
+            name = "#"
+
+        description = description.splitlines()
+        if description:
+            description = f"# {description[0]}"
+        else:
+            description = ""
+
+        out.write(
+            f"{add_delim(name)}{add_delim(number)}{add_delim(keyword)}{description}\n"
+        )

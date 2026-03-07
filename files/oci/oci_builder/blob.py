@@ -108,6 +108,6 @@ class Blob:
             except:
                 try:
                     os.unlink(filename)
-                except:  # noqa: E722
+                except:  # noqa: S110, E722
                     pass
                 raise

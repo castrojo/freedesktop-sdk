@@ -64,11 +64,13 @@ def extract_docker_image_info(path, index, global_conf, os_value, legacy_parent)
                     global_conf,
                     media_type="application/vnd.oci.image.layer.v1.tar+gzip",
                 )
-                with targz_blob.create() as gzipfile:
-                    with gzip.GzipFile(
+                with (
+                    targz_blob.create() as gzipfile,
+                    gzip.GzipFile(
                         filename=diff_id, fileobj=gzipfile, mode="wb", **get_gzip_opts()
-                    ) as gzstream:
-                        shutil.copyfileobj(origblob, gzstream)
+                    ) as gzstream,
+                ):
+                    shutil.copyfileobj(origblob, gzstream)
                 layer_descs.append(targz_blob.descriptor)
                 layer_files.append(targz_blob.filename)
                 legacy_parent = targz_blob.legacy_id
@@ -187,12 +189,11 @@ def build_layer(upper, lowers, legacy_config, global_conf):
         os.makedirs("/var/tmp", mode=0o1777, exist_ok=True)
         tfile = stack.enter_context(tempfile.TemporaryFile(mode="w+b", dir="/var/tmp"))
         tar = stack.enter_context(tarfile.open(fileobj=tfile, mode="w:"))
-        lower_tars = []
         read_mode = "r:gz" if global_conf.gzip else "r:"
-        for lower in lowers:
-            lower_tars.append(
-                stack.enter_context(tarfile.open(name=lower, mode=read_mode))
-            )
+        lower_tars = [
+            stack.enter_context(tarfile.open(name=lower, mode=read_mode))
+            for lower in lowers
+        ]
         create_layer(tar, upper, lower_tars)
         tfile.seek(0)
         tar_hash = hashlib.sha256()
@@ -206,14 +207,16 @@ def build_layer(upper, lowers, legacy_config, global_conf):
             targz_blob = Blob(
                 global_conf, media_type="application/vnd.oci.image.layer.v1.tar+gzip"
             )
-            with targz_blob.create() as gzipfile:
-                with gzip.GzipFile(
+            with (
+                targz_blob.create() as gzipfile,
+                gzip.GzipFile(
                     filename=tar_hash.hexdigest(),
                     fileobj=gzipfile,
                     mode="wb",
                     **get_gzip_opts(),
-                ) as gzip_file:
-                    shutil.copyfileobj(tfile, gzip_file)
+                ) as gzip_file,
+            ):
+                shutil.copyfileobj(tfile, gzip_file)
             new_layer_descs.append(targz_blob.descriptor)
         else:
             copied_blob = Blob(

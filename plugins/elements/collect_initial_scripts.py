@@ -32,8 +32,7 @@ class ExtractInitialScriptsElement(Element):
         pass
 
     def get_unique_key(self):
-        key = {"path": self.path}
-        return key
+        return {"path": self.path}
 
     def configure_sandbox(self, sandbox):
         pass
