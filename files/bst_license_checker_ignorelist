@@ -159,6 +159,7 @@ tests/sdk-integration.bst
 vm/base-filesystem.bst
 vm/boot/efi-ostree.bst
 vm/boot/efi-plymouth.bst
+vm/boot/efi-uki.bst
 vm/boot/efi.bst
 vm/boot/virt.bst
 vm/desktop/efi.bst

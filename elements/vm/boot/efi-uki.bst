@@ -1,4 +1,4 @@
-kind: script
+kind: uki_builder
 
 build-depends:
 - components/fakecap.bst
@@ -16,53 +16,4 @@ environment:
   FAKECAP_DB: /fakecap
 
 config:
-
-  commands:
-  - mkdir -p /fakecap
-  - mkdir -p /tmp
-  - mkdir -p /var/tmp
-  - mkdir -p /boot
-  - |
-    prepare-image.sh --sysroot / --rootpasswd root \
-                     --seed "%{uuidnamespace}" --noroot >/tmp/vars
-
-  - dbus-uuidgen >/etc/machine-id
-  - SYSTEMD_ESP_PATH=/boot bootctl --no-variables install
-  - rm /etc/machine-id
-  - |
-    cat <<EOF >/boot/loader/loader.conf
-    timeout 3
-    editor yes
-    console-mode keep
-    EOF
-
-  - |
-    echo '%{libdir}' >/etc/ld.so.conf
-
-  - |
-    . /tmp/vars
-    version="$(ls -1 /lib/modules | head -n1)"
-    dracut -v --xz --reproducible --fstab \
-           --no-machineid --kernel-image "/lib/modules/${version}/vmlinuz" \
-           --kver $(ls -1 /lib/modules | head -n1) \
-           --kernel-cmdline "rw console=tty0 console=ttyS0 quiet" \
-           --kernel-image "/lib/modules/$(ls -1 /lib/modules | head -n1)/vmlinuz" \
-           --install 'fsck.ext4'
-
-  - |
-    version="$(ls -1 /lib/modules | head -n1)"
-    mkdir -p /boot/EFI/Linux
-    ukify build \
-      --linux="/lib/modules/${version}/vmlinuz" \
-      --initrd="/boot/initramfs-${version}.img" \
-      --cmdline="rw console=tty0 console=ttyS0 quiet" \
-      --os-release=/etc/os-release \
-      --output="/boot/EFI/Linux/freedesktopsdk_${version}.efi"
-
-  - |
-    version="$(ls -1 /lib/modules | head -n1)"
-    cat <<EOF >/boot/loader/entries/freedesktopsdk-uki.conf
-    title Freedesktop SDK (UKI)
-    version ${version}
-    efi /EFI/Linux/freedesktopsdk_${version}.efi
-    EOF
+  kernel-cmdline: "rw console=tty0 console=ttyS0 quiet"
