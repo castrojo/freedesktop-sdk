@@ -28,11 +28,11 @@ def parse_props(elem, origin):
         res = None
         if prop_type == "xs:string":
             res = ""
-            for i in list(prop)[0].itertext():
+            for i in next(iter(prop)).itertext():
                 res = res + i.replace("%origin%", origin)
         elif prop_type == "oor:string-list":
             res = []
-            for i in list(prop)[0].itertext():
+            for i in next(iter(prop)).itertext():
                 res = res + i.replace("%origin%", origin).split()
         else:
             print(f"Unknown type {prop_type}")
@@ -43,7 +43,7 @@ def parse_props(elem, origin):
 def handle_file(filename):
     tree = ET.parse(filename)
     root = tree.getroot()
-    dicts = list(list(root)[0])[0]
+    dicts = next(iter(next(iter(root))))
     for element in dicts:
         name = get_name(element)
         origin = os.path.splitext(filename)[0]

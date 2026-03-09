@@ -6,6 +6,8 @@ import json
 import logging
 import os
 
+logger = logging.getLogger(__name__)
+
 
 def list_pc_names(pkgconfdir: str) -> set[str]:
     return {
@@ -48,38 +50,38 @@ def load_ignore_list(ignore_file: str) -> list[str]:
 
 def save_libraries(libdir: str, pkgconfdir: str, output: str) -> bool:
     if os.path.exists(output):
-        logging.error("Output file already exists: %s", output)
+        logger.error("Output file already exists: %s", output)
         return False
 
     pc_names = list_pc_names(pkgconfdir)
 
     if not pc_names:
-        logging.error("No pkgconfig files were found")
+        logger.error("No pkgconfig files were found")
         return False
 
     libs = list_libraries(libdir, pc_names)
 
     if not libs:
-        logging.error("No libraries were found")
+        logger.error("No libraries were found")
         return False
 
     with open(output, "w", encoding="utf-8") as f:
         json.dump(libs, f, indent=4)
 
-    logging.info("Saved %d libraries to %s", len(libs), output)
+    logger.info("Saved %d libraries to %s", len(libs), output)
     return True
 
 
 def check_libraries(input_file: str, libdir: str, ignore_file: str) -> bool:
     if not os.path.exists(input_file):
-        logging.error("File not found: %s", input_file)
+        logger.error("File not found: %s", input_file)
         return False
 
     with open(input_file, encoding="utf-8") as f:
         saved_libs = json.load(f)
 
     if not saved_libs:
-        logging.error("No libraries in saved file")
+        logger.error("No libraries in saved file")
         return False
 
     ignore_patterns = load_ignore_list(ignore_file)
@@ -95,11 +97,11 @@ def check_libraries(input_file: str, libdir: str, ignore_file: str) -> bool:
     ]
 
     if missing:
-        logging.error("%d libraries are missing:", len(missing))
+        logger.error("%d libraries are missing:", len(missing))
         for lib, pc in missing:
-            print(f"  {lib} ({pc}.pc)")  # noqa: T201
+            print(f"  {lib} ({pc}.pc)")
         return False
-    logging.info("All libraries are still installed")
+    logger.info("All libraries are still installed")
     return True
 
 
@@ -132,7 +134,7 @@ def main() -> int:
     sysroot = os.path.abspath(args.sysroot)
 
     if not os.path.exists(sysroot):
-        logging.error("Sysroot does not exist: %s", sysroot)
+        logger.error("Sysroot does not exist: %s", sysroot)
         return 1
 
     if not args.libdir:
@@ -148,21 +150,21 @@ def main() -> int:
         }
         triplet = libdir_map.get(m_arch)
         if not triplet:
-            logging.error("Failed to determine triplet for machine arch %s", m_arch)
+            logger.error("Failed to determine triplet for machine arch %s", m_arch)
             return 1
         args.libdir = f"usr/lib/{triplet}"
 
     libdir = os.path.join(sysroot, args.libdir.lstrip("/"))
 
     if not os.path.exists(libdir):
-        logging.error("Libdir does not exist: %s", libdir)
+        logger.error("Libdir does not exist: %s", libdir)
         return 1
 
     pkgconfigdir = os.path.join(libdir, "pkgconfig")
 
     if args.list:
         if not os.path.exists(pkgconfigdir):
-            logging.error("Pkgconfig directory does not exist: %s", pkgconfigdir)
+            logger.error("Pkgconfig directory does not exist: %s", pkgconfigdir)
             return 1
         if not save_libraries(libdir, pkgconfigdir, args.file):
             return 1

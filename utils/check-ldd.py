@@ -11,19 +11,16 @@ import subprocess
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+logger = logging.getLogger(__name__)
 
 
 def is_ldd_up() -> bool:
     try:
-        output = subprocess.run(
-            ["ldd", "--version"],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True,
-        )
-        return output.returncode == 0
+        output = subprocess.run(["ldd", "--version"], capture_output=True, text=True)
     except FileNotFoundError:
         return False
+    else:
+        return output.returncode == 0
 
 
 def should_check(fname: str) -> bool:
@@ -74,13 +71,13 @@ def get_libdir(sysroot: str) -> str | None:
     if triplet:
         libdir = os.path.join(sysroot, "lib", triplet)
     else:
-        logging.error("Failed to determine triplet for arch: %s", m_arch)
+        logger.error("Failed to determine triplet for arch: %s", m_arch)
         return None
 
     if libdir and os.path.exists(libdir):
         return libdir
     else:
-        logging.error("libdir does not exist: %s", libdir)
+        logger.error("libdir does not exist: %s", libdir)
         return None
 
 
@@ -105,9 +102,7 @@ def check_elf_file(file: str, libdir: str) -> tuple[str, dict | None]:
         check_symbols = should_check_symbols(file, libdir)
         ldd_cmd = ["ldd", "-r", file] if check_symbols else ["ldd", file]
 
-        output = subprocess.run(
-            ldd_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
-        )
+        output = subprocess.run(ldd_cmd, capture_output=True, text=True)
 
         if "not a dynamic executable" in output.stderr.strip():
             return (file_basename, None)
@@ -127,12 +122,12 @@ def check_elf_file(file: str, libdir: str) -> tuple[str, dict | None]:
             if undefined_syms:
                 file_result["undefined_symbols"] = list(set(undefined_syms))
 
-        return (file_basename, file_result if file_result else None)
-
     except subprocess.CalledProcessError as err:
         raise RuntimeError(
             f"Error processing {file_basename}: {err.stderr.strip()}"
         ) from err
+    else:
+        return (file_basename, file_result if file_result else None)
 
 
 def find_missing_libs(root: str, libdir: str) -> dict[str, dict[str, list[str] | bool]]:
@@ -195,7 +190,7 @@ def filter_ignored_items(
                     non_ignored_libs.append(lib)
 
             if ignored_libs:
-                logging.info(
+                logger.info(
                     "Ignoring missing libs for %s: %s",
                     file_name,
                     ", ".join(ignored_libs),
@@ -217,7 +212,7 @@ def filter_ignored_items(
                     non_ignored_syms.append(sym)
 
             if ignored_syms:
-                logging.info(
+                logger.info(
                     "Ignoring undefined symbols for %s: %s",
                     file_name,
                     ", ".join(ignored_syms),
@@ -234,7 +229,7 @@ def filter_ignored_items(
 
 def main() -> int:
     if not is_ldd_up():
-        logging.error("ldd is not available or not working")
+        logger.error("ldd is not available or not working")
         return 1
 
     parser = argparse.ArgumentParser(
@@ -265,10 +260,10 @@ def main() -> int:
         result = filter_ignored_items(result, ignore_map)
 
     if result:
-        print(json.dumps(result, indent=4))  # noqa: T201
+        print(json.dumps(result, indent=4))
         return 1
     else:
-        logging.info("No ELFs found with missing dependencies or undefined symbols")
+        logger.info("No ELFs found with missing dependencies or undefined symbols")
         return 0
 
 

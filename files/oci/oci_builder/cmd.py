@@ -20,7 +20,6 @@
 import dataclasses
 import os
 import sys
-from typing import Optional
 
 import yaml
 
@@ -30,7 +29,7 @@ from .image_builder import Compression, build_images
 @dataclasses.dataclass
 class GlobalConfig:
     compression: Compression
-    compression_level: Optional[int]
+    compression_level: int | None
     output: str
 
 
@@ -38,9 +37,8 @@ def main():
     data = yaml.load(sys.stdin, Loader=yaml.CLoader)
     compression = data.get("gzip", Compression.gzip)
     compression_level = data.get("compression-level")
-    if compression_level is None:
-        if compression == Compression.gzip:
-            compression_level = 5
+    if compression_level is None and compression == Compression.gzip:
+        compression_level = 5
     if compression not in Compression:
         raise RuntimeError("Compression must be in " + ",".join(Compression))
 

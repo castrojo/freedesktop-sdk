@@ -18,18 +18,16 @@ def validate(args):
         news_obj = yaml.load_all(yaml_in)
         for item in news_obj:
             news_dict = json.loads(json.dumps(item))
-            assert all(
-                k in news_dict.keys() for k in ("Version", "Date", "Description")
-            )
-            assert list(news_dict.keys())[0] == "Version"
-            assert list(news_dict.keys())[1] == "Date"
-            assert list(news_dict.keys())[2] == "Description"
+            assert all(k in news_dict for k in ("Version", "Date", "Description"))
+            assert list(news_dict)[:3] == ["Version", "Date", "Description"]
             tag = news_dict["Version"]
             tag_list.append(tag)
             tag_date = news_dict["Date"]
             desc = [i.strip() for i in news_dict["Description"].split("\n")]
             assert re.match(FD_SDK_TAG_FORMAT, tag)
-            datetime.datetime.strptime(tag_date, "%Y-%m-%d")
+            datetime.datetime.strptime(tag_date, "%Y-%m-%d").replace(
+                tzinfo=datetime.UTC
+            )
             assert len(desc) >= 1
             assert desc[0].startswith(f"Changes in {tag}")
     assert len(tag_list) == len(set(tag_list))
