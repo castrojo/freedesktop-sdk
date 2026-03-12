@@ -537,7 +537,7 @@ depends:
 - components/sbsigntools-maybe.bst
 - components/scdoc.bst
 - components/sdl3-image.bst
-- components/sdl2-mixer.bst
+- components/sdl3-mixer.bst
 - components/sdl2-net.bst
 - components/sdl3-ttf.bst
 - components/sdl2-compat.bst
