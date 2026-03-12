@@ -11,6 +11,6 @@ sources:
 - kind: git_repo
   url: github:esnme/ultrajson.git
   track: '*.*.*'
-  ref: 5.11.0-0-gc392ae1e0a8acc8a1360e78cb4b8cbe9585524ee
+  ref: 5.12.0-0-g4baeb950df780092bd3c89fc702a868e99a3a1d2
 - kind: patch
   path: patches/python3-ujson/setuptools_scm_9.patch
