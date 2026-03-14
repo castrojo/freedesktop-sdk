@@ -18,7 +18,6 @@ depends:
 - components/libgudev.bst
 - components/libxmlb.bst
 - components/libjcat.bst
-- components/libarchive.bst
 - components/libcbor.bst
 - components/gcab.bst
 - components/efivar.bst
@@ -46,7 +45,6 @@ variables:
     -Dpolkit=enabled
     -Dpassim=disabled
     -Dplugin_flashrom=disabled
-    -Dprotobuf=disabled
     -Dplugin_modem_manager=disabled
     -Dvendor_ids_dir="%{datadir}/hwdata"
     -Dumockdev_tests=disabled
@@ -58,4 +56,4 @@ sources:
 - kind: git_repo
   url: github:fwupd/fwupd.git
   track: '*.*.*'
-  ref: 2.0.20-0-g8db013a77906bdc3f4cc56ecedf78f47003ff841
+  ref: 2.1.1-0-g0a3ee12574d05af621c1c0add6b2df73ac66eaca
