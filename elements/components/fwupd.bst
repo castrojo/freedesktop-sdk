@@ -18,7 +18,6 @@ depends:
 - components/libgudev.bst
 - components/libxmlb.bst
 - components/libjcat.bst
-- components/libarchive.bst
 - components/libcbor.bst
 - components/gcab.bst
 - components/efivar.bst
@@ -46,7 +45,6 @@ variables:
     -Dpolkit=enabled
     -Dpassim=disabled
     -Dplugin_flashrom=disabled
-    -Dprotobuf=disabled
     -Dplugin_modem_manager=disabled
     -Dvendor_ids_dir="%{datadir}/hwdata"
     -Dumockdev_tests=disabled
