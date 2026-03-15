@@ -19,4 +19,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libpciaccess.git
   track: libpciaccess-*
-  ref: libpciaccess-0.18.1-0-g2ec2576cabefef1eaa5dd9307c97de2e887fc347
+  ref: libpciaccess-0.19-0-g38e6f15f839fba2c49982e7ad61cde681fd5d4d6
