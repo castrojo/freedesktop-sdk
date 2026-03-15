@@ -2841,3 +2841,8 @@ fi
 # MPTCP support
 enable MPTCP
 enable MPTCP_IPV6
+
+# Can improve performance. i915 and v3d drm drivers recommend enabling it.
+if has HAVE_ARCH_TRANSPARENT_HUGEPAGE; then
+    enable TRANSPARENT_HUGEPAGE
+fi
