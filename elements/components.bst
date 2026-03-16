@@ -39,6 +39,7 @@ depends:
 - components/btrfs-progs.bst
 - components/bubblewrap.bst
 - components/buildbox.bst
+- components/buildstream2.bst
 - components/ca-certificates.bst
 - components/cairo.bst
 - components/cargo-c.bst
