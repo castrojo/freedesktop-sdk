@@ -558,6 +558,7 @@ depends:
 - components/squashfs-tools.bst
 - components/steam-devices.bst
 - components/strace.bst
+- components/stripper.bst
 - components/sudo.bst
 - components/supported-locales.bst
 - components/svt-av1.bst
