@@ -63,7 +63,7 @@ public:
   cpe:
     vendor: 'freedesktop'
     product: 'systemd'
-    version-match: '\d+'
+    version-match: '(\d+)(?:\.(\d+))?'
 
   bst:
     split-rules:
