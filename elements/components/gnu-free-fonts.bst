@@ -30,6 +30,7 @@ sources:
   url: ftp_gnu_org:freefont/freefont-ttf-20120503.zip
   ref: 7c85baf1bf82a1a1845d1322112bc6ca982221b484e3b3925022e25b5cae89af
   directory: fonts
+  version-guess-pattern: '\d{8}'
 - kind: local
   path: files/font-conf/gnu-free-fonts
   directory: config

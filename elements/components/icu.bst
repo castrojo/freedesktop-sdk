@@ -39,5 +39,6 @@ sources:
 - kind: tar
   url: github_files:unicode-org/icu/releases/download/release-77-1/icu4c-77_1-src.tgz
   ref: 588e431f77327c39031ffbb8843c0e3bc122c211374485fa87dc5f3faff24061
+  version-guess-pattern: '(\d+)_(\d+)'
 - kind: patch
   path: patches/icu/icu-fix-shared-linking.patch

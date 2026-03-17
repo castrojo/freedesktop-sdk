@@ -30,5 +30,6 @@ sources:
   url: fdsdk_mirror:iana-config.git
   track: '*-*-*'
   ref: 2019-07-16-0-g64c890c79086d9797c5fb76f9edf5a5bfe906bbb
+  version-guess-pattern: '(\d+)-(\d+)-(\d+)'
 - kind: local
   path: files/iana-config

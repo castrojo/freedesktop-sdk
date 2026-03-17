@@ -43,3 +43,4 @@ sources:
   url: github:eggert/tz.git
   track: 20*
   ref: 2026a-0-gdd6be6d1558163517ec55c652efac70842c3b4cc
+  version-guess-pattern: '^\d{4}[a-z]'

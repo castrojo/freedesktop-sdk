@@ -2,5 +2,6 @@ sources:
 - kind: git_repo
   url: github:ThomasDickey/ncurses-snapshots.git
   ref: v6_5-0-ge12a453fc23c5ac586d72af46465e8ba92adb707
+  version-guess-pattern: '(\d+)_(\d+)'
 - kind: patch
   path: patches/ncurses/always-cross-compile.patch

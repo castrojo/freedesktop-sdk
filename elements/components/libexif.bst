@@ -22,3 +22,4 @@ sources:
   url: github:libexif/libexif.git
   track: libexif-*
   ref: libexif-0_6_25-release-0-ge99f14785ef02ee249bccbad8a97595eadbab810
+  version-guess-pattern: '(\d+)_(\d+)_(\d+)'

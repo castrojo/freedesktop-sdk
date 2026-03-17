@@ -31,3 +31,4 @@ sources:
 - kind: git_repo
   url: github:libexpat/libexpat.git
   ref: R_2_7_1-0-gf9a3eeb3e09fbea04b1c451ffc422ab2f1e45744
+  version-guess-pattern: '(\d+)_(\d+)_(\d+)'
