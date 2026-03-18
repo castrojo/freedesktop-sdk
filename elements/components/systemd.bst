@@ -41,6 +41,8 @@ public:
     split-rules:
       runtime:
         (>):
+        - '%{bindir}/resolvectl'
+        - '%{bindir}/updatectl'
         - '%{indep-libdir}/environment.d/**'
         - '%{indep-libdir}/kernel/**'
         - '%{indep-libdir}/modprobe.d/**'
