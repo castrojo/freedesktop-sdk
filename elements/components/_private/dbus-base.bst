@@ -33,11 +33,6 @@ config:
     - |
       rm -rf %{install-root}%{localstatedir}/run
 
-# TODO: replace with --disable-traditional-activation
-# https://gitlab.freedesktop.org/dbus/dbus/commit/94b5b236aa0743bacb2139c62d5a6e0143845634
-    - |
-      rm %{install-root}%{libexecdir}/dbus-daemon-launch-helper
-
 public:
   bst:
     split-rules:
