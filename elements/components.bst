@@ -28,6 +28,7 @@ depends:
 - components/bash-completion.bst
 - components/bash-config.bst
 - components/bc.bst
+- components/binutils.bst
 - components/bison.bst
 - components/bluez-base.bst
 - components/bluez-headers.bst
@@ -39,6 +40,8 @@ depends:
 - components/btrfs-progs.bst
 - components/bubblewrap.bst
 - components/buildbox.bst
+- components/buildstream2.bst
+- components/bzip2.bst
 - components/ca-certificates.bst
 - components/cairo.bst
 - components/cargo-c.bst
@@ -77,6 +80,7 @@ depends:
 - components/desktop-file-utils.bst
 - components/dictionaries.bst
 - components/dmidecode.bst
+- components/diffutils.bst
 - components/docbook-xml.bst
 - components/docbook-xsl.bst
 - components/doctest.bst
@@ -100,6 +104,7 @@ depends:
 - components/fdsdk-lic-dedup.bst
 - components/ffmpeg.bst
 - components/fftw.bst
+- components/findutils.bst
 - components/flat-manager-client-base.bst
 - components/flat-manager-client-minimal.bst
 - components/flat-manager-client.bst
@@ -126,6 +131,7 @@ depends:
 - components/fwupd-efi-maybe.bst
 - components/gamemode-daemon.bst
 - components/gamemode-manifest.bst
+- components/gawk.bst
 - components/gcab.bst
 - components/gdb.bst
 - components/gdbm.bst
@@ -160,6 +166,7 @@ depends:
 - components/gpgme.bst
 - components/graphene.bst
 - components/graphite2.bst
+- components/grep.bst
 - components/groff.bst
 - components/grpc.bst
 - components/gsettings-desktop-schemas.bst
@@ -316,6 +323,7 @@ depends:
 - components/lzip.bst
 - components/lzo.bst
 - components/m4.bst
+- components/make.bst
 - components/man-db.bst
 - components/man-pages.bst
 - components/mandoc.bst
@@ -540,6 +548,7 @@ depends:
 - components/sdl2-net.bst
 - components/sdl2-ttf.bst
 - components/sdl2.bst
+- components/sed.bst
 - components/shaderc.bst
 - components/shadow.bst
 - components/shared-mime-info.bst
@@ -558,6 +567,7 @@ depends:
 - components/squashfs-tools.bst
 - components/steam-devices.bst
 - components/strace.bst
+- components/stripper.bst
 - components/sudo.bst
 - components/supported-locales.bst
 - components/svt-av1.bst
@@ -659,8 +669,10 @@ depends:
 - components/xorg-proto-xorgproto.bst
 - components/xorg-util-macros.bst
 - components/xwayland.bst
+- components/xz.bst
 - components/xz-docs.bst
 - components/yajl.bst
 - components/zenity.bst
 - components/zip.bst
+- components/zlib.bst
 - components/zstd.bst
