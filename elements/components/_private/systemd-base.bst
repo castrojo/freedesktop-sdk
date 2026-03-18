@@ -121,6 +121,7 @@ variables:
     -Dvmlinux-h=provided
     -Dvmlinux-h-path='%{includedir}/%{gcc_triplet}/linux/vmlinux.h'
     -Dselinux=disabled
+    -Dsysupdated=enabled
 
 public:
   cpe:
