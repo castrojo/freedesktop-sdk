@@ -90,6 +90,7 @@ sources:
     go-version: v0.0.0-20231108232855-2478ac86f678
     git-ref: 2478ac86f6784cc492495a49c25cd184d471d9de
     explicit: True
+    subdirectory: typeparams
 - kind: go_module
   url: github:golang/mod.git
   module: golang.org/x/mod
