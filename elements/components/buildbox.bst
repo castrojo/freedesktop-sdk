@@ -7,7 +7,6 @@ build-depends:
 depends:
 - components/bubblewrap.bst
 - components/fuse3.bst
-- components/glog.bst
 - components/grpc.bst
 - components/openssl.bst
 - components/protobuf.bst
@@ -33,4 +32,4 @@ sources:
 - kind: git_repo
   url: gitlab:BuildGrid/buildbox/buildbox.git
   track: '*.*.*'
-  ref: 1.3.54-0-g61ab64b1123d5d19f3ec1308fcf2eb6857982aba
+  ref: 1.4.0-0-gfbe811583c653d9ecfa3e9795c863c63e35bf92f
