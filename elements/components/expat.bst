@@ -25,5 +25,5 @@ sources:
 - kind: git_repo
   url: github:libexpat/libexpat.git
   track: R_*
-  ref: R_2_7_4-0-gf5c2890d8ff91f88a018173d293a9bd02f76389e
+  ref: R_2_7_5-0-gf31adfd584b7f6c50bbf4d22eb928538ffc9145a
   version-guess-pattern: '(\d+)_(\d+)_(\d+)'
