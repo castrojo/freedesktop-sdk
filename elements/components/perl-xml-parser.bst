@@ -5,11 +5,12 @@ kind: makemaker
 
 build-depends:
 - public-stacks/buildsystem-make.bst
+- components/perl-file-sharedir-install.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/perl.bst
 - components/expat.bst
+- components/perl.bst
 
 sources:
 - kind: cpan
