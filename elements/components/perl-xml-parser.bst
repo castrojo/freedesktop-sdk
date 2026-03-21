@@ -1,5 +1,8 @@
 kind: makemaker
 
+build-depends:
+- components/perl-file-sharedir-install.bst
+
 depends:
 - bootstrap-import.bst
 - components/perl.bst
