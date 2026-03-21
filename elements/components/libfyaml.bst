@@ -31,4 +31,6 @@ sources:
 - kind: git_repo
   url: github:pantoniou/libfyaml.git
   track: v*
+  exclude:
+  - "*alpha*"
   ref: v0.9.5-0-gcee236b62d9f7a1e59d7a9042f231c9946d2a8c3
