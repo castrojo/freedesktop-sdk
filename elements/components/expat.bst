@@ -8,6 +8,9 @@ depends:
 
 variables:
   command-subdir: expat
+  cmake-local: >-
+    -DEXPAT_BUILD_EXAMPLES=OFF
+    -DEXPAT_BUILD_TESTS=OFF
 
 public:
   bst:
