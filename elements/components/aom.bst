@@ -45,6 +45,4 @@ sources:
   - "*-rc*"
   ref: v3.13.2-0-gad44980d7f3c7a2605c25d51ea96946949000841
 - kind: patch
-  path: patches/aom/nasm3.patch
-- kind: patch
   path: patches/aom/disable-aom-static.patch
