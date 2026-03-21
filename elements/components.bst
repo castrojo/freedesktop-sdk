@@ -376,6 +376,8 @@ depends:
 - components/pcsc-lite.bst
 - components/perf.bst
 - components/perl-build.bst
+- components/perl-class-inspector.bst
+- components/perl-file-sharedir.bst
 - components/perl-file-sharedir-install.bst
 - components/perl-module-build.bst
 - components/perl-module-install.bst
