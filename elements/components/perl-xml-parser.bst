@@ -5,8 +5,9 @@ build-depends:
 
 depends:
 - bootstrap-import.bst
-- components/perl.bst
 - components/expat.bst
+- components/perl.bst
+- components/perl-file-sharedir.bst
 
 sources:
 - kind: cpan
