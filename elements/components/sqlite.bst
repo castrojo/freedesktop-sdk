@@ -39,4 +39,4 @@ sources:
   track: version-*
   exclude:
   - "version-3.52.0"
-  ref: version-3.51.2-0-gba76c160c735437de974c6ea24c890a663214c6b
+  ref: version-3.51.3-0-ga5333afb9ad1aa473f8963b92caeaa955f47dc74
