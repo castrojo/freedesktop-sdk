@@ -1,3 +1,290 @@
+Version: freedesktop-sdk-24.08.30
+Date: '2026-03-23'
+Description: |-
+  Changes in freedesktop-sdk-24.08.30
+   * Update gtk3 to 3.24.52-0
+   * Update bubblewrap to v0.11.1-0
+   * Update buildbox to 1.4.1-0
+   * Update protobuf to v34.1-0
+   * Update ccache to v4.13.2-0
+   * Update freetype to VER-2-14-3-0
+   * Update mdadm to mdadm-4.6-0
+   * Update mesa-sdk to mesa-26.0.3-0
+   * Update python3-protobuf to 7.34.1
+   * Update xfsprogs to v6.19.0-0
+   * Update linux to v6.19.9-0
+   * Update libde265 to v1.0.18-0
+   * perl-xml-parser: Add perl-file-sharedir dependency
+   * perl-xml-parser: Add perl-file-sharedir-install for build
+   * exapt: Disable examples and tests
+   * Update perl-xml-parser to 2.51
+   * Update buildbox to 1.4.0-0
+   * Update perl-ssleay to 1.96
+   * Update python3-pyroaring to 1.0.4-0
+   * Update btrfs-progs to v6.19.1-0
+   * Update python3-pyasn1 to 0.6.3
+   * reference-abi: Bump junction to commit containing updated plugin
+   * fscrypt: Track sources with latest plugin
+   * ci: Bump to latest docker image
+   * Add export stacks for various bootstrap elements
+   * Create buildstream2 link element
+   * Create stripper.bst element for 24.08 branch
+   * Update gsettings-desktop-schemas to 50.0-0
+   * Update python3-charset-normalizer to 3.4.6-0
+   * Update lvm2 to v2_03_39-0
+   * Fix leftover snap version handling
+   * Update iptables to v1.8.13-0
+   * Update linux to v6.19.8-0
+   * Update buildstream-plugins-community to 2.3.0
+   * fwupd: Drop libarchive and protobuf meson arg
+   * Update fwupd to 2.1.1-0
+   * Update iwd to 3.12-0
+   * Update extra-cmake-modules to v6.24.0-0
+   * Update ell to 0.83-0
+   * Update mesa-sdk to mesa-26.0.2-0
+   * Opt out of source provenance in collect_manifest plugin
+   * Update linux to v6.19.7-0
+   * Update capnproto to v1.4.0-0
+   * python3-ujson: Update patch
+   * Update python3-ujson to 5.12.0-0
+   * Update python3-filelock to 3.25.2-0
+   * Update podman to v5.8.1-0
+   * Update apparmor-base to v4.1.7-0
+   * gtk-doc: Switch to meson
+   * gtk-doc: Modernise element config
+   * Update gtk-doc to 1.36.0-0
+   * Update exfat-progs to 1.3.2-0
+   * Update linux-firmware to 20260309-0
+   * Update python3-filelock to 3.25.1-0
+   * Update python3-virtualenv to 21.2.0-0
+   * Update ccache to v4.13.1-0
+   * Update python3-charset-normalizer to 3.4.5-0
+   * generate-cve-report: Fix rendering with consecutive empty score cells
+   * Update python3-buildstream2 to 2.7.0-0
+   * Update python3-pkgconfig to v1.6.0-0
+   * Update dictionaries to libreoffice-26.2.2.1-0
+   * flat-manager-client: Exclude rc tags
+   * Use list comprehension
+   * Call sorted with reverse instead of making two operations
+   * Fix PERF401 lint
+   * Use timezone aware datetime calls in various places
+   * Use key in dict instead of dict.keys()
+   * Use capture_output instead of piping to subprocess
+   * Raise TypeError for invalid type
+   * Use f-string instead of join
+   * Remove generator in set comprehension
+   * Return directly instead of assigning to a variable
+   * Silence S110
+   * Merge with statements for SIM117 lint
+   * Fix TRY300 lints
+   * Use a dedicated logger
+   * Mark files with shebangs as executables
+   * Fix RUF015 lint
+   * Apply new ruff auto-format and auto-lint fixes
+   * Update ccache to v4.13-0
+   * buildbox: Drop patches
+   * Update buildbox to 1.3.54-0
+   * gcc: Create liblto plugin symlink for binutils
+   * llvm: Ship clang headers in Mesa prefix for rusticl
+   * Update intel-media-driver to intel-media-26.1.3-0
+   * Update go to go1.25.8-0
+   * Update linux to v6.19.6-0
+   * Update erofs-utils to v1.9.1-0
+   * python3-setuptools-scm: Exclude some tags
+   * Update python3 to v3.12.13-0
+   * python3-imagesize: Freeze due to backwards incompatible changes
+   * Update hwdata to v0.405-0
+   * Update python3-pytz to 2026.1.post1
+   * Update shadow to 4.19.4-0
+   * Update frei0r to v2.5.5-0
+   * iio-sensor-proxy: Disable ssc-support
+   * Update iio-sensor-proxy to 3.9-0
+   * Update tzdata to 2026a-0
+   * grpc: Remove reference to vendored absl source file
+   * Update grpc to v1.78.1-0
+   * buildbox: Add patch to fix build
+   * Update buildbox to 1.3.53-0
+   * Update python3-yarl to v1.23.0-0
+   * python3-maturin: Update to 1.12.6
+   * Update libabigail to libabigail-2.9-0
+   * Update mesa-sdk to mesa-26.0.1-0
+   * Update python3-filelock to 3.25.0-0
+   * Update freetype to VER-2-14-2-0
+   * Update python3-maturin to ref: v1.12.5-0
+   * Update libseat to 0.9.3-0
+   * Update python3-virtualenv to 21.1.0-0
+   * Update python3-protobuf to 7.34.0
+   * Update fwupd to 2.0.20-0
+   * Update python3-certifi to 2026.02.25-0
+   * Update python3-virtualenv to 21.0.0-0
+   * Update udisks to udisks-2.11.1-0
+   * Update protobuf to v34.0-0
+   * linux-pam-base: chmod only if unix_chkpwd exists
+   * backport(24.08): linux-pam: setuid bit on unix_chkpwd
+   * Update python3-hatchling to hatchling-v1.29.0-0
+   * Update gawk to gawk-5.4.0-0
+   * Update python3-chardet to 5.2.0-0
+   * Update rdfind to releases/1.8.0-0
+   * frei0r: Build without opencv and gavl
+   * Update frei0r to v2.5.4-0
+   * Update xorg-data-xkeyboard-config to xkeyboard-config-2.47-0
+   * Update python3-filelock to 3.24.4-0
+   * Update python3-virtualenv to 20.39.0-0
+   * python3-chardet: Freeze to v5 due to breaking changes
+   * weston: Disable vulkan renderer
+   * weston: Drop outdated patch
+   * weston: Disable lua shell
+   * Update weston to 15.0.0-0
+   * Update ovmf to edk2-stable202602-0
+   * Update parallel to 20260222-0
+   * Update linux to v6.19.3-0
+   * Update linux-firmware to 20260221-0
+   * Update python3-maturin to ref: v1.12.4-0
+   * Revert "Update man-pages to man-pages-6.16-0"
+   * Revert "Update sbc to 2.1-0"
+   * Revert "Update iwd to 3.10-0"
+   * Update iwd to 3.10-0
+   * Update sbc to 2.1-0
+   * Update man-pages to man-pages-6.16-0
+   * Update dictionaries to libreoffice-26.2.1.2-0
+   * Update python3-virtualenv to 20.38.0-0
+   * Update mutool to 1.27.2-0
+   * Update iptables to v1.8.12-0
+   * Update python3-maturin to ref: v1.12.3-0
+   * go: Track 1.25
+   * Revert "binary-seed-source: Update to latest commit for go 1.26"
+   * Revert "Update go to go1.26.0-0"
+   * Update iproute2 to v6.19.0-0
+   * Update python3-wheezy-template to 3.2.5-0
+   * Update python3-filelock to 3.24.3-0
+   * Update erofs-utils to v1.9-0
+   * Update intel-media-driver to intel-media-26.1.2-0
+   * Update conmon to v2.2.1-0
+   * Update libcap-ng to v0.9.1-0
+   * Update libsoup to 3.6.6-0
+   * Update linux to v6.19.2-0
+   * Update python3-filelock to 3.24.2-0
+   * Update python3-maturin to ref: v1.12.2-0
+   * binary-seed-source: Update to latest commit for go 1.26
+   * Update go to go1.26.0-0
+   * Update bluez to 5.86-0
+   * Update vim to v9.2.0-0
+   * Update extra-cmake-modules to v6.23.0-0
+   * Update apparmor-base to v4.1.6-0
+   * rust: Update to 1.89.0
+   * Update python3-maturin to ref: v1.12.0-0
+   * vim: track only major releases
+   * networkmanager: Add docbook-xsl for building docs
+   * Update networkmanager to 1.56.0-0
+   * Update p11-kit to 0.26.2-0
+   * Update btrfs-progs to v6.19-0
+   * Update ell to 0.82-0
+   * Update gnutls to 3.8.12-0
+   * Update libinput to 1.31.0-0
+   * Update podman to v5.8.0-0
+   * Update libjxl to v0.10.5-0
+   * Update python3-cryptography to ref: 46.0.5-0
+   * Update iwd to 0.82-0
+   * Update man-pages to man-pages-6.17-0
+   * Update ccache to v4.12.3-0
+   * Update mesa-sdk to mesa-26.0.0-0
+   * Update foomatic-db to 20240504-7
+   * Update strace to v6.19-0
+   * Update dracut to 110-0
+   * Add patches to fix build with binutils 2.46
+   * Update binutils to binutils-2_46-0
+   * python3-setuptools: Freeze to v80 due to feature removals
+   * Update sbc to 2.2-0
+   * Update linux to v6.19-0
+   * Update iwd to 3.11-0
+   * Update python3-markdown to 3.10.2-0
+   * Update xorg-lib-fontenc to libfontenc-1.1.9-0
+   * Update less to v692-rel-0
+   * Update python3-tenacity to 9.1.4-0
+   * Update vim to v9.1.2140-0
+   * Update mesa-sdk to mesa-25.3.5-0
+   * Update dictionaries to libreoffice-26.2.1.1-0
+   * Update hwdata to v0.404-0
+   * Update mesa to mesa-25.3.5-0
+   * Update linux to v6.18.9-0
+   * Update python3-tenacity to 9.1.3-0
+   * grpc: Add patch to unpin Cython requirement
+   * Update grpc to v1.78.0-0
+   * Update mutool to 1.27.1-0
+   * Update buildbox to 1.3.52-0
+   * Update netavark to ref: v1.17.2-0
+   * Update nano to v8.7.1-0
+   * Update go to go1.25.7-0
+   * Update python3-pip to 26.0.1-0
+   * Update ccid to 1.7.1-0
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-172
+   * Update libwacom to libwacom-2.18.0-0
+   * Update libxmlb to 0.3.25-0
+   * Update python3-psutil to release-7.2.2-0
+   * Update git to v2.53.0-0
+   * Update shadow to 4.19.3-0
+   * Update libmysofa to v1.3.4-0
+   * Update python3-babel to 2.18.0
+   * Update audit to v4.1.3-0
+   * Update python3-poetry-core to 2.3.1-0
+   * Update vim to v9.1.2125-0
+   * Update aspell to rel-0.60.8.2-0
+   * Update linux to v6.18.8-0
+   * Update xorg-lib-xcomposite to libXcomposite-0.4.7-0
+   * Update parallel to 20260122-0
+   * libwebp: Freeze due to abi changes
+   * libsepol: Freeze due to abi changes
+   * libva: Freeze due to ABI changes
+   * orc: Freeze due to abi changes
+   * xorg-lib-xkbfile: Freeze due to ABI changes
+   * libgcrypt: Freeze to 1.11.2
+   * Update protobuf to v33.5-0
+   * Update apparmor-base to v4.1.4-0
+   * Update python3-pip to 26.0-0
+   * Update gdk-pixbuf to 2.44.5-0
+   * Update python3-protobuf to 6.33.5
+   * Update perl-sasl to 2.2000
+   * python3-dulwich: Restrict to v0
+   * Revert "Update python3-dulwich to dulwich-1.0.0-0"
+   * Update openssl to openssl-3.3.6-0
+   * Update xorg-lib-xrandr to libXrandr-1.5.5-0
+   * Update liburcu to v0.15.6-0
+   * Update python3-cryptography to ref: 46.0.4-0
+   * Update python3-pathspec to v1.0.4-0
+   * Update dictionaries to libreoffice-26.2.0.3-0
+   * Update xorg-lib-xdamage to libXdamage-1.1.7-0
+   * Update cryptsetup-base to v2.8.4-0
+   * Update cmake to v3.31.11-0
+   * Update xorg-lib-xxf86vm to libXxf86vm-1.1.7-0
+   * Update python3-multidict to v6.7.1-0
+   * Update xorg-lib-xext to libXext-1.3.7-0
+   * Update python3-setuptools to v80.10.2-0
+   * Update xorg-lib-xinerama to libXinerama-1.1.6-0
+   * Update xorg-lib-xpm to libXpm-3.5.18-0
+   * Update vim to v9.1.2108-0
+   * Update mesa-sdk to mesa-25.3.4-0
+   * Update qpdf to v12.3.2-0
+   * Update buildbox to 1.3.51-0
+   * Update jansson to v2.15.0-0
+   * Update mesa to mesa-25.3.4-0
+   * Update flatpak to 1.16.3-0
+   * Update linux to v6.18.7-0
+   * Update python3-gi-docgen to 2026.1-0
+   * linux-pam-base: Disable pwaccess
+   * Update linux-pam-base to v1.7.2-0
+   * Update python3-wheel to 0.46.3-0
+   * Update passt to 2026_01_20.386b5f5-0
+   * python3-setuptools: Drop setup.cfg removal
+   * Update python3-setuptools to v80.10.1-0
+   * Update reference-abi to freedesktop-sdk-24.08.29-0
+   * Update python3-pycparser to release_v3.00-0
+   * Update python3-markdown to 3.10.1-0
+   * Update python3-pyparsing to 3.3.2-0
+   * Update less to v691-rel-0
+   * Update cunit to 3.5.4-0
+   * Update python3-packaging to 26.0-0
+   * Update qpdf to v12.3.1-0
+---
 Version: freedesktop-sdk-24.08.29
 Date: '2026-01-20'
 Description: |-
