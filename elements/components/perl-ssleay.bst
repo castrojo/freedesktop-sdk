@@ -14,5 +14,5 @@ depends:
 sources:
 - kind: cpan
   name: Net::SSLeay
-  suffix: authors/id/C/CH/CHRISN/Net-SSLeay-1.94.tar.gz
-  sha256sum: 9d7be8a56d1bedda05c425306cc504ba134307e0c09bda4a788c98744ebcd95d
+  suffix: authors/id/C/CH/CHRISN/Net-SSLeay-1.96.tar.gz
+  sha256sum: ab213691685fb2a576c669cbc8d9266f8165a31563ad15b7c4030b94adfc0753
