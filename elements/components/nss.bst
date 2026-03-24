@@ -154,6 +154,7 @@ sources:
   track: NSS_3_101*_RTM
   ref: NSS_3_101_4_RTM-0-g8fbafb27fa3b2408faeeb2a36932111503d460aa
   directory: nss
+  version-guess-pattern: '(\d+)_(\d+)'
 - kind: patch
   path: patches/nss/pkg-config-libdir.patch
 - kind: local

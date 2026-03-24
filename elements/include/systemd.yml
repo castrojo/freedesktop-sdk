@@ -5,3 +5,4 @@ sources:
   exclude:
   - '*rc*'
   ref: v257.12-0-g97f0cb09e1dd861e9039eb2b189811e8232b492f
+  version-guess-pattern: '(\d+)(?:\.(\d+))?'
