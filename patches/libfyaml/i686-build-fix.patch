@@ -1,0 +1,37 @@
+From 9a59f185322ebcf7cec4a5b6af3e06e45edefc45 Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Wed, 25 Mar 2026 17:28:01 +0530
+Subject: [PATCH] Fix build on i686
+
+---
+ include/libfyaml/libfyaml-vlsize.h | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/include/libfyaml/libfyaml-vlsize.h b/include/libfyaml/libfyaml-vlsize.h
+index 6ccb7ab..acfd78d 100644
+--- a/include/libfyaml/libfyaml-vlsize.h
++++ b/include/libfyaml/libfyaml-vlsize.h
+@@ -810,13 +810,18 @@ fy_decode_size(const uint8_t *start, size_t bufsz, size_t *sizep)
+ static inline const uint8_t *
+ fy_decode_size_nocheck(const uint8_t *start, size_t *sizep)
+ {
+-	return fy_decode_size32_nocheck(start, sizep);
++	uint64_t sz;
++	const uint8_t *ret;
++
++	ret = fy_decode_size32_nocheck(start, &sz);
++	*sizep = (size_t)sz;
++	return ret;
+ }
+ 
+ static inline const uint8_t *
+ fy_skip_size(const uint8_t *start, size_t bufsz)
+ {
+-	return fy_skip_size32(start, bufsz, &sz);
++	return fy_skip_size32(start, bufsz);
+ }
+ 
+ static inline const uint8_t *
+-- 
+2.53.0
+
