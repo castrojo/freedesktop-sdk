@@ -25,4 +25,4 @@ sources:
 - kind: git_repo
   url: gnome:gtk-doc.git
   track: '*.*'
-  ref: 1.35.1-0-g82623a6c120e153be9bee8642693a00bc1aae77f
+  ref: 1.36.0-0-g00e02c9587ca0d176451860e711c650afdd56dde
