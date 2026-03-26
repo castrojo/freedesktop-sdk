@@ -10,7 +10,6 @@ config:
   - components/bc.bst
   - components/bluez.bst
   - components/ccid.bst
-  - components/_private/cmake-vendored.bst
   - components/dracut.bst
   - components/ed.bst
   - components/fakecap.bst

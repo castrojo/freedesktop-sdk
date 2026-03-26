@@ -4,10 +4,7 @@ kind: cmake
 - elements/include/cmake-source.yml
 
 build-depends:
-- components/_private/cmake-stage1.bst
-- components/gcc.bst
-- components/ninja.bst
-- components/stripper.bst
+- components/_private/buildsystem-cmake.bst
 
 depends:
 - components/curl.bst

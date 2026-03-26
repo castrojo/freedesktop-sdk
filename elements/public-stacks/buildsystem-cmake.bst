@@ -1,9 +1,7 @@
 kind: stack
 
+(@): elements/include/cmake-stack-common.yml
+
 depends:
-- components/gcc.bst
-- components/stripper.bst
-- components/cmake.bst
-- components/gettext.bst
-- components/ninja.bst
-- components/pkg-config.bst
+  (>):
+  - components/cmake.bst

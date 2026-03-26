@@ -4,13 +4,8 @@ kind: cmake
 - elements/include/llvm.yml
 
 build-depends:
-- components/_private/cmake-stage1.bst
-- components/gcc.bst
-- components/gettext.bst
-- components/ninja.bst
-- components/pkg-config.bst
+- components/_private/buildsystem-cmake.bst
 - components/python3-minimal.bst
-- components/stripper.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

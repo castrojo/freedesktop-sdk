@@ -3,14 +3,9 @@ kind: manual
 build-depends:
 - bootstrap/grep.bst
 - bootstrap/sed.bst
-- components/_private/cmake-stage1.bst
-- components/gcc.bst
-- components/gettext.bst
-- components/ninja.bst
-- components/pkg-config.bst
 - components/python3-minimal.bst
+- components/_private/buildsystem-cmake.bst
 - components/_private/rust-stage1.bst
-- components/stripper.bst
 
 depends:
 - components/curl.bst

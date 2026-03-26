@@ -1,10 +1,7 @@
 kind: cmake
 
 build-depends:
-- components/gcc.bst
-- components/stripper.bst
-- components/_private/cmake-vendored.bst
-- components/ninja.bst
+- components/_private/buildsystem-cmake.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

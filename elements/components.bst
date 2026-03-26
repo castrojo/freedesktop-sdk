@@ -49,7 +49,6 @@ depends:
 - components/ccid.bst
 - components/clean-xml-catalog.bst
 - components/cmake.bst
-- components/_private/cmake-vendored.bst
 - components/colord.bst
 - components/conmon.bst
 - components/compat-vulkan-link.bst

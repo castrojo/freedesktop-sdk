@@ -1,12 +1,7 @@
 kind: cmake
 
 build-depends:
-- components/gcc.bst
-- components/stripper.bst
-- components/_private/cmake-stage1.bst
-- components/gettext.bst
-- components/ninja.bst
-- components/pkg-config.bst
+- components/_private/buildsystem-cmake.bst
 - components/_private/git-minimal.bst
 - components/sed.bst
 
