@@ -4,6 +4,6 @@ sources:
   track: v*
   exclude:
   - '*-rc*'
-  ref: v6.19.9-0-g4a2b0ed2ac7abe9743e1559d212075a0ebac96b3
+  ref: v6.19.10-0-g271f8eab9590b57a2ff0c8c9eee357723c4a85cb
 - kind: patch_queue
   path: patches/linux
