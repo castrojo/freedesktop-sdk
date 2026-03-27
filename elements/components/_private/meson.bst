@@ -5,7 +5,7 @@ build-depends:
 - components/_private/python3-installer.bst
 - components/_private/python3-setuptools.bst
 - components/_private/python3-wheel.bst
-- components/python3-minimal.bst
+- components/_private/python3-minimal.bst
 
 depends:
 - components/ninja.bst

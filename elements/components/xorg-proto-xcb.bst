@@ -3,7 +3,7 @@ description: X.org proto xcb
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/python3-minimal.bst
+- components/_private/python3-minimal.bst
 - components/xorg-util-macros.bst
 
 depends:

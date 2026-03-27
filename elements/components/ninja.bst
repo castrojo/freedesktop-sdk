@@ -3,7 +3,7 @@ kind: manual
 build-depends:
 - bootstrap/sed.bst
 - components/gcc.bst
-- components/python3-minimal.bst
+- components/_private/python3-minimal.bst
 - components/stripper.bst
 
 depends:

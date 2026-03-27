@@ -5,7 +5,7 @@ kind: cmake
 
 build-depends:
 - components/_private/buildsystem-cmake.bst
-- components/python3-minimal.bst
+- components/_private/python3-minimal.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

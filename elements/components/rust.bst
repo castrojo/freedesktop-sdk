@@ -3,7 +3,7 @@ kind: manual
 build-depends:
 - bootstrap/grep.bst
 - bootstrap/sed.bst
-- components/python3-minimal.bst
+- components/_private/python3-minimal.bst
 - components/_private/buildsystem-cmake.bst
 - components/_private/rust-stage1.bst
 

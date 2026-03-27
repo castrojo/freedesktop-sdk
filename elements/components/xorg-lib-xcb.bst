@@ -4,7 +4,7 @@ description: X.org lib xcb
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/xorg-util-macros.bst
-- components/python3-minimal.bst
+- components/_private/python3-minimal.bst
 - components/xorg-proto-xcb.bst
 
 depends:

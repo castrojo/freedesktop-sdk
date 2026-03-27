@@ -16,7 +16,7 @@ build-depends:
 - components/gettext.bst
 - components/libtool.bst
 - components/pkg-config.bst
-- components/python3-minimal.bst
+- components/_private/python3-minimal.bst
 - components/tar.bst
 - components/texinfo.bst
 

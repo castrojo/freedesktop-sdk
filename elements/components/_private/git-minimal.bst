@@ -12,7 +12,7 @@ build-depends:
 - components/ninja.bst
 - components/openssl.bst
 - components/pkg-config.bst
-- components/python3-minimal.bst
+- components/_private/python3-minimal.bst
 - components/sed.bst
 - components/stripper.bst
 - components/tar.bst

@@ -4,7 +4,7 @@ build-depends:
 - components/_private/python3-build-bootstrap.bst
 - components/_private/python3-flit-core.bst
 - components/_private/python3-installer.bst
-- components/python3-minimal.bst
+- components/_private/python3-minimal.bst
 
 runtime-depends:
 - components/_private/python3-packaging.bst
