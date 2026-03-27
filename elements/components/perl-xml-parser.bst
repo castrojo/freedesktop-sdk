@@ -16,5 +16,5 @@ depends:
 sources:
 - kind: cpan
   name: XML::Parser
-  suffix: authors/id/T/TO/TODDR/XML-Parser-2.52.tar.gz
-  sha256sum: b06c78fe79afb959d020e4c66b930efcf4327b78df95e1afa13662ee8ba3d5cd
+  suffix: authors/id/T/TO/TODDR/XML-Parser-2.54.tar.gz
+  sha256sum: 803bcd50eaf1fda0820056bb1ec485cdd1c04bca680394879b5e6a0be35597c6
