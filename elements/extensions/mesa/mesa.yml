@@ -93,7 +93,7 @@ variables:
     -Dandroid-libbacktrace=disabled
     -Dplatforms=x11,wayland
     -Dvalgrind=disabled
-    -Dvulkan-layers=device-select,overlay,intel-nullhw,screenshot
+    -Dvulkan-layers=device-select,overlay,intel-nullhw,screenshot,anti-lag
     -Dvulkan-drivers=%{vulkan_drivers}
     -Dvulkan-icd-dir="%{libdir}/vulkan/icd.d"
     -Dxlib-lease=enabled
