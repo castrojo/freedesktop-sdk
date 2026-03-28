@@ -20,3 +20,5 @@ sources:
   ref: 2.6.3-0-g0248277dd7ac0239204889ca991353ad3e3a1ddc
 - kind: patch
   path: patches/python3-urllib3/version.patch
+- kind: patch
+  path: patches/python3-urllib3/setuptools_scm_version.patch
