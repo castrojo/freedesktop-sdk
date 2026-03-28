@@ -13,7 +13,7 @@ depends:
 sources:
 - kind: git_repo
   url: github:pypa/setuptools_scm.git
-  track: v*
+  track: v9.*
   exclude:
   - "*dev*"
   - "*vcs-*"
