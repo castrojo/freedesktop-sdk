@@ -7,25 +7,20 @@ depends:
 - components/_private/git-minimal.bst
 - components/python3.bst
 - components/python3-packaging.bst
-- components/python3-setuptools.bst
-- components/python3-vcs-versioning.bst
 
 config:
   build-commands:
   - |
-    cd setuptools-scm
+    cd vcs-versioning
     %{python} -mbuild %{build-args} .
 
   install-commands:
   - |
-    cd setuptools-scm
+    cd vcs-versioning
     %{python} -minstaller %{dist-dir}/*.whl --destdir %{install-root}
 
 sources:
 - kind: git_repo
   url: github:pypa/setuptools_scm.git
-  track: setuptools-scm-v*
-  exclude:
-  - "*dev*"
-  - "*vcs-*"
-  ref: setuptools-scm-v10.0.5-0-ge2ba34f52b5d375d680c069bc3fa89c4056a9347
+  track: vcs-versioning-v*
+  ref: vcs-versioning-v1.1.1-0-g81fef309b77b6db86203f4476383cd930942a9f0
