@@ -779,7 +779,7 @@ markdown_manifest:
 .reproducible_template:
   stage: reproducible
   script:
-    - buildstream-reprotest tests/reproducible-test.bst result_folder
+    - buildstream-reprotest components/_private/ovmf.bst result_folder
   needs: []
   variables:
     DISABLE_REMOTE_CACHE: "1"
