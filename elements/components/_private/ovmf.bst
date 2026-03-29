@@ -41,6 +41,7 @@ variables:
     -D TPM2_ENABLE
     -D TPM2_CONFIG_ENABLE
     -D SECURE_BOOT_ENABLE
+    -D MDEPKG_NDEBUG
     %{arch-opts}
 
   code: '%{build-dir}/FV/OVMF_CODE.fd'
