@@ -9,6 +9,11 @@ build-depends:
 - components/docbook-xsl.bst
 - components/libxslt.bst
 
+environment:
+  # Disable hash randomisation for reproducibility
+  # https://reproducible-builds.org/docs/stable-outputs/
+  PERL_HASH_SEED: 0
+
 variables:
   # Build script generates sources and if build-dir is used
   # it tries to generate them in directories that do not
