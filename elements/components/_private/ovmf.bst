@@ -21,6 +21,8 @@ environment-nocache:
 - JOBS
 
 variables:
+  notparallel: True
+
   arch-args: "none"
   arch-opts: "none"
   platform: "none"
