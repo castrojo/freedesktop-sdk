@@ -7,7 +7,6 @@ runtime-depends:
 - bootstrap/libxcrypt.bst
 - bootstrap/xz.bst
 - components/systemd-libs.bst
-- components/systemd-hwdb.bst
 - components/audit.bst
 - components/libapparmor.bst
 - components/libgpg-error.bst
@@ -27,6 +26,12 @@ runtime-depends:
 - components/curl.bst
 - components/libmicrohttpd.bst
 - components/libbpf.bst
+
+(?):
+- target_arch != "ppc64le":
+    runtime-depends:
+      (>):
+      - components/systemd-hwdb-maybe.bst
 
 config:
   exclude:

@@ -568,7 +568,7 @@ depends:
 - components/supported-locales.bst
 - components/svt-av1.bst
 - components/swig.bst
-- components/systemd-hwdb.bst
+- components/systemd-hwdb-maybe.bst
 - components/systemd-libs.bst
 - components/systemd-manifest.bst
 - components/systemd-kernel-install.bst
