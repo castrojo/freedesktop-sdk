@@ -26,7 +26,6 @@ runtime-depends:
 - components/iptables.bst
 
 environment:
-  GOPATH: "%{build-root}"
   MAKEFLAGS: -j1
 
 variables:

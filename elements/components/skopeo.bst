@@ -16,9 +16,6 @@ depends:
 - components/libassuan.bst
 - public-stacks/runtime-minimal.bst
 
-environment:
-  GOPATH: "%{build-root}"
-
 variables:
   command-subdir: src/github.com/containers/skopeo
   # otherwise it installs etc/containers/ as well

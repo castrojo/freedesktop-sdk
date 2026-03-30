@@ -13,9 +13,6 @@ depends:
 - components/libseccomp.bst
 - components/systemd-libs.bst
 
-environment:
-  GOPATH: "%{build-root}"
-
 variables:
   optimize-debug: "false"
   command-subdir: src/github.com/containers/conmon

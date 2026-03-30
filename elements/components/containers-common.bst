@@ -6,9 +6,6 @@ build-depends:
 - components/go.bst
 - public-stacks/buildsystem-make.bst
 
-environment:
-  GOPATH: "%{build-root}"
-
 variables:
   optimize-debug: "false"
   strip-binaries: ''
