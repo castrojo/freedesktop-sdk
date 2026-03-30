@@ -17,7 +17,6 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 environment:
-  ldflags_defaults: ""
   GOPATH: "%{build-root}"
 
 variables:

@@ -14,7 +14,7 @@ variables:
 config:
   build-commands:
   - |
-    go build -mod=vendor
+    go build
     ./go-md2man -in=go-md2man.1.md -out=go-md2man.1
 
   install-commands:

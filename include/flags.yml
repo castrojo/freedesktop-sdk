@@ -125,6 +125,22 @@ variables:
   # Final linker flags set in LDFLAGS
   ldflags_defaults: "%{common_ldflags} %{local_ldflags}"
 
+  # Preserve quotes and style exactly when using elsewhere
+  # Not possible to define local overrides as Go's flag parser errors
+  # on empty space here
+  go_ldflags: "-compressdwarf=false -linkmode=external"
+  go_buildmode_flag: "-buildmode=pie"
+  local_goflags: ""
+
+  # Preserve quotes and style exactly when using elsewhere
+  # The ldflags argument needs to be quoted in whole like below.
+  goflags: >-
+    %{go_buildmode_flag}
+    -mod=vendor
+    -modcacherw
+    "-ldflags=%{go_ldflags}"
+    %{local_goflags}
+
   (?):
   - target_arch == "i686":
       target_arch_flags: "%{target_i686_flags}"
@@ -156,3 +172,4 @@ environment:
   CGO_CFLAGS: "%{target_flags}"
   CGO_CXXFLAGS: "%{target_flags}"
   CGO_LDFLAGS: "%{ldflags_defaults}"
+  GOFLAGS: "%{goflags}"

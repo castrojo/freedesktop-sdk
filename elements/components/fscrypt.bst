@@ -12,7 +12,6 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 variables:
-  ldflags_defaults: ""
   optimize-debug: "false"
 
 config:

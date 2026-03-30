@@ -17,7 +17,6 @@ environment:
   GOPATH: "%{build-root}"
 
 variables:
-  ldflags_defaults: ""
   optimize-debug: "false"
   command-subdir: src/github.com/containers/conmon
 

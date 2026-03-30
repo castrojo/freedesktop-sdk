@@ -10,7 +10,6 @@ environment:
   GOPATH: "%{build-root}"
 
 variables:
-  ldflags_defaults: ""
   optimize-debug: "false"
   strip-binaries: ''
   command-subdir: src/github.com/containers/common
