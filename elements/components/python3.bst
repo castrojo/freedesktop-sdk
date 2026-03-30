@@ -1,4 +1,4 @@
-kind: autotools
+kind: autotools-recc
 description: Python 3
 
 (@):
@@ -7,13 +7,15 @@ description: Python 3
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/bluez-headers.bst
-# depends: add these to filters
-- public-stacks/runtime-minimal.bst
 - components/expat.bst
-- components/libffi.bst
 - components/gdbm.bst
+- components/libffi.bst
 - components/openssl.bst
 - components/sqlite.bst
+- public-stacks/runtime-minimal.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst
