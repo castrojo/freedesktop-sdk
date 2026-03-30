@@ -31,3 +31,5 @@ sources:
   exclude:
   - nasm-*rc*
   ref: nasm-3.01-0-ge9fac2faa62647bb50f1a61c26212c63c87090ae
+- kind: patch
+  path: patches/nasm/repro.patch
