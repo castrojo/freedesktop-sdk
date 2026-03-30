@@ -17,6 +17,7 @@ variables:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/zlib.bst
 
 config:
   build-commands:
