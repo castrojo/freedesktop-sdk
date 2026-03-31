@@ -17,5 +17,3 @@ sources:
   url: github:pypa/installer.git
   track: '*.*.*'
   ref: 1.0.0-0-g506a0158a9516009dbc838dd3f6d024c500eec13
-- kind: patch
-  path: patches/python3-installer/reproducible_record.patch
