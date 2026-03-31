@@ -57,3 +57,5 @@ sources:
   url: github:fwupd/fwupd.git
   track: '*.*.*'
   ref: 2.1.1-0-g0a3ee12574d05af621c1c0add6b2df73ac66eaca
+- kind: patch
+  path: patches/fwupd/drop-timestamp.patch
