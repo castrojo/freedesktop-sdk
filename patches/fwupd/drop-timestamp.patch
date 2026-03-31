@@ -1,0 +1,38 @@
+diff --git a/plugins/uefi-capsule/make-images.py b/plugins/uefi-capsule/make-images.py
+index 7d46c65fb..8c6a427ad 100755
+--- a/plugins/uefi-capsule/make-images.py
++++ b/plugins/uefi-capsule/make-images.py
+@@ -13,6 +13,7 @@ import os
+ import sys
+ import argparse
+ import zipfile
++import time
+ import math
+ import io
+ import struct
+@@ -91,6 +92,13 @@ def main(args) -> int:
+     with zipfile.ZipFile(
+         args.out, mode="w", compression=zipfile.ZIP_DEFLATED, allowZip64=False
+     ) as myzip:
++
++        epoch = int(os.environ.get("SOURCE_DATE_EPOCH", "315532800"))
++        if epoch < 315532800:
++            epoch = 315532800
++
++        zip_dt = time.gmtime(epoch)[:6]
++
+         for lang in languages(args.podir):
+             # these are the 1.6:1 of some common(ish) screen widths
+             if lang == "en":
+@@ -207,7 +215,10 @@ def main(args) -> int:
+                 # convert to BMP and add to archive
+                 with io.BytesIO() as io_bmp:
+                     filename = f"fwupd-{lang}-{width}-{height}.bmp"
+-                    myzip.writestr(filename, data=_cairo_surface_write_to_bmp(img))
++                    zi = zipfile.ZipInfo(filename)
++                    zi.date_time = zip_dt
++                    zi.compress_type = zipfile.ZIP_DEFLATED
++                    myzip.writestr(zi, data=_cairo_surface_write_to_bmp(img))
+ 
+     # success
+     return 0
