@@ -4,7 +4,7 @@ sources:
   track: v*
   exclude:
   - '*pre*'
-  ref: v1.78.1-0-g5b6492ea90b2b867a6adad1b10a6edda28e860d1
+  ref: v1.80.0-0-gf5e2d6e856176c2f6b7691032adfefe21e5f64c1
 - kind: git_module
   url: github:google/re2.git
   path: third_party/re2
@@ -16,15 +16,15 @@ sources:
 - kind: git_module
   url: github:cncf/xds.git
   path: third_party/xds
-  ref: 3a472e524827f72d1ad621c4983dd5af54c46776
+  ref: ee656c7534f5d7dc23d44dd611689568f72017a6
 - kind: git_module
   url: github:envoyproxy/data-plane-api.git
   path: third_party/envoy-api
-  ref: 4de3c74cf21a9958c1cf26d8993c55c6e0d28b49
+  ref: 6ef568cf4a67362849911d1d2a546fd9f35db2ff
 - kind: git_module
   url: github:googleapis/googleapis.git
   path: third_party/googleapis
-  ref: fe8ba054ad4f7eca946c2d14a63c3f07c0b586a0
+  ref: 2193a2bfcecb92b92aad7a4d81baa428cafd7dfd
 - kind: git_module
   path: third_party/protoc-gen-validate
   url: github:envoyproxy/protoc-gen-validate.git
