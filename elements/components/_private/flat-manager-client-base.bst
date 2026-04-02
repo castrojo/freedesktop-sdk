@@ -33,7 +33,7 @@ sources:
   track: '*.*.*'
   exclude:
   - "*rc*"
-  ref: 0.5.0-0-gb64174ae86c4c78d56d66be3cd58ab3fa5f00ba3
+  ref: 0.5.1-0-g583f388d57b37154cdc8bc1496b180fe07b6895b
 - kind: cargo2
   ref:
   - kind: registry
