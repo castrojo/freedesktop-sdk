@@ -2380,6 +2380,7 @@ fi
 
 # BPF
 enable FTRACE
+enable FUNCTION_TRACER
 if has HAVE_KPROBES; then
     enable KPROBES
 fi
