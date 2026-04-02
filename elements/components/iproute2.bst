@@ -15,6 +15,7 @@ variables:
     SBINDIR="%{sbindir}"
     DATADIR="%{datadir}"
     MANDIR="%{mandir}"
+    CONF_COLOR=COLOR_OPT_AUTO
 
 sources:
 - kind: git_repo
