@@ -42,9 +42,8 @@ sources:
 - kind: pypi
   name: hotdoc
   ref:
-    sha256sum: c4d5dff647f03aa87a1d2d06035d2819edd099b91635e3b2ee390829357ae9fc
-    suffix: 
-      60/fd/32e24a747181e060ace04cd927698b2b5b3b90f6bf2c014e12df630c183a/hotdoc-0.17.4.tar.gz
+    sha256sum: ded2c2cd06f4527f891b2d469ab5bc0161fdc84aa90d07b190bd63694a059389
+    suffix: 26/f3/94ed01195952d8ba87e43ed1417f03bf50cd9d7d8db9c2c4364932e150a0/hotdoc-0.18.2.tar.gz
 - kind: patch
   path: patches/hotdoc/cmark-min-cmake.patch
 - kind: patch
