@@ -19,5 +19,5 @@ sources:
   exclude:
   - '*rc*'
   ref:
-    sha256sum: 3871a3df67c710aaf7bb8d214cc997342e63ceebd940c8c7fc65c9b3d697591a
-    suffix: f2/00/04a2ab36b70a52d0356852979e08b44edde0435f2115dc66e25f2100f3ab/protobuf-7.34.0.tar.gz
+    sha256sum: 9ce42245e704cc5027be797c1db1eb93184d44d1cdd71811fb2d9b25ad541280
+    suffix: 6b/6b/a0e95cad1ad7cc3f2c6821fcab91671bd5b78bd42afb357bb4765f29bc41/protobuf-7.34.1.tar.gz
