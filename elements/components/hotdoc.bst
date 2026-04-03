@@ -45,6 +45,4 @@ sources:
     sha256sum: ded2c2cd06f4527f891b2d469ab5bc0161fdc84aa90d07b190bd63694a059389
     suffix: 26/f3/94ed01195952d8ba87e43ed1417f03bf50cd9d7d8db9c2c4364932e150a0/hotdoc-0.18.2.tar.gz
 - kind: patch
-  path: patches/hotdoc/cmark-min-cmake.patch
-- kind: patch
   path: patches/hotdoc/c_comment_scanner-fix-function-prototypes.patch
