@@ -47,3 +47,7 @@ sources:
     suffix: 26/f3/94ed01195952d8ba87e43ed1417f03bf50cd9d7d8db9c2c4364932e150a0/hotdoc-0.18.2.tar.gz
 - kind: patch
   path: patches/hotdoc/c_comment_scanner-fix-function-prototypes.patch
+- kind: git_repo
+  directory: subprojects/hotdoc_bootstrap_theme
+  url: github:hotdoc/hotdoc_bootstrap_theme.git
+  ref: 0ce3e58cbed33fb807b1b1c46d70685f3663d4a9
