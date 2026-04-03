@@ -462,6 +462,7 @@ depends:
 - components/python3-markdown.bst
 - components/python3-markupsafe.bst
 - components/python3-maturin.bst
+- components/python3-meson-python.bst
 - components/python3-multidict.bst
 - components/python3-networkx.bst
 - components/python3-packaging.bst
@@ -485,6 +486,7 @@ depends:
 - components/python3-pygments.bst
 - components/python3-pyparsing.bst
 - components/python3-pyproject-hooks.bst
+- components/python3-pyproject-metadata.bst
 - components/python3-pyroaring.bst
 - components/python3-pytz.bst
 - components/python3-pyyaml.bst

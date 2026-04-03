@@ -5,6 +5,7 @@ build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/make.bst
 - components/pkg-config.bst
+- components/python3-meson-python.bst
 - components/flex.bst
 
 depends:
