@@ -8,6 +8,7 @@ build-depends:
 - components/go.bst
 - components/ostree.bst
 - components/pkg-config.bst
+- components/sed.bst
 - public-stacks/buildsystem-make.bst
 
 depends:
@@ -25,6 +26,11 @@ variables:
     %{make-args}
     DESTDIR="%{install-root}"
     install-binary install-docs install-completions
+
+config:
+  build-commands:
+    (<):
+    - sed -i 's|-gcflags "$(GOGCFLAGS)"||' Makefile
 
 sources:
 - kind: git_repo
