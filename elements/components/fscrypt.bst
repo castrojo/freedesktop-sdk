@@ -1,11 +1,10 @@
-kind: make
+kind: manual
 
 build-depends:
-- public-stacks/buildsystem-make.bst
-- components/pkg-config.bst
-- components/_private/git-minimal.bst
+- components/gcc.bst
 - components/go.bst
 - components/m4.bst
+- components/stripper.bst
 
 depends:
 - components/linux-pam.bst
@@ -13,11 +12,29 @@ depends:
 
 variables:
   optimize-debug: "false"
+  go_buildmode_flag: ""
+  local_goflags: "-buildvcs=false"
 
 config:
   build-commands:
-    (<):
     - mv -vf modules.txt vendor/modules.txt
+
+    - |
+      go build -buildmode=pie ./cmd/fscrypt
+      go build -buildmode=c-shared -o pam_fscrypt.so ./pam_fscrypt
+
+  install-commands:
+    - |
+      install -Dm755 -t "%{install-root}%{bindir}" fscrypt
+      install -Dm755 -t "%{install-root}%{indep-libdir}/security" pam_fscrypt.so
+      install -Dm644 cmd/fscrypt/fscrypt_bash_completion "%{install-root}%{datadir}/bash-completion/completions/fscrypt"
+
+    - |
+      m4 --define=PAM_INSTALL_PATH="%{indep-libdir}/security/pam_fscrypt.so" < pam_fscrypt/config > config
+      install -Dm644 config "%{install-root}%{datadir}/pam-configs/fscrypt"
+
+    - |
+      %{install-extra}
 
 sources:
 - kind: git_repo
