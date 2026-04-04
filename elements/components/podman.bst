@@ -31,7 +31,13 @@ environment:
 variables:
   optimize-debug: "false"
   command-subdir: src/github.com/containers/podman
-  make-install: make -j1 %{make-install-args} install.completions
+  make-args: >-
+    PREFIX="%{prefix}"
+    EXTRA_LDFLAGS="%{go_ldflags}"
+  make-install-args: >-
+    %{make-args}
+    DESTDIR="%{install-root}"
+    install install.completions
 
 sources:
 - kind: git_repo

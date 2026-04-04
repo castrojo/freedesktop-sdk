@@ -18,8 +18,13 @@ depends:
 
 variables:
   command-subdir: src/github.com/containers/skopeo
-  # otherwise it installs etc/containers/ as well
-  make-install: make -j1 %{make-args} DESTDIR="%{install-root}" install-binary install-docs install-completions
+  make-args: >-
+    PREFIX="%{prefix}"
+    EXTRA_LDFLAGS="%{go_ldflags}"
+  make-install-args: >-
+    %{make-args}
+    DESTDIR="%{install-root}"
+    install-binary install-docs install-completions
 
 sources:
 - kind: git_repo
