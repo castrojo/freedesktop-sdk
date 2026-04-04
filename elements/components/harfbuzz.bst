@@ -18,6 +18,7 @@ variables:
     -Dchafa=disabled
     -Dgraphite2=enabled
     -Dtests=disabled
+    -Dgpu_demo=disabled
 
   target_flags_exceptions: ''
 
