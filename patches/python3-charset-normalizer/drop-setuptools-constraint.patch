@@ -1,10 +1,10 @@
 diff --git a/pyproject.toml b/pyproject.toml
-index 5207e94..cc8fccb 100644
+index 85821eb..8988220 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
  [build-system]
--requires = ["setuptools>=68,<=82.0.0"]
+-requires = ["setuptools>=68,<82.1"]
 +requires = ["setuptools>=68"]
  build-backend = "backend"
  backend-path = ["_mypyc_hook"]
