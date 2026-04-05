@@ -14,4 +14,4 @@ sources:
 - kind: git_repo
   url: github:doctest/doctest.git
   track: v*
-  ref: v2.5.0-0-gd44d4f6e66232d716af82f00a063759e9d0e50d6
+  ref: v2.5.1-0-g415855d33e88146425c2d8db1825797e7b1a4c85
