@@ -46,4 +46,4 @@ sources:
 - kind: git_repo
   url: github:libsdl-org/SDL.git
   track: release-*
-  ref: release-3.4.2-0-g683181b47cfabd293e3ea409f838915b8297a4fd
+  ref: release-3.4.4-0-g5848e584a1b606de26e3dbd1c7e4ecbc34f807a6
