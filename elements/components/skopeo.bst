@@ -15,6 +15,7 @@ depends:
 - components/containers-common.bst
 - components/gpgme.bst
 - components/libassuan.bst
+- components/sqlite.bst
 - public-stacks/runtime-minimal.bst
 
 variables:
