@@ -20,8 +20,7 @@ variables:
     SHARED=yes
     OPT="${CFLAGS}"
     STRIP=""
-  make-install: make -j1 %{make-args} DESTDIR="%{install-root}" install 
-    install-lib
+  make-install: make -j1 %{make-args} DESTDIR="%{install-root}" install install-lib
 
 config:
   install-commands:
@@ -58,4 +57,4 @@ sources:
 - kind: git_repo
   track: v*
   url: kernel:utils/pciutils/pciutils.git
-  ref: v3.14.0-0-gc6030ae1576b6bf1de9b41f53a9ed76137181d99
+  ref: v3.15.0-0-gb424ac8b498317965bfd3ab33ae21b158a7f1dd2
