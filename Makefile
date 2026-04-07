@@ -398,7 +398,12 @@ test-oci:
 	set -e; \
 	if podman --version >/dev/null 2>&1; then \
 		IMAGE=$$(podman load -i flatpak-oci.tar | grep -E "^Loaded image:" | cut -d' ' -f3); \
-		podman run --rm $$IMAGE sh --version; \
+		# Workaround for https://github.com/containers/podman/issues/24737 \
+		if [ -n "$$CI" ]; then \
+			podman run --rm --cgroups=disabled $$IMAGE sh --version; \
+		else \
+			podman run --rm $$IMAGE sh --version; \
+		fi; \
 	fi
 
 define OSTREE_GPG_CONFIG
