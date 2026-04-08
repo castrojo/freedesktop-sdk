@@ -34,4 +34,4 @@ sources:
 - kind: git_repo
   url: gitlab:BuildGrid/buildbox/buildbox.git
   track: '*.*.*'
-  ref: 1.4.1-0-g5f0255032fa461795cbe1db46c3fa74c9beb12ec
+  ref: 1.4.3-0-gdf040e7427e0840ee92d9969c4012f0bde72bafc
