@@ -15,4 +15,4 @@ sources:
 - kind: git_repo
   url: github:flatpak/xdg-dbus-proxy.git
   track: '*.*.*'
-  ref: 0.1.6-0-g1c1989e56f94b9eb3b7567f8a6e8a0aa16cba496
+  ref: 0.1.7-0-g6a170fa77e3cbecb48f9dd2478fe5c0a119eb467
