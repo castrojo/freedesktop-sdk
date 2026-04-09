@@ -5,6 +5,7 @@ depends:
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- components/git.bst
 - components/flatpak-minimal.bst
 - components/fontconfig.bst
 - components/fuse3.bst
@@ -12,6 +13,7 @@ build-depends:
 - components/glib.bst
 - components/pipewire.bst
 - components/libgudev.bst
+- components/sed.bst
 
 variables:
   meson-local: >-
@@ -32,8 +34,33 @@ public:
   cpe:
     product: xdg-desktop-portal
 
+
+config:
+  configure-commands:
+    (<):
+    - |
+      set -eu
+
+      WRAP_FILE="%{build-root}/subprojects/libglnx.wrap"
+      test -f "$WRAP_FILE"
+
+      LIBGLNX_REV_NEEDED=$(sed -n 's/^revision[[:space:]]*=[[:space:]]*//p' "$WRAP_FILE")
+      LIBGLNX_REV_FOUND=$(git -C subprojects/libglnx rev-parse HEAD)
+
+      if [ "$LIBGLNX_REV_NEEDED" != "$LIBGLNX_REV_FOUND" ]; then
+        echo "Error: libglnx revision mismatch!"
+        echo "Needed: $LIBGLNX_REV_NEEDED"
+        echo "Found:  $LIBGLNX_REV_FOUND"
+        exit 1
+      fi
+
 sources:
 - kind: git_repo
   url: github:flatpak/xdg-desktop-portal.git
   track: '1.*[02468].*'
   ref: 1.20.4-0-gf5aec228c9eb0c9a70eadd6424d92c0ca8a78247
+- kind: git_repo
+  url: gnome:libglnx.git
+  ref-format: sha1
+  ref: ccea836b799256420788c463a638ded0636b1632
+  directory: subprojects/libglnx
