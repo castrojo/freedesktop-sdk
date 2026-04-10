@@ -2,4 +2,4 @@ sources:
 - kind: git_repo
   url: github:flatpak/flatpak.git
   track: 1.1[02468]*
-  ref: 1.16.4-0-g2cc39deb237776614f8bdecae1892e5229aeca60
+  ref: 1.16.6-0-ge761a8885453c217a931281092a641ebbdd0a0c6
