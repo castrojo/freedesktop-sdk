@@ -147,4 +147,4 @@ sources:
 - kind: git_repo
   url: freedesktop:PipeWire/pipewire.git
   track: '*.[02468].*'
-  ref: 1.6.2-0-g95da54a482b68475958bbc3fa572a9c20df0df74
+  ref: 1.6.3-0-gcc3d0d1191266b263f6d0fa03fce1d1ef57151cc
