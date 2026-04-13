@@ -2,6 +2,15 @@
 # SPDX-License-Identifier: MIT
 
 kind: filter
+description: |
+  systemd service manager.
+
+  Use systemd-libs.bst if you only need the systemd libraries.
+
+  This element requires some utility programs at runtime, including: `agetty`,
+  `fsck` and `mkswap`. Multiple implementations of these are available and
+  system integrators must choose one and include it in their system. FDSDK
+  provides the util-linux implementations in `components/util-linux-full.bst`.
 
 build-depends:
 - components/_private/systemd-base.bst
