@@ -39,11 +39,17 @@ config:
 
   - |
     . /tmp/vars
+    version="$(ls -1 /lib/modules | head -n1)"
     dracut -v --xz --reproducible --fstab \
-           --no-machineid --kernel-image /boot/vmlinuz \
-           --kver $(ls -1 /lib/modules | head -n1) \
+           --no-machineid \
+           --kernel-image "/lib/modules/${version}/vmlinuz" \
+           --kver ${version} \
            --kernel-cmdline "rw quiet splash" \
            --install 'fsck.ext4'
+
+  - |
+    version="$(ls -1 /lib/modules | head -n1)"
+    cp "/lib/modules/${version}/vmlinuz" /boot
 
   - |
     . /tmp/vars
@@ -56,6 +62,7 @@ config:
     EOF
 
   - |
-    if [ -e /boot/vmlinuz ]; then
-      rm /boot/vmlinux
+    version="$(ls -1 /lib/modules | head -n1)"
+    if [ -e "/lib/modules/${version}/vmlinuz" ]; then
+      rm "/lib/modules/${version}/vmlinux"
     fi

@@ -68,17 +68,13 @@ config:
   - |
     . /tmp/vars
     version="$(ls -1 /lib/modules | head -n1)"
-    mkdir -p "%{install-root}/usr/lib/modules/${version}"
     dracut -v --xz --reproducible --fstab \
            --no-machineid \
+           --kernel-image "/lib/modules/${version}/vmlinuz" \
            --kver "${version}" \
            --add ostree \
            --install 'fsck.ext4' \
            "%{install-root}/usr/lib/modules/${version}/initramfs"
-
-  - |
-    version="$(ls -1 /lib/modules | head -n1)"
-    cp /boot/vmlinuz "%{install-root}/usr/lib/modules/${version}/vmlinuz"
 
   # Install the bootloader.
   #

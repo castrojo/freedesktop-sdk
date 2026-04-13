@@ -34,17 +34,22 @@ config:
 
   - |
     . /tmp/vars
+    version="$(ls -1 /lib/modules | head -n1)"
     mkdir -p /var/tmp
     dracut -v --xz --reproducible --fstab \
            --no-machineid \
-           --kver $(ls -1 /lib/modules | head -n1) \
+           --kernel-image "/lib/modules/${version}/vmlinuz" \
+           --kver ${version} \
            --kernel-cmdline "root=UUID=${uuid_root} rw console=tty0 console=ttyS0 quiet" \
            --install 'fsck.ext4'
 
   - |
-    cp /boot/initramfs-$(ls -1 /lib/modules | head -n1).img /boot/initramfs.img
+    version="$(ls -1 /lib/modules | head -n1)"
+    cp /lib/modules/${version}/vmlinuz /boot/vmlinuz
+    cp /boot/initramfs-${version}.img /boot/initramfs.img
 
   - |
-    if [ -e /boot/vmlinuz ]; then
-      rm /boot/vmlinux
+    version="$(ls -1 /lib/modules | head -n1)"
+    if [ -e "/lib/modules/${version}/vmlinuz" ]; then
+      rm "/lib/modules/${version}/vmlinux"
     fi

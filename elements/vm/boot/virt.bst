@@ -32,9 +32,15 @@ config:
     echo '%{libdir}' >/etc/ld.so.conf
 
   - |
+    version="$(ls -1 /lib/modules | head -n1)"
     dracut -v --reproducible --fstab \
            --no-machineid \
-           --kver $(ls -1 /lib/modules | head -n1) \
+           --kernel-image "/lib/modules/${version}/vmlinuz" \
+           --kver ${version} \
            --add "virtfs" \
            --gzip \
            /boot/initramfs.gz
+
+  - |
+    version="$(ls -1 /lib/modules | head -n1)"
+    cp /lib/modules/${version}/vmlinuz /boot/vmlinuz

@@ -38,10 +38,12 @@ config:
     echo '%{libdir}' >/etc/ld.so.conf
 
   - |
+    version="$(ls -1 /lib/modules | head -n1)"
     dracut -v --xz --reproducible --fstab \
            --uefi \
-           --no-machineid --kernel-image /boot/vmlinuz \
-           --kver $(ls -1 /lib/modules | head -n1) \
+           --no-machineid \
+           --kernel-image "/lib/modules/${version}/vmlinuz" \
+           --kver ${version} \
            --kernel-cmdline "rw mount.usrflags=ro console=ttyS0 lockdown=confidentiality" \
            --install 'fsck.ext4' \
            --install 'mkfs.ext4' \

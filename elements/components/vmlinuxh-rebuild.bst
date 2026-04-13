@@ -10,7 +10,8 @@ variables:
 config:
   build-commands:
   - |
-    bpftool btf dump file /boot/vmlinux format c >vmlinux.h
+    version="$(ls -1 /lib/modules | head -n1)"
+    bpftool btf dump file %{indep-libdir}/modules/${version}/vmlinux format c >vmlinux.h
 
   install-commands:
   - |
