@@ -12,6 +12,7 @@ depends:
 
 runtime-depends:
 - components/python3-protobuf.bst
+- components/python3-typing-extensions.bst
 
 environment:
   GRPC_PYTHON_BUILD_SYSTEM_ABSL: "true"
