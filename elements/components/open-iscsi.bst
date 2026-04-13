@@ -4,6 +4,7 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/perl.bst
 - components/systemd.bst
+- components/util-linux-full.bst
 
 depends:
 - components/open-isns.bst
