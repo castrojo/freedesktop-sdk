@@ -14,6 +14,7 @@ runtime-depends:
 - components/sed.bst
 - components/systemd.bst
 - components/tzdata.bst
+- components/util-linux.bst
 
 variables:
   strip-binaries: ''
