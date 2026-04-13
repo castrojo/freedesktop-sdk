@@ -12,6 +12,7 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/binutils.bst
+- components/openssl.bst
 
 variables:
   command-subdir: tools/bpf
