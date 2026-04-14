@@ -69,9 +69,3 @@ config:
     linux /vmlinuz
     initrd /initramfs-$(ls -1 /lib/modules | head -n1).img
     EOF
-
-  - |
-    version="$(ls -1 /lib/modules | head -n1)"
-    if [ -e "/lib/modules/${version}/vmlinuz" ]; then
-      rm "/lib/modules/${version}/vmlinux"
-    fi

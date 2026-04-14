@@ -47,9 +47,3 @@ config:
     version="$(ls -1 /lib/modules | head -n1)"
     cp /lib/modules/${version}/vmlinuz /boot/vmlinuz
     cp /boot/initramfs-${version}.img /boot/initramfs.img
-
-  - |
-    version="$(ls -1 /lib/modules | head -n1)"
-    if [ -e "/lib/modules/${version}/vmlinuz" ]; then
-      rm "/lib/modules/${version}/vmlinux"
-    fi

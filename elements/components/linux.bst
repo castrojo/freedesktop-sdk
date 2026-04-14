@@ -134,7 +134,8 @@ public:
     split-rules:
       devel:
         (>):
-        - '%{install-root}%{indep-libdir}/modules/*/System.map'
+        - '%{indep-libdir}/modules/*/System.map'
+        - '%{indep-libdir}/modules/*/vmlinux'
     overlap-whitelist:
     - "%{project_licensedir}"
     - "%{project_licensedir}/**"
