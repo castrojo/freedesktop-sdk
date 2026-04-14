@@ -6,6 +6,10 @@ kind: cmake
 build-depends:
 - components/_private/buildsystem-cmake.bst
 - components/_private/python3-minimal.bst
+- components/_private/recc.bst
+- filename: components/gcc.bst
+  config:
+    digest-environment: RECC_REMOTE_PLATFORM_chrootRootDigest
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -15,6 +19,7 @@ depends:
 environment:
   # Work-around issue building compiler-rt with multiarch
   LD_LIBRARY_PATH: '%{build-root}/%{build-dir}/lib/%{gcc_triplet}'
+  PATH: /usr/recc/bin:/usr/bin
 
 variables:
   conf-root: llvm
