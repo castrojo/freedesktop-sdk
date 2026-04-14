@@ -10,6 +10,9 @@ depends:
 - components/protobuf.bst
 - components/tomlplusplus.bst
 
+runtime-depends:
+- components/_private/recc-wrappers.bst
+
 variables:
   cmake-local: >-
     -DBUILD_TESTING=OFF
