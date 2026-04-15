@@ -10,7 +10,7 @@ sources:
 - kind: git_repo
   url: github:containers/aardvark-dns.git
   track: v*
-  ref: v1.17.0-0-g2158073ba56807fb1a7731899712a54603c3d150
+  ref: v1.17.1-0-gd9d17d4fe9d0a43512f6203042543deb3431a1bb
 - kind: cargo2
   ref:
   - kind: registry
