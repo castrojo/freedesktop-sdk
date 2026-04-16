@@ -2,6 +2,8 @@ kind: script
 
 build-depends:
 - components/_private/systemd-stage1.bst
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 
 config:
   commands:

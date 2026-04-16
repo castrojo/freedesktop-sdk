@@ -1,4 +1,6 @@
 depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - components/gcc.bst
 - components/gettext.bst
 - components/ninja.bst

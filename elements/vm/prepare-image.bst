@@ -1,6 +1,8 @@
 kind: manual
 
 depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - public-stacks/runtime-minimal.bst
 
 runtime-depends:

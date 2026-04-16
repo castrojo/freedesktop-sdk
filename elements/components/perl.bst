@@ -4,6 +4,8 @@ kind: make
 - elements/include/perl-source.yml
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/gawk.bst
 - bootstrap/gcc.bst
 - bootstrap/grep.bst
@@ -12,8 +14,6 @@ build-depends:
 - bootstrap/stripper.bst
 
 depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
 - bootstrap/glibc.bst
 - bootstrap/libxcrypt.bst
 - bootstrap/symlinks.bst

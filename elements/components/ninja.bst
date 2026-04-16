@@ -1,6 +1,8 @@
 kind: manual
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/sed.bst
 - components/gcc.bst
 - components/_private/python3-minimal.bst

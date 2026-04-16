@@ -5,6 +5,8 @@ description: pkg-config
 - elements/include/pkg-config-source.yml
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/gcc.bst
 - bootstrap/make.bst
 - bootstrap/stripper.bst
@@ -14,8 +16,6 @@ build-depends:
 - components/m4.bst
 
 depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
 - bootstrap/glibc.bst
 - bootstrap/symlinks.bst
 - components/utf-locale.bst
