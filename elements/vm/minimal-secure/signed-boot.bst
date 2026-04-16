@@ -4,6 +4,7 @@
 kind: manual
 
 build-depends:
+- public-stacks/runtime-gnu.bst
 - components/_private/sbsigntools.bst
 - components/binutils.bst
 - components/os-release.bst

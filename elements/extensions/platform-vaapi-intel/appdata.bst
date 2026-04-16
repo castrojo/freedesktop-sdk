@@ -4,6 +4,7 @@
 kind: manual
 
 build-depends:
+- public-stacks/runtime-gnu.bst
 - components/appstream-minimal.bst
 
 variables:

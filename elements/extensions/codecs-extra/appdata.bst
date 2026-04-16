@@ -7,6 +7,7 @@ kind: manual
 - elements/extensions/codecs-extra/config.yml
 
 build-depends:
+- public-stacks/runtime-gnu.bst
 - components/appstream-minimal.bst
 
 variables:

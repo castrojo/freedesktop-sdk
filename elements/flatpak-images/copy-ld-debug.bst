@@ -7,7 +7,7 @@ description: |
   appear in the SDK.
 
 build-depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 
 variables:
   linker-pattern: ld-linux*.so*.debug

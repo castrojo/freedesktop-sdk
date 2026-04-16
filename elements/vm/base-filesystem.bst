@@ -13,7 +13,7 @@ description: |
   see <http://refspecs.linuxfoundation.org/fhs.shtml> for more information.
 
 build-depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 
 config:
   commands:

@@ -3,6 +3,9 @@
 
 kind: manual
 
+build-depends:
+- public-stacks/runtime-gnu.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
 - components/weston.bst
