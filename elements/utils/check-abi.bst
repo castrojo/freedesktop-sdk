@@ -1,7 +1,7 @@
 kind: manual
 
-build-depends:
-- public-stacks/runtime-minimal.bst
+depends:
+- public-stacks/runtime-gnu.bst
 
 runtime-depends:
 - components/file.bst
