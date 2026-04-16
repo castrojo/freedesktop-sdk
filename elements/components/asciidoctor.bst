@@ -1,5 +1,9 @@
 kind: manual
 
+build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
+
 depends:
 - components/ruby.bst
 

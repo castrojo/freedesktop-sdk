@@ -1,6 +1,8 @@
 kind: autotools
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/gcc.bst
 - bootstrap/make.bst
 - bootstrap/stripper.bst
@@ -12,8 +14,6 @@ build-depends:
 - components/texinfo.bst
 
 depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
 - bootstrap/glibc.bst
 - bootstrap/symlinks.bst
 - components/utf-locale.bst

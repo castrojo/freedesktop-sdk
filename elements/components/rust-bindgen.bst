@@ -4,6 +4,8 @@ depends:
 - components/llvm.bst
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - components/gcc.bst
 - components/stripper.bst
 - components/rust.bst

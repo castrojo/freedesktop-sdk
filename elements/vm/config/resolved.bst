@@ -1,5 +1,8 @@
 kind: manual
 
+build-depends:
+- public-stacks/runtime-gnu.bst
+
 depends:
 - components/systemd.bst
 

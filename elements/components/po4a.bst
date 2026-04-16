@@ -1,6 +1,8 @@
 kind: modulebuild
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/make.bst
 - bootstrap/diffutils.bst
 - components/gettext.bst
