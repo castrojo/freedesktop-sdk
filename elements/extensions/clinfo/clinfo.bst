@@ -8,7 +8,7 @@ build-depends:
 - public-stacks/buildsystem-make.bst
 
 depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 - components/opencl.bst
 
 sources:

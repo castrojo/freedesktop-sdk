@@ -8,7 +8,7 @@ build-depends:
 - bootstrap/sed.bst
 - components/llvm.bst
 - components/spirv-llvm-translator.bst
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 
 variables:
   libraries: >-

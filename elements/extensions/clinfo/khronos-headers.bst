@@ -1,7 +1,7 @@
 kind: manual
 
 depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 
 variables:
   strip-binaries: ''

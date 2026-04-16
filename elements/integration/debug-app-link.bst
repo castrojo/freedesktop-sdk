@@ -3,7 +3,7 @@ description: Creates a debug directory, links the debug data of /app to a subdir
   of it
 
 depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 
 variables:
   strip-binaries: ''

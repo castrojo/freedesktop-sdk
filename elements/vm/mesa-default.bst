@@ -4,7 +4,7 @@ kind: manual
 - elements/flatpak-images/include/platform-vars.yml
 
 build-depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 
 runtime-depends:
 - extensions/mesa/mesa.bst

@@ -1,6 +1,9 @@
 kind: manual
 
-depends:
+build-depends:
+- public-stacks/runtime-gnu.bst
+
+runtime-depends:
 - public-stacks/runtime-minimal.bst
 
 variables:

@@ -2,6 +2,7 @@ kind: manual
 
 build-depends:
 - components/appstream-minimal.bst
+- public-stacks/runtime-gnu.bst
 
 variables:
   prefix: "/usr/lib/%{gcc_triplet}/dri/nvidia-vaapi-driver"

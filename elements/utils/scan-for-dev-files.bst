@@ -4,7 +4,7 @@ depends:
 - bootstrap/binutils.bst
 - bootstrap/findutils.bst
 - bootstrap/sed.bst
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 
 variables:
   strip-binaries: ''
