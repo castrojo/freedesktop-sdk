@@ -5,6 +5,7 @@ build-depends:
 - vm/boot/efi-plymouth/deps.bst
 - vm/boot/efi-plymouth/initial-scripts.bst
 - vm/prepare-image.bst
+- components/binutils.bst
 
 variables:
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
@@ -42,21 +43,8 @@ config:
     version="$(ls -1 /lib/modules | head -n1)"
     dracut -v --xz --reproducible --fstab \
            --no-machineid \
+           --uefi "%{install-root}/EFI/Linux/freedesktopsdk.efi" \
            --kernel-image "/lib/modules/${version}/vmlinuz" \
            --kver ${version} \
            --kernel-cmdline "rw quiet splash" \
            --install 'fsck.ext4'
-
-  - |
-    version="$(ls -1 /lib/modules | head -n1)"
-    cp "/lib/modules/${version}/vmlinuz" /boot
-
-  - |
-    . /tmp/vars
-    cat <<EOF >/boot/loader/entries/fdsdk.conf
-    title Freedesktop SDK
-    version 1
-    options rw quiet splash
-    linux /vmlinuz
-    initrd /initramfs-$(ls -1 /lib/modules | head -n1).img
-    EOF

@@ -4,6 +4,7 @@ build-depends:
 - vm/boot/efi-secure/deps.bst
 - vm/boot/efi-secure/initial-scripts.bst
 - vm/prepare-image.bst
+- components/binutils.bst
 
 variables:
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
@@ -37,10 +38,12 @@ config:
   - |
     echo '%{libdir}' >/etc/ld.so.conf
 
+  - mkdir -p "%{install-root}/boot/EFI/Linux"
+
   - |
     version="$(ls -1 /lib/modules | head -n1)"
     dracut -v --xz --reproducible --fstab \
-           --uefi \
+           --uefi "%{install-root}/boot/EFI/Linux/freedesktopsdk.efi" \
            --no-machineid \
            --kernel-image "/lib/modules/${version}/vmlinuz" \
            --kver ${version} \
