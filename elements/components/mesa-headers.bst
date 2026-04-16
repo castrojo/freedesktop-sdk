@@ -7,7 +7,7 @@ kind: manual
 - elements/include/mesa-sdk.yml
 
 build-depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 - bootstrap/sed.bst
 - components/_private/git-minimal.bst
 

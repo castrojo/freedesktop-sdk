@@ -4,7 +4,7 @@
 kind: script
 
 build-depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 
 variables:
   compat_arch: aarch64-linux-gnu

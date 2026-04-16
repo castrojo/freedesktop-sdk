@@ -4,7 +4,7 @@
 kind: manual
 
 depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 - bootstrap/binutils.bst
 - bootstrap/findutils.bst
 - bootstrap/sed.bst

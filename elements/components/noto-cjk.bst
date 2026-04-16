@@ -4,7 +4,7 @@
 kind: manual
 
 build-depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 - components/fontconfig.bst
 - components/pkg-config.bst
 
