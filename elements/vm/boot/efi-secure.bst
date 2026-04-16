@@ -1,6 +1,7 @@
 kind: script
 
 build-depends:
+- components/binutils.bst
 - vm/boot/efi-secure/deps.bst
 - vm/boot/efi-secure/initial-scripts.bst
 - vm/prepare-image.bst
@@ -37,10 +38,12 @@ config:
   - |
     echo '%{libdir}' >/etc/ld.so.conf
 
+  - mkdir -p "%{install-root}/boot/EFI/Linux"
+
   - |
     version="$(ls -1 /lib/modules | head -n1)"
     dracut -v --xz --reproducible --fstab \
-           --uefi \
+           --uefi "%{install-root}/boot/EFI/Linux/freedesktopsdk.efi" \
            --no-machineid \
            --kernel-image "/lib/modules/${version}/vmlinuz" \
            --kver ${version} \

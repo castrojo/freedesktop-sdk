@@ -1,6 +1,7 @@
 kind: script
 
 build-depends:
+- components/binutils.bst
 - components/fakecap.bst
 - vm/boot/efi/deps.bst
 - vm/boot/efi/initial-scripts.bst
@@ -29,9 +30,7 @@ config:
   - mkdir -p /tmp
   - mkdir -p /var/tmp
   - mkdir -p /boot
-  - |
-    prepare-image.sh --sysroot / --rootpasswd root \
-                     --seed "%{uuidnamespace}" >/tmp/vars
+  - prepare-image.sh --sysroot / --rootpasswd root --seed "%{uuidnamespace}" >/tmp/vars
 
   - dbus-uuidgen >/etc/machine-id
   - SYSTEMD_ESP_PATH=/boot bootctl --no-variables install
@@ -51,21 +50,8 @@ config:
     version="$(ls -1 /lib/modules | head -n1)"
     dracut -v --xz --reproducible --fstab \
            --no-machineid \
+           --uefi "%{install-root}/EFI/Linux/freedesktopsdk.efi" \
            --kernel-image "/lib/modules/${version}/vmlinuz" \
            --kver ${version} \
            --kernel-cmdline "rw console=tty0 console=ttyS0 quiet root=UUID=${uuid_root}" \
            --install 'fsck.ext4'
-
-  - |
-    version="$(ls -1 /lib/modules | head -n1)"
-    cp "/lib/modules/${version}/vmlinuz" /boot
-
-  - |
-    . /tmp/vars
-    cat <<EOF >/boot/loader/entries/fdsdk.conf
-    title Freedesktop SDK
-    version 1
-    options rw console=tty0 console=ttyS0 root=UUID=${uuid_root}
-    linux /vmlinuz
-    initrd /initramfs-$(ls -1 /lib/modules | head -n1).img
-    EOF

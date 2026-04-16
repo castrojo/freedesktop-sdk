@@ -5,13 +5,13 @@ build-depends:
 - filename: vm/minimal-secure/usr-image.bst
   config:
     location: /usr-image
+- components/binutils.bst
 - components/os-release.bst
 - components/_private/sbsigntools.bst
 - components/sign-file.bst
 - components/systemd.bst
 - components/systemd-ukify.bst
 - components/util-linux.bst
-- components/binutils.bst
 
 variables:
   strip-binaries: ''
@@ -39,10 +39,10 @@ config:
     sdk_version="${sdk_version%_*}"
     version="$(ls -1 /usr/lib/modules | head -n1)"
     usr_part_uuid="$(uuidgen -s --namespace "%{uuidnamespace}" --name partition-usr)"
-    objcopy -O binary -j .linux "/boot/EFI/Linux/linux-${version}.efi" linux
-    objcopy -O binary -j .initrd "/boot/EFI/Linux/linux-${version}.efi" initrd
-    objcopy -O binary -j .cmdline "/boot/EFI/Linux/linux-${version}.efi" cmdline.txt
-    rm "%{install-root}/boot/EFI/Linux/linux-${version}.efi"
+    objcopy -O binary -j .linux "/boot/EFI/Linux/freedesktopsdk.efi" linux
+    objcopy -O binary -j .initrd "/boot/EFI/Linux/freedesktopsdk.efi" initrd
+    objcopy -O binary -j .cmdline "/boot/EFI/Linux/freedesktopsdk.efi" cmdline.txt
+    rm "%{install-root}/boot/EFI/Linux/freedesktopsdk.efi"
     echo -n "usrhash=$(cat /usr-image/usr-root-hash.txt) " >new-cmdline.txt
     cat cmdline.txt >>new-cmdline.txt
     ukify build \
