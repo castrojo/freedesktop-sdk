@@ -4,6 +4,7 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 build-depends:
+- public-stacks/runtime-gnu.bst
 - components/rust.bst
 - components/gcc.bst
 - components/stripper.bst

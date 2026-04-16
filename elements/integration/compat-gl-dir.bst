@@ -5,7 +5,7 @@ variables:
   strip-binaries: ''
 
 build-depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 
 config:
   install-commands:

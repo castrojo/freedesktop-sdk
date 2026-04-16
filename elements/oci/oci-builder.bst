@@ -6,6 +6,7 @@ description: |
   kept minimal.
 
 build-depends:
+- public-stacks/runtime-gnu.bst
 - components/oci-builder.bst
 
 config:

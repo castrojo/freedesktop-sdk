@@ -4,6 +4,7 @@ kind: manual
 - elements/include/linux.yml
 
 build-depends:
+- public-stacks/runtime-gnu.bst
 - bootstrap/stripper.bst
 - components/gcc.bst
 

@@ -7,6 +7,7 @@ build-depends:
 - components/appstream-minimal.bst
 - components/_private/git-minimal.bst
 - components/m4.bst
+- public-stacks/runtime-gnu.bst
 
 variables:
   app-id: >-

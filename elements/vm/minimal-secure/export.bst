@@ -7,7 +7,7 @@ build-depends:
 - filename: vm/minimal-secure/signed-boot.bst
   config:
     location: /signed-boot
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 - components/xz.bst
 
 environment:

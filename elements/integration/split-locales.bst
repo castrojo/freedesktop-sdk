@@ -5,7 +5,7 @@ description: |
   extension, and not ship localisation data in the main SDK
 
 depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 
 public:
   bst:

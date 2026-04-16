@@ -2,7 +2,7 @@ kind: manual
 description: Creates a GL subdirectory, needed for GL debug extensions
 
 build-depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 
 variables:
   strip-binaries: ''

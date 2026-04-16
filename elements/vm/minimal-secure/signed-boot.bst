@@ -12,6 +12,8 @@ build-depends:
 - components/systemd.bst
 - components/systemd-ukify.bst
 - components/util-linux.bst
+- components/binutils.bst
+- public-stacks/runtime-gnu.bst
 
 variables:
   strip-binaries: ''

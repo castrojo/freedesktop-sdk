@@ -7,10 +7,23 @@ build-depends:
 - components/pkg-config.bst
 - components/rust.bst
 - components/stripper.bst
+- public-stacks/runtime-gnu.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
 - components/glib.bst
+
+runtime-depends:
+- components/python3.bst
+- components/python3-requests.bst
+- components/python3-aiohttp.bst
+- components/python3-aiosignal.bst
+- components/python3-chardet.bst
+- components/pygobject.bst
+- components/python3-tenacity.bst
+
+variables:
+  strip-binaries: ''
 
 config:
   build-commands:

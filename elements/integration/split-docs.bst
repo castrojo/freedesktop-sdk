@@ -6,7 +6,7 @@ description: |
   actual SDK
 
 depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 
 public:
   bst:

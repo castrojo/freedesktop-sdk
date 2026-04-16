@@ -5,6 +5,7 @@ kind: manual
 
 build-depends:
 - components/appstream-minimal.bst
+- public-stacks/runtime-gnu.bst
 
 variables:
   app-id: org.freedesktop.Platform.codecs-extra

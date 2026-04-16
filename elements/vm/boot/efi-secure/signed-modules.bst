@@ -1,6 +1,7 @@
 kind: manual
 
 build-depends:
+- public-stacks/runtime-gnu.bst
 - components/findutils.bst
 - components/linux.bst
 - components/sign-file.bst

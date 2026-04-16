@@ -2,6 +2,7 @@ kind: manual
 
 build-depends:
 - components/pkg-config.bst
+- public-stacks/runtime-gnu.bst
 
 depends:
 - components/systemd.bst
