@@ -9,6 +9,8 @@ description: |
 
 build-depends:
 - public-stacks/runtime-minimal.bst
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 
 variables:
   strip-binaries: ''

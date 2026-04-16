@@ -1,6 +1,8 @@
 kind: manual
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/sed.bst
 
 depends:

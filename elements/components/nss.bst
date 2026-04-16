@@ -28,6 +28,8 @@ depends:
 - components/p11-kit.bst
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/gawk.bst
 - bootstrap/grep.bst
 - bootstrap/sed.bst

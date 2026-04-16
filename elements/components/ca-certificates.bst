@@ -15,6 +15,8 @@ variables:
   strip-binaries: ''
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/findutils.bst
 - bootstrap/gawk.bst
 - bootstrap/grep.bst
@@ -61,7 +63,7 @@ config:
     EOF
     P11FILES=`find certs -name \*.tmp-p11-kit | wc -l`
     if [ $P11FILES -ne 0 ]; then
-      for p in certs/*.tmp-p11-kit; do 
+      for p in certs/*.tmp-p11-kit; do
         cat "$p" >> %{p11_format_bundle}
       done
     fi
@@ -72,7 +74,7 @@ config:
     touch %{legacy_default_bundle}
     NUM_LEGACY_DEFAULT=`find certs/legacy-default -type f | wc -l`
     if [ $NUM_LEGACY_DEFAULT -ne 0 ]; then
-      for f in certs/legacy-default/*.crt; do 
+      for f in certs/legacy-default/*.crt; do
         echo "processing $f"
         tbits=`sed -n '/^# openssl-trust/{s/^.*=//;p;}' $f`
         alias=`sed -n '/^# alias=/{s/^.*=//;p;q;}' $f | sed "s/'//g" | sed 's/"//g'`
@@ -93,7 +95,7 @@ config:
     touch %{legacy_disable_bundle}
     NUM_LEGACY_DISABLE=`find certs/legacy-disable -type f | wc -l`
     if [ $NUM_LEGACY_DISABLE -ne 0 ]; then
-      for f in certs/legacy-disable/*.crt; do 
+      for f in certs/legacy-disable/*.crt; do
         echo "processing $f"
         tbits=`sed -n '/^# openssl-trust/{s/^.*=//;p;}' $f`
         alias=`sed -n '/^# alias=/{s/^.*=//;p;q;}' $f | sed "s/'//g" | sed 's/"//g'`

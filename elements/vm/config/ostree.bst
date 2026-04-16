@@ -8,7 +8,7 @@ description: |
   workflow documented in `BOOTABLE_IMAGES.md`.
 
 build-depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 - components/m4.bst
 
 runtime-depends:

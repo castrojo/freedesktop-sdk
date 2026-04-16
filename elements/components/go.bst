@@ -4,6 +4,8 @@ kind: manual
 - elements/include/go-source.yml
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/go.bst
 - bootstrap/grep.bst
 - bootstrap/sed.bst

@@ -1,9 +1,11 @@
 kind: manual
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
+- bootstrap/findutils.bst
 - components/rust.bst
 - components/pkg-config.bst
-- bootstrap/findutils.bst
 - components/gcc.bst
 - components/stripper.bst
 

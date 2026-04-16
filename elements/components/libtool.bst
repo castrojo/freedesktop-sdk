@@ -2,6 +2,8 @@ kind: autotools
 description: GNU libtool
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/gawk.bst
 - bootstrap/gcc.bst
 - bootstrap/grep.bst
@@ -12,8 +14,6 @@ build-depends:
 - components/m4.bst
 
 depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
 - bootstrap/file.bst
 - bootstrap/glibc.bst
 - bootstrap/sed.bst

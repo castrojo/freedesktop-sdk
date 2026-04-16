@@ -2,6 +2,8 @@ kind: autotools
 description: GNU automake
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/gcc.bst
 - bootstrap/make.bst
 - bootstrap/sed.bst
@@ -10,8 +12,6 @@ build-depends:
 - components/m4.bst
 
 depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
 - bootstrap/glibc.bst
 - bootstrap/symlinks.bst
 - components/utf-locale.bst

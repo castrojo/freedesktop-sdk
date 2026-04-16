@@ -4,6 +4,8 @@ kind: meson
 - elements/include/git.yml
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - components/_private/meson.bst
 - components/expat.bst
 - components/gcc.bst

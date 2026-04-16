@@ -10,7 +10,6 @@ build-depends:
 - public-stacks/runtime-gnu.bst
 
 depends:
-- public-stacks/runtime-minimal.bst
 - components/glib.bst
 
 runtime-depends:

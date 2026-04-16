@@ -5,6 +5,9 @@ kind: cmake
 
 build-depends:
 - components/_private/buildsystem-cmake.bst
+- components/gcc.bst
+- components/ninja.bst
+- components/stripper.bst
 
 depends:
 - components/curl.bst
