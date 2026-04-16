@@ -7,6 +7,8 @@ kind: manual
 - elements/include/rust-source.yml
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/grep.bst
 - bootstrap/sed.bst
 - components/_private/buildsystem-cmake.bst

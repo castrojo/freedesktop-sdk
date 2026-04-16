@@ -5,6 +5,8 @@ kind: manual
 
 depends:
 - public-stacks/runtime-minimal.bst
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 
 runtime-depends:
 - components/findutils.bst

@@ -4,6 +4,8 @@
 kind: manual
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - components/findutils.bst
 - components/perl.bst
 - components/python3.bst

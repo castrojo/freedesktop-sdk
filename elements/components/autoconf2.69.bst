@@ -4,13 +4,13 @@
 kind: autotools
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/gcc.bst
 - bootstrap/make.bst
 - bootstrap/stripper.bst
 
 depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
 - bootstrap/gawk.bst
 - bootstrap/glibc.bst
 - bootstrap/grep.bst
