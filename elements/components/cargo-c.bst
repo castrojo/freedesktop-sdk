@@ -4,6 +4,8 @@
 kind: manual
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/findutils.bst
 - components/gcc.bst
 - components/pkg-config.bst

@@ -5,6 +5,8 @@ kind: stack
 
 depends:
 - public-stacks/runtime-minimal.bst
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - components/diffutils.bst
 - components/findutils.bst
 - components/gawk.bst

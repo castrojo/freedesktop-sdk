@@ -7,6 +7,8 @@ kind: manual
 - elements/include/cmake-source.yml
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/grep.bst
 - bootstrap/sed.bst
 - components/gcc.bst

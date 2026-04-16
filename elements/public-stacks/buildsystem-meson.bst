@@ -4,6 +4,8 @@
 kind: stack
 
 depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - components/_private/git-minimal.bst
 - components/gcc.bst
 - components/gettext.bst
