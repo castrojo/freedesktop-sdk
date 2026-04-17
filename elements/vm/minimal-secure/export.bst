@@ -8,6 +8,7 @@ build-depends:
   config:
     location: /signed-boot
 - public-stacks/runtime-minimal.bst
+- components/xz.bst
 
 environment:
   XZFLAGS: '-T%{max-jobs}'
