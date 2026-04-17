@@ -16,9 +16,6 @@ config:
     openssl x509 -inform PEM -outform DER -in linux-module-cert.crt -out linux-module-cert.cer
 
   - |
-    find '%{install-root}/usr/lib/modules' -type f -name "*.ko.zst" -exec unzstd --rm {} ';'
-
-  - |
     find '%{install-root}/usr/lib/modules' -type f -name "*.ko" -exec sign-file sha512 linux-module-cert.key linux-module-cert.cer {} ';' -exec zstd --rm {} ';'
 
 sources:
