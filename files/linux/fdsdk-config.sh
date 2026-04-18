@@ -725,6 +725,23 @@ case "$arch" in
     ;;
 esac
 
+# NPUs
+enable DRM_ACCEL
+module DRM_ACCEL_QAIC
+case "$arch" in
+    x86_64)
+        module DRM_ACCEL_IVPU
+        module DRM_ACCEL_AMDXDNA
+        module DRM_ACCEL_HABANALABS
+    ;;
+    aarch64)
+        module DRM_ACCEL_ROCKET
+        # ACCEL_ARM_ETHOSU can build on other architectures but not
+        # sure if there is any hardware.
+        module DRM_ACCEL_ARM_ETHOSU
+    ;;
+esac
+
 # VFIO
 module VFIO
 module VFIO_PCI
