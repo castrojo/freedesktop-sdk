@@ -907,6 +907,7 @@ enable USB_PWC_INPUT_EVDEV
 if has ACPI && has I2C && has X86; then
     module IPU_BRIDGE
     module VIDEO_IPU3_CIO2
+    module VIDEO_INTEL_IPU6
 fi
 
 # PHY controllers
