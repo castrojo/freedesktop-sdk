@@ -36,6 +36,4 @@ sources:
   track: xwayland-*
   exclude:
   - '*.99.*'
-  ref: xwayland-24.1.9-0-g65acc54b7079ad4c01c35ebdde34b3ff9ebd0d2a
-- kind: patch
-  path: patches/xwayland/nettle_v4.patch
+  ref: xwayland-24.1.10-0-g5a873951579f1ff894f71489f3651a55d6dde250
