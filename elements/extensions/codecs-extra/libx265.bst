@@ -63,20 +63,20 @@ config:
   configure-commands: []
 
   build-commands:
-    - |
-      cmake -B _builddir-12 -H"%{conf-root}" -G"%{generator}" %{cmake-hd-12}
-      cmake --build _builddir-12 -- ${JOBS}
+  - |
+    cmake -B _builddir-12 -H"%{conf-root}" -G"%{generator}" %{cmake-hd-12}
+    cmake --build _builddir-12 -- ${JOBS}
 
-    - |
-      cmake -B _builddir-10 -H"%{conf-root}" -G"%{generator}" %{cmake-hd-10}
-      cmake --build _builddir-10 -- ${JOBS}
+  - |
+    cmake -B _builddir-10 -H"%{conf-root}" -G"%{generator}" %{cmake-hd-10}
+    cmake --build _builddir-10 -- ${JOBS}
 
-    - |
-      mkdir -p %{build-dir}
-      cp -vf _builddir-12/libx265.a %{build-dir}/libx265_main12.a
-      cp -vf _builddir-10/libx265.a %{build-dir}/libx265_main10.a
-      cmake -B %{build-dir} -H"%{conf-root}" -G"%{generator}" %{cmake-final}
-      cmake --build %{build-dir} -- ${JOBS}
+  - |
+    mkdir -p %{build-dir}
+    cp -vf _builddir-12/libx265.a %{build-dir}/libx265_main12.a
+    cp -vf _builddir-10/libx265.a %{build-dir}/libx265_main10.a
+    cmake -B %{build-dir} -H"%{conf-root}" -G"%{generator}" %{cmake-final}
+    cmake --build %{build-dir} -- ${JOBS}
 
   install-commands:
     (>):
@@ -88,7 +88,7 @@ sources:
   track: '*.*'
   exclude:
   - "*rc*"
-  ref: 4.1-0-g1d117bed4747758b51bd2c124d738527e30392cb
+  ref: 4.2-0-ge444744c03978c1fb4e037168967020cf2648427
 - kind: patch
   path: patches/libx265/cmakev4.patch
 - kind: patch
