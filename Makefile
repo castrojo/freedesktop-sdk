@@ -235,6 +235,8 @@ endif
 SPDX_SBOM_DIR := sbom-reports
 SPDX_SBOM_COMMON_ARGS := \
     --spdx-creator "Organization: freedesktop-sdk (freedesktop-sdk@lists.freedesktop.org)" \
+    --with-licenses \
+    --spdx-comment "Components licensing information isn't guaranteed to be complete nor correct and must only be considered advisory." \
     --deps all
 UUID-sdk := $(shell uuidgen)
 UUID-platform := $(shell uuidgen)
