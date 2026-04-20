@@ -154,7 +154,7 @@ def convert_source_to_bst(source, bst_data, name):
         raise ValueError(f"Unsupported source type: {source_type}")
 
 
-def read_args(bst_data, module, bs):
+def read_args(bst_data, module, bs, prefix = ""):
     name = ""
     match bs:
         case "cmake" | "cmake-ninja":
@@ -167,7 +167,10 @@ def read_args(bst_data, module, bs):
     if name and "config-opts" in module:
         if "variables" not in bst_data:
             bst_data["variables"] = {}
-        bst_data["variables"].update({name: " ".join(module.get("config-opts", []))})
+        args = " ".join(module.get("config-opts", []))
+        if prefix == "" and "arch-" + name in bst_data["variables"]:
+            args += " %{arch-" + name + "}"
+        bst_data["variables"].update({prefix + name: args})
 
 
 def bst_sort(bst_data):
@@ -262,9 +265,11 @@ def process_modules(flatpak_data):
             if "arch" in module["build-options"]:
                 for arch, elements in module["build-options"]["arch"].items():
                     stuff = {}
-                    read_args(stuff, elements, buildsystem)
+                    read_args(stuff, elements, buildsystem, "arch-")
                     if stuff:
                         mod.append({f"arch == '{arch}'": stuff})
+                        for key in stuff["variables"]:
+                            bst_data.update({"variables": {key: ''}})
             if len(mod) > 0:
                 bst_data["(?)"] = mod
 
