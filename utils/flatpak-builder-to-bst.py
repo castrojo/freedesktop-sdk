@@ -77,7 +77,7 @@ def convert_source_to_bst(source, bst_data, name):
 
         # provide the ref when available
         if "ref" not in bstSource:
-            if "commit" in "source":
+            if "commit" in source:
                 bstSource.update({"ref": source["commit"], "ref-format": "sha1"})
             else:
                 ref = git_ls_remote(gitSource, bstSource.get("track", "HEAD"))
