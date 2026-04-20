@@ -23,4 +23,4 @@ sources:
 - kind: git_repo
   url: github:nghttp2/nghttp2.git
   track: v*
-  ref: v1.68.1-0-gf769990597670f3ea8d2440d1e18a3f9a0df9bc0
+  ref: v1.69.0-0-g68cb6900fde14c77f0cd7add0e094a862960eb99
