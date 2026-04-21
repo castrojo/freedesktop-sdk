@@ -37,6 +37,8 @@ variables:
     -Dtests=false
     -Dcoccinelle=disabled
     -Dbenchmarks=disabled
+    -Dgitk=disabled
+    -Dgit_gui=disabled
     -Ddocs=man
 
 public:
