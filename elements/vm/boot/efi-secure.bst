@@ -45,6 +45,7 @@ config:
            --kernel-image "/lib/modules/${version}/vmlinuz" \
            --kver ${version} \
            --kernel-cmdline "rw mount.usrflags=ro console=ttyS0 lockdown=confidentiality" \
+           --filesystems "ext4 squashfs" \
            --install 'fsck.ext4' \
            --install 'mkfs.ext4' \
            --libdirs %{libdir} \
