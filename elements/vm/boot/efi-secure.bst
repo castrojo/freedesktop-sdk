@@ -73,3 +73,7 @@ config:
   - mkdir -p "%{install-root}/boot/EFI"
   - cp -rT /boot/EFI "%{install-root}/boot/EFI"
   - mkdir -p "%{install-root}/boot/loader"
+
+  - |
+    find /sysroot -type f -exec du -B1 {} '+' | sort -n > "%{install-root}/file_sizes_B.tsv"
+    du -B1 /sysroot | sort -n > "%{install-root}/dir_sizes_B.tsv"
