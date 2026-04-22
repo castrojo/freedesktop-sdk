@@ -2,6 +2,11 @@
 # SPDX-License-Identifier: MIT
 
 kind: meson
+description: |
+  util-linux, a random collecion of Linux utilities.
+
+  This element disables the `ncurses` option at config time, but still requires
+  `libtinfow` from the `components/ncurses.bst` element.
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
@@ -18,6 +23,7 @@ build-depends:
 - components/sed.bst
 
 depends:
+- bootstrap/ncurses.bst
 - components/file.bst
 - components/sqlite.bst
 
