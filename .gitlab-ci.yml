@@ -464,6 +464,36 @@ desktop_systemd_vm_aarch64:
   rules:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 
+.vm_efi_secure_image_template:
+  stage: vm
+  script:
+    - make build-secure-vm
+    - |
+      if [ "${DIALOG+set}" = set ]; then
+        utils/test_minimal_system.py --dialog "${DIALOG}" command 'make run-secure-vm'
+      fi
+  artifacts:
+    when: always
+    paths:
+      - ${CI_PROJECT_DIR}/cache/buildstream/logs
+      - "${CI_PROJECT_DIR}/checkout/**/*sizes*.tsv"
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+
+minimal_efi_secure_vm_image_x86_64:
+  extends:
+    - .vm_efi_secure_image_template
+    - .builder-x86_64
+  needs:
+  - app_x86_64
+  script:
+    - !reference [.vm_efi_secure_image_template, script]
+    - utils/test_minimal_size.py # Warn if image size grows
+  variables:
+    VM_ARTIFACT_IMAGE: vm/minimal-secure/efi.bst
+    DIALOG: secure-systemd-firstboot
+  allow_failure: true
+
 minimal_efi_vm_image_x86_64:
   extends:
     - .vm_efi_image_template
