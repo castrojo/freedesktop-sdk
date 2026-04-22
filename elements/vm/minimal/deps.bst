@@ -18,6 +18,7 @@ depends:
 - components/tzdata.bst
 - components/usbutils.bst
 - components/util-linux-full.bst
+- components/uutils-coreutils.bst
 - components/wireless-regdb-bin.bst
 - vm/base-filesystem.bst
 - vm/config/journald.bst

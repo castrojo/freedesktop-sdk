@@ -605,6 +605,7 @@ depends:
 - components/util-linux-libfdisk.bst
 - components/util-linux-libs.bst
 - components/util-linux.bst
+- components/uutils-coreutils.bst
 - components/v4l-utils.bst
 - components/vala.bst
 - components/valgrind-maybe.bst
