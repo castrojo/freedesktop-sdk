@@ -25,7 +25,7 @@ import signal
 import subprocess
 import sys
 
-QEMU = "qemu-system-x86_64"
+QEMU = f"qemu-system-{os.uname().machine}"
 QEMU_EXTRA_ARGS = ["-m", "256"]
 
 FAILURE_TIMEOUT = 300  # seconds
