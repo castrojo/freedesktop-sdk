@@ -40,8 +40,8 @@ def build_qemu_image_command(args):
         out = subprocess.check_output([QEMU, "-accel", "help"], encoding="ascii")
         if "kvm" in out.splitlines():
             kvm_args = ["-enable-kvm"]
-    except subprocess.CalledProcessError:
-        sys.stderr.write("Cannot query qemu for accelerator. Not using it.\n")
+    except subprocess.CalledProcessError as e:
+        logger.debug("Cannot query qemu for accelerator. Not using it: %s", e)
 
     return (
         [QEMU, "-drive", f"file={args.sda},format=raw", "-nographic"]
@@ -97,7 +97,7 @@ async def run_test(command, dialog):
     process = None
 
     try:
-        logger.debug("Starting process: %s", command)
+        logger.info("Starting process: %s", command)
         process = await asyncio.create_subprocess_exec(
             *command,
             stdin=asyncio.subprocess.PIPE,
@@ -114,7 +114,7 @@ async def run_test(command, dialog):
                 await process.stdin.drain()
 
         process.stdin.close()
-        print("Test successful")
+        logger.info("Test successful")
         success = True
     finally:
         if process is not None:
@@ -140,7 +140,7 @@ def main(description, dialogs):
     try:
         result = asyncio.run(task)
     except asyncio.TimeoutError:
-        print("VM was considered inresponsive and test was aborted", file=sys.stderr)
+        logger.info("VM was considered unresponsive and test was aborted")
         return 1
 
     if result:
