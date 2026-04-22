@@ -19,6 +19,7 @@ build-depends:
 - components/_private/util-linux-base.bst
 
 runtime-depends:
+- bootstrap/ncurses.bst
 - components/util-linux-manifest.bst
 - components/util-linux-libs.bst
 - public-stacks/runtime-minimal.bst
