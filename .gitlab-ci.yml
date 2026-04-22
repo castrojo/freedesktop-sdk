@@ -433,19 +433,6 @@ minimal_systemd_vm_aarch64:
     - job: app_loongarch64
       artifacts: false
 
-desktop_systemd_vm_x86_64:
-  extends:
-    - .vm_imageless_template
-    - .builder-x86_64
-  variables:
-    VM_ARTIFACT_BOOT: vm/boot/virt.bst
-    VM_ARTIFACT_FILESYSTEM: vm/desktop/virt.bst
-  allow_failure: true
-  needs:
-    - job: app_x86_64
-      artifacts: false
-  when: manual # skip x86_64 VM tests by default; the runner is too slow
-
 desktop_systemd_vm_aarch64:
   extends:
     - .vm_imageless_template
