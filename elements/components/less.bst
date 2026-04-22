@@ -6,6 +6,7 @@ build-depends:
 - components/groff.bst
 
 depends:
+- bootstrap/ncurses.bst
 - public-stacks/runtime-minimal.bst
 
 variables:
