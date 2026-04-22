@@ -134,7 +134,7 @@ def main(description, dialogs):
     command = args.get_command(args)
 
     task = asyncio.wait_for(
-        run_test(command, list(dialogs[args.dialog])), FAILURE_TIMEOUT
+        run_test(command, dialogs[args.dialog].copy()), FAILURE_TIMEOUT
     )
 
     try:
