@@ -20,6 +20,7 @@ import asyncio
 import asyncio.subprocess
 import logging
 import os
+import shlex
 import signal
 import subprocess
 import sys
@@ -50,7 +51,7 @@ def build_qemu_image_command(args):
 
 
 def build_command(args):
-    return args.command.split()
+    return shlex.split(args.command)
 
 
 def argument_parser(description, dialogs):
@@ -75,7 +76,7 @@ def argument_parser(description, dialogs):
 
 
 async def await_line(stream, marker):
-    """Read from 'stream' until a line appears contains 'marker'."""
+    """Read from 'stream' until a line contains 'marker'."""
     marker = marker.encode("utf-8")
     buf = b""
 
@@ -86,11 +87,9 @@ async def await_line(stream, marker):
         lines = buf.split(b"\n")
         for line in lines:
             if marker in line:
-                try:
-                    return line.decode("utf-8")
-                except UnicodeDecodeError:
-                    break
+                return line.decode("utf-8", errors="replace")
         buf = lines[-1]
+    return None
 
 
 async def run_test(command, dialog):
@@ -112,7 +111,9 @@ async def run_test(command, dialog):
             assert prompt is not None
             if dialog:
                 process.stdin.write(dialog.pop(0).encode("ascii") + b"\n")
+                await process.stdin.drain()
 
+        process.stdin.close()
         print("Test successful")
         success = True
     finally:
@@ -123,7 +124,6 @@ async def run_test(command, dialog):
                 pass
 
             await process.communicate()
-            await process.wait()
 
     return success
 
