@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Copyright (C) 2017 Codethink Limited
+# Copyright (C) 2017-2026 Codethink Limited
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,34 +14,29 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-"""test_minimal_system.py: Boots a disk image in QEMU and tests that it works."""
+"""test_secure_system.py: Boots a secure disk image in QEMU and tests it."""
 
 import sys
 
 import system_test
 
 DIALOGS = {
-    "minimal": ["Started '/init' script from initramfs.", "\nuname -a", "Linux"],
     "systemd-firstboot": [
-        "-- Press any key to proceed --",
-        "",
-        "Please enter system locale name or number",
-        "1",
-        "Please enter system message locale name or number",
-        "",
-        "Please enter timezone name or number",
-        "1",
-        "Please enter a new root password",
+        "Please enter the new root password",
         "root",
-        "Please enter new root password again",
+        "Please enter the new root password again",
         "root",
-        "localhost login",
+        "localhost login:",
         "root",
-        "Password",
+        "Password:",
         "root",
         "#",
-        "uname -a",
-        "Linux",
+        "grep -q usrhash= /proc/cmdline && echo usrhash-ok=$?",
+        "usrhash-ok=0",
+        "grep -q lockdown=confidentiality /proc/cmdline && echo lockdown-ok=$?",
+        "lockdown-ok=0",
+        "findmnt -no FSTYPE /usr",
+        "squashfs",
         "systemctl poweroff",
         "Power down",
     ],
@@ -51,14 +46,18 @@ DIALOGS = {
         "Password:",
         "root",
         "#",
-        "uname -a",
-        "#",
+        "grep -q usrhash= /proc/cmdline && echo usrhash-ok=$?",
+        "usrhash-ok=0",
+        "grep -q lockdown=confidentiality /proc/cmdline && echo lockdown-ok=$?",
+        "lockdown-ok=0",
+        "findmnt -no FSTYPE /usr",
+        "squashfs",
         "systemctl poweroff",
         "Power down",
     ],
 }
 
 result = system_test.main(
-    "Test that a minimal-system VM image works as expected", DIALOGS
+    "Test that a minimal secure VM image works as expected", DIALOGS
 )
 sys.exit(result)
