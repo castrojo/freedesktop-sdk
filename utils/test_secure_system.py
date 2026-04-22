@@ -57,7 +57,8 @@ DIALOGS = {
     ],
 }
 
-result = system_test.main(
-    "Test that a minimal secure VM image works as expected", DIALOGS
-)
-sys.exit(result)
+if __name__ == "__main__":
+    result = system_test.main(
+        "Test that a minimal secure VM image works as expected", DIALOGS
+    )
+    sys.exit(result)
