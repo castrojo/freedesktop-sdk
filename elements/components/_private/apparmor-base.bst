@@ -76,6 +76,9 @@ public:
       - '%{includedir}/**'
       - '%{libdir}/libapparmor.*'
       - '%{libdir}/pkgconfig/libapparmor.pc'
+      profiles:
+      - '%{sysconfdir}/apparmor.d/**'
+
   cpe:
     product: apparmor
     ignored:

@@ -13,6 +13,7 @@ depends:
 - components/amf-headers.bst
 - components/aom.bst
 - components/apparmor-manifest.bst
+- components/apparmor-profiles.bst
 - components/apparmor.bst
 - components/appstream-minimal.bst
 - components/appstream.bst

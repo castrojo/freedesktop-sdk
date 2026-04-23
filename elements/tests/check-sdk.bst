@@ -9,6 +9,7 @@ build-depends:
 config:
   forbidden:
   - components/apparmor.bst
+  - components/apparmor-profiles.bst
   - components/avahi.bst
   - components/bc.bst
   - components/bluez.bst
