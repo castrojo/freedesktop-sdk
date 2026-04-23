@@ -8,6 +8,7 @@ build-depends:
 
 config:
   forbidden:
+  - components/apparmor-profiles.bst
   - components/apparmor.bst
   - components/avahi.bst
   - components/bc.bst
