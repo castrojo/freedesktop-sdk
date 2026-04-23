@@ -5,6 +5,7 @@ kind: stack
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/apparmor-profiles.bst
 - components/apparmor.bst
 - components/bash-completion.bst
 - components/bash-config.bst
