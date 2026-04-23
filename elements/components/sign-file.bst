@@ -6,6 +6,7 @@ kind: manual
 build-depends:
 - bootstrap/stripper.bst
 - components/gcc.bst
+- public-stacks/runtime-gnu.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

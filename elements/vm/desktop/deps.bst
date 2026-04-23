@@ -58,6 +58,7 @@ depends:
 - components/bash-config.bst
 - components/bash-completion.bst
 - components/apparmor.bst
+- components/apparmor-profiles.bst
 - components/tpm2-tools.bst
 - components/tpm2-pkcs11.bst
 - components/sof-firmware.bst

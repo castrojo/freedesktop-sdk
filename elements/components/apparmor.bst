@@ -10,4 +10,5 @@ runtime-depends:
 config:
   exclude:
   - libapparmor
+  - profiles
   include-orphans: True
