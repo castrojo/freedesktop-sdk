@@ -13,4 +13,4 @@ sources:
 - kind: git_repo
   url: github:pfmoore/editables.git
   track: "*.*"
-  ref: 0.5-0-g2331418af764ef203959327354335c431978e70d
+  ref: 0.6-0-g6bb75a27a5177825e4e178a8f02421802c654b40
