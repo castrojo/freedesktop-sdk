@@ -37,5 +37,5 @@ sources:
 - kind: git_repo
   url: sourceware:valgrind.git
   track: VALGRIND_*
-  ref: VALGRIND_3_26_0-0-g218cee2feb2556b6b4b8991cf0977256b801e3e5
+  ref: VALGRIND_3_27_0-0-gb80fd124192df64c168b4bbd8ef68a3c0abbba28
   version-guess-pattern: '(\d+)_(\d+)_(\d+)'
