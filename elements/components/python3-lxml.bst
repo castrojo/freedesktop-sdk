@@ -21,4 +21,4 @@ sources:
 - kind: git_repo
   url: github:lxml/lxml.git
   track: lxml-*
-  ref: lxml-6.0.3-0-g973d059449a66799f468b46f4b12c95e32cff5e9
+  ref: lxml-6.1.0-0-g43722f4402afa48b7890a96ce012eb0b9b1af5be
