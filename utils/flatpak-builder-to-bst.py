@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# SPDX-FileCopyrightText: 2025 Aleix Pol Gonzalez <aleix.pol@codethink.co.uk>
+# SPDX-FileCopyrightText: 2025-2026 Aleix Pol Gonzalez <aleix.pol@codethink.co.uk>
 # SPDX-License-Identifier: MIT
 
 import argparse
@@ -25,6 +25,12 @@ flatpak_manifest_path = None
 previously_built_modules = []
 aliases = {}
 runtime = None
+sdk = None
+
+CLEANUP_PLATFORM_DOMAIN_PREFIXES = {
+    "/share/runtime/docs": "docs",
+    "/share/runtime/locale": "locale",
+}
 
 
 def resolve_alias(url: str):
@@ -47,6 +53,29 @@ def relativise_path(path):
         return path
     flatpak_manifest_reldir = os.path.relpath(gendir, os.getcwd())
     return os.path.join(flatpak_manifest_reldir, path)
+
+
+def cleanup_platform_split_rules(pattern):
+    base = "%{prefix}" + pattern if pattern.startswith("/") else "**/" + pattern
+    if any(char in pattern for char in "*?[]"):
+        return [base]
+    return [base, f"{base}/**"]
+
+
+def append_split_rules(bst_data, domain, patterns):
+    if not patterns:
+        return
+
+    split_rules = (
+        bst_data.setdefault("public", {})
+        .setdefault("bst", {})
+        .setdefault("split-rules", {})
+    )
+    existing = split_rules.setdefault(domain, {"(>)": []})["(>)"]
+    for pattern in patterns:
+        for rule in cleanup_platform_split_rules(pattern):
+            if rule not in existing:
+                existing.append(rule)
 
 
 def convert_source_to_bst(source, bst_data, name):
@@ -77,7 +106,7 @@ def convert_source_to_bst(source, bst_data, name):
 
         # provide the ref when available
         if "ref" not in bstSource:
-            if "commit" in "source":
+            if "commit" in source:
                 bstSource.update({"ref": source["commit"], "ref-format": "sha1"})
             else:
                 ref = git_ls_remote(gitSource, bstSource.get("track", "HEAD"))
@@ -154,7 +183,7 @@ def convert_source_to_bst(source, bst_data, name):
         raise ValueError(f"Unsupported source type: {source_type}")
 
 
-def read_args(bst_data, module, bs):
+def read_args(bst_data, module, bs, prefix=""):
     name = ""
     match bs:
         case "cmake" | "cmake-ninja":
@@ -167,7 +196,10 @@ def read_args(bst_data, module, bs):
     if name and "config-opts" in module:
         if "variables" not in bst_data:
             bst_data["variables"] = {}
-        bst_data["variables"].update({name: " ".join(module.get("config-opts", []))})
+        args = " ".join(module.get("config-opts", []))
+        if prefix == "" and "arch-" + name in bst_data["variables"]:
+            args += " %{arch-" + name + "}"
+        bst_data["variables"].update({prefix + name: args})
 
 
 def bst_sort(bst_data):
@@ -243,7 +275,7 @@ def process_modules(flatpak_data):
 
         bstFile = os.path.join(output_dir, f"{name}.bst")
         bst_data = {
-            "build-depends": previously_built_modules,
+            "build-depends": [sdk] + previously_built_modules,
             "sources": [],
             "environment": {
                 "INSTALL_ROOT": "%{install-root}",
@@ -252,9 +284,9 @@ def process_modules(flatpak_data):
         }
 
         if name == "os-release":
-            newDepends = previously_built_modules
-            newDepends.append("freedesktop-sdk.bst:components/appstream.bst")
-            bst_data.update({"build-depends": newDepends})
+            bst_data["build-depends"].append(
+                "freedesktop-sdk.bst:components/appstream.bst"
+            )
 
         buildsystem = module.get("buildsystem")
         if "build-options" in module:
@@ -262,9 +294,11 @@ def process_modules(flatpak_data):
             if "arch" in module["build-options"]:
                 for arch, elements in module["build-options"]["arch"].items():
                     stuff = {}
-                    read_args(stuff, elements, buildsystem)
+                    read_args(stuff, elements, buildsystem, "arch-")
                     if stuff:
                         mod.append({f"arch == '{arch}'": stuff})
+                        for key in stuff["variables"]:
+                            bst_data.update({"variables": {key: ""}})
             if len(mod) > 0:
                 bst_data["(?)"] = mod
 
@@ -307,6 +341,15 @@ def process_modules(flatpak_data):
         if "sources" in module:
             for source in module["sources"]:
                 convert_source_to_bst(source, bst_data, name)
+
+        for pattern in module.get("cleanup-platform", []):
+            append_split_rules(
+                bst_data,
+                CLEANUP_PLATFORM_DOMAIN_PREFIXES.get(pattern, "devel"),
+                [pattern],
+            )
+
+        append_split_rules(bst_data, "cleanup", module.get("cleanup", []))
 
         bst_data = bst_sort(bst_data)
 
@@ -362,6 +405,7 @@ def generate_runtime(flatpak_data, output_dir):
     with open(
         os.path.abspath(os.path.join(output_dir, "platform.bst")), "w", encoding="utf-8"
     ) as f:
+        f.write(f"# File generated by {os.path.basename(__file__)}\n\n")
         yaml.dump(
             runtime_data,
             f,
@@ -378,6 +422,7 @@ def generate_runtime(flatpak_data, output_dir):
         "freedesktop-sdk.bst:integration/app-debug-link.bst",
     ]
     with open(os.path.abspath(output_dir + "/sdk.bst"), "w", encoding="utf-8") as f:
+        f.write(f"# File generated by {os.path.basename(__file__)}\n\n")
         yaml.dump(
             runtime_data,
             f,
@@ -428,6 +473,7 @@ def generate_runtime_dependency(data, output_dir):
             # "runtime-depends": ["symlinks.bst"],
             "config": {"source": "/files", "target": "/usr"},
         }
+        f.write(f"# File generated by {os.path.basename(__file__)}\n\n")
         yaml.dump(
             runtime_data,
             f,
@@ -451,6 +497,8 @@ def generate_runtime_dependency(data, output_dir):
             # "runtime-depends": ["symlinks.bst"],
             "config": {"source": "/files", "target": "/usr"},
         }
+
+        f.write(f"# File generated by {os.path.basename(__file__)}\n\n")
         yaml.dump(
             runtime_data,
             f,
@@ -471,10 +519,38 @@ def generate_bst(name, flatpak_data):
         data = {
             "kind": "stack",
             "description": f"Build all modules from {flatpak_manifest_path} in {output_dir}/",
-            "depends": previously_built_modules,
+            "depends": [sdk] + previously_built_modules,
         }
         yaml.dump(
             data, f, default_flow_style=False, sort_keys=False, allow_unicode=True
+        )
+
+
+def generate_cleanup_platform_split_rules(flatpak_data, generating_id):
+    split_rules = {}
+    if flatpak_data.get("cleanup", []):
+        existing = split_rules.setdefault("cleanup", [])
+        for pattern in flatpak_data.get("cleanup", []):
+            for rule in cleanup_platform_split_rules(pattern):
+                if rule not in existing:
+                    existing.append(rule)
+    for pattern in flatpak_data.get("cleanup-platform", []):
+        domain = CLEANUP_PLATFORM_DOMAIN_PREFIXES.get(pattern, "devel")
+        if domain == "devel":
+            continue
+        existing = split_rules.setdefault(domain, [])
+        for rule in cleanup_platform_split_rules(pattern):
+            if rule not in existing:
+                existing.append(rule)
+
+    with open(f"include/{generating_id}-split-rules.yml", "w", encoding="utf-8") as f:
+        f.write(f"# File generated by {os.path.basename(__file__)}\n\n")
+        yaml.dump(
+            split_rules,
+            f,
+            default_flow_style=False,
+            sort_keys=False,
+            allow_unicode=True,
         )
 
 
@@ -596,8 +672,8 @@ if __name__ == "__main__":
             output_dir = os.path.join("elements", generating_id)
             sdk = resolve_sdk(data["sdk"])
             runtime = resolve_platform(data["runtime"])
-            previously_built_modules.append(sdk)
             generate_bst(filename, data)
+            generate_cleanup_platform_split_rules(data, generating_id)
             if "base" in data:
                 print("Bringing base apps is not yet supported")
             if "add-build-extensions" in data:
@@ -613,13 +689,13 @@ if __name__ == "__main__":
                     encoding="utf-8",
                 ) as f:
                     f.write(f"# File generated by {os.path.basename(__file__)}\n\n")
-                    data = {
+                    platform_data = {
                         "kind": "stack",
-                        "description": f"Runtime representation of {sdk}",
-                        "depends": [sdk],
+                        "description": f"Runtime representation of {runtime}",
+                        "depends": [runtime] + previously_built_modules,
                     }
                     yaml.dump(
-                        data,
+                        platform_data,
                         f,
                         default_flow_style=False,
                         sort_keys=False,
