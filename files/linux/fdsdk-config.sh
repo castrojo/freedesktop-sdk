@@ -146,8 +146,6 @@ case "$arch" in
     ;;
     aarch64)
         module CRYPTO_GHASH_ARM64_CE
-        module CRYPTO_AES_ARM64
-        module CRYPTO_AES_ARM64_CE
         module CRYPTO_AES_ARM64_CE_CCM
         module CRYPTO_AES_ARM64_CE_BLK
         module CRYPTO_AES_ARM64_NEON_BLK
