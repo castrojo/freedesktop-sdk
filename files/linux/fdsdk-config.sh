@@ -561,7 +561,6 @@ enable NET_VENDOR_MYRI
 module MYRI10GE
 module NATSEMI
 module NS83820
-module S2IO
 enable NET_VENDOR_NETRONOME
 module NFP
 module HAMACHI
