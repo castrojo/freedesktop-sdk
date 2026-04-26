@@ -10,7 +10,7 @@ from gitlab.exceptions import GitlabListError
 GITLAB_URL = "https://gitlab.com"
 PRIVATE_TOKEN = os.environ.get("FREEDESKTOP_API_KEY")
 PROJECT_ID = os.environ.get("CI_PROJECT_ID", "4339844")
-ASSIGNEE_ID = os.environ.get("ASSIGNEE_ID", "2700514")
+ASSIGNEE_ID = os.environ.get("FDSDK_MARGE_BOT_ID", "37671650")
 MASTER_VERSION = float(os.environ.get("RUNTIME_VERSION"))
 
 
