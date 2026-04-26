@@ -8,5 +8,5 @@ kind: manual
 sources:
 - kind: tar
   url: 
-    tar_https:static.rust-lang.org/dist/rust-1.91.0-powerpc64le-unknown-linux-gnu.tar.xz
-  ref: 6d3df698df5733a85e948cc2f443cfbcacd013d4f72dd2b97aa712bfea23d210
+    tar_https:static.rust-lang.org/dist/rust-1.94.0-powerpc64le-unknown-linux-gnu.tar.xz
+  ref: b148e37daa3f50fcf087b788c8f3b31f7838b8f22eaa263b0adad7bf2e166c2f
