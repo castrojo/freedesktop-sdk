@@ -1,3 +1,55 @@
+Version: freedesktop-sdk-25.08.10
+Date: '2026-04-26'
+Description: |-
+  Changes in freedesktop-sdk-25.08.10
+   * Update parallel to 20260422-0
+   * Update python3-requests to v2.33.1-0
+   * Update bubblewrap to v0.11.2-0
+   * Update gyp to v0.22.1-0
+   * Update python3-lxml to lxml-6.1.0-0
+   * Update man-pages to man-pages-6.18-0
+   * Update valgrind to VALGRIND_3_27_0-0
+   * Update python3-editables to 0.6-0
+   * git: Disable git-gui and gitk
+   * Update git to v2.54.0-0
+   * Update python3-pathspec to v1.1.0-0
+   * Update glibc to glibc-2.42-62
+   * Update xorg-lib-xpm to libXpm-3.5.19-0
+   * Update tzdata to 2026b-0
+   * Update libfido2 to 1.17.0-0
+   * Update python3-certifi to 2026.04.22-0
+   * linux: Build IPU6 module
+   * linux: Build modules for NPUs
+   * linux: Add configuration needed for systemd's bpf-restrict-fs
+   * linux: Enable `IPV6_MULTIPLE_TABLES` for better IPv6 support in VPNs
+   * linux: enable MPTCP support
+   * linux: Add missing soc button module
+   * linux: Enable Android's binder drivers
+   * linux: Enable building rust stuff
+   * Update libarchive to v3.8.7-0
+   * libx265: Drop outdated patches
+   * Update libx265 to 4.2-0
+   * Update crun to 1.27.1-0
+   * Update linux-firmware to 20260410-0
+   * Update libexif to libexif-0_6_26-release-0
+   * Update frei0r to v3.1.3-0
+   * Update libjcat to 0.2.6-0
+   * Update xdg-dbus-proxy to 0.1.7-0
+   * Update mesa-sdk to mesa-26.0.5-0
+   * Update python3-filelock to 3.29.0-0
+   * Update xwayland to xwayland-24.1.10-0
+   * Update ccache to v4.13.4-0
+   * Update libcap-ng to v0.9.3-0
+   * Update python3-build to 1.4.3-0
+   * Update mesa to mesa-26.0.5-0
+   * Update go to go1.25.9-0
+   * Update podman to v5.8.2-0
+   * Update reference-abi to freedesktop-sdk-25.08.9-0
+   * Update perl-xml-parser to 2.57
+   * Update gtk-doc to 1.36.1-0
+   * Update u-boot-qemu to v2026.04-0
+   * Update python3-filelock to 3.28.0-0
+---
 Version: freedesktop-sdk-25.08.9
 Date: '2026-04-12'
 Description: |-
