@@ -20,4 +20,4 @@ sources:
   track: refs/tags/*.*.*
   exclude:
   - '*dev*'
-  ref: 1.0.4-0-g703a842a211dd551509c9e7846c256960e7fa27f
+  ref: 1.1.0-0-g6edf181e01cba5f2169fde8b5f40ff7caa69bc82
