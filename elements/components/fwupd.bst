@@ -34,9 +34,12 @@ depends:
 
 variables:
   efi_binary: 'false'
+  hsi: 'disabled'
   (?):
   - target_arch in ["i686", "x86_64", "aarch64", "loongarch64"]:
       efi_binary: 'true'
+  - target_arch in ["i686", "x86_64"]:
+      hsi: 'enabled'
 
   # FIXME: consider adding dependencies for passim and all plugins
   meson-local: >-
@@ -51,6 +54,7 @@ variables:
     -Dlibdrm=disabled
     -Dvalgrind=disabled
     -Dlibmnl=disabled
+    -Dhsi=%{hsi}
 
 sources:
 - kind: git_repo
