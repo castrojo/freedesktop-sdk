@@ -15,5 +15,5 @@ sources:
   exclude:
   - "8.2.2"
   ref:
-    sha256sum: 14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5
-    suffix: 57/75/31212c6bf2503fdf920d87fee5d7a86a2e3bcf444984126f13d8e4016804/click-8.3.2.tar.gz
+    sha256sum: 398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2
+    suffix: bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz
