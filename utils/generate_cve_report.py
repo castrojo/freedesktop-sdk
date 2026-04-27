@@ -62,11 +62,17 @@ def extract_product_vulns(tree, feed_version):
                 .get("cvssData", {})
                 .get("baseScore", None)
             )
+            scorev4 = (
+                item["cve"]["metrics"]
+                .get("cvssMetricV40", [{}])[0]
+                .get("cvssData", {})
+                .get("baseScore", None)
+            )
 
             cve_id = item["cve"]["id"]
             for node in item["cve"].get("configurations", [{}])[0].get("nodes", []):
                 for cpe_match in extract_product_vulns_sub(node, feed_version):
-                    yield cve_id, summary, scorev2, scorev3, cpe_match
+                    yield cve_id, summary, scorev2, scorev3, scorev4, cpe_match
     else:
         for item in tree["CVE_Items"]:
             summary = (
@@ -90,7 +96,7 @@ def extract_product_vulns(tree, feed_version):
             cve_id = item["cve"]["CVE_data_meta"]["ID"]
             for node in item["configurations"]["nodes"]:
                 for cpe_match in extract_product_vulns_sub(node, feed_version):
-                    yield cve_id, summary, scorev2, scorev3, cpe_match
+                    yield cve_id, summary, scorev2, scorev3, None, cpe_match
 
 
 api = os.environ.get("CI_API_V4_URL")
@@ -147,9 +153,14 @@ def extract_vulnerabilities(filename, feed_version):
     print(f"Processing {filename}")
     with gzip.open(filename) as file:
         tree = json.load(file)
-        for cve_id, summary, scorev2, scorev3, cpe_match in extract_product_vulns(
-            tree, feed_version
-        ):
+        for (
+            cve_id,
+            summary,
+            scorev2,
+            scorev3,
+            scorev4,
+            cpe_match,
+        ) in extract_product_vulns(tree, feed_version):
             if feed_version == "2.0":
                 product_name = cpe_match["criteria"]
             else:
@@ -196,6 +207,7 @@ def extract_vulnerabilities(filename, feed_version):
                 summary,
                 scorev2,
                 scorev3,
+                scorev4,
                 vulnerable,
             )
 
@@ -205,7 +217,7 @@ def check_unversioned_elements(
 ):
     with gzip.open(filename) as file:
         tree = json.load(file)
-        for cve_id, _, _, _, cpe_match in extract_product_vulns(tree, feed_version):
+        for cve_id, _, _, _, _, cpe_match in extract_product_vulns(tree, feed_version):
             if feed_version == "2.0":
                 product_name = cpe_match["criteria"]
             else:
@@ -233,7 +245,8 @@ def maybe_score(item):
 def by_score(entry):
     scorev2 = maybe_score(entry[4])
     scorev3 = maybe_score(entry[5])
-    return scorev3, scorev2
+    scorev4 = maybe_score(entry[6])
+    return scorev4, scorev3, scorev2
 
 
 def format_score(score):
@@ -334,11 +347,20 @@ if __name__ == "__main__":
             summary,
             scorev2,
             scorev3,
+            scorev4,
             vulnerable,
         ) in extract_vulnerabilities(filename, args.feed_version):
             if vulnerable:
                 print(f"Adding {cve_id} for {name} to final vulnerabilities map")
-                vuln_map[cve_id] = cve_id, name, version, summary, scorev2, scorev3
+                vuln_map[cve_id] = (
+                    cve_id,
+                    name,
+                    version,
+                    summary,
+                    scorev2,
+                    scorev3,
+                    scorev4,
+                )
 
         check_unversioned_elements(
             filename, unversioned_git, unversioned_archive, args.feed_version
@@ -353,17 +375,17 @@ if __name__ == "__main__":
             out.write("No CVE data affecting any element found\n")
         else:
             out.write(
-                "|Vulnerability|Element|Version|Summary|CVSS V3.x|CVSS V2.0|WIP|\n"
+                "|Vulnerability|Element|Version|Summary|CVSS V4.0|CVSS V3.x|CVSS V2.0|WIP|\n"
             )
-            out.write("|---|---|---|---|---|---|---|\n")
+            out.write("|---|---|---|---|---|---|---|---|\n")
 
-            for ID, name, version, summary, scorev2, scorev3 in entries:
+            for ID, name, version, summary, scorev2, scorev3, scorev4 in entries:
                 issues_mrs = (
                     ", ".join(f"[{id}]({link})" for id, link in get_issues_and_mrs(ID))
                     or "None"
                 )
                 out.write(
-                    f"|[{ID}](https://nvd.nist.gov/vuln/detail/{ID})|{name}|{version}|{html.escape(summary)}|{format_score(scorev3)}|{format_score(scorev2)}|{issues_mrs}|\n"
+                    f"|[{ID}](https://nvd.nist.gov/vuln/detail/{ID})|{name}|{version}|{html.escape(summary)}|{format_score(scorev4)}|{format_score(scorev3)}|{format_score(scorev2)}|{issues_mrs}|\n"
                 )
 
         out.write("\n\n\n")
