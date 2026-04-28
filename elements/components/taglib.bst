@@ -25,7 +25,4 @@ public:
 sources:
 - kind: git_repo
   url: github:taglib/taglib.git
-  track: v*
-  exclude:
-  - "*beta*"
   ref: v2.1.1-0-g7d86716194777e0294453bfdc9dd170bd033e1f4
