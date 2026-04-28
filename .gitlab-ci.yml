@@ -291,13 +291,13 @@ check_mirrors:
 
 .builder-x86_64:
   tags:
-    - x86_64
+    - codethink-freedesktop-sdk-amd-default-3
   variables:
     ARCH: x86_64
 
 .builder-i686:
   tags:
-    - x86_64
+    - codethink-freedesktop-sdk-amd-default-3
   variables:
     ARCH: i686
 
@@ -322,13 +322,13 @@ check_mirrors:
 
 .builder-ppc64:
   tags:
-  - x86_64
+  - codethink-freedesktop-sdk-amd-default-3
   variables:
     ARCH: ppc64
 
 .builder-loongarch64:
   tags:
-  - x86_64
+  - codethink-freedesktop-sdk-amd-default-3
   variables:
     ARCH: loongarch64
 
@@ -348,6 +348,7 @@ app_aarch64:
   extends:
     - .flatpak_template
     - .builder-aarch64
+  when: manual
   needs: []
 
 app_riscv64:
