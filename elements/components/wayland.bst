@@ -34,7 +34,4 @@ public:
 sources:
 - kind: git_repo
   url: freedesktop:wayland/wayland.git
-  track: '*.*.*'
-  exclude:
-  - '*.*.9*'
   ref: 1.24.0-0-g736d12ac67c20c60dc406dc49bb06be878501f86
