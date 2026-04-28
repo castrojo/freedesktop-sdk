@@ -63,12 +63,6 @@ public:
 sources:
 - kind: git_repo
   url: github:OpenPrinting/cups.git
-  track: v*
-  exclude:
-  - "*a*"
-  - "*b*"
-  - "*rc*"
-  - "*op*"
   ref: v2.4.12-0-g0b0425d34739c30ea1979472b023501bc8357fa8
 - kind: local
   path: files/cups/tmpfiles.conf
