@@ -105,9 +105,4 @@ config:
 sources:
 - kind: git_repo
   url: kernel:utils/util-linux/util-linux.git
-  track: v*
-  exclude:
-  - v*-rc*
-  - v*-devel*
-  - v*-start*
   ref: v2.41.3-0-g5305e6c70b274f679329b79c0e1ef5a07e9dc1a6
