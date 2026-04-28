@@ -56,6 +56,5 @@ public:
 
 sources:
 - kind: git_repo
-  track: v*
   url: kernel:utils/pciutils/pciutils.git
   ref: v3.14.0-0-gc6030ae1576b6bf1de9b41f53a9ed76137181d99
