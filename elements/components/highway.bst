@@ -23,5 +23,4 @@ variables:
 sources:
 - kind: git_repo
   url: github:google/highway.git
-  track: '*.*.*'
   ref: 1.3.0-0-gac0d5d297b13ab1b89f48484fc7911082d76a93f
