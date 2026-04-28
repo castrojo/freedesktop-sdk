@@ -45,7 +45,4 @@ public:
 sources:
 - kind: git_repo
   url: github:AOMediaCodec/libavif.git
-  track: v*
-  exclude:
-  - "*rc*"
   ref: v1.3.0-0-g1aadfad932c98c069a1204261b1856f81f3bc199
