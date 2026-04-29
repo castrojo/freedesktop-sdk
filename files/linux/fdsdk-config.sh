@@ -128,8 +128,6 @@ case "$arch" in
     ;;
     aarch64)
         module CRYPTO_GHASH_ARM64_CE
-        module CRYPTO_AES_ARM64
-        module CRYPTO_AES_ARM64_CE
         module CRYPTO_AES_ARM64_CE_CCM
         module CRYPTO_AES_ARM64_CE_BLK
         module CRYPTO_AES_ARM64_NEON_BLK
@@ -561,7 +559,6 @@ enable NET_VENDOR_MYRI
 module MYRI10GE
 module NATSEMI
 module NS83820
-module S2IO
 enable NET_VENDOR_NETRONOME
 module NFP
 module HAMACHI
