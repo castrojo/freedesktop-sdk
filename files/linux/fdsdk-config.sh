@@ -718,6 +718,7 @@ case "$arch" in
     aarch64)
         module DRM_PANFROST
         module DRM_MSM
+        module DRM_PANEL_SAMSUNG_SOFEF00
     ;;
 esac
 
