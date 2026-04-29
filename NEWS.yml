@@ -1,3 +1,42 @@
+Version: freedesktop-sdk-25.08.11
+Date: '2026-04-29'
+Description: |-
+  Changes in freedesktop-sdk-25.08.11
+   * Update python3-idna to v3.13-0
+   * Update libblockdev to 3.5.0-0
+   * Update python3-pathspec to v1.1.1-0
+   * file: Freeze due to ABI change
+   * libselinux: Freeze due to ABI change
+   * libtraceevent: Freeze due to ABI change
+   * xorg-lib-xkbfile: Freeze due to ABI change
+   * taglib: Freeze due to ABI change
+   * libksba: Freeze due to ABI change
+   * libavif: Freeze due to ABI change
+   * wayland: Freeze due to ABI change
+   * xorg-lib-pciaccess: Freeze due to ABI change
+   * libsrtp2: Freeze due to ABI change
+   * pciutils: Freeze due to ABI change
+   * util-linux: Freeze due to ABI change
+   * libgcrypt: Freeze due to ABI change
+   * cups: Freeze due to ABI change
+   * highway: Freeze due to ABI change
+   * ghostscript: Add patch to fix build
+   * Update ghostscript to ghostpdl-10.07.0-0
+   * Update buildbox to 1.4.4-0
+   * Update linux to v7.0.1-0
+   * Update libxmlb to 0.3.26-0
+   * Update python3-pip to 26.1-0
+   * Update reference-abi to freedesktop-sdk-25.08.10-0
+   * Update python3-cryptography to ref: 47.0.0-0
+   * Update python3-packaging to 26.2-0
+   * Update xorg-font-util to font-util-1.4.2-0
+   * Update gsettings-desktop-schemas to 50.1-0
+   * linux: Remove S2IO
+   * linux: Remove CONFIG_CRYPTO_AES_TI
+   * linux: Remove CRYPTO_AES_ARM64 and _CE
+   * Update linux to v7.0-0
+   * assign-marge: Update to new marge-bot ID and group-level variable
+---
 Version: freedesktop-sdk-25.08.10
 Date: '2026-04-26'
 Description: |-
