@@ -9,6 +9,7 @@ build-depends:
 - components/which.bst
 - components/rdfind.bst
 - components/parallel.bst
+- components/zstd.bst
 - components/_private/git-minimal.bst
 
 environment:
@@ -26,7 +27,7 @@ variables:
     NUM_JOBS="$MAX_JOBS"
 
   make: ''
-  make-install: make -j1 %{make-args} DESTDIR="%{install-root}" install-xz dedup
+  make-install: make -j1 %{make-args} DESTDIR="%{install-root}" install-zst dedup
 
 sources:
 - kind: git_repo
