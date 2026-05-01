@@ -1,10 +1,13 @@
 diff --git a/gcc/config/riscv/t-riscv b/gcc/config/riscv/t-riscv
-index 1252d6f851a..add08926ef2 100644
+index 2761e5e20c0..a5641c7e103 100644
 --- a/gcc/config/riscv/t-riscv
 +++ b/gcc/config/riscv/t-riscv
-@@ -120,3 +120,5 @@ s-riscv-vector-type-indexer.gen.defs: build/genrvv-type-indexer$(build_exeext)
- 	$(STAMP) s-riscv-vector-type-indexer.gen.defs
+@@ -214,6 +214,8 @@ s-riscv-vector-type-indexer.gen.defs: build/genrvv-type-indexer$(build_exeext)
  
  genprog+=rvv-type-indexer
-+
+ 
 +MULTIARCH_DIRNAME = riscv64-linux-gnu
++
+ RISCV_EXT_DEFS = \
+   $(srcdir)/config/riscv/riscv-ext.def \
+   $(srcdir)/config/riscv/riscv-ext-corev.def \
