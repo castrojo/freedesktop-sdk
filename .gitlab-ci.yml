@@ -91,6 +91,8 @@ before_script:
 lint:
   stage: flatpak
   timeout: 1h
+  tags:
+    - x86_64
   script:
     - ruff format --check
     - ruff check
