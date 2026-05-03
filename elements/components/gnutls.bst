@@ -58,5 +58,3 @@ sources:
   path: patches/gnutls/cli-codegen-no-passwd.patch
 - kind: patch
   path: patches/gnutls/drop-submodule.patch
-- kind: patch
-  path: patches/gnutls/nettle_v4.patch
