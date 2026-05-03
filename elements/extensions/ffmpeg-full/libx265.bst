@@ -29,4 +29,6 @@ sources:
   track: '*.*'
   exclude:
   - "*rc*"
-  ref: 4.1-0-g1d117bed4747758b51bd2c124d738527e30392cb
+  ref: 4.2-0-ge444744c03978c1fb4e037168967020cf2648427
+- kind: patch
+  path: patches/libx265/i686-build-fix.patch
