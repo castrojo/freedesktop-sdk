@@ -36,6 +36,7 @@ variables:
     -Dqcam=disabled
     -Ddocumentation=disabled
     -Dpycamera=disabled
+    -Dcam-output-sdl2=disabled
     %{arch-conf}
 
 sources:
