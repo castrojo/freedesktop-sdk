@@ -11,6 +11,11 @@ build-depends:
 - components/parallel.bst
 - components/_private/git-minimal.bst
 
+environment:
+  MAX_JOBS: '%{max-jobs}'
+environment-nocache:
+- MAX_JOBS
+
 variables:
   license-files-extra: WHENCE MIT
   strip-binaries: ''
@@ -18,6 +23,7 @@ variables:
   make-args: >-
     PREFIX="%{prefix}"
     FIRMWAREDIR="%{indep-libdir}/firmware"
+    NUM_JOBS="$MAX_JOBS"
 
   make: ''
   make-install: make -j1 %{make-args} DESTDIR="%{install-root}" install-xz dedup
