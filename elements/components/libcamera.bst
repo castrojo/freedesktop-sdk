@@ -36,12 +36,13 @@ variables:
     -Dqcam=disabled
     -Ddocumentation=disabled
     -Dpycamera=disabled
+    -Dcam-output-sdl2=disabled
     %{arch-conf}
 
 sources:
 - kind: git_repo
   url: git_https:git.libcamera.org/libcamera/libcamera.git
   track: v*.*
-  ref: v0.7.0-0-gb7854fd07d42168f099b5ce30d1702e0e0875bf5
+  ref: v0.7.1-0-g183e37362f57ff3ce7493abf0bc6f1b57b931f55
 - kind: patch
   path: patches/libcamera/disable-ipa-sign.patch
