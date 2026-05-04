@@ -17,4 +17,4 @@ sources:
 - kind: git_repo
   url: github:doxygen/doxygen.git
   track: Release_*
-  ref: Release_1_16_1-0-g669aeeefca743c148e2d935b3d3c69535c7491e6
+  ref: Release_1_17_0-0-g65a43c0aba45cc23b3ca11b6b5334d4eea931726
