@@ -34,4 +34,4 @@ sources:
 - kind: git_repo
   url: fdsdk_mirror:git_gnunet_org/libmicrohttpd.git
   track: v*
-  ref: v1.0.2-0-gf2e3bbda41c6263527808187c45f90b1704332f9
+  ref: v1.0.4-0-gd30316fda936111ad5d4f8b1fde7747c289468b6

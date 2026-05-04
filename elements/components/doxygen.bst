@@ -13,5 +13,5 @@ sources:
 - kind: git_repo
   url: github:doxygen/doxygen.git
   track: Release_*
-  ref: Release_1_16_1-0-g669aeeefca743c148e2d935b3d3c69535c7491e6
+  ref: Release_1_17_0-0-gd4a2c26451e537aa321f10d2483c67fc227eaf9e
   version-guess-pattern: '(\d+)_(\d+)_(\d+)'
