@@ -20,7 +20,7 @@ config:
 sources:
 - kind: git_repo
   url: github:pypa/flit.git
-  track: '*.*.*'
+  track: '3.*.*'
   ref: 3.12.0-0-g1c8141722066ffe1497e511982feeea0f091ddb6
 - kind: patch
   path: patches/python3-flit-core/drop-lic-pattern.patch
