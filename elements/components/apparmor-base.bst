@@ -82,7 +82,7 @@ public:
 
 sources:
 - kind: git_repo
-  track: v*
+  track: v4.*
   exclude:
   - "*beta*"
   - "*alpha*"
