@@ -15,4 +15,6 @@ sources:
 - kind: git_repo
   url: github:psf/requests.git
   track: v*
+  exclude:
+  - "*dev*"
   ref: v2.33.1-0-g111d2b77790bf49943c0dfa09b365371c24aec7e
