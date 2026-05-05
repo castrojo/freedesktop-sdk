@@ -10,7 +10,7 @@ sources:
 - kind: git_repo
   url: gitlab:lvmteam/lvm2.git
   track: v*
-  ref: v2_03_39-0-g6c5b6cee9f21908bdaff830c210222cc7e08f1ab
+  ref: v2_03_40-0-gc48a3842714858d2de16c341b249be4a073f3325
   version-guess-pattern: '(\d+)_(\d)+_(\d+)'
 - kind: patch
   path: patches/lvm2/force-run-dir.patch

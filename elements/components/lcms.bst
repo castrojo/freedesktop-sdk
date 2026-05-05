@@ -28,7 +28,4 @@ public:
 sources:
 - kind: git_repo
   url: github:mm2/Little-CMS.git
-  track: lcms2.*
-  exclude:
-  - lcms2.*rc*
   ref: lcms2.18-0-g35b57af4e1a4d6d7a40ba188f9f4efb7857ff511

@@ -13,4 +13,4 @@ sources:
 - kind: git_repo
   url: github:pypa/wheel.git
   track: '*.*.*'
-  ref: 0.46.3-0-g8b6fa740a7101edacb42b0f8e83a1b659ff61033
+  ref: 0.47.0-0-gefd83a750f07a33462ea2eed365fd8dac9e51442
