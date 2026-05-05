@@ -41,15 +41,15 @@ sources:
 - kind: git_repo
   url: gitlab:gnutls/gnutls.git
   track: '*.*.*'
-  ref: 3.8.12-0-g34fb40faadf16e641c34458f12a848bbf5bfaab5
+  ref: 3.8.13-0-gb390d80208ed60f1b33ad899475951a8efb40ccd
 - kind: git_module
   url: gitlab:gnutls/cligen.git
   path: cligen
-  ref: f6ff7a8611d67a4ffa8ad17d40bbc6cef348cddb
+  ref: 67883b2490664e3ae0c9b21b919c38ac6ece6705
 - kind: git_module
   path: gnulib
   url: gitlab:libidn/gnulib-mirror.git
-  ref: 05c63bc908a67a316fea29ddf4c702d89cf5bdec
+  ref: 1cc0125a28cba4e8503d853bf99b854fe4dd454c
 - kind: git_module
   path: devel/libtasn1
   url: gitlab:gnutls/libtasn1.git
@@ -58,5 +58,3 @@ sources:
   path: patches/gnutls/cli-codegen-no-passwd.patch
 - kind: patch
   path: patches/gnutls/drop-submodule.patch
-- kind: patch
-  path: patches/gnutls/nettle_v4.patch
