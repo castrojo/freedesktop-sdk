@@ -585,7 +585,6 @@ publish_flatpak:
         https://hub.flathub.org/)
           for ref in $(ostree --repo=repo refs --list); do
             case "${ref}" in
-              */*/ppc64le/*) ;&
               */*/i386/*)
                 echo "Deleting ${ref}"
                 ostree --repo=repo refs --delete "${ref}"
