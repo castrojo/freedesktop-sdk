@@ -3,6 +3,7 @@ build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/gobject-introspection.bst
 - components/perl.bst
+- components/python3-gi-docgen.bst
 - components/vala.bst
 
 depends:
@@ -13,7 +14,7 @@ depends:
 variables:
   cmake-local: >-
     -DLIBICAL_GOBJECT_INTROSPECTION=ON
-    -DLIBICAL_BUILD_DOCS=OFF
+    -DLIBICAL_BUILD_DOCS=ON
     -DICAL_GLIB=ON
     -DLIBICAL_GLIB_VAPI=ON
 
