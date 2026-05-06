@@ -2767,6 +2767,7 @@ case "$arch" in
         enable X86_PLATFORM_DRIVERS_HP
         module ALIENWARE_WMI
         module ASUS_NB_WMI
+        module ASUS_ARMOURY
         module ASUS_WMI
         module ASUS_TF103C_DOCK
         enable DELL_SMBIOS_WMI
