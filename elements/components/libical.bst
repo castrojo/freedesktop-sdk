@@ -17,6 +17,8 @@ variables:
     -DLIBICAL_BUILD_DOCS=ON
     -DICAL_GLIB=ON
     -DLIBICAL_GLIB_VAPI=ON
+    -DLIBICAL_BUILD_EXAMPLES=OFF
+    -DLIBICAL_JAVA_BINDINGS=OFF
 
 sources:
 - kind: git_repo
