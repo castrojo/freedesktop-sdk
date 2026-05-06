@@ -92,6 +92,7 @@ before_script:
 lint:
   stage: flatpak
   timeout: 1h
+  after_script: []
   script:
     - ruff format --check
     - ruff check
