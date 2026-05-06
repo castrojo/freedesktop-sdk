@@ -12,10 +12,10 @@ depends:
 
 variables:
   cmake-local: >-
-    -DGOBJECT_INTROSPECTION=ON
-    -DENABLE_GTK_DOC=OFF
+    -DLIBICAL_GOBJECT_INTROSPECTION=ON
+    -DLIBICAL_BUILD_DOCS=OFF
     -DICAL_GLIB=ON
-    -DICAL_GLIB_VAPI=ON
+    -DLIBICAL_GLIB_VAPI=ON
 
 sources:
 - kind: git_repo
