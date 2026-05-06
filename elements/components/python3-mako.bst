@@ -11,5 +11,5 @@ sources:
 - kind: git_repo
   url: github:sqlalchemy/mako.git
   track: "rel_*"
-  ref: rel_1_3_11-0-g217822b548fdf9fd730b2f3c1f1e770d4c816df9
+  ref: rel_1_3_12-0-gd4d1639222d2da4f18c32d11f32c37f172f603bd
   version-guess-pattern: '(\d+)_(\d+)_(\d+)'
