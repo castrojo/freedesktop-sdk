@@ -363,7 +363,7 @@ app_riscv64:
     - when: manual
   needs: []
 
-.app_ppc64le:
+app_ppc64le:
   extends:
     - .flatpak_template
     - .builder-ppc64le
@@ -929,7 +929,7 @@ publish_docker_aarch64:
   needs: []
 
 
-.publish_docker_ppc64le:
+publish_docker_ppc64le:
   extends:
     - .builder-ppc64le
     - .docker_publish_template
@@ -972,6 +972,7 @@ publish_docker_finish:
   - publish_docker_aarch64
   - publish_docker_x86_64
   - publish_docker_i686
+  - publish_docker_ppc64le
 
 publish_gitlab_release:
   stage: publish
