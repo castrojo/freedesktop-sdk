@@ -218,35 +218,6 @@ check_mirrors:
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
 
-.license_checker:
-  extends:
-    - .builder-aarch64
-  stage: update
-  needs: []
-  variables:
-    DEPS: all
-    TARGETS: manifests/release-url-manifest.bst
-    OUTPUT_DIR: ${CI_PROJECT_DIR}/buildstream_license_checker_output
-    WORK_DIR: ${CI_PROJECT_DIR}/buildstream_license_checker_working_directory
-    IGNORE_LIST: files/bst_license_checker_ignorelist
-  artifacts:
-    when: always
-    paths:
-      - ${XDG_CACHE_HOME}/buildstream/logs
-      - ${OUTPUT_DIR}
-  cache:
-    key: license_checker
-    paths:
-      - ${WORK_DIR}
-  script:
-    - |
-      ${BST} build ${TARGETS}
-      bst_license_checker --deps "${DEPS}" -w ${WORK_DIR} -o ${OUTPUT_DIR} --ignorelist ${IGNORE_LIST} ${TARGETS}
-  when: manual
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly"'
-  - when: never
-
 .flatpak_template:
   stage: flatpak
   script:
