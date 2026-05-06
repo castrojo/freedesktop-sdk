@@ -16,7 +16,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "10531795c1fd1634c4b5439ecc48bc91be0dabc6"
+  DOCKER_IMAGE_ID: "8fe67f04619da91755dc2bd923009e723678e24d"
 
   # Generic variable for invoking buildstream
   BST: bst --colors
@@ -91,8 +91,6 @@ before_script:
 lint:
   stage: flatpak
   timeout: 1h
-  tags:
-    - x86_64
   script:
     - ruff format --check
     - ruff check
@@ -361,7 +359,7 @@ app_riscv64:
     - when: manual
   needs: []
 
-.app_ppc64le:
+app_ppc64le:
   extends:
     - .flatpak_template
     - .builder-ppc64le
@@ -903,7 +901,7 @@ publish_docker_aarch64:
   needs: []
 
 
-.publish_docker_ppc64le:
+publish_docker_ppc64le:
   extends:
     - .builder-ppc64le
     - .docker_publish_template
@@ -946,6 +944,7 @@ publish_docker_finish:
   - publish_docker_aarch64
   - publish_docker_x86_64
   - publish_docker_i686
+  - publish_docker_ppc64le
 
 publish_gitlab_release:
   stage: publish
