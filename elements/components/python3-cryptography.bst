@@ -16,7 +16,7 @@ sources:
 - kind: git_repo
   url: github:pyca/cryptography.git
   track: '*.*.*'
-  ref: 47.0.0-0-g59c5f5e4b9395f32d407f66467d59ccea9f9829f
+  ref: 48.0.0-0-g8e03e30e3aae01632a697e903e3593c924f0139d
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
@@ -38,8 +38,8 @@ sources:
     sha: c4512299f36f043ab09a583e57bceb5a5aab7a73db1805848e8fef3c9e8c78b3
   - kind: registry
     name: cc
-    version: 1.2.60
-    sha: 43c5703da9466b66a946814e1adf53ea2c90f10063b86290cc9eb67ce3478a20
+    version: 1.2.61
+    sha: d16d90359e986641506914ba71350897565610e87ce0ad9e6f28569db3dd5c6d
   - kind: registry
     name: cfg-if
     version: 1.0.4
@@ -74,16 +74,16 @@ sources:
     sha: 9f7c3e4beb33f85d45ae3e3a1792185706c8e16d043238c593331cc7cd313b50
   - kind: registry
     name: openssl
-    version: 0.10.78
-    sha: f38c4372413cdaaf3cc79dd92d29d7d9f5ab09b51b10dded508fb90bb70b9222
+    version: 0.10.79
+    sha: bf0b434746ee2832f4f0baf10137e1cabb18cbe6912c69e2e33263c45250f542
   - kind: registry
     name: openssl-macros
     version: 0.1.1
     sha: a948666b637a0f465e8564c73e89d4dde00d72d4d473cc972f390fc3dcee7d9c
   - kind: registry
     name: openssl-sys
-    version: 0.9.114
-    sha: 13ce1245cd07fcc4cfdb438f7507b0c7e4f3849a69fd84d52374c66d83741bb6
+    version: 0.9.115
+    sha: 158fe5b292746440aa6e7a7e690e55aeb72d41505e2804c23c6973ad0e9c9781
   - kind: registry
     name: pem
     version: 3.0.6
