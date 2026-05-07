@@ -116,19 +116,25 @@ def convert_source_to_bst(source, bst_data, name):
     elif source_type == "archive" and "url" in source:
         archive_url = source.get("url")
         checksum = source["sha256"]
-        bst_data["sources"].append(
-            {
-                "kind": archive_kind(archive_url),
-                "url": resolve_alias(archive_url),
-                "ref": checksum,
-            }
-        )
+        bst_source = {
+            "kind": archive_kind(archive_url),
+            "url": resolve_alias(archive_url),
+            "ref": checksum,
+        }
+        if "dest" in source:
+            bst_source["directory"] = source["dest"]
+        bst_data["sources"].append(bst_source)
     elif source_type == "archive" and "path" in source:
         archive_path = relativise_path(source.get("path"))
         checksum = source["sha256"]
-        bst_data["sources"].append(
-            {"kind": archive_kind(archive_path), "path": archive_path, "ref": checksum}
-        )
+        bst_source = {
+            "kind": archive_kind(archive_path),
+            "path": archive_path,
+            "ref": checksum,
+        }
+        if "dest" in source:
+            bst_source["directory"] = source["dest"]
+        bst_data["sources"].append(bst_source)
 
     elif source_type == "dir":
         local_dir = source["path"]
