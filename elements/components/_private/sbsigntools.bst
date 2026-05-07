@@ -12,6 +12,7 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 variables:
+  local_flags: -Wno-error=unused-but-set-variable
   conf-local: >-
     CRTPATH=%{libdir}
     CPPFLAGS="-DOPENSSL_API_COMPAT=0x10100000L"
