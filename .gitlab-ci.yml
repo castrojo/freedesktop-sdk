@@ -642,10 +642,25 @@ spdx_sbom_report:
     paths:
       - "${CI_PROJECT_DIR}/sbom-reports"
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK != "daily"'
+  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK != "weekly"'
     when: never
   - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
   - if: '$CI_COMMIT_BRANCH =~ /^release\/.*/'
+  needs: []
+
+weekly_spdx_sbom_report:
+  stage: finish-publish
+  timeout: 120 minutes
+  script:
+    - make generate-spdx-sbom-reports
+  variables:
+    # Enable building the SBOM with licenses
+    SPDX_SBOM_WITH_LICENSE: "true"
+  artifacts:
+    paths:
+      - "${CI_PROJECT_DIR}/sbom-reports"
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
   needs: []
 
 cve_report:
