@@ -622,38 +622,6 @@ publish_flatpak:
       start_in: 1 minute
   interruptible: false
 
-.publish_tar_template:
-  stage: publish
-  script:
-    - make export-tar
-    - |
-      aws --endpoint-url "${AWS_ENDPOINT}" \
-          s3 cp --recursive --acl public-read \
-                "${CI_PROJECT_DIR}/tarballs" \
-                "s3://freedesktop-sdk-tarballs/$(git describe)"
-  when: manual
-  rules:
-  - if: '$CI_COMMIT_TAG && $CI_PIPELINE_SOURCE != "schedule"'
-  - when: never
-
-publish_x86_64_tar:
-  extends:
-    - .publish_tar_template
-    - .builder-x86_64
-  needs: []
-
-publish_i686_tar:
-  extends:
-    - .publish_tar_template
-    - .builder-i686
-  needs: []
-
-publish_aarch64_tar:
-  extends:
-    - .publish_tar_template
-    - .builder-aarch64
-  needs: []
-
 cve_report:
   stage: finish-publish
   script:
