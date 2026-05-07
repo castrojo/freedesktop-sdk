@@ -32,4 +32,4 @@ sources:
   exclude:
   - '*rc*'
   - '*-a*'
-  ref: man-pages-6.17-0-gc420f73ec92dacd8c6801283e2e4c47e9a1828b7
+  ref: man-pages-6.18-0-g66d786852379759d22c891d70ff9311d9f193fdc
