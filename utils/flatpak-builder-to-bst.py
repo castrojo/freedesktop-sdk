@@ -179,6 +179,19 @@ def convert_source_to_bst(source, bst_data, name):
             )
         else:
             raise ValueError(f"Unsupported file source: {source_type}")
+    elif source_type == "inline":
+        moduleDir = os.path.join(output_dir, name)
+        os.makedirs(moduleDir, exist_ok=True)
+        source_dir = source.get("dest", "")
+        dest_filename = source.get("dest-filename", None)
+        dest = os.path.join(moduleDir, source_dir, dest_filename)
+        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        with open(dest, "w", encoding="utf-8") as f:
+            f.write(source["contents"])
+        local_source = {"kind": "local", "path": dest}
+        if source_dir:
+            local_source["directory"] = source_dir
+        bst_data["sources"].append(local_source)
     else:
         raise ValueError(f"Unsupported source type: {source_type}")
 
