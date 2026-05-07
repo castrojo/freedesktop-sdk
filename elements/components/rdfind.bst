@@ -7,6 +7,9 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/nettle.bst
 
+variables:
+  local_flags: -std=c++17
+
 sources:
 - kind: git_repo
   url: github:pauldreik/rdfind.git
