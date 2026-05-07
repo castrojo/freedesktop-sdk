@@ -36,9 +36,9 @@ default:
   after_script:
   - timeout 30 du -sh "${CI_PROJECT_DIR}/repo" 2>/dev/null || true
   - timeout 60 du -chd 1 "${XDG_CACHE_HOME}/buildstream/" 2>/dev/null || true
-  - timeout 30 flatpak remote-add --if-not-exists --user --no-gpg-verify fdsdkrepo file:///${CI_PROJECT_DIR}/repo || true
-  - timeout 90 flatpak remote-ls -a --columns=ref,installed-size,download-size fdsdkrepo || true
-  - timeout 30 flatpak remote-delete --force fdsdkrepo || true
+  - timeout 30 flatpak remote-add --if-not-exists --user --no-gpg-verify fdsdkrepo file:///${CI_PROJECT_DIR}/repo 2>/dev/null || true
+  - timeout 90 flatpak remote-ls -a --columns=ref,installed-size,download-size fdsdkrepo 2>/dev/null || true
+  - timeout 30 flatpak remote-delete --force fdsdkrepo 2>/dev/null || true
   - make clean
   - rm -rf "${XDG_CACHE_HOME}/buildstream/artifacts"
   - rm -rf "${XDG_CACHE_HOME}/buildstream/build"
@@ -62,7 +62,6 @@ workflow:
   - if: '$CI_PIPELINE_SOURCE == "web"'
 
 stages:
-  - bootstrap
   - update
   - flatpak
   - snap
@@ -93,6 +92,7 @@ before_script:
 lint:
   stage: flatpak
   timeout: 1h
+  after_script: []
   script:
     - ruff format --check
     - ruff check
@@ -219,35 +219,6 @@ check_mirrors:
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
 
-.license_checker:
-  extends:
-    - .builder-aarch64
-  stage: update
-  needs: []
-  variables:
-    DEPS: all
-    TARGETS: manifests/release-url-manifest.bst
-    OUTPUT_DIR: ${CI_PROJECT_DIR}/buildstream_license_checker_output
-    WORK_DIR: ${CI_PROJECT_DIR}/buildstream_license_checker_working_directory
-    IGNORE_LIST: files/bst_license_checker_ignorelist
-  artifacts:
-    when: always
-    paths:
-      - ${XDG_CACHE_HOME}/buildstream/logs
-      - ${OUTPUT_DIR}
-  cache:
-    key: license_checker
-    paths:
-      - ${WORK_DIR}
-  script:
-    - |
-      ${BST} build ${TARGETS}
-      bst_license_checker --deps "${DEPS}" -w ${WORK_DIR} -o ${OUTPUT_DIR} --ignorelist ${IGNORE_LIST} ${TARGETS}
-  when: manual
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly"'
-  - when: never
-
 .flatpak_template:
   stage: flatpak
   script:
@@ -320,12 +291,6 @@ check_mirrors:
   variables:
     ARCH: ppc64le
 
-.builder-ppc64:
-  tags:
-  - x86_64
-  variables:
-    ARCH: ppc64
-
 .builder-loongarch64:
   tags:
   - x86_64
@@ -367,15 +332,6 @@ app_ppc64le:
     - .builder-ppc64le
   needs: []
 
-.app_ppc64:
-  extends:
-    - .flatpak_template
-    - .builder-ppc64
-  allow_failure: true
-  when: manual
-  needs:
-  - bootstrap_ppc64
-
 .app_loongarch64:
   extends:
     - .flatpak_template
@@ -412,29 +368,6 @@ app_ppc64le:
   extends:
     - .check-snap
     - .builder-i686
-
-.bootstrap_template:
-  stage: bootstrap
-  script:
-    - make bootstrap
-  artifacts:
-    when: always
-    paths:
-      - ${CI_PROJECT_DIR}/cache/buildstream/logs
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule"'
-    when: never
-  - if: '$CI_COMMIT_TAG || $CI_COMMIT_BRANCH =~ /^release\/.*/'
-    when: never
-  - when: manual
-
-bootstrap_ppc64:
-  extends:
-    - .bootstrap_template
-    - .builder-ppc64le
-  allow_failure: true
-  variables:
-    ARCH: ppc64
 
 .vm_imageless_template:
   stage: vm
@@ -636,7 +569,6 @@ publish_flatpak:
         https://hub.flathub.org/)
           for ref in $(ostree --repo=repo refs --list); do
             case "${ref}" in
-              */*/ppc64le/*) ;&
               */*/i386/*)
                 echo "Deleting ${ref}"
                 ostree --repo=repo refs --delete "${ref}"
@@ -701,38 +633,6 @@ publish_flatpak:
       when: delayed
       start_in: 1 minute
   interruptible: false
-
-.publish_tar_template:
-  stage: publish
-  script:
-    - make export-tar
-    - |
-      aws --endpoint-url "${AWS_ENDPOINT}" \
-          s3 cp --recursive --acl public-read \
-                "${CI_PROJECT_DIR}/tarballs" \
-                "s3://freedesktop-sdk-tarballs/$(git describe)"
-  when: manual
-  rules:
-  - if: '$CI_COMMIT_TAG && $CI_PIPELINE_SOURCE != "schedule"'
-  - when: never
-
-publish_x86_64_tar:
-  extends:
-    - .publish_tar_template
-    - .builder-x86_64
-  needs: []
-
-publish_i686_tar:
-  extends:
-    - .publish_tar_template
-    - .builder-i686
-  needs: []
-
-publish_aarch64_tar:
-  extends:
-    - .publish_tar_template
-    - .builder-aarch64
-  needs: []
 
 spdx_sbom_report:
   stage: finish-publish
