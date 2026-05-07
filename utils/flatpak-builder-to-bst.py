@@ -353,7 +353,11 @@ def process_modules(flatpak_data):
 
         if "sources" in module:
             for source in module["sources"]:
-                convert_source_to_bst(source, bst_data, name)
+                if isinstance(source, str):
+                    for included_source in path_to_dict(relativise_path(source)):
+                        convert_source_to_bst(included_source, bst_data, name)
+                else:
+                    convert_source_to_bst(source, bst_data, name)
 
         for pattern in module.get("cleanup-platform", []):
             append_split_rules(
