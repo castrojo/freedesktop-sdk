@@ -24,4 +24,4 @@ sources:
 - kind: git_repo
   url: github:ccache/ccache.git
   track: v*
-  ref: v4.13.5-0-g6900b3a664dc905ba8bc37fd7b40fe67104a3021
+  ref: v4.13.6-0-gc6f36725ddaa247678ff130cf4349055962ac072
