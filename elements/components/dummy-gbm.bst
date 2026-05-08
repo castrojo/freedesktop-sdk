@@ -27,6 +27,7 @@ environment:
   PKG_CONFIG_PATH: ":%{libdir}/GL/default/lib/pkgconfig"
 
 variables:
+  meson-lto-flags: ""
   meson-local: >-
     -Dauto_features=disabled
     -Db_ndebug=true
