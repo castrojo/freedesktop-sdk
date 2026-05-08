@@ -8,5 +8,3 @@ sources:
   ref: go1.25.10-0-g5053df5b6ff006dfc96df442fddddee49f5250eb
 - kind: patch
   path: patches/go/disable-dwarf5.patch
-- kind: patch
-  path: patches/go/0001-cmd-link-stop-forcing-binutils-gold-dependency-on-aa.patch
