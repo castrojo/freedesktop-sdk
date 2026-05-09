@@ -30,3 +30,5 @@ sources:
   url: github:AA-Turner/roman-numerals.git
   track: v*
   ref: v4.1.0-0-g53c9c4eac63b91728fba3c26329163ee57654d21
+- kind: patch
+  path: patches/python3-roman-numerals/relax-flit-core.patch

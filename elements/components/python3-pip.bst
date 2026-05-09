@@ -19,3 +19,5 @@ sources:
   exclude:
   - "*b*"
   ref: 26.1.1-0-g4432a371c6471e6a93c3eb39b3e9ab2b876b13b9
+- kind: patch
+  path: patches/python3-pip/relax-flit-core.patch

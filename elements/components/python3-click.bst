@@ -20,3 +20,5 @@ sources:
   ref:
     sha256sum: 398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2
     suffix: bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz
+- kind: patch
+  path: patches/python3-click/relax-flit-core.patch

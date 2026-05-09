@@ -17,3 +17,5 @@ sources:
   - '*rc*'
   - '*a*'
   ref: 4.15.0-0-g9d1637e264b5c1a6b7acee3e907015f89b20c2c9
+- kind: patch
+  path: patches/python3-typing-extensions/relax-flit-core.patch

@@ -1,0 +1,13 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 6d7350ae9..eeb952ae8 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -44,7 +44,7 @@ Source = "https://github.com/pypa/pip"
+ Changelog = "https://pip.pypa.io/en/stable/news/"
+ 
+ [build-system]
+-requires = ["flit-core >=3.11,<4"]
++requires = ["flit-core >=3.11"]
+ build-backend = "flit_core.buildapi"
+ 
+ [dependency-groups]

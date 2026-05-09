@@ -17,3 +17,5 @@ sources:
   exclude:
   - "*.*.x"
   ref: 3.1.6-0-g15206881c006c79667fe5154fe80c01c65410679
+- kind: patch
+  path: patches/python3-jinja2/relax-flit-core.patch

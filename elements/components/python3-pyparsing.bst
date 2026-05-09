@@ -19,3 +19,5 @@ sources:
   - "*rc*"
   - "*docs*"
   ref: 3.3.2-0-gfa24016d953353f8ba566abb5c8fc12e1d07556c
+- kind: patch
+  path: patches/python3-pyparsing/relax-flit-core.patch

@@ -17,3 +17,5 @@ sources:
   url: github:pypa/wheel.git
   track: '*.*.*'
   ref: 0.47.0-0-gefd83a750f07a33462ea2eed365fd8dac9e51442
+- kind: patch
+  path: patches/python3-wheel/relax-flit-core.patch
