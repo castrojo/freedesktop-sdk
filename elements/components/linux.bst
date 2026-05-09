@@ -46,6 +46,12 @@ environment:
   KBUILD_BUILD_TIMESTAMP: 'Thu Nov 10 15:00:00 UTC 2011'
   KBUILD_BUILD_USER: 'tomjon'
   MAXJOBS: "%{max-jobs}"
+  # arch/x86/Makefile hardcodes -march=x86-64 -mtune=generic, overriding
+  # gcc's --with-arch_64 default. KCFLAGS is appended after KBUILD_CFLAGS,
+  # so a later -march wins.
+  (?):
+  - x86_64_v3:
+      KCFLAGS: "-march=x86-64-v3 -mtune=skylake"
 
 environment-nocache:
 - MAXJOBS
