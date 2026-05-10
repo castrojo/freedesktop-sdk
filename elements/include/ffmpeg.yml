@@ -128,3 +128,5 @@ sources:
   ref: n7.1.3-0-gf46e514491172d15bd74b4abb1814cd2f05a763e
 - kind: patch
   path: patches/ffmpeg/posix-ioctl-hack.patch
+- kind: patch
+  path: patches/ffmpeg/fix-segfault-10847.patch
