@@ -12,7 +12,7 @@ sources:
 - kind: git_repo
   url: github:aio-libs/propcache.git
   track: v*
-  ref: v0.4.1-0-g410fc9318e12b70c15e21c70ab75256d1c7b3f41
+  ref: v0.5.2-0-g041f7afe0dff07f3baa77ff444dd735433290940
 - kind: patch
   path: patches/python3-propcache/reproducible.patch
 - kind: patch
