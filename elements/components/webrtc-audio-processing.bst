@@ -14,7 +14,7 @@ variables:
   - target_arch != "aarch64":
       arch-conf: "-Dneon=disabled"
   meson-local: >-
-    -Dcpp_std=c++17
+    -Dcpp_std=c++20
     %{arch-conf}
 
 public:
