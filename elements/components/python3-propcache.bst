@@ -18,3 +18,5 @@ sources:
   ref: v0.5.2-0-g041f7afe0dff07f3baa77ff444dd735433290940
 - kind: patch
   path: patches/python3-propcache/allow-cython.patch
+- kind: patch
+  path: patches/python3-propcache/revert-setuptools-bump.patch
