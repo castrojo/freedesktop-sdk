@@ -39,7 +39,7 @@ build-depends:
 
 variables:
   command-subdir: subprojects/gst-plugins-bad
-
+  local_flags: -std=c++20
   meson-local: >-
     -Dauto_features=auto
     -Daom=enabled
