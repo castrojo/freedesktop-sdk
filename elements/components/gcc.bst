@@ -46,6 +46,7 @@ public:
         (=):
         - '%{libdir}/libasan.a'
         - '%{libdir}/libatomic.a'
+        - '%{libdir}/libatomic_asneeded.a'
         - '%{libdir}/libgfortran.a'
         - '%{libdir}/libgomp.a'
         - '%{libdir}/libitm.a'
