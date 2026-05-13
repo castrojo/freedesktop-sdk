@@ -14,13 +14,10 @@ variables:
 config:
   install-commands:
     (>):
-    - sed -i "s|%{build-root}/%{build-dir}|%{includedir}/tk-private|" 
-      %{install-root}%{libdir}/tkConfig.sh
-    - sed -i "s|%{build-root}|%{includedir}/tk-private|" 
-      %{install-root}%{libdir}/tkConfig.sh
+    - sed -i "s|%{build-root}/%{build-dir}|%{includedir}/tk-private|" %{install-root}%{libdir}/tkConfig.sh
+    - sed -i "s|%{build-root}|%{includedir}/tk-private|" %{install-root}%{libdir}/tkConfig.sh
     - mkdir -p "%{install-root}%{includedir}/tk-private/doc/"
-    - cp "%{build-root}/doc/man.macros" 
-      "%{install-root}%{includedir}/tk-private/doc/"
+    - cp "%{build-root}/doc/man.macros" "%{install-root}%{includedir}/tk-private/doc/"
     - |
       cd "%{install-root}/%{bindir}"
       wish_versioned="$(ls wish8.* 2>/dev/null | grep -E '^wish8\.[0-9]+' | head -n 1)"
@@ -48,4 +45,4 @@ sources:
   - "*-a*"
   - "*-b*"
   - "*-rc*"
-  ref: core-8-6-17-0-gafdf30259d05840a4e513bae638955902322d1ec
+  ref: core-8-6-18-0-ge2a465de4436ce2e127bab4bc80aff4f3b2cb56c
