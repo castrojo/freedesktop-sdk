@@ -13,6 +13,7 @@ libgcc.a
 libgcov.a
 libgcc_eh.a
 libcaf_single.a
+libcaf_shmem.a
 libc_nonshared.a
 libpthread.a
 librt.a

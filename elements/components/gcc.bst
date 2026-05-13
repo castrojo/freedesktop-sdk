@@ -62,3 +62,4 @@ public:
       # Not actually used, included for completeness
       static-allowlist:
         - '%{indep-libdir}/gcc/**/*.a'
+        - '%{indep-libdir}/gcc/%{triplet}/**/*.a'
