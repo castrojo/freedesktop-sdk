@@ -28,6 +28,7 @@ variables:
     --disable-full-test-suite
     --without-nettle-mini
     --without-included-libtasn1
+    --disable-hpke
 
 public:
   bst:
