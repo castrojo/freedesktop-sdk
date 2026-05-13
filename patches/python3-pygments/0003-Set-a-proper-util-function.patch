@@ -1,0 +1,158 @@
+From fbb9202da34b6b5a60bcf57dce0cefbe8296d4da Mon Sep 17 00:00:00 2001
+From: Styx0x6 <styx0x6@users.noreply.github.com>
+Date: Tue, 31 Mar 2026 08:57:40 +0000
+Subject: [PATCH 3/3] Set a proper util function
+
+---
+ pygments/formatters/html.py  | 22 +++++++--------------
+ pygments/util.py             | 17 +++++++++++++++++
+ tests/test_html_formatter.py | 37 ++++++++++++++++++++++++++++++++++++
+ tests/test_util.py           |  6 ++++++
+ 4 files changed, 67 insertions(+), 15 deletions(-)
+
+diff --git a/pygments/formatters/html.py b/pygments/formatters/html.py
+index 68796ee..827cf3f 100644
+--- a/pygments/formatters/html.py
++++ b/pygments/formatters/html.py
+@@ -16,9 +16,7 @@ from io import StringIO
+ 
+ from pygments.formatter import Formatter
+ from pygments.token import Token, Text, STANDARD_TYPES
+-from pygments.util import get_bool_opt, get_int_opt, get_list_opt
+-
+-import html
++from pygments.util import get_bool_opt, get_int_opt, get_list_opt, html_escape
+ 
+ try:
+     import ctags
+@@ -424,17 +422,14 @@ class HtmlFormatter(Formatter):
+         self.nowrap = get_bool_opt(options, 'nowrap', False)
+         self.noclasses = get_bool_opt(options, 'noclasses', False)
+         self.classprefix = options.get('classprefix', '')
+-        _cssclass = self._decodeifneeded(options.get('cssclass', 'highlight'))
+-        self.cssclass = html.escape(_cssclass) if _cssclass else _cssclass
+-        _cssstyles = self._decodeifneeded(options.get('cssstyles', ''))
+-        self.cssstyles = html.escape(_cssstyles) if _cssstyles else _cssstyles
++        self.cssclass = html_escape(self._decodeifneeded(options.get('cssclass', 'highlight')))
++        self.cssstyles = html_escape(self._decodeifneeded(options.get('cssstyles', '')))
+         self.prestyles = self._decodeifneeded(options.get('prestyles', ''))
+         self.cssfile = self._decodeifneeded(options.get('cssfile', ''))
+         self.noclobber_cssfile = get_bool_opt(options, 'noclobber_cssfile', False)
+         self.tagsfile = self._decodeifneeded(options.get('tagsfile', ''))
+         self.tagurlformat = self._decodeifneeded(options.get('tagurlformat', ''))
+-        _filename = self._decodeifneeded(options.get('filename', ''))
+-        self.filename = html.escape(_filename) if _filename else _filename
++        self.filename = html_escape(self._decodeifneeded(options.get('filename', '')))
+         self.wrapcode = get_bool_opt(options, 'wrapcode', False)
+         self.span_element_openers = {}
+         self.debug_token_types = get_bool_opt(options, 'debug_token_types', False)
+@@ -457,12 +452,9 @@ class HtmlFormatter(Formatter):
+         self.linenostep = abs(get_int_opt(options, 'linenostep', 1))
+         self.linenospecial = abs(get_int_opt(options, 'linenospecial', 0))
+         self.nobackground = get_bool_opt(options, 'nobackground', False)
+-        _lineseparator = options.get('lineseparator', '\n')
+-        self.lineseparator = html.escape(_lineseparator) if _lineseparator else _lineseparator
+-        _lineanchors = options.get('lineanchors', '')
+-        self.lineanchors = html.escape(_lineanchors) if _lineanchors else _lineanchors
+-        _linespans = options.get('linespans', '')
+-        self.linespans = html.escape(_linespans) if _linespans else _linespans
++        self.lineseparator = html_escape(options.get('lineseparator', '\n'))
++        self.lineanchors = html_escape(options.get('lineanchors', ''))
++        self.linespans = html_escape(options.get('linespans', ''))
+         self.anchorlinenos = get_bool_opt(options, 'anchorlinenos', False)
+         self.hl_lines = set()
+         for lineno in get_list_opt(options, 'hl_lines', []):
+diff --git a/pygments/util.py b/pygments/util.py
+index 548d9d7..fca5dd3 100644
+--- a/pygments/util.py
++++ b/pygments/util.py
+@@ -10,6 +10,7 @@
+ 
+ import re
+ from io import TextIOWrapper
++import html
+ 
+ 
+ split_path_re = re.compile(r'[/\\ ]')
+@@ -322,3 +323,19 @@ class UnclosingTextIOWrapper(TextIOWrapper):
+     # Don't close underlying buffer on destruction.
+     def close(self):
+         self.flush()
++
++def html_escape(string, quote=True):
++    """Return a safe version of the passed `string`,
++    and an empty string if `None`.
++
++    `NoneType` is not supported by `html.escape`, as `html.escape`
++    uses the built-in `replace` function on `string`, so we need to
++    check for it first.
++
++    Optional flag quote is true by default, which also escapes
++    double and single quotes.
++    See https://docs.python.org/3/library/html.html#html.escape for more details.
++    """
++    if string is not None:
++        return html.escape(string, quote=quote)
++    return ''
+diff --git a/tests/test_html_formatter.py b/tests/test_html_formatter.py
+index 9d2abac..86b4674 100644
+--- a/tests/test_html_formatter.py
++++ b/tests/test_html_formatter.py
+@@ -269,3 +269,40 @@ def test_debug_token_types():
+     fmt_debug_token_types.format(tokensource, outfile_debug_token_types)
+     html_debug_token_types = outfile_debug_token_types.getvalue()
+     assert '<span class="n" title="Name">TESTDIR</span>' in html_debug_token_types
++
++
++def test_html_escape_attributes():
++    """Test that HTML special characters in formatter option values are properly escaped"""
++
++    fmt = HtmlFormatter(
++        cssclass='bad<script>',
++        cssstyles='color: "&"',
++        filename='<file\'>.py',
++        lineseparator='<br>',
++        lineanchors='anchor"name',
++        linespans='span&name',
++    )
++    assert fmt.cssclass == 'bad&lt;script&gt;'
++    assert fmt.cssstyles == 'color: &quot;&amp;&quot;'
++    assert fmt.filename == '&lt;file&#x27;&gt;.py'
++    assert fmt.lineseparator == '&lt;br&gt;'
++    assert fmt.lineanchors == 'anchor&quot;name'
++    assert fmt.linespans == 'span&amp;name'
++
++    """Test that None values for these options are handled gracefully.
++    """
++
++    fmt_none = HtmlFormatter(
++        cssclass=None,
++        cssstyles=None,
++        filename=None,
++        lineseparator=None,
++        lineanchors=None,
++        linespans=None,
++    )
++    assert fmt_none.cssclass == ''
++    assert fmt_none.cssstyles == ''
++    assert fmt_none.filename == ''
++    assert fmt_none.lineseparator == ''
++    assert fmt_none.lineanchors == ''
++    assert fmt_none.linespans == ''
+diff --git a/tests/test_util.py b/tests/test_util.py
+index f02292d..89d345a 100644
+--- a/tests/test_util.py
++++ b/tests/test_util.py
+@@ -187,3 +187,9 @@ def test_console_functions():
+     assert console.reset_color() == console.codes['reset']
+     assert console.colorize('blue', 'text') == \
+         console.codes['blue'] + 'text' + console.codes['reset']
++
++def test_html_escape():
++    assert util.html_escape('test') == 'test'
++    assert util.html_escape('<>&"\'') == '&lt;&gt;&amp;&quot;&#x27;'
++    assert util.html_escape('<>&"\'', quote=False) == '&lt;&gt;&amp;"\''
++    assert util.html_escape(None) == ''
+-- 
+2.54.0
+
