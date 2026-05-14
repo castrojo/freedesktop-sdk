@@ -38,4 +38,4 @@ sources:
 - kind: git_repo
   url: github:libsdl-org/SDL_mixer.git
   track: release-*
-  ref: release-3.2.0-0-gcedfeef30e93db35eee6b25759117da63f8e5a4f
+  ref: release-3.2.2-0-ga5e1890afc5115ffd16cefdbb4d50f74bf4970ce
