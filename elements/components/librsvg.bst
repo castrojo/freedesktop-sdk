@@ -41,7 +41,7 @@ sources:
   - '*.*.9[0-9]'
   - '*beta*'
   - '*rc*'
-  ref: 2.62.1-0-gc830fff0cf98f8af033cb8ba20d5805c60e6b12b
+  ref: 2.62.2-0-gaa54b088216d7cc42ad9b0978df45fd72db6786d
 - kind: cargo2
   ref:
   - kind: registry
