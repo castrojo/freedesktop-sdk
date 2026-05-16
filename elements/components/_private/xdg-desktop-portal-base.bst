@@ -6,7 +6,7 @@ depends:
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/git.bst
-- components/flatpak-minimal.bst
+- components/flatpak.bst
 - components/fontconfig.bst
 - components/fuse3.bst
 - components/geoclue-libs.bst

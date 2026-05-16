@@ -105,10 +105,8 @@ depends:
 - components/findutils.bst
 - components/flat-manager-client-minimal.bst
 - components/flat-manager-client.bst
-- components/flatpak-builder-minimal.bst
 - components/flatpak-builder.bst
-- components/flatpak-minimal-image.bst
-- components/flatpak-minimal.bst
+- components/flatpak-image.bst
 - components/flatpak-xdg-utils.bst
 - components/flatpak.bst
 - components/fmtlib.bst

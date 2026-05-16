@@ -8,7 +8,7 @@ variables:
   license-element-name: "freedesktop-sdk"
 
 build-depends:
-- components/flatpak-minimal-image.bst
+- components/flatpak-image.bst
 
 config:
   build-commands:

@@ -1,7 +1,7 @@
 kind: compose
 
 build-depends:
-- components/flatpak-minimal.bst
+- components/flatpak.bst
 - components/m4.bst
 
 config:
