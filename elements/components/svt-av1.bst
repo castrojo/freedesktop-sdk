@@ -28,4 +28,5 @@ sources:
   track: v*.*.*
   exclude:
   - "*rc*"
+  - "*cqp-extended*"
   ref: v4.1.0-0-gc04f951541ad600e0d9c10836f2ab7b9bc69816d
