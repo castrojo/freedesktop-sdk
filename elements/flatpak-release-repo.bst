@@ -5,7 +5,7 @@ kind: flatpak_repo
 description: Generates a flatpak repository with all flatpak image elements
 
 build-depends:
-- components/flatpak-minimal-image.bst
+- components/flatpak-image.bst
 - filename: flatpak-release-repo-deps.bst
   config:
     flatpak-stack: True

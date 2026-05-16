@@ -13,6 +13,9 @@ variables:
   strip-binaries: ''
   license-element-name: "freedesktop-sdk"
 
+build-depends:
+- components/flatpak-image.bst
+
 config:
   build-commands:
   - |

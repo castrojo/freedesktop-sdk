@@ -3,9 +3,6 @@
 
 kind: meson
 
-(@):
-- elements/include/flatpak-builder-source.yml
-
 build-depends:
 - public-stacks/buildsystem-meson.bst
 
@@ -32,3 +29,13 @@ variables:
   meson-local: >-
     -Dtests=false
     -Dfuse=3
+
+sources:
+- kind: git_repo
+  url: github:flatpak/flatpak-builder.git
+  track: 1.*[02468].*
+  ref: 1.4.10-0-g152518cbabe19453ed8f4f7bbe8d7a24084d8db4
+- kind: git_module
+  path: subprojects/libglnx
+  url: gnome:libglnx.git
+  ref: ccea836b799256420788c463a638ded0636b1632

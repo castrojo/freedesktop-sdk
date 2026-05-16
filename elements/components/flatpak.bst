@@ -3,9 +3,6 @@
 
 kind: meson
 
-(@):
-- elements/include/flatpak.yml
-
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/bison.bst
@@ -43,3 +40,9 @@ variables:
     -Dselinux_module=disabled
     -Dtests=false
     -Dsystem_dbus_proxy=xdg-dbus-proxy
+
+sources:
+- kind: git_repo
+  url: github:flatpak/flatpak.git
+  track: 1.1[02468]*
+  ref: 1.18.0-0-g5de2b58bdafde88515d9d6b9189bd1cfd3b88c46
