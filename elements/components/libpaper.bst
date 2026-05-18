@@ -17,7 +17,7 @@ sources:
 - kind: git_repo
   url: github:rrthomas/libpaper.git
   track: 'v*'
-  ref: v2.2.7-0-g81959a67c61f730179e376f2982022a97387ada7
+  ref: v2.2.8-0-g800a61a0172da9dbb9ac19b0231459345890a586
 - kind: git_module
   path: gnulib
   url: savannah:gnulib.git
