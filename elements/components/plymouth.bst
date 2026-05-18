@@ -29,6 +29,6 @@ sources:
 - kind: git_repo
   url: freedesktop:plymouth/plymouth.git
   track: '*.*.*'
-  ref: 24.004.60-0-gd6e6366d622962dce02d8c7e4ab814f54a202509
+  ref: 26.134.222-0-gd15928a8e06c217aad0f2e3579df23fec93dc009
 - kind: local
   path: files/plymouth/plymouthd.defaults
