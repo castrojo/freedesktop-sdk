@@ -269,6 +269,7 @@ module VIRTIO_INPUT
 module SND_VIRTIO
 module I2C_VIRTIO
 module LIBNVDIMM
+module VIRTIO_VFIO_PCI
 module VIRTIO_ANCHOR
 enable VIRTIO_PMEM
 module VIRTIO_NET
@@ -1295,6 +1296,12 @@ if has ARCH_ENABLE_MEMORY_HOTPLUG; then
         enable ZONE_DEVICE
         enable DEVICE_PRIVATE
         enable HMM_MIRROR
+
+        case "$arch" in
+            aarch64|x86_64|riscv*)
+                module VIRTIO_MEM
+            ;;
+        esac
     fi
 fi
 
@@ -2631,6 +2638,9 @@ case "$arch" in
 esac
 
 enable CPU_FREQ
+if has GENERIC_ARCH_TOPOLOGY; then
+    module CPUFREQ_VIRT
+fi
 
 # cpufreq
 case "$arch" in
