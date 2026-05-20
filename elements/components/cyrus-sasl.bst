@@ -12,7 +12,6 @@ depends:
 - components/openssl.bst
 
 variables:
-  local_flags: -std=gnu17
   # Uses generated header md5global.h into source directory
   build-dir: ''
   make-args: sasldir="%{libdir}/sasl2"
@@ -44,3 +43,5 @@ sources:
   ref: cyrus-sasl-2.1.28-0-g7a6b45b177070198fed0682bea5fa87c18abb084
 - kind: patch
   path: patches/cyrus-sasl/c99.patch
+- kind: patch
+  path: patches/cyrus-sasl/cyrus-sasl-2.1.28-gcc15.patch
