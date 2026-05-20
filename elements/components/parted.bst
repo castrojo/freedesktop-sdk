@@ -8,13 +8,12 @@ depends:
 - components/util-linux-full.bst
 - components/libdevmapper.bst
 
-variables:
-  local_flags: -std=gnu17
-
 sources:
 - kind: tar
   url: ftp_gnu_org:parted/parted-3.6.tar.xz
   ref: 3b43dbe33cca0f9a18601ebab56b7852b128ec1a3df3a9b30ccde5e73359e612
+- kind: patch
+  path: patches/parted/bug-74444-PATCH-parted-fix-do_version-declaration.patch
 
 # We have decided to stay with tarballs on this one, because the build
 # system is too annoying when building from git. Parted  apparently
