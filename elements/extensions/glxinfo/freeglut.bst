@@ -12,7 +12,6 @@ build-depends:
 
 
 variables:
-  local_flags: -std=gnu17
   cmake-local: >
     -DFREEGLUT_BUILD_DEMOS:BOOL=OFF
     -DCMAKE_C_FLAGS="${CFLAGS} -I/app/include"
