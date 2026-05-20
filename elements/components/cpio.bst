@@ -10,7 +10,6 @@ depends:
 
 variables:
   autogen: ./bootstrap --skip-po --no-git --gnulib-srcdir=%{build-root}/gnulib
-  local_flags: -std=gnu17
   conf-local: >-
     --with-rmt="%{libexecdir}/rmt"
   make-args: >-
@@ -40,3 +39,5 @@ sources:
   url: savannah:gnulib.git
   path: gnulib
   ref: 29d705ead11382c8d608dcc254394439cb43b9b8
+- kind: patch
+  path: patches/cpio/Fix-c23-conformity.patch
