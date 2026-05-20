@@ -7,7 +7,7 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 variables:
-  local_flags: -std=gnu17
+  autogen: autoreconf -fvi
   conf-local: >-
     --enable-cxx
     --enable-fat
@@ -31,3 +31,5 @@ sources:
 - kind: tar
   url: ftp_gnu_org:gmp/gmp-6.3.0.tar.xz
   ref: a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898
+- kind: patch
+  path: patches/gmp/Complete-function-prototype-in-acinclude.m4-for-C23-.patch
