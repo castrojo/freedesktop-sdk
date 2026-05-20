@@ -7,9 +7,6 @@ depends:
 - components/util-linux-full.bst
 - public-stacks/runtime-minimal.bst
 
-variables:
-  local_flags: -std=gnu17
-
 sources:
 - kind: git_repo
   url: kernel:linux/kernel/git/jaegeuk/f2fs-tools.git
@@ -17,3 +14,5 @@ sources:
   ref: v1.16.0-0-g06c027abc6153c4a97cba5317844e8dcaaee3cf7
 - kind: patch
   path: patches/f2fs-tools/android-config-filter.patch
+- kind: patch
+  path: patches/f2fs-tools/f2fs-tools-use-stdbool.h-instead-of-bool.patch
