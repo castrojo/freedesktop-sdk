@@ -15,6 +15,6 @@ sources:
 - kind: git_repo
   url: github:aio-libs/propcache.git
   track: v*
-  ref: v0.5.1-0-g9c374aa535fc054676ed84b4e709b8a29cb9a60c
+  ref: v0.5.2-0-g041f7afe0dff07f3baa77ff444dd735433290940
 - kind: patch
   path: patches/python3-propcache/allow-cython.patch
