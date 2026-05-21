@@ -213,7 +213,7 @@ check_mirrors:
   script:
     - |
       ${BST} source fetch --deps all flatpak-release-repo.bst components.bst \
-             components/_private/rust-stage1-{x86_64,i686,aarch64,powerpc64le}.bst \
+             components/_private/rust-stage1-{x86_64,i686,aarch64,powerpc64le,loongarch64,riscv64}.bst \
              oci/layers/{flatpak,debug,platform,sdk}.bst
   allow_failure: true
   rules:
