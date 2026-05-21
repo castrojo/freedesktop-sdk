@@ -50,12 +50,14 @@ case "$arch" in
 	# fp5
 	module DRM_PANEL_RAYDIUM_RM692E5
 	enable REGULATOR_QCOM_PM8008
+	enable REGULATOR_QCOM_REFGEN
 	module DRM_SIMPLEDRM
 	module BACKLIGHT_QCOM_WLED
 	enable USB_XHCI_SIDEBAND
 	module SND_USB_AUDIO_QMI
 	module SND_SOC_USB
 	module SND_SOC_QDSP6_USB
+	enable SCSI_UFS_QCOM
 
 	# FIXME: Because ARM_SMMU is built-in and will try to probe
 	# the clocks, we need to have them built-in. We should try to
@@ -1793,7 +1795,7 @@ case "$arch" in
         module MFD_INTEL_PMC_BXT
     ;;
     aarch64)
-        module MFD_QCOM_PM8008
+        enable MFD_QCOM_PM8008
     ;;
 esac
 module MFD_AXP20X_I2C
