@@ -7,7 +7,7 @@ depends:
 - components/icu.bst
 - components/inih.bst
 - components/liburcu.bst
-- components/util-linux.bst
+- components/util-linux-libs.bst
 
 variables:
   # This build system does not generate required files under build-dir

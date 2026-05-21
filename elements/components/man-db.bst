@@ -13,6 +13,7 @@ depends:
 - components/libseccomp.bst
 - components/gzip.bst
 - components/lzip.bst
+# Uses the `col` program
 - components/util-linux.bst
 
 variables:

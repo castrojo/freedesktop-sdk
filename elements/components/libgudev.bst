@@ -9,7 +9,6 @@ build-depends:
 
 depends:
 - components/glib.bst
-- components/util-linux.bst
 - components/systemd-libs.bst
 
 # umockdev depends on vala and is recursively dependent on libgudev.

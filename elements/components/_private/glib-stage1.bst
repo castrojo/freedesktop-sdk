@@ -11,9 +11,10 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/elfutils.bst
 - components/libffi.bst
-- components/util-linux.bst
 - components/python3.bst
 - components/python3-packaging.bst
+# GIO uses libmount
+- components/util-linux-libs.bst
 
 variables:
   meson-local: >-

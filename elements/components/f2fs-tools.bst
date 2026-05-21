@@ -4,7 +4,7 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 
 depends:
-- components/util-linux-full.bst
+- components/util-linux-libs.bst
 - public-stacks/runtime-minimal.bst
 
 sources:

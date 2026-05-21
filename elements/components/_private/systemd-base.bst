@@ -24,6 +24,9 @@ build-depends:
 - components/libseccomp.bst
 - components/lz4.bst
 - components/zstd.bst
+- components/util-linux-libfdisk.bst
+- components/util-linux-libs.bst
+# systemd services exist that call `agetty`, `fsck`, `mkswap` from util-linux-full.
 - components/util-linux-full.bst
 - components/libarchive.bst
 - components/linux-pam.bst

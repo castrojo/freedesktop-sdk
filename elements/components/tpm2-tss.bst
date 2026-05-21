@@ -11,7 +11,8 @@ depends:
 - components/json-c.bst
 - components/curl.bst
 - components/openssl.bst
-- components/util-linux.bst
+# Uses libuuid only
+- components/util-linux-libs.bst
 
 variables:
   conf-local: >-
