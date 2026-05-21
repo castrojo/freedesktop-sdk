@@ -16,6 +16,7 @@ variables:
     -DENABLE_GTK_DOC=OFF
     -DICAL_GLIB=ON
     -DICAL_GLIB_VAPI=ON
+    -DLIBICAL_JAVA_BINDINGS=False
 
 sources:
 - kind: git_repo
