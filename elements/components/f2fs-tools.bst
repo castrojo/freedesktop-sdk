@@ -4,7 +4,8 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 
 depends:
-- components/util-linux-full.bst
+# Uses libblkid and libuuid
+- components/util-linux-libs.bst
 - public-stacks/runtime-minimal.bst
 
 sources:

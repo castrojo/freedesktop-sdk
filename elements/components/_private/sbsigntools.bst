@@ -8,6 +8,9 @@ build-depends:
 
 depends:
 - components/openssl.bst
+# Uses libuuid
+- components/util-linux-libs.bst
+# Requires getopt
 - components/util-linux.bst
 - public-stacks/runtime-minimal.bst
 

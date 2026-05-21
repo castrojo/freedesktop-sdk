@@ -25,6 +25,10 @@ depends:
 - components/lz4.bst
 - components/linux-pam.bst
 - components/openssl.bst
+# Uses libblkid and libmount, and libfdisk
+- components/util-linux-libs.bst
+- components/util-linux-libs-full.bst
+# systemd services exist that call `agetty`, `fsck`, `mkswap` from util-linux-full.
 - components/util-linux-full.bst
 
 variables:

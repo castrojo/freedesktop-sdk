@@ -9,10 +9,11 @@ build-depends:
 - public-stacks/runtime-minimal.bst
 - public-stacks/buildsystem-make.bst
 - components/acpica-tools.bst
-- components/util-linux.bst
 - components/python3.bst
 - components/nasm.bst
 - components/sed.bst
+# Uses libuuid
+- components/util-linux-libs.bst
 
 environment:
   JOBS: "%{max-jobs}"

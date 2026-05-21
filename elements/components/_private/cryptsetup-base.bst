@@ -5,10 +5,11 @@ build-depends:
 - components/asciidoctor.bst
 - components/json-c.bst
 - components/pwquality.bst
-- components/util-linux-full.bst
 - components/_private/lvm2-stage1.bst
 - components/popt.bst
 - components/openssl.bst
+# Uses libblkid and libuuid
+- components/util-linux-libs.bst
 
 variables:
   conf-local: >-

@@ -15,6 +15,10 @@ runtime-depends:
 - components/systemd-manifest.bst
 - components/tzdata.bst
 - components/shadow.bst
+# Uses libblkid and libmount, and libfdisk
+- components/util-linux-libs.bst
+- components/util-linux-libs-full.bst
+# systemd services exist that call `agetty`, `fsck`, `mkswap` from util-linux-full.
 - components/util-linux-full.bst
 - components/libidn2.bst
 - components/libseccomp.bst

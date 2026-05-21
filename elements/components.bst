@@ -588,6 +588,8 @@ depends:
 - components/usbutils.bst
 - components/utf8cpp.bst 
 - components/util-linux-full.bst
+- components/util-linux-libs-full.bst
+- components/util-linux-libs.bst
 - components/util-linux.bst
 - components/v4l-utils.bst
 - components/_private/vala-bootstrap.bst

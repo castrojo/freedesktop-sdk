@@ -5,8 +5,9 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/util-linux-full.bst
 - components/libdevmapper.bst
+# Uses libblkid and libuuid
+- components/util-linux-libs.bst
 
 sources:
 - kind: tar

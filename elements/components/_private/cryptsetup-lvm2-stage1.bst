@@ -7,5 +7,6 @@ runtime-depends:
 - components/cryptsetup-manifest.bst
 - components/json-c.bst
 - components/pwquality.bst
-- components/util-linux-full.bst
+# Uses libblkid and libuuid
+- components/util-linux-libs.bst
 - components/_private/lvm2-stage1.bst

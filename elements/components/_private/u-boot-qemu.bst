@@ -13,8 +13,9 @@ build-depends:
 - components/bc.bst
 - components/swig.bst
 - components/python3-setuptools.bst
-- components/util-linux.bst
 - components/gnutls.bst
+# Uses libuuid
+- components/util-linux-libs.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

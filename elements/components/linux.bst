@@ -17,6 +17,7 @@ build-depends:
 - components/rust.bst
 - components/rust-bindgen.bst
 - components/rust-src.bst
+# The build process uses `hexdump`
 - components/util-linux.bst
 - components/zstd.bst
 - filename: components/linux-module-cert.bst

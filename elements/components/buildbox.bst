@@ -11,7 +11,8 @@ depends:
 - components/openssl.bst
 - components/protobuf.bst
 - components/tomlplusplus.bst
-- components/util-linux.bst
+# Uses libuuid
+- components/util-linux-libs.bst
 
 variables:
   cmake-local: >-
