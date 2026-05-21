@@ -1,3 +1,135 @@
+Version: freedesktop-sdk-24.08.32
+Date: '2026-05-21'
+Description: |-
+  Changes in freedesktop-sdk-24.08.32
+   * Update xorg-lib-xi to libXi-1.8.3-0
+   * Update perl-xml-parser to 2.59
+   * Update valgrind to VALGRIND_3_27_1-0
+   * Update python3-trove-classifiers to 2026.5.20.19-0
+   * Update libde265 to v1.0.19-0
+   * Update python3-certifi to 2026.05.20-0
+   * Update tpm2-pkcs11 to 1.10.0-0
+   * Update python3-protobuf to 7.35.0
+   * Update passt to 2026_05_07.1afd4ed-0
+   * Update dictionaries to libreoffice-26.2.4.1-0
+   * Update libusb to v1.0.30-0
+   * Update python3-requests to v2.34.2-0
+   * Update libei to 1.6.0-0
+   * Update lvm2 to v2_03_41-0
+   * Update python3-click to 8.4.0
+   * Update libpaper to v2.2.8-0
+   * Update plymouth to 26.134.222-0
+   * Update linux to v7.0.7-0
+   * Update networkmanager to 1.56.1-0
+   * Update libinput to 1.31.2-0
+   * .gitlab-ci.yml: Disable ppc64le builds for now
+   * Update python3-requests to v2.34.1-0
+   * Update python3-virtualenv to 21.3.3-0
+   * Update python3-idna to v3.15-0
+   * python3-pygments: backport patch to fix crash
+   * Update tk to core-8-6-18-0
+   * Update fwupd to 2.1.3-0
+   * Update buildbox to 1.4.6-0
+   * Update python3-virtualenv to 21.3.2-0
+   * Update linux to v7.0.6-0
+   * Update python3-maturin to ref: v1.13.3-0
+   * Update python3-requests to v2.34.0-0
+   * Update sdl2-mixer to release-2.8.2-0
+   * Update python3-maturin to ref: v1.13.2-0
+   * Update gdb to gdb-17.2-release-0
+   * python3-tomlkit: Update to 0.15.0
+   * Update python3-idna to v3.14-0
+   * python3-propcache: Add patch to build with older setuptools
+   * python3-propcache: Update patch
+   * python3-propcache: Drop patch and use upstream method of in-place builds
+   * Update python3-propcache to v0.5.2-0
+   * dummy-gbm: Disable meson LTO
+   * Update mesa-sdk to mesa-26.1.0-0
+   * xfsprogs: Freeze due to requiring newer kernel headers
+   * Update extra-cmake-modules to v6.26.0-0
+   * Update btrfs-progs to v7.0-0
+   * Update linux to v7.0.5-0
+   * Update python3-cryptography to ref: 48.0.0-0
+   * Update python3-trove-classifiers to 2026.5.7.17-0
+   * Update python3-ujson to 5.12.1-0
+   * Update python3-urllib3 to 2.7.0-0
+   * Update go to go1.25.10-0
+   * Update ccache to v4.13.6-0
+   * ci: Drop ppc64 jobs and ppc64 bootstrap
+   * ci: Drop publish_tar_template
+   * ci: Override default after_script for lint job and set it to nothing
+   * ci: Hide errors from flatpak cleanup commands
+   * ci: Drop license checker job
+   * ci: Drop non-existent ppc64le ref deletion
+   * plugin: Point to fork with fix for tracking sources without track set
+   * xdg-desktop-portal-base: Integrate libglnx wrap
+   * Update xdg-desktop-portal-base to 1.20.4-0
+   * qpdf: Exclude unrelated tag
+   * Update python3-virtualenv to 21.3.1-0
+   * ci: Update to image sha from master
+   * Revert "ci: Force the lint job to use tagged runners"
+   * Revert ".gitlab-ci.yml: Disable ppc64le builds for now"
+   * Update hwdata to v0.407-0
+   * Update python3-pip to 26.1.1-0
+   * python3-requests: Exclude dev tag
+   * python3-flit-core: Freeeze to v3
+   * libmicrohttpd: Freeze due to ABI change
+   * apparmor: Freeze to v4 due to ABI change
+   * rsync-source: Update to v3.4.2-0
+   * mesa-sources: Update to mesa-26.0.6-0
+   * sdl2-image: Update to release-2.8.12-0
+   * doxygen: Update to Release_1_17_0-0
+   * lvm2-source: Update to v2_03_40-0
+   * libdrm: Update to libdrm-2.4.133-0
+   * python3-trove-classifiers: Update to 2026.4.28.13-0
+   * python3-pytz: Update to 2026.2
+   * python3-poetry-core: Update to 2.4.0-0
+   * python3-mako: Update to rel_1_3_12-0
+   * python3-build: Update to 1.5.0-0
+   * libabigail: Update to libabigail-2.10-0
+   * dracut: Update to 111-0
+   * libyaml: Exclude rc tags
+   * libical: Freeze to v3.x
+   * Update python3-packaging to 26.2-0
+   * Update linux to v7.0.3-0
+   * libx265: Add patch to fix i686 build
+   * Update libx265 to 4.2-0
+   * Update python3-virtualenv to 21.3.0-0
+   * Update mesa-sdk to mesa-26.0.6-0
+   * Update strace to v7.0-0
+   * libtraceevent: Freeze to 1.8.7 due to ABI change
+   * libskba: Freeze to 1.6.7 due to ABI change
+   * xorg-lib-pciaccess: Freeze to 0.18.1 due to ABI change
+   * pciutils: Freeze to 3.14 due to ABI change
+   * lcms: Freeze to 2.18 due to ABI change
+   * Update python3-wheel to 0.47.0-0
+   * ci: Force the lint job to use tagged runners
+   * .gitlab-ci.yml: Disable ppc64le builds for now
+   * ghostscript: Add patch to fix build
+   * Update ghostscript to ghostpdl-10.07.0-0
+   * Update python3-cryptography to ref: 47.0.0-0
+   * Update buildbox to 1.4.5-0
+   * Update intel-media-driver to intel-media-26.2.0-0
+   * Update reference-abi to freedesktop-sdk-24.08.31-0
+   * Update python3-pip to 26.1-0
+   * Update python3-pathspec to v1.1.1-0
+   * Update libblockdev to 3.5.0-0
+   * Update xwayland to xwayland-24.1.11-0
+   * Update ccache to v4.13.5-0
+   * Update bubblewrap to v0.11.2-0
+   * Update tzdata to 2026b-0
+   * Update python3-click to 8.3.3
+   * Update weston to 15.0.1-0
+   * Update parallel to 20260422-0
+   * assign-marge: Update to new marge-bot ID and group-level variable
+   * Update mesa to mesa-26.0.5-0
+   * fwupd: Disable hsi on non-x86 arches
+   * fwupd: Drop upstreamed patch
+   * Update fwupd to 2.1.2-0
+   * linux: Remove CRYPTO_AES_ARM64 and _CE
+   * linux: Remove S2IO
+   * Update linux to v7.0-0
+---
 Version: freedesktop-sdk-24.08.31
 Date: '2026-04-26'
 Description: |-
