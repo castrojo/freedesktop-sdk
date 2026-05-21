@@ -1,10 +1,26 @@
 kind: filter
+description: |
+  util-linux utilities and internal libraries.
+
+  This element includes utility programs that are used by libraries and apps in
+  the Flatpak ecosystem.
+
+  It also includes libraries that are used only by the util-linux programs:
+
+    * liblastlog2
+    * libsmartcols
+
+  These libraries are installed system-wide and are available to other apps
+  and libraries, but we didn't see any example so far of them being used
+  in the Flatpak ecosystem. Publicly used libraries are in the separate
+  `components/util-linux-libs.bst` element.
 
 build-depends:
 - components/_private/util-linux-base.bst
 
 runtime-depends:
 - components/util-linux-manifest.bst
+- components/util-linux-libs.bst
 - public-stacks/runtime-minimal.bst
 - components/libeconf.bst
 - components/file.bst
@@ -12,20 +28,20 @@ runtime-depends:
 
 config:
   exclude:
+  - libblkid
+  - libfdisk
+  - libmount
+  - libuuid
   - vm-tools
   include-orphans: true
 
 public:
   bst:
-    split-rules:
-      devel:
-        (>):
-        - '%{libdir}/libblkid.so'
-        - '%{libdir}/libeconf.so'
-        - '%{libdir}/liblastlog2.so'
-        - '%{libdir}/libsmartcols.so'
-        - '%{libdir}/libmount.so'
-        - '%{libdir}/libuuid.so'
     overlap-whitelist:
     - "%{project_licensedir}/util-linux"
     - "%{project_licensedir}/util-linux/**"
+    split-rules:
+      devel:
+        (>):
+          - '%{libdir}/liblastlog2.so'
+          - '%{libdir}/libsmartcols.so'
