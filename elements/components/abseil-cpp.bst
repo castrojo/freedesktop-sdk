@@ -21,4 +21,5 @@ public:
 sources:
 - kind: git_repo
   url: github:abseil/abseil-cpp.git
-  ref: 20240722.1-0-gdd4c89bd657f1e247ce5111a5c89ffe6ccfd0c92
+  track: '20240722.[0-9]'
+  ref: 20240722.2-0-g216a6bed75c9ec254ae0e5af537e5b9635b45191
