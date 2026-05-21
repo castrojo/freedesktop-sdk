@@ -8,6 +8,7 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/libxslt.bst
+# Uses `getopt`
 - components/util-linux.bst
 
 config:

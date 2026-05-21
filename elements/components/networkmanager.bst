@@ -12,7 +12,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/util-linux-full.bst
+# Uses libuuid only
+- components/util-linux-libs.bst
 - components/systemd-libs.bst
 - components/dbus.bst
 - components/glib.bst

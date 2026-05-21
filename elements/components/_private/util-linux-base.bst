@@ -148,8 +148,6 @@ public:
 
       - '%{bindir}/dmesg'
 
-      - '%{libdir}/libfdisk.so*'
-
       - '%{bindir}/setpriv'
   cpe:
     product: util-linux

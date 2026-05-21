@@ -4,11 +4,13 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 
 depends:
+- components/util-linux-libs.bst
 - public-stacks/runtime-minimal.bst
-- components/util-linux.bst
 
 variables:
   license-files-extra: NOTICE
+  # The `--disable-libuuid` and `--disable-libblkid` options are disabling the
+  # *bundled* versions and enabling use of the system versions of these libs.
   conf-local: >-
     --enable-elf-shlibs
     --disable-fuse2fs

@@ -6,8 +6,9 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - bootstrap/xxhash.bst
-- components/util-linux.bst
 - components/lz4.bst
+# Uses libuuid only
+- components/util-linux-libs.bst
 # FIXME: No fuse3 support yet
 # - components/fuse3.bst
 
