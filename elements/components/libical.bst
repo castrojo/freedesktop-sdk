@@ -4,6 +4,7 @@ build-depends:
 - components/gobject-introspection.bst
 - components/perl.bst
 - components/vala.bst
+- components/python3-gi-docgen.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
