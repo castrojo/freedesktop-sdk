@@ -1,0 +1,27 @@
+From 414237c4d2dbaeb6d3c31da8fe2a52c71aff69d1 Mon Sep 17 00:00:00 2001
+From: Tom Pollard <tom.pollard@codethink.co.uk>
+Date: Thu, 21 May 2026 13:42:17 +0100
+Subject: [PATCH] Revert "Update setuptools requirement from >=47 to >=82.0.1
+ (#1657)"
+
+This reverts commit 255818d541648e21b96a5128e00d9693979f9261.
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 0fd423b..1a88f8e 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -4,7 +4,7 @@ requires = [
+   # NOTE: provisioning of the in-tree build backend located under
+   # NOTE: `packaging/pep517_backend/`.
+   "expandvars",
+-  "setuptools >= 82.0.1",  # Minimum required for `version = attr:`
++  "setuptools >= 47",  # Minimum required for `version = attr:`
+   "tomli; python_version < '3.11'",
+ ]
+ backend-path = ["packaging"]  # requires `pip >= 20` or `pep517 >= 0.6.0`
+-- 
+2.43.0
+
