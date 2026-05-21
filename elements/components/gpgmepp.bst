@@ -28,4 +28,4 @@ sources:
   track: gpgmepp-*
   exclude:
   - "*-base"
-  ref: gpgmepp-2.0.0-0-g301d39f8b97a79369292280e201e45f472d71e91
+  ref: gpgmepp-2.1.0-0-g6a99d7eef09aedd768356792f38aca2cc03659da
