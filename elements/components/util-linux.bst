@@ -1,10 +1,16 @@
 kind: filter
+description: |
+  Core util-linux utilities.
+
+  The utilities which are specific to operating systems and sysadmin tasks are
+  in the separate `components/util-linux-full.bst` element.
 
 build-depends:
 - components/_private/util-linux-base.bst
 
 runtime-depends:
 - components/util-linux-manifest.bst
+- components/util-linux-libs.bst
 - public-stacks/runtime-minimal.bst
 - components/libeconf.bst
 - components/file.bst
@@ -12,20 +18,17 @@ runtime-depends:
 
 config:
   exclude:
+  - libblkid
+  - liblastlog2
+  - libfdisk
+  - libmount
+  - libsmartcols
+  - libuuid
   - vm-tools
   include-orphans: true
 
 public:
   bst:
-    split-rules:
-      devel:
-        (>):
-        - '%{libdir}/libblkid.so'
-        - '%{libdir}/libeconf.so'
-        - '%{libdir}/liblastlog2.so'
-        - '%{libdir}/libsmartcols.so'
-        - '%{libdir}/libmount.so'
-        - '%{libdir}/libuuid.so'
     overlap-whitelist:
     - "%{project_licensedir}/util-linux"
     - "%{project_licensedir}/util-linux/**"

@@ -87,6 +87,7 @@ depends:
 - components/speexdsp.bst
 - components/tzdata.bst
 - components/util-linux.bst
+- components/util-linux-libs.bst
 - components/wget2.bst
 - components/which.bst
 - components/xz-docs.bst
