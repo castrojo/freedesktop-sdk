@@ -392,7 +392,8 @@ export-oci:
 	             oci/sdk-oci.bst \
 	             oci/debug-oci.bst \
 	             oci/flatpak-oci.bst \
-	             oci/toolbox-oci.bst
+	             oci/toolbox-oci.bst \
+	             oci/bootc-oci.bst
 	set -e; \
 	for name in platform sdk debug flatpak toolbox; do \
 	  $(BST) artifact checkout "oci/$${name}-oci.bst" --tar "$${name}-oci.tar"; \

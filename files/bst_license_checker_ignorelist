@@ -227,6 +227,7 @@ bootstrap/export-bootstrap.bst
 flatpak-release-repo.bst
 
 # oci elements
+oci/bootc-oci.bst
 oci/bootstrap-oci.bst
 oci/debug-docker.bst
 oci/debug-oci.bst
