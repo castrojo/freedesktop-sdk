@@ -25,7 +25,7 @@ public:
 sources:
 - kind: git_repo
   url: github:gpg/gpgmepp.git
-  track: gpgmepp-*
+  track: gpgmepp-2.0.*
   exclude:
   - "*-base"
   ref: gpgmepp-2.0.0-0-g301d39f8b97a79369292280e201e45f472d71e91
