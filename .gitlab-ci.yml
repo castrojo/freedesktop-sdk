@@ -251,12 +251,15 @@ check_mirrors:
           echo ABI check skipped
         fi
       fi
+
+    - make generate-spdx-sbom-reports
   artifacts:
     when: always
     paths:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs/**/*-build.*.log
       - ${CI_PROJECT_DIR}/cache/buildstream/logs/_casd
       - ${CI_PROJECT_DIR}/libabigail-tars
+      - ${CI_PROJECT_DIR}/sbom-reports
   rules:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 
@@ -377,10 +380,13 @@ app_riscv64:
       if [ "${DIALOG+set}" = set ]; then
         utils/test_minimal_system.py --dialog "${DIALOG}" command 'make run-vm'
       fi
+
+    - make generate-spdx-sbom-reports
   artifacts:
     when: always
     paths:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
+      - ${CI_PROJECT_DIR}/sbom-reports
   rules:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 
@@ -472,11 +478,14 @@ desktop_systemd_vm_aarch64:
       if [ "${DIALOG+set}" = set ]; then
         utils/test_minimal_system.py --dialog "${DIALOG}" command 'make run-efi-vm'
       fi
+
+    - make generate-spdx-sbom-reports
   artifacts:
     when: always
     paths:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
       - "${CI_PROJECT_DIR}/checkout/**/*sizes*.tsv"
+      - ${CI_PROJECT_DIR}/sbom-reports
   rules:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 
@@ -633,20 +642,6 @@ publish_flatpak:
       when: delayed
       start_in: 1 minute
   interruptible: false
-
-spdx_sbom_report:
-  stage: finish-publish
-  script:
-    - make generate-spdx-sbom-reports
-  artifacts:
-    paths:
-      - "${CI_PROJECT_DIR}/sbom-reports"
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK != "weekly"'
-    when: never
-  - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
-  - if: '$CI_COMMIT_BRANCH =~ /^release\/.*/'
-  needs: []
 
 weekly_spdx_sbom_report:
   stage: finish-publish
