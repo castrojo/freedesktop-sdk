@@ -41,4 +41,4 @@ sources:
 - kind: git_repo
   url: github:gpg/gpgme.git
   track: gpgme-2.0.*
-  ref: gpgme-2.0.0-0-ge17ba578861905857da0a514b4fc9b88a57f7346
+  ref: gpgme-2.0.1-0-ge4adebe020b07bc47e583817576ce98ca93e9711
