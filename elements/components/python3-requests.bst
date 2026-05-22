@@ -17,4 +17,4 @@ sources:
   track: v*
   exclude:
   - "*dev*"
-  ref: v2.34.1-0-gb7b549b54571d03950b16afd2d01bc6ff0348224
+  ref: v2.34.2-0-g6e83187b8feb273ed4c6cdab5efd8d54901dfab3
