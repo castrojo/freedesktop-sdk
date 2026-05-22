@@ -43,8 +43,8 @@ sources:
 - kind: pypi
   name: hotdoc
   ref:
-    sha256sum: ded2c2cd06f4527f891b2d469ab5bc0161fdc84aa90d07b190bd63694a059389
-    suffix: 26/f3/94ed01195952d8ba87e43ed1417f03bf50cd9d7d8db9c2c4364932e150a0/hotdoc-0.18.2.tar.gz
+    sha256sum: cf22977cae68ca2f1e223dc901258dcbbd0e07eca924d8156c4fc94a54cad40b
+    suffix: a2/e8/799c34a47c3512899299113d55d928a5ee3d25649774c80946e97b53a7ba/hotdoc-0.18.3.tar.gz
 - kind: patch
   path: patches/hotdoc/c_comment_scanner-fix-function-prototypes.patch
 - kind: git_repo
