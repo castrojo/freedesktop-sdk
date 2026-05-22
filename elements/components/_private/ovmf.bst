@@ -32,7 +32,7 @@ variables:
   build-args: >-
     -n "${JOBS}"
     --buildtarget=RELEASE
-    --tagname=GCC5
+    --tagname=GCC
     --platform='%{platform}'
     %{arch-args}
     %{opts}
@@ -55,7 +55,7 @@ variables:
       arch-opts: >-
         -D SMM_REQUIRE
       platform: OvmfPkg/OvmfPkgIa32X64.dsc
-      build-dir: Build/Ovmf3264/RELEASE_GCC5
+      build-dir: Build/Ovmf3264/RELEASE_GCC
       shell: '%{build-dir}/X64/Shell.efi'
 
   - target_arch == "aarch64":
@@ -63,7 +63,7 @@ variables:
         --arch=AARCH64
       arch-opts: ''
       platform: ArmVirtPkg/ArmVirtQemu.dsc
-      build-dir: Build/ArmVirtQemu-AArch64/RELEASE_GCC5
+      build-dir: Build/ArmVirtQemu-AArch64/RELEASE_GCC
       code: '%{build-dir}/FV/QEMU_EFI.fd'
       vars: '%{build-dir}/FV/QEMU_VARS.fd'
       shell: '%{build-dir}/AARCH64/Shell.efi'
@@ -102,7 +102,7 @@ sources:
 - kind: git_repo
   url: github:tianocore/edk2.git
   track: edk2-stable*
-  ref: edk2-stable202602-0-gb7a715f7c03c45c6b4575bf88596bfd79658b8ce
+  ref: edk2-stable202605-0-gb03a21a63e3bd001f52c527e5a57feddb53a690b
 - kind: git_module
   path: CryptoPkg/Library/OpensslLib/openssl
   url: github:openssl/openssl.git
@@ -110,7 +110,7 @@ sources:
 - kind: git_module
   path: CryptoPkg/Library/MbedTlsLib/mbedtls
   url: github:Mbed-TLS/mbedtls.git
-  ref: e185d7fd85499c8ce5ca2a54f5cf8fe7dbe3f8df
+  ref: 0bebf8b8c7f07abe3571ded48a11aa907a1ffb20
 - kind: git_module
   path: SecurityPkg/DeviceSecurity/SpdmLib/libspdm
   url: github:DMTF/libspdm.git
