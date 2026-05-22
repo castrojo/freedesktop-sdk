@@ -235,9 +235,12 @@ endif
 SPDX_SBOM_DIR := sbom-reports
 SPDX_SBOM_COMMON_ARGS := \
     --spdx-creator "Organization: freedesktop-sdk (freedesktop-sdk@lists.freedesktop.org)" \
-    --with-licenses \
-    --spdx-comment "Components licensing information isn't guaranteed to be complete nor correct and must only be considered advisory." \
     --deps all
+ifneq ($(origin SPDX_SBOM_WITH_LICENSE), undefined)
+	SPDX_SBOM_WITH_LICENSE_ARGS := \
+		--with-licenses \
+		--spdx-comment "Components licensing information isn't guaranteed to be complete nor correct and must only be considered advisory."
+endif
 UUID-sdk := $(shell uuidgen)
 UUID-platform := $(shell uuidgen)
 UUID-components := $(shell uuidgen)
@@ -249,6 +252,7 @@ ${SPDX_SBOM_DIR}:
 ${SPDX_SBOM_DIR}/%.spdx.json: ${SPDX_SBOM_DIR}
 	@echo -e "\nCreating $@ report"
 	BST=bst $(BST_SBOM) $(SPDX_SBOM_COMMON_ARGS) \
+		$(SPDX_SBOM_WITH_LICENSE_ARGS) \
 		--spdx-name freedesktop-sdk-${ARCH}-$* \
 		--spdx-namespace https://freedesktop-sdk.io/freedesktop_sdk/spdxdocs/$*.spdx.json-${UUID-$*} \
 		--output "$@" $*.bst
