@@ -1,7 +1,7 @@
 kind: meson
 
 build-depends:
-- public-stacks/buildsystem-meson.bst
+- components/_private/buildsystem-meson.bst
 - components/asciidoctor.bst
 - components/bash-completion.bst
 - components/bison.bst

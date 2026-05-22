@@ -4,8 +4,8 @@ kind: meson
 - elements/include/git.yml
 
 build-depends:
-- public-stacks/buildsystem-meson.bst
 - components/asciidoc.bst
+- components/_private/buildsystem-meson.bst
 - components/docbook-xsl.bst
 - components/grep.bst
 - components/libxslt.bst
