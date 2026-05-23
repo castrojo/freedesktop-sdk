@@ -32,6 +32,4 @@ sources:
   exclude:
   - '*rc*'
   - '*test*'
-  ref: ghostpdl-10.07.0-0-g7767a94089a8e01fa78b2a2cc081343e4a0eb3e7
-- kind: patch
-  path: patches/ghostscript/fix-pointer-type.patch
+  ref: ghostpdl-10.07.1-0-g9a39d68ca934f8e9343f46a2803e765122a3b4a9
