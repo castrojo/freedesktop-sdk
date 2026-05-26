@@ -3,3 +3,5 @@ sources:
   url: github:ximion/appstream.git
   track: v1.0.*
   ref: v1.0.6-0-gf3ccabfa4d9582b7b0baa90d79899eb93b28b10c
+- kind: patch
+  path: patches/appstream/0001-Explicitly-add-fcfreetype.h-include-to-asc-font.c.patch
