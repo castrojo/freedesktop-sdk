@@ -44,6 +44,10 @@ variables:
     -Dvendordir="%{indep-libdir}"
     -Dprogram-tests=false
 
+  # The dwz optimised debug info is a single file. Since util-linux is split
+  # into multiple elements, disable dwz.
+  optimize-debug: false
+
 public:
   initial-script:
     script: |
