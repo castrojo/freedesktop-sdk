@@ -41,7 +41,5 @@ config:
 sources:
 - kind: git_repo
   url: freedesktop:fontconfig/fontconfig.git
-  track: '*.*.*'
-  exclude:
-  - 2.*.9*
+  track: 2.17.*
   ref: 2.17.1-0-g6d0a98982ec351c165c9224c8b7dbdfca3010e47
