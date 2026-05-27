@@ -22,24 +22,16 @@ args = parser.parse_args()
 
 json_data = json.loads(args.json.read())
 
-json_data["modules"].sort(key=lambda obj: obj.get("name", ""))
-
-seen_names = set()
-
 with open(args.json.name.replace("json", "md"), "w+", encoding="utf-8") as md_file:
     for obj in json_data["modules"]:
-        name = obj.get('name', None)
-        if name is not None:
-            if name in seen_names:
-                continue
-            seen_names.add(name)
-            md_file.write(f"## {name}\n")
+        if "name" in obj:
+            md_file.write(f"## {obj['name']} \n")
         if "sources" in obj:
             for source in obj["sources"]:
                 if source["type"] in ("archive", "git", "git_repo"):
-                    md_file.write(f"  - {source['url']}\n")
+                    md_file.write(f"  - {source['url']} \n")
                 if "sha256" in source:
-                    md_file.write(f"  - {source['sha256']}\n")
+                    md_file.write(f"  - {source['sha256']} \n")
                 if "commit" in source:
-                    md_file.write(f"  - {source['commit'][0:source['commit'].find('-0-g')]}\n")
+                    md_file.write(f"  - {source['commit']} \n")
         md_file.write("\n")
