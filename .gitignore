@@ -16,6 +16,7 @@ runtimes/
 .flatpak-builder/
 app/
 runtime/
+sbom-reports/
 
 libs.json
 
