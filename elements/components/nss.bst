@@ -148,13 +148,17 @@ config:
 sources:
 - kind: git_repo
   url: github:nss-dev/nss.git
+  # We track only ESR releases. Switch to the latest ESR branch must be done
+  # before each major freedesktop-sdk release. For latest ESR branch see:
   # https://firefox-source-docs.mozilla.org/security/nss/releases/index.html
-  # Next ESR is unknown
-  track: NSS_3_101*_RTM
-  ref: NSS_3_101_4_RTM-0-g8fbafb27fa3b2408faeeb2a36932111503d460aa
+  # Next ESR branch is unknown
+  track: NSS_3_112*_RTM
+  ref: NSS_3_112_5_RTM-0-gfddd54c0fb1444c710f442c872de3af8eaa9aec9
   directory: nss
   version-guess-pattern: '(\d+)_(\d+)'
 - kind: patch
   path: patches/nss/pkg-config-libdir.patch
+- kind: patch
+  path: patches/nss/glibc243.patch
 - kind: local
   path: files/nss/load-p11-kit-trust.c
