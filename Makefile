@@ -322,6 +322,11 @@ markdown-manifest: manifest
 	python3 utils/jsontomd.py platform-manifest/usr/manifest.json
 	python3 utils/jsontomd.py sdk-manifest/usr/manifest.json
 
+markdown-manifest-spdx: generate-spdx-sbom-reports
+	utils/spdxtomd.py ${SPDX_SBOM_DIR}/platform.spdx.json
+	utils/spdxtomd.py ${SPDX_SBOM_DIR}/sdk.spdx.json
+	utils/spdxtomd.py ${SPDX_SBOM_DIR}/components.spdx.json
+
 url-manifest:
 	python3 utils/url_manifest.py release-url-manifest/url-manifest-no-mirrors.json \
 	  flatpak-release-repo.bst components.bst \

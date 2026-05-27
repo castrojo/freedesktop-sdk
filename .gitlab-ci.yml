@@ -273,7 +273,7 @@ check_mirrors:
         fi
       fi
 
-    - make generate-spdx-sbom-reports
+    - make markdown-manifest-spdx
   artifacts:
     when: always
     paths:
@@ -522,7 +522,7 @@ spdx_sbom_report:
     # Sub the / in branch names to prevent the glab url from breaking
     UPLOAD_TARBALL: "sbom-reports_${ARCH}_${SBOM_TAG}.tar.xz"
   script:
-    - make generate-spdx-sbom-reports
+    - make markdown-manifest-spdx
     - PACKAGE_VERSION="${CI_COMMIT_TAG:-$CI_COMMIT_SHA}"
     - PACKAGE_NAME="sbom-reports-${CI_COMMIT_BRANCH:-$CI_COMMIT_TAG}"
     - PACKAGE_NAME="${PACKAGE_NAME//\//-}"
@@ -607,10 +607,12 @@ markdown_manifest:
   stage: finish-publish
   script:
     - make markdown-manifest
+    - make markdown-manifest-spdx
   artifacts:
     paths:
       - "${CI_PROJECT_DIR}/platform-manifest/usr/"
       - "${CI_PROJECT_DIR}/sdk-manifest/usr/"
+      - "${CI_PROJECT_DIR}/sbom-reports/*.md"
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule"'
     when: never
