@@ -260,6 +260,7 @@ check_mirrors:
       fi
 
     - make generate-spdx-sbom-reports
+    - make markdown-manifest
   artifacts:
     when: always
     paths:
@@ -588,8 +589,7 @@ markdown_manifest:
     - make markdown-manifest
   artifacts:
     paths:
-      - "${CI_PROJECT_DIR}/platform-manifest/usr/"
-      - "${CI_PROJECT_DIR}/sdk-manifest/usr/"
+      - "${CI_PROJECT_DIR}/sbom-reports/*.md"
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule"'
     when: never

@@ -289,6 +289,15 @@ ${SPDX_SBOM_DIR}:
 	rm -rf "$@"
 	mkdir -p "$@"
 
+${SPDX_SBOM_DIR}/%-runtime.spdx.json: ${SPDX_SBOM_DIR}
+	@echo -e "\nCreating $@ report"
+	BST=bst $(BST_SBOM) $(SPDX_SBOM_COMMON_ARGS) \
+		$(SPDX_SBOM_WITH_LICENSE_ARGS) \
+		--deps run \
+		--spdx-name freedesktop-sdk-${ARCH}-$* \
+		--spdx-namespace https://freedesktop-sdk.io/freedesktop_sdk/spdxdocs/$*.spdx.json-${UUID-$*} \
+		--output "$@" $*.bst
+
 ${SPDX_SBOM_DIR}/%.spdx.json: ${SPDX_SBOM_DIR}
 	@echo -e "\nCreating $@ report"
 	BST=bst $(BST_SBOM) $(SPDX_SBOM_COMMON_ARGS) \
@@ -300,7 +309,10 @@ ${SPDX_SBOM_DIR}/%.spdx.json: ${SPDX_SBOM_DIR}
 generate-spdx-sbom-reports: \
     ${SPDX_SBOM_DIR}/platform.spdx.json \
     ${SPDX_SBOM_DIR}/sdk.spdx.json \
-    ${SPDX_SBOM_DIR}/components.spdx.json
+    ${SPDX_SBOM_DIR}/components.spdx.json \
+    ${SPDX_SBOM_DIR}/platform-runtime.spdx.json \
+    ${SPDX_SBOM_DIR}/sdk-runtime.spdx.json \
+    ${SPDX_SBOM_DIR}/components-runtime.spdx.json
 
 build-sbom-artifacts:
 	$(BST) build --deps all platform.bst
@@ -318,9 +330,9 @@ manifest:
 	$(BST) artifact checkout manifests/sdk-manifest.bst --directory sdk-manifest/
 	$(BST) artifact checkout manifests/components-manifest.bst --directory components-manifest/
 
-markdown-manifest: manifest
-	python3 utils/jsontomd.py platform-manifest/usr/manifest.json
-	python3 utils/jsontomd.py sdk-manifest/usr/manifest.json
+markdown-manifest: generate-spdx-sbom-reports
+	python3 utils/jsontomd.py ${SPDX_SBOM_DIR}/platform-runtime.spdx.json
+	python3 utils/jsontomd.py ${SPDX_SBOM_DIR}/sdk-runtime.spdx.json
 
 url-manifest:
 	python3 utils/url_manifest.py release-url-manifest/url-manifest-no-mirrors.json \
