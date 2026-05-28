@@ -11,6 +11,7 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/libffi.bst
 - components/zstd.bst
+- components/zlib.bst
 
 environment:
   # Work-around issue building compiler-rt with multiarch
@@ -21,7 +22,7 @@ variables:
 
   debug_flags: "-g1"
   optimize-debug: "false"
-  enabled-projects: "clang;compiler-rt;lld;clang-tools-extra"
+  enabled-projects: "clang;compiler-rt;lld;clang-tools-extra;lldb"
 
   (?):
   - target_arch == "i686":
