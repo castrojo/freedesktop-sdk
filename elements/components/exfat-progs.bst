@@ -5,9 +5,10 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/util-linux.bst
 
 sources:
 - kind: git_repo
   url: github:exfatprogs/exfatprogs.git
   track: '*.*.*'
-  ref: 1.3.2-0-g5a0256cda391d8131f01309551b4691dbb4de74d
+  ref: 1.4.0-0-g57c67a7b2a3960a72551302d42c44f6ba54b99e1
