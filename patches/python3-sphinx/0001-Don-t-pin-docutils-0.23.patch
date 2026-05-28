@@ -1,0 +1,25 @@
+From 1722c630fec9987e9b3489f2bcd965553954008a Mon Sep 17 00:00:00 2001
+From: Tom Pollard <tom.pollard@codethink.co.uk>
+Date: Thu, 28 May 2026 13:45:55 +0100
+Subject: [PATCH] Don't pin docutils <0.23
+
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 1195b0442..7d6c3db27 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -75,7 +75,7 @@ dependencies = [
+     "sphinxcontrib-serializinghtml>=1.1.9",
+     "Jinja2>=3.1",
+     "Pygments>=2.17",
+-    "docutils>=0.21,<0.23",
++    "docutils>=0.21",
+     "snowballstemmer>=2.2",
+     "babel>=2.13",
+     "alabaster>=0.7.14",
+-- 
+2.43.0
+
