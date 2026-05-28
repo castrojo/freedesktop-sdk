@@ -12,6 +12,8 @@ variables:
 sources:
 - kind: pypi
   name: docutils
+  include:
+    - '0\.22\.\d+'
   ref:
     sha256sum: 4db53b1fde9abecbb74d91230d32ab626d94f6badfc575d6db9194a49df29968
     suffix: ae/b6/03bb70946330e88ffec97aefd3ea75ba575cb2e762061e0e62a213befee8/docutils-0.22.4.tar.gz
