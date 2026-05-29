@@ -88,7 +88,7 @@ public:
 
 sources:
 - kind: zip
-  url: tar_https:docbook.org/xml/4.5/docbook-xml-4.5.zip
+  url: tar_https:archive.docbook.org/xml/4.5/docbook-xml-4.5.zip
   ref: 4e4e037a2b83c98c6c94818390d4bdd3f6e10f6ec62dd79188594e26190dc7b4
   base-dir: ''
   directory: 4.5
