@@ -22,7 +22,7 @@ sources:
 - kind: git_repo
   track: v*
   url: github:mozilla/cbindgen.git
-  ref: v0.29.2-0-g76f41c090c0587d940a0ef81a41c8b995f074926
+  ref: v0.29.3-0-gb5f2a978302e86fa06659a945a26c1b8b9aa9b8d
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
