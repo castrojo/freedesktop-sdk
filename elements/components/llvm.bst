@@ -10,6 +10,7 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/libffi.bst
+- components/zlib.bst
 - components/zstd.bst
 
 environment:
