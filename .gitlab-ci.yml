@@ -624,13 +624,6 @@ publish_flatpak:
         flat-manager-client -v commit --wait "$(cat publish_build.txt)"
       fi
     - flat-manager-client -v publish --wait-update "$(cat publish_build.txt)"
-
-  after_script:
-    - |
-      test -s publish_build.txt
-      source utils/publisher_env.sh
-      flat-manager-client purge "$(cat publish_build.txt)"
-
   artifacts:
     when: always
     paths:
