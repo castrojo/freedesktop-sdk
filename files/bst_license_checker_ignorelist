@@ -23,8 +23,6 @@ oci/layers/sdk.bst
 platform-image.bst
 public-stacks/buildsystems.bst
 sdk-image.bst
-snap-images/platform-snap-image.bst
-snap-images/sdk-snap-image.bst
 vm/desktop/filesystem.bst
 vm/minimal/filesystem.bst
 vm/minimal-ostree/filesystem.bst
@@ -148,9 +146,6 @@ built-components.bst
 components/locales.bst
 integration/linker-debuginfo.bst
 multiarch/multiarch-sdk-gl-link.bst
-snap-images/images.bst
-snap-images/platform-fix-image.bst
-snap-images/sdk-fix-image.bst
 tests/check-dev-files.bst
 tests/check-rpath.bst
 tests/check-static-libraries.bst
@@ -236,14 +231,6 @@ oci/platform-docker.bst
 oci/platform-oci.bst
 oci/sdk-docker.bst
 oci/sdk-oci.bst
-
-# snap_image elements
-snap-images/clinfo.bst
-snap-images/glxinfo.bst
-snap-images/platform.bst
-snap-images/sdk.bst
-snap-images/vainfo.bst
-snap-images/vulkaninfo.bst
 
 # tar_element elements
 tarballs/platform.bst
