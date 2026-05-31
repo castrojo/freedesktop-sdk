@@ -15,7 +15,6 @@ MAIN_BETA_REGEX = r"^\d{2}\.08beta$"
 MAIN_BETA_EXTRA_REGEX = r"^\d{2}\.08beta-extra$"
 MAIN_STABLE_REGEX = r"^\d{2}\.08$"
 MAIN_STABLE_EXTRA_REGEX = r"^\d{2}\.08-extra$"
-SNAP_REGEX = r"^\d{2}08"
 
 
 def get_target_branch():
@@ -37,7 +36,6 @@ def validate(args):
         obj = yaml.load(yaml_in)
         flatpak_br = obj["freedesktop-sdk-flatpak-branch"]
         flatpak_extra_br = obj["freedesktop-sdk-flatpak-branch-extra"]
-        snap_br = obj["freedesktop-sdk-snap-branch"]
 
     makefile_br = get_makefile_var("Makefile", "BRANCH")
 
@@ -53,8 +51,6 @@ def validate(args):
         assert re.match(MAIN_STABLE_EXTRA_REGEX, flatpak_extra_br) is not None, (
             flatpak_extra_br
         )
-
-    assert re.match(SNAP_REGEX, snap_br) is not None, snap_br
 
     if re.match(MAIN_BETA_REGEX, makefile_br) is not None:
         assert re.match(MAIN_BETA_REGEX, flatpak_br) is not None, flatpak_br
