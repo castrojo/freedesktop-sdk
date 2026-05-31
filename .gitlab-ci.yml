@@ -64,7 +64,6 @@ workflow:
 stages:
   - update
   - flatpak
-  - snap
   - vm
   - publish
   - finish-publish
@@ -343,35 +342,6 @@ app_ppc64le:
   when: manual
   needs: []
 
-.check-snap:
-  stage: snap
-  script:
-    - make export-snap
-    - python3 utils/parse_review.py snap/sdk.snap
-    - python3 utils/parse_review.py snap/platform.snap
-    - python3 utils/parse_review.py snap/glxinfo.snap
-    - python3 utils/parse_review.py snap/vulkaninfo.snap
-    - python3 utils/parse_review.py snap/clinfo.snap
-    - python3 utils/parse_review.py snap/vainfo.snap
-  artifacts:
-    when: always
-    paths:
-      - ${CI_PROJECT_DIR}/cache/buildstream/logs
-  allow_failure: true
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-    when: manual
-
-.check_snap_x86_64:
-  extends:
-    - .check-snap
-    - .builder-x86_64
-
-.check_snap_i686:
-  extends:
-    - .check-snap
-    - .builder-i686
-
 .minimal_test:
   stage: vm
   script:
@@ -583,63 +553,6 @@ reproducible_x86_64:
   extends:
     - .reproducible_template
     - .builder-x86_64
-
-.snap_publish_template:
-  stage: publish
-  script:
-    - |
-      [ -n "${SNAPCRAFT_LOGIN_FILE}" ]
-    - |
-      [ -n "${SNAP_RELEASE}" ]
-
-    - make export-snap
-
-    - mkdir -p ".snapcraft/"
-    - echo "${SNAPCRAFT_LOGIN_FILE}" | base64 --decode --ignore-garbage > ".snapcraft/snapcraft.cfg"
-
-    - |
-      push() {
-        if ! snapcraft push "${1}" --release "${SNAP_RELEASE}" 2>&1 | tee output.log; then
-          cmp -s <(tail -n2 output.log) - <<EOF
-      Please check the errors and some hints below:
-        - (NEEDS REVIEW) type 'base' not allowed
-      EOF
-        fi
-      }
-      failed=false
-      for snap in platform sdk glxinfo vulkaninfo clinfo vainfo; do
-        if ! push "snap/${snap}.snap"; then
-          failed=true
-        fi
-      done
-      [ "${failed}" == false ]
-
-  artifacts:
-    when: always
-    paths:
-      - ${CI_PROJECT_DIR}/cache/buildstream/logs
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule"'
-    when: never
-  - if: '$CI_COMMIT_TAG || $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
-
-publish_snap_x86_64:
-  extends:
-    - .snap_publish_template
-    - .builder-x86_64
-  when: manual
-
-publish_snap_i686:
-  extends:
-    - .snap_publish_template
-    - .builder-i686
-  when: manual
-
-publish_snap_aarch64:
-  extends:
-    - .snap_publish_template
-    - .builder-aarch64
-  when: manual
 
 .docker_publish_template:
   stage: publish

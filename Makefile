@@ -25,9 +25,8 @@ QEMU_GRAPHICS?=-nographic
 FLATPAK_SUBJECT := $(shell git rev-parse HEAD)
 LAST_VERSION := $(shell awk '/^Version:/ {print $$2; exit}' NEWS.yml)
 
-SNAP_GRADE?=devel
 MINIMAL_VM?=locale
-ARCH_OPTS=-o bootstrap_build_arch $(BOOTSTRAP_ARCH) -o target_arch $(ARCH) -o snap_grade $(SNAP_GRADE) -o minimal_vm "${MINIMAL_VM}"
+ARCH_OPTS=-o bootstrap_build_arch $(BOOTSTRAP_ARCH) -o target_arch $(ARCH) -o minimal_vm "${MINIMAL_VM}"
 TARBALLS=            \
 	sdk          \
 	platform
@@ -383,10 +382,6 @@ clean-cve:
 
 clean: clean-repo clean-runtime clean-test clean-vm clean-efi-vm clean-oci clean-boot-keys
 
-export-snap:
-	bst $(ARCH_OPTS) build "snap-images/images.bst"
-	bst $(ARCH_OPTS) artifact checkout "snap-images/images.bst" --directory snap/
-
 export-oci:
 	$(BST) build oci/platform-oci.bst \
 	             oci/sdk-oci.bst \
@@ -587,7 +582,7 @@ secure-images-serve: secure-images/SHA256SUMS
 .PHONY:									\
 	build check-dev-files clean clean-oci clean-test clean-repo clean-runtime	\
 	export test-apps manifest markdown-manifest check-rpath		\
-	build-tar export-tar clean-vm build-vm run-vm export-snap	\
+	build-tar export-tar clean-vm build-vm run-vm	\
 	export-oci bootstrap test-codecs test-ldd test-oci	 \
 	clean-efi-vm build-efi-vm run-efi-vm				\
 	update-ostree ostree-serve build-ostree-vm run-ostree-vm	\
