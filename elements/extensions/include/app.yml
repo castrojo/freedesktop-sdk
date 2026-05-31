@@ -12,12 +12,3 @@ variables:
 
 environment:
   PKG_CONFIG_PATH: '/app/lib/pkgconfig:'
-
-public:
-  bst:
-    split-rules:
-      # This is used for snap images to be able to remove non-app
-      # runtime files in the image.
-      app:
-        - "/app"
-        - "/app/**"
