@@ -26,4 +26,3 @@ depends:
 - oci/sdk-oci.bst
 - oci/flatpak-oci.bst
 - oci/toolbox-oci.bst
-# FIXME: Add snaps when we release

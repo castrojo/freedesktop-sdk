@@ -31,28 +31,6 @@ elif [ -n "$RELEASES_REPO_TOKEN" ]; then
     export RELEASE_CHANNEL=stable
 fi
 
-if [ -n "$CI_COMMIT_TAG" ] && [ -n "$SNAPCRAFT_LOGIN_FILE" ]; then
-    case "${CI_COMMIT_TAG}" in
-      *beta*)
-        export SNAP_RELEASE=beta
-        export SNAP_GRADE=devel
-        ;;
-      *rc*)
-        export SNAP_RELEASE=candidate
-        export SNAP_GRADE=stable
-        ;;
-      *)
-        export SNAP_RELEASE=stable
-        export SNAP_GRADE=stable
-        ;;
-    esac
-elif [ -n "$SNAPCRAFT_LOGIN_FILE" ]; then
-    export SNAP_RELEASE=edge
-    export SNAP_GRADE=devel
-else
-    export SNAP_GRADE=devel
-fi
-
 if [ -n "$CI_COMMIT_TAG" ]; then
     case "${CI_COMMIT_TAG}" in
         *rc*) ;&

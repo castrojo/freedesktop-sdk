@@ -1,7 +1,7 @@
 # Bootable images
 
 If an application built against Freedesktop SDK needs to be
-distributed as a bootable image rather than using Flatpak, Snap or
+distributed as a bootable image rather than using Flatpak or
 OCI, we provide example of images showing ways to implement different
 features.
 

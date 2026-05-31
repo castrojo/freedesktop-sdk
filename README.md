@@ -1,6 +1,6 @@
 # Welcome to Freedesktop SDK
 
-[Freedesktop SDK](https://freedesktop-sdk.io/) is a free, community-developed, and open-source project with a number of components that help you simplify the process of creating different software artifacts. More common use cases include building containers, Flatpak runtimes, snaps, or complete operating systems.
+[Freedesktop SDK](https://freedesktop-sdk.io/) is a free, community-developed, and open-source project with a number of components that help you simplify the process of creating different software artifacts. More common use cases include building containers, Flatpak runtimes, or complete operating systems.
 
 The Freedesktop SDK project is not an endorsement of a particular platform or selection of technologies by the Freedesktop organization.
 The SDK aims to support a common interoperable platform for projects such as GNOME, KDE, and Flatpak by providing integration and validation of a shared set of dependencies.
