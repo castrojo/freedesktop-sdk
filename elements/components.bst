@@ -417,7 +417,6 @@ depends:
 - components/protobuf.bst
 - components/pwquality.bst
 - components/pycairo.bst
-- components/pyelftools.bst
 - components/pygobject.bst
 - components/python3-aiohttp.bst
 - components/python3-aiosignal.bst
