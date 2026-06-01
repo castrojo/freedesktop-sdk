@@ -15,6 +15,7 @@ variables:
     -DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG
     -DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG
     -DBUILD_SHARED_LIBS:BOOL=ON
+    -DBUILD_TESTING:BOOL=OFF
     -DGRAPHITE2_COMPARE_RENDERER=OFF
 
 config:
@@ -39,8 +40,6 @@ sources:
 - kind: git_repo
   url: github:silnrsi/graphite.git
   track: '*.*.*'
-  ref: 1.3.14-0-g92f59dcc52f73ce747f1cdc831579ed2546884aa
+  ref: 1.3.15-0-gca8d821e60a15b6c24e404c9086992c975d8e1cf
 - kind: patch
   path: patches/graphite2/graphite2-1.2.0-cmakepath.patch
-- kind: patch
-  path: patches/graphite2/graphite2-disable-tests.patch
