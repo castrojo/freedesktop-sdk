@@ -48,7 +48,6 @@ variables:
     -Defi_binary=%{efi_binary}
     -Dpolkit=enabled
     -Dpassim=disabled
-    -Dplugin_flashrom=disabled
     -Dplugin_modem_manager=disabled
     -Dvendor_ids_dir="%{datadir}/hwdata"
     -Dumockdev_tests=disabled
@@ -61,4 +60,4 @@ sources:
 - kind: git_repo
   url: github:fwupd/fwupd.git
   track: '*.*.*'
-  ref: 2.1.3-0-gaf55b0bc26231e4bd2ef46e68a7adcd35e82709d
+  ref: 2.1.4-2-0-g2496d94c1840802566306f1a14ceb0714479a2e5
