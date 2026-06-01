@@ -12,7 +12,6 @@ depends:
 - components/libffi.bst
 - components/zlib.bst
 - components/zstd.bst
-- components/zlib.bst
 
 environment:
   # Work-around issue building compiler-rt with multiarch
@@ -23,7 +22,7 @@ variables:
 
   debug_flags: "-g1"
   optimize-debug: "false"
-  enabled-projects: "clang;compiler-rt;lld;clang-tools-extra;lldb"
+  enabled-projects: "clang;compiler-rt;lld;clang-tools-extra"
 
   (?):
   - target_arch == "i686":
