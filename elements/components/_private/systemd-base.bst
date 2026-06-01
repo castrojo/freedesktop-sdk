@@ -31,7 +31,7 @@ build-depends:
 - components/libarchive.bst
 - components/linux-pam.bst
 - components/kmod.bst
-- components/pyelftools.bst
+- components/python3-pyelftools.bst
 - components/libxslt.bst
 - components/docbook-xsl.bst
 - components/_private/cryptsetup-lvm2-stage1.bst
