@@ -458,6 +458,7 @@ module AR5523
 module ATH10K_USB
 module ATH11K
 module ATH11K_PCI
+module ATH12K
 module ATH5K
 module ATH6KL
 module ATH6KL_SDIO
