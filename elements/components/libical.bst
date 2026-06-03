@@ -12,13 +12,13 @@ depends:
 
 variables:
   cmake-local: >-
-    -DGOBJECT_INTROSPECTION=ON
-    -DENABLE_GTK_DOC=OFF
-    -DICAL_GLIB=ON
-    -DICAL_GLIB_VAPI=ON
+    -DLIBICAL_GLIB_BUILD_DOCS=OFF
+    -DLIBICAL_GLIB_VAPI=ON
+    -DLIBICAL_GOBJECT_INTROSPECTION=ON
+    -DLIBICAL_JAVA_BINDINGS=OFF
 
 sources:
 - kind: git_repo
   url: github:libical/libical.git
   track: v*
-  ref: v3.0.20-0-g57ce34025066935f356fd539e6deb7a7a9952618
+  ref: v4.0.2-0-g939675ce07d3f6dc7d3143adb8523faa5f328de7
