@@ -24,4 +24,4 @@ sources:
 - kind: git_repo
   url: github:OCL-dev/ocl-icd.git
   track: v*
-  ref: v2.3.4-0-ge5b32d5395582d027c3d68d7dbdf92e961bdc9c8
+  ref: v2.3.5-0-g3e1155f0796cb9ac0fe309664d98e4b0ed2c3300
