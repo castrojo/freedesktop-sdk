@@ -8,8 +8,15 @@ depends:
 - components/libpulse.bst
 
 variables:
-  cmake-local: |
-    -DALSOFT_EXAMPLES=NO
+  arch-conf: ''
+  (?):
+  - target_arch == "ppc64le":
+      arch-conf: >-
+         -DALSOFT_ENABLE_MODULES=OFF
+
+  cmake-local: >-
+    -DALSOFT_EXAMPLES=OFF
+    %{arch-conf}
 
 public:
   bst:
