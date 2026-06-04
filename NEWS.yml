@@ -1,3 +1,71 @@
+Version: freedesktop-sdk-24.08.33
+Date: '2026-06-04'
+Description: |-
+  Changes in freedesktop-sdk-24.08.33
+   * Move docbook to archive path
+   * Update hwdata to v0.408-0
+   * Update intel-media-driver to intel-media-26.2.1-0
+   * Update python3-snowballstemmer to 3.1.1
+   * Update python3-hatchling to hatchling-v1.30.1-0
+   * Update python3-distlib to 0.4.1-0
+   * Update linux to v7.0.11-0
+   * Update python3-idna to v3.18-0
+   * Convert pyelftools.bst to be a link element to python3-pyelftools.bst
+   * Update fwupd to 2.1.4-2-0
+   * Update graphite2 to 1.3.15-0
+   * Update python3-aiohttp to 3.14.0
+   * Update python3-trove-classifiers to 2026.6.1.19-0
+   * Update xwayland to xwayland-24.1.12-0
+   * Update python3-hatchling to hatchling-v1.30.0-0
+   * Update python3-pip to 26.1.2-0
+   * Update python3-virtualenv to 21.4.2-0
+   * Update pyelftools to v0.33-0
+   * Update grpc to v1.81.0-0
+   * Update exfat-progs to 1.4.1-0
+   * Update python3-pyelftools to v0.33-0
+   * Drop purge afterscript step from publish_flatpak job
+   * Update python3-idna to v3.17-0
+   * Update rust-cbindgen to ref: v0.29.3-0
+   * Update libdrm to libdrm-2.4.134-0
+   * Update flatpak-builder to 1.4.9-0
+   * Update python3-virtualenv to 21.4.1-0
+   * Update exfat-progs to 1.4.0-0
+   * Update dtc to v1.8.1-0
+   * Update libwacom to libwacom-2.19.0-0
+   * Update parallel to 20260522-0
+   * Update passt to 2026_05_26.038c51e-0
+   * Update less to v702-rel-0
+   * Update python3-virtualenv to 21.4.0-0
+   * Update ccid to 1.8.0-0
+   * Update pcsc-lite to 2.5.0-0
+   * Update reference-abi to freedesktop-sdk-24.08.32-0
+   * Update libde265 to v1.1.0-0
+   * Update libslirp to v4.9.3-0
+   * Update slirp4netns to v1.3.4-0
+   * Update README documentation links
+   * Update abseil-cpp to 20240722.2
+   * Update protobuf to v34.2-0
+   * Update python3-trove-classifiers to 2026.5.22.10-0
+   * Update kbd to v2.10.0-0
+   * Update gnu-config to 4286648
+   * Update python3-poetry-core to 2.4.1-0
+   * Update python3-snowballstemmer to 3.1.0
+   * Update libslirp to v4.9.2-0
+   * Update cython to 3.2.5-0
+   * Update mesa-sdk to mesa-26.1.1-0
+   * Update linux to v7.0.10-0
+   * Update tk to core-8-6-18-0
+   * Update ghostscript to ghostpdl-10.07.1-0
+   * Update linux to v7.0.9-0
+   * Update ovmf.bst from edk2-stable202602 to edk2-stable202605
+   * Update linux-firmware to 20260519-0
+   * Update python3-idna to v3.16-0
+   * Update python3-click to 8.4.1
+   * Update python3-lxml to lxml-6.1.1-0
+   * Update python3-aiohappyeyeballs to v2.7.0-0
+   * Update buildbox to 1.4.7-0
+   * Update rsync to v3.4.3-0
+---
 Version: freedesktop-sdk-24.08.32
 Date: '2026-05-21'
 Description: |-
