@@ -49,10 +49,9 @@ tarballs := "sdk platform"
 tar_elements := prepend('tarballs/', append('.bst', tarballs))
 tar_checkout_root := 'tarballs'
 
-BST := require("bst")
-QEMU := require(f"qemu-system-{{qemu_arch}}")
-
-bst := BST + arch_options
+bst_program := require(env("BST", "bst"))
+bst := bst_program + arch_options
+qemu := require(f"qemu-system-{{qemu_arch}}")
 
 default: build
 
@@ -182,7 +181,7 @@ clean-vm: copy-artifacts
 
 # Run virtual machine in QEMU
 run-vm:
-    unshare --map-root-user {{QEMU}} \
+    unshare --map-root-user {{qemu}} \
       {{qemu_common_args}} \
       {{qemu_virtfs_args}} \
       {{qemu_virtfs_arch_args}} \
@@ -507,7 +506,7 @@ export-efi-vm: build-efi-vm
 # Run EFI VM
 run-efi-vm:
     du -BM {{vm_checkout_root}}/{{vm_artifact_image}}/disk.img
-    {{QEMU}} \
+    {{qemu}} \
         {{qemu_common_args}} \
         {{qemu_efi_args}} \
         {{qemu_arch_args}} \
@@ -525,7 +524,7 @@ setup-ostree-vm: ostree-gpg
 #
 # You must run `setup-ostree` once before using this target.
 update-ostree:
-    env BST="{{bst}}" utils/update-repo.sh        \
+    env bst="{{bst}}" utils/update-repo.sh        \
       --gpg-homedir=ostree-gpg            \
       --gpg-sign=$(cat ostree-gpg/default-id)    \
       --collection-id=org.freedesktop.Sdk        \
@@ -560,7 +559,7 @@ export-ostree-vm: build-ostree-vm
 # Run the OSTree example VM.
 run-ostree-vm:
     du -BM {{ostree_vm_disk}}
-    {{QEMU}}                            \
+    {{qemu}}                            \
         {{qemu_common_args}}                    \
         {{qemu_efi_args}}                    \
         {{qemu_net_args}}                    \
@@ -641,7 +640,7 @@ run-secure-vm:
         --ctrl type=unixio,path={{absolute_path(vm_checkout_root / 'tpm/sock')}} \
         --log file=swtpm.log,level=20 & \
     sleep 1; \
-    {{QEMU}} \
+    {{qemu}} \
         {{qemu_common_args}} \
         {{qemu_efi_args}} \
         {{qemu_net_args}} \
