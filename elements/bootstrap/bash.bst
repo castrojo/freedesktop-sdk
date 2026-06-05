@@ -79,6 +79,6 @@ sources:
   # to backport them one by one.
   # When reviewing an update, please review what patches it introduces
   track: master
-  ref: bash-5.3-10-g637f5c8696a6adc9b4519f1cd74aa78492266b7f
+  ref: bash-5.3-13-gecb2456d6357bfd3b2965aafe2f2021d1ced5b72
 - kind: patch
   path: patches/bash/0001-bash-config.patch
