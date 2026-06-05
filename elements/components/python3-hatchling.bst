@@ -20,4 +20,4 @@ sources:
 - kind: git_repo
   url: github:pypa/hatch.git
   track: hatchling-*
-  ref: hatchling-v1.29.0-0-g1a74daa6f554e2ec89f2641288e44ed39e5507cc
+  ref: hatchling-v1.30.1-0-g37b00c3d2221438fa79084b92e81ee1819d6c630
