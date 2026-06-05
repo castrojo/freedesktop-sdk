@@ -1,7 +1,7 @@
 kind: stack
 
 depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 - components/util-linux-full.bst
 - components/linux.bst
 - components/wireless-regdb-bin.bst
