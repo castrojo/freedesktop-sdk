@@ -4,7 +4,7 @@
 kind: stack
 
 depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 - components/_private/shim.bst
 - components/binutils.bst
 - components/dbus.bst
