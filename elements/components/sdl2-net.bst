@@ -19,6 +19,6 @@ sources:
 - kind: git_repo
   url: github:libsdl-org/SDL_net.git
   track: release-*
-  ref: release-2.2.0-0-g669e75b84632e2c6cc5c65974ec9e28052cb7a4e
+  ref: release-3.2.0-0-g1a84a2a6b9663572f77e2eb5348d42845bac0053
 - kind: patch
   path: patches/sdl2-net/cmake-pkgconfig.patch
