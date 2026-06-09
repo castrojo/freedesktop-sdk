@@ -58,9 +58,12 @@ sources:
 - kind: git_repo
   url: github:flatpak/xdg-desktop-portal.git
   track: '1.*[02468].*'
-  ref: 1.20.4-0-gf5aec228c9eb0c9a70eadd6424d92c0ca8a78247
+  ref: 1.22.0-0-g375a8b7ff06b1f0b9a0d6670ff257ee22120c278
 - kind: git_repo
   url: gnome:libglnx.git
-  ref-format: sha1
-  ref: ccea836b799256420788c463a638ded0636b1632
+  ref: ff64d52116ae74f0d25e24f089db28921ea171ff
   directory: subprojects/libglnx
+- kind: git_repo
+  url: gnome:gvdb.git
+  ref: c6f2359cc1d00f16e0a0e2527fa0bc1882b8b5ab
+  directory: subprojects/gvdb
