@@ -470,7 +470,7 @@ desktop_systemd_vm_aarch64:
     - make build-secure-vm
     - |
       if [ "${DIALOG+set}" = set ]; then
-        utils/test_secure_system.py --dialog "${DIALOG}" command 'make run-secure-vm'
+        utils/test_minimal_system.py --dialog "${DIALOG}" command 'make run-secure-vm'
       fi
   artifacts:
     when: always
