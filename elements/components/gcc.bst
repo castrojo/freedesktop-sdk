@@ -2,7 +2,7 @@ kind: autotools
 
 build-depends:
 - bootstrap/gcc.bst
-- components/autoconf2.69.bst
+- components/autoconf.bst
 - components/automake.bst
 - components/libtool.bst
 - components/gettext.bst

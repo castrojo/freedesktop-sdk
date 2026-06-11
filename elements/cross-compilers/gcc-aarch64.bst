@@ -6,7 +6,7 @@ build-depends:
 - cross-compilers/standard-libs-aarch64.bst
 - public-stacks/buildsystem-autotools.bst
 - components/texinfo.bst
-- components/autoconf2.69.bst
+- components/autoconf.bst
 - components/flex.bst
 
 depends:
