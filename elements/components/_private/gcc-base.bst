@@ -10,7 +10,7 @@ build-depends:
 - bootstrap/make.bst
 - bootstrap/zstd.bst
 - bootstrap/stripper.bst
-- components/autoconf2.69.bst
+- components/autoconf.bst
 - components/automake.bst
 - components/flex.bst
 - components/gettext.bst

@@ -3,7 +3,7 @@ variables:
     --enable-shared \
     --enable-static
   autogen: |
-    autoreconf2.69 -fvi
+    autoreconf -fvi
     for conf in */configure.ac; do
       dir="$(dirname "${conf}")"
       case "$(dirname "${conf}")" in
@@ -15,7 +15,7 @@ variables:
           ;;
       esac
       echo "autoreconf: ${dir}"
-      (cd "${dir}" && autoreconf2.69 "${args[@]}" -fvi)
+      (cd "${dir}" && autoreconf "${args[@]}" -fvi)
     done
 
   conf-local: >-

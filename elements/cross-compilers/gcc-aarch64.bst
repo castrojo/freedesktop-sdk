@@ -7,7 +7,7 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/autoconf2.69.bst
+- components/autoconf.bst
 - components/flex.bst
 - components/tar.bst
 - components/texinfo.bst
