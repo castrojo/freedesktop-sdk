@@ -21,14 +21,14 @@ environment:
   GOPATH: "%{build-root}"
 
 variables:
-  command-subdir: src/github.com/containers/skopeo
+  command-subdir: src/github.com/podman-container-tools/skopeo
   # otherwise it installs etc/containers/ as well
   make-install: make -j1 %{make-args} DESTDIR="%{install-root}" install-binary install-docs install-completions
 
 sources:
 - kind: git_repo
-  url: github:containers/skopeo.git
-  directory: src/github.com/containers/skopeo
+  url: github:podman-container-tools/skopeo.git
+  directory: src/github.com/podman-container-tools/skopeo
   track: v*
   exclude:
   - "*rc*"
