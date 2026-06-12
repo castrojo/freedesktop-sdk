@@ -8,5 +8,5 @@ depends:
 
 sources:
 - kind: tar
-  url: tar_https:carlowood.github.io/which/which-2.21.tar.gz
-  ref: f4a245b94124b377d8b49646bf421f9155d36aa7614b6ebf83705d3ffc76eaad
+  url: tar_https:carlowood.github.io/which/which-2.25.tar.gz
+  ref: 1cb83e4f702e60b8211ab5ec4c2afbab1b1dec80209456a7d2faf7584ed225ea
