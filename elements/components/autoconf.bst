@@ -23,5 +23,5 @@ runtime-depends:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:autoconf/autoconf-2.72.tar.xz
-  ref: ba885c1319578d6c94d46e9b0dceb4014caafe2490e437a0dbca3f270a223f5a
+  url: ftp_gnu_org:autoconf/autoconf-2.73.tar.xz
+  ref: 9fd672b1c8425fac2fa67fa0477b990987268b90ff36d5f016dae57be0d6b52e
