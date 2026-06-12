@@ -74,12 +74,6 @@ before_script:
   - ulimit -n 1048576
   - export PATH=~/.local/bin:${PATH}
   - |
-    if cp --reflink=always README.md .reflink-test; then
-    echo Reflinks supported, disabling buildbox-fuse
-    chmod -x /usr/bin/buildbox-fuse
-    rm .reflink-test
-    fi
-  - |
     mkdir -p ~/.config
     echo $CACHE_TOKEN > ~/.config/freedesktop-sdk.token
     [ -S /run/casd/casd.sock ] && export LOCAL_CAS=true
