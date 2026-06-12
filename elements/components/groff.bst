@@ -23,5 +23,5 @@ config:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:groff/groff-1.23.0.tar.gz
-  ref: 6b9757f592b7518b4902eb6af7e54570bdccba37a871fddb2d30ae3863511c13
+  url: ftp_gnu_org:groff/groff-1.24.1.tar.gz
+  ref: 74e2819795b6aff431aeac983d63a9c8968eeaba2a2eba7df8ba4c7b41e7cfd8
