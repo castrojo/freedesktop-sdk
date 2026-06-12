@@ -14,7 +14,7 @@ sources:
   track: v*
   exclude:
   - "*beta*"
-  ref: v1.13.3-0-g1f7e7527f23b88a3a3a22be5dda927ca8fe32ea3
+  ref: v1.14.0-0-geb745e08f3eb8c5499420ed1ff4bce974b2ec972
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
@@ -832,8 +832,8 @@ sources:
     sha: 384b8ab6d37215f3c5301a95a4accb5d64aa607f1fcb26a11b5303878451b4fe
   - kind: registry
     name: openssl
-    version: 0.10.79
-    sha: bf0b434746ee2832f4f0baf10137e1cabb18cbe6912c69e2e33263c45250f542
+    version: 0.10.80
+    sha: a45fa2aa886c42762255da344f0a0d313e254066c46aad76f300c3d3da62d967
   - kind: registry
     name: openssl-macros
     version: 0.1.1
@@ -844,8 +844,8 @@ sources:
     sha: 7c87def4c32ab89d880effc9e097653c8da5d6ef28e6b539d313baaacfbafcbe
   - kind: registry
     name: openssl-sys
-    version: 0.9.115
-    sha: 158fe5b292746440aa6e7a7e690e55aeb72d41505e2804c23c6973ad0e9c9781
+    version: 0.9.116
+    sha: f28a22dc7140cda5f096e5e7724a6962ca81a7f8bfd2979f9b18c11af56318c4
   - kind: registry
     name: option-ext
     version: 0.2.0
@@ -1300,8 +1300,8 @@ sources:
     sha: 728a70f3dbaf5bab7f0c4b1ac8d7ae5ea60a4b5549c8a5914361c99147a709d2
   - kind: registry
     name: tar
-    version: 0.4.45
-    sha: 22692a6476a21fa75fdfc11d452fda482af402c008cdbaf3476414e122040973
+    version: 0.4.46
+    sha: 3f6221d9a6003c78398e3b239969f352578258df48c8eb051caadae0015bc840
   - kind: registry
     name: target-lexicon
     version: 0.13.5
