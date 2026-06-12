@@ -24,5 +24,5 @@ config:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:sed/sed-4.9.tar.xz
-  ref: 6e226b732e1cd739464ad6862bd1a1aba42d7982922da7a53519631d24975181
+  url: ftp_gnu_org:sed/sed-4.10.tar.xz
+  ref: b8e72182b2ec96a3574e2998c47b7aaa64cc20ce000d8e9ac313cc07cecf28c7
