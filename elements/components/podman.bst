@@ -30,7 +30,7 @@ environment:
 
 variables:
   optimize-debug: "false"
-  command-subdir: src/github.com/containers/podman
+  command-subdir: src/github.com/podman-container-tools/podman
   make-args: >-
     PREFIX="%{prefix}"
     EXTRA_LDFLAGS="%{go_ldflags}"
@@ -41,8 +41,8 @@ variables:
 
 sources:
 - kind: git_repo
-  url: github:containers/podman.git
-  directory: src/github.com/containers/podman
+  url: github:podman-container-tools/podman.git
+  directory: src/github.com/podman-container-tools/podman
   track: v*
   exclude:
   - "*rc*"
