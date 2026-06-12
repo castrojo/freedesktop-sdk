@@ -7,7 +7,7 @@ description: GNU gcc Stage 1
 - elements/include/gcc-source.yml
 
 build-depends:
-- bootstrap/base-sdk/autoconf2.69.bst
+- bootstrap/base-sdk/autoconf.bst
 - bootstrap/base-sdk/automake.bst
 - bootstrap/base-sdk/libtool.bst
 - bootstrap/base-sdk/gettext.bst
@@ -33,7 +33,7 @@ variables:
       conf-arch-extra: --with-long-double-128
 
   autogen: |
-    autoreconf2.69 -fvi
+    autoreconf -fvi
     for conf in */configure.ac; do
       dir="$(dirname "${conf}")"
       case "$(dirname "${conf}")" in
@@ -45,7 +45,7 @@ variables:
           ;;
       esac
       echo "autoreconf: ${dir}"
-      (cd "${dir}" && autoreconf2.69 "${args[@]}" -fvi)
+      (cd "${dir}" && autoreconf "${args[@]}" -fvi)
     done
 
   conf-local: >-
