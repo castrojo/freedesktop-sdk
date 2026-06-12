@@ -49,6 +49,6 @@ config:
 sources:
 - kind: tar
   # https://hg-edge.mozilla.org/projects/nspr
-  url: tar_https:archive.mozilla.org/pub/nspr/releases/v4.37/src/nspr-4.37.tar.gz
-  ref: 5f9344ed0e31855bd38f88b33c9d9ab94f70ce547ef3213e488d1520f61840fa
+  url: tar_https:archive.mozilla.org/pub/nspr/releases/v4.39/src/nspr-4.39.tar.gz
+  ref: bbd02ee87a55676063a63e5bc819e0227de2666b47307b2a0134414cdf42368e
   base-dir: '*/nspr'
