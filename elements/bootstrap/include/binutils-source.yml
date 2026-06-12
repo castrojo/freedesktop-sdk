@@ -19,7 +19,7 @@ sources:
   track: binutils-*
   exclude:
   - binutils-2_41
-  ref: binutils-2_46-0-g49d4d3fafa4ec4ff5a3460d91d5b1ed5286487db
+  ref: binutils-2_46_1-0-g5e56594815854de5eca35c7c04b11705d0f19c02
   version-guess-pattern: '(\d+)_(\d+)(?:_(\d+))?'
 - kind: patch
   path: patches/binutils/gprofng-examples-tgz-deterministic.patch
