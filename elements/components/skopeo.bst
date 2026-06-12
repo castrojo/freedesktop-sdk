@@ -19,7 +19,7 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 variables:
-  command-subdir: src/github.com/containers/skopeo
+  command-subdir: src/github.com/podman-container-tools/skopeo
   make-args: >-
     PREFIX="%{prefix}"
     EXTRA_LDFLAGS="%{go_ldflags}"
@@ -35,8 +35,8 @@ config:
 
 sources:
 - kind: git_repo
-  url: github:containers/skopeo.git
-  directory: src/github.com/containers/skopeo
+  url: github:podman-container-tools/skopeo.git
+  directory: src/github.com/podman-container-tools/skopeo
   track: v*
   exclude:
   - "*rc*"
