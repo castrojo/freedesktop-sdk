@@ -40,6 +40,7 @@ variables:
     -Dgitk=disabled
     -Dgit_gui=disabled
     -Ddocs=man
+    -Db_pch=false
 
 public:
   bst:
