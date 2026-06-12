@@ -2,7 +2,7 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
-- public-stacks/buildsystem-cmake.bst
+- components/cmake.bst
 - components/make.bst
 - components/pkg-config.bst
 - components/flex.bst
