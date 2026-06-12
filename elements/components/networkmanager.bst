@@ -38,6 +38,10 @@ variables:
     -Dqt=false
     -Dtests=no
 
+environment:
+  # don't use the RECC wrapper
+  PATH: /usr/bin
+
 sources:
 - kind: git_repo
   url: freedesktop:NetworkManager/NetworkManager.git
