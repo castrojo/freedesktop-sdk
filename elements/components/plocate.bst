@@ -16,5 +16,5 @@ config:
 
 sources:
 - kind: tar
-  url: tar_https:plocate.sesse.net/download/plocate-1.1.23.tar.gz
-  ref: 06bd3b284d5d077b441bef74edb0cc6f8e3f0a6f58b4c15ef865d3c460733783
+  url: tar_https:plocate.sesse.net/download/plocate-1.1.24.tar.gz
+  ref: e55a757af1d7efb15ea674993224da4f0258479f8f720bd3dae0925d27dc04a2
