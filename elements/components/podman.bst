@@ -32,13 +32,13 @@ variables:
   ldflags_defaults: ""
   optimize-debug: "false"
   compress-debug: "false"
-  command-subdir: src/github.com/containers/podman
+  command-subdir: src/github.com/podman-container-tools/podman
   make-install: make -j1 %{make-install-args} install.completions
 
 sources:
 - kind: git_repo
-  url: github:containers/podman.git
-  directory: src/github.com/containers/podman
+  url: github:podman-container-tools/podman.git
+  directory: src/github.com/podman-container-tools/podman
   track: v*
   exclude:
   - "*rc*"
