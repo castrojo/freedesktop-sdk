@@ -29,5 +29,5 @@ public:
 
 sources:
 - kind: tar
-  url: tar_https:www.mpg123.de/download/mpg123-1.33.0.tar.bz2
-  ref: 2290e3aede6f4d163e1a17452165af33caad4b5f0948f99429cfa2d8385faa9d
+  url: tar_https:www.mpg123.de/download/mpg123-1.33.6.tar.bz2
+  ref: 929a7c18ba662b8927aed4de229ad9ae8ab2b4806dd0f30b90113eb1b4e2195a
