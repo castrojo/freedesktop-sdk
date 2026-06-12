@@ -13,5 +13,5 @@ variables:
 
 sources:
 - kind: tar
-  url: tar_https:download-mirror.savannah.gnu.org/releases/lzip/lzip-1.25.tar.gz
-  ref: 09418a6d8fb83f5113f5bd856e09703df5d37bae0308c668d0f346e3d3f0a56f
+  url: tar_https:download-mirror.savannah.gnu.org/releases/lzip/lzip-1.26.tar.gz
+  ref: 641cf30961525cbe3b340cc883436c8854e9f5032f459f444de4782b621e6572
