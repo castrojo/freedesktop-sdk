@@ -10,10 +10,8 @@ depends:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:parted/parted-3.6.tar.xz
-  ref: 3b43dbe33cca0f9a18601ebab56b7852b128ec1a3df3a9b30ccde5e73359e612
-- kind: patch
-  path: patches/parted/bug-74444-PATCH-parted-fix-do_version-declaration.patch
+  url: ftp_gnu_org:parted/parted-3.7.tar.xz
+  ref: 008de57561a4f3c25a0648e66ed11e7b30be493889b64334a6d70f2c1951ef7b
 
 # We have decided to stay with tarballs on this one, because the build
 # system is too annoying when building from git. Parted  apparently
