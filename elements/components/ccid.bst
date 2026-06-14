@@ -15,4 +15,4 @@ sources:
 - kind: git_repo
   url: github:LudovicRousseau/CCID.git
   track: '*.*.*'
-  ref: 1.7.1-0-g5850cb60a498623d5f9f6088987c1901b1a3405d
+  ref: 1.8.2-0-g035f6658ac2cdd401851687eaf8496e9ad6ae401
