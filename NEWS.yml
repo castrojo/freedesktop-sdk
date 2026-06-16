@@ -1,3 +1,120 @@
+Version: freedesktop-sdk-25.08.13
+Date: '2026-06-16'
+Description: |-
+  Changes in freedesktop-sdk-25.08.13
+   * Update python3-filelock to 3.29.4-0
+   * Update genimage to v20-0
+   * Update intel-media-driver to intel-media-26.2.2-0
+   * Update xdg-desktop-portal-base to 1.22.0-0
+   * Update python3-cryptography to ref: 49.0.0-0
+   * Update python3-filelock to 3.29.3-0
+   * Update sdl2-compat to release-2.32.70-0
+   * Update python3-cryptography to ref: 48.0.1-0
+   * Update pcsc-lite to 2.5.1-0
+   * Update glibc to glibc-2.42-71
+   * Freeze sdl2-net to 2.2.0
+   * Freeze wayland-protocols to 1.48
+   * Update binutils to binutils-2_46_1-0
+   * Update python3 to v3.13.14-0
+   * Update grpc to v1.81.1-0
+   * Update python3-pip to 26.1.2-0
+   * Update openssl to openssl-3.5.7-0
+   * Update rsync to v3.4.4-0
+   * Update bash to bash-5.3-13
+   * Update libde265 to v1.1.1-0
+   * Update mesa-sdk to mesa-26.1.2-0
+   * Update python3-distlib to 0.4.1-0
+   * Update flat-manager-client-base to ref: 0.5.3-0
+   * Update python3-aiohttp to 3.14.1
+   * Update dictionaries to libreoffice-26.2.4.2-0
+   * Update python3-idna to v3.18-0
+   * Update go to go1.25.11-0
+   * Revert ".gitlab-ci.yml: Disable ppc64le builds for now"
+   * Update python3-virtualenv to 21.4.2-0
+   * Update python3-filelock to 3.29.2-0
+   * Update python3-snowballstemmer to 3.1.1
+   * Update python3-trove-classifiers to 2026.6.1.19-0
+   * Update glibc to glibc-2.42-70
+   * Update xwayland to xwayland-24.1.12-0
+   * Update python3-hatchling to hatchling-v1.30.1-0
+   * Update parallel to 20260522-0
+   * Update libinput to 1.31.3-0
+   * Move docbook to archive path
+   * Update cargo-c to v0.10.23-0
+   * Update poppler to poppler-26.06.0-0
+   * Update hwdata to v0.408-0
+   * Update passt to 2026_05_26.038c51e-0
+   * Update graphite2 to 1.3.15-0
+   * Update fwupd to 2.1.4-2-0
+   * llvm: Ensure zlib is also a runtime dependency
+   * Convert pyelftools.bst to be a link element to python3-pyelftools.bst
+   * Update python3-aiohttp to 3.14.0
+   * Update python3-pyelftools to v0.33-0
+   * Update librsvg to ref: 2.62.3-0
+   * Update linux to v7.0.11-0
+   * Update python3-hatchling to hatchling-v1.30.0-0
+   * Update libdrm to libdrm-2.4.134-0
+   * Update python3-idna to v3.17-0
+   * Update pyelftools to v0.33-0
+   * Update exfat-progs to 1.4.1-0
+   * Update grpc to v1.81.0-0
+   * Update less to v702-rel-0
+   * Update gnu-config to 4286648
+   * Drop purge afterscript step from publish_flatpak job
+   * Update libdrm to libdrm-2.4.134-0
+   * Update python3-protobuf to 7.35.0
+   * Update exfat-progs to 1.4.0-0
+   * Update pcsc-lite to 2.5.0-0
+   * Update rust-cbindgen to ref: v0.29.3-0
+   * Update libwacom to libwacom-2.19.0-0
+   * Update ccid to 1.8.0-0
+   * Update dtc to v1.8.1-0
+   * Update skopeo to v1.23.0-0
+   * Update flatpak-builder to 1.4.9-0
+   * Update python3-virtualenv to 21.4.1-0
+   * Bump mesa source from 26.0.6 to 26.0.8
+   * Update libde265 to v1.1.0-0
+   * Update linux to v7.0.10-0
+   * Update slirp4netns to v1.3.4-0
+   * Update libslirp to v4.9.3-0
+   * Update README documentation links
+   * Freeze fontconfig to 2.17.*
+   * Update kbd to v2.10.0-0
+   * Update python3-trove-classifiers to 2026.5.22.10-0
+   * Update python3-snowballstemmer to 3.1.0
+   * Update xfsprogs to v7.0.1-0
+   * Update libslirp to v4.9.2-0
+   * Update python3-idna to v3.16-0
+   * Update python3-poetry-core to 2.4.1-0
+   * Update cython to 3.2.5-0
+   * Update ghostscript to ghostpdl-10.07.1-0
+   * Update tpm2-pkcs11 to 1.10.0-0
+   * Update ovmf.bst from edk2-stable202602 to edk2-stable202605
+   * Update cmake to v4.3.3-0
+   * gpgmepp: Freeze due to coupling with the frozen gpgme
+   * Update python3-aiohappyeyeballs to v2.7.0-0
+   * Update libde265 to v1.0.19-0
+   * Update utf8cpp to v4.1.1-0
+   * Update networkmanager to 1.56.1-0
+   * Update valgrind to VALGRIND_3_27_1-0
+   * Update buildbox to 1.4.7-0
+   * Update reference-abi to freedesktop-sdk-25.08.12-0
+   * Update python3-requests to v2.34.2-0
+   * Update perl-xml-parser to 2.59
+   * Update rsync to v3.4.3-0
+   * linux: enable some qualcomm features
+   * Update linux-firmware to 20260519-0
+   * Update python3-certifi to 2026.05.20-0
+   * Update python3-trove-classifiers to 2026.5.20.19-0
+   * Update mesa-sdk to mesa-26.1.1-0
+   * Update protobuf to v35.0-0
+   * Update linux to v7.0.9-0
+   * Update python3-lxml to lxml-6.1.1-0
+   * Update xorg-lib-xi to libXi-1.8.3-0
+   * Update lvm2 to v2_03_41-0
+   * Update passt to 2026_05_07.1afd4ed-0
+   * Update glibc to glibc-2.42-67
+---
 Version: freedesktop-sdk-25.08.12
 Date: '2026-05-18'
 Description: |-
