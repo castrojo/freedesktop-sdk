@@ -57,7 +57,7 @@ variables:
       libunwind: enabled
       rusticl_enabled: radeonsi
   - target_arch == "aarch64":
-      gallium_drivers: asahi,etnaviv,freedreno,lima,nouveau,panfrost,softpipe,llvmpipe,tegra,virgl,v3d,vc4,zink,r600,r300,radeonsi
+      gallium_drivers: asahi,etnaviv,freedreno,lima,nouveau,panfrost,softpipe,llvmpipe,tegra,virgl,v3d,vc4,zink,r600,r300,radeonsi,rocket,ethosu
       vulkan_drivers: freedreno,broadcom,panfrost,swrast,amd,nouveau,asahi
       libunwind: disabled
       rusticl_enabled: radeonsi,asahi
