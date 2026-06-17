@@ -534,6 +534,8 @@ $(VM_CHECKOUT_ROOT)/secure-vm/disk.img: $(BOOT_KEYS) secure-version.yml
 	$(BST) -o prod_keys true artifact checkout vm/minimal-secure/efi.bst --directory $(dir $@)
 	truncate --size=+10G $@
 
+build-secure-vm: $(VM_CHECKOUT_ROOT)/secure-vm/disk.img
+
 run-secure-vm: $(VM_CHECKOUT_ROOT)/secure-vm/disk.img $(OVMF_VARS) $(OVMF_CODE)
 	du -BM $(VM_CHECKOUT_ROOT)/secure-vm/disk.img
 	mkdir -p $(VM_CHECKOUT_ROOT)/tpm/state

@@ -32,8 +32,8 @@ config:
        --rootpasswd "root" > '%{install-root}/vars.txt'
 
   - |
-    mkdir -p /sysroot/usr/share/factory
-    mv -T /sysroot/etc /sysroot/usr/share/factory/etc
+    mkdir -p /sysroot/usr/share/factory/etc
+    cp -a /sysroot/etc/. /sysroot/usr/share/factory/etc/
 
   - |
     echo "IMAGE_VERSION=%{sdk-version}" >>/sysroot/usr/lib/os-release

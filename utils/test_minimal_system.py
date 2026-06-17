@@ -21,11 +21,12 @@ import asyncio
 import asyncio.subprocess
 import logging
 import os
+import shlex
 import signal
 import subprocess
 import sys
 
-QEMU = "qemu-system-x86_64"
+QEMU = f"qemu-system-{os.uname().machine}"
 QEMU_EXTRA_ARGS = ["-m", "256"]
 
 FAILURE_TIMEOUT = 300  # seconds
@@ -35,26 +36,22 @@ logger = logging.getLogger(__name__)
 
 DIALOGS = {
     "minimal": ["Started '/init' script from initramfs.", "\nuname -a", "Linux"],
-    "systemd-firstboot": [
-        "-- Press any key to proceed --",
-        "",
-        "Please enter system locale name or number",
-        "1",
-        "Please enter system message locale name or number",
-        "",
-        "Please enter timezone name or number",
-        "1",
-        "Please enter a new root password",
+    "secure-systemd-firstboot": [
+        "Please enter the new root password",
         "root",
-        "Please enter new root password again",
+        "Please enter the new root password again",
         "root",
-        "localhost login",
+        "localhost login:",
         "root",
-        "Password",
+        "Password:",
         "root",
         "#",
-        "uname -a",
-        "Linux",
+        "grep -q usrhash= /proc/cmdline && echo usrhash-ok=$?",
+        "usrhash-ok=0",
+        "grep -q lockdown=confidentiality /proc/cmdline && echo lockdown-ok=$?",
+        "lockdown-ok=0",
+        "findmnt -no FSTYPE /usr",
+        "squashfs",
         "systemctl poweroff",
         "Power down",
     ],
@@ -65,7 +62,7 @@ DIALOGS = {
         "root",
         "#",
         "uname -a",
-        "#",
+        "Linux",
         "systemctl poweroff",
         "Power down",
     ],
@@ -78,8 +75,8 @@ def build_qemu_image_command(args):
         out = subprocess.check_output([QEMU, "-accel", "help"], encoding="ascii")
         if "kvm" in out.splitlines():
             kvm_args = ["-enable-kvm"]
-    except subprocess.CalledProcessError:
-        sys.stderr.write("Cannot query qemu for accelerator. Not using it.\n")
+    except subprocess.CalledProcessError as e:
+        logger.debug("Cannot query qemu for accelerator. Not using it: %s", e)
 
     return (
         [QEMU, "-drive", f"file={args.sda},format=raw", "-nographic"]
@@ -89,7 +86,7 @@ def build_qemu_image_command(args):
 
 
 def build_command(args):
-    return args.command.split()
+    return shlex.split(args.command)
 
 
 def argument_parser():
@@ -116,7 +113,7 @@ def argument_parser():
 
 
 async def await_line(stream, marker):
-    """Read from 'stream' until a line appears contains 'marker'."""
+    """Read from 'stream' until a line contains 'marker'."""
     marker = marker.encode("utf-8")
     buf = b""
 
@@ -127,20 +124,19 @@ async def await_line(stream, marker):
         lines = buf.split(b"\n")
         for line in lines:
             if marker in line:
-                try:
-                    return line.decode("utf-8")
-                except UnicodeDecodeError:
-                    break
+                return line.decode("utf-8", errors="replace")
         buf = lines[-1]
+    return None
 
 
 async def run_test(command, dialog):
-    dialog = DIALOGS[dialog]
+    dialog = DIALOGS[dialog].copy()
 
     success = False
+    process = None
 
     try:
-        logger.debug("Starting process: %s", command)
+        logger.info("Starting process: %s", command)
         process = await asyncio.create_subprocess_exec(
             *command,
             stdin=asyncio.subprocess.PIPE,
@@ -154,17 +150,19 @@ async def run_test(command, dialog):
             assert prompt is not None
             if dialog:
                 process.stdin.write(dialog.pop(0).encode("ascii") + b"\n")
+                await process.stdin.drain()
 
-        print("Test successful")
+        process.stdin.close()
+        logger.info("Test successful")
         success = True
     finally:
-        try:
-            os.killpg(os.getpgid(process.pid), signal.SIGKILL)
-        except ProcessLookupError:
-            pass
+        if process is not None:
+            try:
+                os.killpg(os.getpgid(process.pid), signal.SIGKILL)
+            except ProcessLookupError:
+                pass
 
-        await process.communicate()
-        await process.wait()
+            await process.communicate()
 
     return success
 
@@ -174,12 +172,10 @@ def main():
 
     command = args.get_command(args)
 
-    task = asyncio.wait_for(run_test(command, args.dialog), FAILURE_TIMEOUT)
-
     try:
-        result = asyncio.run(task)
+        result = asyncio.run(run_test(command, args.dialog))
     except asyncio.TimeoutError:
-        print("VM was considered inresponsive and test was aborted", file=sys.stderr)
+        logger.info("VM was considered unresponsive and test was aborted")
         return 1
 
     if result:
