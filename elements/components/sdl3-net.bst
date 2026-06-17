@@ -5,15 +5,15 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/sdl2-compat.bst
+- components/sdl3.bst
 
 public:
   bst:
     split-rules:
       devel:
         (>):
-        - '%{libdir}/libSDL2_net.so'
-        - '%{libdir}/libSDL2_net-2.0.so'
+        - '%{libdir}/libSDL3_net.so'
+        - '%{libdir}/libSDL3_net-*.so'
 
 sources:
 - kind: git_repo
