@@ -486,6 +486,9 @@ ostree-repo:
 ostree-serve: ostree-repo
 	utils/run-local-repo.sh
 
+build-ostree-vm: files/vm/ostree-config/fdsdk.gpg ostree-config.yml
+	$(BST) build vm/minimal-ostree/image.bst
+
 $(VM_CHECKOUT_ROOT)/ostree-vm/disk.img: files/vm/ostree-config/fdsdk.gpg ostree-config.yml
 	$(BST) build vm/minimal-ostree/image.bst
 	$(BST) artifact checkout vm/minimal-ostree/image.bst --directory $(dir $@)
@@ -587,7 +590,7 @@ secure-images-serve: secure-images/SHA256SUMS
 	build-tar export-tar clean-vm build-vm run-vm export-snap	\
 	export-oci bootstrap test-codecs test-ldd test-oci	 \
 	clean-efi-vm build-efi-vm run-efi-vm				\
-	update-ostree ostree-serve run-ostree-vm			\
+	update-ostree ostree-serve build-ostree-vm run-ostree-vm	\
 	test-runtime-inheritance generate-keys clean-ostree-vm		\
 	download-microsoft-keys						\
 	run-secure-vm clean-secure-vm clean-ostree-vm			\

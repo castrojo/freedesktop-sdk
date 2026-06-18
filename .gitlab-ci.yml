@@ -431,6 +431,17 @@ minimal_efi_vm_image_x86_64:
     IMAGE: efi-vm
   allow_failure: true
 
+minimal_efi_ostree_vm_image_x86_64:
+  extends:
+    - .minimal_test
+    - .builder-x86_64
+  needs:
+  - app_x86_64
+  variables:
+    DIALOG: root-login
+    IMAGE: ostree-vm
+  allow_failure: true
+
 publish_flatpak:
   stage: publish
   script:
