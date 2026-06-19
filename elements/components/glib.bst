@@ -1,5 +1,10 @@
 kind: meson
-description: Glib
+description: |
+  GLib, low-level core library used as a basis by GTK, GNOME and others.
+
+  Note that GLib includes some development tooling written in Python.
+  To avoid including CPython in all systems, we don't include it in the
+  runtime-depends list.
 
 (@):
 - elements/include/glib-source.yml
@@ -8,13 +13,12 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/_private/gobject-introspection-base.bst
 - components/_private/glib-stage1.bst
+- components/python3.bst
 - components/python3-gi-docgen.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
 - components/libffi.bst
-- components/python3.bst
-- components/python3-packaging.bst
 # GIO uses libmount
 - components/util-linux-libs.bst
 
