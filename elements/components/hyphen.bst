@@ -23,6 +23,7 @@ public:
         - '%{libdir}/libhyphen.so'
 
 sources:
-- kind: tar
-  url: sourceforge_download:hunspell/hyphen-2.8.8.tar.gz
-  ref: 304636d4eccd81a14b6914d07b84c79ebb815288c76fe027b9ebff6ff24d5705
+- kind: git_repo
+  url: github:hunspell/hyphen.git
+  track: v*.*.*
+  ref: v2.8.9-0-g27439e9d339a05841cab9e661a1bbb8ca6ff1b02
