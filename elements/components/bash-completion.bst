@@ -5,6 +5,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/sed.bst
 
 sources:
 - kind: git_repo
