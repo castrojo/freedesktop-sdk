@@ -6,7 +6,6 @@ build-depends:
 - components/mutool.bst
 
 depends:
-- components/dejavu-fonts.bst
 - components/libppd.bst
 
 sources:
