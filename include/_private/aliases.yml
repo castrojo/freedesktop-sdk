@@ -16,6 +16,7 @@ github: https://github.com/
 gitlab: https://gitlab.com/
 gnome: https://gitlab.gnome.org/GNOME/
 gnupg: https://dev.gnupg.org/source/
+inria: https://gitlab.inria.fr/
 # The ~ here is intentional, as our mirrors can't have ~ in their name
 sourcehut: https://git.sr.ht/~
 kitware: https://gitlab.kitware.com/cmake/

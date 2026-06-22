@@ -30,6 +30,8 @@ mirrors:
     - https://gitlab.com/freedesktop-sdk/mirrors/gnu-efi/
     gnupg:
     - https://gitlab.com/freedesktop-sdk/mirrors/gnupg/
+    inria:
+    - https://gitlab.com/freedesktop-sdk/mirrors/inria/
     kitware:
     - https://gitlab.com/freedesktop-sdk/mirrors/kitware/
     kernel:

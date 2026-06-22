@@ -6,6 +6,10 @@ build-depends:
 depends:
 - components/gmp.bst
 
+variables:
+  make-args: >-
+    MAKEINFO=true
+
 public:
   bst:
     split-rules:
@@ -14,6 +18,7 @@ public:
         - '%{libdir}/libmpfr.so'
 
 sources:
-- kind: tar
-  url: ftp_gnu_org:mpfr/mpfr-4.2.2.tar.xz
-  ref: b67ba0383ef7e8a8563734e2e889ef5ec3c3b898a01d00fa0a6869ad81c6ce01
+- kind: git_repo
+  url: inria:mpfr/mpfr.git
+  track: '*.*.*'
+  ref: 4.2.2-0-geaa57b856d814af32f97d5e5eb129fb986235323
