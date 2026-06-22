@@ -2,6 +2,9 @@ kind: manual
 
 build-depends:
 - public-stacks/buildsystem-make.bst
+- components/docbook-xml.bst
+- components/docbook-xsl.bst
+- components/xmlto.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -37,8 +40,7 @@ config:
     %{install-extra}
 
 sources:
-- kind: tar
-  url: sourceforge_download:giflib/giflib-5.2.2.tar.gz
-  ref: be7ffbd057cadebe2aa144542fd90c6838c6a083b5e8a9048b8ee3b66b29d5fb
-- kind: patch
-  path: patches/giflib/no-imagemagick.patch
+- kind: git_repo
+  url: sourceforge_git:giflib/code.git
+  track: '*.*.*'
+  ref: 6.1.3-0-gedff4aed17f857442ab0cac31566572ba08f93d3
