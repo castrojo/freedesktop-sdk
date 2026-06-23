@@ -20,4 +20,4 @@ sources:
   exclude:
   - "*dev*"
   - "*vcs-*"
-  ref: setuptools-scm-v10.0.5-0-ge2ba34f52b5d375d680c069bc3fa89c4056a9347
+  ref: setuptools-scm-v10.1.1-0-gb59248f423f79b8fd790515c609db66461b294c2
