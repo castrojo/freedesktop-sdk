@@ -300,7 +300,7 @@ struct script {
 
     named_tmp_file minidebuginfo;
     if (0 != run(std::vector<std::string>{(toolchain / "objcopy").string(),
-                                          "-S", "--remove-section", ".db_index", "--remove-section", ".comment",
+                                          "-S", "--remove-section", ".gdb_index", "--remove-section", ".comment",
                                           "--keep-symbols="+keepsymbolstmp.get_path(), debugdata.get_path(), minidebuginfo.get_path()})) {
       throw std::runtime_error("objcopy failed");
     }
