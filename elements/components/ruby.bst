@@ -9,6 +9,7 @@ depends:
 - bootstrap/libxcrypt.bst
 - components/libffi.bst
 - components/gdbm.bst
+- components/gmp.bst
 - components/libyaml.bst
 - components/openssl.bst
 
