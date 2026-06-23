@@ -10,16 +10,8 @@ depends:
 - components/python3-setuptools.bst
 - components/python3-vcs-versioning.bst
 
-config:
-  build-commands:
-  - |
-    cd setuptools-scm
-    %{python} -mbuild %{build-args} .
-
-  install-commands:
-  - |
-    cd setuptools-scm
-    %{python} -minstaller %{dist-dir}/*.whl --destdir %{install-root}
+variables:
+  command-subdir: setuptools-scm
 
 sources:
 - kind: git_repo

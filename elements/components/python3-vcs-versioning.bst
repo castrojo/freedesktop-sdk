@@ -8,16 +8,8 @@ depends:
 - components/python3.bst
 - components/python3-packaging.bst
 
-config:
-  build-commands:
-  - |
-    cd vcs-versioning
-    %{python} -mbuild %{build-args} .
-
-  install-commands:
-  - |
-    cd vcs-versioning
-    %{python} -minstaller %{dist-dir}/*.whl --destdir %{install-root}
+variables:
+  command-subdir: vcs-versioning
 
 sources:
 - kind: git_repo
