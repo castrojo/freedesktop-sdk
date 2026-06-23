@@ -16,7 +16,7 @@ sources:
 - kind: git_repo
   url: github:pyca/cryptography.git
   track: '*.*.*'
-  ref: 48.0.0-0-g8e03e30e3aae01632a697e903e3593c924f0139d
+  ref: 49.0.0-0-ge300bbe2f1bec75e5ee7e0ab7b196958831b3db6
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
@@ -34,12 +34,12 @@ sources:
     sha: 72b3254f16251a8381aa12e40e3c4d2f0199f8c6508fbecb9d91f575e0fbb8c6
   - kind: registry
     name: bitflags
-    version: 2.11.1
-    sha: c4512299f36f043ab09a583e57bceb5a5aab7a73db1805848e8fef3c9e8c78b3
+    version: 2.13.0
+    sha: b4388bee8683e3d04af747c73422af53102d2bd24d9eadb6cbc100baef4b43f8
   - kind: registry
     name: cc
-    version: 1.2.61
-    sha: d16d90359e986641506914ba71350897565610e87ce0ad9e6f28569db3dd5c6d
+    version: 1.2.64
+    sha: dad887fd958be91b5098c0248def011f4523ab786cd411be668777e55063501f
   - kind: registry
     name: cfg-if
     version: 1.0.4
@@ -74,16 +74,16 @@ sources:
     sha: 9f7c3e4beb33f85d45ae3e3a1792185706c8e16d043238c593331cc7cd313b50
   - kind: registry
     name: openssl
-    version: 0.10.79
-    sha: bf0b434746ee2832f4f0baf10137e1cabb18cbe6912c69e2e33263c45250f542
+    version: 0.10.81
+    sha: 77823a27f0babb03091cb9ed9ef80af3b39dbc82f97e8fa530374b7dafd87a45
   - kind: registry
     name: openssl-macros
     version: 0.1.1
     sha: a948666b637a0f465e8564c73e89d4dde00d72d4d473cc972f390fc3dcee7d9c
   - kind: registry
     name: openssl-sys
-    version: 0.9.115
-    sha: 158fe5b292746440aa6e7a7e690e55aeb72d41505e2804c23c6973ad0e9c9781
+    version: 0.9.117
+    sha: b47e7e6bb2c38cd930d25a23b40fa52e068c10e85f3e03a7f5ba5aaca5713695
   - kind: registry
     name: pem
     version: 3.0.6
@@ -102,24 +102,24 @@ sources:
     sha: 8fd00f0bb2e90d81d1044c2b32617f68fcb9fa3bb7640c23e9c748e53fb30934
   - kind: registry
     name: pyo3
-    version: 0.28.3
-    sha: 91fd8e38a3b50ed1167fb981cd6fd60147e091784c427b8f7183a7ee32c31c12
+    version: 0.29.0
+    sha: cd274650b21d4bfc26a0a47587962c1edb425f69287324355cd040c3ea66071c
   - kind: registry
     name: pyo3-build-config
-    version: 0.28.3
-    sha: e368e7ddfdeb98c9bca7f8383be1648fd84ab466bf2bc015e94008db6d35611e
+    version: 0.29.0
+    sha: c5e2a7d2f0d013342f295c048ad19237add5154a55b1c5a254c0ec93d4109078
   - kind: registry
     name: pyo3-ffi
-    version: 0.28.3
-    sha: 7f29e10af80b1f7ccaf7f69eace800a03ecd13e883acfacc1e5d0988605f651e
+    version: 0.29.0
+    sha: ca85c467da1bbc8d866eea5deff9cf29ea5f7785054a17da36e65bda9c05845b
   - kind: registry
     name: pyo3-macros
-    version: 0.28.3
-    sha: df6e520eff47c45997d2fc7dd8214b25dd1310918bbb2642156ef66a67f29813
+    version: 0.29.0
+    sha: 9ac53762fd065daa3194dd09337a38bd793a188100fd1a9304c4ab312d901771
   - kind: registry
     name: pyo3-macros-backend
-    version: 0.28.3
-    sha: c4cdc218d835738f81c2338f822078af45b4afdf8b2e33cbb5916f108b813acb
+    version: 0.29.0
+    sha: 4ca3a1557399783172dc5bf39cfca835157732532cba56b71d2292161e53b362
   - kind: registry
     name: quote
     version: 1.0.45
@@ -130,8 +130,8 @@ sources:
     sha: b12e76d157a900eb52e81bc6e9f3069344290341720e9178cde2407113ac8d89
   - kind: registry
     name: shlex
-    version: 1.3.0
-    sha: 0fda2ff0d084019ba4d7c6f371c95d8fd75ce3524c3cb8fb653a3023f6323e64
+    version: 2.0.1
+    sha: f8fadd59c855ef2080decdef8ff161eb6661b86933c9d82e5ba29dc602a55aba
   - kind: registry
     name: syn
     version: 2.0.117
