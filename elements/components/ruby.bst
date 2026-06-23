@@ -23,5 +23,5 @@ variables:
 
 sources:
 - kind: tar
-  url: tar_https:cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.4.tar.gz
-  ref: a0597bfdf312e010efd1effaa8d7f1d7833146fdc17950caa8158ffa3dcbfa85
+  url: tar_https:cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.5.tar.xz
+  ref: 5dc5521ea54c726e6cc10b1b5a0f4004b27b482e61c04c99aed79315e30895e5
