@@ -9,6 +9,9 @@ depends:
 - components/perl-xml-parser.bst
 
 sources:
-- kind: tar
-  url: sourceforge:projects/xmltoman/files/xmltoman/xmltoman-0.4.tar.gz/xmltoman-0.4.tar.gz
-  ref: 948794a316aaecd13add60e17e476beae86644d066cb60171fc6b779f2df14b0
+- kind: git_repo
+  url: github:atsb/xmltoman.git
+  track: '*.*'
+  ref: 0.6-0-g46403b9cf0191b40971ed89402da8c1b852781ad
+- kind: patch
+  path: patches/xmltoman/0001-Makefile-Use-PREFIX-instead-of-prefix.patch

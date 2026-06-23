@@ -1,0 +1,44 @@
+From 8903c4c4ef2c1e54e9e23d7efc936167bd49f8ff Mon Sep 17 00:00:00 2001
+From: Tom Pollard <tom.pollard@codethink.co.uk>
+Date: Tue, 23 Jun 2026 15:40:50 +0100
+Subject: [PATCH] Makefile: Use PREFIX instead of prefix
+
+This brings it inline with the README and the previous 0.4 release
+---
+ Makefile | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 2673885..fcda1f6 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,4 +1,4 @@
+-prefix=/usr/local
++PREFIX=/usr/local
+ PACKAGE=xmltoman
+ VERSION=0.6
+ DISTNAME=$(PACKAGE)-$(VERSION)
+@@ -16,13 +16,13 @@ xmlmantohtml.1: xml/xmlmantohtml.1.xml
+ 	
+ #permissions still used during install to verify they are not changed.
+ install:
+-	install -D -m 0755 xmltoman $(DESTDIR)$(prefix)/bin/xmltoman
+-	install -D -m 0755 xmlmantohtml $(DESTDIR)$(prefix)/bin/xmlmantohtml
+-	install -D -m 0644 xmltoman.dtd $(DESTDIR)$(prefix)/share/xmltoman/xmltoman.dtd
+-	install -D -m 0644 xmltoman.css $(DESTDIR)$(prefix)/share/xmltoman/xmltoman.css
+-	install -D -m 0644 xmltoman.xsl $(DESTDIR)$(prefix)/share/xmltoman/xmltoman.xsl
+-	install -D -m 0644 xmltoman.1 $(DESTDIR)$(prefix)/share/man/man1/xmltoman.1
+-	install -D -m 0644 xmlmantohtml.1 $(DESTDIR)$(prefix)/share/man/man1/xmlmantohtml.1
++	install -D -m 0755 xmltoman $(DESTDIR)$(PREFIX)/bin/xmltoman
++	install -D -m 0755 xmlmantohtml $(DESTDIR)$(PREFIX)/bin/xmlmantohtml
++	install -D -m 0644 xmltoman.dtd $(DESTDIR)$(PREFIX)/share/xmltoman/xmltoman.dtd
++	install -D -m 0644 xmltoman.css $(DESTDIR)$(PREFIX)/share/xmltoman/xmltoman.css
++	install -D -m 0644 xmltoman.xsl $(DESTDIR)$(PREFIX)/share/xmltoman/xmltoman.xsl
++	install -D -m 0644 xmltoman.1 $(DESTDIR)$(PREFIX)/share/man/man1/xmltoman.1
++	install -D -m 0644 xmlmantohtml.1 $(DESTDIR)$(PREFIX)/share/man/man1/xmlmantohtml.1
+ 
+ dist: 
+ 	[ -d $(DISTNAME) ] && rm -rf $(DISTNAME) || true
+-- 
+2.43.0
+
