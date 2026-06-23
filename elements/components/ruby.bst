@@ -2,6 +2,11 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+(?):
+- target_arch in ("x86_64", "aarch64"):
+    build-depends:
+      (>):
+      - components/rust.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -13,14 +18,22 @@ depends:
 - components/libyaml.bst
 - components/openssl.bst
 
+
 # Set '--with-compress-debug-sections=no' because of
 # https://bugs.ruby-lang.org/issues/12934
 variables:
+  arch-conf: ''
+  (?):
+  - target_arch in ("x86_64", "aarch64"):
+      arch-conf: >-
+          --enable-yjit
+
   conf-local: >-
     --enable-pthread
     --enable-ipv6
     --with-compress-debug-sections=no
     --disable-rpath
+    %{arch-conf}
 
 sources:
 - kind: tar
