@@ -15,6 +15,10 @@ depends:
 variables:
   # XML files generated to wrong directory
   build-dir: ''
+  conf-local: >-
+    --disable-static
+    --enable-btrfs
+    --enable-lvm2
 
 sources:
 - kind: git_repo
