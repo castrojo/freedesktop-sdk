@@ -4,6 +4,7 @@ kind: make
 - elements/extensions/include/app.yml
 
 build-depends:
+- public-stacks/buildsystem-make.bst
 - components/mesa-headers.bst
 
 variables:
