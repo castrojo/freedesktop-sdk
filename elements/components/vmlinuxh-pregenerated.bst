@@ -15,4 +15,4 @@ sources:
 - kind: git_repo
   track: main
   url: fdsdk_git:vmlinux-h.git
-  ref: 657d3f5119a02333cdbeae92d5de28234bbcec03
+  ref: aee5c9b8fb77282d458f318369dfaf6d7d9cb59f
