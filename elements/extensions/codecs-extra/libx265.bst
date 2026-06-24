@@ -34,7 +34,6 @@ variables:
   cmake-common: >-
     %{cmake-args}
     %{arch-conf}
-    -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     -DLIB_INSTALL_DIR="%{libdir}"
     -DENABLE_CLI=OFF
 
