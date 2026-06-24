@@ -58,7 +58,7 @@ sources:
 - kind: git_repo
   url: github:flatpak/xdg-desktop-portal.git
   track: '1.*[02468].*'
-  ref: 1.22.0-0-g375a8b7ff06b1f0b9a0d6670ff257ee22120c278
+  ref: 1.22.1-0-g1d20fadc304f6601452b5db65ed91197dba77041
 - kind: git_repo
   url: gnome:libglnx.git
   ref: ff64d52116ae74f0d25e24f089db28921ea171ff
