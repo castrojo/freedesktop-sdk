@@ -8,15 +8,8 @@ depends:
 - components/libpulse.bst
 
 variables:
-  arch-conf: ''
-  (?):
-  - target_arch == "ppc64le":
-      arch-conf: >-
-         -DALSOFT_ENABLE_MODULES=OFF
-
   cmake-local: >-
     -DALSOFT_EXAMPLES=OFF
-    %{arch-conf}
 
 public:
   bst:
@@ -34,4 +27,4 @@ sources:
 - kind: git_repo
   url: github:kcat/openal-soft.git
   track: '*.*.*'
-  ref: 1.25.2-0-gb2c48f7718ef3fcf67921a8b6534c4914e328970
+  ref: 1.25.2-8-gdd4e07de0fe73d8c0326c4502f63e71da8ef268b
