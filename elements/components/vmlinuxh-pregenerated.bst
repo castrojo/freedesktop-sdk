@@ -13,6 +13,5 @@ config:
 
 sources:
 - kind: git_repo
-  track: main
   url: fdsdk_git:vmlinux-h.git
   ref: 657d3f5119a02333cdbeae92d5de28234bbcec03
