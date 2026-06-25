@@ -69,6 +69,8 @@ case "$arch" in
 	enable SC_LPASS_CORECC_7280
 	enable SC_VIDEOCC_7280
 	enable SC_GCC_7280
+
+	enable QCOM_PD_MAPPER
     ;;
 esac
 
