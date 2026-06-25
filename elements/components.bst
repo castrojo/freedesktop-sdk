@@ -354,7 +354,9 @@ depends:
 - components/newt.bst
 - components/ninja.bst
 - components/nodejs.bst
+- components/noto-cjk.bst
 - components/noto-emoji.bst
+- components/noto-fonts.bst
 - components/npth.bst
 - components/nspr.bst
 - components/nss.bst
