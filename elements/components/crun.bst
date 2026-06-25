@@ -7,14 +7,13 @@ build-depends:
 - components/gperf.bst
 
 depends:
-- components/systemd-libs.bst
+- components/json-c.bst
 - components/libcap.bst
 - components/libseccomp.bst
+- components/systemd-libs.bst
 - public-stacks/runtime-minimal.bst
 
 variables:
-  conf-local: >-
-    --enable-embedded-yajl
   (?):
   - target_arch == "riscv64":
       # incredibly racy on riscv64
@@ -24,23 +23,21 @@ sources:
 - kind: git_repo
   url: github:containers/crun.git
   track: '*.*'
-  ref: 1.27.1-0-g3ec076b3b6714ec2f1a10533cf18d5605a6de637
+  ref: 1.28-0-g54f16ffbefcd022bf032af768b5c5ce075c18bfc
 - kind: git_module
   path: libocispec
   url: github:containers/libocispec.git
-  ref: 552ccbbad3aaff8e07e8fbad210ec3b4c9c95a66
+  ref: 8034d0ecd27f646ba3ffae5ff24db234ce062825
 - kind: git_module
   path: runtime-spec
   url: github:opencontainers/runtime-spec.git
   directory: libocispec
-  ref: e3c8d12d94cdd269a145a263ace7457f56c74eff
+  ref: d64c1d945da7cf6970061c7c9ff4391fafdf2a15
 - kind: git_module
   path: image-spec
   url: github:opencontainers/image-spec.git
   directory: libocispec
-  ref: 2daaaaf0e7c16a6a147be91fde277f38573be672
-- kind: git_module
-  path: yajl
-  url: github:containers/yajl.git
-  directory: libocispec
-  ref: 6bc5219389fd2752631682b0a8368e6d8218a8c5
+  ref: 26647a49f642c7d22a1cd3aa0a48e4650a542269
+# backport of https://github.com/containers/crun/pull/2102
+- kind: patch
+  path: patches/crun/0001-build-export-json_gen_-symbols.patch
