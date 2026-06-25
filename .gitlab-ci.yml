@@ -372,97 +372,63 @@ app_ppc64le:
     - .check-snap
     - .builder-i686
 
-.vm_imageless_template:
+.minimal_test:
   stage: vm
   script:
-    - make build-vm
+    - make build-${IMAGE}
     - |
       if [ "${DIALOG+set}" = set ]; then
-        utils/test_minimal_system.py --dialog "${DIALOG}" command 'make run-vm'
+        utils/test_minimal_system.py --dialog "${DIALOG}" command "make run-${IMAGE}"
       fi
-
-    - make generate-spdx-sbom-reports
   artifacts:
     when: always
     paths:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
-      - ${CI_PROJECT_DIR}/sbom-reports
+      - "${CI_PROJECT_DIR}/checkout/**/*sizes*.tsv"
   rules:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 
 desktop_systemd_vm_aarch64:
   extends:
-    - .vm_imageless_template
+    - .minimal_test
     - .builder-aarch64
   variables:
     VM_ARTIFACT_BOOT: vm/boot/virt.bst
     VM_ARTIFACT_FILESYSTEM: vm/desktop/virt.bst
+    IMAGE: vm
   allow_failure: true
   needs:
     - job: app_aarch64
       artifacts: false
 
-.vm_efi_image_template:
-  stage: vm
-  script:
-    - make build-efi-vm
-    - |
-      if [ "${DIALOG+set}" = set ]; then
-        utils/test_minimal_system.py --dialog "${DIALOG}" command 'make run-efi-vm'
-      fi
-
-    - make generate-spdx-sbom-reports
-  artifacts:
-    when: always
-    paths:
-      - ${CI_PROJECT_DIR}/cache/buildstream/logs
-      - "${CI_PROJECT_DIR}/checkout/**/*sizes*.tsv"
-      - ${CI_PROJECT_DIR}/sbom-reports
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-
-.vm_efi_secure_image_template:
-  stage: vm
-  script:
-    - make build-secure-vm
-    - |
-      if [ "${DIALOG+set}" = set ]; then
-        utils/test_minimal_system.py --dialog "${DIALOG}" command 'make run-secure-vm'
-      fi
-  artifacts:
-    when: always
-    paths:
-      - ${CI_PROJECT_DIR}/cache/buildstream/logs
-      - "${CI_PROJECT_DIR}/checkout/**/*sizes*.tsv"
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-
 minimal_efi_secure_vm_image_x86_64:
   extends:
-    - .vm_efi_secure_image_template
+    - .minimal_test
     - .builder-x86_64
   needs:
   - app_x86_64
   script:
-    - !reference [.vm_efi_secure_image_template, script]
+    - !reference [.minimal_test, script]
     - utils/test_minimal_size.py # Warn if image size grows
   variables:
     VM_ARTIFACT_IMAGE: vm/minimal-secure/efi.bst
     DIALOG: secure-systemd-firstboot
+    IMAGE: secure-vm
   allow_failure: true
 
 minimal_efi_vm_image_x86_64:
   extends:
-    - .vm_efi_image_template
+    - .minimal_test
     - .builder-x86_64
   needs:
   - app_x86_64
   script:
-    - !reference [.vm_efi_image_template, script]
+    - !reference [.minimal_test, script]
     - utils/test_minimal_size.py # Warn if image size grows
   variables:
     VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
     DIALOG: root-login
+    IMAGE: efi-vm
   allow_failure: true
 
 publish_flatpak:
