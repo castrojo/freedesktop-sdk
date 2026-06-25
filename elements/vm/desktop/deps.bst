@@ -61,3 +61,4 @@ depends:
 - components/tpm2-tools.bst
 - components/tpm2-pkcs11.bst
 - components/sof-firmware.bst
+- components/upower.bst

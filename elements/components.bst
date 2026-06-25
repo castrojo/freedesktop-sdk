@@ -253,6 +253,8 @@ depends:
 - components/libgusb.bst
 - components/libheif.bst
 - components/libical.bst
+- components/libimobiledevice-glue.bst
+- components/libimobiledevice.bst
 - components/libidn2.bst
 - components/libinput.bst
 - components/libjcat.bst
@@ -276,6 +278,7 @@ depends:
 - components/libp11.bst
 - components/libpaper.bst
 - components/libpipeline.bst
+- components/libplist.bst
 - components/libpng.bst
 - components/libppd.bst
 - components/libproxy.bst
@@ -293,6 +296,7 @@ depends:
 - components/libsoup.bst
 - components/libsrtp2.bst
 - components/libtasn1.bst
+- components/libtatsu.bst
 - components/libthai.bst
 - components/libtheora.bst
 - components/libtiff.bst
@@ -303,6 +307,7 @@ depends:
 - components/libunwind.bst
 - components/liburcu.bst
 - components/liburing.bst
+- components/libusbmuxd.bst
 - components/libusb.bst
 - components/libva.bst
 - components/libvdpau.bst
@@ -584,6 +589,7 @@ depends:
 - components/u-boot-qemu-maybe.bst
 - components/u-boot-unmatched-maybe.bst
 - components/udisks.bst
+- components/upower.bst
 - components/usbutils.bst
 - components/utf8cpp.bst 
 - components/util-linux-full.bst
