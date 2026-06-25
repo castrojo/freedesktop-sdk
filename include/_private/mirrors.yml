@@ -42,8 +42,6 @@ mirrors:
     - https://gitlab.com/freedesktop-sdk/mirrors/netfilter/
     nettle:
     - https://gitlab.com/freedesktop-sdk/mirrors/nettle/
-    passt:
-    - https://gitlab.com/freedesktop-sdk/mirrors/passt/
     pagure:
     - https://gitlab.com/freedesktop-sdk/mirrors/pagure/
     samba:
