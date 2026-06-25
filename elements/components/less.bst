@@ -21,4 +21,4 @@ sources:
 - kind: git_repo
   url: github:gwsw/less.git
   track: v*-rel
-  ref: v702-rel-0-gfc7dafdbdfd1c26ed839d77f13428419cccd44fe
+  ref: v704-rel-0-g7ea9586a9a1273eb9658d76af8986fdcf6738096
