@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:containers/fuse-overlayfs.git
   track: v*
-  ref: v1.16-0-g9ad6545b25934cd74f9cce4109a022be2c2492cd
+  ref: v1.17-0-gefcfefa8032f27dfe922d1f75c4500b2dfc938f7
