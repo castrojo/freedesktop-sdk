@@ -51,5 +51,5 @@ sources:
 - kind: git_repo
   url: github:curl/curl.git
   track: curl-*
-  ref: curl-8_20_0-0-ga05f34973e6c4bb629d018f7cb51487be1c904d8
+  ref: curl-8_21_0-0-g68720b4837284335b2d63cb358f8f6ce65f5bc55
   version-guess-pattern: '(\d+)_(\d+)_(\d+)'
