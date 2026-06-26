@@ -1,0 +1,76 @@
+From 315a7aaf9a54e8e063fdc6da32d5fb5a05d54b68 Mon Sep 17 00:00:00 2001
+From: Tom Pollard <tom_pollard@hotmail.co.uk>
+Date: Wed, 24 Jun 2026 17:20:59 +0100
+Subject: [PATCH] Revert setuptools constraint bump and restrict dependabot to
+ subdir (#1764)
+
+---
+ .github/dependabot.yml     | 3 ++-
+ CHANGES/1764.contrib.rst   | 3 +++
+ CHANGES/1764.packaging.rst | 3 +++
+ docs/spelling_wordlist.txt | 1 +
+ pyproject.toml             | 2 +-
+ 5 files changed, 10 insertions(+), 2 deletions(-)
+ create mode 100644 CHANGES/1764.contrib.rst
+ create mode 100644 CHANGES/1764.packaging.rst
+
+diff --git a/.github/dependabot.yml b/.github/dependabot.yml
+index 493e5f0..f80acd9 100644
+--- a/.github/dependabot.yml
++++ b/.github/dependabot.yml
+@@ -13,7 +13,8 @@ updates:
+ 
+ # Maintain dependencies for Python
+ - package-ecosystem: "pip"
+-  directory: "/"
++  directories:
++  - "/requirements"
+   labels:
+   - dependencies
+   schedule:
+diff --git a/CHANGES/1764.contrib.rst b/CHANGES/1764.contrib.rst
+new file mode 100644
+index 0000000..9266408
+--- /dev/null
++++ b/CHANGES/1764.contrib.rst
+@@ -0,0 +1,3 @@
++Dependabot has been restricted to the ``requirements`` subdirectory to
++avoid unintended updates outside dependency requirement files
++-- by :user:`bbhtt`.
+diff --git a/CHANGES/1764.packaging.rst b/CHANGES/1764.packaging.rst
+new file mode 100644
+index 0000000..0ad1842
+--- /dev/null
++++ b/CHANGES/1764.packaging.rst
+@@ -0,0 +1,3 @@
++The ``setuptools`` build dependency lower bound has been restored to be
++``>= 47`` after an incorrect automated increase in :pr:`1657`
++-- by :user:`bbhtt`.
+diff --git a/docs/spelling_wordlist.txt b/docs/spelling_wordlist.txt
+index b6ac726..6ae52bc 100644
+--- a/docs/spelling_wordlist.txt
++++ b/docs/spelling_wordlist.txt
+@@ -26,6 +26,7 @@ codspeed
+ config
+ de
+ decodable
++dependabot
+ dev
+ dists
+ downstreams
+diff --git a/pyproject.toml b/pyproject.toml
+index da75b9f..da1b559 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -4,7 +4,7 @@ requires = [
+   # NOTE: provisioning of the in-tree build backend located under
+   # NOTE: `packaging/pep517_backend/`.
+   "expandvars",
+-  "setuptools >= 82.0.1",  # Minimum required for `version = attr:`
++  "setuptools >= 47",  # Minimum required for `version = attr:`
+   "tomli; python_version < '3.11'",
+ ]
+ backend-path = ["packaging"]  # requires `pip >= 20` or `pep517 >= 0.6.0`
+-- 
+2.43.0
+
