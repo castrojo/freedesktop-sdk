@@ -1,0 +1,106 @@
+From 719823cc6433a08b8dd830ba0a37b6c9fae4cc03 Mon Sep 17 00:00:00 2001
+From: Jan Engelhardt <jengelh@inai.de>
+Date: Fri, 26 Jun 2026 15:55:44 +0200
+Subject: [PATCH] Turn libfmt-c into a shared library (#4812)
+
+Linux distros don't like having static archives. Set fmt-c to shared
+just like the main fmt library.
+---
+ CMakeLists.txt      | 13 ++++++++++++-
+ include/fmt/fmt-c.h | 29 ++++++++++++++++++++++++-----
+ test/CMakeLists.txt |  2 +-
+ 3 files changed, 37 insertions(+), 7 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ee568cec..1de95cc4 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -417,8 +417,19 @@ target_compile_definitions(fmt-header-only INTERFACE FMT_HEADER_ONLY=1)
+ target_compile_features(fmt-header-only INTERFACE cxx_std_11)
+ setup_target(fmt-header-only INTERFACE)
+ 
+-add_library(fmt-c STATIC src/fmt-c.cc)
++add_library(fmt-c src/fmt-c.cc)
+ target_compile_features(fmt-c INTERFACE c_std_11)
++if (BUILD_SHARED_LIBS)
++  target_compile_definitions(
++    fmt-c
++    PRIVATE FMT_LIB_EXPORT
++    INTERFACE FMT_SHARED)
++endif ()
++set_target_properties(
++  fmt-c
++  PROPERTIES VERSION ${FMT_VERSION}
++             SOVERSION ${CPACK_PACKAGE_VERSION_MAJOR}
++             DEBUG_POSTFIX "${FMT_DEBUG_POSTFIX}")
+ if (MSVC)
+   target_compile_options(fmt-c PUBLIC /Zc:preprocessor)
+ endif ()
+diff --git a/include/fmt/fmt-c.h b/include/fmt/fmt-c.h
+index e918e77c..c1d8be69 100644
+--- a/include/fmt/fmt-c.h
++++ b/include/fmt/fmt-c.h
+@@ -12,6 +12,25 @@
+ #include <stddef.h>   // size_t
+ #include <stdio.h>    // FILE
+ 
++#if defined(__GNUC__)
++#  define FMT_CVISIBILITY(value) __attribute__((visibility(value)))
++#else
++#  define FMT_CVISIBILITY(value)
++#endif
++
++#if !defined(FMT_HEADER_ONLY) && defined(_WIN32)
++#  if defined(FMT_LIB_EXPORT)
++#    define FMT_CAPI __declspec(dllexport)
++#  elif defined(FMT_SHARED)
++#    define FMT_CAPI __declspec(dllimport)
++#  endif
++#elif defined(FMT_LIB_EXPORT) || defined(FMT_SHARED)
++#  define FMT_CAPI FMT_CVISIBILITY("default")
++#endif
++#ifndef FMT_CAPI
++#  define FMT_CAPI
++#endif
++
+ #ifdef __cplusplus
+ extern "C" {
+ #endif
+@@ -45,10 +64,10 @@ typedef struct {
+ 
+ enum { fmt_error = -1, fmt_error_invalid_arg = -2 };
+ 
+-int fmt_vformat(char* buffer, size_t size, const char* fmt, const fmt_arg* args,
+-                size_t num_args);
+-int fmt_vprint(FILE* stream, const char* fmt, const fmt_arg* args,
+-               size_t num_args);
++int FMT_CAPI fmt_vformat(char* buffer, size_t size, const char* fmt,
++                         const fmt_arg* args, size_t num_args);
++int FMT_CAPI fmt_vprint(FILE* stream, const char* fmt, const fmt_arg* args,
++                        size_t num_args);
+ 
+ #ifdef __cplusplus
+ }
+@@ -92,7 +111,7 @@ static inline fmt_arg fmt_from_ptr(const void* x) {
+   return (fmt_arg){.type = fmt_pointer, .value.pointer = x};
+ }
+ 
+-void fmt_unsupported_type(void);
++void FMT_CAPI fmt_unsupported_type(void);
+ 
+ #  if !defined(_MSC_VER) || defined(__clang__)
+ typedef signed char fmt_signed_char;
+diff --git a/test/CMakeLists.txt b/test/CMakeLists.txt
+index cd7ba177..483d8018 100644
+--- a/test/CMakeLists.txt
++++ b/test/CMakeLists.txt
+@@ -243,5 +243,5 @@ endif ()
+ 
+ enable_language(C)
+ add_executable(c-test c-test.c)
+-target_link_libraries(c-test PRIVATE fmt::fmt-c)
++target_link_libraries(c-test PUBLIC fmt::fmt-c)
+ add_test(NAME c-test COMMAND c-test)
+-- 
+2.53.0
+
