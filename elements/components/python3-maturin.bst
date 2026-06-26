@@ -14,7 +14,7 @@ sources:
   track: v*
   exclude:
   - "*beta*"
-  ref: v1.14.0-0-geb745e08f3eb8c5499420ed1ff4bce974b2ec972
+  ref: v1.14.1-0-g6febbe20f0006e62299c6a88b49e3ede5e2e2318
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
@@ -148,8 +148,8 @@ sources:
     sha: c06acb4f71407ba205a07cb453211e0e6a67b21904e47f6ba1f9589e38f2e454
   - kind: registry
     name: cargo-options
-    version: 0.7.6
-    sha: f89e1d6d6f65fe04d5e21be9de19d31a074e3b7e43aa39ee5b85f4cee16c3188
+    version: 0.8.1
+    sha: b916a16b2a4b0ce91d46e42c51b7fc42e754220a4cc8bbfd1947efaafea99af7
   - kind: registry
     name: cargo-platform
     version: 0.1.9
@@ -160,12 +160,12 @@ sources:
     sha: 87a0c0e6148f11f01f32650a2ea02d532b2ad4e81d8bd41e6e565b5adc5e6082
   - kind: registry
     name: cargo-xwin
-    version: 0.22.0
-    sha: c010a0e90e1dc09a90428c8768808bb4ad8cd7523e4df38719418e14579a9e37
+    version: 0.23.0
+    sha: 22a978d433c17ee532d4cb0a8ec9b7aeb121e658267ac1c637504583b12b2861
   - kind: registry
     name: cargo-zigbuild
-    version: 0.22.2
-    sha: cd6351afb3f950c62e8d36f27d9089d65b91bf09eb1428eda58808557e8d15a9
+    version: 0.23.0
+    sha: 68c7df45b9d9934aaed5987fbf422b31419f81827b13a52251a61e1e772c6ff7
   - kind: registry
     name: cargo_metadata
     version: 0.18.1
@@ -964,8 +964,8 @@ sources:
     sha: 60ebe4262ae91ddd28c8721111a0a6e9e58860e211fc92116c4bb85c98fd96ad
   - kind: registry
     name: pyo3-introspection
-    version: 0.28.3
-    sha: 96040524552ac54e645ce08146b24023d720ceb0e788fff758c0beb9fe841736
+    version: 0.29.0
+    sha: 7775fcc875acdce3872dcb91a4b7bd155ffba6e0ea8be88b8caab7d0b34539a6
   - kind: registry
     name: pyproject-toml
     version: 0.13.7
