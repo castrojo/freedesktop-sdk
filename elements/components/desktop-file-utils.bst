@@ -11,7 +11,9 @@ public:
   bst:
     integration-commands:
     - |
-      update-desktop-database
+      if [ -d "%{datadir}/applications" ] || [ -d "${prefix}/local/share/applications" ]; then
+        update-desktop-database
+      fi
 
 sources:
 - kind: git_repo
