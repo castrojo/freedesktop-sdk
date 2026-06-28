@@ -8,7 +8,6 @@ depends:
 
 variables:
   cmake-local: >-
-    -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     -DBUILD_STATIC_LIBS=OFF
 
 public:
@@ -22,4 +21,4 @@ sources:
 - kind: git_repo
   url: github:json-c/json-c.git
   track: json-c-*
-  ref: json-c-0.18-20240915-0-g41a55cfcedb54d9c1874f2f0eb07b504091d7e37
+  ref: json-c-0.19-20260627-0-gaa716cd8d663c976b99b0f30f102ee1d8ef63146
