@@ -759,6 +759,10 @@ module ISCSI_TCP
 module SCSI_ISCSI_ATTRS
 
 # Device mapper
+# BLK_DEV_DM is the core device-mapper module that DM_CRYPT and other
+# DM_* targets depend on. It must be built so that dracut can install
+# the 'dm' and 'crypt' kernel modules into the initramfs.
+module BLK_DEV_DM
 module DM_CRYPT
 module DM_INTEGRITY
 enable DM_UEVENT

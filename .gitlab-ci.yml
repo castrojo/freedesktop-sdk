@@ -387,6 +387,16 @@ app_ppc64le:
       paths: *build-paths
 
 
+bootc_vm_x86_65:
+  extends:
+    - .builder-x86_64
+  script:
+    - make test-bootc
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes: 
+        paths: *build-paths
+        
 desktop_systemd_vm_aarch64:
   extends:
     - .minimal_test
