@@ -35,6 +35,7 @@ depends:
 - components/bluez-manifest.bst
 - components/bluez.bst
 - components/boot-keys-test.bst
+- components/bootc.bst
 - components/brotli.bst
 - components/btrfs-progs.bst
 - components/bubblewrap.bst
