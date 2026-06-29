@@ -8,7 +8,6 @@ build-depends:
 - bootstrap/sed.bst
 - components/gperf.bst
 - components/itstool.bst
-- components/docbook-xsl.bst
 
 depends:
 - components/bash-completion.bst
@@ -33,3 +32,5 @@ variables:
     -Dsystemd=false
     -Ddocs=false
     -Dapidocs=false
+    -Dman=false
+    -Dblake3-support=false

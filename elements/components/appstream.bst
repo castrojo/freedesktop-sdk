@@ -6,11 +6,8 @@ kind: meson
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - bootstrap/sed.bst
-- components/docbook-xsl.bst
 - components/gperf.bst
 - components/itstool.bst
-- components/python3-gi-docgen.bst
-- components/xmlto.bst
 
 depends:
 - components/bash-completion.bst
@@ -34,7 +31,9 @@ variables:
     -Dstemming=false
     -Dcompose=true
     -Ddocs=false
-    -Dapidocs=true
+    -Dapidocs=false
+    -Dman=false
+    -Dblake3-support=false
 
 public:
   bst:
