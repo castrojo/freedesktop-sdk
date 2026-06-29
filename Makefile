@@ -433,7 +433,8 @@ export-oci:
 	             oci/sdk-oci.bst \
 	             oci/debug-oci.bst \
 	             oci/flatpak-oci.bst \
-	             oci/toolbox-oci.bst
+	             oci/toolbox-oci.bst \
+	             oci/bootc-oci.bst
 	set -e; \
 	for name in platform sdk debug flatpak toolbox; do \
 	  $(BST) artifact checkout "oci/$${name}-oci.bst" --tar "$${name}-oci.tar"; \
@@ -452,6 +453,63 @@ test-oci:
 			podman run --rm $$IMAGE sh --version; \
 		fi; \
 	fi
+
+IMAGE_NAME := fdsdk
+IMAGE_TAG := latest
+OCI_DIR := oci/bootc-oci
+
+build-bootc:
+	rm -rf $(OCI_DIR)
+	$(BST) build oci/bootc-oci.bst
+	$(BST) artifact checkout oci/bootc-oci.bst
+
+	
+
+package-bootc: build-bootc
+	@set -eu; \
+	image_id=$$(podman pull -q oci:$(OCI_DIR)); \
+    podman tag "$$image_id" $(IMAGE_NAME):$(IMAGE_TAG)
+
+test-bootc: package-bootc
+	rm bootable.raw
+	fallocate -l 30G bootable.raw
+
+	podman run --rm --privileged \
+		--pid=host \
+		--ipc=host \
+		--security-opt label=type:unconfined_t \
+		-v /dev:/dev \
+		-v /var/lib/containers:/var/lib/containers \
+		-v "$$PWD:/output" \
+		$(IMAGE_NAME):$(IMAGE_TAG) \
+		bootc install to-disk \
+			--via-loopback /output/bootable.raw \
+			--filesystem "ext4" \
+			--wipe \
+			--composefs-backend \
+			--bootloader systemd \
+			--karg systemd.firstboot=no \
+			--karg splash \
+			--karg quiet
+
+# 	qemu-system-x86_64 \
+# 		-enable-kvm \
+# 		-m "{{vm_ram}}" \
+# 		-cpu host \
+# 		-smp "{{vm_cpus}}" \
+# 		-drive file="${DISK}",format=raw,if=virtio \
+# 		-drive if=pflash,format=raw,readonly=on,file="${OVMF_CODE}" \
+# 		-drive if=pflash,format=raw,file="${OVMF_VARS}" \
+# 		-device virtio-vga \
+# 		-display gtk \
+# 		-device virtio-keyboard \
+# 		-device virtio-mouse \
+# 		-device virtio-net-pci,netdev=net0 \
+# 		-netdev user,id=net0,hostfwd=tcp:127.0.0.1:2222-:22 \
+# 		-chardev stdio,id=char0,mux=on,signal=off \
+# 		-serial chardev:char0 \
+# 		-serial chardev:char0 \
+# 		-mon chardev=char0
 
 define OSTREE_GPG_CONFIG
 Key-Type: DSA

@@ -17,6 +17,7 @@ runtimes/
 .flatpak-builder/
 app/
 runtime/
+bootable.raw
 
 libs.json
 
