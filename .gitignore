@@ -24,6 +24,7 @@ secure-version.yml
 # Buildstream checkouts
 checkout/
 source-checkout/
+bootable.raw
 
 libs.json
 

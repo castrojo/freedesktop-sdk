@@ -29,3 +29,4 @@ depends:
 - oci/sdk-oci.bst
 - oci/flatpak-oci.bst
 - oci/toolbox-oci.bst
+- oci/bootc-oci.bst
