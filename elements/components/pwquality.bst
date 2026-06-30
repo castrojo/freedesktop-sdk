@@ -7,7 +7,6 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/cracklib.bst
-- components/gzip.bst
 - components/linux-pam-base.bst
 
 variables:
