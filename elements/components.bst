@@ -485,7 +485,6 @@ depends:
 - components/python3-pyparsing.bst
 - components/python3-pyproject-hooks.bst
 - components/python3-pyroaring.bst
-- components/python3-pytz.bst
 - components/python3-pyyaml.bst
 - components/python3-requests.bst
 - components/python3-roman-numerals.bst
@@ -517,6 +516,7 @@ depends:
 - components/python3-trove-classifiers.bst
 - components/python3-typing-extensions.bst
 - components/python3-typogrify.bst
+- components/python3-tzdata.bst
 - components/python3-ujson.bst
 - components/python3-urllib3.bst
 - components/python3-vcs-versioning.bst
