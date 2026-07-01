@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:pypa/distlib.git
   track: "*.*.*"
-  ref: 0.4.2-0-g8183ea60e83bf021bf7d6903f4a6b3c8df0905a6
+  ref: 0.4.3-0-g3f4a377c8b164ba1c22a2a61de560f6f80ca7394
