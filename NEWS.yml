@@ -1,3 +1,61 @@
+Version: freedesktop-sdk-24.08.34
+Date: '2026-07-01'
+Description: |-
+  Changes in freedesktop-sdk-24.08.34
+   * elements/include/flatpak.yml: Do not update to 1.8
+   * Revert "Update elements/include/flatpak.yml to 1.18.0-0"
+   * Update nano to v9.1-0
+   * Update python3-click to 8.4.2
+   * Update cython to 3.2.6-0
+   * Update less to v704-rel-0
+   * buildstream-plugins-community: update to 2.3.1
+   * Update frei0r to v3.2.2-0
+   * Update python3-msgpack to v1.2.1-0
+   * Update exfat-progs to 1.4.2-0
+   * Update xorg-data-xkeyboard-config to xkeyboard-config-2.48-0
+   * Update jq to jq-1.8.2-0
+   * Update python3-certifi to 2026.06.17-0
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-174
+   * Update strace to v7.1-0
+   * Update cunit to 3.5.5-0
+   * Update libnvme to v1.16.2-0
+   * Update python3-distlib to 0.4.2-0
+   * python3-lxml.bst: Exclude alpha, beta, pre & windows tag refs
+   * Update python3-maturin to ref: v1.14.0-0
+   * Update passt to 2026_06_11.a9c61ff-0
+   * Update flatpak to 1.18.0-0
+   * Update python3-cryptography to ref: 49.0.0-0
+   * Update python3-virtualenv to 21.5.0-0
+   * Update podman to v5.8.3-0
+   * Update xdg-desktop-portal-base to 1.22.0-0
+   * Update python3-protobuf to 7.35.1
+   * Update fwupd to 2.1.5-0
+   * Update frei0r to v3.2.1-0
+   * Update extra-cmake-modules to v6.27.0-0
+   * Update python3-virtualenv to 21.4.3-0
+   * Freeze sdl2-net to 2.2.0
+   * Freeze wayland-protocols to 1.48
+   * Update fuse-overlayfs to v1.17-0
+   * Update pcsc-lite to 2.5.1-0
+   * Update buildbox to 1.4.8-0
+   * Update linux to v7.0.12-0
+   * Update python3-cryptography to ref: 48.0.1-0
+   * Update rsync to v3.4.4-0
+   * Update binutils to binutils-2_46_1-0
+   * Update grpc to v1.81.1-0
+   * Update frei0r to v3.2.0-0
+   * Update reference-abi to freedesktop-sdk-24.08.33-0
+   * Update flat-manager-client-base to ref: 0.5.3-0
+   * Update python3-filelock to 3.29.3-0
+   * Update genimage to v20-0
+   * Update python3-aiohttp to 3.14.1
+   * Update libde265 to v1.1.1-0
+   * Revert ".gitlab-ci.yml: Disable ppc64le builds for now"
+   * Update dictionaries to libreoffice-26.2.4.2-0
+   * Update go to go1.25.11-0
+   * Update libinput to 1.31.3-0
+   * Update mesa-sdk to mesa-26.1.2-0
+---
 Version: freedesktop-sdk-24.08.33
 Date: '2026-06-04'
 Description: |-
