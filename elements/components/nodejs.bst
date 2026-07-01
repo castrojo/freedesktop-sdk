@@ -6,6 +6,12 @@ build-depends:
 - components/pkg-config.bst
 - public-stacks/buildsystem-make.bst
 
+(?):
+- target_arch == "ppc64le":
+    build-depends:
+      (>):
+      - components/llvm.bst
+
 depends:
 - components/icu.bst
 - components/openssl.bst
@@ -15,6 +21,16 @@ depends:
 variables:
   optimize-debug: "false"
   debug_flags: "-g1"
+
+environment:
+  (?):
+  - target_arch == "ppc64le":
+      CC: clang
+      CXX: clang++
+      CC_host: clang
+      CXX_host: clang++
+      CC_target: clang
+      CXX_target: clang++
 
 config:
   configure-commands:
