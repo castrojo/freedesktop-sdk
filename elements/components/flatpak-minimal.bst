@@ -26,6 +26,7 @@ variables:
     -Dsystem_helper=disabled
     -Dxauth=disabled
     -Dsystem_bubblewrap=bwrap
+    -Dhttp_backend=curl
     -Ddconf=disabled
     -Dmalcontent=disabled
     -Dselinux_module=disabled
