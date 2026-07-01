@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 # Keep variables and values in sync with utils/validate_repo.py
 
 # flat-manager tokens to upload the releases

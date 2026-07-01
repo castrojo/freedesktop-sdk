@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 sources:
 - kind: tar
   url: ftp_gnu_org:gettext/gettext-1.0.tar.lz

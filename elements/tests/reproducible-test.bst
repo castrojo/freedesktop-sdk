@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 kind: stack
 description: Collection of things that reproducible test should run with
 

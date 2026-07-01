@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 (@):
 - elements/cross-compilers/common-vars.yml
 

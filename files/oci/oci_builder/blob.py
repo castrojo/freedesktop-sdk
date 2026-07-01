@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 # Copyright (c) 2019, 2020 Codethink Ltd.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy

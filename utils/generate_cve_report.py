@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 """
 Downloads CVE database and generate HTML output with all current CVEs for a given manifest.
 

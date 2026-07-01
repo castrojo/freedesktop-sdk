@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 # This is for components/mesa-headers.bst. For the drivers,
 # see elements/extensions/mesa/mesa.bst
 public:

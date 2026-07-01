@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 kind: meson
 description: |
   GLib, low-level core library used as a basis by GTK, GNOME and others.

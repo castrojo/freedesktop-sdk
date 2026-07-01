@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 """This tool runs review-tools.snap-review and parses its output.
 Every error that is because it requires a manual review from the snap
 store is ignored for the return status.

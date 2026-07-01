@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 # Freedesktop SDK CI Test Keys
 # Do not use for production
 kind: import

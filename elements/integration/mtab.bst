@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 kind: manual
 description: Adds a link from /etc/mtab -> /proc/self/mounts
 

@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 """Usage: python utils/flatpak_branch_validator.py validate --path include/repo_branches.yml"""
 
 import argparse

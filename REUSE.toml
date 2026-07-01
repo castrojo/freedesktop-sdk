@@ -1,0 +1,21 @@
+version = 1
+
+[[annotations]]
+path = "*"
+SPDX-FileCopyrightText = "Freedesktop-SDK Developers"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = ".*"
+SPDX-FileCopyrightText = "Freedesktop-SDK Developers"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "keys/*"
+SPDX-FileCopyrightText = "Freedesktop-SDK Developers"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "ostree-gpg/**"
+SPDX-FileCopyrightText = "Freedesktop-SDK Developers"
+SPDX-License-Identifier = "MIT"

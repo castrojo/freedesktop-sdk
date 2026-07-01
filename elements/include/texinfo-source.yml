@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 sources:
 - kind: tar
   url: ftp_gnu_org:texinfo/texinfo-7.3.tar.xz

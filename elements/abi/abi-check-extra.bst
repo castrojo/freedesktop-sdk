@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 kind: compose
 description: |
   Additional elements missing from fdsdk's Flatpak platform image whose

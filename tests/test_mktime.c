@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Freedesktop-SDK Developers
+// SPDX-License-Identifier: MIT
+
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>

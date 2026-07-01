@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 set -eu
 
 # This scans for symbolic link .so libraries that have a SONAME which

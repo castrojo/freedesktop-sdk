@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 # files/boot-keys/modules is expected to be empty, unless testing
 # secure boot.
 #
