@@ -26,6 +26,7 @@ variables:
     -Dauto_features=disabled
     -Dtests=false
     -Dcurl=disabled
+    -Drust=disabled
 
 config:
   install-commands:
