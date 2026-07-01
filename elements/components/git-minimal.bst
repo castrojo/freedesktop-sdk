@@ -14,6 +14,7 @@ variables:
 
 environment:
   INSTALL_SYMLINKS: '1'
+  NO_RUST: '1'
 
 config:
   install-commands:
@@ -25,6 +26,6 @@ config:
 public:
   cpe:
     vendor: git-scm
-  
+
 (@):
 - elements/include/git.yml
