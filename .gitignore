@@ -6,6 +6,7 @@ target/
 
 # Ignore caches
 __pycache__
+cache/
 
 # Ignore virtual envs
 .venv/
