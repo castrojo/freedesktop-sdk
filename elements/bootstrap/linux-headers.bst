@@ -6,6 +6,7 @@ build-depends:
 
 (@):
 - elements/bootstrap/include/common.yml
+- elements/bootstrap/include/linux-headers-source.yml
 
 variables:
   kernel_arch: '%{arch}'
@@ -42,15 +43,3 @@ public:
     split-rules:
       devel:
       - /**
-
-
-# This is by intent separate source than actual Linux. Even though
-# we want latest kernel versions, linux-headers are commonly
-# unchanged and updating them results in world rebuild
-sources:
-- kind: git_repo
-  url: kernel:linux/kernel/git/stable/linux.git
-  track: v6.6.17
-  exclude:
-  - '*-rc*'
-  ref: v6.6.17-0-gb2c9bf06474ea12eaca7d5f007e9280e057e960b
