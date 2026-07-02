@@ -3,6 +3,7 @@ description: GNU linux headers stage 1
 
 (@):
 - elements/bootstrap/include/common.yml
+- elements/bootstrap/include/linux-headers-source.yml
 
 build-depends:
 - bootstrap/build/rsync.bst
@@ -43,15 +44,3 @@ public:
     split-rules:
       devel:
       - /**
-
-
-# This is by intent separate source than actual Linux. Even though
-# we want latest kernel versions, linux-headers are commonly
-# unchanged and updating them results in world rebuild
-sources:
-- kind: git_repo
-  url: kernel:linux/kernel/git/stable/linux.git
-  track: v6.12.40
-  exclude:
-  - '*-rc*'
-  ref: v6.12.40-0-gd90ecb2b1308b3e362ec4c21ff7cf0a051b445df
