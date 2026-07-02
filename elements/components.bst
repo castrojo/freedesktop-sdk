@@ -60,6 +60,7 @@ depends:
 - components/compat-vulkan-link.bst
 - components/conmon.bst
 - components/containers-common.bst
+- components/cosign.bst
 - components/cpio.bst
 - components/cracklib.bst
 - components/crun.bst
