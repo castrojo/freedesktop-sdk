@@ -23,10 +23,8 @@ runtime-depends:
 - components/conmon.bst
 - components/crun.bst
 - components/fuse-overlayfs.bst
-- components/iptables.bst
 - components/netavark.bst
 - components/passt.bst
-- components/slirp4netns.bst
 
 environment:
   MAKEFLAGS: -j1
@@ -49,4 +47,4 @@ sources:
   track: v*
   exclude:
   - "*rc*"
-  ref: v5.8.2-0-g5b263b5f5b48004a87caac44e67349a8266d9ef4
+  ref: v6.0.1-0-g4cabbe61fa3a27fafc4a3ee1226e38ae1664ae57
