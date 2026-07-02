@@ -24,8 +24,8 @@ sources:
 - kind: git_repo
   url: github:ngtcp2/nghttp3.git
   track: v*
-  ref: v1.16.0-0-g2b77da6dc6cd00897ad18540b0d5ce3c4fbf3d2b
+  ref: v1.17.0-0-g06b46ec9189be3a49c78a283b625882d8a6e3237
 - kind: git_module
   path: lib/sfparse
   url: github:ngtcp2/sfparse.git
-  ref: ff7f230e7df2844afef7dc49631cda03a30455f3
+  ref: 4b313cfd2e1b389ae632b36dcd50402307289af2
