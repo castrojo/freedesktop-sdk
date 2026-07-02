@@ -152,6 +152,7 @@ depends:
 - components/gnu-free-fonts.bst
 - components/gnupg.bst
 - components/gnutls.bst
+- components/go-cosign.bst
 - components/go-md2man.bst
 - components/go.bst
 - components/gobject-introspection.bst
