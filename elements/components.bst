@@ -204,6 +204,7 @@ depends:
 - components/json-c.bst
 - components/json-glib.bst
 - components/kbd.bst
+- components/krb5.bst
 - components/keyutils.bst
 - components/kmod.bst
 - components/ladspa-sdk.bst
