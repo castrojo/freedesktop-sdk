@@ -16,6 +16,7 @@ config:
     - |
       mkdir -p "%{install-root}%{includedir}/%{gcc_triplet}"
       mv "%{install-root}%{includedir}/libunwind.h" "%{install-root}%{includedir}/%{gcc_triplet}/"
+      mv "%{install-root}%{includedir}/unwind.h" "%{install-root}%{includedir}/%{gcc_triplet}/"
       for h in "%{install-root}%{includedir}/"libunwind-{x86,arm,aarch64,x86_64,loongarch64}.h; do
         if [ -e "${h}" ]; then
            mv "${h}" "%{install-root}%{includedir}/%{gcc_triplet}/"
