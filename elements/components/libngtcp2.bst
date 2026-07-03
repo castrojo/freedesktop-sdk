@@ -29,4 +29,4 @@ sources:
 - kind: git_repo
   url: github:ngtcp2/ngtcp2.git
   track: v*
-  ref: v1.23.0-0-g454390edaf6c954a101aa77961a939dd9e338ad2
+  ref: v1.24.0-0-g956e7b4cfb6762312434ecdddb796baf0775f12a
