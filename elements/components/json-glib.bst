@@ -6,6 +6,7 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 
 depends:
+- components/glib.bst
 - public-stacks/runtime-minimal.bst
 
 config:
