@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:libevent/libevent.git
   track: release-*-stable
-  ref: release-2.1.12-stable-0-g5df3037d10556bfcb675bc73e516978b75fc7bc7
+  ref: release-2.1.13-stable-0-g79ddfb460847999b807cba76d04e73891f29c6ee
