@@ -2,22 +2,18 @@ kind: meson
 
 build-depends:
 - components/gobject-introspection.bst
-- components/gtk-doc.bst
+- components/python3-docutils.bst
+- components/python3-gi-docgen.bst
 - public-stacks/buildsystem-meson.bst
 
 depends:
 - components/glib.bst
 - public-stacks/runtime-minimal.bst
 
-config:
-  install-commands:
-    (>):
-    - rm -r "%{install-root}%{libexecdir}/installed-tests"
-    - rm -r "%{install-root}%{datadir}/installed-tests"
 
 variables:
   meson-local: >-
-    -Dgtk_doc=disabled
+    -Dinstalled_tests=false
 
 public:
   bst:
