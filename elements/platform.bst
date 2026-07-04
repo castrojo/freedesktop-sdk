@@ -20,6 +20,7 @@ depends:
 - components/giflib.bst
 - components/glib.bst
 - components/glibc-gconv-cache.bst
+- components/glycin.bst
 - components/gmp.bst
 - components/gnupg.bst
 - components/gnutls.bst
