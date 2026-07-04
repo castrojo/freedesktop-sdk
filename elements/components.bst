@@ -147,6 +147,7 @@ depends:
 - components/glib.bst
 - components/glibc-gconv-cache.bst
 - components/glslang.bst
+- components/glycin.bst
 - components/gmp.bst
 - components/gnu-efi-maybe.bst
 - components/gnu-free-fonts.bst
@@ -251,6 +252,7 @@ depends:
 - components/libgpg-error.bst
 - components/libgudev.bst
 - components/libgusb.bst
+- components/libglycin.bst
 - components/libheif.bst
 - components/libical.bst
 - components/libidn2.bst
