@@ -2,27 +2,25 @@ kind: meson
 
 build-depends:
 - components/gobject-introspection.bst
-- components/gtk-doc.bst
 - components/python3-docutils.bst
 - components/python3-gi-docgen.bst
 - public-stacks/buildsystem-meson.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/libglycin.bst
 - components/shared-mime-info.bst
-- components/libtiff.bst
-- components/libpng.bst
-- components/jpeg.bst
 
 variables:
   meson-local: >
-    -Dbuiltin_loaders=png,jpeg
     -Dinstalled_tests=false
     -Dtests=false
     -Ddocumentation=true
-    -Dman=true
-    -Dglycin=disabled
     -Dandroid=disabled
+    -Dgif=disabled
+    -Djpeg=disabled
+    -Dpng=disabled
+    -Dtiff=disabled
 
 public:
   bst:
