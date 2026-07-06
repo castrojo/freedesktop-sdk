@@ -5,3 +5,5 @@ sources:
 - kind: tar
   url: ftp_gnu_org:tar/tar-1.35.tar.xz
   ref: 4d62ff37342ec7aed748535323930c7cf94acf71c3591882b26a7ea50f3edc16
+- kind: patch
+  path: patches/tar/0001-Avoid-acl_-prefix-for-functions.patch
