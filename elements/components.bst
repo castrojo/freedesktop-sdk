@@ -73,6 +73,7 @@ depends:
 - components/cyrus-sasl.bst
 - components/cython.bst
 - components/dav1d.bst
+- components/dbus-broker.bst
 - components/dbus-manifest.bst
 - components/dbus-tools.bst
 - components/dbus.bst
