@@ -3,6 +3,7 @@ description: jq JSON processor
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- components/_private/git-minimal.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
