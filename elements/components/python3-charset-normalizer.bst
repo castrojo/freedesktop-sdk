@@ -17,4 +17,4 @@ sources:
   exclude:
   - "*rc*"
   - "*b*"
-  ref: 3.4.7-0-g0f07891bf516b5d5231f1bd4dd2d8da7d4d09a9a
+  ref: 3.4.8-0-ga6f8febd210c129ea741e6562fc06ee1ac437487
