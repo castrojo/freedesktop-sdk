@@ -23,9 +23,6 @@ public:
         (>):
         - '%{libdir}/libtiff.so'
         - '%{libdir}/libtiffxx.so'
-  cpe:
-    patches:
-    - CVE-2022-48281
 
 sources:
 - kind: git_repo

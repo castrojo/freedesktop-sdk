@@ -20,9 +20,6 @@ public:
         - '%{bindir}/pspell-config'
         - '%{libdir}/libaspell.so'
         - '%{libdir}/libpspell.so'
-  cpe:
-    patches:
-    - CVE-2019-25051
 
 config:
   install-commands:
