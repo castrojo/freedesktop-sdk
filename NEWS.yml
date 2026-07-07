@@ -1,3 +1,87 @@
+Version: freedesktop-sdk-25.08.14
+Date: '2026-07-07'
+Description: |-
+  Changes in freedesktop-sdk-25.08.14
+   * Update bluez to 5.87-0
+   * Update cython to 3.2.8-0
+   * Update jansson to v2.15.1-0
+   * Update opensbi to v1.9-0
+   * Update hwdata to v0.409-0
+   * Update mesa to mesa-26.1.4-0
+   * Update libseccomp to v2.6.1-0
+   * Update liburing to liburing-2.15-0
+   * Update libevent to release-2.1.13-stable-0
+   * Update geoclue-base to 2.8.2-0
+   * Update python3-aiohappyeyeballs to v2.7.1-0
+   * mesa: cooldown fresh releases
+   * fix: only run update-desktop-database with correct dir
+   * Freeze libjxl
+   * Update erofs-utils to v1.9.2-0
+   * Update fwupd to 2.1.6-0
+   * Add documentation for runtime.yml close to source
+   * Update ostree to v2026.2-0
+   * Remove track from pkg-config due to ABI break
+   * Update python3-distlib to 0.4.3-0
+   * Update bash to bash-5.3-16
+   * Update shared-mime-info to 2.5.1-0
+   * Update attr to v2.6.0-0
+   * Update python3-certifi to 2026.06.17-0
+   * Update libarchive to v3.8.8-0
+   * Updates git to v2.55.0-0 (e9019fc)
+   * Update python3-maturin to ref: v1.14.1-0
+   * Update json-c to json-c-0.19-20260627-0
+   * Update flatpak-builder to 1.4.10-0
+   * Update frei0r to v3.2.3-0
+   * Update fcitx5-gtk to 5.1.7-0
+   * Update parallel to 20260622-0
+   * Update nano to v9.1-0
+   * Update gdk-pixbuf to 2.44.7-0
+   * Update jq to jq-1.8.2-0
+   * Update python3-protobuf to 7.35.1
+   * Update perl-ssl to 2.099
+   * Update rust-cbindgen to ref: v0.29.4-0
+   * Drop dangling `passt` alias & mirror config
+   * graphite2.bst: Drop `-DCMAKE_POLICY_VERSION_MINIMUM=3.5`
+   * libx265.bst: Drop `-DCMAKE_POLICY_VERSION_MINIMUM=3.5`
+   * Drop cmake 3.5 compat arg in some elements
+   * Update mesa to mesa-26.1.3-0
+   * Update cython to 3.2.6-0
+   * Update exfat-progs to 1.4.2-0
+   * Update python3-virtualenv to 21.5.1-0
+   * Update dictionaries to libreoffice-26.2.5.1-0
+   * Update protobuf to v35.1-0
+   * Update iproute2 to v7.1.0-0
+   * Update glibc to glibc-2.42-74
+   * Update python3-yarl to v1.24.2-0
+   * linux: Enable QCOM_PD_MAPPER
+   * Update fuse-overlayfs to v1.17-0
+   * Update passt to 2026_06_11.a9c61ff-0
+   * Update less to v704-rel-0
+   * Update linux-firmware to 20260622-0
+   * Update libpsl to 0.22.0-0
+   * Update buildbox to 1.4.11-0
+   * Update glew from 2.2.0 to 2.3.1
+   * glew.bst: Make it buildable
+   * Update wireplumber to 0.5.15-0
+   * Update cunit to 3.5.5-0
+   * Update xdg-desktop-portal-base to 1.22.1-0
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-174
+   * python3-ujson.bst: Update github url, do not rely on redirect
+   * Update python3-ujson to 5.13.0-0
+   * Update extra-cmake-modules to v6.27.0-0
+   * Update mesa-sdk to mesa-26.1.3-0
+   * Update fwupd to 2.1.5-0
+   * Update flatpak to 1.18.0-0
+   * Update strace to v7.1-0
+   * Update xorg-data-xkeyboard-config to xkeyboard-config-2.48-0
+   * Update ccid to 1.8.2-0
+   * Update python3-distlib to 0.4.2-0
+   * python3-lxml.bst: Exclude alpha, beta, pre & windows tag refs
+   * Update reference-abi to freedesktop-sdk-25.08.13-0
+   * Update buildbox to 1.4.10-0
+   * Update cmake to v4.3.4-0
+   * Update libnvme to v1.16.2-0
+---
 Version: freedesktop-sdk-25.08.13
 Date: '2026-06-16'
 Description: |-
