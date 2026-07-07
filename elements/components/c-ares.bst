@@ -22,4 +22,4 @@ sources:
 - kind: git_repo
   url: github:c-ares/c-ares.git
   track: v*
-  ref: v1.34.6-0-g3ac47ee46edd8ea40370222f91613fc16c434853
+  ref: v1.34.7-0-gd63b7de3a3568d14ab1351374b205365aed51cca
