@@ -9,9 +9,6 @@ depends:
 - components/lzip.bst
 - components/libwebp.bst
 
-variables:
-  autogen: autoreconf -fvi
-
 config:
   install-commands:
     (>):
