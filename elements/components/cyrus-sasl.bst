@@ -32,9 +32,6 @@ public:
         (>):
         - '%{libdir}/sasl2/lib*.la'
         - '%{libdir}/libsasl2.so'
-  cpe:
-    patches:
-    - CVE-2019-19906
 
 sources:
 - kind: git_repo

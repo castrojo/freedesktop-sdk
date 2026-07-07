@@ -68,8 +68,6 @@ public:
 
   cpe:
     vendor: 'gnu'
-    patches:
-    - CVE-2019-18276
 
 sources:
 - kind: git_repo
