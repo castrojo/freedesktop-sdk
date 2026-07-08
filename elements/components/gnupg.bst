@@ -36,11 +36,6 @@ config:
       # Remove PO-Revision-Date line
       sed -i '/^"PO-Revision-Date.*$/d' po/en@quot.po po/en@boldquot.po
 
-public:
-  cpe:
-    ignored:
-    - CVE-2022-34903
-
 sources:
 - kind: git_repo
   url: github:gpg/gnupg.git
