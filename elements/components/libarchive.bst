@@ -18,10 +18,6 @@ public:
         (>):
         - '%{libdir}/libarchive.so'
 
-  cpe:
-    ignored:
-    - CVE-2025-1632
-
 sources:
 - kind: git_repo
   url: github:libarchive/libarchive.git
