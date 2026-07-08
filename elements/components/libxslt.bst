@@ -27,9 +27,6 @@ public:
         - '%{libdir}/libxslt.so'
         - '%{libdir}/libexslt.so'
         - '%{libdir}/xsltConf.sh'
-  cpe:
-    ignored:
-    - CVE-2022-29824
 
 sources:
 - kind: git_repo
