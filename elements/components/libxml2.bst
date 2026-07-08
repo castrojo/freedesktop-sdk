@@ -28,9 +28,6 @@ public:
         - '%{bindir}/xml2-config'
         - '%{libdir}/libxml2.so'
         - '%{libdir}/xml2Conf.sh'
-  cpe:
-    ignored:
-    - CVE-2016-3709
 
 sources:
 - kind: git_repo
