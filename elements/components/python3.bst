@@ -120,7 +120,6 @@ public:
     product: python
     ignored:
     - CVE-2007-4559
-    - CVE-2015-20107
     - CVE-2024-49050 # VSCode RCE
     - CVE-2020-1171 # VSCode RCE
     - CVE-2020-1192 # VSCode RCE
