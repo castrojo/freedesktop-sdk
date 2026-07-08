@@ -139,6 +139,11 @@ lint:
       if [ "$SCHEDULE_TASK" = "daily" ] && [ "$STABLE_ABI" = "true" ]; then
           TRACK_ELEMENTS="$TRACK_ELEMENTS abi/reference-abi.bst"
       fi
+
+      # `auto_updater` is a BuildStream tool for generating merge requests that
+      # updates BuildStream elements using `bst source track`. Source
+      # <https://gitlab.com/BuildStream/infrastructure/gitlab-merge-request-generator>.
+
       GITLAB_TOKEN=$FREEDESKTOP_API_KEY auto_updater --verbose \
       --base_branch "${CI_COMMIT_REF_NAME}" \
       --nobuild \
