@@ -13,11 +13,6 @@ depends:
 - components/gnutls.bst
 - components/bzip2.bst
 
-public:
-  cpe:
-    ignored:
-    - CVE-2022-34903
-
 config:
   build-commands:
     (<):
