@@ -22,8 +22,6 @@ public:
         - '%{libdir}/liblcms2.so'
   cpe:
     product: little_cms_color_engine
-    ignored:
-    - CVE-2016-10165
 
 sources:
 - kind: git_repo
