@@ -18,4 +18,4 @@ sources:
 - kind: git_repo
   track: '*.*.*'
   url: sourcehut:sircmpwn/scdoc
-  ref: 1.11.4-0-g70de0e5e5d3bc40134ee65c35f1631656199f4be
+  ref: 1.11.5-0-g24be30ef17d5ca0162f11b35258c8fa2413d556a
