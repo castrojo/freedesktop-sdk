@@ -3,6 +3,8 @@ kind: script
 build-depends:
 - bootstrap/bash.bst
 - bootstrap/coreutils.bst
+# Needed for libgcc_s, see commit message for details
+- bootstrap/gcc.bst
 - bootstrap/glibc.bst
 - bootstrap/gzip.bst
 
