@@ -23,6 +23,12 @@ public:
         - '%{libdir}/libjxl_threads.so'
 
 variables:
+  arch-conf: ''
+  (?):
+  - target_arch == "aarch64":
+      # See issue #2024
+      arch-conf: -DJPEGXL_ENABLE_HWY_SVE2_128=false
+
   cmake-local: >-
     -DBUILD_SHARED_LIBS=ON
     -DBUILD_TESTING=OFF
@@ -49,6 +55,7 @@ variables:
     -DJPEGXL_WARNINGS_AS_ERRORS=OFF
     -DJPEGXL_BUNDLE_LIBPNG=OFF
     -DJPEGXL_ENABLE_DOXYGEN=ON
+    %{arch-conf}
 
 sources:
 - kind: git_repo
@@ -58,4 +65,4 @@ sources:
   - "*rc*"
   - "*snapshot*"
   - "*base*"
-  ref: v0.11.2-0-g332feb17d17311c748445f7ee75c4fb55cc38530
+  ref: v0.12.0-0-ga7a9c787341cf703dede03c2009fa460cae5e5df
