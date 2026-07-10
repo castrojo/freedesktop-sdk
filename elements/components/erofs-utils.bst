@@ -7,17 +7,16 @@ depends:
 - public-stacks/runtime-minimal.bst
 - bootstrap/xxhash.bst
 - bootstrap/xz.bst
+- components/fuse3.bst
 - components/lz4.bst
 # Uses libuuid only
 - components/util-linux-libs.bst
-# FIXME: No fuse3 support yet
-# - components/fuse3.bst
 
 variables:
   conf-local: >-
     --enable-lzma
     --enable-lz4
-    --disable-fuse
+    --enable-fuse
     --enable-multithreading
 
 sources:
