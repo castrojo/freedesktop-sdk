@@ -11,6 +11,7 @@ runtime-depends:
 - components/avahi.bst
 - components/bluez-libs.bst
 - components/bluez.bst
+- components/fftw.bst
 - components/libcamera.bst
 - components/libebur128.bst
 - components/liblc3.bst

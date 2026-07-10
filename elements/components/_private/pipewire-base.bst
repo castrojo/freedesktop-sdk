@@ -17,6 +17,7 @@ build-depends:
 - components/bluez.bst
 - components/dbus.bst
 - components/doxygen.bst
+- components/fftw.bst
 - components/gstreamer-plugins-base.bst
 - components/gtk-doc.bst
 - components/libcamera.bst
@@ -59,7 +60,7 @@ variables:
     -Dlibffado=disabled
     -Dsdl2=disabled
     -Dsnap=disabled
-    -Dfftw=disabled
+    -Dfftw=enabled
     -Dbluez5-codec-ldac-dec=disabled
     -Dbluez5-plc-spandsp=disabled
     -Donnxruntime=disabled

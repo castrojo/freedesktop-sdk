@@ -12,6 +12,7 @@ depends:
 variables:
   common_options: "--enable-threads --enable-openmp"
   arch_options: ''
+  single_arch_options: ''
   (?):
   - target_arch == "i686" or target_arch == "x86_64":
       arch_options: "--enable-sse2 --enable-avx"
@@ -19,12 +20,26 @@ variables:
       arch_options: "--enable-neon"
   - target_arch == "ppc64le":
       arch_options: "--enable-vsx"
-        # Remember to add --enable-altivec when we will build the single
-        # precision libraries.
+      single_arch_options: "--enable-altivec"
 
   conf-local: |
     %{common_options} \
     %{arch_options}
+
+
+config:
+  install-commands:
+  - |
+    cd %{build-dir}
+    %{make-install}
+  - |
+    mkdir build-single
+    cd build-single
+    ../%{configure} %{conf-global} %{conf-local} %{single_arch_options} --enable-single
+    %{make}
+    %{make-install}
+  - '%{delete-libtool-archives}'
+  - '%{install-extra}'
 
 public:
   bst:
@@ -34,6 +49,9 @@ public:
         - '%{libdir}/libfftw3.so'
         - '%{libdir}/libfftw3_omp.so'
         - '%{libdir}/libfftw3_threads.so'
+        - '%{libdir}/libfftw3f.so'
+        - '%{libdir}/libfftw3f_omp.so'
+        - '%{libdir}/libfftw3f_threads.so'
 
 sources:
 - kind: tar
