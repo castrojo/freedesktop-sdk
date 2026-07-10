@@ -6,6 +6,7 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - bootstrap/xxhash.bst
+- bootstrap/xz.bst
 - components/lz4.bst
 # Uses libuuid only
 - components/util-linux-libs.bst
