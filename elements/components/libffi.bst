@@ -32,4 +32,4 @@ sources:
   exclude:
   - v*-rc*
   - "v*-dev*"
-  ref: v3.6.0-0-gf6303b8b0dd6353c6a5bb4de2e855a13b86f22cf
+  ref: v3.7.1-0-g5c1c43091ed611fdea774374355eb938c73a9157
