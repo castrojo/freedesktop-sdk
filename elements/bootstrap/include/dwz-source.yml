@@ -2,4 +2,4 @@ sources:
 - kind: git_repo
   url: sourceware:dwz.git
   track: dwz-*
-  ref: dwz-0.16-0-ge13b8105d7c5f322164b014e4488135f30eb248f
+  ref: dwz-0.17-0-ge72977938dd165e2b7319c5ae61bf706a8ed681a
