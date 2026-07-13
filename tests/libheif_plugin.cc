@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Freedesktop-SDK Developers
+// SPDX-License-Identifier: MIT
+
 #include "libheif/heif.h"
 #include <iostream>
 #include <optional>

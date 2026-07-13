@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 PERL_FULL_VER="$(perl -e 'print substr($^V, 1);')"
 PERL_ABI_VER="${PERL_FULL_VER%.*}"
 

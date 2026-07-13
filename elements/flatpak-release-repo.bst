@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 kind: flatpak_repo
 description: Generates a flatpak repository with all flatpak image elements
 

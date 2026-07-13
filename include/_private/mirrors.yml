@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 # Definition of source mirrors
 
 # Need to include the key as otherwise we have a YAML list, not a dict

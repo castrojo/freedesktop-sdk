@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 """
 BuildStream does not save file permissions, and ownership.
 include/excludes with integration commands is so complex that only

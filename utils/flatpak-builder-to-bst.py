@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 # SPDX-FileCopyrightText: 2025-2026 Aleix Pol Gonzalez <aleix.pol@codethink.co.uk>
 # SPDX-License-Identifier: MIT
 

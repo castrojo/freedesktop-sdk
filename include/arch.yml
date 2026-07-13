@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 variables:
   # Definition of variables related to machine architecture
   gcc_triplet: "%{gcc_arch}-linux-%{abi}"

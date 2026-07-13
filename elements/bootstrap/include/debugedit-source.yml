@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 sources:
 - kind: tar
   url: tar_https:sourceware.org/ftp/debugedit/5.2/debugedit-5.2.tar.xz

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 kind: make
 description: ffmpeg shipped in the codecs-extra extension, has more codecs enabled
 

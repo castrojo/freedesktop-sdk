@@ -1,4 +1,8 @@
 #!/bin/sh
+
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 # If SOURCE_DATE_EPOCH is set, default to --no-name for reproducibility.
 # Pass --name explicitly to override.
 if [ -n "$SOURCE_DATE_EPOCH" ]; then

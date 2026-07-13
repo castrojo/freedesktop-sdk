@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 kind: autotools
 description: |
   GNU debugger. This ships with a dummy libdebuginfod library. Use

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 set -eu
 
 # Source: https://gitlab.gnome.org/GNOME/gnome-build-meta/-/blob/7c4cc4aec37c4b4b77604f19822ffa35477e2802/files/noto-cjk/generate-config.sh
