@@ -10,9 +10,9 @@ build-depends:
 - components/systemd.bst
 
 depends:
-- components/pcsc-lite.bst
-- components/libusb.bst
 - components/libfl.bst
+- components/libusb.bst
+- components/pcsc-lite.bst
 
 sources:
 - kind: git_repo

@@ -10,9 +10,9 @@ build-depends:
 - components/_private/python3-minimal.bst
 
 runtime-depends:
+- public-stacks/runtime-minimal.bst
 - components/_private/python3-packaging.bst
 - components/_private/python3-pyproject-hooks.bst
-- public-stacks/runtime-minimal.bst
 
 variables:
   strip-binaries: ''
@@ -22,4 +22,3 @@ sources:
   url: github:pypa/build.git
   track: '*.*.*'
   ref: 1.5.1-0-gd08fcd723500a7d676867144e1e7a22b650aeb7d
-

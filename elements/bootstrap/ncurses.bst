@@ -9,14 +9,15 @@ description: GNU ncurses
 - elements/bootstrap/include/ncurses-sources.yml
 
 build-depends:
-- bootstrap/gnu-config.bst
-- bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
+- bootstrap/build/gcc-stage2.bst
 - bootstrap/build/ncurses-stage1.bst
-- bootstrap/ncurses-pkgconfig-dir.bst
 - filename: bootstrap/glibc.bst
   config:
     location: "%{sysroot}"
+
+- bootstrap/gnu-config.bst
+- bootstrap/ncurses-pkgconfig-dir.bst
 
 runtime-depends:
 - bootstrap/glibc.bst

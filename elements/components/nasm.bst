@@ -6,11 +6,15 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/asciidoc.bst
-- components/groff.bst
-- components/xmlto.bst
 - components/docbook-xml.bst
 - components/docbook-xsl.bst
+- components/groff.bst
 - components/libxslt.bst
+- components/xmlto.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
+- components/zlib.bst
 
 environment:
   # Disable hash randomisation for reproducibility
@@ -22,10 +26,6 @@ variables:
   # it tries to generate them in directories that do not
   # exist
   build-dir: ''
-
-depends:
-- public-stacks/runtime-minimal.bst
-- components/zlib.bst
 
 config:
   build-commands:

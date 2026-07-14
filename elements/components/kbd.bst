@@ -9,8 +9,8 @@ build-depends:
 - components/flex.bst
 
 depends:
-- components/linux-pam.bst
 - public-stacks/runtime-minimal.bst
+- components/linux-pam.bst
 
 sources:
 - kind: git_repo

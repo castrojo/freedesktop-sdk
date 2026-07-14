@@ -9,8 +9,8 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/jpeg.bst
-- components/lzip.bst
 - components/libwebp.bst
+- components/lzip.bst
 
 config:
   install-commands:

@@ -5,8 +5,8 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/bison.bst
 - components/_private/git-minimal.bst
+- components/bison.bst
 - components/gperf.bst
 - components/gtk-doc.bst
 - components/patch.bst
@@ -14,9 +14,9 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/libidn2.bst
 - components/libtasn1.bst
 - components/libunistring.bst
-- components/libidn2.bst
 - components/nettle.bst
 - components/p11-kit.bst
 

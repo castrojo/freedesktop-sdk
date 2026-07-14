@@ -8,8 +8,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/systemd-libs.bst
 - components/libusb.bst
+- components/systemd-libs.bst
 
 public:
   bst:

@@ -7,8 +7,8 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 
 depends:
-- components/python3.bst
 - components/libxml2.bst
+- components/python3.bst
 
 variables:
   autogen: ./autogen.sh --no-configure

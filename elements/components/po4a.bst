@@ -4,10 +4,10 @@
 kind: modulebuild
 
 build-depends:
-- bootstrap/make.bst
 - bootstrap/diffutils.bst
-- components/gettext.bst
+- bootstrap/make.bst
 - components/docbook-xsl.bst
+- components/gettext.bst
 - components/gettext.bst
 - components/libxslt.bst
 - components/perl-build.bst

@@ -12,13 +12,13 @@ runtime-depends:
 - components/fuse3.bst
 - components/geoclue-libs.bst
 - components/glib.bst
-- components/pipewire-daemon.bst
 - components/libgudev.bst
+- components/pipewire-daemon.bst
 - components/xdg-desktop-portal-manifest.bst
 - components/xdg-portal-interfaces.bst
 
 config:
-  include-orphans: true
+  include-orphans: True
   exclude:
   - interfaces
 

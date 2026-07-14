@@ -4,8 +4,8 @@
 kind: script
 
 build-depends:
-- sdk-image.bst
 - integration/sdk-integration.bst
+- sdk-image.bst
 
 config:
   commands:

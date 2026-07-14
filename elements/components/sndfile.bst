@@ -14,15 +14,6 @@ depends:
 - components/libvorbis.bst
 - components/opus.bst
 
-public:
-  bst:
-    split-rules:
-      devel:
-        (>):
-        - '%{libdir}/libsndfile.so'
-  cpe:
-    product: libsndfile
-
 variables:
   cmake-local: >-
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5
@@ -32,6 +23,15 @@ variables:
     -DBUILD_PROGRAMS=OFF
     -DBUILD_EXAMPLES=OFF
 
+
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libsndfile.so'
+  cpe:
+    product: libsndfile
 
 sources:
 - kind: git_repo

@@ -5,11 +5,11 @@ kind: stack
 description: Deployment tooling
 
 depends:
-- components/e2fsprogs.bst
-- components/systemd.bst
 - components/dosfstools.bst
-- components/mtools.bst
-- components/tzdata.bst
-- vm/prepare-image.bst
+- components/e2fsprogs.bst
 - components/genimage.bst
+- components/mtools.bst
+- components/systemd.bst
+- components/tzdata.bst
 - integration/mtab.bst
+- vm/prepare-image.bst

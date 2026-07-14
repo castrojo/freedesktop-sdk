@@ -7,8 +7,8 @@ build-depends:
 - components/_private/avahi-base.bst
 
 runtime-depends:
-- components/avahi.bst
 - components/avahi-libs.bst
+- components/avahi.bst
 - components/pygobject.bst
 - components/python3-dbus.bst
 

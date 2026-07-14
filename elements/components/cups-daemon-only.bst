@@ -12,7 +12,7 @@ runtime-depends:
 config:
   exclude:
   - cups-libs
-  include-orphans: true
+  include-orphans: True
 
 public:
   bst:

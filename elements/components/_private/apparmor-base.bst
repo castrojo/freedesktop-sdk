@@ -7,9 +7,9 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/bison.bst
 - components/flex.bst
-- components/python3.bst
-- components/python3-setuptools.bst
 - components/linux-pam-base.bst
+- components/python3-setuptools.bst
+- components/python3.bst
 - components/swig.bst
 
 variables:

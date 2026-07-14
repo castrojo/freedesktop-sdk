@@ -7,8 +7,8 @@ build-depends:
 - components/_private/geoclue-base.bst
 
 runtime-depends:
-- components/geoclue-libs.bst
 - components/avahi-gobject.bst
+- components/geoclue-libs.bst
 - components/modemmanager.bst
 
 config:

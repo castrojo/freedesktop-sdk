@@ -5,16 +5,16 @@ kind: cmake
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
-- components/asciidoc.bst
-- components/asciidoctor.bst
-- components/doctest.bst
 - components/_private/git-minimal.bst
+- components/asciidoctor.bst
+- components/asciidoc.bst
+- components/doctest.bst
 - components/perl.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/zstd.bst
 - components/fmtlib.bst
+- components/zstd.bst
 
 variables:
   cmake-local: >-

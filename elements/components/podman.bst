@@ -4,29 +4,29 @@
 kind: make
 
 build-depends:
-- components/pkg-config.bst
-- components/go.bst
-- components/go-md2man.bst
-- components/_private/git-minimal.bst
-- components/python3.bst
 - public-stacks/buildsystem-make.bst
+- components/_private/git-minimal.bst
+- components/go-md2man.bst
+- components/go.bst
+- components/pkg-config.bst
+- components/python3.bst
 
 depends:
+- public-stacks/runtime-minimal.bst
 - components/containers-common.bst
 - components/gpgme.bst
 - components/libseccomp.bst
 - components/systemd-libs.bst
-- public-stacks/runtime-minimal.bst
 
 runtime-depends:
 - components/catatonit.bst
 - components/conmon.bst
 - components/crun.bst
+- components/fuse-overlayfs.bst
+- components/iptables.bst
 - components/netavark.bst
 - components/passt.bst
 - components/slirp4netns.bst
-- components/fuse-overlayfs.bst
-- components/iptables.bst
 
 environment:
   MAKEFLAGS: -j1

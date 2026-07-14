@@ -4,17 +4,17 @@
 kind: manual
 
 build-depends:
+- components/_private/sbsigntools.bst
+- components/binutils.bst
+- components/os-release.bst
+- components/sign-file.bst
+- components/systemd-ukify.bst
+- components/systemd.bst
+- components/util-linux.bst
 - vm/boot/efi-secure.bst
 - filename: vm/minimal-secure/usr-image.bst
   config:
     location: /usr-image
-- components/binutils.bst
-- components/os-release.bst
-- components/_private/sbsigntools.bst
-- components/sign-file.bst
-- components/systemd.bst
-- components/systemd-ukify.bst
-- components/util-linux.bst
 
 variables:
   strip-binaries: ''

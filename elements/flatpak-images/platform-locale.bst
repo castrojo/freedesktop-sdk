@@ -3,6 +3,9 @@
 
 kind: flatpak_image
 
+build-depends:
+- platform-image.bst
+
 config:
   directory: '%{datadir}/runtime/locale'
   exclude:
@@ -17,6 +20,3 @@ config:
 
     ExtensionOf:
       ref: runtime/org.freedesktop.Platform/%{flatpak_arch}/%{branch}
-
-build-depends:
-- platform-image.bst

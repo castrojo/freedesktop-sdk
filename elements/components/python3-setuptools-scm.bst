@@ -8,10 +8,10 @@ build-depends:
 
 depends:
 - components/_private/git-minimal.bst
-- components/python3.bst
 - components/python3-packaging.bst
 - components/python3-setuptools.bst
 - components/python3-vcs-versioning.bst
+- components/python3.bst
 
 variables:
   command-subdir: setuptools-scm

@@ -7,8 +7,8 @@ build-depends:
 - public-stacks/buildsystem-make.bst
 - components/_private/git-minimal.bst
 - components/go-md2man.bst
-- components/rust.bst
 - components/protobuf.bst
+- components/rust.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

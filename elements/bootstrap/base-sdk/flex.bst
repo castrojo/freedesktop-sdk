@@ -15,7 +15,7 @@ depends:
 - bootstrap/base-sdk/m4.bst
 
 environment:
-  AUTOPOINT: true
+  AUTOPOINT: True
 
 variables:
   make-args: >-

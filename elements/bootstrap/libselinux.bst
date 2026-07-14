@@ -8,8 +8,8 @@ kind: make
 
 build-depends:
 - bootstrap/base-sdk/pkg-config.bst
-- bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
+- bootstrap/build/gcc-stage2.bst
 - bootstrap/gnu-config.bst
 - filename:
   - bootstrap/libsepol.bst
@@ -18,11 +18,8 @@ build-depends:
     location: "%{sysroot}"
 
 runtime-depends:
-- bootstrap/pcre2.bst
 - bootstrap/libsepol.bst
-
-variables:
-  command-subdir: libselinux
+- bootstrap/pcre2.bst
 
 environment:
   USE_PCRE2: y
@@ -31,6 +28,9 @@ environment:
   SBINDIR: '%{sbindir}'
   CC: '%{triplet}-gcc'
   PKG_CONFIG_PATH: '%{sysroot}%{libdir}/pkgconfig'
+
+variables:
+  command-subdir: libselinux
 
 config:
   install-commands:

@@ -9,8 +9,8 @@ build-depends:
 depends:
 - components/cryptsetup.bst
 - components/e2fsprogs.bst
-- components/kmod.bst
 - components/json-glib.bst
+- components/kmod.bst
 - components/libatasmart.bst
 - components/libbytesize.bst
 - components/libnvme.bst

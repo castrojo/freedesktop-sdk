@@ -12,8 +12,8 @@ build-depends:
 - bootstrap/base-sdk/bison.bst
 - bootstrap/base-sdk/gettext.bst
 - bootstrap/base-sdk/texinfo.bst
-- bootstrap/build/gcc-stage1.bst
 - bootstrap/build/debug-utils.bst
+- bootstrap/build/gcc-stage1.bst
 - bootstrap/build/python3.bst
 - bootstrap/gnu-config.bst
 - filename: bootstrap/linux-headers.bst
@@ -21,8 +21,26 @@ build-depends:
     location: "%{sysroot}"
 
 runtime-depends:
-- bootstrap/symlinks.bst
 - bootstrap/linux-headers.bst
+- bootstrap/symlinks.bst
+
+variables:
+  # -D_FORTIFY_SOURCE=2 breaks building glibc
+  target_flags_fortify_source: ''
+  arch_options: ''
+
+  (?):
+  - target_arch == "x86_64":
+      arch_options: --enable-cet
+
+  conf-local: |
+    CFLAGS="$CFLAGS" \
+    --with-headers=%{sysroot}%{includedir}/%{gcc_triplet}:%{sysroot}%{includedir} \
+    --enable-stackguard-randomization \
+    --enable-stack-protector=strong \
+    --enable-bind-now \
+    --disable-werror \
+    %{arch_options}
 
 config:
   configure-commands:
@@ -79,24 +97,6 @@ config:
     - |
       rm "%{install-root}%{infodir}/dir"
 
-variables:
-  # -D_FORTIFY_SOURCE=2 breaks building glibc
-  target_flags_fortify_source: ''
-  arch_options: ''
-
-  (?):
-  - target_arch == "x86_64":
-      arch_options: --enable-cet
-
-  conf-local: |
-    CFLAGS="$CFLAGS" \
-    --with-headers=%{sysroot}%{includedir}/%{gcc_triplet}:%{sysroot}%{includedir} \
-    --enable-stackguard-randomization \
-    --enable-stack-protector=strong \
-    --enable-bind-now \
-    --disable-werror \
-    %{arch_options}
-
 public:
   bst:
     split-rules:
@@ -110,15 +110,15 @@ public:
       # We keep the debuginfo for the dynamic loader only because
       # valgrind needs it.
       debug:
-        - '%{sourcedir}/**'
-        - '%{sourcedir}'
-        - '%{debugdir}%{bindir}'
-        - '%{debugdir}%{bindir}/**'
-        - '%{debugdir}%{libdir}/lib*.so*.debug'
-        - '%{debugdir}%{libdir}/audit'
-        - '%{debugdir}%{libdir}/audit/**'
-        - '%{debugdir}%{libdir}/gconv'
-        - '%{debugdir}%{libdir}/gconv/**'
+      - '%{sourcedir}/**'
+      - '%{sourcedir}'
+      - '%{debugdir}%{bindir}'
+      - '%{debugdir}%{bindir}/**'
+      - '%{debugdir}%{libdir}/lib*.so*.debug'
+      - '%{debugdir}%{libdir}/audit'
+      - '%{debugdir}%{libdir}/audit/**'
+      - '%{debugdir}%{libdir}/gconv'
+      - '%{debugdir}%{libdir}/gconv/**'
       devel:
         (>):
         - '%{debugdir}%{libdir}/ld-*.so.debug'
@@ -156,15 +156,15 @@ public:
 
       # Not actually used, included for completeness
       static-allowlist:
-        - '%{libdir}/libc_nonshared.a'
-        - '%{libdir}/libmvec_nonshared.a'
-        - '%{libdir}/libc.a'
+      - '%{libdir}/libc_nonshared.a'
+      - '%{libdir}/libmvec_nonshared.a'
+      - '%{libdir}/libc.a'
         # Empty compat libraries
-        - '%{libdir}/libanl.a'
-        - '%{libdir}/libdl.a'
-        - '%{libdir}/libpthread.a'
-        - '%{libdir}/librt.a'
-        - '%{libdir}/libutil.a'
+      - '%{libdir}/libanl.a'
+      - '%{libdir}/libdl.a'
+      - '%{libdir}/libpthread.a'
+      - '%{libdir}/librt.a'
+      - '%{libdir}/libutil.a'
 
   cpe:
     ignored:

@@ -4,8 +4,8 @@
 kind: script
 
 build-depends:
-- components/_private/u-boot-qemu.bst
 - public-stacks/runtime-minimal.bst
+- components/_private/u-boot-qemu.bst
 
 config:
   commands:

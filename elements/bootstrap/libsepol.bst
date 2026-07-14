@@ -8,8 +8,8 @@ kind: make
 
 build-depends:
 - bootstrap/base-sdk/flex.bst
-- bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
+- bootstrap/build/gcc-stage2.bst
 - bootstrap/gnu-config.bst
 - filename: bootstrap/pcre2.bst
   config:
@@ -18,16 +18,16 @@ build-depends:
 runtime-depends:
 - bootstrap/pcre2.bst
 
-variables:
-  notparallel: true
-  command-subdir: libsepol
-
 environment:
   USE_PCRE2: y
   LIBDIR: '%{libdir}'
   SHLIBDIR: '%{libdir}'
   CC: '%{triplet}-gcc'
   PKG_CONFIG_PATH: '%{sysroot}%{libdir}/pkgconfig'
+
+variables:
+  notparallel: True
+  command-subdir: libsepol
 
 config:
   install-commands:

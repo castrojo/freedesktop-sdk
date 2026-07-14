@@ -9,8 +9,8 @@ build-depends:
 - components/python3-setuptools.bst
 
 depends:
-- components/python3-pyyaml.bst
 - components/fakecap.bst
+- components/python3-pyyaml.bst
 
 variables:
   strip-binaries: ''

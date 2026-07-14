@@ -8,9 +8,9 @@ build-depends:
 - components/python3-installer.bst
 
 depends:
-- components/python3.bst
 - components/python3-hatchling.bst
 - components/python3-setuptools-scm.bst
+- components/python3.bst
 
 variables:
   strip-binaries: ''

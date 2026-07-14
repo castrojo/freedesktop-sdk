@@ -13,8 +13,8 @@ build-depends:
 - bootstrap/gnu-config.bst
 
 depends:
-- bootstrap/build/file-stage1.bst
 - bootstrap/build/elfutils-build.bst
+- bootstrap/build/file-stage1.bst
 
 variables:
   local_ldflags: "-Wl,-rpath,%{tools}/lib"

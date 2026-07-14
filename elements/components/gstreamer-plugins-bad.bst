@@ -6,39 +6,39 @@ kind: meson
 (@):
 - elements/include/gstreamer-source.yml
 
-depends:
-- public-stacks/runtime-minimal.bst
-- components/aom.bst
-- components/orc.bst
-- components/frei0r.bst
-- components/gstreamer.bst
-- components/gstreamer-plugins-base.bst
-- components/ladspa-sdk.bst
-- components/libdrm.bst
-- components/libglvnd.bst
-- components/libnice.bst
-- components/librsvg.bst
-- components/libva.bst
-- components/libgudev.bst
-- components/openal.bst
-- components/vulkan-icd-loader.bst
-- components/wayland.bst
-- components/curl.bst
-- components/libwebp.bst
-- components/sndfile.bst
-- components/webrtc-audio-processing.bst
-- components/libsrtp2.bst
-- components/svt-av1.bst
-- components/liblc3.bst
-- components/wildmidi.bst
-- components/xorg-lib-x11.bst
-
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/gobject-introspection.bst
-- components/wayland-protocols.bst
 - components/shaderc.bst
 - components/vulkan-headers.bst
+- components/wayland-protocols.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
+- components/aom.bst
+- components/curl.bst
+- components/frei0r.bst
+- components/gstreamer-plugins-base.bst
+- components/gstreamer.bst
+- components/ladspa-sdk.bst
+- components/libdrm.bst
+- components/libglvnd.bst
+- components/libgudev.bst
+- components/liblc3.bst
+- components/libnice.bst
+- components/librsvg.bst
+- components/libsrtp2.bst
+- components/libva.bst
+- components/libwebp.bst
+- components/openal.bst
+- components/orc.bst
+- components/sndfile.bst
+- components/svt-av1.bst
+- components/vulkan-icd-loader.bst
+- components/wayland.bst
+- components/webrtc-audio-processing.bst
+- components/wildmidi.bst
+- components/xorg-lib-x11.bst
 
 variables:
   command-subdir: subprojects/gst-plugins-bad

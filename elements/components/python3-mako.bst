@@ -7,8 +7,8 @@ build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
 
 runtime-depends:
-- components/python3.bst
 - components/python3-markupsafe.bst
+- components/python3.bst
 
 sources:
 - kind: git_repo

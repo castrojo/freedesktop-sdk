@@ -8,19 +8,19 @@ description: |
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/texinfo.bst
-- components/perl.bst
-- components/flex.bst
 - components/bison.bst
+- components/flex.bst
+- components/perl.bst
+- components/texinfo.bst
 
 depends:
+- public-stacks/runtime-minimal.bst
 - bootstrap/xxhash.bst
 - components/elfutils.bst
 - components/gmp.bst
 - components/mpfr.bst
 - components/python3.bst
 - components/zstd.bst
-- public-stacks/runtime-minimal.bst
 
 variables:
   # arches supported by the runtime only

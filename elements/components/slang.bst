@@ -12,7 +12,7 @@ depends:
 variables:
   # Using build-dir is documented not to be supported. Don't try.
   build-dir: ''
-  notparallel: true
+  notparallel: True
 
 public:
   bst:

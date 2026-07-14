@@ -4,16 +4,16 @@
 kind: manual
 
 build-depends:
-- components/rust.bst
-- components/pkg-config.bst
 - bootstrap/findutils.bst
 - components/gcc.bst
+- components/pkg-config.bst
+- components/rust.bst
 - components/stripper.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/openssl.bst
 - components/curl.bst
+- components/openssl.bst
 
 config:
   build-commands:

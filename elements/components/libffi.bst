@@ -11,13 +11,6 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 
-public:
-  bst:
-    split-rules:
-      devel:
-        (>):
-        - '%{libdir}/libffi.so'
-
 variables:
   conf-local: >-
     --without-gcc-arch
@@ -27,6 +20,13 @@ config:
     (>):
     - |
       rm "%{install-root}%{infodir}/dir"
+
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libffi.so'
 
 sources:
 - kind: git_repo

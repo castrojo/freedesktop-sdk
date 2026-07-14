@@ -21,6 +21,12 @@ variables:
     -Dxml-backend="expat"
     -Dcache-dir="%{indep-libdir}/fontconfig/cache"
 
+config:
+  install-commands:
+    (>):
+    - |
+      find "%{install-root}" -name "lib*.a" -delete
+
 public:
   bst:
     split-rules:
@@ -34,12 +40,6 @@ public:
         touch -d @0 "%{datadir}/fonts" /usr/share/fonts/*
         fc-cache -rs
       fi
-
-config:
-  install-commands:
-    (>):
-    - |
-      find "%{install-root}" -name "lib*.a" -delete
 
 sources:
 - kind: git_repo

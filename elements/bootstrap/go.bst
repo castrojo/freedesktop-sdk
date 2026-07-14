@@ -15,13 +15,13 @@ build-depends:
 runtime-depends:
 - bootstrap/symlinks.bst
 
-variables:
-  optimize-debug: "false"
-
 environment:
   GOARCH: "%{go-arch}"
   GOOS: linux
   CGO_ENABLED: '0'
+
+variables:
+  optimize-debug: "false"
 
 config:
   build-commands:

@@ -11,15 +11,15 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/gdbm.bst
 
+variables:
+  autogen: ./bootstrap --no-git --gnulib-srcdir=gnulib-src
+
 public:
   bst:
     split-rules:
       devel:
         (>):
         - '%{libdir}/libpipeline.so'
-
-variables:
-  autogen: ./bootstrap --no-git --gnulib-srcdir=gnulib-src
 
 sources:
 - kind: git_repo

@@ -55,20 +55,6 @@ build-depends:
 - components/libbpf.bst
 - components/llvm.bst
 
-config:
-  install-commands:
-    (>):
-    - |
-      shopt -s nullglob
-      for name in %{install-root}%{indep-libdir}/systemd/boot/efi/*.elf.stub
-      do
-      chmod a-x ${name}
-      done
-      shopt -u nullglob
-
-    - |
-      install -Dm644 -t '%{install-root}%{indep-libdir}/systemd/system-preset' 90-sysupdate.preset
-
 variables:
   efi: 'false'
   bpf-framework: 'disabled'
@@ -128,6 +114,20 @@ variables:
     -Dvmlinux-h-path='%{includedir}/%{gcc_triplet}/linux/vmlinux.h'
     -Dselinux=disabled
     -Dsysupdated=enabled
+
+config:
+  install-commands:
+    (>):
+    - |
+      shopt -s nullglob
+      for name in %{install-root}%{indep-libdir}/systemd/boot/efi/*.elf.stub
+      do
+      chmod a-x ${name}
+      done
+      shopt -u nullglob
+
+    - |
+      install -Dm644 -t '%{install-root}%{indep-libdir}/systemd/system-preset' 90-sysupdate.preset
 
 public:
   cpe:

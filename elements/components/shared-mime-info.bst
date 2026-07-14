@@ -9,8 +9,8 @@ build-depends:
 - components/xmlto.bst
 
 depends:
-- components/libxml2.bst
 - components/glib.bst
+- components/libxml2.bst
 
 variables:
   meson-local: >-

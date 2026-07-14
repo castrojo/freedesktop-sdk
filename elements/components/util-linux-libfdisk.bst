@@ -13,8 +13,8 @@ build-depends:
 - components/_private/util-linux-base.bst
 
 runtime-depends:
-- components/util-linux-manifest.bst
 - public-stacks/runtime-minimal.bst
+- components/util-linux-manifest.bst
 
 config:
   include:
@@ -25,4 +25,4 @@ public:
     split-rules:
       devel:
         (>):
-          - '%{libdir}/libfdisk.so'
+        - '%{libdir}/libfdisk.so'

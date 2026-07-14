@@ -17,8 +17,8 @@ depends:
 - bootstrap/coreutils.bst
 - bootstrap/glibc.bst
 - bootstrap/symlinks.bst
-- components/utf-locale.bst
 - components/perl.bst
+- components/utf-locale.bst
 
 sources:
 - kind: tar

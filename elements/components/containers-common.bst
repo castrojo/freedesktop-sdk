@@ -4,10 +4,10 @@
 kind: make
 
 build-depends:
+- public-stacks/buildsystem-make.bst
 - components/_private/git-minimal.bst
 - components/go-md2man.bst
 - components/go.bst
-- public-stacks/buildsystem-make.bst
 
 variables:
   optimize-debug: "false"

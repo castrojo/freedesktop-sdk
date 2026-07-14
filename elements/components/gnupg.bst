@@ -8,18 +8,21 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/libgcrypt.bst
+- components/bzip2.bst
+- components/gnutls.bst
 - components/libassuan.bst
+- components/libgcrypt.bst
 - components/libksba.bst
 - components/npth.bst
 - components/sqlite.bst
-- components/gnutls.bst
-- components/bzip2.bst
 
-public:
-  cpe:
-    ignored:
-    - CVE-2022-34903
+variables:
+  conf-local: |
+    --enable-maintainer-mode \
+    --disable-doc \
+    --disable-all-tests \
+    --enable-dirmngr \
+    --disable-ldap
 
 config:
   build-commands:
@@ -33,13 +36,10 @@ config:
       # Remove PO-Revision-Date line
       sed -i '/^"PO-Revision-Date.*$/d' po/en@quot.po po/en@boldquot.po
 
-variables:
-  conf-local: |
-    --enable-maintainer-mode \
-    --disable-doc \
-    --disable-all-tests \
-    --enable-dirmngr \
-    --disable-ldap
+public:
+  cpe:
+    ignored:
+    - CVE-2022-34903
 
 sources:
 - kind: git_repo

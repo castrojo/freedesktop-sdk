@@ -35,11 +35,11 @@ variables:
 config:
   commands:
     # Because snapd does not allow binding /app, then we need to mount it in /var/app
-    - |
-      ln -s var/app "%{install-root}/app"
+  - |
+    ln -s var/app "%{install-root}/app"
 
-    - |
-      for dir in %{required-dirs}
-      do
-        mkdir -p "%{install-root}${dir}"
-      done
+  - |
+    for dir in %{required-dirs}
+    do
+      mkdir -p "%{install-root}${dir}"
+    done

@@ -9,13 +9,13 @@ description: X.org xcb-util-cursor
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/xorg-util-macros.bst
 - components/gperf.bst
+- components/xorg-util-macros.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/xcb-util-renderutil.bst
 - components/xcb-util-image.bst
+- components/xcb-util-renderutil.bst
 
 variables:
   # Various files like shape_to_id.gperf get generated in wrong path

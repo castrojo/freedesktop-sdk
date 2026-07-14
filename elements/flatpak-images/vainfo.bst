@@ -6,6 +6,10 @@ kind: flatpak_image
 (@):
 - elements/extensions/include/app.yml
 
+build-depends:
+- extensions/vainfo/appdata.bst
+- extensions/vainfo/libva-utils.bst
+
 config:
   directory: '%{prefix}'
   exclude:
@@ -30,7 +34,3 @@ config:
       directory: lib/debug
       autodelete: 'true'
       no-autodownload: 'true'
-
-build-depends:
-- extensions/vainfo/libva-utils.bst
-- extensions/vainfo/appdata.bst

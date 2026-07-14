@@ -3,6 +3,11 @@
 
 kind: compose
 
+build-depends:
+- components/os-release.bst
+- sdk.bst
+- vm/mesa-default.bst
+
 config:
   exclude:
   - sysconf
@@ -10,8 +15,3 @@ config:
   - vm-only
   - tests
   - shells
-
-build-depends:
-- sdk.bst
-- components/os-release.bst
-- vm/mesa-default.bst

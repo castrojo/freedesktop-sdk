@@ -12,15 +12,15 @@ build-depends:
 - bootstrap/base-sdk/binary-seed.bst
 - bootstrap/gnu-config.bst
 
-config:
-  install-commands:
-    (>):
-    - |
-      find "%{install-root}" -name "lib*.a" -delete
-
 variables:
   conf-link-args: --without-shared
   conf-local: |
     --without-ada \
     --with-normal \
     --enable-widec
+
+config:
+  install-commands:
+    (>):
+    - |
+      find "%{install-root}" -name "lib*.a" -delete

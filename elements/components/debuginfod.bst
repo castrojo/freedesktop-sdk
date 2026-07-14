@@ -12,12 +12,12 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - bootstrap/elfutils.bst
-- components/libarchive.bst
-- components/sqlite.bst
-- components/curl.bst
-- components/libmicrohttpd.bst
-- components/json-c.bst
 - components/bzip2.bst
+- components/curl.bst
+- components/json-c.bst
+- components/libarchive.bst
+- components/libmicrohttpd.bst
+- components/sqlite.bst
 
 variables:
   conf-local: >-

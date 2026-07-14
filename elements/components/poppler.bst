@@ -4,21 +4,21 @@
 kind: cmake
 
 build-depends:
+- public-stacks/buildsystem-cmake.bst
 - components/gobject-introspection.bst
 - components/gtk-doc.bst
-- public-stacks/buildsystem-cmake.bst
 
 depends:
 - components/cairo.bst
+- components/curl.bst
 - components/fontconfig.bst
 - components/freetype.bst
 - components/glib.bst
+- components/gpgmepp.bst
 - components/jpeg.bst
 - components/lcms.bst
 - components/nss.bst
 - components/openjpeg.bst
-- components/gpgmepp.bst
-- components/curl.bst
 
 variables:
   cmake-local: >-

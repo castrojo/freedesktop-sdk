@@ -22,9 +22,9 @@ depends:
 runtime-depends:
 - components/git.bst
 - components/git.bst
-- components/tar.bst
 - components/gzip.bst
 - components/libarchive.bst
+- components/tar.bst
 
 variables:
   meson-local: >-

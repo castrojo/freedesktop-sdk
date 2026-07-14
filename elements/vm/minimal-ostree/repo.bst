@@ -16,22 +16,23 @@ build-depends:
 - components/fakecap.bst
 - components/ostree.bst
 - vm/deploy-tools.bst
-- vm/prepare-image.bst
-- vm/minimal-ostree/initial-scripts.bst
 - filename: vm/minimal-ostree/filesystem.bst
   config:
     location: '/sysroot'
+
+- vm/minimal-ostree/initial-scripts.bst
+- vm/prepare-image.bst
+
+environment:
+  OSTREE_REPO: "%{install-root}/ostree/repo"
+  LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
+  FAKECAP_DB: /fakecap
 
 variables:
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
 
   (@):
   - ostree-config.yml
-
-environment:
-  OSTREE_REPO: "%{install-root}/ostree/repo"
-  LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
-  FAKECAP_DB: /fakecap
 
 config:
 

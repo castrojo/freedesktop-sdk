@@ -9,6 +9,11 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 
+variables:
+  cmake-local: >-
+    -DBUILD_SHARED_LIBS=ON
+    -DBUILD_TESTING=OFF
+
 public:
   bst:
     split-rules:
@@ -17,11 +22,6 @@ public:
         - '%{libdir}/libhwy.so'
         - '%{libdir}/libhwy_contrib.so'
         - '%{libdir}/libhwy_test.so'
-
-variables:
-  cmake-local: >-
-    -DBUILD_SHARED_LIBS=ON
-    -DBUILD_TESTING=OFF
 
 sources:
 - kind: git_repo

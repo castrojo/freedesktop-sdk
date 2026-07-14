@@ -3,13 +3,13 @@
 
 kind: manual
 
-depends:
-- components/llvm.bst
-
 build-depends:
 - components/gcc.bst
-- components/stripper.bst
 - components/rust.bst
+- components/stripper.bst
+
+depends:
+- components/llvm.bst
 
 config:
   build-commands:

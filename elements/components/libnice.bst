@@ -5,8 +5,8 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/gstreamer.bst
 - components/gobject-introspection.bst
+- components/gstreamer.bst
 - components/gtk-doc.bst
 
 depends:
@@ -14,17 +14,17 @@ depends:
 - components/glib.bst
 - components/gnutls.bst
 
+variables:
+  meson-local: >-
+    -Dgupnp=disabled
+    -Dexamples=disabled
+
 public:
   bst:
     split-rules:
       devel:
         (>):
         - '%{libdir}/libnice.so'
-
-variables:
-  meson-local: >-
-    -Dgupnp=disabled
-    -Dexamples=disabled
 
 sources:
 - kind: git_repo

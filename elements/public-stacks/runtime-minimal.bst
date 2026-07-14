@@ -8,5 +8,5 @@ depends:
 - bootstrap/coreutils.bst
 - bootstrap/glibc.bst
 - bootstrap/symlinks.bst
-- components/utf-locale.bst
 - components/gcc-libs.bst
+- components/utf-locale.bst

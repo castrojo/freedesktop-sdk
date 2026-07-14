@@ -8,8 +8,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/perl.bst
 - components/perl-ssleay.bst
+- components/perl.bst
 
 sources:
 - kind: cpan

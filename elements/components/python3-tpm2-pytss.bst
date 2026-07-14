@@ -11,11 +11,11 @@ build-depends:
 - components/python3-setuptools-scm.bst
 
 depends:
-- components/python3.bst
+- components/python3-asn1crypto.bst
 - components/python3-cffi.bst
 - components/python3-cryptography.bst
 - components/python3-packaging.bst
-- components/python3-asn1crypto.bst
+- components/python3.bst
 - components/tpm2-tss.bst
 
 sources:

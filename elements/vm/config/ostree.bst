@@ -15,8 +15,8 @@ build-depends:
 - components/m4.bst
 
 runtime-depends:
-- components/systemd.bst
 - components/ostree.bst
+- components/systemd.bst
 
 variables:
   strip-binaries: ''

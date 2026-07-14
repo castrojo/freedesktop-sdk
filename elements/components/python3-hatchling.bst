@@ -8,12 +8,12 @@ build-depends:
 - components/python3-installer.bst
 
 depends:
-- components/python3.bst
-- components/python3-packaging.bst
 - components/python3-editables.bst
+- components/python3-packaging.bst
 - components/python3-pathspec.bst
 - components/python3-pluggy.bst
 - components/python3-trove-classifiers.bst
+- components/python3.bst
 
 variables:
   command-subdir: backend

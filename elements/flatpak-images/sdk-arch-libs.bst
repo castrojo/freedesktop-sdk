@@ -3,6 +3,10 @@
 
 kind: flatpak_image
 
+build-depends:
+- multiarch/multiarch-sdk-gl-link.bst
+- sdk-image.bst
+
 config:
   directory: '%{libdir}'
   exclude:
@@ -18,7 +22,3 @@ config:
 
     ExtensionOf:
       ref: runtime/org.freedesktop.Sdk/%{flatpak_arch}/%{branch}
-
-build-depends:
-- sdk-image.bst
-- multiarch/multiarch-sdk-gl-link.bst

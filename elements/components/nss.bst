@@ -24,12 +24,6 @@ kind: manual
 # The shlibsign program is also built and installed by this element.
 #
 
-depends:
-- public-stacks/runtime-minimal.bst
-- components/nspr.bst
-- components/sqlite.bst
-- components/p11-kit.bst
-
 build-depends:
 - bootstrap/gawk.bst
 - bootstrap/grep.bst
@@ -39,6 +33,21 @@ build-depends:
 - components/perl.bst
 - components/pkg-config.bst
 - components/stripper.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
+- components/nspr.bst
+- components/p11-kit.bst
+- components/sqlite.bst
+
+environment:
+  MAXJOBS: "%{max-jobs}"
+  (?):
+  - target_arch in ('riscv64', 'loongarch64'):
+      CFLAGS: "%{target_common_flags} -DNSS_USE_64"
+
+environment-nocache:
+- MAXJOBS
 
 variables:
   (?):
@@ -64,27 +73,6 @@ variables:
     --disable-tests
     --enable-libpkix
     --target=%{gyp-arch}
-
-environment:
-  MAXJOBS: "%{max-jobs}"
-  (?):
-  - target_arch in ('riscv64', 'loongarch64'):
-      CFLAGS: "%{target_common_flags} -DNSS_USE_64"
-
-environment-nocache:
-- MAXJOBS
-
-public:
-  bst:
-    split-rules:
-      devel:
-        (>):
-        - '%{bindir}/*'
-  cpe:
-    product: network_security_services
-    ignored:
-    - CVE-2013-0791
-    - CVE-2013-1620
 
 config:
   build-commands:
@@ -147,6 +135,18 @@ config:
 
   - |
     %{install-extra}
+
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{bindir}/*'
+  cpe:
+    product: network_security_services
+    ignored:
+    - CVE-2013-0791
+    - CVE-2013-1620
 
 sources:
 - kind: git_repo

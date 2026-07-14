@@ -7,11 +7,11 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 
 depends:
-- components/systemd-libs.bst
-- components/python3-attrs.bst
-- components/python3-jinja2.bst
 - components/libevdev.bst
 - components/libxkbcommon.bst
+- components/python3-attrs.bst
+- components/python3-jinja2.bst
+- components/systemd-libs.bst
 
 variables:
   meson-local: >-

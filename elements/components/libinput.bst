@@ -9,12 +9,12 @@ build-depends:
 
 depends:
 - components/jpeg.bst
-- components/libpng.bst
-- components/systemd-libs.bst
-- components/mtdev.bst
 - components/libevdev.bst
+- components/libpng.bst
 - components/libwacom.bst
 - components/lua.bst
+- components/mtdev.bst
+- components/systemd-libs.bst
 
 variables:
   meson-local: >-

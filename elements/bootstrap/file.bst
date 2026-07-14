@@ -10,30 +10,30 @@ kind: autotools
 build-depends:
 - bootstrap/base-sdk/automake.bst
 - bootstrap/base-sdk/libtool.bst
-- bootstrap/gnu-config.bst
-- bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
 - bootstrap/build/file-stage1.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/gnu-config.bst
 - filename: bootstrap/zlib-ng.bst
   config:
     location: "%{sysroot}"
 
 runtime-depends:
-- bootstrap/zstd.bst
 - bootstrap/zlib-ng.bst
+- bootstrap/zstd.bst
 
 variables:
   conf-local: >-
-   --disable-libseccomp
-   --disable-xzlib
-   --disable-bzlib
+    --disable-libseccomp
+    --disable-xzlib
+    --disable-bzlib
 
   make: make 'FILE_COMPILE=%{tools}/bin/file'
 
 config:
   configure-commands:
     (<):
-      - autoreconf -ivf
+    - autoreconf -ivf
 
   install-commands:
     (>):

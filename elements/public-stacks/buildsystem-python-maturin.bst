@@ -5,7 +5,7 @@ kind: stack
 
 depends:
 - components/gcc.bst
-- components/stripper.bst
 - components/python3-build.bst
 - components/python3-installer.bst
 - components/python3-maturin.bst
+- components/stripper.bst

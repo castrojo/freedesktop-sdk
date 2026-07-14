@@ -7,23 +7,23 @@ build-depends:
 - components/_private/gcc-base.bst
 
 runtime-depends:
+- public-stacks/runtime-minimal.bst
 - bootstrap/binutils.bst
 - bootstrap/libxcrypt.bst
 - bootstrap/zstd.bst
 - components/gcc-libs.bst
 - components/gcc-manifest.bst
-- public-stacks/runtime-minimal.bst
 
 config:
   exclude:
   - gcc-libs
-  include-orphans: true
+  include-orphans: True
 
 public:
   bst:
     split-rules:
       runtime:
-        - '%{libdir}/lib*.so.*'
+      - '%{libdir}/lib*.so.*'
 
       devel:
         (>):
@@ -64,5 +64,5 @@ public:
 
       # Not actually used, included for completeness
       static-allowlist:
-        - '%{indep-libdir}/gcc/**/*.a'
-        - '%{indep-libdir}/gcc/%{triplet}/**/*.a'
+      - '%{indep-libdir}/gcc/**/*.a'
+      - '%{indep-libdir}/gcc/%{triplet}/**/*.a'

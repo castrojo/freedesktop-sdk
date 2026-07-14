@@ -4,15 +4,15 @@
 kind: meson
 
 build-depends:
-- components/gtk-doc.bst
 - public-stacks/buildsystem-meson.bst
 - components/dbus.bst
 - components/gobject-introspection.bst
+- components/gtk-doc.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/libdbus.bst
 - components/glib.bst
+- components/libdbus.bst
 
 variables:
   meson-local: >-

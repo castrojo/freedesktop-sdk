@@ -5,14 +5,14 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/gnupg.bst
 - components/_private/git-minimal.bst
+- components/gnupg.bst
 - components/texinfo.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/libgpg-error.bst
 - components/libassuan.bst
+- components/libgpg-error.bst
 
 variables:
   conf-local: >-
@@ -23,14 +23,6 @@ variables:
     --disable-gpgsm-test
     --disable-g13-test
 
-public:
-  bst:
-    split-rules:
-      devel:
-        (>):
-        - '%{bindir}/gpgme-config'
-        - '%{libdir}/libgpgme.so'
-
 config:
   install-commands:
     (>):
@@ -39,6 +31,14 @@ config:
     - |
       mkdir -p "%{install-root}%{includedir}/%{gcc_triplet}"
       mv "%{install-root}%{includedir}/gpgme.h" "%{install-root}%{includedir}/%{gcc_triplet}/"
+
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{bindir}/gpgme-config'
+        - '%{libdir}/libgpgme.so'
 
 sources:
 - kind: git_repo

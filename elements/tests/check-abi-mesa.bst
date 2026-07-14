@@ -4,9 +4,9 @@
 kind: script
 
 build-depends:
+- components/libabigail.bst
 - components/libdrm.bst
 - extensions/mesa/libdrm.bst
-- components/libabigail.bst
 
 config:
   commands:

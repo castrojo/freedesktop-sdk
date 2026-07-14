@@ -4,7 +4,6 @@
 kind: script
 
 build-depends:
-- tests/check-abi-deps.bst
 - filename: abi/abi-image.bst
   config:
     location: /new-image
@@ -12,6 +11,8 @@ build-depends:
   junction: abi/reference-abi.bst
   config:
     location: /old-image
+
+- tests/check-abi-deps.bst
 
 config:
   commands:

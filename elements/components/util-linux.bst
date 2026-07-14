@@ -22,12 +22,12 @@ build-depends:
 - components/_private/util-linux-base.bst
 
 runtime-depends:
-- components/util-linux-manifest.bst
-- components/util-linux-libs.bst
 - public-stacks/runtime-minimal.bst
-- components/libeconf.bst
 - components/file.bst
+- components/libeconf.bst
 - components/sqlite.bst
+- components/util-linux-libs.bst
+- components/util-linux-manifest.bst
 
 config:
   exclude:
@@ -36,7 +36,7 @@ config:
   - libmount
   - libuuid
   - vm-tools
-  include-orphans: true
+  include-orphans: True
 
 public:
   bst:
@@ -46,5 +46,5 @@ public:
     split-rules:
       devel:
         (>):
-          - '%{libdir}/liblastlog2.so'
-          - '%{libdir}/libsmartcols.so'
+        - '%{libdir}/liblastlog2.so'
+        - '%{libdir}/libsmartcols.so'

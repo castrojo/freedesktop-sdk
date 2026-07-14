@@ -7,12 +7,12 @@ build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
 
 runtime-depends:
-- components/python3.bst
-- components/python3-urllib3.bst
 - components/python3-certifi.bst
-- components/python3-idna.bst
 - components/python3-chardet.bst
 - components/python3-charset-normalizer.bst
+- components/python3-idna.bst
+- components/python3-urllib3.bst
+- components/python3.bst
 
 sources:
 - kind: git_repo

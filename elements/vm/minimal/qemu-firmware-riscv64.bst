@@ -4,8 +4,8 @@
 kind: script
 
 build-depends:
-- components/_private/opensbi-u-boot.bst
 - public-stacks/runtime-minimal.bst
+- components/_private/opensbi-u-boot.bst
 
 config:
   commands:

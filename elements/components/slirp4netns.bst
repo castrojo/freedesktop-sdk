@@ -8,9 +8,9 @@ build-depends:
 
 depends:
 - components/glib.bst
-- components/libslirp.bst
 - components/libcap.bst
 - components/libseccomp.bst
+- components/libslirp.bst
 
 sources:
 - kind: git_repo

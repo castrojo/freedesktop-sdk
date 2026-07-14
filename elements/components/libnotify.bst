@@ -10,8 +10,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/glib.bst
 - components/gdk-pixbuf.bst
+- components/glib.bst
 
 variables:
   meson-local: >-

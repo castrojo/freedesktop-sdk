@@ -16,8 +16,8 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/jpeg.bst
-- components/mesa-headers.bst
 - components/libbpf.bst
+- components/mesa-headers.bst
 
 variables:
   meson-local: >-

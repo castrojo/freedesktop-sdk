@@ -4,19 +4,26 @@
 kind: meson
 
 build-depends:
-- components/gobject-introspection.bst
 - public-stacks/buildsystem-meson.bst
+- components/gobject-introspection.bst
 - components/python3-gi-docgen.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
 - components/cairo.bst
-- components/harfbuzz.bst
 - components/fontconfig.bst
 - components/fribidi.bst
+- components/harfbuzz.bst
 - components/json-glib.bst
 - components/libthai.bst
 - components/xorg-lib-xft.bst
+
+variables:
+  meson-local: >-
+    -Ddocumentation=false
+    -Dintrospection=enabled
+    -Dbuild-testsuite=false
+    -Dbuild-examples=false
 
 public:
   bst:
@@ -31,13 +38,6 @@ public:
   cpe:
     ignored:
     - CVE-2019-1010238
-
-variables:
-  meson-local: >-
-    -Ddocumentation=false
-    -Dintrospection=enabled
-    -Dbuild-testsuite=false
-    -Dbuild-examples=false
 
 sources:
 - kind: git_repo

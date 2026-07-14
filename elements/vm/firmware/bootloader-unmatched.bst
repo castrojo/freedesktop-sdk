@@ -4,9 +4,9 @@
 kind: script
 
 build-depends:
-- vm/deploy-tools.bst
 - components/_private/u-boot-unmatched.bst
 - components/linux.bst
+- vm/deploy-tools.bst
 
 variables:
   sysroot: "/sysroot"

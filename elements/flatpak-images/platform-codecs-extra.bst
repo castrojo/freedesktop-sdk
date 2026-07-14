@@ -7,10 +7,10 @@ kind: flatpak_image
 - elements/extensions/codecs-extra/config.yml
 
 build-depends:
-- extensions/codecs-extra/ffmpeg.bst
-- extensions/codecs-extra/libheif.bst
-- extensions/codecs-extra/gstreamer-plugins-ugly-x264.bst
 - extensions/codecs-extra/appdata.bst
+- extensions/codecs-extra/ffmpeg.bst
+- extensions/codecs-extra/gstreamer-plugins-ugly-x264.bst
+- extensions/codecs-extra/libheif.bst
 
 config:
   directory: '%{prefix}'

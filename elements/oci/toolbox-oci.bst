@@ -4,14 +4,15 @@
 kind: script
 
 build-depends:
-- oci/oci-builder.bst
 - oci/layers/toolbox-init-script.bst
-- filename: oci/sdk-oci.bst
-  config:
-    location: /parent
 - filename: oci/layers/toolbox.bst
   config:
     location: /layer
+
+- oci/oci-builder.bst
+- filename: oci/sdk-oci.bst
+  config:
+    location: /parent
 
 environment:
   LD_PRELOAD: /usr/libexec/fakecap/fakecap.so

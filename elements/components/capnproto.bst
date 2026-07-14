@@ -8,8 +8,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/zlib.bst
 - components/openssl.bst
+- components/zlib.bst
 
 variables:
   cmake-local: >-

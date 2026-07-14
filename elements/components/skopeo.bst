@@ -4,22 +4,22 @@
 kind: make
 
 build-depends:
-- components/btrfs-progs.bst
+- public-stacks/buildsystem-make.bst
 - components/_private/git-minimal.bst
+- components/btrfs-progs.bst
 - components/glib.bst
 - components/go-md2man.bst
 - components/go.bst
 - components/ostree.bst
 - components/pkg-config.bst
 - components/sed.bst
-- public-stacks/buildsystem-make.bst
 
 depends:
+- public-stacks/runtime-minimal.bst
 - components/containers-common.bst
 - components/gpgme.bst
 - components/libassuan.bst
 - components/sqlite.bst
-- public-stacks/runtime-minimal.bst
 
 variables:
   command-subdir: src/github.com/podman-container-tools/skopeo

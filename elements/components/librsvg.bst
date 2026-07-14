@@ -3,22 +3,25 @@
 
 kind: meson
 
-depends:
-- public-stacks/runtime-minimal.bst
-- components/gdk-pixbuf.bst
-- components/pango.bst
-- components/cairo.bst
-- components/dav1d.bst
-
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/rust.bst
-- components/vala.bst
-- components/gtk-doc.bst
+- components/cargo-c.bst
 - components/gobject-introspection.bst
+- components/gtk-doc.bst
 - components/python3-docutils.bst
 - components/python3-gi-docgen.bst
-- components/cargo-c.bst
+- components/rust.bst
+- components/vala.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
+- components/cairo.bst
+- components/dav1d.bst
+- components/gdk-pixbuf.bst
+- components/pango.bst
+
+environment:
+  PATH: /usr/bin:/usr/lib/sdk/rust/bin
 
 variables:
   meson-local: >-
@@ -31,9 +34,6 @@ public:
       devel:
         (>):
         - '%{libdir}/librsvg-2.so'
-
-environment:
-  PATH: /usr/bin:/usr/lib/sdk/rust/bin
 
 sources:
 - kind: git_repo

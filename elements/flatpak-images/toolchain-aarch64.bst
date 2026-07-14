@@ -7,8 +7,8 @@ kind: flatpak_image
 - elements/cross-compilers/aarch64-vars.yml
 
 build-depends:
-- cross-compilers/gcc-aarch64.bst
 - cross-compilers/binutils-aarch64.bst
+- cross-compilers/gcc-aarch64.bst
 
 config:
   directory: '%{prefix}'

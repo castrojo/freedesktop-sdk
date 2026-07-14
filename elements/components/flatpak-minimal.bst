@@ -15,15 +15,15 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/bubblewrap.bst
-- components/gpgme.bst
-- components/libarchive.bst
-- components/curl.bst
-- components/ostree-minimal.bst
-- components/fuse3.bst
-- components/json-glib.bst
 - components/appstream-minimal.bst
+- components/bubblewrap.bst
+- components/curl.bst
+- components/fuse3.bst
+- components/gpgme.bst
+- components/json-glib.bst
+- components/libarchive.bst
 - components/libseccomp.bst
+- components/ostree-minimal.bst
 - components/xdg-dbus-proxy.bst
 
 variables:

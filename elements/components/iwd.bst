@@ -5,8 +5,8 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/python3-docutils.bst
 - components/dbus.bst
+- components/python3-docutils.bst
 - components/systemd.bst
 
 depends:

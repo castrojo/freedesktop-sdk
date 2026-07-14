@@ -6,8 +6,8 @@ kind: meson
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - bootstrap/grep.bst
-- components/genpeimg.bst
 - components/_private/gnu-efi.bst
+- components/genpeimg.bst
 
 variables:
   meson-local: >-

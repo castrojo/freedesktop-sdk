@@ -4,8 +4,8 @@
 kind: manual
 
 build-depends:
-- components/systemd.bst
 - components/pkg-config.bst
+- components/systemd.bst
 
 runtime-depends:
 - components/openssh.bst

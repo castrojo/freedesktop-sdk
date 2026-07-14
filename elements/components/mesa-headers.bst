@@ -8,8 +8,8 @@ kind: manual
 
 build-depends:
 - public-stacks/runtime-minimal.bst
-- components/_private/git-minimal.bst
 - bootstrap/sed.bst
+- components/_private/git-minimal.bst
 
 runtime-depends:
 - components/libglvnd.bst
@@ -128,4 +128,4 @@ public:
   bst:
     split-rules:
       devel:
-        - '/**'
+      - '/**'

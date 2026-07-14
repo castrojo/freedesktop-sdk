@@ -9,9 +9,9 @@ kind: cmake
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/vulkan-headers.bst
+- components/wayland.bst
 - components/xorg-lib-x11.bst
 - components/xorg-lib-xrandr.bst
-- components/wayland.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -29,7 +29,7 @@ variables:
 
   command-subdir: vulkan-icd-loader
   vulkan-extra-dir: |
-     %{libdir}/GL:%{libdir}:%{indep-libdir}/extensions/vulkan/share
+    %{libdir}/GL:%{libdir}:%{indep-libdir}/extensions/vulkan/share
 
 public:
   bst:

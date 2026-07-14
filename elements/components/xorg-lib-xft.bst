@@ -9,10 +9,10 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/fontconfig.bst
+- components/freetype.bst
 - components/xorg-lib-x11.bst
 - components/xorg-lib-xrender.bst
-- components/freetype.bst
-- components/fontconfig.bst
 
 public:
   bst:

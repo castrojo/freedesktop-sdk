@@ -8,15 +8,19 @@ description: zlib
 - elements/bootstrap/include/target.yml
 
 build-depends:
-- bootstrap/gnu-config.bst
-- bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
+- bootstrap/build/gcc-stage2.bst
 - filename: bootstrap/glibc.bst
   config:
     location: "%{sysroot}"
 
+- bootstrap/gnu-config.bst
+
 runtime-depends:
 - bootstrap/glibc.bst
+
+environment:
+  CHOST: '%{triplet}'
 
 variables:
   conf-args: >-
@@ -25,9 +29,6 @@ variables:
     --libdir=%{libdir}
     --zlib-compat
     --without-new-strategies
-
-environment:
-  CHOST: '%{triplet}'
 
 config:
   install-commands:

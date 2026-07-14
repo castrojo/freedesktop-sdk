@@ -5,16 +5,16 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/asciidoc.bst
 - components/asciidoctor.bst
-- components/libxslt.bst
+- components/asciidoc.bst
 - components/docbook-xsl.bst
+- components/libxslt.bst
 - components/systemd.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/kmod.bst
 - components/e2fsprogs.bst
+- components/kmod.bst
 
 runtime-depends:
 - components/cpio.bst

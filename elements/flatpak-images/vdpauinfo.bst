@@ -3,12 +3,12 @@
 
 kind: flatpak_image
 
-build-depends:
-- extensions/vdpauinfo/vdpauinfo.bst
-- extensions/vdpauinfo/appdata.bst
-
 (@):
 - elements/extensions/include/app.yml
+
+build-depends:
+- extensions/vdpauinfo/appdata.bst
+- extensions/vdpauinfo/vdpauinfo.bst
 
 config:
   directory: '%{prefix}'
@@ -34,4 +34,3 @@ config:
       directory: lib/debug
       autodelete: 'true'
       no-autodownload: 'true'
-

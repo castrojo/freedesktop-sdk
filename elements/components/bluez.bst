@@ -9,14 +9,14 @@ build-depends:
 runtime-depends:
 - public-stacks/runtime-minimal.bst
 - components/bluez-manifest.bst
-- components/glib.bst
 - components/dbus.bst
+- components/glib.bst
 - components/libical.bst
 
 config:
   exclude:
   - bluez-libs
-  include-orphans: true
+  include-orphans: True
 
 public:
   bst:

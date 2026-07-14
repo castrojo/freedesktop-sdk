@@ -10,11 +10,11 @@ build-depends:
 - components/_private/buildsystem-cmake.bst
 
 depends:
+- public-stacks/runtime-minimal.bst
 - components/curl.bst
 - components/expat.bst
 - components/libarchive.bst
 - components/openssl.bst
-- public-stacks/runtime-minimal.bst
 
 variables:
   cmake-local: >-

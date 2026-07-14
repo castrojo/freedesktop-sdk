@@ -10,9 +10,9 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 
 depends:
+- public-stacks/runtime-minimal.bst
 - components/libaio.bst
 - components/systemd-libs.bst
-- public-stacks/runtime-minimal.bst
 
 variables:
   conf-local: >-
@@ -37,9 +37,9 @@ public:
   bst:
     split-rules:
       libdevmapper:
-        - '%{includedir}/libdevmapper.h'
-        - '%{indep-libdir}/debug/**/libdevmapper.so**'
-        - '%{datadir}/licenses/device-mapper-libs'
-        - '%{datadir}/licenses/device-mapper-libs/**'
-        - '%{libdir}/libdevmapper.so**'
-        - '%{libdir}/pkgconfig/devmapper.pc'
+      - '%{includedir}/libdevmapper.h'
+      - '%{indep-libdir}/debug/**/libdevmapper.so**'
+      - '%{datadir}/licenses/device-mapper-libs'
+      - '%{datadir}/licenses/device-mapper-libs/**'
+      - '%{libdir}/libdevmapper.so**'
+      - '%{libdir}/pkgconfig/devmapper.pc'

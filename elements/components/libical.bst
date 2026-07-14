@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: MIT
 
 kind: cmake
+
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/gobject-introspection.bst

@@ -3,14 +3,18 @@
 
 kind: snap_image
 
+build-depends:
+- snap-images/sdk-snap-image.bst
+- snap-images/snap-extra-fs.bst
+
 config:
   directory: "/"
   exclude:
-    - debug
-    - docs
-    - locale
-    - tests
-    - shells
+  - debug
+  - docs
+  - locale
+  - tests
+  - shells
 
   metadata:
     name: "freedesktop-sdk-sdk-%{freedesktop-sdk-snap-branch}"
@@ -25,12 +29,7 @@ config:
       provided to Snap in order run flatpak applications.
     type: base
     architectures:
-      - "%{snap_arch}"
+    - "%{snap_arch}"
     grade: "%{snap_grade}"
     assumes:
     - snapd2.45
-
-build-depends:
-- snap-images/sdk-snap-image.bst
-- snap-images/snap-extra-fs.bst
-

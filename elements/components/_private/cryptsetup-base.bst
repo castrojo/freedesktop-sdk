@@ -5,12 +5,12 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- components/_private/lvm2-stage1.bst
 - components/asciidoctor.bst
 - components/json-c.bst
-- components/pwquality.bst
-- components/_private/lvm2-stage1.bst
-- components/popt.bst
 - components/openssl.bst
+- components/popt.bst
+- components/pwquality.bst
 - components/util-linux-libs.bst
 
 variables:

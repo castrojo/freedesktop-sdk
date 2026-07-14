@@ -5,9 +5,9 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/docbook-xsl.bst
 - bootstrap/grep.bst
 - bootstrap/sed.bst
+- components/docbook-xsl.bst
 - components/gobject-introspection.bst
 - components/libxslt.bst
 - components/perl.bst

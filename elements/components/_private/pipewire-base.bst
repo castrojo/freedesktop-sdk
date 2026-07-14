@@ -8,20 +8,23 @@ kind: meson
 #  - components/pipewire-daemon.bst
 
 build-depends:
+- public-stacks/buildsystem-meson.bst
 - bootstrap/grep.bst
 - components/alsa-lib.bst
-- components/avahi.bst
 - components/avahi-libs.bst
-- components/bluez.bst
+- components/avahi.bst
 - components/bluez-libs.bst
+- components/bluez.bst
 - components/dbus.bst
+- components/doxygen.bst
 - components/gstreamer-plugins-base.bst
 - components/gtk-doc.bst
 - components/libcamera.bst
-- components/libusb.bst
+- components/libebur128.bst
 - components/liblc3.bst
-- components/libpulse.bst
 - components/libmysofa.bst
+- components/libpulse.bst
+- components/libusb.bst
 - components/patchelf.bst
 - components/python3-docutils.bst
 - components/rtkit.bst
@@ -29,10 +32,7 @@ build-depends:
 - components/systemd-libs.bst
 - components/systemd.bst
 - components/vulkan-headers.bst
-- components/doxygen.bst
 - components/webrtc-audio-processing.bst
-- public-stacks/buildsystem-meson.bst
-- components/libebur128.bst
 
 variables:
   meson-local: >-

@@ -4,10 +4,11 @@
 kind: script
 
 build-depends:
-- utils/scan-for-dev-files.bst
 - filename: platform-image.bst
   config:
     location: /sysroot
+
+- utils/scan-for-dev-files.bst
 
 config:
   commands:

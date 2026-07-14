@@ -7,12 +7,12 @@ build-depends:
 - public-stacks/runtime-minimal.bst
 - components/rsync.bst
 
-variables:
-  strip-binaries: ''
-
 environment:
   FW_DEST: '%{install-root}%{indep-libdir}/firmware/intel'
   TOOLS_DEST: '%{build-root}/do-not-install'
+
+variables:
+  strip-binaries: ''
 
 config:
   install-commands:

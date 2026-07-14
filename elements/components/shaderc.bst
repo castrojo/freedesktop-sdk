@@ -5,15 +5,15 @@ kind: cmake
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
+- bootstrap/sed.bst
 - components/_private/git-minimal.bst
 - components/grep.bst
 - components/python3.bst
 - components/spirv-tools.bst
-- bootstrap/sed.bst
 
 depends:
-- components/glslang.bst
 - public-stacks/runtime-minimal.bst
+- components/glslang.bst
 
 variables:
   cmake-local: >-

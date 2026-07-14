@@ -21,8 +21,8 @@ depends:
 - bootstrap/ncurses.bst
 - bootstrap/sed.bst
 - bootstrap/symlinks.bst
-- components/utf-locale.bst
 - components/perl.bst
+- components/utf-locale.bst
 
 variables:
   conf-local: |

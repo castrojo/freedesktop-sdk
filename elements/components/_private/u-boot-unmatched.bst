@@ -10,22 +10,22 @@ description: |
 
 build-depends:
 - public-stacks/buildsystem-make.bst
-- components/bison.bst
-- components/flex.bst
-- components/gzip.bst
 - components/bc.bst
-- components/opensbi.bst
+- components/bison.bst
 - components/dtc.bst
-- components/python3.bst
-- components/python3-setuptools.bst
-- components/swig.bst
+- components/flex.bst
 - components/gnutls.bst
+- components/gzip.bst
+- components/opensbi.bst
+- components/python3-setuptools.bst
+- components/python3.bst
+- components/swig.bst
 
 environment:
   OPENSBI: /usr/share/opensbi/lp64/generic/firmware/fw_dynamic.bin
 
 variables:
-  notparallel: true
+  notparallel: True
   board: "none"
   (?):
   - target_arch == "riscv64":

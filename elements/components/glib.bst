@@ -14,10 +14,10 @@ description: |
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/_private/gobject-introspection-base.bst
 - components/_private/glib-stage1.bst
-- components/python3.bst
+- components/_private/gobject-introspection-base.bst
 - components/python3-gi-docgen.bst
+- components/python3.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

@@ -6,12 +6,12 @@ kind: pyproject
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
 
+depends:
+- components/python3.bst
+
 runtime-depends:
 - components/docbook-xsl.bst
 - components/libxslt.bst
-
-depends:
-- components/python3.bst
 
 sources:
 - kind: git_repo

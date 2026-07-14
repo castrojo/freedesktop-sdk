@@ -15,6 +15,12 @@ variables:
   conf-local: >-
     --enable-curses="-ltinfow -lncursesw"
 
+config:
+  install-commands:
+    (>):
+    - |
+      rm "%{install-root}%{infodir}/dir"
+
 public:
   bst:
     split-rules:
@@ -23,12 +29,6 @@ public:
         - '%{bindir}/pspell-config'
         - '%{libdir}/libaspell.so'
         - '%{libdir}/libpspell.so'
-
-config:
-  install-commands:
-    (>):
-    - |
-      rm "%{install-root}%{infodir}/dir"
 
 sources:
 - kind: git_repo

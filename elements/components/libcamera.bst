@@ -8,14 +8,14 @@ build-depends:
 
 depends:
 - components/glib.bst
-- components/gstreamer.bst
 - components/gstreamer-plugins-base.bst
-- components/libyaml.bst
+- components/gstreamer.bst
 - components/libevent.bst
-- components/systemd-libs.bst
+- components/libyaml.bst
 - components/python3-jinja2.bst
-- components/python3-pyyaml.bst
 - components/python3-ply.bst
+- components/python3-pyyaml.bst
+- components/systemd-libs.bst
 
 variables:
   pipelines: uvcvideo%{arch-pipelines}

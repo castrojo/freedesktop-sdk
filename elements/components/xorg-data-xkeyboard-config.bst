@@ -5,10 +5,10 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/xorg-util-macros.bst
 - components/libxslt.bst
-- components/python3.bst
 - components/perl.bst
+- components/python3.bst
+- components/xorg-util-macros.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

@@ -6,15 +6,15 @@ kind: meson
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - bootstrap/diffutils.bst
+- components/gobject-introspection.bst
+- components/gtk-doc.bst
 - components/python3-gi-docgen.bst
 - components/python3-setuptools.bst
-- components/gtk-doc.bst
-- components/gobject-introspection.bst
 
 depends:
-- components/libusb.bst
 - components/glib.bst
 - components/json-glib.bst
+- components/libusb.bst
 - components/vala.bst
 
 variables:

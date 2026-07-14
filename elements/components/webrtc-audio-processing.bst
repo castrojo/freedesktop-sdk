@@ -8,8 +8,8 @@ build-depends:
 - components/cmake.bst
 
 depends:
-- components/abseil-cpp.bst
 - public-stacks/runtime-minimal.bst
+- components/abseil-cpp.bst
 
 variables:
   arch-conf: ""

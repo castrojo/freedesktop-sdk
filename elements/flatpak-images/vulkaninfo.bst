@@ -6,13 +6,17 @@ kind: flatpak_image
 (@):
 - elements/extensions/include/app.yml
 
+build-depends:
+- extensions/vulkaninfo/appdata.bst
+- extensions/vulkaninfo/vulkan-tools.bst
+
 config:
   directory: "%{prefix}"
   exclude:
-    - debug
-    - devel
-    - tests
-    - shells
+  - debug
+  - devel
+  - tests
+  - shells
 
   metadata:
     Application:
@@ -25,7 +29,3 @@ config:
       shared: "ipc;"
       sockets: "x11;wayland;"
       devices: "dri;"
-
-build-depends:
-- extensions/vulkaninfo/vulkan-tools.bst
-- extensions/vulkaninfo/appdata.bst

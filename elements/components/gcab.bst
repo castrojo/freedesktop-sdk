@@ -12,15 +12,15 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/glib.bst
 
+variables:
+  meson-local: -Ddocs=false
+
 public:
   bst:
     split-rules:
       devel:
         (>):
         - '%{libdir}/libgcab-1.0.so'
-
-variables:
-  meson-local: -Ddocs=false
 
 sources:
 - kind: git_repo

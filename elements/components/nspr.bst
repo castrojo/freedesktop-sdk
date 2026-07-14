@@ -6,14 +6,14 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 
+depends:
+- public-stacks/runtime-minimal.bst
+
 (?):
 - target_arch == "loongarch64":
     build-depends:
       (>):
       - bootstrap/gnu-config.bst
-
-depends:
-- public-stacks/runtime-minimal.bst
 
 variables:
   arch-conf: ''
@@ -23,15 +23,6 @@ variables:
         --enable-64bit
   conf-local: '%{arch-conf}'
   make: make SH_DATE="$(date --date="@${SOURCE_DATE_EPOCH}" "+%Y-%m-%d %T")" SH_NOW="${SOURCE_DATE_EPOCH}"
-
-public:
-  bst:
-    split-rules:
-      devel:
-        (>):
-        - '%{bindir}/nspr-config'
-  cpe:
-    product: netscape_portable_runtime
 
 config:
   (?):
@@ -48,6 +39,15 @@ config:
 
     - |
       rm -f "%{install-root}%{bindir}/prerr.properties" "%{install-root}%{bindir}/compile-et.pl"
+
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{bindir}/nspr-config'
+  cpe:
+    product: netscape_portable_runtime
 
 sources:
 - kind: tar

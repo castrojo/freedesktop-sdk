@@ -9,8 +9,8 @@ build-depends:
 
 depends:
 - components/libffi.bst
-- components/python3.bst
 - components/python3-pycparser.bst
+- components/python3.bst
 
 sources:
 - kind: git_repo

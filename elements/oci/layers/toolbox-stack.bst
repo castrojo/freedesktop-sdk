@@ -4,10 +4,10 @@
 kind: stack
 
 depends:
-- oci/layers/sdk-stack.bst
-- components/sudo.bst
 - components/shadow.bst
+- components/sudo.bst
 - components/util-linux-full.bst
+- oci/layers/sdk-stack.bst
 
 public:
   bst:

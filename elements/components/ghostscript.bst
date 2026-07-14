@@ -7,16 +7,16 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 
 depends:
+- components/cups.bst
 - components/expat.bst
 - components/freetype.bst
-- components/libpaper.bst
-- components/libpng.bst
 - components/jpeg.bst
 - components/lcms.bst
+- components/libpaper.bst
+- components/libpng.bst
 - components/libtiff.bst
 - components/openjpeg.bst
 - components/xorg-lib-xt.bst
-- components/cups.bst
 
 variables:
   conf-local: >-

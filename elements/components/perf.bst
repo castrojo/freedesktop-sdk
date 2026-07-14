@@ -20,9 +20,9 @@ build-depends:
 - components/which.bst
 
 depends:
-- components/libunwind.bst
 - components/libcap.bst
 - components/libtraceevent.bst
+- components/libunwind.bst
 - components/perl.bst
 - components/slang.bst
 

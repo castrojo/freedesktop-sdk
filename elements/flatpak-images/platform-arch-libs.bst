@@ -3,6 +3,11 @@
 
 kind: flatpak_image
 
+build-depends:
+- integration/compat-gl-dir.bst
+- integration/compat-vaapi-dir.bst
+- platform-image.bst
+
 config:
   directory: '%{libdir}'
   exclude:
@@ -18,8 +23,3 @@ config:
 
     ExtensionOf:
       ref: runtime/org.freedesktop.Platform/%{flatpak_arch}/%{branch}
-
-build-depends:
-- platform-image.bst
-- integration/compat-gl-dir.bst
-- integration/compat-vaapi-dir.bst

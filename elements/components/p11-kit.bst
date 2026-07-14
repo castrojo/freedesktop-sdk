@@ -9,8 +9,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/libtasn1.bst
 - components/libffi.bst
+- components/libtasn1.bst
 
 variables:
   meson-local: >-

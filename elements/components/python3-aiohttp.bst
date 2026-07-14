@@ -5,19 +5,19 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
-- components/grep.bst
-- components/findutils.bst
 - components/cython.bst
+- components/findutils.bst
+- components/grep.bst
 - components/python3-pkgconfig.bst
 
 runtime-depends:
-- components/python3.bst
 - components/python3-aiohappyeyeballs.bst
 - components/python3-aiosignal.bst
 - components/python3-attrs.bst
 - components/python3-chardet.bst
 - components/python3-multidict.bst
 - components/python3-yarl.bst
+- components/python3.bst
 
 config:
   build-commands:

@@ -4,8 +4,8 @@
 kind: meson
 
 build-depends:
-- components/gobject-introspection.bst
 - public-stacks/buildsystem-meson.bst
+- components/gobject-introspection.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

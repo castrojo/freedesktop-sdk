@@ -3,6 +3,10 @@
 
 kind: flatpak_image
 
+build-depends:
+- integration/debug-gl-dir.bst
+- platform-image.bst
+
 config:
   directory: '%{debugdir}%{libdir}'
   include:
@@ -14,7 +18,3 @@ config:
 
     ExtensionOf:
       ref: runtime/org.freedesktop.Platform/%{flatpak_arch}/%{branch}
-
-build-depends:
-- platform-image.bst
-- integration/debug-gl-dir.bst

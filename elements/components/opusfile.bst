@@ -9,9 +9,9 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/opus.bst
 - components/libogg.bst
 - components/openssl.bst
+- components/opus.bst
 
 public:
   bst:

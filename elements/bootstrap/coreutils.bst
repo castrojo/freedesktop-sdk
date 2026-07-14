@@ -10,9 +10,9 @@ description: GNU coreutils
 
 build-depends:
 - bootstrap/base-sdk/texinfo.bst
-- bootstrap/build/gcc-stage2.bst
-- bootstrap/build/debug-utils.bst
 - bootstrap/build/coreutils-manpages.bst
+- bootstrap/build/debug-utils.bst
+- bootstrap/build/gcc-stage2.bst
 - bootstrap/gnu-config.bst
 - filename:
   - bootstrap/acl.bst

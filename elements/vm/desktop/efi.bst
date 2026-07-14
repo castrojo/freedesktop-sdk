@@ -5,23 +5,24 @@ kind: script
 
 build-depends:
 - components/fakecap.bst
-- vm/deploy-tools.bst
-- vm/desktop/initial-scripts.bst
-- vm/prepare-image.bst
 - filename: vm/boot/efi-plymouth.bst
   config:
     location: '/sysroot/efi'
+- vm/deploy-tools.bst
 - filename: vm/desktop/filesystem.bst
   config:
     location: '/sysroot'
 
-variables:
-  uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
-  build-root: /genimage
+- vm/desktop/initial-scripts.bst
+- vm/prepare-image.bst
 
 environment:
   LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
   FAKECAP_DB: /fakecap
+
+variables:
+  uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
+  build-root: /genimage
 
 config:
   commands:
@@ -70,4 +71,3 @@ config:
     EOF
 
   - genimage --config "%{build-root}/genimage.cfg" --rootpath /sysroot
-

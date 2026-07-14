@@ -7,15 +7,15 @@ build-depends:
 - components/_private/dbus-base.bst
 
 runtime-depends:
+- components/dbus-manifest.bst
 - components/expat.bst
 - components/systemd-libs.bst
-- components/dbus-manifest.bst
 
 config:
   include:
   - dbus-libs
   - dbus-license
-  include-orphans: false
+  include-orphans: False
 
 public:
   bst:

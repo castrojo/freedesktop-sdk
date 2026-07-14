@@ -4,11 +4,12 @@
 kind: script
 
 build-depends:
-- utils/check-static-libraries.bst
-- tests/check-static-libraries-config.bst
 - filename: sdk-image.bst
   config:
     location: /sysroot
+
+- tests/check-static-libraries-config.bst
+- utils/check-static-libraries.bst
 
 config:
   commands:

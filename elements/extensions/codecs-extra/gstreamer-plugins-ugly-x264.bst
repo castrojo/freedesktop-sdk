@@ -14,6 +14,11 @@ depends:
 environment:
   PKG_CONFIG_PATH: "%{libdir}/pkgconfig"
 
+variables:
+  meson-extra: >-
+    -Dgpl=enabled
+    -Dx264=enabled
+
 config:
   install-commands:
   - |
@@ -21,8 +26,3 @@ config:
     install -Dm0644 "ext/x264/GstX264Enc.prs" "%{install-root}%{prefix}/share/gstreamer-1.0/presets/GstX264Enc.prs"
   - |
     %{install-extra}
-
-variables:
-  meson-extra: >-
-    -Dgpl=enabled
-    -Dx264=enabled

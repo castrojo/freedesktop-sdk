@@ -9,8 +9,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/openssl.bst
 - components/fuse3.bst
+- components/openssl.bst
 
 config:
   install-commands:

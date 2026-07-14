@@ -3,13 +3,13 @@
 
 kind: stack
 
-(@): elements/include/cmake-stack-common.yml
-
 description: |
-    Private counterpart to public-stacks/buildsystem-cmake.bst. This
-    should be used to bootstrap cmake itself or to resolve cyclic
-    dependency chains when using final cmake or cmake stack is not
-    possible.
+  Private counterpart to public-stacks/buildsystem-cmake.bst. This
+  should be used to bootstrap cmake itself or to resolve cyclic
+  dependency chains when using final cmake or cmake stack is not
+  possible.
+
+(@): elements/include/cmake-stack-common.yml
 
 depends:
   (>):

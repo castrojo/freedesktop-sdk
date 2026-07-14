@@ -8,9 +8,9 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/wayland.bst
 - components/xorg-lib-x11.bst
 - components/xorg-lib-xrandr.bst
-- components/wayland.bst
 
 variables:
   cmake-local: >-

@@ -12,13 +12,13 @@ build-depends:
 - bootstrap/base-sdk/automake.bst
 - bootstrap/base-sdk/bison.bst
 - bootstrap/base-sdk/flex.bst
-- bootstrap/base-sdk/pkg-config.bst
 - bootstrap/base-sdk/gettext.bst
+- bootstrap/base-sdk/pkg-config.bst
 - bootstrap/base-sdk/texinfo.bst
-- bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
-- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
 - bootstrap/build/libgcc_s.bst
+- bootstrap/gnu-config.bst
 - filename:
   - bootstrap/glibc.bst
   - bootstrap/zlib-ng.bst
@@ -32,6 +32,10 @@ runtime-depends:
 - bootstrap/glibc.bst
 - bootstrap/zlib-ng.bst
 - bootstrap/zstd.bst
+
+environment:
+  LEXLIB: ' '
+  PKG_CONFIG_PATH: '%{sysroot}%{libdir}/pkgconfig'
 
 variables:
   # Disable '-fexceptions' which breaks build on arm.
@@ -76,10 +80,6 @@ config:
 
     - |
       rm "%{install-root}%{infodir}/dir"
-
-environment:
-  LEXLIB: ' '
-  PKG_CONFIG_PATH: '%{sysroot}%{libdir}/pkgconfig'
 
 public:
   bst:

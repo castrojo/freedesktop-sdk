@@ -5,10 +5,10 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- components/avahi-libs.bst
 - components/gzip.bst
 - components/openssl.bst
 - components/systemd.bst
-- components/avahi-libs.bst
 
 variables:
   license-files-extra: NOTICE

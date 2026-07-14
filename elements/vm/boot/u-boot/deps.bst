@@ -5,13 +5,13 @@ kind: stack
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/util-linux-full.bst
-- components/linux.bst
-- components/linux-firmware.bst
-- components/wireless-regdb-bin.bst
 - components/dbus.bst
 - components/dracut.bst
+- components/linux-firmware.bst
+- components/linux.bst
 - components/os-release.bst
+- components/pkg-config.bst
 - components/shadow.bst
 - components/tzdata.bst
-- components/pkg-config.bst
+- components/util-linux-full.bst
+- components/wireless-regdb-bin.bst

@@ -10,8 +10,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/xorg-lib-xcb.bst
 - components/xcb-util.bst
+- components/xorg-lib-xcb.bst
 
 variables:
   autogen: autoreconf -fvi

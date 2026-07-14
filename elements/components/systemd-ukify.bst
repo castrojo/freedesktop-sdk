@@ -7,8 +7,8 @@ build-depends:
 - components/_private/systemd-base.bst
 
 runtime-depends:
-- components/python3.bst
 - components/python3-pefile.bst
+- components/python3.bst
 - components/systemd-manifest.bst
 
 config:

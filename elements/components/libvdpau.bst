@@ -38,7 +38,7 @@ public:
       extra:
       - "%{libdir}/GL"
       - "%{libdir}/GL/**"
-      
+
 
 sources:
 - kind: git_repo

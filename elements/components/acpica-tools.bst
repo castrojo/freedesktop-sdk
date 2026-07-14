@@ -5,9 +5,9 @@ kind: make
 
 build-depends:
 - public-stacks/buildsystem-make.bst
-- components/m4.bst
 - components/bison.bst
 - components/flex.bst
+- components/m4.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

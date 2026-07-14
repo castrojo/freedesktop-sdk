@@ -5,34 +5,34 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/wayland-protocols.bst
-- extensions/mesa/libdrm.bst
-- components/xcb-util-cursor.bst
 - components/glslang.bst
 - components/vulkan-headers.bst
+- components/wayland-protocols.bst
+- components/xcb-util-cursor.bst
+- extensions/mesa/libdrm.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/libunwind.bst
-- components/linux-pam.bst
 - components/cairo.bst
+- components/dummy-gbm.bst
+- components/gstreamer-plugins-base.bst
+- components/gstreamer.bst
+- components/lcms.bst
+- components/libdisplay-info.bst
 - components/libdrm.bst
-- components/wayland.bst
+- components/libinput.bst
+- components/libseat.bst
+- components/libunwind.bst
+- components/libva.bst
+- components/libwebp.bst
+- components/linux-pam.bst
+- components/mtdev.bst
+- components/pipewire.bst
 - components/systemd-libs.bst
+- components/vulkan-icd-loader.bst
+- components/wayland.bst
 - components/xorg-lib-xcb.bst
 - components/xorg-lib-xcursor.bst
-- components/mtdev.bst
-- components/libdisplay-info.bst
-- components/libinput.bst
-- components/dummy-gbm.bst
-- components/libwebp.bst
-- components/libva.bst
-- components/libseat.bst
-- components/lcms.bst
-- components/gstreamer.bst
-- components/gstreamer-plugins-base.bst
-- components/pipewire.bst
-- components/vulkan-icd-loader.bst
 
 environment:
   # FIXME, extract the required headers from libdrm that are needed

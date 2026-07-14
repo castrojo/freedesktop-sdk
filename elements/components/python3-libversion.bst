@@ -8,8 +8,8 @@ build-depends:
 - components/pkg-config.bst
 
 depends:
-- components/python3.bst
 - components/libversion.bst
+- components/python3.bst
 
 sources:
 - kind: git_repo

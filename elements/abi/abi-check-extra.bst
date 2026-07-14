@@ -20,8 +20,8 @@ description: |
 
 build-depends:
 # Shipped by org.gnome.Platform
-- components/libapparmor.bst
 - components/appstream.bst
+- components/libapparmor.bst
 
 config:
   exclude:

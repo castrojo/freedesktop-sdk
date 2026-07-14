@@ -8,12 +8,13 @@ kind: make
 - elements/bootstrap/include/xxhash-source.yml
 
 build-depends:
-- bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
-- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
 - filename: bootstrap/glibc.bst
   config:
     location: "%{sysroot}"
+
+- bootstrap/gnu-config.bst
 
 runtime-depends:
 - bootstrap/glibc.bst
@@ -36,15 +37,15 @@ variables:
       arch-flags: >-
         -DXXH_X86DISPATCH_ALLOW_AVX
 
+config:
+  install-commands:
+    (>):
+    - |
+      find "%{install-root}" -name "lib*.a" -delete
+
 public:
   bst:
     split-rules:
       devel:
         (>):
         - '%{libdir}/libxxhash.so'
-
-config:
-  install-commands:
-    (>):
-    - |
-      find "%{install-root}" -name "lib*.a" -delete

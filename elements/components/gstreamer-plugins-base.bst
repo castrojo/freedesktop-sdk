@@ -14,24 +14,24 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/orc.bst
+- components/alsa-lib.bst
+- components/gdk-pixbuf.bst
 - components/graphene.bst
 - components/gstreamer.bst
+- components/gtk3.bst
+- components/iso-codes.bst
 - components/jpeg.bst
-- components/pango.bst
-- components/xorg-lib-xv.bst
 - components/libdrm.bst
 - components/libogg.bst
 - components/libpng.bst
 - components/libtheora.bst
 - components/libvorbis.bst
-- components/opus.bst
-- components/gdk-pixbuf.bst
-- components/gtk3.bst
 - components/mesa-headers.bst
-- components/iso-codes.bst
-- components/alsa-lib.bst
+- components/opus.bst
+- components/orc.bst
+- components/pango.bst
 - components/wayland.bst
+- components/xorg-lib-xv.bst
 
 variables:
   command-subdir: subprojects/gst-plugins-base
