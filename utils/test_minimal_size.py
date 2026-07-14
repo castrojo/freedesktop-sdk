@@ -49,17 +49,17 @@ def main():
             try:
                 size_bytes = int(dir_size.split()[0])
                 max_size_bytes = int(MAX_SIZE_EFI_VM)
-                if size_bytes <= max_size_bytes:
-                    print(f"FS size {size_bytes} B <= maximum size {max_size_bytes} B")
-                    print("Filesystem size test passed.")
-                    sys.exit(os.EX_OK)
-                else:
-                    print(f"FS size {size_bytes} B > maximum size {max_size_bytes} B")
-                    print(OVERSIZE_ERR_MSG)
-                    sys.exit(os.EX_DATAERR)
-
             except ValueError:
                 print("Error: file sizes not convertable to integers", file=sys.stderr)
+                sys.exit(os.EX_DATAERR)
+
+            if size_bytes <= max_size_bytes:
+                print(f"FS size {size_bytes} B <= maximum size {max_size_bytes} B")
+                print("Filesystem size test passed.")
+                sys.exit(os.EX_OK)
+            else:
+                print(f"FS size {size_bytes} B > maximum size {max_size_bytes} B")
+                print(OVERSIZE_ERR_MSG)
                 sys.exit(os.EX_DATAERR)
 
         else:
