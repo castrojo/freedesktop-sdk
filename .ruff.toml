@@ -22,13 +22,3 @@ split-on-trailing-comma = false
 line-ending = "lf"
 skip-magic-trailing-comma = true
 
-[lint.per-file-ignores]
-"utils/flatpak-builder-to-bst.py" = [
-  "PLR0133",
-  "UP022",
-  "TRY002",
-  "RET504",
-  "BLE001",
-  "PLR1704",
-  "SIM115",
-]

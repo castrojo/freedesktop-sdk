@@ -11,7 +11,6 @@ import json
 import os
 import shutil
 import subprocess
-import sys
 
 import gi
 import yaml
@@ -21,6 +20,11 @@ from gi.repository import (  # type: ignore[attr-defined] # noqa: E402, I001, RU
     GLib,
     Json,
 )
+
+
+class OurException(Exception):
+    """Raised when we fail."""
+
 
 output_dir = None
 generating_id = None
@@ -243,26 +247,19 @@ skipModules = {}
 
 
 def git_ls_remote(url, pattern):
-    try:
-        result = subprocess.run(
-            ["git", "ls-remote", url, pattern],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True,
-        )
+    result = subprocess.run(
+        ["git", "ls-remote", url, pattern], capture_output=True, text=True
+    )
 
-        if result.returncode != 0:
-            raise Exception(f"Error: {result.stderr}")
+    if result.returncode != 0:
+        raise OurException(f"Error: {result.stderr}")
 
-        lines = result.stdout.strip().split("\n")
-        if lines:
-            sha = lines[0].split()[0].split("\t")[0]
-            return sha
-        else:
-            raise Exception("Branch not found or invalid URL.")
-
-    except Exception as e:
-        return str(e)
+    lines = result.stdout.strip().split("\n")
+    if lines:
+        sha = lines[0].split()[0].split("\t")[0]
+        return sha
+    else:
+        raise OurException("Branch not found or invalid URL.")
 
 
 def path_to_dict(path):
@@ -277,7 +274,7 @@ def path_to_dict(path):
         with open(path, "r", encoding="utf-8") as inputFile:
             return yaml.safe_load(inputFile)
     else:
-        raise Exception("Unknown format in", path)
+        raise OurException("Unknown format in", path)
 
 
 def process_modules(flatpak_data):
@@ -414,8 +411,8 @@ def generate_runtime_data(flatpak_data, name):
             env = arg.split("=")
             runtime_data["config"]["metadata"]["Environment"][env[1]] = env[2]
 
-    for name, extension in flatpak_data["add-extensions"].items():
-        runtime_data["config"]["metadata"][f"Extension {name}"] = extension
+    for extension_name, extension in flatpak_data["add-extensions"].items():
+        runtime_data["config"]["metadata"][f"Extension {extension_name}"] = extension
     return runtime_data
 
 
@@ -459,25 +456,18 @@ def generate_runtime(flatpak_data, output_dir):
 
 
 def flatpak_ref(ref):
-    try:
-        result = subprocess.run(
-            ["flatpak", "info", "-c", ref],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True,
-        )
+    result = subprocess.run(
+        ["flatpak", "info", "-c", ref], capture_output=True, text=True
+    )
 
-        if result.returncode != 0:
-            raise Exception(f"Error: {result.stderr}")
+    if result.returncode != 0:
+        raise OurException(f"Error: {result.stderr}")
 
-        lines = result.stdout.strip().split("\n")
-        if lines:
-            return lines[0]
-        else:
-            raise Exception("Branch not found or invalid URL.")
-
-    except Exception as e:
-        return str(e)
+    lines = result.stdout.strip().split("\n")
+    if lines:
+        return lines[0]
+    else:
+        raise OurException("Branch not found or invalid URL.")
 
 
 def generate_runtime_dependency(data, output_dir):
@@ -675,65 +665,57 @@ if __name__ == "__main__":
     args = parser.parse_args()
     flatpak_manifest_path = args.file
     if args.aliases:
-        data = yaml.safe_load(open(args.aliases, "r", encoding="utf-8"))
+        with open(args.aliases, "r", encoding="utf-8") as inputFile:
+            aliasesData = yaml.safe_load(inputFile)
 
-        if isinstance(data, dict):
-            if "aliases" in data and isinstance(data["aliases"], dict):
-                aliases = data["aliases"]
+        if isinstance(aliasesData, dict):
+            if "aliases" in aliasesData and isinstance(aliasesData["aliases"], dict):
+                aliases = aliasesData["aliases"]
             else:
-                aliases = data
+                aliases = aliasesData
 
     if args.skip:
-        skipModules = yaml.safe_load(open(args.skip, "r", encoding="utf-8"))
-    try:
-        with open(flatpak_manifest_path, "r", encoding="utf-8") as inputFile:
-            try:
-                data = path_to_dict(flatpak_manifest_path)
-            except Exception as e:
-                print("Error parsing", flatpak_manifest_path, e)
-                sys.exit(1)
+        with open(args.skip, "r", encoding="utf-8") as inputFile:
+            skipModules = yaml.safe_load(inputFile)
+    data = path_to_dict(flatpak_manifest_path)
+    generating_id = data.get("id") or data.get("app-id")
+    filename = os.path.join("elements", generating_id + ".bst")
+    output_dir = os.path.join("elements", generating_id)
+    sdk = resolve_sdk(data["sdk"])
+    runtime = resolve_platform(data["runtime"])
+    generate_bst(filename, data)
+    generate_cleanup_platform_split_rules(data, generating_id)
+    if "base" in data:
+        print("Bringing base apps is not yet supported")
+    if "add-build-extensions" in data:
+        print("Bringing build extensions is not yet supported")
+    if "sdk-extensions" in data:
+        print("Bringing SDK extensions is not yet supported")
 
-            generating_id = data.get("id") or data.get("app-id")
-            filename = os.path.join("elements", generating_id + ".bst")
-            output_dir = os.path.join("elements", generating_id)
-            sdk = resolve_sdk(data["sdk"])
-            runtime = resolve_platform(data["runtime"])
-            generate_bst(filename, data)
-            generate_cleanup_platform_split_rules(data, generating_id)
-            if "base" in data:
-                print("Bringing base apps is not yet supported")
-            if "add-build-extensions" in data:
-                print("Bringing build extensions is not yet supported")
-            if "sdk-extensions" in data:
-                print("Bringing SDK extensions is not yet supported")
-
-            if data.get("build-runtime", False):
-                generate_runtime(data, output_dir + "/flatpak-images/")
-                with open(
-                    os.path.join("elements", data["id-platform"] + ".bst"),
-                    "w",
-                    encoding="utf-8",
-                ) as f:
-                    f.write(f"# File generated by {os.path.basename(__file__)}\n\n")
-                    platform_data = {
-                        "kind": "stack",
-                        "description": f"Runtime representation of {runtime}",
-                        "depends": [runtime] + previously_built_modules,
-                    }
-                    yaml.dump(
-                        platform_data,
-                        f,
-                        default_flow_style=False,
-                        sort_keys=False,
-                        allow_unicode=True,
-                    )
-            elif data.get("build-extension", False):
-                print("Building extensions is not yet supported")
-            elif ":" not in sdk:
-                # only pull the runtime from flathub if we're not building it here already
-                if not os.path.exists(os.path.join("elements", sdk)):
-                    generate_runtime_dependency(data, "elements")
-                generate_app(data, generating_id)
-
-    except FileNotFoundError as e:
-        print(e)
+    if data.get("build-runtime", False):
+        generate_runtime(data, output_dir + "/flatpak-images/")
+        with open(
+            os.path.join("elements", data["id-platform"] + ".bst"),
+            "w",
+            encoding="utf-8",
+        ) as f:
+            f.write(f"# File generated by {os.path.basename(__file__)}\n\n")
+            platform_data = {
+                "kind": "stack",
+                "description": f"Runtime representation of {runtime}",
+                "depends": [runtime] + previously_built_modules,
+            }
+            yaml.dump(
+                platform_data,
+                f,
+                default_flow_style=False,
+                sort_keys=False,
+                allow_unicode=True,
+            )
+    elif data.get("build-extension", False):
+        print("Building extensions is not yet supported")
+    elif ":" not in sdk:
+        # only pull the runtime from flathub if we're not building it here already
+        if not os.path.exists(os.path.join("elements", sdk)):
+            generate_runtime_dependency(data, "elements")
+        generate_app(data, generating_id)
