@@ -45,4 +45,4 @@ sources:
   track: libsepol-*
   exclude:
   - '*rc*'
-  ref: libsepol-3.10-0-gca10fc4204ed60540d41d2499127c18ad0643f9e
+  ref: libsepol-3.11-0-g2233a23a4d4f1bf29054037babec13f30d038e65
