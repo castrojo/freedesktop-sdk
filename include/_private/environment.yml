@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 # Environment variables for the build
 LC_ALL: en_US.UTF-8
 PYTHON: "/usr/bin/python3"

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 kind: cmake
 description: Tool to record execution of a program and later replay it in a debugger.
 

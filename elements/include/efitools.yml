@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 build-depends:
 - public-stacks/buildsystem-make.bst
 - components/_private/gnu-efi.bst

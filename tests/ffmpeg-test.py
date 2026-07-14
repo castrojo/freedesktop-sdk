@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 import configparser
 import glob
 import os

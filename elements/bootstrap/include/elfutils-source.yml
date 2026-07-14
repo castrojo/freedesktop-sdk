@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 sources:
 - kind: tar
   url: sourceware_pub:elfutils/0.195/elfutils-0.195.tar.bz2

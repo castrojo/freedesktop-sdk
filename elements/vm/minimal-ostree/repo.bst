@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 kind: script
 description: |
   Prepare the filesystem tree and convert it to an OSTree commit.

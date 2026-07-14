@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 all:
 	install -m 0755 -d $(INSTALL_ROOT)/usr/share/fonts/$(NAME)
 	install -p -m 644 $(TTFDIR)*.ttf  $(INSTALL_ROOT)/usr/share/fonts/$(NAME)

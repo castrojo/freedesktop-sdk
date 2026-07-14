@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 kind: collect_initial_scripts
 description: |
   Collects any `initial-script` public data set by elements in `deps.bst`.

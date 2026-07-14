@@ -1,4 +1,8 @@
 #!/usr/bin/python3 -u
+
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 __license__ = "MIT"
 import os
 import re

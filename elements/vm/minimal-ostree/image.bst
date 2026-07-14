@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 kind: script
 description: |
   Construct a bootable disk image from the minimal-ostree system's OSTree repo.

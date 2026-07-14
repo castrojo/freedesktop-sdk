@@ -1,5 +1,8 @@
 #!/usr/bin/python3 -u
 
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 # Copyright (c) 2018 - Mathieu Bridon <bochecha@daitauha.fr>
 #
 # This program is free software: you can redistribute it and/or modify

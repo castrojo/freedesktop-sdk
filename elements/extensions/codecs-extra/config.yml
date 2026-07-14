@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 variables:
   prefix: '/usr/lib/%{gcc_triplet}/codecs-extra'
   libdir: '%{prefix}/lib'

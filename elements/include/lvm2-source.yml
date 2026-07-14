@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 variables:
   # Uses generated header cmds.h into source directory
   build-dir: ''

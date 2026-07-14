@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 kind: manual
 description: Creates a debug directory, links the debug data of /app to a subdirectory
   of it

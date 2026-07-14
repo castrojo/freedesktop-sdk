@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 import argparse
 import hashlib
 import logging

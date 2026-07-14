@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 # Copyright (C) 2026 Codethink Limited
 #
 # This program is free software; you can redistribute it and/or modify
@@ -45,17 +49,17 @@ def main():
             try:
                 size_bytes = int(dir_size.split()[0])
                 max_size_bytes = int(MAX_SIZE_EFI_VM)
-                if size_bytes <= max_size_bytes:
-                    print(f"FS size {size_bytes} B <= maximum size {max_size_bytes} B")
-                    print("Filesystem size test passed.")
-                    sys.exit(os.EX_OK)
-                else:
-                    print(f"FS size {size_bytes} B > maximum size {max_size_bytes} B")
-                    print(OVERSIZE_ERR_MSG)
-                    sys.exit(os.EX_DATAERR)
-
             except ValueError:
                 print("Error: file sizes not convertable to integers", file=sys.stderr)
+                sys.exit(os.EX_DATAERR)
+
+            if size_bytes <= max_size_bytes:
+                print(f"FS size {size_bytes} B <= maximum size {max_size_bytes} B")
+                print("Filesystem size test passed.")
+                sys.exit(os.EX_OK)
+            else:
+                print(f"FS size {size_bytes} B > maximum size {max_size_bytes} B")
+                print(OVERSIZE_ERR_MSG)
                 sys.exit(os.EX_DATAERR)
 
         else:

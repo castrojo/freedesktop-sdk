@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 # This file should be included by element that should reside in
 # Flatpak applications.
 # It sets /app as the prefix

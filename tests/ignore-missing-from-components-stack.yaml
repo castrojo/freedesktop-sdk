@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 # riscv64 only
 - opensbi-u-boot.bst
 # efitools pulls gnu-efi which doesn't build in ppc64le we build

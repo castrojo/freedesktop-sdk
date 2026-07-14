@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 sources:
 - kind: tar
   url: ftp_gnu_org:m4/m4-1.4.21.tar.xz

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 variables:
   prefix: '/usr/lib/sdk/toolchain-%{cross_gcc_arch}'
   debugdir: /usr/lib/debug

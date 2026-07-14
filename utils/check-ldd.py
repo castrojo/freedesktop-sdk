@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 import argparse
 import fnmatch
 import glob
@@ -98,36 +101,34 @@ def check_elf_file(file: str, libdir: str) -> tuple[str, dict | None]:
     file_basename = os.path.basename(file)
     file_result = {}
 
+    check_symbols = should_check_symbols(file, libdir)
     try:
-        check_symbols = should_check_symbols(file, libdir)
         ldd_cmd = ["ldd", "-r", file] if check_symbols else ["ldd", file]
-
         output = subprocess.run(ldd_cmd, capture_output=True, text=True)
-
-        if "not a dynamic executable" in output.stderr.strip():
-            return (file_basename, None)
-
-        missing = {
-            line.split("=>")[0].strip()
-            for line in output.stdout.splitlines()
-            if "not found" in line
-        }
-        if missing:
-            file_result["missing_libs"] = list(missing)
-
-        if check_symbols:
-            undefined_syms = parse_undefined_symbols(output.stdout)
-            undefined_syms.extend(parse_undefined_symbols(output.stderr))
-
-            if undefined_syms:
-                file_result["undefined_symbols"] = list(set(undefined_syms))
-
     except subprocess.CalledProcessError as err:
         raise RuntimeError(
             f"Error processing {file_basename}: {err.stderr.strip()}"
         ) from err
-    else:
-        return (file_basename, file_result if file_result else None)
+
+    if "not a dynamic executable" in output.stderr.strip():
+        return (file_basename, None)
+
+    missing = {
+        line.split("=>")[0].strip()
+        for line in output.stdout.splitlines()
+        if "not found" in line
+    }
+    if missing:
+        file_result["missing_libs"] = list(missing)
+
+    if check_symbols:
+        undefined_syms = parse_undefined_symbols(output.stdout)
+        undefined_syms.extend(parse_undefined_symbols(output.stderr))
+
+        if undefined_syms:
+            file_result["undefined_symbols"] = list(set(undefined_syms))
+
+    return (file_basename, file_result if file_result else None)
 
 
 def find_missing_libs(root: str, libdir: str) -> dict[str, dict[str, list[str] | bool]]:

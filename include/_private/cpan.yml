@@ -1,2 +1,5 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 config:
   index: "cpan:"

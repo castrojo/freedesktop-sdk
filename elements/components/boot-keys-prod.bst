@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
 # Production boot keys, pass -o prod_keys true to use after
 # generating
 kind: import
