@@ -490,17 +490,40 @@ publish_flatpak:
       start_in: 1 minute
   interruptible: false
 
-weekly_spdx_sbom_report:
+spdx_sbom_report:
   stage: finish-publish
-  timeout: 120 minutes
+  variables:
+    SBOM_TAG: standard
+    PACKAGE_VERSION: "$CI_COMMIT_SHA"
+    # Sub the / in branch names to prevent the glab url from breaking
+    PACKAGE_NAME: "sbom-reports-${CI_COMMIT_BRANCH//\//-}"
   script:
     - make generate-spdx-sbom-reports
-  variables:
-    # Enable building the SBOM with licenses
-    SPDX_SBOM_WITH_LICENSE: "true"
+    - |
+      for SBOM_FILE in ${CI_PROJECT_DIR}/sbom-reports/*; do
+        UPLOAD_NAME="$(basename "$SBOM_FILE" .spdx.json)_${ARCH}_${SBOM_TAG}.spdx.json"
+        curl \
+        --fail-with-body \
+        --header "JOB-TOKEN: ${CI_JOB_TOKEN}" \
+        --upload-file "$SBOM_FILE" \
+        "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${PACKAGE_VERSION}/${UPLOAD_NAME}";
+        echo "Uploaded ${UPLOAD_NAME} to Package ${PACKAGE_NAME}"
+      done
   artifacts:
     paths:
       - "${CI_PROJECT_DIR}/sbom-reports"
+  rules:
+    - if: '$CI_COMMIT_REF_PROTECTED == "true"'
+  needs: []
+
+weekly_spdx_sbom_report:
+  stage: finish-publish
+  timeout: 120 minutes
+  extends: spdx_sbom_report
+  variables:
+    # Enable building the SBOM with licenses
+    SPDX_SBOM_WITH_LICENSE: "true"
+    SBOM_TAG: license
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
   needs: []
