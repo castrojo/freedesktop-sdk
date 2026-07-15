@@ -7,8 +7,8 @@ build-depends:
 - components/_private/apparmor-base.bst
 
 runtime-depends:
-- components/apparmor-manifest.bst
 - public-stacks/runtime-minimal.bst
+- components/apparmor-manifest.bst
 
 config:
   include:

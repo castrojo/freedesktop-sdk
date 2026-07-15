@@ -3,13 +3,13 @@
 
 kind: manual
 
+build-depends:
+- components/gcc.bst
+- components/rust.bst
+- components/stripper.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
-
-build-depends:
-- components/rust.bst
-- components/gcc.bst
-- components/stripper.bst
 
 config:
   build-commands:

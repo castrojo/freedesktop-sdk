@@ -10,12 +10,12 @@ description: |
 build-depends:
 - public-stacks/buildsystem-make.bst
 - public-stacks/runtime-minimal.bst
+- components/_private/u-boot-qemu.bst
 - components/dtc.bst
 - components/python3.bst
-- components/_private/u-boot-qemu.bst
 
 variables:
-  notparallel: true
+  notparallel: True
   make-args: >-
     FW_TEXT_START=0x80000000
     FW_PAYLOAD_PATH="/usr/share/u-boot/qemu-riscv64_smode/u-boot.bin"

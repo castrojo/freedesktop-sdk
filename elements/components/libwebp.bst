@@ -8,9 +8,9 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/libpng.bst
-- components/jpeg.bst
 - components/giflib.bst
+- components/jpeg.bst
+- components/libpng.bst
 
 variables:
   conf-local: |

@@ -8,15 +8,16 @@ kind: autotools
 - elements/bootstrap/include/libxcrypt-source.yml
 
 build-depends:
-- bootstrap/build/gcc-stage1.bst
-- bootstrap/build/debug-utils.bst
 - bootstrap/base-sdk/autoconf.bst
 - bootstrap/base-sdk/automake.bst
 - bootstrap/base-sdk/libtool.bst
-- bootstrap/gnu-config.bst
+- bootstrap/build/debug-utils.bst
+- bootstrap/build/gcc-stage1.bst
 - filename: bootstrap/glibc.bst
   config:
     location: "%{sysroot}"
+
+- bootstrap/gnu-config.bst
 
 runtime-depends:
 - bootstrap/glibc.bst

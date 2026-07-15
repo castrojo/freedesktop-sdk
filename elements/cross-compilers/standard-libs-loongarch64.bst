@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: MIT
 
 kind: filter
+
 build-depends:
 - cross-compilers/standard-libs-loongarch64-compose.bst
 

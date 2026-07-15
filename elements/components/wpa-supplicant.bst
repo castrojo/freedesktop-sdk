@@ -3,14 +3,14 @@
 
 kind: make
 
-depends:
-- components/dbus.bst
-- components/libnl.bst
-
 build-depends:
 - public-stacks/buildsystem-make.bst
 - components/pkg-config.bst
 - components/systemd.bst
+
+depends:
+- components/dbus.bst
+- components/libnl.bst
 
 variables:
   license-files-extra: README
@@ -43,7 +43,7 @@ config:
       systemservices="$(pkg-config --variable system_bus_services_dir dbus-1)"
       systemdir="$(pkg-config --variable datadir dbus-1)/dbus-1/system.d"
       systemdsystemunitdir="$(pkg-config --variable systemdsystemunitdir systemd)"
-      
+
       install -Dm644 -t "%{install-root}${systemservices}" dbus/fi.w1.wpa_supplicant1.service
       install -Dm644 dbus/dbus-wpa_supplicant.conf "%{install-root}${systemdir}/wpa_supplicant.conf"
       install -Dm644 -t "%{install-root}${systemdsystemunitdir}" systemd/*.service

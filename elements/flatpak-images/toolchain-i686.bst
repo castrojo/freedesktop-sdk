@@ -7,8 +7,8 @@ kind: flatpak_image
 - elements/cross-compilers/i686-vars.yml
 
 build-depends:
-- cross-compilers/gcc-i686.bst
 - cross-compilers/binutils-i686.bst
+- cross-compilers/gcc-i686.bst
 
 config:
   directory: '%{prefix}'

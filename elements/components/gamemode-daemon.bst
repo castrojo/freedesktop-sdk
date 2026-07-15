@@ -8,15 +8,15 @@ build-depends:
 
 runtime-depends:
 - public-stacks/runtime-minimal.bst
+- components/dbus.bst
 - components/gamemode-manifest.bst
 - components/libgamemode.bst
-- components/dbus.bst
 - components/systemd-libs.bst
 
 config:
   exclude:
   - libgamemode
-  include-orphans: true
+  include-orphans: True
 
 public:
   bst:

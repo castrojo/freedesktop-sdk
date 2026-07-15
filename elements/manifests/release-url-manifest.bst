@@ -4,11 +4,11 @@
 kind: collect_manifest
 
 build-depends:
-  - flatpak-release-repo.bst
-  - oci/layers/flatpak.bst
-  - oci/layers/debug.bst
-  - oci/layers/platform.bst
-  - oci/layers/sdk.bst
+- flatpak-release-repo.bst
+- oci/layers/debug.bst
+- oci/layers/flatpak.bst
+- oci/layers/platform.bst
+- oci/layers/sdk.bst
 
 config:
   path: "/usr/manifest.json"

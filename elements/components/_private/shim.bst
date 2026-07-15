@@ -11,8 +11,8 @@ description: |
 build-depends:
 - public-stacks/buildsystem-make.bst
 - components/_private/git-minimal.bst
-- components/openssl.bst
 - components/_private/sbsigntools.bst
+- components/openssl.bst
 
 (?):
 - not prod_keys:
@@ -37,7 +37,7 @@ variables:
   - target_arch == 'riscv64':
       efi-arch: riscv64
 
-  notparallel: true
+  notparallel: True
 
   make-args: >-
     DEFAULT_LOADER='\\EFI\\systemd\\systemd-boot%{efi-arch}.efi'

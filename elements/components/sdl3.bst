@@ -11,10 +11,10 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/libsamplerate.bst
 - components/libdbus.bst
 - components/libdecor.bst
 - components/libpulse.bst
+- components/libsamplerate.bst
 - components/libxkbcommon.bst
 - components/mesa-headers.bst
 - components/wayland.bst

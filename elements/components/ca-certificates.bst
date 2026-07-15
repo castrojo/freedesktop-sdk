@@ -4,6 +4,19 @@
 kind: manual
 description: Fedora CA certificates
 
+build-depends:
+- bootstrap/findutils.bst
+- bootstrap/gawk.bst
+- bootstrap/grep.bst
+- bootstrap/sed.bst
+- components/asciidoc.bst
+- components/docbook-xsl.bst
+- components/libxslt.bst
+- components/python3.bst
+
+depends:
+- components/p11-kit.bst
+
 variables:
   p11_format_bundle: ca-bundle.trust.p11-kit
   classic_tls_bundle: ca-bundle.crt
@@ -16,19 +29,6 @@ variables:
   usr-store: "%{pkidir}/ca-trust-store"
   manpage-xsl: "%{datadir}/xml/docbook/xml/xsl-stylesheets/manpages/docbook.xsl"
   strip-binaries: ''
-
-build-depends:
-- bootstrap/findutils.bst
-- bootstrap/gawk.bst
-- bootstrap/grep.bst
-- bootstrap/sed.bst
-- components/asciidoc.bst
-- components/python3.bst
-- components/docbook-xsl.bst
-- components/libxslt.bst
-
-depends:
-- components/p11-kit.bst
 
 config:
   build-commands:

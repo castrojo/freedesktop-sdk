@@ -4,8 +4,8 @@
 kind: manual
 
 build-depends:
-- components/go.bst
 - components/gcc.bst
+- components/go.bst
 - components/stripper.bst
 
 depends:

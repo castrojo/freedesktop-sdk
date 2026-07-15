@@ -7,8 +7,8 @@ build-depends:
 - components/_private/lvm2-base.bst
 
 runtime-depends:
-- components/systemd-libs.bst
 - public-stacks/runtime-minimal.bst
+- components/systemd-libs.bst
 
 config:
   include:
@@ -19,5 +19,4 @@ public:
   bst:
     split-rules:
       devel:
-        - '%{libdir}/libdevmapper.so'
-
+      - '%{libdir}/libdevmapper.so'

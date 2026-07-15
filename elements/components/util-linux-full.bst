@@ -12,14 +12,14 @@ build-depends:
 - components/_private/util-linux-base.bst
 
 runtime-depends:
-- components/util-linux.bst
-- components/util-linux-libfdisk.bst
 - components/libcap-ng.bst
+- components/util-linux-libfdisk.bst
+- components/util-linux.bst
 
 config:
   include:
   - vm-tools
-  include-orphans: false
+  include-orphans: False
 
 public:
   initial-script:

@@ -9,17 +9,17 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/_private/git-minimal.bst
-- components/gobject-introspection.bst
 - components/bison.bst
+- components/gobject-introspection.bst
 
 depends:
 - components/curl.bst
-- components/glib.bst
-- components/gpgme.bst
 - components/e2fsprogs.bst
 - components/fuse3.bst
-- components/libarchive.bst
+- components/glib.bst
 - components/gnupg.bst
+- components/gpgme.bst
+- components/libarchive.bst
 
 variables:
   conf-local: >-

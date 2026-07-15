@@ -8,8 +8,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/python3.bst
 - components/libxslt.bst
+- components/python3.bst
 
 variables:
   conf-local: PYTHON="/usr/bin/python3"

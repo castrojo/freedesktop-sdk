@@ -10,9 +10,9 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/zstd.bst
-- components/zlib.bst
 - components/python3.bst
+- components/zlib.bst
+- components/zstd.bst
 
 variables:
   cmake-local: >-
@@ -22,10 +22,10 @@ variables:
 config:
   install-commands:
     (>):
-      - |
-        mkdir -p %{install-root}%{indep-libdir}/rr
-        mv %{install-root}%{libdir}/rr/librr*so %{install-root}%{indep-libdir}/rr/
-        rmdir -v %{install-root}%{libdir}/rr %{install-root}%{libdir}
+    - |
+      mkdir -p %{install-root}%{indep-libdir}/rr
+      mv %{install-root}%{libdir}/rr/librr*so %{install-root}%{indep-libdir}/rr/
+      rmdir -v %{install-root}%{libdir}/rr %{install-root}%{libdir}
 
 sources:
 - kind: git_repo

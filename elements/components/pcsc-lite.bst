@@ -5,9 +5,9 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/systemd.bst
 - components/flex.bst
 - components/perl.bst
+- components/systemd.bst
 
 depends:
 - components/polkit-gobject.bst

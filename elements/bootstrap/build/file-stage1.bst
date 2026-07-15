@@ -15,4 +15,4 @@ build-depends:
 config:
   configure-commands:
     (<):
-      - autoreconf -ivf
+    - autoreconf -ivf

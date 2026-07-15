@@ -4,11 +4,12 @@
 kind: script
 
 build-depends:
-- utils/check-debug-crc.bst
-- tests/check-debug-config.bst
 - filename: sdk-image.bst
   config:
     location: /sysroot
+
+- tests/check-debug-config.bst
+- utils/check-debug-crc.bst
 
 config:
   commands:

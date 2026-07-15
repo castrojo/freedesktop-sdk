@@ -44,6 +44,41 @@ BST=bst $(ARCH_OPTS)
 BST_SBOM?=buildstream-sbom
 QEMU=qemu-system-$(QEMU_ARCH)
 
+dev:
+	@if command -v prek >/dev/null 2>&1; then \
+		hook_tool=prek; \
+	elif command -v pre-commit >/dev/null 2>&1; then \
+		hook_tool=pre-commit; \
+	else \
+		echo "Install prek or pre-commit, then run 'make dev' again."; \
+		echo "  python3 -m pip install prek"; \
+		echo "  prek: https://prek.j178.dev/"; \
+		echo "  python3 -m pip install pre-commit"; \
+		echo "  pre-commit: https://pre-commit.com/"; \
+		exit 1; \
+	fi; \
+	if ! command -v ruff >/dev/null 2>&1; then \
+		echo "Install ruff, then run 'make dev' again."; \
+		exit 1; \
+	fi; \
+	if ! command -v bash >/dev/null 2>&1; then \
+		echo "Install bash, then run 'make dev' again."; \
+		exit 1; \
+	fi; \
+	if ! python3 -c "import ruamel.yaml" >/dev/null 2>&1; then \
+		echo "Install ruamel.yaml, then run 'make dev' again."; \
+		echo "  python3 -m pip install ruamel.yaml"; \
+		echo "  ruamel.yaml: https://pypi.org/project/ruamel.yaml/"; \
+		exit 1; \
+	fi; \
+	if ! command -v bst >/dev/null 2>&1; then \
+		echo "Install BuildStream, then run 'make dev' again."; \
+		echo "  python3 -m pip install BuildStream"; \
+		echo "  BuildStream: https://buildstream.build/install.html"; \
+		exit 1; \
+	fi; \
+	$$hook_tool install
+
 all: build
 
 build:
@@ -586,7 +621,7 @@ secure-images-serve: secure-images/SHA256SUMS
 
 .PHONY:									\
 	build check-dev-files clean clean-oci clean-test clean-repo clean-runtime	\
-	export test-apps manifest markdown-manifest check-rpath		\
+	dev export test-apps manifest markdown-manifest check-rpath	\
 	build-tar export-tar clean-vm build-vm run-vm export-snap	\
 	export-oci bootstrap test-codecs test-ldd test-oci	 \
 	clean-efi-vm build-efi-vm run-efi-vm				\

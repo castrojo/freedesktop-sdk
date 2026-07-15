@@ -8,6 +8,15 @@ description: |
   and we define the domains for docs and locale. We also include
   a manifest.json containing version/source information.
 
+build-depends:
+- components/nsswitch-config.bst
+- components/python3-sitecustomize.bst
+- integration/split-docs.bst
+- integration/split-locales.bst
+- manifests/platform-manifest.bst
+- multiarch/multiarch-platform.bst
+- platform.bst
+
 config:
   exclude:
   - devel
@@ -27,12 +36,3 @@ public:
       - '%{datadir}/runtime/locale/**'
       source:
       - '%{sourcedir}/**'
-
-build-depends:
-- platform.bst
-- components/nsswitch-config.bst
-- components/python3-sitecustomize.bst
-- multiarch/multiarch-platform.bst
-- integration/split-locales.bst
-- integration/split-docs.bst
-- manifests/platform-manifest.bst

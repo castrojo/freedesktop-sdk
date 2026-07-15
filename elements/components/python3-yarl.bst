@@ -8,10 +8,10 @@ build-depends:
 - components/python3-expandvars.bst
 
 runtime-depends:
-- components/python3.bst
 - components/python3-idna.bst
 - components/python3-multidict.bst
 - components/python3-propcache.bst
+- components/python3.bst
 
 environment:
   YARL_NO_EXTENSIONS: '1'

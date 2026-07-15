@@ -4,17 +4,18 @@
 kind: script
 
 build-depends:
-- filename: vm/minimal-secure/usr-image.bst
-  config:
-    location: /usr-image
+- public-stacks/runtime-minimal.bst
+- components/xz.bst
 - filename: vm/minimal-secure/signed-boot.bst
   config:
     location: /signed-boot
-- public-stacks/runtime-minimal.bst
-- components/xz.bst
+- filename: vm/minimal-secure/usr-image.bst
+  config:
+    location: /usr-image
 
 environment:
   XZFLAGS: '-T%{max-jobs}'
+
 environment-nocache:
 - XZFLAGS
 

@@ -20,4 +20,3 @@ sources:
   url: freedesktop:vdpau/vdpauinfo.git
   track: "*.*"
   ref: 1.5-0-gd3c5bd63bf8878d59b22d618d2bb5116db392d28
-

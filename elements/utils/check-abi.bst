@@ -8,9 +8,9 @@ build-depends:
 
 runtime-depends:
 - components/file.bst
-- components/python3.bst
-- components/python3-pyelftools.bst
 - components/libabigail.bst
+- components/python3-pyelftools.bst
+- components/python3.bst
 
 variables:
   strip-binaries: ''

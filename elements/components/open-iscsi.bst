@@ -9,8 +9,8 @@ build-depends:
 - components/systemd.bst
 
 depends:
-- components/open-isns.bst
 - components/kmod.bst
+- components/open-isns.bst
 - components/systemd-libs.bst
 
 environment:

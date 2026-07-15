@@ -5,10 +5,10 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/libxslt.bst
-- components/docbook-xsl.bst
 - components/bison.bst
+- components/docbook-xsl.bst
 - components/itstool.bst
+- components/libxslt.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

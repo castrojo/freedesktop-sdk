@@ -3,14 +3,14 @@
 
 kind: meson
 
-depends:
-- components/audit.bst
-- components/libeconf.bst
-- public-stacks/runtime-minimal.bst
-
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/flex.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
+- components/audit.bst
+- components/libeconf.bst
 
 variables:
   meson-local: >-

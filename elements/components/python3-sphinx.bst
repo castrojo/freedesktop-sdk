@@ -7,7 +7,6 @@ build-depends:
 - public-stacks/buildsystem-python-flit.bst
 
 depends:
-- components/python3.bst
 - components/python3-alabaster.bst
 - components/python3-babel.bst
 - components/python3-docutils.bst
@@ -16,6 +15,7 @@ depends:
 - components/python3-packaging.bst
 - components/python3-pygments.bst
 - components/python3-requests.bst
+- components/python3-roman-numerals.bst
 - components/python3-setuptools.bst
 - components/python3-snowballstemmer.bst
 - components/python3-sphinxcontrib-applehelp.bst
@@ -24,7 +24,7 @@ depends:
 - components/python3-sphinxcontrib-jsmath.bst
 - components/python3-sphinxcontrib-qthelp.bst
 - components/python3-sphinxcontrib-serializinghtml.bst
-- components/python3-roman-numerals.bst
+- components/python3.bst
 
 variables:
   strip-binaries: ''

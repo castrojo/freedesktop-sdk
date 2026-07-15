@@ -14,7 +14,7 @@ config:
   include:
   - dbus-tools
   - dbus-license
-  include-orphans: false
+  include-orphans: False
 
 public:
   bst:

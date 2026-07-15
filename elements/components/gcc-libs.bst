@@ -7,8 +7,8 @@ build-depends:
 - components/_private/gcc-base.bst
 
 runtime-depends:
-- components/gcc-manifest.bst
 - bootstrap/glibc.bst
+- components/gcc-manifest.bst
 
 config:
   include:

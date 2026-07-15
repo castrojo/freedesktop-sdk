@@ -1,0 +1,26 @@
+repos:
+  - repo: local
+    hooks:
+      - id: git-diff-check
+        name: Check staged whitespace and conflict markers
+        entry: git diff --cached --check
+        language: system
+        pass_filenames: false
+
+      - id: ruff
+        name: Ruff syntax
+        entry: ruff format --check
+        language: system
+        types: [python]
+
+      - id: bst-show
+        name: Check BuildStream element coherence
+        entry: bash -c 'bst show "${@#elements/}"' --
+        language: system
+        files: \.bst$
+
+      - id: bst-format
+        name: Check BuildStream element formatting
+        entry: utils/bst-format.py --check
+        language: system
+        files: \.bst$

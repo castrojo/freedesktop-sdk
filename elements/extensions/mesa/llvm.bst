@@ -7,11 +7,11 @@ kind: manual
 - elements/extensions/mesa/config.yml
 
 build-depends:
+- public-stacks/runtime-minimal.bst
 - bootstrap/binutils.bst
 - bootstrap/sed.bst
 - components/llvm.bst
 - components/spirv-llvm-translator.bst
-- public-stacks/runtime-minimal.bst
 
 variables:
   libraries: >-
@@ -48,4 +48,3 @@ config:
 
   # Strip was already done
   strip-commands: []
-

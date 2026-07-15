@@ -8,8 +8,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/slang.bst
 - components/popt.bst
+- components/slang.bst
 
 variables:
   # newt has enforcing that Makefile is up to date by using

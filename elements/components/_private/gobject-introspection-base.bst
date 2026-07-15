@@ -5,9 +5,9 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- components/_private/glib-stage1.bst
 - components/bison.bst
 - components/flex.bst
-- components/_private/glib-stage1.bst
 - components/gtk-doc.bst
 
 depends:

@@ -8,9 +8,9 @@ build-depends:
 - components/vim.bst # provides xxd
 
 depends:
-- components/systemd.bst
-- components/polkit.bst
 - components/dbus.bst
+- components/polkit.bst
+- components/systemd.bst
 
 config:
   install-commands:

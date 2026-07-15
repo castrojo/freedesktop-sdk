@@ -11,8 +11,8 @@ depends:
 - components/json-c.bst
 - components/keyutils.bst
 - components/libdbus.bst
-- components/openssl.bst
 - components/liburing.bst
+- components/openssl.bst
 
 variables:
   meson-local: >-

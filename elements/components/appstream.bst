@@ -19,8 +19,8 @@ depends:
 - components/fontconfig.bst
 - components/freetype.bst
 - components/gdk-pixbuf.bst
-- components/glib.bst
 - components/glib-networking.bst
+- components/glib.bst
 - components/gobject-introspection.bst
 - components/libfyaml.bst
 - components/librsvg.bst

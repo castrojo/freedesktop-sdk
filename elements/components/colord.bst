@@ -7,8 +7,8 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/gobject-introspection.bst
 - components/gtk-doc.bst
-- components/vala.bst
 - components/systemd.bst
+- components/vala.bst
 
 depends:
 - components/glib.bst

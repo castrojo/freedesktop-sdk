@@ -5,12 +5,12 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- components/_private/git-minimal.bst
 - components/asciidoctor.bst
 - components/bash-completion.bst
 - components/bison.bst
 - components/flex.bst
 - components/gawk.bst
-- components/_private/git-minimal.bst
 - components/libcap-ng.bst
 - components/libeconf.bst
 - components/perl-yaml-tiny.bst
@@ -49,7 +49,12 @@ variables:
 
   # The dwz optimised debug info is a single file. Since util-linux is split
   # into multiple elements, disable dwz.
-  optimize-debug: false
+  optimize-debug: False
+
+config:
+  install-commands:
+    (>):
+    - find "%{install-root}%{libdir}" -name "lib*.a" -delete
 
 public:
   initial-script:
@@ -158,11 +163,6 @@ public:
       - '%{bindir}/setpriv'
   cpe:
     product: util-linux
-
-config:
-  install-commands:
-    (>):
-    - find "%{install-root}%{libdir}" -name "lib*.a" -delete
 
 sources:
 - kind: git_repo

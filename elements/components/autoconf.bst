@@ -17,9 +17,9 @@ depends:
 - bootstrap/grep.bst
 - bootstrap/sed.bst
 - bootstrap/symlinks.bst
-- components/utf-locale.bst
 - components/m4.bst
 - components/perl.bst
+- components/utf-locale.bst
 
 runtime-depends:
 - components/gettext.bst

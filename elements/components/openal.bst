@@ -15,7 +15,7 @@ variables:
   (?):
   - target_arch == "ppc64le":
       arch-conf: >-
-         -DALSOFT_ENABLE_MODULES=OFF
+        -DALSOFT_ENABLE_MODULES=OFF
 
   cmake-local: >-
     -DALSOFT_EXAMPLES=OFF

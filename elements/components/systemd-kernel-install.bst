@@ -7,9 +7,9 @@ build-depends:
 - components/_private/systemd-base.bst
 
 runtime-depends:
-- components/systemd.bst
-- components/systemd-ukify.bst
 - components/systemd-manifest.bst
+- components/systemd-ukify.bst
+- components/systemd.bst
 
 config:
   include:

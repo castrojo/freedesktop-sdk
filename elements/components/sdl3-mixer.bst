@@ -11,8 +11,8 @@ depends:
 - components/libflac.bst
 - components/libvorbis.bst
 - components/mpg123.bst
-- components/sdl3.bst
 - components/opusfile.bst
+- components/sdl3.bst
 - components/wavpack.bst
 
 variables:

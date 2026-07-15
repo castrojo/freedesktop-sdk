@@ -5,13 +5,13 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/doxygen.bst
 - components/_private/python3-minimal.bst
+- components/doxygen.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/zlib-ng.bst
 - bootstrap/xz.bst
+- bootstrap/zlib-ng.bst
 - components/icu.bst
 
 variables:

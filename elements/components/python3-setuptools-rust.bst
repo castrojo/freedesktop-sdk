@@ -8,10 +8,10 @@ build-depends:
 - components/python3-setuptools-scm.bst
 
 depends:
-- components/python3.bst
 - components/python3-semantic-version.bst
 - components/python3-setuptools.bst
 - components/python3-typing-extensions.bst
+- components/python3.bst
 
 sources:
 - kind: git_repo

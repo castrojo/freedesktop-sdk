@@ -3,15 +3,15 @@
 
 kind: manual
 
+build-depends:
+- components/flatpak-minimal-image.bst
+
 variables:
   (@):
   - include/repo_branches.yml
   release-limit: "1"
   strip-binaries: ''
   license-element-name: "freedesktop-sdk"
-
-build-depends:
-- components/flatpak-minimal-image.bst
 
 config:
   build-commands:

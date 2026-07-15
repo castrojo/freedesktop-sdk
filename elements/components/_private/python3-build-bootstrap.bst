@@ -9,6 +9,9 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 
+variables:
+  strip-binaries: ''
+
 config:
   install-commands:
   - |
@@ -19,9 +22,6 @@ config:
 
   - |
     %{install-extra}
-
-variables:
-  strip-binaries: ''
 
 sources:
 - kind: local

@@ -10,9 +10,9 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/xorg-proto-xorgproto.bst
 - components/mesa-headers.bst
 - components/xorg-lib-x11.bst
+- components/xorg-proto-xorgproto.bst
 
 variables:
   cmake-local: >-

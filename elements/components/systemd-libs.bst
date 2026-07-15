@@ -10,8 +10,8 @@ runtime-depends:
 - public-stacks/runtime-minimal.bst
 - components/libcap.bst
 - components/libgcrypt.bst
-- components/systemd-manifest.bst
 - components/lz4.bst
+- components/systemd-manifest.bst
 - components/zstd.bst
 
 config:

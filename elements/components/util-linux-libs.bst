@@ -22,9 +22,9 @@ build-depends:
 - components/_private/util-linux-base.bst
 
 runtime-depends:
+- public-stacks/runtime-minimal.bst
 - components/libeconf.bst
 - components/util-linux-manifest.bst
-- public-stacks/runtime-minimal.bst
 
 config:
   include:
@@ -37,6 +37,6 @@ public:
     split-rules:
       devel:
         (>):
-          - '%{libdir}/libblkid.so'
-          - '%{libdir}/libmount.so'
-          - '%{libdir}/libuuid.so'
+        - '%{libdir}/libblkid.so'
+        - '%{libdir}/libmount.so'
+        - '%{libdir}/libuuid.so'

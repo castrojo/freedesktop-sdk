@@ -3,19 +3,28 @@
 
 kind: manual
 
+(@):
+- elements/include/rust-source.yml
+
 build-depends:
 - bootstrap/grep.bst
 - bootstrap/sed.bst
-- components/_private/python3-minimal.bst
 - components/_private/buildsystem-cmake.bst
+- components/_private/python3-minimal.bst
 - components/_private/rust-stage1.bst
 
 depends:
+- public-stacks/runtime-minimal.bst
 - components/curl.bst
 - components/libxml2.bst
 - components/llvm.bst
 - components/openssl.bst
-- public-stacks/runtime-minimal.bst
+
+environment:
+  MAXJOBS: '%{max-jobs}'
+
+environment-nocache:
+- MAXJOBS
 
 variables:
   optimize-debug: "false"
@@ -39,12 +48,6 @@ variables:
   - target_arch == "loongarch64":
       llvm-targets: 'LoongArch'
       build-docs: 'false'
-
-environment-nocache:
-- MAXJOBS
-
-environment:
-  MAXJOBS: '%{max-jobs}'
 
 config:
   configure-commands:
@@ -130,6 +133,3 @@ public:
         - '%{bindir}/*'
         - '%{indep-libdir}/rustlib'
         - '%{indep-libdir}/rustlib/**'
-
-(@):
-- elements/include/rust-source.yml

@@ -109,6 +109,15 @@ We also have CI to automatically track the latest tags of git repos, but this
 requires use of the `git_repo` plugin rather than `git`. If adding a new git
 source please use `git_repo` rather than `git`.
 
+## Pre-commit hooks
+
+This project provides a .pre-commit-hooks.yaml file that you can run some really
+simple tests on your changeset before committing that will ensure a minimum level
+of quality in your contribution.
+
+To install it you can run `make dev` which will check for the needed dependencies
+and install it for `git commit` to take into account.
+
 ## Push your changes to the remote
 Run the following commands to push your branch to your fork:
 

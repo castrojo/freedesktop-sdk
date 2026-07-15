@@ -8,8 +8,8 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/po4a.bst
 - components/doxygen.bst
+- components/po4a.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

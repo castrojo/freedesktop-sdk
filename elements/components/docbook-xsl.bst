@@ -8,8 +8,8 @@ depends:
 - components/libxml2.bst
 
 runtime-depends:
-- components/docbook-xml.bst
 - components/clean-xml-catalog.bst
+- components/docbook-xml.bst
 
 variables:
   data: '%{datadir}/xml/docbook/xml/xsl-stylesheets'

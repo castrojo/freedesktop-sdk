@@ -7,9 +7,9 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 
 depends:
-- components/python3.bst
-- components/libdbus.bst
 - components/glib.bst
+- components/libdbus.bst
+- components/python3.bst
 
 variables:
   meson-local: >-

@@ -9,12 +9,12 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/fontconfig.bst
+- components/freetype.bst
+- components/lzo.bst
 - components/pixman.bst
 - components/xorg-lib-x11.bst
 - components/xorg-lib-xext.bst
-- components/freetype.bst
-- components/fontconfig.bst
-- components/lzo.bst
 
 variables:
   # We don't built libspectre and it would depend on ghostscript

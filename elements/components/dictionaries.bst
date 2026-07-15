@@ -5,8 +5,8 @@ kind: manual
 
 build-depends:
 - components/findutils.bst
-- components/python3.bst
 - components/perl.bst
+- components/python3.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

@@ -7,14 +7,14 @@ kind: meson
 - elements/extensions/include/app.yml
 
 build-depends:
-- public-stacks/buildsystem-meson.bst
 - public-stacks/buildsystem-autotools.bst
+- public-stacks/buildsystem-meson.bst
 - components/mesa-headers.bst
 - components/wayland-protocols.bst
 
 depends:
-- components/libdrm.bst
 - components/libdecor.bst
+- components/libdrm.bst
 - components/libxkbcommon.bst
 - extensions/glxinfo/freeglut.bst
 - extensions/glxinfo/glu.bst

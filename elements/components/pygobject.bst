@@ -8,10 +8,10 @@ build-depends:
 - components/grep.bst
 
 depends:
-- components/python3.bst
 - components/gobject-introspection.bst
 - components/libffi.bst
 - components/pycairo.bst
+- components/python3.bst
 
 variables:
   meson-local: >-

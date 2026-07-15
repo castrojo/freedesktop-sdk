@@ -4,8 +4,8 @@
 kind: make
 
 build-depends:
-- components/rust.bst
 - public-stacks/buildsystem-make.bst
+- components/rust.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

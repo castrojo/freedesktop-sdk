@@ -5,8 +5,8 @@ kind: make
 
 build-depends:
 - public-stacks/buildsystem-make.bst
-- components/which.bst
 - components/gzip.bst
+- components/which.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

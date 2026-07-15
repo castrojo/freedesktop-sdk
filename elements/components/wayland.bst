@@ -13,8 +13,8 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/expat.bst
-- components/libxml2.bst
 - components/libffi.bst
+- components/libxml2.bst
 
 variables:
   local_flags: -DXCURSORPATH='"%{cursorpath}"'

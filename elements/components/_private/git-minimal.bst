@@ -8,6 +8,7 @@ kind: meson
 
 build-depends:
 - components/_private/meson.bst
+- components/_private/python3-minimal.bst
 - components/expat.bst
 - components/gcc.bst
 - components/gettext.bst
@@ -15,14 +16,13 @@ build-depends:
 - components/ninja.bst
 - components/openssl.bst
 - components/pkg-config.bst
-- components/_private/python3-minimal.bst
 - components/sed.bst
 - components/stripper.bst
 - components/tar.bst
 
 depends:
-- bootstrap/zlib-ng.bst
 - public-stacks/runtime-minimal.bst
+- bootstrap/zlib-ng.bst
 
 variables:
   meson-local: >-

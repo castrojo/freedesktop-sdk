@@ -20,9 +20,9 @@ depends:
 - bootstrap/base-sdk/zstd.bst
 
 environment:
-  CFLAGS_FOR_TARGET:  "%{target_flags}"
+  CFLAGS_FOR_TARGET: "%{target_flags}"
   CXXFLAGS_FOR_TARGET: "%{target_flags}"
-  LDFLAGS_FOR_TARGET:  "%{ldflags_defaults}"
+  LDFLAGS_FOR_TARGET: "%{ldflags_defaults}"
 
 variables:
   conf-local: >-

@@ -24,25 +24,7 @@ build-depends:
 - components/util-linux.bst
 - components/zstd.bst
 - filename: components/linux-module-cert.bst
-  strict: true
-
-variables:
-  bootdir: /boot
-  kernel_arch: '%{arch}'
-  src-arch: '%{kernel_arch}'
-  image-name: '$(make -s image_name)'
-  optimize-debug: false
-  (?):
-  - target_arch == "x86_64":
-      src-arch: x86
-  - target_arch == "aarch64":
-      kernel_arch: arm64
-  - target_arch in ("ppc64", "ppc64le"):
-      kernel_arch: powerpc
-  - target_arch == "riscv64":
-      kernel_arch: riscv
-  - target_arch == "loongarch64":
-      kernel_arch: loongarch
+  strict: True
 
 environment:
   ARCH: '%{kernel_arch}'
@@ -59,6 +41,24 @@ environment:
 
 environment-nocache:
 - MAXJOBS
+
+variables:
+  bootdir: /boot
+  kernel_arch: '%{arch}'
+  src-arch: '%{kernel_arch}'
+  image-name: '$(make -s image_name)'
+  optimize-debug: False
+  (?):
+  - target_arch == "x86_64":
+      src-arch: x86
+  - target_arch == "aarch64":
+      kernel_arch: arm64
+  - target_arch in ("ppc64", "ppc64le"):
+      kernel_arch: powerpc
+  - target_arch == "riscv64":
+      kernel_arch: riscv
+  - target_arch == "loongarch64":
+      kernel_arch: loongarch
 
 config:
   configure-commands:

@@ -5,17 +5,17 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/gtk-doc.bst
+- components/avahi.bst
 - components/gobject-introspection.bst
+- components/gtk-doc.bst
 - components/systemd.bst
 - components/vala.bst
-- components/avahi.bst
 
-- components/json-glib.bst
-- components/glib.bst
-- components/libsoup.bst
 - components/avahi-gobject.bst
 - components/avahi-libs.bst
+- components/glib.bst
+- components/json-glib.bst
+- components/libsoup.bst
 - components/modemmanager.bst
 
 variables:

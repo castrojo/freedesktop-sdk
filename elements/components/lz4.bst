@@ -9,6 +9,10 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 
+variables:
+  command-subdir: build/meson
+  meson-local: -Dprograms=true
+
 public:
   bst:
     split-rules:
@@ -18,10 +22,6 @@ public:
 
   cpe:
     vendor: lz4_project
-
-variables:
-  command-subdir: build/meson
-  meson-local: -Dprograms=true
 
 sources:
 - kind: git_repo

@@ -9,18 +9,18 @@ kind: cmake
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
-- extensions/vulkaninfo/volk.bst
 - components/glslang.bst
 - components/python3.bst
 - components/vulkan-headers.bst
 - components/wayland-protocols.bst
+- extensions/vulkaninfo/volk.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
 - components/vulkan-icd-loader.bst
+- components/wayland.bst
 - components/xorg-lib-x11.bst
 - components/xorg-lib-xrandr.bst
-- components/wayland.bst
 
 variables:
   license-files-extra: vulkan-tools/LICENSE.txt

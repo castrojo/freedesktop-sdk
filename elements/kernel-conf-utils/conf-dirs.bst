@@ -3,8 +3,8 @@
 
 kind: manual
 description: |
-    This extracts mapping for config items to kernel source
-    directories.
+  This extracts mapping for config items to kernel source
+  directories.
 
 (@):
 - elements/include/linux.yml

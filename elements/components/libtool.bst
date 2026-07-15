@@ -10,8 +10,8 @@ build-depends:
 - bootstrap/grep.bst
 - bootstrap/make.bst
 - bootstrap/stripper.bst
-- components/automake.bst
 - components/autoconf.bst
+- components/automake.bst
 - components/m4.bst
 
 depends:

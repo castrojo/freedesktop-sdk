@@ -4,8 +4,8 @@
 kind: make
 
 build-depends:
-- components/perl.bst
 - public-stacks/buildsystem-make.bst
+- components/perl.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

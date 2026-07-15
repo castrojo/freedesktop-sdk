@@ -5,12 +5,12 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-maturin.bst
-- components/python3-setuptools.bst
 - components/pkg-config.bst
+- components/python3-setuptools.bst
 
 depends:
-- components/python3.bst
 - components/python3-cffi.bst
+- components/python3.bst
 
 variables:
   strip-binaries: ''

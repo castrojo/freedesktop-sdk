@@ -5,11 +5,11 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- components/_private/git-minimal.bst
+- components/_private/vala-bootstrap.bst
 - components/bison.bst
 - components/flex.bst
-- components/_private/git-minimal.bst
 - components/gobject-introspection.bst
-- components/_private/vala-bootstrap.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

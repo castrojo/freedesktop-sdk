@@ -15,7 +15,7 @@ config:
   exclude:
   - dbus-libs
   - dbus-tools
-  include-orphans: true
+  include-orphans: True
 
 public:
   initial-script:

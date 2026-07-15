@@ -13,8 +13,8 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/expat.bst
-- components/perl.bst
 - components/perl-file-sharedir.bst
+- components/perl.bst
 
 sources:
 - kind: cpan

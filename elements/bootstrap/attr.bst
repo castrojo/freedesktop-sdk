@@ -8,24 +8,18 @@ kind: autotools
 
 build-depends:
 - bootstrap/base-sdk/automake.bst
-- bootstrap/base-sdk/libtool.bst
 - bootstrap/base-sdk/gettext.bst
-- bootstrap/build/gcc-stage2.bst
+- bootstrap/base-sdk/libtool.bst
 - bootstrap/build/debug-utils.bst
-- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
 - filename: bootstrap/glibc.bst
   config:
     location: "%{sysroot}"
 
+- bootstrap/gnu-config.bst
+
 runtime-depends:
 - bootstrap/glibc.bst
-
-public:
-  bst:
-    split-rules:
-      devel:
-        (>):
-        - '%{libdir}/libattr.so'
 
 config:
   configure-commands:
@@ -51,6 +45,13 @@ config:
 # sdk/elements/base/man-pages.bst
     - |
       rm -rf "%{install-root}%{mandir}"
+
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libattr.so'
 
 sources:
 - kind: git_repo

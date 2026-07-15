@@ -11,9 +11,9 @@ depends:
 - components/libconfuse.bst
 
 runtime-depends:
+- components/dosfstools.bst
 - components/e2fsprogs.bst
 - components/mtools.bst
-- components/dosfstools.bst
 
 sources:
 - kind: git_repo

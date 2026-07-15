@@ -3,6 +3,10 @@
 
 kind: snap_image
 
+build-depends:
+- extensions/glxinfo/mesa-demos.bst
+- snap-images/glxinfo-wrapper.bst
+
 variables:
   lib: lib
   prefix: /app
@@ -10,12 +14,12 @@ variables:
 config:
   directory: "/"
   include:
-    - app
+  - app
   exclude:
-    - debug
-    - devel
-    - tests
-    - shells
+  - debug
+  - devel
+  - tests
+  - shells
   include-orphans: False
 
   metadata:
@@ -30,20 +34,16 @@ config:
     type: app
     base: "freedesktop-sdk-runtime-%{freedesktop-sdk-snap-branch}"
     architectures:
-      - "%{snap_arch}"
+    - "%{snap_arch}"
     confinement: strict
     grade: "%{snap_grade}"
     apps:
       glxinfo:
         command: glxinfo-wrapper
         plugs:
-          - x11
-          - opengl
-          - wayland
+        - x11
+        - opengl
+        - wayland
     layout:
       /var/app:
         bind: $SNAP/app
-
-build-depends:
-- extensions/glxinfo/mesa-demos.bst
-- snap-images/glxinfo-wrapper.bst

@@ -4,11 +4,12 @@
 kind: script
 
 build-depends:
-- oci/oci-builder.bst
 - oci/layers/minimal-init-script.bst
 - filename: oci/layers/minimal.bst
   config:
     location: /layer
+
+- oci/oci-builder.bst
 
 config:
   commands:

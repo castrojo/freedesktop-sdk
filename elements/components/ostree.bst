@@ -9,22 +9,22 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/_private/git-minimal.bst
-- components/gobject-introspection.bst
 - components/bison.bst
+- components/gobject-introspection.bst
 - components/systemd.bst
 
 depends:
+- components/avahi-libs.bst
+- components/avahi.bst
 - components/composefs.bst
 - components/curl.bst
-- components/glib.bst
-- components/gpgme.bst
 - components/e2fsprogs.bst
 - components/fuse3.bst
-- components/systemd-libs.bst
-- components/libarchive.bst
-- components/avahi.bst
-- components/avahi-libs.bst
+- components/glib.bst
 - components/gnupg.bst
+- components/gpgme.bst
+- components/libarchive.bst
+- components/systemd-libs.bst
 
 variables:
   conf-local: >-

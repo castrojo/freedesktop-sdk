@@ -5,9 +5,9 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/xorg-util-macros.bst
-- components/flex.bst
 - components/bison.bst
+- components/flex.bst
+- components/xorg-util-macros.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

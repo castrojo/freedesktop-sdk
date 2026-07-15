@@ -8,11 +8,11 @@ build-depends:
 
 runtime-depends:
 - public-stacks/runtime-minimal.bst
-- components/gstreamer-plugins-base.bst
 - components/alsa-lib.bst
+- components/gstreamer-plugins-base.bst
 - components/libdbus.bst
-- components/systemd-libs.bst
 - components/pipewire-manifest.bst
+- components/systemd-libs.bst
 
 config:
   exclude:

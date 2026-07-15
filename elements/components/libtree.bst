@@ -4,8 +4,8 @@
 kind: make
 
 description: |
-    Provides ldd as a hierarchical tree to visualise direct and
-    transitive resolutions. Add it to runtime-depends of any element.
+  Provides ldd as a hierarchical tree to visualise direct and
+  transitive resolutions. Add it to runtime-depends of any element.
 
 build-depends:
 - public-stacks/buildsystem-make.bst

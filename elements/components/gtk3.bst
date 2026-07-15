@@ -5,9 +5,9 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/perl.bst
-- components/gtk-doc.bst
 - components/gobject-introspection.bst
+- components/gtk-doc.bst
+- components/perl.bst
 - components/wayland-protocols.bst
 
 depends:

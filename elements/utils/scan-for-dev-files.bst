@@ -4,10 +4,10 @@
 kind: manual
 
 depends:
+- public-stacks/runtime-minimal.bst
 - bootstrap/binutils.bst
 - bootstrap/findutils.bst
 - bootstrap/sed.bst
-- public-stacks/runtime-minimal.bst
 
 variables:
   strip-binaries: ''

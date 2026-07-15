@@ -6,9 +6,9 @@ description: X.org lib xcb
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/xorg-util-macros.bst
 - components/_private/python3-minimal.bst
 - components/xorg-proto-xcb.bst
+- components/xorg-util-macros.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -18,6 +18,12 @@ variables:
   conf-local: |
     --enable-xkb \
     --disable-xprint
+
+config:
+  configure-commands:
+    (<):
+    - |
+      autoreconf -ivf
 
 public:
   bst:
@@ -51,12 +57,6 @@ public:
         - '%{libdir}/libxcb-xinput.so'
   cpe:
     product: libxcb
-
-config:
-  configure-commands:
-    (<):
-    - |
-      autoreconf -ivf
 
 sources:
 - kind: git_repo

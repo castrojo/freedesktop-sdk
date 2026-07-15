@@ -8,8 +8,8 @@ build-depends:
 - components/cython.bst
 
 depends:
-- components/python3.bst
 - components/libyaml.bst
+- components/python3.bst
 
 sources:
 - kind: git_repo

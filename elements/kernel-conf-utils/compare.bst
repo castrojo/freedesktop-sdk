@@ -3,18 +3,18 @@
 
 kind: script
 description: |
-    This compares Debian and Fedora kernel configuration. Find common
-    items.  See which of those common items are missing in Freedesktop
-    SDK.
+  This compares Debian and Fedora kernel configuration. Find common
+  items.  See which of those common items are missing in Freedesktop
+  SDK.
 
 build-depends:
-- kernel-conf-utils/fedora-config.bst
-- kernel-conf-utils/debian-config.bst
-- kernel-conf-utils/conf-dirs.bst
+- public-stacks/runtime-minimal.bst
 - components/grep.bst
 - components/linux.bst
 - components/sed.bst
-- public-stacks/runtime-minimal.bst
+- kernel-conf-utils/conf-dirs.bst
+- kernel-conf-utils/debian-config.bst
+- kernel-conf-utils/fedora-config.bst
 
 config:
   commands:

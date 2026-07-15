@@ -9,8 +9,8 @@ description: GNU readline
 
 build-depends:
 - bootstrap/base-sdk/texinfo.bst
-- bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
+- bootstrap/build/gcc-stage2.bst
 - bootstrap/gnu-config.bst
 - filename: bootstrap/ncurses.bst
   config:

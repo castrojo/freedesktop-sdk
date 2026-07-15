@@ -37,4 +37,3 @@ public:
       static-blocklist:
         (>):
         - "%{libdir}/*.a"
-

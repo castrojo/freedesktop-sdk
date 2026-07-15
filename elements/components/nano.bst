@@ -10,9 +10,9 @@ build-depends:
 - components/texinfo.bst
 
 depends:
-- components/file.bst
-- bootstrap/ncurses.bst
 - public-stacks/runtime-minimal.bst
+- bootstrap/ncurses.bst
+- components/file.bst
 
 config:
   install-commands:

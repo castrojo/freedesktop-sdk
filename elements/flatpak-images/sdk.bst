@@ -6,6 +6,16 @@ kind: flatpak_image
 (@):
 - elements/flatpak-images/include/platform-vars.yml
 
+build-depends:
+- components/fontconfig-flatpak-config.bst
+- components/os-release.bst
+- flatpak-images/copy-ld-debug.bst
+- integration/app-debug-link.bst
+- integration/sdk-integration.bst
+- sdk-image.bst
+- tests/check-static-libraries.bst
+- tests/sdk-integration.bst
+
 config:
   directory: '%{prefix}'
   exclude:
@@ -158,13 +168,3 @@ config:
           directory: "lib/debug/usr/lib/aarch64-linux-gnu"
           autodelete: 'true'
           no-autodownload: 'true'
-
-build-depends:
-- sdk-image.bst
-- components/fontconfig-flatpak-config.bst
-- components/os-release.bst
-- integration/sdk-integration.bst
-- integration/app-debug-link.bst
-- tests/check-static-libraries.bst
-- tests/sdk-integration.bst
-- flatpak-images/copy-ld-debug.bst

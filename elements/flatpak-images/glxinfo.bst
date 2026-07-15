@@ -6,6 +6,10 @@ kind: flatpak_image
 (@):
 - elements/extensions/include/app.yml
 
+build-depends:
+- extensions/glxinfo/appdata.bst
+- extensions/glxinfo/mesa-demos.bst
+
 config:
   directory: '%{prefix}'
   exclude:
@@ -30,7 +34,3 @@ config:
       directory: lib/debug
       autodelete: 'true'
       no-autodownload: 'true'
-
-build-depends:
-- extensions/glxinfo/mesa-demos.bst
-- extensions/glxinfo/appdata.bst

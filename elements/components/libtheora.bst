@@ -9,9 +9,9 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/cairo.bst
 - components/libogg.bst
 - components/libpng.bst
-- components/cairo.bst
 
 variables:
   conf-local: >-

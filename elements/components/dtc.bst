@@ -3,14 +3,14 @@
 
 kind: make
 
-depends:
-- public-stacks/runtime-minimal.bst
-
 build-depends:
 - public-stacks/buildsystem-make.bst
 - components/bison.bst
 - components/flex.bst
 - components/pkg-config.bst
+
+depends:
+- public-stacks/runtime-minimal.bst
 
 variables:
   make-args: >-

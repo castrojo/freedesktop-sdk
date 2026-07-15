@@ -9,8 +9,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/libplist.bst
 - components/curl.bst
+- components/libplist.bst
 
 sources:
 - kind: git_repo

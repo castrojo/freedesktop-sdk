@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: MIT
 
 kind: autotools
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/bison.bst

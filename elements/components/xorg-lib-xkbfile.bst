@@ -4,8 +4,8 @@
 kind: meson
 
 build-depends:
-- components/xorg-util-macros.bst
 - public-stacks/buildsystem-meson.bst
+- components/xorg-util-macros.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

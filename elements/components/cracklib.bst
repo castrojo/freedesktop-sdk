@@ -8,8 +8,8 @@ build-depends:
 - components/curl.bst
 
 depends:
-- bootstrap/zlib-ng.bst
 - public-stacks/runtime-minimal.bst
+- bootstrap/zlib-ng.bst
 
 runtime-depends:
 - bootstrap/grep.bst # needed for create-cracklib-dict

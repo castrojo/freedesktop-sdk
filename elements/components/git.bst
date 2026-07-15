@@ -19,21 +19,20 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/perl.bst
-- components/python3.bst
-- components/gnupg.bst
 - components/curl.bst
 - components/expat.bst
+- components/gnupg.bst
 - components/libffi.bst
 - components/openssl.bst
+- components/perl.bst
+- components/python3.bst
 - components/zstd.bst
 
 runtime-depends:
 - bootstrap/zlib-ng.bst
 - components/ca-certificates.bst
-- components/perl-ssl.bst
 - components/perl-sasl.bst
-
+- components/perl-ssl.bst
 
 variables:
   meson-local: >-

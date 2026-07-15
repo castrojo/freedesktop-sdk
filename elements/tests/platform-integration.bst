@@ -4,8 +4,8 @@
 kind: script
 
 build-depends:
-- platform-image.bst
 - integration/platform-integration.bst
+- platform-image.bst
 
 config:
   commands:

@@ -16,15 +16,6 @@ depends:
 - components/lcms.bst
 - components/libpng.bst
 
-public:
-  bst:
-    split-rules:
-      devel:
-        (>):
-        - '%{libdir}/libjxl.so'
-        - '%{libdir}/libjxl_cms.so'
-        - '%{libdir}/libjxl_threads.so'
-
 variables:
   arch-conf: ''
   (?):
@@ -59,6 +50,15 @@ variables:
     -DJPEGXL_BUNDLE_LIBPNG=OFF
     -DJPEGXL_ENABLE_DOXYGEN=ON
     %{arch-conf}
+
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libjxl.so'
+        - '%{libdir}/libjxl_cms.so'
+        - '%{libdir}/libjxl_threads.so'
 
 sources:
 - kind: git_repo

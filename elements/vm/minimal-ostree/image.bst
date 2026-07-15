@@ -28,6 +28,11 @@ build-depends:
   config:
     location: '/source-repo'
 
+environment:
+  OSTREE_REPO: "%{sysroot}/ostree/repo"
+  LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
+  FAKECAP_DB: /fakecap
+
 variables:
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
 
@@ -35,11 +40,6 @@ variables:
   - ostree-config.yml
 
   sysroot: "%{build-root}/sysroot"
-
-environment:
-  OSTREE_REPO: "%{sysroot}/ostree/repo"
-  LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
-  FAKECAP_DB: /fakecap
 
 config:
   commands:

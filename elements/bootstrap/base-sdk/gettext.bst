@@ -11,8 +11,8 @@ description: GNU gettext
 build-depends:
 - bootstrap/gnu-config.bst
 
-runtime-depends:
-- bootstrap/base-sdk/tar.bst
-
 depends:
 - bootstrap/base-sdk/binary-seed.bst
+
+runtime-depends:
+- bootstrap/base-sdk/tar.bst

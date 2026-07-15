@@ -6,35 +6,35 @@ kind: meson
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - bootstrap/diffutils.bst
-- components/systemd.bst
-- components/gtk-doc.bst
-- components/gobject-introspection.bst
 - components/cmake.bst
+- components/gobject-introspection.bst
+- components/gtk-doc.bst
+- components/help2man.bst
+- components/liberation-fonts.bst
 - components/polkit.bst
 - components/python3-gi-docgen.bst
 - components/python3-packaging.bst
-- components/help2man.bst
-- components/liberation-fonts.bst
+- components/systemd.bst
 
 depends:
-- components/fwupd-efi-maybe.bst
-- components/glib.bst
-- components/libgudev.bst
-- components/libxmlb.bst
-- components/libjcat.bst
-- components/libcbor.bst
-- components/gcab.bst
-- components/efivar.bst
-- components/tpm2-tss.bst
 - components/cairo.bst
-- components/pygobject.bst
+- components/efivar.bst
+- components/fwupd-efi-maybe.bst
+- components/gcab.bst
 - components/genpeimg.bst
+- components/glib.bst
+- components/gnu-efi-maybe.bst
+- components/libcbor.bst
+- components/libgudev.bst
+- components/libjcat.bst
+- components/libsmbios-maybe.bst
+- components/libxmlb.bst
 - components/pango.bst
 - components/polkit.bst
 - components/pycairo.bst
+- components/pygobject.bst
 - components/python3-pil.bst
-- components/libsmbios-maybe.bst
-- components/gnu-efi-maybe.bst
+- components/tpm2-tss.bst
 
 variables:
   efi_binary: 'false'

@@ -4,10 +4,11 @@
 kind: script
 
 build-depends:
-- utils/find-rpath.bst
 - filename: platform-image.bst
   config:
     location: /sysroot
+
+- utils/find-rpath.bst
 
 config:
   commands:

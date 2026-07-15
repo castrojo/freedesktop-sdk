@@ -6,6 +6,15 @@ kind: flatpak_image
 (@):
 - elements/flatpak-images/include/platform-vars.yml
 
+build-depends:
+- components/fontconfig-flatpak-config.bst
+- components/os-release.bst
+- integration/platform-integration.bst
+- platform-image.bst
+- tests/check-dev-files.bst
+- tests/check-rpath.bst
+- tests/platform-integration.bst
+
 config:
   directory: '%{prefix}'
   exclude:
@@ -104,7 +113,7 @@ config:
       add-ld-path: lib
       download-if: have-kernel-module-nvidia
       autoprune-unless: have-kernel-module-nvidia
-    
+
     Extension org.freedesktop.Platform.amd:
       directory: '%{lib}/dri/amd'
       autodelete: 'false'
@@ -119,12 +128,3 @@ config:
       version: "%{branch-extra}"
       add-ld-path: lib
       autodelete: 'true'
-
-build-depends:
-- platform-image.bst
-- components/fontconfig-flatpak-config.bst
-- components/os-release.bst
-- integration/platform-integration.bst
-- tests/check-dev-files.bst
-- tests/check-rpath.bst
-- tests/platform-integration.bst

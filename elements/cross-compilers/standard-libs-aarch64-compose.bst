@@ -10,7 +10,7 @@ public:
   bst:
     split-rules:
       arch:
-        - "%{includedir}/aarch64-linux-gnu/**"
-        - "%{indep-libdir}/aarch64-linux-gnu/**"
-        - "%{prefix}/lib*/ld-linux*.so.*"
-        - "/lib*/ld-linux*.so.*"
+      - "%{includedir}/aarch64-linux-gnu/**"
+      - "%{indep-libdir}/aarch64-linux-gnu/**"
+      - "%{prefix}/lib*/ld-linux*.so.*"
+      - "/lib*/ld-linux*.so.*"

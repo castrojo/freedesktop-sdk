@@ -50,11 +50,11 @@ config:
       %{make}
 
   install-commands:
-    - |
-      install -Dm644 -t '%{install-root}%{datadir}/efitools/efi' *.efi
+  - |
+    install -Dm644 -t '%{install-root}%{datadir}/efitools/efi' *.efi
 
-    - |
-      install -Dm644 -t '%{install-root}%{datadir}/efitools/efi' {PK,KEK,DB}.auth
+  - |
+    install -Dm644 -t '%{install-root}%{datadir}/efitools/efi' {PK,KEK,DB}.auth
 
-    - |
-      %{install-extra}
+  - |
+    %{install-extra}

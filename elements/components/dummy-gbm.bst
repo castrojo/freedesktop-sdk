@@ -42,15 +42,15 @@ variables:
     -Dgbm=enabled
     -Dgbm-backends-path="%{libdir}/GL/lib/gbm"
 
+config:
+  install-commands:
+    (>):
+    - |
+      rm -rf "%{install-root}%{datadir}"
+
 public:
   bst:
     split-rules:
       devel:
         (>):
         - '%{libdir}/libgbm.so'
-
-config:
-  install-commands:
-    (>):
-    - |
-      rm -rf "%{install-root}%{datadir}"

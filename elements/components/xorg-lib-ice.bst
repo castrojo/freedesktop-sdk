@@ -10,8 +10,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/xorg-proto-xorgproto.bst
 - components/xorg-lib-xtrans.bst
+- components/xorg-proto-xorgproto.bst
 
 public:
   bst:

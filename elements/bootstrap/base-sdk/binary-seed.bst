@@ -25,6 +25,6 @@ kind: compose
 
 config:
   exclude:
-    - filter
-    - locale
+  - filter
+  - locale
   include-orphans: True

@@ -4,9 +4,9 @@
 kind: meson
 
 build-depends:
+- public-stacks/buildsystem-meson.bst
 - components/doxygen.bst
 - components/python3.bst
-- public-stacks/buildsystem-meson.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

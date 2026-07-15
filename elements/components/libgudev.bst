@@ -4,11 +4,11 @@
 kind: meson
 
 build-depends:
+- public-stacks/buildsystem-meson.bst
 - public-stacks/runtime-minimal.bst
 - components/gobject-introspection.bst
 - components/gtk-doc.bst
 - components/vala.bst
-- public-stacks/buildsystem-meson.bst
 
 depends:
 - components/glib.bst

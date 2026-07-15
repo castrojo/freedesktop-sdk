@@ -5,12 +5,13 @@ kind: script
 
 build-depends:
 - vm/deploy-tools.bst
-- filename: vm/minimal-secure/usr-image.bst
-  config:
-    location: '/usr-image'
 - filename: vm/minimal-secure/signed-boot.bst
   config:
     location: '/sysroot'
+
+- filename: vm/minimal-secure/usr-image.bst
+  config:
+    location: '/usr-image'
 
 environment:
   E2FSPROGS_FAKE_TIME: '%{source-date-epoch}'
@@ -19,9 +20,9 @@ variables:
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
   build-root: /genimage
   (?):
-    - target_arch == "x86_64":
-        usr-uuid: 8484680c-9521-48c6-9c11-b0720656f69e
-        usr-verity-uuid: 77ff5f63-e7b6-4633-acf4-1565b864c0e6
+  - target_arch == "x86_64":
+      usr-uuid: 8484680c-9521-48c6-9c11-b0720656f69e
+      usr-verity-uuid: 77ff5f63-e7b6-4633-acf4-1565b864c0e6
 
 config:
   commands:

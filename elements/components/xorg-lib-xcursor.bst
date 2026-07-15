@@ -14,8 +14,8 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/xorg-lib-x11.bst
-- components/xorg-lib-xrender.bst
 - components/xorg-lib-xfixes.bst
+- components/xorg-lib-xrender.bst
 
 variables:
   conf-local: |

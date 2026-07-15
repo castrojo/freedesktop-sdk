@@ -2,8 +2,7 @@
 # SPDX-License-Identifier: MIT
 
 kind: manual
-description: Creates a debug directory, links the debug data of /app to a subdirectory
-  of it
+description: Creates a debug directory, links the debug data of /app to a subdirectory of it
 
 depends:
 - public-stacks/runtime-minimal.bst

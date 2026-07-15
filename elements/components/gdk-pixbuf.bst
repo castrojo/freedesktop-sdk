@@ -4,10 +4,10 @@
 kind: meson
 
 build-depends:
+- public-stacks/buildsystem-meson.bst
 - components/gobject-introspection.bst
 - components/python3-docutils.bst
 - components/python3-gi-docgen.bst
-- public-stacks/buildsystem-meson.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

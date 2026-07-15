@@ -8,9 +8,15 @@ build-depends:
 
 runtime-depends:
 - public-stacks/runtime-minimal.bst
+- components/gamemode-manifest.bst
 - components/libdbus.bst
 - components/systemd-libs.bst
-- components/gamemode-manifest.bst
+
+config:
+  include:
+  - libgamemode
+  - gamemode-license
+  include-orphans: False
 
 public:
   bst:
@@ -22,9 +28,3 @@ public:
     overlap-whitelist:
     - "%{project_licensedir}/gamemode"
     - "%{project_licensedir}/gamemode/**"
-
-config:
-  include:
-  - libgamemode
-  - gamemode-license
-  include-orphans: False

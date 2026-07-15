@@ -7,32 +7,32 @@ kind: meson
 - elements/include/gstreamer-source.yml
 
 build-depends:
-- components/gobject-introspection.bst
 - public-stacks/buildsystem-meson.bst
-- components/nasm.bst
+- components/gobject-introspection.bst
 - components/hotdoc.bst
+- components/nasm.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
 - components/cairo.bst
+- components/gdk-pixbuf.bst
+- components/gstreamer-plugins-base.bst
+- components/gstreamer.bst
+- components/gtk3.bst
 - components/jpeg.bst
-- components/orc.bst
 - components/lame.bst
+- components/libflac.bst
+- components/libgudev.bst
 - components/libpng.bst
 - components/libpulse.bst
 - components/libsoup.bst
 - components/libvpx.bst
 - components/mpg123.bst
-- components/gtk3.bst
-- components/gdk-pixbuf.bst
-- components/gstreamer.bst
-- components/gstreamer-plugins-base.bst
-- components/libflac.bst
+- components/orc.bst
 - components/speex.bst
-- components/wavpack.bst
-- components/v4l-utils.bst
-- components/libgudev.bst
 - components/taglib.bst
+- components/v4l-utils.bst
+- components/wavpack.bst
 
 variables:
   command-subdir: subprojects/gst-plugins-good

@@ -3,20 +3,21 @@
 
 kind: make
 
+build-depends:
+- public-stacks/buildsystem-make.bst
+- components/_private/git-minimal.bst
+- components/parallel.bst
+- components/python3.bst
+- components/rdfind.bst
+- components/which.bst
+- components/zstd.bst
+
 depends:
 - public-stacks/runtime-minimal.bst
 
-build-depends:
-- public-stacks/buildsystem-make.bst
-- components/python3.bst
-- components/which.bst
-- components/rdfind.bst
-- components/parallel.bst
-- components/zstd.bst
-- components/_private/git-minimal.bst
-
 environment:
   MAX_JOBS: '%{max-jobs}'
+
 environment-nocache:
 - MAX_JOBS
 

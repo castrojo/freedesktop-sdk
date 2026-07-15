@@ -5,22 +5,22 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/python3.bst
 - components/_private/git-minimal.bst
 - components/gperf.bst
+- components/python3.bst
 
 depends:
+- public-stacks/runtime-minimal.bst
 - components/json-c.bst
 - components/libcap.bst
 - components/libseccomp.bst
 - components/systemd-libs.bst
-- public-stacks/runtime-minimal.bst
 
 variables:
   (?):
   - target_arch == "riscv64":
       # incredibly racy on riscv64
-      notparallel: true
+      notparallel: True
 
 sources:
 - kind: git_repo

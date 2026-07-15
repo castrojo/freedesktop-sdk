@@ -4,8 +4,8 @@
 kind: flatpak_image
 
 build-depends:
-- extensions/platform-vaapi-nvidia/nvidia-vaapi-driver.bst
 - extensions/platform-vaapi-nvidia/appdata.bst
+- extensions/platform-vaapi-nvidia/nvidia-vaapi-driver.bst
 
 config:
   directory: '%{libdir}/dri/nvidia-vaapi-driver'

@@ -8,8 +8,8 @@ kind: make
 - elements/bootstrap/include/zstd-source.yml
 
 build-depends:
-- bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
+- bootstrap/build/gcc-stage2.bst
 - filename: bootstrap/glibc.bst
   config:
     location: "%{sysroot}"

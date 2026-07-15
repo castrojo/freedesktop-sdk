@@ -7,13 +7,13 @@ build-depends:
 - public-stacks/buildsystem-cmake.bst
 
 depends:
-- components/sdl3.bst
 - components/jpeg.bst
 - components/libavif.bst
+- components/libjxl.bst
 - components/libpng.bst
 - components/libtiff.bst
 - components/libwebp.bst
-- components/libjxl.bst
+- components/sdl3.bst
 
 variables:
   cmake-local: >-

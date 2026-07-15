@@ -7,17 +7,17 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/cmake.bst
 - components/gobject-introspection.bst
-- components/python3.bst
 - components/python3-gi-docgen.bst
+- components/python3.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/glib-networking.bst
-- components/libxml2.bst
-- components/libnghttp2.bst
-- components/sqlite.bst
-- components/libpsl.bst
 - components/brotli.bst
+- components/glib-networking.bst
+- components/libnghttp2.bst
+- components/libpsl.bst
+- components/libxml2.bst
+- components/sqlite.bst
 
 variables:
   meson-local: >

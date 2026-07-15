@@ -11,9 +11,9 @@ runtime-depends:
 - bootstrap/coreutils.bst
 - bootstrap/glibc.bst
 - bootstrap/symlinks.bst
-- components/utf-locale.bst
-- components/m4.bst
 - components/libfl.bst
+- components/m4.bst
+- components/utf-locale.bst
 
 config:
   exclude:

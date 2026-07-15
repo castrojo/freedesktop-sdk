@@ -10,15 +10,15 @@ description: GNU config scripts
 build-depends:
 - bootstrap/base-sdk/binary-seed.bst
 
-variables:
-  license-element-name: gnu-config
-  lib: lib
-  strip-binaries: ''
-
 environment:
   CFLAGS: ""
   CXXFLAGS: ""
   LDFLAGS: ""
+
+variables:
+  license-element-name: gnu-config
+  lib: lib
+  strip-binaries: ''
 
 config:
   install-commands:

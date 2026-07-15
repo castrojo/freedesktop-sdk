@@ -7,17 +7,17 @@ kind: meson
 - elements/include/gstreamer-source.yml
 
 build-depends:
-- components/ffmpeg.bst
 - public-stacks/buildsystem-meson.bst
-- components/nasm.bst
-- components/hotdoc.bst
+- components/ffmpeg.bst
 - components/grep.bst
+- components/hotdoc.bst
+- components/nasm.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/orc.bst
-- components/gstreamer.bst
 - components/gstreamer-plugins-base.bst
+- components/gstreamer.bst
+- components/orc.bst
 
 variables:
   command-subdir: subprojects/gst-libav

@@ -7,15 +7,15 @@ build-depends:
 - components/_private/polkit-base.bst
 
 runtime-depends:
-- components/polkit-gobject.bst
-- components/polkit-manifest.bst
 - components/duktape.bst
 - components/linux-pam.bst
+- components/polkit-gobject.bst
+- components/polkit-manifest.bst
 
 config:
   exclude:
   - polkit-gobject
-  include-orphans: true
+  include-orphans: True
 
 public:
   initial-script:

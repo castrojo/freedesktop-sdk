@@ -11,9 +11,9 @@ build-depends:
 - bootstrap/base-sdk/automake.bst
 - bootstrap/base-sdk/gettext.bst
 - bootstrap/base-sdk/pkg-config.bst
-- bootstrap/gnu-config.bst
-- bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
+- bootstrap/build/gcc-stage2.bst
+- bootstrap/gnu-config.bst
 - filename:
   - bootstrap/bzip2.bst
   - bootstrap/zlib-ng.bst
@@ -24,9 +24,9 @@ build-depends:
 
 runtime-depends:
 - bootstrap/bzip2.bst
+- bootstrap/xz.bst
 - bootstrap/zlib-ng.bst
 - bootstrap/zstd.bst
-- bootstrap/xz.bst
 
 variables:
   autogen: autoreconf -fvi

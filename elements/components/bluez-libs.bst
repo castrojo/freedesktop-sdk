@@ -10,6 +10,11 @@ runtime-depends:
 - public-stacks/runtime-minimal.bst
 - components/bluez-manifest.bst
 
+config:
+  include:
+  - bluez-libs
+  - bluez-license
+
 public:
   bst:
     split-rules:
@@ -19,8 +24,3 @@ public:
     overlap-whitelist:
     - "%{project_licensedir}/bluez"
     - "%{project_licensedir}/bluez/**"
-
-config:
-  include:
-  - bluez-libs
-  - bluez-license

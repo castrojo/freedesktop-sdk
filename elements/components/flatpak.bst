@@ -19,20 +19,20 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/bubblewrap.bst
-- components/gpgme.bst
-- components/libarchive.bst
-- components/libxml2.bst
-- components/curl.bst
-- components/xorg-lib-xau.bst
-- components/ostree.bst
-- components/fuse3.bst
-- components/json-glib.bst
 - components/appstream.bst
+- components/bubblewrap.bst
+- components/curl.bst
+- components/fuse3.bst
+- components/gpgme.bst
+- components/json-glib.bst
+- components/libarchive.bst
 - components/libseccomp.bst
+- components/libxml2.bst
+- components/ostree.bst
 - components/polkit.bst
 - components/systemd-libs.bst
 - components/xdg-dbus-proxy.bst
+- components/xorg-lib-xau.bst
 
 variables:
   meson-local: >-

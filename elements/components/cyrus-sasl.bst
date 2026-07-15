@@ -11,8 +11,8 @@ depends:
 - public-stacks/runtime-minimal.bst
 - bootstrap/libxcrypt.bst
 - components/gdbm.bst
-- components/sqlite.bst
 - components/openssl.bst
+- components/sqlite.bst
 
 variables:
   # Uses generated header md5global.h into source directory

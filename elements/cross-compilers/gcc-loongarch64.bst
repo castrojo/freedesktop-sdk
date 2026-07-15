@@ -10,11 +10,11 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- cross-compilers/standard-libs-loongarch64.bst
 - components/autoconf2.69.bst
 - components/flex.bst
 - components/tar.bst
 - components/texinfo.bst
+- cross-compilers/standard-libs-loongarch64.bst
 
 depends:
 - cross-compilers/binutils-loongarch64.bst

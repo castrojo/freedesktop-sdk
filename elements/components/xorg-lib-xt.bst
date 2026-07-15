@@ -10,9 +10,9 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/xorg-lib-x11.bst
-- components/xorg-lib-sm.bst
 - components/xorg-lib-ice.bst
+- components/xorg-lib-sm.bst
+- components/xorg-lib-x11.bst
 
 public:
   bst:

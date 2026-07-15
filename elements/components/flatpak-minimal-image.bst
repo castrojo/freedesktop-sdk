@@ -14,4 +14,4 @@ config:
   - static-blocklist
   - static-allowlist
   - vm-only
-  integrate: false
+  integrate: False

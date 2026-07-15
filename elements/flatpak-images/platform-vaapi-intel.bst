@@ -4,8 +4,8 @@
 kind: flatpak_image
 
 build-depends:
-- extensions/platform-vaapi-intel/intel-media-driver.bst
 - extensions/platform-vaapi-intel/appdata.bst
+- extensions/platform-vaapi-intel/intel-media-driver.bst
 
 config:
   directory: '%{libdir}/dri/intel-vaapi-driver'

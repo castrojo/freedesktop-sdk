@@ -14,7 +14,7 @@ environment:
   MAXJOBS: "%{max-jobs}"
 
 environment-nocache:
-- MAXJOBS  
+- MAXJOBS
 
 config:
   commands:

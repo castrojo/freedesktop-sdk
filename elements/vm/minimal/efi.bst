@@ -5,15 +5,16 @@ kind: script
 
 build-depends:
 - components/fakecap.bst
-- vm/deploy-tools.bst
-- vm/minimal/initial-scripts.bst
-- vm/prepare-image.bst
-- filename: vm/minimal/filesystem.bst
-  config:
-    location: '/sysroot'
 - filename: vm/boot/efi.bst
   config:
     location: '/sysroot/efi'
+
+- vm/deploy-tools.bst
+- filename: vm/minimal/filesystem.bst
+  config:
+    location: '/sysroot'
+- vm/minimal/initial-scripts.bst
+- vm/prepare-image.bst
 
 environment:
   E2FSPROGS_FAKE_TIME: '%{source-date-epoch}'

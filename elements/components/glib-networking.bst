@@ -8,11 +8,11 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/libproxy.bst
+- components/ca-certificates.bst
 - components/glib.bst
 - components/gnutls.bst
 - components/gsettings-desktop-schemas.bst
-- components/ca-certificates.bst
+- components/libproxy.bst
 
 variables:
   meson-local: |

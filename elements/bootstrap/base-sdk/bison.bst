@@ -16,7 +16,7 @@ depends:
 - bootstrap/base-sdk/perl.bst
 
 environment:
-  AUTOPOINT: true
+  AUTOPOINT: True
 
 variables:
   conf-local: --disable-nls

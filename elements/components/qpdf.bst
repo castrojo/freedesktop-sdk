@@ -5,8 +5,8 @@ kind: cmake
 
 build-depends:
 - public-stacks/buildsystem-cmake.bst
-- components/libxslt.bst
 - components/docbook-xsl.bst
+- components/libxslt.bst
 
 depends:
 - components/gnutls.bst

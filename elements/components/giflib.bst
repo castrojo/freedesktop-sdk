@@ -20,13 +20,6 @@ variables:
     INCDIR="%{includedir}"
     MANDIR="%{mandir}"
 
-public:
-  bst:
-    split-rules:
-      devel:
-        (>):
-        - '%{libdir}/libgif.so'
-
 config:
   build-commands:
   - |
@@ -41,6 +34,13 @@ config:
 
   - |
     %{install-extra}
+
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/libgif.so'
 
 sources:
 - kind: git_repo

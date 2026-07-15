@@ -9,12 +9,13 @@ description: GNU sed
 
 build-depends:
 - bootstrap/base-sdk/texinfo.bst
-- bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
-- bootstrap/gnu-config.bst
+- bootstrap/build/gcc-stage2.bst
 - filename: bootstrap/glibc.bst
   config:
     location: "%{sysroot}"
+
+- bootstrap/gnu-config.bst
 
 runtime-depends:
 - bootstrap/glibc.bst

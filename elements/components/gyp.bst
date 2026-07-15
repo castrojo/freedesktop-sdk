@@ -8,8 +8,8 @@ build-depends:
 
 runtime-depends:
 - components/ninja.bst
-- components/python3.bst
 - components/python3-packaging.bst
+- components/python3.bst
 
 sources:
 - kind: git_repo

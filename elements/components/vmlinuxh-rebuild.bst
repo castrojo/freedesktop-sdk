@@ -4,8 +4,8 @@
 kind: manual
 
 build-depends:
-- components/linux.bst
 - components/_private/bpf.bst
+- components/linux.bst
 
 variables:
   strip-binaries: ''

@@ -5,17 +5,17 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- components/docbook-xml.bst
 - components/docbook-xsl.bst
 - components/libxslt.bst
-- components/docbook-xml.bst
 - components/systemd.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/pango.bst
 - components/gtk3.bst
 - components/libdrm.bst
 - components/libevdev.bst
+- components/pango.bst
 - components/plymouth-logo.bst
 
 variables:

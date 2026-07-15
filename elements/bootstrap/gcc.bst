@@ -12,13 +12,13 @@ description: GNU gcc Stage 3
 build-depends:
 - bootstrap/base-sdk/autoconf2.69.bst
 - bootstrap/base-sdk/automake.bst
-- bootstrap/base-sdk/libtool.bst
+- bootstrap/base-sdk/flex.bst
 - bootstrap/base-sdk/gettext.bst
+- bootstrap/base-sdk/libtool.bst
 - bootstrap/base-sdk/tar.bst
 - bootstrap/base-sdk/texinfo.bst
-- bootstrap/base-sdk/flex.bst
-- bootstrap/build/gcc-stage2.bst
 - bootstrap/build/debug-utils.bst
+- bootstrap/build/gcc-stage2.bst
 - bootstrap/build/python3.bst
 - bootstrap/gnu-config.bst
 - filename:
@@ -28,8 +28,8 @@ build-depends:
     location: "%{sysroot}"
 
 runtime-depends:
-- bootstrap/glibc.bst
 - bootstrap/binutils.bst
+- bootstrap/glibc.bst
 - bootstrap/libxcrypt.bst
 
 environment:
@@ -48,9 +48,9 @@ environment:
   LD_FOR_BUILD: '%{bindir}/ld'
   NM_FOR_BUILD: '%{bindir}/nm'
   RANLIB_FOR_BUILD: '%{bindir}/ranlib'
-  CFLAGS_FOR_BUILD:  "%{build_flags}"
+  CFLAGS_FOR_BUILD: "%{build_flags}"
   CXXFLAGS_FOR_BUILD: "%{build_flags}"
-  LDFLAGS_FOR_BUILD:  "%{ldflags_defaults}"
+  LDFLAGS_FOR_BUILD: "%{ldflags_defaults}"
   PYTHON: python3
 
 variables:
@@ -138,7 +138,7 @@ public:
   bst:
     split-rules:
       runtime:
-        - '%{multiarch_libdir}/lib*.so.*'
+      - '%{multiarch_libdir}/lib*.so.*'
 
       devel:
         (>):
@@ -198,5 +198,5 @@ public:
 
       # Not actually used, included for completeness
       static-allowlist:
-        - '%{multiarch_libdir}/libstdc++.a'
-        - '%{indep-libdir}/gcc/**/*.a'
+      - '%{multiarch_libdir}/libstdc++.a'
+      - '%{indep-libdir}/gcc/**/*.a'

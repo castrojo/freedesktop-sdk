@@ -4,14 +4,15 @@
 kind: script
 
 build-depends:
-- oci/oci-builder.bst
 - oci/layers/sdk-init-script.bst
-- filename: oci/platform-oci.bst
-  config:
-    location: /parent
 - filename: oci/layers/sdk.bst
   config:
     location: /layer
+
+- oci/oci-builder.bst
+- filename: oci/platform-oci.bst
+  config:
+    location: /parent
 
 config:
   commands:

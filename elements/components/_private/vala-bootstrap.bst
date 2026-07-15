@@ -6,19 +6,19 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
-- components/flex.bst
 - components/bison.bst
+- components/flex.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
 - components/glib.bst
 
+environment:
+  VALAC: /no-valac
+
 variables:
   conf-local: --disable-valadoc
   local_flags: -fpermissive
-
-environment:
-  VALAC: /no-valac
 
 config:
   configure-commands:

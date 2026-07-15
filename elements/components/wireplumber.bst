@@ -4,12 +4,12 @@
 kind: meson
 
 build-depends:
-- public-stacks/buildsystem-meson.bst
 - public-stacks/buildsystem-cmake.bst
+- public-stacks/buildsystem-meson.bst
 - components/_private/git-minimal.bst
-- components/gobject-introspection.bst
 - components/doxygen.bst
 - components/flex.bst
+- components/gobject-introspection.bst
 - components/hotdoc.bst
 - components/lua.bst
 - components/systemd.bst

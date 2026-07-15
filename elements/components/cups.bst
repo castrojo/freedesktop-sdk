@@ -8,14 +8,14 @@ build-depends:
 
 runtime-depends:
 - components/avahi-libs.bst
-- components/openssl.bst
 - components/cups-manifest.bst
+- components/openssl.bst
 
 config:
   include:
   - cups-libs
   - cups-license
-  include-orphans: false
+  include-orphans: False
 
 public:
   bst:

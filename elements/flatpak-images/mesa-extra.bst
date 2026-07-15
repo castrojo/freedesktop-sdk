@@ -7,18 +7,18 @@ kind: flatpak_image
 - elements/extensions/mesa/config.yml
 
 build-depends:
-- extensions/mesa/mesa-extra.bst
 - extensions/mesa/mesa-extra-metainfo.bst
+- extensions/mesa/mesa-extra.bst
 
 config:
   directory: "%{prefix}"
   exclude:
-    - debug
-    - docs
-    - locale
-    - devel
-    - tests
-    - shells
+  - debug
+  - docs
+  - locale
+  - devel
+  - tests
+  - shells
 
   metadata:
     Runtime:

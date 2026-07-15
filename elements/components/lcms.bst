@@ -8,8 +8,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/libtiff.bst
 - components/jpeg.bst
+- components/libtiff.bst
 
 variables:
   conf-local: >-

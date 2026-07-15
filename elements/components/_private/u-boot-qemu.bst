@@ -25,7 +25,7 @@ depends:
 - components/openssl.bst
 
 variables:
-  notparallel: true
+  notparallel: True
   board: "none"
   (?):
   - target_arch == "x86_64":

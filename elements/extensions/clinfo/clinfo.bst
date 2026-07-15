@@ -7,8 +7,8 @@ kind: make
 - elements/extensions/include/app.yml
 
 build-depends:
-- extensions/clinfo/khronos-headers.bst
 - public-stacks/buildsystem-make.bst
+- extensions/clinfo/khronos-headers.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

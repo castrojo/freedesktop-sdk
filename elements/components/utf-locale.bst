@@ -17,7 +17,7 @@ environment:
 config:
   commands:
   - |
-     mkdir -p %{install-root}/usr/lib/locale
+    mkdir -p %{install-root}/usr/lib/locale
 
   - |
     localedef --prefix=%{install-root} --no-archive -i en_US -f UTF-8 en_US.UTF-8

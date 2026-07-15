@@ -9,7 +9,7 @@ build-depends:
 runtime-depends:
 - components/cryptsetup-manifest.bst
 - components/json-c.bst
-- components/pwquality.bst
 - components/libdevmapper.bst
 - components/popt.bst
+- components/pwquality.bst
 - components/util-linux-libs.bst

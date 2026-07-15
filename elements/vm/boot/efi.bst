@@ -10,6 +10,10 @@ build-depends:
 - vm/boot/efi/initial-scripts.bst
 - vm/prepare-image.bst
 
+environment:
+  LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
+  FAKECAP_DB: /fakecap
+
 variables:
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
   # FIXME: dracut uses wrong directory when using /efi
@@ -21,10 +25,6 @@ variables:
       efi-arch: x64
   - target_arch == "i686":
       efi-arch: ia32
-
-environment:
-  LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
-  FAKECAP_DB: /fakecap
 
 config:
 
