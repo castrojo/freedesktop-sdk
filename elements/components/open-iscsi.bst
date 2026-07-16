@@ -27,4 +27,4 @@ sources:
 - kind: git_repo
   url: github:open-iscsi/open-iscsi.git
   track: '*.*.*'
-  ref: 2.1.11-0-g4b3e853ab468a95d8a035efa8fc4298a6c6318a3
+  ref: 2.1.12-0-g7e00642c40123e0b3f949e74c3945872c17a407e
