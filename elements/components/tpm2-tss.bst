@@ -23,7 +23,7 @@ variables:
 sources:
 - kind: git_repo
   url: github:tpm2-software/tpm2-tss.git
-  track: '*.*.*'
+  track: 4.1.*
   exclude:
   - '*rc*'
-  ref: 4.1.3-0-g30e6057722058cb85c292dcb7b77760ad6410d4e
+  ref: 4.1.4-0-g05d79042c2a50716ad606653998716bc03db88ba
