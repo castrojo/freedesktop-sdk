@@ -24,6 +24,7 @@ runtime-depends:
 - components/crun.bst
 - components/fuse-overlayfs.bst
 - components/netavark.bst
+- components/nftables.bst
 - components/passt.bst
 
 environment:
