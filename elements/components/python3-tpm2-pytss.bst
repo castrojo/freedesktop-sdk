@@ -27,5 +27,5 @@ sources:
   - '*b*'
   - '*rc*'
   ref: 2.3.0-0-g930cee2c45b84ac533c320b883b226edaeda9a38
-- kind: patch
-  path: patches/python3-tmp2-pytss/gcc15.patch
+- kind: patch_queue
+  path: patches/python3-tpm2-pytss
