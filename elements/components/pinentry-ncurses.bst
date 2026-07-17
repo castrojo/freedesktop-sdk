@@ -40,4 +40,4 @@ sources:
   track: pinentry-*
   exclude:
   - '*-base'
-  ref: pinentry-1.3.2-0-gd7660807593067d5cd7150b7d4d987d60957b5cb
+  ref: pinentry-1.3.3-0-g9a7b78e9882b8261b0be439cccf5651b9dd971a8
