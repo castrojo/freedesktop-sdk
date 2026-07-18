@@ -360,6 +360,7 @@ depends:
 - components/nettle.bst
 - components/networkmanager.bst
 - components/newt.bst
+- components/nftables.bst
 - components/ninja.bst
 - components/noto-cjk.bst
 - components/noto-emoji.bst
