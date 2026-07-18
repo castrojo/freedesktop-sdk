@@ -20,6 +20,4 @@ sources:
   track: '*.*'
   exclude:
   - '*rc*'
-  ref: 5.7-0-gc6e182cf690ca0022b77fe7d3c174659917a7e7e
-- kind: patch
-  path: patches/tpm2-tools/fix-hardening-flags.patch
+  ref: 5.8-0-gbc25f7149372002d4d595195b2d09a1a6d18bca1
