@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:python-poetry/tomlkit.git
   track: "*.*.*"
-  ref: 0.15.0-0-g8694e4d3323df68eb325bf3d5ab7caa66f8c206a
+  ref: 0.15.1-0-g1bd7e3bc5bcc957d359a6c4d8e420163f32ac009
