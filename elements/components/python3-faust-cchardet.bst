@@ -12,10 +12,12 @@ sources:
 - kind: git_repo
   url: github:faust-streaming/cChardet.git
   track: '*.*.*'
-  ref: v2.1.19-0-g3ab4c8b6c82559ecb03a623a825fa3c5c08e5ec8
+  ref: v2.1.20-0-g8a6ed8c7f28a3f12fabc9c2deb8393587288821c
 - kind: git_module
   path: src/ext/uchardet
   url: github:PyYoshi/uchardet.git
   ref: bdb8a0376ddf5d3cab6397be0bad98dad106d77f
 - kind: patch
   path: patches/python3-faust-cchardet/repro.patch
+- kind: patch
+  path: patches/python3-faust-cchardet/0001-Revert-packaging-version-constraint.patch

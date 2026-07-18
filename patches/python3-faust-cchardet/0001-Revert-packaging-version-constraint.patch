@@ -1,0 +1,31 @@
+From e31ae431362fea1f887790c7b097bbf0a53af028 Mon Sep 17 00:00:00 2001
+From: Tom Pollard <tom.pollard@codethink.co.uk>
+Date: Sat, 18 Jul 2026 21:41:46 +0100
+Subject: [PATCH] Revert `packaging` version constraint
+
+This was added with the comment `build: pin packaging<26 to fix
+InvalidVersion crash in isolated build env`
+
+https://github.com/faust-streaming/cChardet/commit/7940bad419e7c0c
+3763bfda34ee35ed5f1df7c36
+
+HEAD of the repo after this release has been converted to a meson
+project, where this restriction isn't present.
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 902465a..b6d7587 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["setuptools", "wheel", "cython>=3.0.10", "pkgconfig", "packaging<26"]
++requires = ["setuptools", "wheel", "cython>=3.0.10", "pkgconfig"]
+ build-backend = "setuptools.build_meta"
+ 
+ [tool.cibuildwheel]
+-- 
+2.53.0
+
