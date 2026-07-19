@@ -6,7 +6,7 @@ description: |
   Contents of the minimal-ostree system are defined here.
 
 depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 - components/bash-completion.bst
 - components/bash-config.bst
 - components/dbus.bst

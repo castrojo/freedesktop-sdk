@@ -23,6 +23,7 @@ build-depends:
 
 runtime-depends:
 - public-stacks/runtime-minimal.bst
+- bootstrap/ncurses.bst
 - components/file.bst
 - components/libeconf.bst
 - components/sqlite.bst

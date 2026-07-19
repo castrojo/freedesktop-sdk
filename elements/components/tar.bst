@@ -7,6 +7,8 @@ kind: autotools
 - elements/include/tar-source.yml
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/findutils.bst
 - bootstrap/gawk.bst
 - bootstrap/gcc.bst
@@ -16,8 +18,6 @@ build-depends:
 - bootstrap/stripper.bst
 
 depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
 - bootstrap/glibc.bst
 - bootstrap/symlinks.bst
 - components/utf-locale.bst

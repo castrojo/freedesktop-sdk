@@ -4,7 +4,7 @@
 kind: script
 
 build-depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 - components/xz.bst
 - filename: vm/minimal-secure/signed-boot.bst
   config:

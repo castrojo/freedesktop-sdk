@@ -7,6 +7,8 @@ kind: autotools
 - elements/include/python3.yml
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/gawk.bst
 - bootstrap/gcc.bst
 - bootstrap/grep.bst
@@ -16,9 +18,7 @@ build-depends:
 - components/autoconf.bst
 
 depends:
-- bootstrap/bash.bst
 - bootstrap/bzip2.bst
-- bootstrap/coreutils.bst
 - bootstrap/glibc.bst
 - bootstrap/symlinks.bst
 - bootstrap/zlib-ng.bst

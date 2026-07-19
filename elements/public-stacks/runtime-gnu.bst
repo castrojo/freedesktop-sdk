@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MIT
 
 kind: stack
+description: |
+  Runtime environment with a typical GNU userland.
 
 depends:
+- public-stacks/runtime-minimal.bst
 - bootstrap/bash.bst
 - bootstrap/coreutils.bst
-- components/python3-build.bst
-- components/python3-flit-core.bst
-- components/python3-installer.bst

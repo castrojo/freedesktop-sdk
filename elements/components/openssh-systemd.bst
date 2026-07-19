@@ -4,6 +4,8 @@
 kind: manual
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - components/pkg-config.bst
 - components/systemd.bst
 

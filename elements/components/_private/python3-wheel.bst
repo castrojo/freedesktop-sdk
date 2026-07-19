@@ -4,6 +4,8 @@
 kind: pyproject
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - components/_private/python3-build.bst
 - components/_private/python3-flit-core.bst
 - components/_private/python3-installer.bst

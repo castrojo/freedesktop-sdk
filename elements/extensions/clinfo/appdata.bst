@@ -7,6 +7,7 @@ kind: manual
 - elements/extensions/include/app.yml
 
 build-depends:
+- public-stacks/runtime-gnu.bst
 - components/appstream-minimal.bst
 
 variables:

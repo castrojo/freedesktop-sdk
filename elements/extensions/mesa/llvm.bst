@@ -7,7 +7,7 @@ kind: manual
 - elements/extensions/mesa/config.yml
 
 build-depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 - bootstrap/binutils.bst
 - bootstrap/sed.bst
 - components/llvm.bst

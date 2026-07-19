@@ -4,7 +4,7 @@
 kind: stack
 
 depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 - components/audit.bst
 - components/bash-completion.bst
 - components/bash-config.bst

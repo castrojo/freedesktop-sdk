@@ -5,7 +5,7 @@ kind: manual
 description: Creates a GL subdirectory, needed for the GL32 compat extension
 
 build-depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 
 variables:
   strip-binaries: ''

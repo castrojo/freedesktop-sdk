@@ -4,8 +4,8 @@
 kind: manual
 description: Adds a link from /etc/mtab -> /proc/self/mounts
 
-depends:
-- public-stacks/runtime-minimal.bst
+build-depends:
+- public-stacks/runtime-gnu.bst
 
 variables:
   strip-binaries: ''

@@ -4,6 +4,8 @@
 kind: makemaker
 
 build-depends:
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
 - bootstrap/make.bst
 - components/perl-module-install.bst
 
