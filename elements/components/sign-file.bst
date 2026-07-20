@@ -4,7 +4,9 @@
 kind: manual
 
 (@):
-- elements/include/linux.yml
+# This could be changed back to track the linux kernel element source once a 7.1+ LTS kernel
+# is released & linux-headers.bst consumes it, consideration tracked at #2027
+- elements/bootstrap/include/linux-headers-source.yml
 
 build-depends:
 - public-stacks/runtime-gnu.bst

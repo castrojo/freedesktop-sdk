@@ -112,13 +112,10 @@ module CRYPTO_CTS
 module CRYPTO_DEFLATE
 module CRYPTO_DES
 module CRYPTO_DH
-enable CRYPTO_DRBG_CTR
-enable CRYPTO_DRBG_HASH
 module CRYPTO_ECB
 module CRYPTO_ECDSA
 module CRYPTO_ECRDSA
 module CRYPTO_FCRYPT
-module CRYPTO_GHASH
 module CRYPTO_HMAC
 module CRYPTO_LRW
 module CRYPTO_LZ4
@@ -147,8 +144,6 @@ enable CRYPTO_USER_API_SKCIPHER
 case "$arch" in
     x86_64)
         module CRYPTO_AES_NI_INTEL
-        module CRYPTO_GHASH_CLMUL_NI_INTEL
-        module CRYPTO_DES3_EDE_X86_64
     ;;
     aarch64)
         module CRYPTO_GHASH_ARM64_CE
@@ -549,20 +544,14 @@ module ZD1211RW
 
 # Ethernet hardware
 module IGB
-if has PCMCIA; then
-    module PCMCIA_3C574
-    module PCMCIA_3C589
-fi
 module TYPHOON
 module VORTEX
 module NE2K_PCI
 if has PCMCIA; then
-    module PCMCIA_AXNET
     module PCMCIA_PCNET
 fi
 module ADAPTEC_STARFIRE
 module ET131X
-module ACENIC
 module ENA_ETHERNET
 module AMD8111_ETH
 case "$arch" in
@@ -571,9 +560,6 @@ case "$arch" in
         module AMD_XGBE
     ;;
 esac
-if has PCMCIA; then
-    module PCMCIA_NMCLAN
-fi
 module PCNET32
 module AQTION
 module ALX
@@ -648,8 +634,6 @@ module NATSEMI
 module NS83820
 enable NET_VENDOR_NETRONOME
 module NFP
-module HAMACHI
-module YELLOWFIN
 module NETXEN_NIC
 module QED
 enable QED_SRIOV
@@ -672,9 +656,6 @@ module SC92031
 module SIS190
 module SIS900
 module EPIC100
-if has PCMCIA; then
-    module PCMCIA_SMC91C92
-fi
 module SMSC9420
 case "$arch" in
     x86_64)
@@ -1233,7 +1214,6 @@ case "$arch" in
         module SND_SOC_AMD_PS_MACH
         module SND_SOC_AMD_RENOIR
         module SND_SOC_AMD_RENOIR_MACH
-        module SND_SOC_AMD_RPL_ACP6x
         module SND_SOC_AMD_RV_RT5682_MACH
         module SND_SOC_AMD_SOF_MACH
         module SND_SOC_AMD_VANGOGH_MACH
