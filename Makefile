@@ -76,6 +76,12 @@ dev:
 		echo "  BuildStream: https://buildstream.build/install.html"; \
 		exit 1; \
 	fi; \
+	if ! command -v reuse >/dev/null 2>&1; then \
+		echo "Install reuse, then run 'make dev' again."; \
+		echo "  python3 -m pip install reuse"; \
+		echo "  REUSE: https://reuse.software/"; \
+		exit 1; \
+	fi; \
 	$$hook_tool install
 
 all: build
