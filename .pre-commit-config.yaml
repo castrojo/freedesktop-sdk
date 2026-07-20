@@ -24,3 +24,8 @@ repos:
         entry: utils/bst-format.py --check
         language: system
         files: \.bst$
+
+      - id: reuse-lint
+        name: Check Licencing Information (reuse lint)
+        entry: reuse lint-file
+        language: system
