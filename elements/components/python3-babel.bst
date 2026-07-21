@@ -10,7 +10,8 @@ depends:
 - components/python3.bst
 
 runtime-depends:
-- components/python3-pytz.bst
+# System tzdata needed for python std zoneinfo
+- components/tzdata.bst
 
 config:
   configure-commands:

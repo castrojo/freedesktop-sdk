@@ -501,7 +501,6 @@ depends:
 - components/python3-pyparsing.bst
 - components/python3-pyproject-hooks.bst
 - components/python3-pyroaring.bst
-- components/python3-pytz.bst
 - components/python3-pyyaml.bst
 - components/python3-requests.bst
 - components/python3-roman-numerals.bst
