@@ -10,6 +10,7 @@ variables:
     --enable-ld=default
     --enable-plugins
     --disable-gdb
+    --disable-gdbserver
     --disable-sim
     --disable-readline
     --disable-libdecnumber
@@ -20,6 +21,7 @@ variables:
     --with-sysroot=/
     --with-zstd
     --enable-deterministic-archives
+    --program-prefix="%{cross_gcc_triplet}-"
 
 config:
   install-commands:
@@ -33,7 +35,7 @@ config:
     - |
       for tool in "%{install-root}%{prefix}/%{cross_triplet}/bin"/*; do
         toolbase="$(basename "${tool}")"
-        for link in "%{bindir}/%{cross_triplet}-${toolbase}" "%{bindir}/${toolbase}"; do
+        for link in "%{bindir}/%{cross_gcc_triplet}-${toolbase}" "%{bindir}/${toolbase}"; do
           if [ -f "%{install-root}${link}" ]; then
             rm "%{install-root}${link}"
             ln -s "$(realpath "${tool}" --relative-to="$(dirname "%{install-root}${link}")")" "%{install-root}${link}"
