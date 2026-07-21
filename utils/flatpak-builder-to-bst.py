@@ -57,7 +57,9 @@ def relativise_path(path):
 
 def cleanup_platform_split_rules(pattern):
     base = "%{prefix}" + pattern if pattern.startswith("/") else "**/" + pattern
-    if any(char in pattern for char in "*?[]"):
+    # Detect paths to cleanup also when the * is in a parent directory
+    basename = pattern.rsplit("/", maxsplit=1)[-1]
+    if any(char in basename for char in "*?[]"):
         return [base]
     return [base, f"{base}/**"]
 
