@@ -14,13 +14,16 @@ depends:
 - public-stacks/runtime-minimal.bst
 # Could turn off default gmp support with --with-mini-gmp
 - components/gmp.bst
+- components/jansson.bst
 - components/libmnl.bst
 - components/libnftnl.bst
 
 variables:
   # Can disable interactive shell cli completely with --without-cli, defaults to --with-cli=libedit
+  # json support needed for netavark usage with podman
   conf-local: >-
     --with-cli=readline
+    --with-json
 
 sources:
 - kind: git_repo
