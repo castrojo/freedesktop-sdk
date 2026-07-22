@@ -10,11 +10,22 @@ depends:
 - components/python3.bst
 
 runtime-depends:
-- components/python3-pytz.bst
+# System tzdata needed for python std zoneinfo
+- components/tzdata.bst
+
+config:
+  configure-commands:
+  - |
+    python3 setup.py import_cldr
 
 sources:
-- kind: pypi
-  name: babel
-  ref:
-    sha256sum: b80b99a14bd085fcacfa15c9165f651fbb3406e66cc603abf11c5750937c992d
-    suffix: 7d/b2/51899539b6ceeeb420d40ed3cd4b7a40519404f9baf3d4ac99dc413a834b/babel-2.18.0.tar.gz
+- kind: git_repo
+  url: github:python-babel/babel.git
+  track: v*.*.*
+  ref: v2.18.0-0-g56c63caf50b18b152541b5dcafd51f645d867074
+# Requirement set in scripts/download_import_cldr.py
+- kind: remote
+  url: tar_https:unicode.org/Public/cldr/47/cldr-common-47.zip
+  ref: d5ee2abac64158c04884a722f8ef4830ea22b6c74aac20185be2838db8eda788
+  directory: cldr
+  filename: cldr-common-47.0.zip
