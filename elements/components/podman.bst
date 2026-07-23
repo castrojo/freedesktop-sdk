@@ -39,7 +39,7 @@ sources:
 - kind: git_repo
   url: github:containers/podman.git
   directory: src/github.com/containers/podman
-  track: v*
+  track: v5.8.*
   exclude:
   - "*rc*"
-  ref: v5.8.3-0-g93dbfd0d86ee57f8f91801f61ce57dd880a4725f
+  ref: v5.8.5-0-g6d48b6f12f793176f3f6bc808b5a440984c14eb2
