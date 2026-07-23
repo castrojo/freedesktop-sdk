@@ -498,19 +498,18 @@ spdx_sbom_report:
     SBOM_TAG: standard
     PACKAGE_VERSION: "$CI_COMMIT_SHA"
     # Sub the / in branch names to prevent the glab url from breaking
-    PACKAGE_NAME: "sbom-reports-${CI_COMMIT_BRANCH//\//-}"
+    UPLOAD_TARBALL: "sbom-reports_${ARCH}_${SBOM_TAG}.tar.xz"
   script:
     - make generate-spdx-sbom-reports
+    - PACKAGE_NAME="sbom-reports-${CI_COMMIT_BRANCH//\//-}"
+    - tar -cJf "${UPLOAD_TARBALL}" sbom-reports/
     - |
-      for SBOM_FILE in ${CI_PROJECT_DIR}/sbom-reports/*; do
-        UPLOAD_NAME="$(basename "$SBOM_FILE" .spdx.json)_${ARCH}_${SBOM_TAG}.spdx.json"
-        curl \
+      curl \
         --fail-with-body \
         --header "JOB-TOKEN: ${CI_JOB_TOKEN}" \
-        --upload-file "$SBOM_FILE" \
-        "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${PACKAGE_VERSION}/${UPLOAD_NAME}";
-        echo "Uploaded ${UPLOAD_NAME} to Package ${PACKAGE_NAME}"
-      done
+        --upload-file "${UPLOAD_TARBALL}" \
+        "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${PACKAGE_VERSION}/${UPLOAD_TARBALL}"
+    - echo "Uploaded ${UPLOAD_TARBALL} to Package ${PACKAGE_NAME}@${PACKAGE_VERSION}"
   artifacts:
     paths:
       - "${CI_PROJECT_DIR}/sbom-reports"
@@ -530,7 +529,7 @@ weekly_spdx_sbom_report:
     SPDX_SBOM_WITH_LICENSE: "true"
     SBOM_TAG: license
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
   needs: []
 
 cve_report:
