@@ -31,4 +31,6 @@ sources:
 - kind: git_repo
   url: github:xkbcommon/libxkbcommon.git
   track: xkbcommon-*
+  exclude:
+  - '*beta*'
   ref: xkbcommon-1.13.2-0-gd1442aaa6b635551182e83c3b55037f4c118c962
