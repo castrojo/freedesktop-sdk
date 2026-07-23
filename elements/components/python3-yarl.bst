@@ -19,6 +19,4 @@ sources:
   track: v*
   exclude:
   - "*rc*"
-  ref: v1.24.2-0-gd7d5867f38d9b866a774d8976b1c3064538f5807
-- kind: patch
-  path: patches/python3-yarl/0001-Revert-setuptools-constraint-bump-and-restrict-depen.patch
+  ref: v1.24.5-0-g0b30cb02d07f8ac454762eed3c2edea0892e9a24
