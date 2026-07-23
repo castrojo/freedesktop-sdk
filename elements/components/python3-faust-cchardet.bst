@@ -12,10 +12,10 @@ sources:
 - kind: git_repo
   url: github:faust-streaming/cChardet.git
   track: '*.*.*'
-  ref: v2.1.19-0-g3ab4c8b6c82559ecb03a623a825fa3c5c08e5ec8
+  ref: v3.0.0-0-gfeee03860fddb024fd907a088f1ae3b41e89a4a3
 - kind: git_module
   path: src/ext/uchardet
   url: github:PyYoshi/uchardet.git
-  ref: bdb8a0376ddf5d3cab6397be0bad98dad106d77f
+  ref: 06029ec3340cdf6bf9a6a537dafb3f39eda0560e
 - kind: patch
   path: patches/python3-faust-cchardet/repro.patch
