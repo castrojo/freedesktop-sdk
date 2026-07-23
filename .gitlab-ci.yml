@@ -492,6 +492,8 @@ publish_flatpak:
 
 spdx_sbom_report:
   stage: finish-publish
+  tags:
+    - ${ARCH}
   variables:
     SBOM_TAG: standard
     PACKAGE_VERSION: "$CI_COMMIT_SHA"
@@ -512,6 +514,9 @@ spdx_sbom_report:
   artifacts:
     paths:
       - "${CI_PROJECT_DIR}/sbom-reports"
+  parallel:
+    matrix:
+      - ARCH: [ x86_64, aarch64, ppc64le ]
   rules:
     - if: '$CI_COMMIT_REF_PROTECTED == "true"'
   needs: []
