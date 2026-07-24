@@ -518,9 +518,9 @@ spdx_sbom_report:
     - if: '$CI_COMMIT_TAG'
   needs: []
 
-weekly_spdx_sbom_report:
+spdx_sbom_report_licenses:
   stage: finish-publish
-  timeout: 120 minutes
+  timeout: 240 minutes
   extends: spdx_sbom_report
   variables:
     # Enable building the SBOM with licenses
