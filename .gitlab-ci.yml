@@ -513,6 +513,9 @@ spdx_sbom_report:
   artifacts:
     paths:
       - "${CI_PROJECT_DIR}/sbom-reports"
+  parallel:
+    matrix:
+      - ARCH: [ x86_64, aarch64 ]
   rules:
     - if: '$CI_COMMIT_REF_PROTECTED == "true"'
     - if: '$CI_COMMIT_TAG'
