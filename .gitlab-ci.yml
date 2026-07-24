@@ -522,7 +522,7 @@ spdx_sbom_report:
 
 weekly_spdx_sbom_report:
   stage: finish-publish
-  timeout: 120 minutes
+  timeout: 240 minutes
   extends: spdx_sbom_report
   variables:
     # Enable building the SBOM with licenses
