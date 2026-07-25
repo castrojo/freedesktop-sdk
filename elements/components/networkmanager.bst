@@ -7,6 +7,7 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - bootstrap/grep.bst
 - bootstrap/sed.bst
+- components/bpf-maybe.bst
 - components/docbook-xsl.bst
 - components/gobject-introspection.bst
 - components/libxslt.bst
@@ -32,7 +33,23 @@ depends:
 - components/newt.bst
 - components/polkit.bst
 
+(?):
+# Needed for CLAT support, bpf-maybe.bst handles
+# bpf only being available for aarch64 & x86_64 already
+- target_arch in ["aarch64", "x86_64"]:
+    build-depends:
+      (>):
+      - components/llvm.bst
+    depends:
+      (>):
+      - components/libbpf.bst
+
 variables:
+  arch-conf: ''
+  (?):
+  - target_arch not in ["aarch64", "x86_64"]:
+      arch-conf: >-
+        -Dclat=false
   meson-local: >-
     -Diwd=true
     -Dpolkit=true
@@ -40,6 +57,7 @@ variables:
     -Dmodem_manager=false
     -Dqt=false
     -Dtests=no
+    %{arch-conf}
 
 sources:
 - kind: git_repo
@@ -48,4 +66,4 @@ sources:
   exclude:
   - "*-dev*"
   - "*-rc*"
-  ref: 1.56.1-0-gb829f838fc5d8c93437faa5db44a5396b67893de
+  ref: 1.58.0-0-g61302aac7f2e7411f3b42159544926484eacd37e
