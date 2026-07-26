@@ -3,7 +3,7 @@
 
 kind: manual
 
-depends:
+build-depends:
 - public-stacks/runtime-gnu.bst
 
 variables:
