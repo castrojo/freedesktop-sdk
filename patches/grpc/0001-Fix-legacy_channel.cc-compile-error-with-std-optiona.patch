@@ -1,0 +1,33 @@
+From 816506e5c0434a42414af6955cc9eef0c562ff3a Mon Sep 17 00:00:00 2001
+From: Anthonios Partheniou <partheniou@google.com>
+Date: Tue, 14 Jul 2026 12:15:51 -0700
+Subject: [PATCH] Fix legacy_channel.cc compile error with
+ `std::optional<absl::FunctionRef>` by using `emplace()`
+
+Directly assigning to `args.arena_init_function` fails on modern compilers (like GCC 15) because `absl::FunctionRef` implicitly deletes its assignment operators to prevent reference rebinding/lifetime bugs. This in turn causes the compiler to implicitly delete the assignment operators on the `wrapping std::optional`.
+
+Using `.emplace()` resolves this by bypassing assignment entirely. It instead destroys the old value (if present) and constructs the new `absl::FunctionRef` in-place using its copy constructor, which is supported.
+
+PiperOrigin-RevId: 947834058
+---
+ src/core/lib/surface/legacy_channel.cc | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/src/core/lib/surface/legacy_channel.cc b/src/core/lib/surface/legacy_channel.cc
+index bbfc10afda..301803fafa 100644
+--- a/src/core/lib/surface/legacy_channel.cc
++++ b/src/core/lib/surface/legacy_channel.cc
+@@ -180,7 +180,9 @@ grpc_call* LegacyChannel::CreateCall(
+   args.authority = std::move(authority);
+   args.send_deadline = deadline;
+   args.registered_method = registered_method;
+-  args.arena_init_function = arena_init_function;
++  if (arena_init_function.has_value()) {
++    args.arena_init_function.emplace(*arena_init_function);
++  }
+   grpc_call* call;
+   GRPC_LOG_IF_ERROR("call_create", grpc_call_create(&args, &call));
+   return call;
+-- 
+2.53.0
+
