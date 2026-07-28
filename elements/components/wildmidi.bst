@@ -23,4 +23,4 @@ sources:
 - kind: git_repo
   url: github:Mindwerks/wildmidi.git
   track: wildmidi-*
-  ref: wildmidi-0.4.6-0-g345a6dd94e89dda34072f1d03eb75180c9bc994f
+  ref: wildmidi-0.5.0-0-g340472ed4633d139d30c660b90eca03c1320e593
