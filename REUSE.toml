@@ -25,3 +25,12 @@ path = "patches/**/*.patch"
 SPDX-FileCopyrightText = "Freedesktop-SDK Developers"
 SPDX-License-Identifier = "MIT"
 
+[[annotations]]
+path = "files/font-conf/**"
+SPDX-FileCopyrightText = "Freedesktop-SDK Developers"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "files/fontconfig/**"
+SPDX-FileCopyrightText = "Freedesktop-SDK Developers"
+SPDX-License-Identifier = "MIT"
