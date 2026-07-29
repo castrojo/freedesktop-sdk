@@ -1,4 +1,0 @@
-#!/bin/sh
-export PATH="/app/bin:/usr/bin"
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}${LD_LIBRARY_PATH:+:}/usr/\$LIB/GL/default/lib:/app/lib"
-exec "/app/bin/glxinfo" "$@"
