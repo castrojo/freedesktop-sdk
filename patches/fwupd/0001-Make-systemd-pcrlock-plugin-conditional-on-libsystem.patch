@@ -1,0 +1,29 @@
+From 5954d6d99467cda87cae3b7da779c0dbf48b0803 Mon Sep 17 00:00:00 2001
+From: Luca Boccassi <luca.boccassi@gmail.com>
+Date: Thu, 30 Jul 2026 11:08:34 +0100
+Subject: [PATCH] Make systemd-pcrlock plugin conditional on libsystemd >= 258
+
+The varlink APIs were added in v258 released in 2025/09, add a meson
+version check and disable the plugin if the local libsystemd is older.
+
+Follow-up for 57b4cf5c4f08844dd8b4885a48f974b8e2bfa6bc
+
+Fixes https://github.com/fwupd/fwupd/issues/10757
+---
+ plugins/systemd-pcrlock/meson.build | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/plugins/systemd-pcrlock/meson.build b/plugins/systemd-pcrlock/meson.build
+index 3574294c8..7d699236f 100644
+--- a/plugins/systemd-pcrlock/meson.build
++++ b/plugins/systemd-pcrlock/meson.build
+@@ -1,5 +1,6 @@
+ host_machine.system() == 'linux' or subdir_done()
+ libsystemd.found() or subdir_done()
++libsystemd.version().version_compare('>= 258') or subdir_done()
+ cc.has_header('systemd/sd-varlink.h', dependencies: libsystemd) or subdir_done()
+ 
+ cargs = ['-DG_LOG_DOMAIN="FuPluginSystemdPcrlock"']
+-- 
+2.53.0
+
