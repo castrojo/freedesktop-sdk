@@ -4,4 +4,6 @@ sources:
   track: v*
   exclude:
   - v*-rc*
-  ref: v4.4.0-0-g44125a9e977c834f06ac1e5fe8db55355261ef87
+  ref: v4.4.1-0-gd1cffecacdfd7d6fb0cda0d1e0bf1ba30b967019
+- kind: patch
+  path: patches/cmake/0001-CheckSymbolExists-Restore-support-for-CMAKE_REQUIRED.patch
