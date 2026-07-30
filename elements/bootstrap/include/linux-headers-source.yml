@@ -8,7 +8,7 @@
 sources:
 - kind: git_repo
   url: kernel:linux/kernel/git/stable/linux.git
-  track: v6.18.12
+  track: v6.18.41
   exclude:
   - '*-rc*'
-  ref: v6.18.12-0-g2784b1b43af3711a6268a616eb8f41f9788c6e3a
+  ref: v6.18.41-0-g2fe596715f840d053aed5cee5455f701bdcd2b50
