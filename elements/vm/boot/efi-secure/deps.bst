@@ -9,7 +9,6 @@ depends:
 - components/binutils.bst
 - components/dbus.bst
 - components/dracut.bst
-- components/efitools.bst
 - components/fakecap.bst
 - components/linux-firmware.bst
 - components/lvm2.bst

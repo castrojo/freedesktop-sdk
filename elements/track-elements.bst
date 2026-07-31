@@ -20,7 +20,6 @@ depends:
 - components/_private/u-boot-qemu.bst
 - components/_private/u-boot-unmatched.bst
 - components/_private/bpf.bst
-- components/_private/efitools-bin.bst
 - components/_private/fwupd-efi.bst
 - components/_private/gnu-efi.bst
 - components/_private/sbsigntools.bst
