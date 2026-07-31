@@ -1,3 +1,65 @@
+Version: freedesktop-sdk-26.08beta.2
+Date: '2026-07-31'
+Description: |-
+  Changes in freedesktop-sdk-26.08beta.2
+   * Reorder public stack docs
+   * Document the available public stacks
+   * .gitlab-ci.yml: Move to latest freedesktop-sdk-docker-images container
+   * Update linux-headers source to latest 6.18 release tag
+   * Update vulkan-stack to vulkan-sdk-1.4.357.0-0
+   * Update shadow to 4.20.0-0
+   * Update libmicrohttpd to v1.0.8-0
+   * Remove unused snap folder
+   * Fix malformed font files
+   * Update libngtcp2 to v1.25.0-0
+   * Add buildstream-sbom
+   * Add askalono
+   * Update libarchive to v3.8.9-0
+   * Update libxmlb to 0.3.29-0
+   * Update fwupd to 2.1.7-0
+   * Add additional Arch to SBOM generation
+   * Extend timeout for License SBOM Job
+   * Enable XZ Compression of SBOMs
+   * Enable SBOM uploads for each commit of mainline
+   * dbus-broker: Adopt git as source
+   * Add dbus-broker
+   * libdisplay-info: Update to 0.4.0-0
+   * pkg-config-source: Update to pkgconf-3.0.4-0
+   * linux: Update to v7.1.5-0
+   * appstream-source: Update to v1.1.5-0
+   * wildmidi: Update to wildmidi-0.5.0-0
+   * taglib: Update to v2.3.1-0
+   * python3-aiohttp: Update to 3.14.3
+   * libwacom: Update to libwacom-2.19.1-0
+   * gflags: Update to v2.3.1-0
+   * cython: Update to 3.2.9-0
+   * plocate: Ensure we add the needed group
+   * Update sqlite to version-3.53.4-0
+   * fix(integrations): Don't set runtime-gnu as depend
+   * Update audit to v4.2-0
+   * Update grpc to v1.83.0-0
+   * Update cryptsetup-base to v2.8.7-0
+   * Update libeconf to v0.8.4-0
+   * Update python3-setuptools-scm to setuptools-scm-v10.2.1-0
+   * Update libical to v4.0.4-0
+   * Update binutils to binutils-2_47-0
+   * Update python3-certifi to 2026.07.22-0
+   * Update networkmanager to 1.58.0-0
+   * Update systemd to v261.2-0
+   * Update python3-dulwich to dulwich-1.2.12-0
+   * Update python3-filelock to 3.32.0-0
+   * Update python3-yarl to v1.24.5-0
+   * libxkbcommon.bst: Exclude tracking beta tags
+   * fftw: Also build with single precision
+   * Update python3-virtualenv to 21.7.0-0
+   * Update appstream to v1.1.4-0
+   * Update parallel to 20260722-0
+   * Update libmysofa to v1.3.5-0
+   * Update podman to v6.0.2-0
+   * Update libp11 to libp11-0.4.19-0
+   * noto-fonts: Port to git
+   * Also run pre-commit checks from reuse
+---
 Version: freedesktop-sdk-26.08beta.1
 Date: '2026-07-20'
 Description: |-
