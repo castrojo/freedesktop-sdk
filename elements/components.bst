@@ -95,7 +95,6 @@ depends:
 - components/dummy-gbm.bst
 - components/e2fsprogs.bst
 - components/ed.bst
-- components/efitools-bin-maybe.bst
 - components/efivar.bst
 - components/elfutils.bst
 - components/ell.bst
