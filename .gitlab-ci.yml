@@ -309,19 +309,22 @@ app_x86_64:
   extends:
     - .flatpak_template
     - .builder-x86_64
-  needs: []
+  needs:
+  - lint
 
 app_i686:
   extends:
     - .flatpak_template
     - .builder-i686
-  needs: []
+  needs:
+  - lint
 
 app_aarch64:
   extends:
     - .flatpak_template
     - .builder-aarch64
-  needs: []
+  needs:
+  - lint
 
 app_riscv64:
   extends:
@@ -332,13 +335,15 @@ app_riscv64:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "riscv"'
     - when: manual
-  needs: []
+  needs:
+  - lint
 
 app_ppc64le:
   extends:
     - .flatpak_template
     - .builder-ppc64le
-  needs: []
+  needs:
+  - lint
 
 .app_loongarch64:
   extends:
@@ -346,7 +351,8 @@ app_ppc64le:
     - .builder-loongarch64
   allow_failure: true
   when: manual
-  needs: []
+  needs:
+  - lint
 
 .minimal_test:
   stage: vm
