@@ -43,8 +43,10 @@ sources:
 - kind: git_repo
   url: gitlab:man-db/man-db.git
   track: '*.*.*'
+  exclude:
+  - '*-pre*'
   ref: 2.13.1-0-g349ce503a3594b91ad08229f83a0015fe4595ddc
-- kind: git_module
+- kind: git_repo
   url: savannah:gnulib.git
-  path: gnulib
+  directory: gnulib
   ref: 0ba13435a9362bec0ff5fd0830907b9fac723e41
