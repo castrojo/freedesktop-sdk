@@ -95,6 +95,7 @@ lint:
   script:
     - ruff format --check
     - ruff check
+    - git diff --name-only --diff-filter=d "${CI_MERGE_REQUEST_DIFF_BASE_SHA}" -- '*.bst' | xargs -r python utils/bst-format.py --check
     - python utils/news_validator.py validate --path NEWS.yml
     - python utils/flatpak_branch_validator.py validate --path include/repo_branches.yml
     - python utils/check-missing-components-stack.py --ignore-file tests/ignore-missing-from-components-stack.yaml
