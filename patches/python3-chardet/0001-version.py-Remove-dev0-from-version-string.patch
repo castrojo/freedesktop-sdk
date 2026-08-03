@@ -1,0 +1,29 @@
+From e53c09d94ecb46b420b5693bf19e0beebc82567b Mon Sep 17 00:00:00 2001
+From: Tom Pollard <tom.pollard@codethink.co.uk>
+Date: Mon, 3 Aug 2026 21:31:37 +0100
+Subject: [PATCH] version.py: Remove `dev0` from version string
+
+This causes requests to emit warnings:
+
+https://github.com/psf/requests/issues/7219
+
+Requests now supports `<8` however the appended `dev0` in the
+chardet 6.0.0 git tag source still triggers the emission.
+---
+ chardet/version.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/chardet/version.py b/chardet/version.py
+index 8b49f3d..3e40e8c 100644
+--- a/chardet/version.py
++++ b/chardet/version.py
+@@ -5,5 +5,5 @@ from within setuptools and from chardet subpackages.
+ :author: Dan Blanchard (dan.blanchard@gmail.com)
+ """
+ 
+-__version__ = "6.0.0dev0"
++__version__ = "6.0.0"
+ VERSION = __version__.split(".")
+-- 
+2.53.0
+

@@ -19,4 +19,4 @@ sources:
   - "*rc*"
   ref: 6.0.0-0-g8a4636b1d4ef21d11cc8190f6ff271670b9d20ee
 - kind: patch
-  path: patches/python3-chardet/version.patch
+  path: patches/python3-chardet/0001-version.py-Remove-dev0-from-version-string.patch
