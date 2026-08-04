@@ -302,6 +302,11 @@ generate-spdx-sbom-reports: \
     ${SPDX_SBOM_DIR}/sdk.spdx.json \
     ${SPDX_SBOM_DIR}/components.spdx.json
 
+build-sbom-artifacts:
+	$(BST) build platform.bst
+	$(BST) build sdk.bst
+	$(BST) build components.bst
+
 manifest:
 	rm -rf sdk-manifest/
 	rm -rf platform-manifest/
@@ -631,4 +636,4 @@ secure-images-serve: secure-images/SHA256SUMS
 	download-microsoft-keys						\
 	run-secure-vm clean-secure-vm clean-ostree-vm			\
 	export-secure-images secure-images-serve update-secure-version copy-artifacts \
-	generate-spdx-sbom-reports
+	generate-spdx-sbom-reports build-sbom-artifacts
