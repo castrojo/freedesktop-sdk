@@ -3,6 +3,9 @@
 
 kind: autotools
 
+(@):
+- elements/include/nftables.yml
+
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 # Could turn off man docs with --disable-man-doc
@@ -24,9 +27,3 @@ variables:
   conf-local: >-
     --with-cli=readline
     --with-json
-
-sources:
-- kind: git_repo
-  url: netfilter:nftables.git
-  track: v*.*.*
-  ref: v1.1.6-0-g95f82543dcc76bb00e257d2af75a1d1cfd2c7fe8

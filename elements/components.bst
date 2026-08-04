@@ -480,6 +480,7 @@ depends:
 - components/python3-maturin.bst
 - components/python3-multidict.bst
 - components/python3-networkx.bst
+- components/python3-nftables.bst
 - components/python3-packaging.bst
 - components/python3-pathlib2.bst
 - components/python3-pathspec.bst

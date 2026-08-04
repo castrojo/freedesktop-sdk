@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
+sources:
+  - kind: git_repo
+    url: netfilter:nftables.git
+    track: v*.*.*
+    ref: v1.1.6-0-g95f82543dcc76bb00e257d2af75a1d1cfd2c7fe8
