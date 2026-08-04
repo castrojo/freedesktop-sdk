@@ -517,9 +517,23 @@ spdx_sbom_report:
     matrix:
       - ARCH: [ x86_64, aarch64 ]
   rules:
-    - if: '$CI_COMMIT_REF_PROTECTED == "true"'
+    - if: '$CI_COMMIT_REF_PROTECTED == "true" && $CI_PIPELINE_SOURCE != "schedule"'
     - if: '$CI_COMMIT_TAG'
   needs: []
+
+# Ensure that all artifacts are in the cache for the Buildstream sbom license job
+build_spdx_artifacts:
+  stage: publish
+  tags:
+    - $ARCH
+  script:
+    make build-sbom-artifacts
+  parallel:
+    matrix:
+      - ARCH: [ x86_64, aarch64 ]
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+    - if: '$CI_COMMIT_TAG'
 
 spdx_sbom_report_licenses:
   stage: finish-publish
@@ -532,7 +546,8 @@ spdx_sbom_report_licenses:
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
   - if: '$CI_COMMIT_TAG'
-  needs: []
+  needs: 
+      - build_spdx_artifacts
 
 cve_report:
   stage: finish-publish
