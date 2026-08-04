@@ -7,8 +7,8 @@ description: "Library and command-line tool to detect license texts."
 
 build-depends:
 - public-stacks/runtime-gnu.bst
-- components/rust.bst
 - components/gcc.bst
+- components/rust.bst
 - components/stripper.bst
 
 runtime-depends:
