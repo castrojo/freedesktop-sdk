@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
-
+# /// script
+# dependencies = [
+#   "ruamel.yaml",
+# ]
+# ///
 # SPDX-FileCopyrightText: Freedesktop-SDK Developers
 # SPDX-License-Identifier: MIT
 
 import argparse
 import re
 import sys
-from functools import cmp_to_key
+from functools import cmp_to_key, partial
 from io import StringIO
 from pathlib import Path
 from typing import Any
@@ -14,21 +18,7 @@ from typing import Any
 from ruamel.yaml import YAML
 from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
-TOP_LEVEL_ORDER = [
-    "kind",
-    "description",
-    "(@)",
-    "build-depends",
-    "depends",
-    "runtime-depends",
-    "(?)",
-    "environment",
-    "environment-nocache",
-    "variables",
-    "config",
-    "public",
-    "sources",
-]
+DEFAULT_FORMAT: Path = Path(__file__).parent / "default_format.yml"
 
 DEPENDENCY_KEYS = {"build-depends", "depends", "runtime-depends"}
 PLAIN_MULTILINE_SCALAR_RE = re.compile(
@@ -37,6 +27,23 @@ PLAIN_MULTILINE_SCALAR_RE = re.compile(
     r"(?P<key>[A-Za-z0-9_-]+:)\n"
     r"(?P<value>(?:(?P=indent)  (?!- )[^#:\n]+\n)+)"
 )
+
+
+class Configuration:
+    line_width: int
+
+    indent_mapping: int
+    indent_sequence: int
+    indent_offset: int
+
+    top_level_order: list[str]
+    dependency_sort_order: list[str]
+
+    def __init__(self, config_file: Path | str | None = None) -> None:
+        config = read_yml(DEFAULT_FORMAT)
+        if config_file is not None and Path(config_file).exists():
+            config.update(read_yml(Path(config_file)))
+        self.__dict__.update(config)
 
 
 def comment_entry_has_text(entry: Any) -> bool:
@@ -57,17 +64,17 @@ def node_has_attached_comments(node: Any) -> bool:
     return any(comment_entry_has_text(entry) for entry in comments.items.values())
 
 
-def top_level_sort_key(key: Any) -> tuple[int, str]:
+def top_level_sort_key(key: Any, config: Configuration) -> tuple[int, str]:
     key_string = str(key)
     if key_string == "sources":
         return 999, key_string
     try:
-        return TOP_LEVEL_ORDER.index(key_string), key_string
+        return config.top_level_order.index(key_string), key_string
     except ValueError:
         return 500, key_string
 
 
-def dependency_sort_key(item: Any) -> tuple[int, str]:
+def dependency_sort_key(item: Any, config: Configuration) -> tuple[int, str]:
     if isinstance(item, str):
         filename = item
     elif isinstance(item, dict) and isinstance(item.get("filename"), str):
@@ -75,23 +82,19 @@ def dependency_sort_key(item: Any) -> tuple[int, str]:
     else:
         return 99, repr(item)
 
-    if filename.startswith("public-stacks/"):
-        group = 0
-    elif filename.startswith("bootstrap/"):
-        group = 1
-    elif filename.startswith("components/_private/"):
-        group = 2
-    elif filename.startswith("components/"):
-        group = 3
+    for idx, dependency_group in enumerate(config.dependency_sort_order):
+        if filename.startswith(dependency_group):
+            group = idx
+            break
     else:
-        group = 4
+        group = len(config.dependency_sort_order) + 1
 
     return group, filename.removesuffix(".bst")
 
 
-def compare_dependency_items(left: Any, right: Any) -> int:
-    left_group, left_name = dependency_sort_key(left)
-    right_group, right_name = dependency_sort_key(right)
+def compare_dependency_items(left: Any, right: Any, config: Configuration) -> int:
+    left_group, left_name = dependency_sort_key(left, config)
+    right_group, right_name = dependency_sort_key(right, config)
 
     if left_group != right_group:
         return -1 if left_group < right_group else 1
@@ -125,7 +128,7 @@ def comment_has_blank_line(comment: Any) -> bool:
     return "\n\n" in value
 
 
-def format_dependency_list(data: CommentedSeq) -> None:
+def format_dependency_list(data: CommentedSeq, config: Configuration) -> None:
     if node_has_attached_comments(data):
         return
 
@@ -143,7 +146,8 @@ def format_dependency_list(data: CommentedSeq) -> None:
 
     blocks = [block for block in blocks if block]
     sorted_blocks = [
-        sorted(block, key=cmp_to_key(compare_dependency_items)) for block in blocks
+        sorted(block, key=cmp_to_key(partial(compare_dependency_items, config=config)))
+        for block in blocks
     ]
     sorted_items = [item for block in sorted_blocks for item in block]
     if items == sorted_items:
@@ -183,18 +187,22 @@ def format_dependency_list(data: CommentedSeq) -> None:
                 )
 
 
-def format_node(node: Any, *, is_top_level: bool = False) -> None:
+def format_node(
+    node: Any, config: Configuration, *, is_top_level: bool = False
+) -> None:
     if isinstance(node, CommentedMap):
         for key, value in list(node.items()):
             if key in DEPENDENCY_KEYS and isinstance(value, CommentedSeq):
-                format_dependency_list(value)
-            format_node(value)
+                format_dependency_list(value, config)
+            format_node(value, config)
 
         if is_top_level and all(isinstance(key, str) for key in node):
-            reorder_commented_map(node, sorted(node, key=top_level_sort_key))
+            reorder_commented_map(
+                node, sorted(node, key=partial(top_level_sort_key, config=config))
+            )
     elif isinstance(node, list):
         for item in node:
-            format_node(item)
+            format_node(item, config)
 
 
 def add_top_level_spacing(text: str) -> str:
@@ -240,13 +248,17 @@ def restore_plain_multiline_scalars(text: str, original: str) -> str:
     return text
 
 
-def dump_bst(data: Any, original: str) -> str:
+def dump_bst(data: Any, original: str, config: Configuration) -> str:
     yaml = YAML()
     yaml.preserve_quotes = True
     yaml.default_flow_style = False
-    yaml.boolean_representation = ["False", "True"]
-    yaml.indent(mapping=2, sequence=2, offset=0)
-    yaml.width = 4096
+    yaml.boolean_representation = ["False", "True"]  # ty:ignore[unresolved-attribute]
+    yaml.indent(
+        mapping=config.indent_mapping,
+        sequence=config.indent_sequence,
+        offset=config.indent_offset,
+    )
+    yaml.width = config.line_width
 
     output = StringIO()
     yaml.dump(data, output)
@@ -255,18 +267,18 @@ def dump_bst(data: Any, original: str) -> str:
     )
 
 
-def read_bst(path: Path) -> Any:
+def read_yml(path: Path) -> Any:
     yaml = YAML()
     yaml.preserve_quotes = True
     with path.open("r", encoding="utf-8") as input_file:
         return yaml.load(input_file)
 
 
-def format_file(path: Path, *, check: bool = False) -> bool:
+def format_file(path: Path, config: Configuration, *, check: bool = False) -> bool:
     original = path.read_text(encoding="utf-8")
-    data = read_bst(path)
-    format_node(data, is_top_level=True)
-    formatted = dump_bst(data, original)
+    data = read_yml(path)
+    format_node(data, config, is_top_level=True)
+    formatted = dump_bst(data, original, config)
     if formatted == original:
         return False
 
@@ -289,15 +301,21 @@ def parse_args() -> argparse.Namespace:
         help="Check whether files are formatted without modifying them",
     )
     parser.add_argument(
+        "--config",
+        default=".bstrc",
+        help="Configuration file for format options, by default uses .bstrc",
+    )
+    parser.add_argument(
         "files", nargs="+", type=Path, help="BuildStream files to format"
     )
+
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
     changed = False
-
+    config = Configuration(args.config)
     for path in args.files:
         if not path.exists():
             print(f"{path}: does not exist", file=sys.stderr)
@@ -306,7 +324,7 @@ def main() -> int:
             print(f"{path}: expected a .bst file", file=sys.stderr)
             return 3
 
-        changed |= format_file(path, check=args.check)
+        changed |= format_file(path, config, check=args.check)
     return 1 if args.check and changed else 0
 
 
