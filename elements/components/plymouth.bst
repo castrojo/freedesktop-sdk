@@ -5,6 +5,7 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- components/_private/git-minimal.bst
 - components/docbook-xml.bst
 - components/docbook-xsl.bst
 - components/libxslt.bst
