@@ -2,6 +2,9 @@
 # SPDX-License-Identifier: MIT
 
 import urllib.request
+from itertools import batched, groupby
+
+MAX_LINE = 10
 
 
 def get_fedora_file(url: str) -> str:
@@ -9,21 +12,26 @@ def get_fedora_file(url: str) -> str:
     plugins = []
     excludes = ["libopenh264"]
     with urllib.request.urlopen(req) as response:
-        count = 0
         for line in response.readlines():
             line = line.decode()
             plugin = line.split("#")[0].strip()
 
             if plugin and plugin not in excludes:
-                # format the yaml so the final string doesn't end up a one liner
-                if count >= 6:
-                    plugin = f"\\\n    {plugin}"
-                    count = 0
-
                 plugins.append(plugin)
-                count += 1
 
-    return ",".join(plugins)
+    return format_list(plugins)
+
+
+def format_list(plugins: list[str]) -> str:
+    output = ""
+    alpha = {
+        key: list(group) for key, group in groupby(sorted(plugins), key=lambda s: s[0])
+    }
+    for values in alpha.values():
+        for v in list(batched(values, MAX_LINE)):
+            output += ",".join(v) + ",\\\n    "
+    # Strip off last \ for formatting
+    return output.strip().rsplit(",\\", 1)[0]
 
 
 def main():
