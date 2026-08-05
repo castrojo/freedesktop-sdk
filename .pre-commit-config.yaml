@@ -3,7 +3,7 @@ repos:
     hooks:
       - id: git-diff-check
         name: Check staged whitespace and conflict markers
-        entry: git diff --cached --check
+        entry: git diff --no-pager diff --cached --check
         language: system
         pass_filenames: false
 
@@ -11,7 +11,7 @@ repos:
         name: Ruff syntax
         entry: ruff format --check
         language: system
-        types: [python]
+        types: [ python ]
 
       - id: bst-show
         name: Check BuildStream element coherence
