@@ -30,9 +30,9 @@ variables:
     ilbc,\
     jpeg2000,jpegls,\
     libaom,libaom_av1,libcodec2,libfdk_aac,libgsm,libgsm_ms,libilbc,libjxl,liblc3,libmp3lame,\
-    libopencore_amrnb,libopenjpeg,libopus,librav1e,libspeex,libsvtav1,libtheora,libtwolame,libvo_amrwbenc,libvorbis,\
-    libvpx_vp8,libvpx_vp9,libwebp,libwebp_anim,libxvid,\
-    mjpeg,mjpeg_qsv,mjpeg_vaapi,mlp,mp2,mp2fixed,mpeg1video,mpeg2_qsv,mpeg2_vaapi,mpeg2video,\
+    liboapv,libopencore_amrnb,libopenjpeg,libopus,librav1e,libspeex,libsvtav1,libtheora,libtwolame,libvo_amrwbenc,libvorbis,\
+    libvpx_vp8,libvpx_vp9,libwebp,libwebp_anim,libxeve,libxvid,\
+    mjpeg,mjpeg_qsv,mjpeg_vaapi,mlp,movtext,mp2,mp2fixed,mpeg1video,mpeg2_qsv,mpeg2_vaapi,\
     mpeg4,mpeg4_v4l2m2m,msmpeg4v2,msmpeg4v3,msvideo1,\
     nellymoser,\
     opus,\
@@ -57,10 +57,10 @@ variables:
     aac,aasc,ac3,acelp_kelvin,adpcm_4xm,adpcm_adx,adpcm_afc,adpcm_agm,adpcm_aica,adpcm_argo,\
     adpcm_ct,adpcm_dtk,adpcm_ea,adpcm_ea_maxis_xa,adpcm_ea_r1,adpcm_ea_r2,adpcm_ea_r3,adpcm_ea_xas,adpcm_g722,adpcm_g726,\
     adpcm_g726le,adpcm_ima_acorn,adpcm_ima_alp,adpcm_ima_amv,adpcm_ima_apc,adpcm_ima_apm,adpcm_ima_cunning,adpcm_ima_dat4,adpcm_ima_dk3,adpcm_ima_dk4,\
-    adpcm_ima_ea_eacs,adpcm_ima_ea_sead,adpcm_ima_iss,adpcm_ima_moflex,adpcm_ima_mtf,adpcm_ima_oki,adpcm_ima_qt,adpcm_ima_qt_at,adpcm_ima_rad,adpcm_ima_smjpeg,\
+    adpcm_ima_ea_eacs,adpcm_ima_ea_sead,adpcm_ima_iss,adpcm_ima_moflex,adpcm_ima_mtf,adpcm_ima_oki,adpcm_ima_qt,adpcm_ima_rad,adpcm_ima_smjpeg,\
     adpcm_ima_ssi,adpcm_ima_wav,adpcm_ima_ws,adpcm_ms,adpcm_mtaf,adpcm_psx,adpcm_sbpro_2,adpcm_sbpro_3,adpcm_sbpro_4,adpcm_swf,\
     adpcm_thp,adpcm_thp_le,adpcm_vima,adpcm_xa,adpcm_xmd,adpcm_yamaha,adpcm_zork,aic,alac,alias_pix,\
-    amrnb,amrwb,amv,anm,ansi,anull,apac,ape,apng,arbc,\
+    amrnb,amrwb,amv,anm,ansi,anull,apac,ape,apng,apv,arbc,\
     argo,ass,asv1,asv2,atrac1,atrac3,atrac3al,atrac3p,atrac3pal,aura,\
     aura2,av1,av1_qsv,\
     bethsoftvid,bfi,bink,binkaudio_dct,binkaudio_rdft,bintext,bitpacked,bmp,bmv_audio,bmv_video,\
@@ -74,7 +74,7 @@ variables:
     evrc,exr,\
     ffv1,ffvhuff,ffwavesynth,fits,flac,flashsv,flashsv2,flic,flv,fmvc,\
     fourxm,ftr,\
-    g723_1,g729,gdv,gem,gif,gremlin_dpcm,gsm,gsm_ms,gsm_ms_at,\
+    g723_1,g729,gdv,gem,gif,gremlin_dpcm,gsm,gsm_ms,\
     h261,h263,h263_v4l2m2m,h263i,h263p,hap,hca,hcom,hdr,hnm4_video,\
     hq_hqa,hqx,huffyuv,hymt,\
     iac,idcin,idf,iff_ilbm,ilbc,imc,indeo2,indeo3,indeo4,indeo5,\
@@ -83,12 +83,12 @@ variables:
     kgv1,kmvc,\
     lagarith,libaom,libaom_av1,libaribb24,libaribcaption,libcodec2,libdav1d,libfdk_aac,libgsm,libgsm_ms,\
     libilbc,libjxl,liblc3,libopencore_amrnb,libopencore_amrwb,libopenjpeg,libopus,librsvg,libschroedinger,libspeex,\
-    libvorbis,libvpx_vp8,libvpx_vp9,libzvbi_teletext,loco,lscr,\
+    libvorbis,libvpx_vp8,libvpx_vp9,libxevd,libzvbi_teletext,loco,lscr,\
     m101,mace3,mace6,mdec,media100,metasound,microdvd,mimic,misc4,mjpeg,\
-    mjpeg_qsv,mjpegb,mlp,mmvideo,motionpixels,mp1,mp1float,mp2,mp2float,mp3,\
+    mjpeg_qsv,mjpegb,mlp,mmvideo,motionpixels,movtext,mp1,mp1float,mp2,mp2float,mp3,\
     mp3adu,mp3adufloat,mp3float,mp3on4,mp3on4float,mpc7,mpc8,mpeg1_v4l2m2m,mpeg1video,mpeg2_qsv,\
     mpeg2_v4l2m2m,mpeg2video,mpeg4,mpeg4_v4l2m2m,mpegvideo,mpl2,msa1,mscc,msmpeg4v1,msmpeg4v2,\
-    msmpeg4v3,msnsiren,msp2,msrle,mss1,mss2,msvideo1,mszh,mts2,mv30,\
+    msmpeg4v3,msnsiren,msp2,msrle,mss1,msvideo1,mszh,mts2,mv30,\
     mvc1,mvc2,mvdv,mvha,mwsc,mxpeg,\
     nellymoser,nuv,\
     on2avc,opus,\
@@ -97,7 +97,7 @@ variables:
     pcm_s24daud,pcm_s24le,pcm_s24le_planar,pcm_s32be,pcm_s32le,pcm_s32le_planar,pcm_s64be,pcm_s64le,pcm_s8,pcm_s8_planar,\
     pcm_sga,pcm_u16be,pcm_u16le,pcm_u24be,pcm_u24le,pcm_u32be,pcm_u32le,pcm_u8,pcm_vidc,pcx,\
     pfm,pgm,pgmyuv,pgssub,pgx,phm,photocd,pictor,pjs,png,\
-    ppm,prores,prosumer,psd,ptx,\
+    ppm,prores,prores_raw,prosumer,psd,ptx,\
     qcelp,qdm2,qdmc,qdraw,qoa,qoi,qpeg,qtrle,\
     r10k,r210,ra_144,ra_288,rasc,rawvideo,realtext,rka,rl2,roq,\
     roq_dpcm,rpza,rscc,rv10,rv20,\
