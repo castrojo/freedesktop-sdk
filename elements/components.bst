@@ -568,7 +568,6 @@ depends:
 - components/sign-file.bst
 - components/skopeo.bst
 - components/slang.bst
-- components/slirp4netns.bst
 - components/sndfile.bst
 - components/sof-firmware.bst
 - components/speexdsp.bst
