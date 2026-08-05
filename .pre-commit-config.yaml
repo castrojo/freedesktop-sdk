@@ -3,7 +3,7 @@ repos:
     hooks:
       - id: git-diff-check
         name: Check staged whitespace and conflict markers
-        entry: git diff --cached --check
+        entry: git --no-pager diff --cached --check
         language: system
         pass_filenames: false
 
