@@ -19,6 +19,7 @@ depends:
 - components/libpsl.bst
 - components/lzip.bst
 - components/openssl.bst
+- components/zlib.bst
 - components/zstd.bst
 
 variables:
