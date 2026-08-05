@@ -17,12 +17,6 @@ depends:
 - components/libpng.bst
 
 variables:
-  arch-conf: ''
-  (?):
-  - target_arch == "aarch64":
-      # See issue #2024
-      arch-conf: -DJPEGXL_ENABLE_HWY_SVE2_128=false
-
   cmake-local: >-
     -DBUILD_SHARED_LIBS=ON
     -DBUILD_TESTING=OFF
@@ -49,7 +43,6 @@ variables:
     -DJPEGXL_WARNINGS_AS_ERRORS=OFF
     -DJPEGXL_BUNDLE_LIBPNG=OFF
     -DJPEGXL_ENABLE_DOXYGEN=ON
-    %{arch-conf}
 
 public:
   bst:
