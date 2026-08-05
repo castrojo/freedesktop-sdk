@@ -37,7 +37,6 @@ def format_list(plugins: list[str]) -> str:
 def main():
     encoders = "https://src.fedoraproject.org/rpms/ffmpeg/raw/rawhide/f/enable_encoders"
     decoders = "https://src.fedoraproject.org/rpms/ffmpeg/raw/rawhide/f/enable_decoders"
-
     # Generate the final strings to copy paste into the yaml
     # They are pre-formatted
     print(
