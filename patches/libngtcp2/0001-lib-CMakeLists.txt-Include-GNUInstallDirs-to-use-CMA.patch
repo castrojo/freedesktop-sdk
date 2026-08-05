@@ -1,0 +1,35 @@
+From 0730ee2920a6eb0baaf59d0665aacae635e2b860 Mon Sep 17 00:00:00 2001
+From: Tom Pollard <tom.pollard@codethink.co.uk>
+Date: Wed, 5 Aug 2026 13:49:07 +0100
+Subject: [PATCH] lib/CMakeLists.txt: Include GNUInstallDirs to use
+ CMAKE_INSTALL_LIBDIR
+
+This ensures the path for .cmake follows the common pattern to include
+the arch, e.g. `usr/lib/x86_64-linux-gnu/cmake/ngtcp2`
+---
+ lib/CMakeLists.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/lib/CMakeLists.txt b/lib/CMakeLists.txt
+index 5aebc8a3..8764b8fd 100644
+--- a/lib/CMakeLists.txt
++++ b/lib/CMakeLists.txt
+@@ -81,11 +81,14 @@ set(ngtcp2_INCLUDE_DIRS
+   "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
+ )
+ 
++include(CMakePackageConfigHelpers)
++include(GNUInstallDirs)
++
+ set(NGTCP2_GENERATED_DIR "${CMAKE_CURRENT_BINARY_DIR}/generated")
+ set(NGTCP2_VERSION_CONFIG "${NGTCP2_GENERATED_DIR}/${PROJECT_NAME}ConfigVersion.cmake")
+ set(NGTCP2_PROJECT_CONFIG "${NGTCP2_GENERATED_DIR}/${PROJECT_NAME}Config.cmake")
+ set(NGTCP2_TARGETS_EXPORT_NAME "${PROJECT_NAME}Targets")
+-set(NGTCP2_CONFIG_INSTALL_DIR "lib/cmake/${PROJECT_NAME}")
++set(NGTCP2_CONFIG_INSTALL_DIR "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
+ set(NGTCP2_NAMESPACE "${PROJECT_NAME}::")
+ set(NGTCP2_VERSION ${PROJECT_VERSION})
+ 
+-- 
+2.53.0
+

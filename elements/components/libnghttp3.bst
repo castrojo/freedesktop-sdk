@@ -32,3 +32,5 @@ sources:
   path: lib/sfparse
   url: github:ngtcp2/sfparse.git
   ref: 4b313cfd2e1b389ae632b36dcd50402307289af2
+- kind: patch
+  path: patches/libnghttp3/0001-lib-CMakeLists.txt-Include-GNUInstallDirs-to-use-CMA.patch
