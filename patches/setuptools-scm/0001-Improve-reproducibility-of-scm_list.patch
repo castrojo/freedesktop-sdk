@@ -1,0 +1,25 @@
+From 425a962be8b69877cc8d25d0ab5cccf59d637a77 Mon Sep 17 00:00:00 2001
+From: Aedan McHale <aedan.mchale@codethink.co.uk>
+Date: Thu, 6 Aug 2026 16:12:44 +0100
+Subject: [PATCH] Improve reproducibility of scm_list
+
+---
+ vcs-versioning/src/vcs_versioning/_backends/_git.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/vcs-versioning/src/vcs_versioning/_backends/_git.py b/vcs-versioning/src/vcs_versioning/_backends/_git.py
+index f25792e..248f283 100644
+--- a/vcs-versioning/src/vcs_versioning/_backends/_git.py
++++ b/vcs-versioning/src/vcs_versioning/_backends/_git.py
+@@ -255,7 +255,7 @@ class GitWorkdir(Workdir):
+         git_files, git_dirs = _git_ls_files_and_dirs(
+             str(self.path), timeout=self._subprocess_timeout
+         )
+-        return scm_find_files(base, git_files, git_dirs)
++        return sorted(scm_find_files(base, git_files, git_dirs))
+ 
+     def is_file_tracked(self, path: Path) -> bool:
+         res = self.run_git(
+-- 
+2.55.0
+

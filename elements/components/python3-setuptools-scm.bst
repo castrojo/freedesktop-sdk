@@ -24,3 +24,5 @@ sources:
   - "*dev*"
   - "*vcs-*"
   ref: setuptools-scm-v10.2.1-0-gac108b243380c10de77de32eb696b74d5f5eb63f
+- kind: patch
+  path: patches/setuptools-scm/0001-Improve-reproducibility-of-scm_list.patch
