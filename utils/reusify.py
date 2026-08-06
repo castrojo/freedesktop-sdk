@@ -65,7 +65,7 @@ def has_header(text: str, header: str) -> bool:
 
 
 def add_header(path: Path, header: str) -> bool:
-    if path.suffix == ".patch" or not has_inline_style(path):
+    if path.suffix in {".patch", ".diff"} or not has_inline_style(path):
         sidecar = path.with_name(path.name + ".license")
         if sidecar.exists() and header in sidecar.read_text(encoding="utf-8"):
             return False
