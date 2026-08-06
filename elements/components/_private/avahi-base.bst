@@ -73,6 +73,11 @@ public:
     product: avahi
     ignored:
     - CVE-2021-26720
+    - CVE-2025-68276 # Patched
+    - CVE-2025-68468 # Patched
+    - CVE-2025-68471 # Patched
+    - CVE-2026-24401 # Patched
+    - CVE-2026-34933 # Patched
 
 sources:
 - kind: git_repo
@@ -84,3 +89,5 @@ sources:
 - kind: local
   path: files/avahi/avahi.conf
   directory: freedesktop-sdk
+- kind: patch_queue
+  path: patches/avahi
