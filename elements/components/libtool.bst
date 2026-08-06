@@ -35,5 +35,5 @@ public:
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:libtool/libtool-2.5.4.tar.xz
-  ref: f81f5860666b0bc7d84baddefa60d1cb9fa6fceb2398cc3baca6afaa60266675
+  url: ftp_gnu_org:libtool/libtool-2.6.2.tar.xz
+  ref: 2ef1067c16c97db930fd740cc9bc3d3ba9a583804ae5ac42cc3e8719e49e191e
