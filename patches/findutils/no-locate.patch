@@ -1,8 +1,19 @@
+From 99b7e5acbed82f1a0f4c19603d1cfa18278f03da Mon Sep 17 00:00:00 2001
+From: Tom Pollard <tom.pollard@codethink.co.uk>
+Date: Thu, 6 Aug 2026 11:21:04 +0100
+Subject: [PATCH] no locate
+
+This rebases the patch introduced in 9dd9f1e onto 4.11.0
+---
+ Makefile.in     | 4 ++--
+ doc/Makefile.in | 4 +---
+ 2 files changed, 3 insertions(+), 5 deletions(-)
+
 diff --git a/Makefile.in b/Makefile.in
-index 3316afe..abc4a5f 100644
+index 5421f6c..e7d7f3a 100644
 --- a/Makefile.in
 +++ b/Makefile.in
-@@ -2617,11 +2617,11 @@ EXTRA_DIST = COPYING ChangeLog README-hacking THANKS TODO \
+@@ -2810,11 +2810,11 @@ EXTRA_DIST = COPYING ChangeLog README-hacking THANKS TODO \
  DISTCLEANFILES = tool-versions.txt
  
  # "gnulib-tests" is the gnulib unit test dir.
@@ -13,14 +24,14 @@ index 3316afe..abc4a5f 100644
  TESTFILE_SUFFIXES = .exp .xo .xe .xi
 -built_programs = find xargs frcode locate updatedb
 +built_programs = find xargs frcode
+ AM_CPPFLAGS = -I$(top_srcdir)/gl/lib
+ LDADD = $(top_builddir)/gl/lib/libgnulib.a
  
- # Indirections required so that we'll still be able to know the
- # complete list of our tests even if the user overrides TESTS
 diff --git a/doc/Makefile.in b/doc/Makefile.in
-index a71d4b2..534c0ff 100644
+index d19f6f7..01e3496 100644
 --- a/doc/Makefile.in
 +++ b/doc/Makefile.in
-@@ -2361,11 +2361,9 @@ top_srcdir = @top_srcdir@
+@@ -2544,11 +2544,9 @@ top_srcdir = @top_srcdir@
  AM_CFLAGS = $(WARN_CFLAGS)
  info_TEXINFOS = find.texi find-maint.texi
  find_TEXINFOS = perm.texi parse-datetime.texi regexprops.texi fdl.texi
@@ -33,3 +44,6 @@ index a71d4b2..534c0ff 100644
  	find_mono.html findutils.texi_html_node.tar.gz \
  	find-info.tar.gz find.texi.tar.gz \
  	find.txt  tmp-doc-install find_mono.html.gz
+-- 
+2.53.0
+
