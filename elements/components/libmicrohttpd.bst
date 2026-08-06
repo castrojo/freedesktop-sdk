@@ -32,6 +32,10 @@ public:
       devel:
         (>):
         - '%{libdir}/libmicrohttpd.so'
+  cpe:
+    ignored:
+    - CVE-2025-62689   # Consumed after v1.0.3
+    - CVE-2025-59777   # Consumed after v1.0.3
 
 sources:
 - kind: git_repo

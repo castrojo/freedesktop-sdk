@@ -27,6 +27,10 @@ public:
         - '%{libdir}/libjq.so'
         - '%{libdir}/libonig.so'
         - '%{bindir}/onig-config'
+  cpe:
+    ignored:
+    - CVE-2026-39979   # Already consumed fix
+    - CVE-2026-33948   # Already consumed fix
 
 sources:
 - kind: git_repo
