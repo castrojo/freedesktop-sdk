@@ -1,3 +1,8 @@
+From 2d13628504e6f19e7fc72f79dcbef8136c8e9c30 Mon Sep 17 00:00:00 2001
+From: Tom Pollard <tom.pollard@codethink.co.uk>
+Date: Thu, 6 Aug 2026 11:02:17 +0100
+Subject: [PATCH] lame-4.0 pkgconfig to get correct libs
+
 If libncurses is configured to build libtinfo as a separate library,
 part of the symbols that used to be in libncurses are now in libtinfo
 
@@ -5,18 +10,25 @@ Use ncurses.pc to get correct "Libs:" and "Libs.private:"
 
 http://bugs.gentoo.org/454322
 
---- lame-3.100/configure.in
-+++ lame-3.100/configure.in
-@@ -420,7 +420,7 @@
+Rebased onto lame-4.0 by Tom Pollard <tom.pollard@codethink.co.uk>
+---
+ configure.ac | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index db3feb7..7824fdb 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -457,7 +457,7 @@ AC_CHECK_HEADERS(termcap.h)
  AC_CHECK_HEADERS(ncurses/termcap.h)
  AC_CHECK_LIB(termcap, initscr, HAVE_TERMCAP="termcap")
  AC_CHECK_LIB(curses, initscr, HAVE_TERMCAP="curses")
 -AC_CHECK_LIB(ncurses, initscr, HAVE_TERMCAP="ncurses")
 +PKG_CHECK_MODULES(TERMCAP, ncurses, HAVE_TERMCAP="ncurses", HAVE_TERMCAP="")
+ AC_CHECK_HEADERS(langinfo.h, AC_CHECK_FUNCS(nl_langinfo))
  
  AM_ICONV
-  
-@@ -667,7 +667,7 @@
+@@ -741,7 +741,7 @@ dnl configure use of VBR bitrate histogram
  dnl todo: always use yes as default, use simulation instead ?
  AC_MSG_CHECKING(for termcap)
  if test "x${HAVE_TERMCAP}" != "x"; then
@@ -25,3 +37,6 @@ http://bugs.gentoo.org/454322
    AC_DEFINE(HAVE_TERMCAP, 1, have termcap)
    TERMCAP_DEFAULT="yes"
  else
+-- 
+2.53.0
+

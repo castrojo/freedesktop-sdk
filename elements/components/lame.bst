@@ -5,6 +5,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- components/mpg123.bst
 
 variables:
   conf-local: |
@@ -25,7 +26,11 @@ public:
 
 sources:
 - kind: tar
-  url: sourceforge:projects/lame/files/lame/3.100/lame-3.100.tar.gz
-  ref: ddfe36cab873794038ae2c1210557ad34857a4b6bdc515785d1da9e175b1da1e
+  url: sourceforge:projects/lame/files/lame/4.0/lame-4.0.tar.gz
+  ref: 3df5124d5ad3a98312ffd7ba6a9b36230e4f8a3e66d3ce0f425e336c32d216eb
 - kind: patch
-  path: patches/lame/lame-3.100.5-pkgconfig-to-get-correct-libs.patch
+  path: patches/lame/lame-4.0-pkgconfig-to-get-correct-libs.patch
+- kind: patch
+  path: patches/lame/svn-r6562.patch
+- kind: patch
+  path: patches/lame/svn-r6564.patch
