@@ -19,8 +19,8 @@ sources:
   directory: mpc
   ref: 91204cd32f164bd3b7c992d4a6a8ce6519511aadab30f78b6982d0bf8d73e931
 - kind: tar
-  url: tar_https:libisl.sourceforge.io/isl-0.27.tar.xz
+  url: tar_https:libisl.sourceforge.io/isl-0.28.tar.xz
   directory: isl
-  ref: 6d8babb59e7b672e8cb7870e874f3f7b813b6e00e6af3f8b04f7579965643d5c
+  ref: 3dc31b8e1b18329e42d5dfbf84dd55e15c59b61569a2ab246f61497d9592f727
 - kind: patch_queue
   path: patches/gcc
