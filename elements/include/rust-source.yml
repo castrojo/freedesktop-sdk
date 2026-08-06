@@ -3,5 +3,5 @@
 
 sources:
 - kind: tar
-  url: tar_https:static.rust-lang.org/dist/rustc-1.96.0-src.tar.xz
-  ref: b99ce16cdf0ecfc761b585ac84d131b46733465a02f8ecd0ff2de9713c62ee09
+  url: tar_https:static.rust-lang.org/dist/rustc-1.97.1-src.tar.xz
+  ref: 0ed06fdaffd4722a7702e0b4eebfafc897ab8f513e8e1b247cdd7e5c6df6ded2

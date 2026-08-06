@@ -10,5 +10,5 @@ kind: manual
 # That's how upstream recommends doing it.
 sources:
 - kind: tar
-  url: tar_https:static.rust-lang.org/dist/rust-1.95.0-riscv64gc-unknown-linux-gnu.tar.xz
-  ref: 172b80cc2c600c2681f2a2199cee9f490427c2ba548ee9bd449483a0c34cd691
+  url: tar_https:static.rust-lang.org/dist/rust-1.96.1-riscv64gc-unknown-linux-gnu.tar.xz
+  ref: 107ebdaac6512820b1fdf55920317687a5ff0255602db23a006a982f90880cf6
