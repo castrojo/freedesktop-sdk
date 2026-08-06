@@ -20,5 +20,5 @@ config:
 
 sources:
 - kind: tar
-  url: github_files:GPUOpen-LibrariesAndSDKs/AMF/releases/download/v1.5.0/AMF-headers-v1.5.0.tar.gz
-  ref: d569647fa26f289affe81a206259fa92f819d06db1e80cc334559953e82a3f01
+  url: github_files:GPUOpen-LibrariesAndSDKs/AMF/releases/download/v1.5.2/AMF-headers-v1.5.2.tar.gz
+  ref: d3c12eb324edf05e214608b6a395a51dd95770ed9d45520185d6c3a206811c99
