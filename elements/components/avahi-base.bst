@@ -29,18 +29,6 @@ config:
     - |
       install -Dm644 -t "%{install-root}%{indep-libdir}/sysusers.d" \
                      freedesktop-sdk/avahi.conf
-
-sources:
-- kind: git_repo
-  url: github:lathiat/avahi.git
-  track: v*.*
-  exclude:
-  - '*rc*'
-  ref: v0.8-0-gf060abee2807c943821d88839c013ce15db17b58
-- kind: local
-  path: files/avahi/avahi.conf
-  directory: freedesktop-sdk
-
 public:
   bst:
     split-rules:
@@ -81,3 +69,21 @@ public:
     product: avahi
     ignored:
     - CVE-2021-26720
+    - CVE-2025-68276 # Patched
+    - CVE-2025-68468 # Patched
+    - CVE-2025-68471 # Patched
+    - CVE-2026-24401 # Patched
+    - CVE-2026-34933 # Patched
+
+sources:
+- kind: git_repo
+  url: github:lathiat/avahi.git
+  track: v*.*
+  exclude:
+  - '*rc*'
+  ref: v0.8-0-gf060abee2807c943821d88839c013ce15db17b58
+- kind: local
+  path: files/avahi/avahi.conf
+  directory: freedesktop-sdk
+- kind: patch_queue
+  path: patches/avahi
