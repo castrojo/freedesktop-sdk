@@ -1,36 +1,14 @@
 version = 1
 
 [[annotations]]
-path = "*"
-SPDX-FileCopyrightText = "Freedesktop-SDK Developers"
-SPDX-License-Identifier = "MIT"
-
-[[annotations]]
-path = ".*"
-SPDX-FileCopyrightText = "Freedesktop-SDK Developers"
-SPDX-License-Identifier = "MIT"
-
-[[annotations]]
-path = "keys/*"
-SPDX-FileCopyrightText = "Freedesktop-SDK Developers"
-SPDX-License-Identifier = "MIT"
-
-[[annotations]]
-path = "ostree-gpg/**"
-SPDX-FileCopyrightText = "Freedesktop-SDK Developers"
-SPDX-License-Identifier = "MIT"
-
-[[annotations]]
-path = "patches/**/*.patch"
-SPDX-FileCopyrightText = "Freedesktop-SDK Developers"
-SPDX-License-Identifier = "MIT"
-
-[[annotations]]
-path = "files/font-conf/**"
-SPDX-FileCopyrightText = "Freedesktop-SDK Developers"
-SPDX-License-Identifier = "MIT"
-
-[[annotations]]
-path = "files/fontconfig/**"
+path = [
+    "*",
+    ".*",
+    "keys/*",
+    "ostree-gpg/**",
+    "patches/**/*.patch",
+    "files/font-conf/**",
+    "files/fontconfig/**",
+]
 SPDX-FileCopyrightText = "Freedesktop-SDK Developers"
 SPDX-License-Identifier = "MIT"
