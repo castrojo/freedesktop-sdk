@@ -127,6 +127,10 @@ public:
         - '%{libdir}/libswresample.so'
         - '%{datadir}/ffmpeg/examples'
         - '%{datadir}/ffmpeg/examples/**'
+  cpe:
+    ignored:
+      - CVE-2025-25469 # Already carry fix
+      - CVE-2025-25468 # Already carry fix
 
 # ffmpeg is not using autotools, but a configure and Makefile files
 config:

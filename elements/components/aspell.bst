@@ -29,6 +29,9 @@ public:
         - '%{bindir}/pspell-config'
         - '%{libdir}/libaspell.so'
         - '%{libdir}/libpspell.so'
+  cpe:
+    ignored:
+    - CVE-2019-25051   # Already consumed fix
 
 sources:
 - kind: git_repo

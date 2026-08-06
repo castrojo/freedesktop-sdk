@@ -41,6 +41,11 @@ variables:
     DESTDIR="%{install-root}"
     install install.completions
 
+public:
+  cpe:
+    ignored:
+    - CVE-2022-2989   # Already Consumed
+
 sources:
 - kind: git_repo
   url: github:podman-container-tools/podman.git

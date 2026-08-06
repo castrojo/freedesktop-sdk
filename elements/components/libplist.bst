@@ -18,6 +18,10 @@ public:
   cpe:
     vendor: 'libimobiledevice'
     product: 'libplist'
+    ignored:
+    - CVE-2017-5836   # Patch consumed in releases since
+    - CVE-2017-5835   # Patch consumed in releases since
+    - CVE-2017-5834   # Patch consumed in releases since
 
 sources:
 - kind: git_repo
