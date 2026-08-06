@@ -20,9 +20,14 @@ public:
         (>):
         - '%{libdir}/libopusfile.so'
         - '%{libdir}/libopusurl.so'
+  cpe:
+    ignored:
+    - CVE-2022-40320   # patched
 
 sources:
 - kind: git_repo
   url: xiph:opusfile.git
   track: v*
   ref: v0.12-0-ga55c164e9891a9326188b7d4d216ec9a88373739
+- kind: patch
+  path: patches/opusfile/CVE-2022-40320.patch
