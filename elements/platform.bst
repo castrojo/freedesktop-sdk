@@ -179,6 +179,7 @@ depends:
 - components/tar.bst
 - components/tex-gyre-fonts.bst
 - components/tzdata.bst
+- components/unzip.bst
 - components/util-linux-libs.bst
 - components/util-linux.bst
 - components/v4l-utils.bst

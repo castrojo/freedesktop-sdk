@@ -600,6 +600,7 @@ depends:
 - components/u-boot-qemu-maybe.bst
 - components/u-boot-unmatched-maybe.bst
 - components/udisks.bst
+- components/unzip.bst
 - components/upower.bst
 - components/usbutils.bst
 - components/utf8cpp.bst
