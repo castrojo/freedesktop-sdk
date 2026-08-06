@@ -299,9 +299,6 @@ check_mirrors:
   - ppc64le
   variables:
     ARCH: ppc64le
-    # Keep ppc64le jobs pinned to final 25.08 based container until runners support cgroups v2,
-    # see freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images#43
-    DOCKER_IMAGE_ID: "a0b8b3380f9e43229547442226f2a022106dbb0b"
 
 .builder-loongarch64:
   tags:
@@ -686,10 +683,6 @@ publish_docker_ppc64le:
 publish_docker_finish:
   stage: finish-publish
   allow_failure: true
-  # Whilst freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images#43 is still an issue,
-  # prevent manifest job being picked up by ppc64le runners
-  tags:
-    - x86_64
   before_script: []
   script:
   - podman login -u "${DOCKER_HUB_USER}" -p "${DOCKER_HUB_PASSWORD}" "${DOCKER_HUB_ADDRESS}"
