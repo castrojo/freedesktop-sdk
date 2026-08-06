@@ -25,6 +25,12 @@ public:
     ignored:
     - CVE-2025-1632
 
+config:
+  install-commands:
+    (>):
+      - |
+        ln -s %{install-root}%{bindir}/bsdunzip %{install-root}%{bindir}/unzip
+
 sources:
 - kind: git_repo
   url: github:libarchive/libarchive.git
