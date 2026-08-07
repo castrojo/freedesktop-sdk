@@ -65,7 +65,7 @@ def deduplicate_licenses(
                     logger.info("Moved %s to %s", src_file, dest_file)
 
                 for f in files:
-                    if os.path.exists(f):  # files[0] dosn't exist since it was moved
+                    if os.path.exists(f):  # files[0] doesn't exist since it was moved
                         total_bytes_saved += os.path.getsize(f)
                         if not dry_run:
                             os.remove(f)

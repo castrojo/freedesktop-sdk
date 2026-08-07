@@ -7,9 +7,9 @@ description: |
   Create directories needed by bootable Linux systems that are not in the SDK.
 
   Since Flatpak runtimes and SDKs do not need to be bootable, they do not
-  provide a full filesystem heirarchy.
+  provide a full filesystem hierarchy.
 
-  For bootable systems, we should follow the Filesystem Heirarchy Standard:
+  For bootable systems, we should follow the Filesystem Hierarchy Standard:
   see <http://refspecs.linuxfoundation.org/fhs.shtml> for more information.
 
 build-depends:

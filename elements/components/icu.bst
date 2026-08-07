@@ -35,7 +35,7 @@ public:
   cpe:
     product: international_components_for_unicode
 
-# The git repsitory is unreliable as tags are force-pushed
+# The git repository is unreliable as tags are force-pushed
 # See https://github.com/sdispater/tomlkit/issues/322
 sources:
 - kind: tar

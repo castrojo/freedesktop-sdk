@@ -148,7 +148,7 @@ def prepare(args):
             not any(s in v for s in ("rc", "beta")) for v in (version0, version1)
         ) and not validate_version_increment(version0, version1):
             raise SystemExit(
-                f"error: Version increment is not 1, prevous version: {version1} current version: {version0}"
+                f"error: Version increment is not 1, previous version: {version1} current version: {version0}"
             )
         with open(git_dir / "NEWS.yml", "w", encoding="utf-8") as news:
             yaml.dump_all(documents, news)
