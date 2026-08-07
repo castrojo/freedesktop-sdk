@@ -409,7 +409,6 @@ depends:
 - components/perl-module-scandeps.bst
 - components/perl-pod-parser.bst
 - components/perl-sasl.bst
-- components/perl-slurp.bst
 - components/perl-ssleay.bst
 - components/perl-ssl.bst
 - components/perl-xml-parser.bst
