@@ -11,7 +11,7 @@ build-depends:
 - extensions/clinfo/khronos-headers.bst
 
 depends:
-- public-stacks/runtime-gnu.bst
+- public-stacks/runtime-minimal.bst
 - components/opencl.bst
 
 sources:
