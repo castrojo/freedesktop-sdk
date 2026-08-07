@@ -2,6 +2,17 @@
 # SPDX-License-Identifier: MIT
 
 kind: meson
+description: |
+  PAM authentication system.
+
+  This element provides PAM (Pluggable Authentication Modules), a framework
+  used by most Linux operating systems to authenticate and manage user logins.
+  This element includes the client library and the core modules.
+
+  See `components/linux-pam.bst` for a base PAM configuration.
+
+  This element is intended for system integration, it is not included
+  in Flatpak or OCI images.
 
 build-depends:
 - public-stacks/buildsystem-meson.bst

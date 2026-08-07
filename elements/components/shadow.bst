@@ -2,6 +2,21 @@
 # SPDX-License-Identifier: MIT
 
 kind: autotools
+description: |
+  shadow-utils package.
+
+  The shadow-utils package includes programs for managing user and group
+  accounts, such as `passwd`, `useradd`, and `groupmod`. It also includes
+  `login`, the console login handler, and `su`, the tool to become another
+  user.
+
+  This element builds the shadow-utils with PAM support enabled. Access control
+  for these system administration tools is configured via the included PAM
+  configuration files, and the base PAM configuration provided by
+  `components/linux-pam.bst`.
+
+  This element is intended for system integration, it is not included
+  in Flatpak or OCI images.
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
