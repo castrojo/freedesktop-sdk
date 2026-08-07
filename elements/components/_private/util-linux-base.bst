@@ -3,7 +3,7 @@
 
 kind: meson
 description: |
-  util-linux, a random collecion of Linux utilities.
+  util-linux, a random collection of Linux utilities.
 
   This element disables the `ncurses` option at config time, but still requires
   `libtinfow` from the `components/ncurses.bst` element.

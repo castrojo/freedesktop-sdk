@@ -4,7 +4,7 @@
 # files/boot-keys/modules is expected to be empty, unless testing
 # secure boot.
 #
-# This element should be overriden in the junction by downstream
+# This element should be overridden in the junction by downstream
 # projects.
 kind: import
 

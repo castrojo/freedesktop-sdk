@@ -50,7 +50,7 @@ def main():
                 size_bytes = int(dir_size.split()[0])
                 max_size_bytes = int(MAX_SIZE_EFI_VM)
             except ValueError:
-                print("Error: file sizes not convertable to integers", file=sys.stderr)
+                print("Error: file sizes not convertible to integers", file=sys.stderr)
                 sys.exit(os.EX_DATAERR)
 
             if size_bytes <= max_size_bytes:
