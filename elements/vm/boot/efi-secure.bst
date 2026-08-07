@@ -63,7 +63,7 @@ config:
 
   - mkdir -p '%{install-root}/boot/loader/keys/auto'
 
-  - cp -r '%{datadir}/efitools/efi'/{PK,KEK,DB}.auth '%{install-root}/boot/loader/keys/auto'
+  - cp -r '%{datadir}/efi-keys'/{PK,KEK,DB}.auth '%{install-root}/boot/loader/keys/auto'
 
   - |
     cat <<EOF >"%{install-root}/boot/loader/loader.conf"
