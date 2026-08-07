@@ -377,6 +377,7 @@ depends:
 - components/patchelf.bst
 - components/pciutils.bst
 - components/pcsc-lite.bst
+- components/pdfio.bst
 - components/perf.bst
 - components/perl-build.bst
 - components/perl-class-inspector.bst
