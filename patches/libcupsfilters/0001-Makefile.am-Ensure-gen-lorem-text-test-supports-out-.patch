@@ -1,0 +1,32 @@
+From bf5ebb2adb73ce1c385aa2100927ea5406ed1beb Mon Sep 17 00:00:00 2001
+From: Tom Pollard <tom.pollard@codethink.co.uk>
+Date: Fri, 7 Aug 2026 17:31:31 +0100
+Subject: [PATCH] Makefile.am: Ensure gen-lorem-text test supports out of tree
+ builds
+
+For out of tree builds, the target directory needs to exist for the
+generator to write the file to, fixes:
+
+```
+./gen-lorem-text > cupsfilters/test_files/test_text_lorem.txt
+/bin/sh: line 1: cupsfilters/test_files/test_text_lorem.txt: No such file or directory
+```
+---
+ Makefile.am | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Makefile.am b/Makefile.am
+index e2238320..175d1ef1 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -348,6 +348,7 @@ BUILT_SOURCES = cupsfilters/test_files/test_text_lorem.txt
+ CLEANFILES   = cupsfilters/test_files/test_text_lorem.txt
+ 
+ cupsfilters/test_files/test_text_lorem.txt: gen-lorem-text
++	$(MKDIR_P) $(@D)
+ 	$(AM_V_GEN)./gen-lorem-text > $@
+ 
+ EXTRA_DIST += \
+-- 
+2.53.0
+
