@@ -543,7 +543,6 @@ depends:
 - components/python3-wheezy-template.bst
 - components/python3-yarl.bst
 - components/python3.bst
-- components/qpdf.bst
 - components/rdfind.bst
 - components/rr-maybe.bst
 - components/rsync.bst
