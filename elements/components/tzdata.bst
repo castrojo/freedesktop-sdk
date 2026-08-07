@@ -6,9 +6,6 @@ kind: make
 build-depends:
 - public-stacks/buildsystem-make.bst
 
-depends:
-- public-stacks/runtime-minimal.bst
-
 variables:
   make-args: >-
     PREFIX="%{prefix}" CC=gcc ZFLAGS='-b fat'

@@ -7,9 +7,6 @@ build-depends:
 - public-stacks/runtime-gnu.bst
 - components/findutils.bst
 
-depends:
-- public-stacks/runtime-minimal.bst
-
 variables:
   strip-binaries: ''
   license-files-extra: LICENSE fonts/LICENSE

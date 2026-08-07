@@ -6,9 +6,6 @@ kind: autotools
 build-depends:
 - public-stacks/buildsystem-autotools.bst
 
-depends:
-- public-stacks/runtime-minimal.bst
-
 variables:
   autogen: ./autogen.sh --no-configure
 
