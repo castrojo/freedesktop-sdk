@@ -21,3 +21,8 @@ depends:
 - bootstrap/glibc.bst
 - bootstrap/symlinks.bst
 - components/utf-locale.bst
+
+variables:
+  # Removal of this is tracked at #2044
+  conf-local: >-
+    ac_cv_func_posix_spawn_file_actions_addchdir=yes
