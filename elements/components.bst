@@ -399,6 +399,7 @@ depends:
 - components/patch.bst
 - components/pciutils.bst
 - components/pcsc-lite.bst
+- components/pdfio.bst
 - components/perf.bst
 - components/perl-build.bst
 - components/perl-class-inspector.bst
@@ -542,7 +543,6 @@ depends:
 - components/python3-wheezy-template.bst
 - components/python3-yarl.bst
 - components/python3.bst
-- components/qpdf.bst
 - components/rdfind.bst
 - components/rr-maybe.bst
 - components/rsync.bst
