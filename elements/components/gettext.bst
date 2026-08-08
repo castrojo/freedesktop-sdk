@@ -28,6 +28,11 @@ runtime-depends:
 - components/gzip.bst
 - components/tar.bst
 
+variables:
+  # Removal of this is tracked at #2044
+  conf-local: >-
+    ac_cv_func_posix_spawn_file_actions_addchdir=yes
+
 public:
   bst:
     split-rules:
