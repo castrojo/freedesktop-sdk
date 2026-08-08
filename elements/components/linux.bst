@@ -98,7 +98,7 @@ config:
     install -Dm644 vmlinux "%{install-root}%{indep-libdir}/modules/${release}/vmlinux"
     install -Dm644 System.map "%{install-root}%{indep-libdir}/modules/${release}/System.map"
     install -Dm644 .config "%{install-root}%{indep-libdir}/modules/${release}/config"
-    make -j1 INSTALL_MOD_PATH="%{install-root}%{prefix}" modules_install
+    ZSTD_CLEVEL=19 make -j1 INSTALL_MOD_PATH="%{install-root}%{prefix}" INSTALL_MOD_STRIP=1 modules_install
 
   - |
     release=$(make -s kernelrelease)
