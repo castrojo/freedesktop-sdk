@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
+top_level_order:
+  - "kind"
+  - "description"
+  - "(@)"
+  - "build-depends"
+  - "depends"
+  - "runtime-depends"
+  - "(?)"
+  - "environment"
+  - "environment-nocache"
+  - "variables"
+  - "config"
+  - "public"
+  - "sources"
+dependency_sort_order:
+  - "public-stacks/"
+  - "bootstrap/"
+  - "components/_private/"
+  - "components/"
+
+indent_mapping: 2
+indent_sequence: 2
+indent_offset: 0
+
+line_width: 4096
