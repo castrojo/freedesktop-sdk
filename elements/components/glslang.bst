@@ -12,7 +12,10 @@ depends:
 
 variables:
   license-files-extra: glslang/LICENSE.txt
+  # pre-compiled headers cause non-reproducible builds, so disable them.
+  # see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=126707
   cmake-local: >-
+    -DENABLE_PCH="OFF"
     -DCMAKE_SKIP_RPATH:BOOL=yes
     -DBUILD_SHARED_LIBS:BOOL=yes
     -DENABLE_OPT="OFF"
