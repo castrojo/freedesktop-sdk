@@ -6,10 +6,7 @@ kind: cargo
 description: "Library and command-line tool to detect license texts."
 
 build-depends:
-- public-stacks/runtime-gnu.bst
-- components/gcc.bst
-- components/rust.bst
-- components/stripper.bst
+- public-stacks/buildsystem-rust.bst
 
 runtime-depends:
 - public-stacks/runtime-minimal.bst

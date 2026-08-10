@@ -4,13 +4,10 @@
 kind: manual
 
 build-depends:
-- public-stacks/runtime-gnu.bst
+- public-stacks/buildsystem-rust.bst
 - components/binutils.bst
-- components/gcc.bst
 - components/ostree.bst
 - components/pkg-config.bst
-- components/rust.bst
-- components/stripper.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

@@ -4,10 +4,7 @@
 kind: manual
 
 build-depends:
-- public-stacks/runtime-gnu.bst
-- components/gcc.bst
-- components/rust.bst
-- components/stripper.bst
+- public-stacks/buildsystem-rust.bst
 
 depends:
 - components/llvm.bst
