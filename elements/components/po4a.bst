@@ -4,8 +4,7 @@
 kind: modulebuild
 
 build-depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
+- public-stacks/runtime-gnu.bst
 - bootstrap/diffutils.bst
 - bootstrap/make.bst
 - components/docbook-xsl.bst

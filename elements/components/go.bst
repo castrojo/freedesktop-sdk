@@ -7,8 +7,7 @@ kind: manual
 - elements/include/go-source.yml
 
 build-depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
+- public-stacks/runtime-gnu.bst
 - bootstrap/findutils.bst
 - bootstrap/go.bst
 - bootstrap/grep.bst

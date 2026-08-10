@@ -4,8 +4,7 @@
 kind: stack
 
 depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
+- public-stacks/runtime-gnu.bst
 - components/python3-build.bst
 - components/python3-hatch-vcs.bst
 - components/python3-hatchling.bst

@@ -2,9 +2,7 @@
 # SPDX-License-Identifier: MIT
 
 build-depends:
-- public-stacks/runtime-minimal.bst
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
+- public-stacks/runtime-gnu.bst
 - bootstrap/grep.bst
 - bootstrap/sed.bst
 
