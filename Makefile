@@ -303,9 +303,9 @@ generate-spdx-sbom-reports: \
     ${SPDX_SBOM_DIR}/components.spdx.json
 
 build-sbom-artifacts:
-	$(BST) build platform.bst
-	$(BST) build sdk.bst
-	$(BST) build components.bst
+	$(BST) build --deps all platform.bst
+	$(BST) build --deps all sdk.bst
+	$(BST) build --deps all components.bst
 
 manifest:
 	rm -rf sdk-manifest/
