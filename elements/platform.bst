@@ -5,8 +5,7 @@ kind: stack
 description: Stack of elements in the freedesktop runtime
 
 depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
+- public-stacks/runtime-gnu.bst
 - components/alsa-lib.bst
 - components/alsa-plugins.bst
 - components/aspell.bst

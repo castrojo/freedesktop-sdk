@@ -4,8 +4,7 @@
 kind: compose
 
 build-depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
+- public-stacks/runtime-gnu.bst
 - components/flatpak-minimal.bst
 - components/m4.bst
 

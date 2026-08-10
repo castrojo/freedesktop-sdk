@@ -4,8 +4,7 @@
 kind: manual
 
 build-depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
+- public-stacks/runtime-gnu.bst
 
 depends:
 - public-stacks/runtime-minimal.bst

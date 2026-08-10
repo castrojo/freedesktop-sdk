@@ -4,9 +4,7 @@
 kind: manual
 
 depends:
-- public-stacks/runtime-minimal.bst
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
+- public-stacks/runtime-gnu.bst
 
 runtime-depends:
 - components/findutils.bst

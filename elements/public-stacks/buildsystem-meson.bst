@@ -4,8 +4,7 @@
 kind: stack
 
 depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
+- public-stacks/runtime-gnu.bst
 - components/gcc.bst
 - components/gettext.bst
 - components/meson.bst

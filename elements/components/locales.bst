@@ -4,9 +4,7 @@
 kind: script
 
 build-depends:
-- public-stacks/runtime-minimal.bst
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
+- public-stacks/runtime-gnu.bst
 - bootstrap/findutils.bst
 - bootstrap/grep.bst
 - components/gzip.bst

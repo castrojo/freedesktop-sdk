@@ -4,8 +4,7 @@
 kind: script
 
 build-depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
+- public-stacks/runtime-gnu.bst
 - components/_private/systemd-stage1.bst
 
 config:

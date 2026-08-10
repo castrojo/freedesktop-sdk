@@ -4,8 +4,7 @@
 kind: pyproject
 
 build-depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
+- public-stacks/runtime-gnu.bst
 - components/_private/python3-build.bst
 - components/_private/python3-installer.bst
 - components/_private/python3-minimal.bst
