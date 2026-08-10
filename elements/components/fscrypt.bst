@@ -4,11 +4,8 @@
 kind: manual
 
 build-depends:
-- public-stacks/runtime-gnu.bst
-- components/gcc.bst
-- components/go.bst
+- public-stacks/buildsystem-go.bst
 - components/m4.bst
-- components/stripper.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
