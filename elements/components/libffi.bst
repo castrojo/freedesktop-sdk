@@ -28,7 +28,7 @@ config:
 sources:
 - kind: git_repo
   url: github:libffi/libffi.git
-  track: v*
+  track: v3.5.*
   exclude:
   - v*-rc*
   - "v*-dev*"
