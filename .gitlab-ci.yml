@@ -26,7 +26,7 @@ variables:
 
   GIT_SUBMODULE_STRATEGY: "recursive"
   GIT_STRATEGY: clone
-  GIT_DEPTH: "20"
+  GIT_DEPTH: "100"
 
   MAX_SIZE_EFI_VM: "650000000" # 650 MB
 
