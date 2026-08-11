@@ -1,3 +1,109 @@
+Version: freedesktop-sdk-26.08beta.3
+Date: '2026-08-11'
+Description: |-
+  Changes in freedesktop-sdk-26.08beta.3
+   * python3: Update to v3.14.7-0
+   * pkg-config-source: Update to pkgconf-3.0.5-0
+   * ostree-source: Update to v2026.3-0
+   * linux: Update to v7.1.7-0
+   * gcc-source: Update to releases/gcc-16.2.0-0
+   * intel-media-driver: Update to intel-media-26.3.1-0
+   * gmmlib: Update to intel-gmmlib-22.10.1-0
+   * xorg-lib-xfont2: Update to libXfont2-2.0.9-0
+   * wpa-supplicant: Update to hostap_2_12-0
+   * udisks: Update to udisks-2.11.2-0
+   * tpm2-pkcs11: Update to 1.10.1-0
+   * pycairo: Update to v1.29.1-0
+   * netavark: Update to ref: v2.1.0-0
+   * erofs-utils: Update to v1.9.3-0
+   * crun: Update to 1.29-0
+   * buildbox: Update to 1.4.16-0
+   * aardvark-dns: Update to ref: v2.1.0-0
+   * mesa: Build the svga gallium driver on aarch64 too
+   * Drop git-minimal from Meson
+   * Update gstreamer to 1.28.6-0
+   * Update libmicrohttpd to v1.0.10-0
+   * Update python3-packaging to 26.3-0
+   * Update shadow to 4.20.2-0
+   * Add a configuration file to bst-format
+   * linux: Pass ZSTD_CLEVEL=19 to modules_install
+   * linux: Pass INSTALL_MOD_STRIP=1 when installing the modules
+   * Update to glibc 2.44
+   * Drop qpdf.bst element as it's no longer depended on
+   * libcupsfilters.bst: Update to 2.2.0 from 2.1.1
+   * Add element for pdfio
+   * glslang: disable pre-compiled headers
+   * Fix typos
+   * Update python3-tenacity to 9.2.0-0
+   * Update isl source for gcc from 0.27 to 0.28
+   * Update ruby from 4.0.5 to 4.0.6
+   * Update mpg123 from 1.33.6 to 1.33.7
+   * Update lua from 5.5.0 to 5.5.1
+   * Update libtool from 2.5.4 to 2.6.2
+   * Update lame from 3.100 to 4.0
+   * Update amf-headers from v1.5.0 to v1.5.2
+   * Update rust from 1.96 to 1.97.1
+   * Update findutils from 4.10.0 to 4.11.0
+   * Update fontconfig to 2.18.3-0
+   * Update poppler to poppler-26.08.0-0
+   * Update p11-kit to 0.26.5-0
+   * Stop precommit hook from hanging
+   * .gitlab-ci.yml: Allow 26.08 container to run on ppc64le runners
+   * REUSE: Treat .diff files the same as .patch files
+   * REUSE.toml: Reduce annotations repetition by passing path as array
+   * Format FFmpeg encoders and decoders using new format, no new entries at this time
+   * Group ffmpeg encoders/decoders by letter for easier diffing
+   * Stop precommit hook from hanging
+   * Add documentation for system access control elements
+   * Revert ".gitlab-ci.yml: Temporarily disable ppc64le jobs"
+   * Update python3-pip to 26.2.1-0
+   * Update python3-mako to rel_1_4_1-0
+   * Update pango to 1.58.2-0
+   * wget2: Ensure zlib is also a runtime dependency
+   * Fix .cmake install path for libnghttp3 & libngtcp2 artifacts
+   * Drop dangling slirp4netns element
+   * Fixes for SBOM Generation
+   * .gitlab-ci.yml: Temporarily disable ppc64le jobs
+   * Import python wheel from nftables
+   * Update sdl3 to release-3.4.14-0
+   * Update pango to 1.58.1-0
+   * Update python3-cffi to v2.1.1-0
+   * python3-chardet: Fix version string to stop requests `RequestsDependencyWarning`
+   * bst-format.py: Ensure it still passes cleanly on the different bst files
+   * ci: Ensure changes get tested against bst-format.py
+   * .gitlab-ci.yml: Bump to initial fdsdk 26.08 beta2 based container
+   * man-db: fix tracking
+   * Add cross compiler for x86-64 and change prefix of cross compiler
+   * Update dracut to 112-0
+   * Update noto-fonts to noto-monthly-release-2026.08.01-0
+   * Update libpsl to 0.23.1-0
+   * Update dictionaries to libreoffice-26.8.0.2-0
+   * linux: Turn NFS into a separate module
+   * Update spirv-llvm-translator to v22.1.5-0
+   * buildstream-sbom.bst: Move back to 1.1 tag ref
+   * mesa-sdk: Update to mesa-26.1.6-0
+   * glib-source: Update to 2.88.3-0
+   * cmake-source: Update to v4.4.2-0
+   * skopeo: Update to v1.24.0-0
+   * python3-virtualenv: Update to 21.7.1-0
+   * python3-pip: Update to 26.2-0
+   * python3-markdown: Update to 3.10.3-0
+   * python3-filelock: Update to 3.32.2-0
+   * python3-cryptography: Update to ref: 50.0.0-0
+   * passt: Update to 2026_07_28.f8df3f1-0
+   * nano: Update to v9.2-0
+   * libnghttp2: Update to v1.70.0-0
+   * libmicrohttpd: Update to v1.0.9-0
+   * hwdata: Update to v0.410-0
+   * harfbuzz: Update to 14.3.0-0
+   * containers-common: Update to common/v0.69.0-0
+   * buildbox: Update to 1.4.15-0
+   * audit: Update to v4.2.1-0
+   * stripper: strip correct section for minidebuginfo
+   * Update python3-vcs-versioning to vcs-versioning-v2.2.3-0
+   * Update mesa to mesa-26.1.6-0
+   * Update libnghttp3 to v1.18.0-0
+---
 Version: freedesktop-sdk-26.08beta.2
 Date: '2026-07-31'
 Description: |-
