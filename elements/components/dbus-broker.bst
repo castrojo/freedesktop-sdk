@@ -24,35 +24,28 @@ sources:
 - kind: git_repo
   url: github:c-util/c-dvar.git
   directory: subprojects/libcdvar-1
-  track: v1
   ref: v1.2.0-3-g8bd67b1659b289d3b7d2726a9ac68f89b7fd30f1
 - kind: git_repo
   url: github:c-util/c-ini.git
   directory: subprojects/libcini-1
-  track: v1
   ref: v1.1.0-0-gd08d5edeaee9127e72bc1c1f20aca3a63bb880fb
 - kind: git_repo
   url: github:c-util/c-list.git
   directory: subprojects/libclist-3
-  track: v3
   ref: v3.1.0-1-g9aa81d84cadc67e92b441c89f84c57e72dd1e8a9
 - kind: git_repo
   url: github:c-util/c-rbtree.git
   directory: subprojects/libcrbtree-3
-  track: v3
   ref: v3.2.0-1-g2567be09d6249b8d8e601ff5cc4dada5c899512f
 - kind: git_repo
   url: github:c-util/c-shquote.git
   directory: subprojects/libcshquote-1
-  track: v1
   ref: v1.1.0-0-gc4d0c851126c43eb52a1d7b0063429a79f7579d3
 - kind: git_repo
   url: github:c-util/c-stdaux.git
   directory: subprojects/libcstdaux-1
-  track: v1
   ref: v1.6.0-4-g652caf87acbcad55fefd01023a12f370ba124e05
 - kind: git_repo
   url: github:c-util/c-utf8.git
   directory: subprojects/libcutf8-1
-  track: v1
   ref: v1.1.0-0-gaab553d293bbffa42f34dc966be61313d9433c2f
