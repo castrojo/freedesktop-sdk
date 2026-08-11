@@ -26,11 +26,11 @@ sources:
 - kind: git_repo
   url: github:containers/crun.git
   track: '*.*'
-  ref: 1.28-0-g54f16ffbefcd022bf032af768b5c5ce075c18bfc
+  ref: 1.29-0-gd66af6a0fc2ab5fabd951b427a292344632ce074
 - kind: git_module
   path: libocispec
   url: github:containers/libocispec.git
-  ref: 8034d0ecd27f646ba3ffae5ff24db234ce062825
+  ref: 872b8b0b7ccb1a121601ede0dcac8c6b8a1008a6
 - kind: git_module
   path: runtime-spec
   url: github:opencontainers/runtime-spec.git
@@ -41,6 +41,3 @@ sources:
   url: github:opencontainers/image-spec.git
   directory: libocispec
   ref: 26647a49f642c7d22a1cd3aa0a48e4650a542269
-# backport of https://github.com/containers/crun/pull/2102
-- kind: patch
-  path: patches/crun/0001-build-export-json_gen_-symbols.patch
