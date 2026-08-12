@@ -59,6 +59,11 @@ public:
       - "%{project_licensedir}/**"
   cpe:
     product: cups
+    ignored:
+    - CVE-2022-26691  # Patch consumed in latest releases
+    - CVE-2009-0032   # Madriva Linux, Corporate Serve and MNF exploit
+    - CVE-2008-1033   # Apple Mac exploit
+    - CVE-2022-26691   # Patch consumed in latest releases
 
 sources:
 - kind: git_repo

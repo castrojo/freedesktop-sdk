@@ -35,6 +35,11 @@ variables:
   command-subdir: src/github.com/containers/podman
   make-install: make -j1 %{make-install-args} install.completions
 
+public:
+  cpe:
+    ignored:
+    - CVE-2022-2989   # Already Consumed
+
 sources:
 - kind: git_repo
   url: github:containers/podman.git

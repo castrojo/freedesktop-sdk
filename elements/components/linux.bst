@@ -136,6 +136,29 @@ public:
     overlap-whitelist:
     - "%{project_licensedir}"
     - "%{project_licensedir}/**"
+  cpe:
+    ignored:
+    - CVE-1999-0037   # metamail exploit
+    - CVE-1999-0798   # bootpd exploit
+    - CVE-1999-0894   # RedHat screen program 
+    - CVE-2000-1207   # userhelper (usermode on Red Hat) exploit
+    - CVE-2001-0473   # Mutt exploit
+    - CVE-2001-0690   # Exim exploit
+    - CVE-2004-1107   # Portage (dispatch-conf) exploit
+    - CVE-2004-1108   # Gentoolkit (qpkg) exploit
+    - CVE-2004-1115   # Init scripts for SETI project
+    - CVE-2004-1116   # init scripts in Great Internet Mersenne Prime Search
+    - CVE-2004-1117   # ChessBrain exploit
+    - CVE-2005-0077   # libdbi-perl exploit
+    - CVE-2007-1500   # The Linux Security Auditing Tool exploit
+    - CVE-2008-1078   # am-utils exploit
+    - CVE-2008-1383   # Portage (ssl-cert.eclass) exploit
+    - CVE-2009-1573   # xvfb-run exploit
+    - CVE-2010-1159   # Aircrack NG exploit
+    - CVE-2013-2031   # MediaWiki exploit
+    - CVE-2014-4909   # Bittorrent manipulation
+    - CVE-2000-0017   # linuxconf exploit
+    - CVE-2001-0886   # Fixed in glibc 2.27
 
 sources:
   # Please do not move the kernel config to linux.yml. Each time we
