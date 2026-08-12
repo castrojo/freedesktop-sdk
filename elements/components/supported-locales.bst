@@ -9,9 +9,6 @@ kind: manual
 build-depends:
 - public-stacks/buildsystem-make.bst
 
-depends:
-- public-stacks/runtime-minimal.bst
-
 config:
   build-commands:
   - |

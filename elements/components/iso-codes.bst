@@ -7,9 +7,6 @@ build-depends:
 - public-stacks/buildsystem-meson.bst
 - components/python3.bst
 
-depends:
-- public-stacks/runtime-minimal.bst
-
 sources:
 - kind: git_repo
   url: debian_salsa:iso-codes-team/iso-codes.git

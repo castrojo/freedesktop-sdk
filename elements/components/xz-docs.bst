@@ -11,9 +11,6 @@ build-depends:
 - components/doxygen.bst
 - components/po4a.bst
 
-depends:
-- public-stacks/runtime-minimal.bst
-
 config:
   build-commands: []
   install-commands:

@@ -6,9 +6,6 @@ kind: manual
 build-depends:
 - public-stacks/runtime-gnu.bst
 
-runtime-depends:
-- public-stacks/runtime-minimal.bst
-
 variables:
   license-files-extra: README.txt
   fontdir: '%{install-root}%{datadir}/fonts'

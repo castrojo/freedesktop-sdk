@@ -4,11 +4,7 @@
 kind: manual
 
 build-depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
-
-depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 
 variables:
   license-files-extra: OFL.txt
