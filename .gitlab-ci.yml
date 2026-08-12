@@ -89,6 +89,10 @@ before_script:
     source utils/publisher_env.sh
 
 lint:
+  tags:
+    - "x86_64"
+  variables:
+    DOCKER_IMAGE_ID: "dev-tpollard-check-crun-pr-2179-amd64"
   stage: flatpak
   timeout: 1h
   after_script: []
@@ -274,18 +278,21 @@ check_mirrors:
     - x86_64
   variables:
     ARCH: x86_64
+    DOCKER_IMAGE_ID: "dev-tpollard-check-crun-pr-2179-amd64"
 
 .builder-i686:
   tags:
     - x86_64
   variables:
     ARCH: i686
+    DOCKER_IMAGE_ID: "dev-tpollard-check-crun-pr-2179-amd64"
 
 .builder-aarch64:
   tags:
     - aarch64
   variables:
     ARCH: aarch64
+    DOCKER_IMAGE_ID: "dev-tpollard-check-crun-pr-2179-arm64"
 
 .builder-riscv64:
   tags:
@@ -299,6 +306,7 @@ check_mirrors:
   - ppc64le
   variables:
     ARCH: ppc64le
+    DOCKER_IMAGE_ID: "dev-tpollard-check-crun-pr-2179-ppc64le"
 
 .builder-loongarch64:
   tags:
