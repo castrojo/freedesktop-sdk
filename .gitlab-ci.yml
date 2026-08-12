@@ -16,7 +16,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "d2bb7ef86ddbebcf0f966e1b3e547cfb2ea5d31c"
+  DOCKER_IMAGE_ID: "3e56cc305b34de6e4fcf97bc6e3453d1bf7256e5"
 
   # Generic variable for invoking buildstream
   BST: bst --colors
@@ -288,6 +288,9 @@ check_mirrors:
   - ppc64le
   variables:
     ARCH: ppc64le
+    # Keep ppc64le jobs pinned to beta2 based container until crun issue resolved
+    # see #2050
+    DOCKER_IMAGE_ID: "d2bb7ef86ddbebcf0f966e1b3e547cfb2ea5d31c"
 
 .builder-loongarch64:
   tags:
@@ -805,6 +808,9 @@ publish_docker_ppc64le:
 publish_docker_finish:
   stage: finish-publish
   allow_failure: true
+  # Whilst #2050 is still an issue, prevent manifest job being picked up by ppc64le runners
+  tags:
+    - x86_64
   before_script: []
   script:
   - podman login -u "${DOCKER_HUB_USER}" -p "${DOCKER_HUB_PASSWORD}" "${DOCKER_HUB_ADDRESS}"
