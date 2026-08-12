@@ -24,9 +24,9 @@ variables:
 
 sources:
 - kind: git_repo
-  url: github:containers/crun.git
+  url: github:dmytrobe/crun.git
   track: '*.*'
-  ref: 1.29-0-gd66af6a0fc2ab5fabd951b427a292344632ce074
+  ref: 27fe1ced88c828060e3281a70bb29d332d17c3da
 - kind: git_module
   path: libocispec
   url: github:containers/libocispec.git
