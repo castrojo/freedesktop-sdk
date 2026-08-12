@@ -32,6 +32,10 @@ public:
         - '%{libdir}/libsndfile.so'
   cpe:
     product: libsndfile
+    ignored:
+    - CVE-2024-50612     # Patch Applied
+    - CVE-2025-56226     # Patch Applied
+    - CVE-2026-37555     # Patch Applied
 
 sources:
 - kind: git_repo
@@ -40,3 +44,5 @@ sources:
   exclude:
   - "*beta*"
   ref: 1.2.2-0-g72f6af15e8f85157bd622ed45b979025828b7001
+- kind: patch_queue
+  path: patches/sndfile
