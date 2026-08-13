@@ -1,3 +1,68 @@
+Version: freedesktop-sdk-25.08.16
+Date: '2026-08-13'
+Description: |-
+  Changes in freedesktop-sdk-25.08.16
+   * Add CVE patches to avahi-base.bst
+   * Add patch for CVE-2025-64503 CVE-2025-64524 in cups-filters.bst
+   * Add patch for CVE-2022-40320 in opusfile.bst
+   * Add patch for CVE-2022-40320 in libconfuse.bst
+   * Add CVE ignores to Linux Kernel
+   * Add CPE ignores for CVEs either not applicable or fixed
+   * Add sndfile patches to include fixes for CVE-2024-50612 & CVE-2025-56226
+   * Update python3-tenacity to 9.2.0-0
+   * libcupsfilters.bst: Update to 2.2.0 from 2.1.1
+   * Add element for pdfio
+   * Bump ABI image after ABI skip in curl
+   * [abi skip] Update curl to 8.21.0
+   * Update libpsl to 0.23.2-0
+   * ovmf: Disable parallel build
+   * glslang: disable pre-compiled headers
+   * Update python3-virtualenv to 21.7.3-0
+   * Update udisks to udisks-2.11.2-0
+   * Update erofs-utils to v1.9.3-0
+   * Update python3-pip to 26.2.1-0
+   * Update ostree to v2026.3-0
+   * Update pycairo to v1.29.1-0
+   * Update python3-virtualenv to 21.7.2-0
+   * .gitlab-ci.yml: Bump to initial fdsdk 26.08 beta2 based container
+   * Update tpm2-pkcs11 to 1.10.1-0
+   * Update p11-kit to 0.26.5-0
+   * Update python3 to v3.13.15-0
+   * wget2: Ensure zlib is also a runtime dependency
+   * Update intel-media-driver to intel-media-26.3.1-0
+   * Update xorg-lib-xfont2 to libXfont2-2.0.9-0
+   * Update python3-mako to rel_1_4_1-0
+   * ruff: Address new warnings due to an updated docker image
+   * .gitlab-ci.yml: Bump to final 25.08 based container
+   * Update python3-packaging to 26.3-0
+   * Update python3-cffi to v2.1.1-0
+   * Update libpsl to 0.23.1-0
+   * Update dracut to 112-0
+   * Update poppler to poppler-26.08.0-0
+   * Update nano to v9.2-0
+   * Update python3-virtualenv to 21.7.1-0
+   * Update python3-pip to 26.2-0
+   * Update dictionaries to libreoffice-26.8.0.2-0
+   * Update cmake to v4.4.2-0
+   * Update hwdata to v0.410-0
+   * Update python3-markdown to 3.10.3-0
+   * Update python3-cryptography to ref: 50.0.0-0
+   * Update buildbox to 1.4.15-0
+   * Update shadow to 4.20.0-0
+   * Update cmake to v4.4.1-0
+   * Update python3-filelock to 3.32.2-0
+   * Update audit to v4.2.1-0
+   * Update mesa to mesa-26.1.6-0
+   * Update mesa-sdk to mesa-26.1.6-0
+   * Update fwupd to 2.1.7-0
+   * Update reference-abi to freedesktop-sdk-25.08.15-0
+   * Update intel-media-driver to intel-media-26.3.0-0
+   * Update passt to 2026_07_28.f8df3f1-0
+   * Update tzdata to 2026c-0
+   * Update python3-filelock to 3.32.1-0
+   * Update libarchive to v3.8.9-0
+   * Update binutils to binutils-2_47-0
+---
 Version: freedesktop-sdk-25.08.15
 Date: '2026-07-28'
 Description: |-
