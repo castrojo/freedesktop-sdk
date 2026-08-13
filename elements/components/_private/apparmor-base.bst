@@ -91,3 +91,5 @@ sources:
   - "v5.0.*"
   url: gitlab:apparmor/apparmor.git
   ref: v4.1.7-0-g9676b7aa934408748de2aaebad8680e69d7c3912
+- kind: patch
+  path: patches/apparmor/libapparmor-swig-don-t-use-removed-macro-new_copy_ar.patch
