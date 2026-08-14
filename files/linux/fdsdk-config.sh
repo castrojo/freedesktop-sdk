@@ -712,6 +712,12 @@ case "$arch" in
     ;;
 esac
 
+# DRM Panic
+enable CONFIG_DRM_PANIC
+enable CONFIG_DRM_PANIC_SCREEN_QR_CODE
+value_str DRM_PANIC_SCREEN "qr_code"
+value_str DRM_PANIC_SCREEN_QR_CODE_URL "https://freedesktop-sdk.org/panic#"
+
 # NPUs
 enable DRM_ACCEL
 module DRM_ACCEL_QAIC
