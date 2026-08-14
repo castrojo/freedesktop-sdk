@@ -1,11 +1,17 @@
 # SPDX-FileCopyrightText: Freedesktop-SDK Developers
 # SPDX-License-Identifier: MIT
 
-kind: stack
+kind: filter
 
-depends:
+build-depends:
 - components/_private/flat-manager-client-base.bst
+
+runtime-depends:
+- public-stacks/runtime-gnu.bst
 - components/ostree-minimal.bst
+
+config:
+  include-orphans: True
 
 public:
   bst:
