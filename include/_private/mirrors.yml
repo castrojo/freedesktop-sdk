@@ -9,6 +9,8 @@ mirrors:
   aliases:
     chromium:
     - https://gitlab.com/freedesktop-sdk/mirrors/chromium/
+    codeberg:
+    - https://gitlab.com/freedesktop-sdk/mirrors/codeberg/
     debian_salsa:
     - https://gitlab.com/freedesktop-sdk/mirrors/debian_salsa/
     denx:
