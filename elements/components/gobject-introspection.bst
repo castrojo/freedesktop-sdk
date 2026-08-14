@@ -9,10 +9,10 @@ build-depends:
 runtime-depends:
 - public-stacks/runtime-gnu.bst
 - components/glib.bst
-- components/python3.bst
 - components/python3-mako.bst
 - components/python3-markdown.bst
 - components/python3-setuptools.bst
+- components/python3.bst
 
 config:
   include-orphans: True
@@ -29,4 +29,4 @@ public:
         - '%{datadir}/gobject-introspection-1.0'
         - '%{datadir}/gobject-introspection-1.0/**'
         - '%{bindir}/g-ir-*'
-        - '%{libdir}/libgirepository-1.0.so'  
+        - '%{libdir}/libgirepository-1.0.so'
