@@ -16,3 +16,17 @@ runtime-depends:
 
 config:
   include-orphans: True
+
+public:
+  bst:
+    split-rules:
+      devel:
+        (>):
+        - '%{libdir}/gobject-introspection/giscanner'
+        - '%{libdir}/gobject-introspection/giscanner/**'
+        - '%{datadir}/gir-1.0'
+        - '%{datadir}/gir-1.0/**'
+        - '%{datadir}/gobject-introspection-1.0'
+        - '%{datadir}/gobject-introspection-1.0/**'
+        - '%{bindir}/g-ir-*'
+        - '%{libdir}/libgirepository-1.0.so'  
