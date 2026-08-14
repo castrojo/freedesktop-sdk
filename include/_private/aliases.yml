@@ -3,6 +3,7 @@
 #
 #Git source aliases
 chromium: https://chromium.googlesource.com/
+codeberg: https://codeberg.org/
 debian_salsa: https://salsa.debian.org/
 denx: https://source.denx.de/
 fedora_rpms: https://src.fedoraproject.org/rpms/
