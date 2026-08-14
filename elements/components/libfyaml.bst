@@ -36,6 +36,7 @@ sources:
   track: v*
   exclude:
   - "*alpha*"
+  - "*beta*"
   ref: v0.9.6-0-g1ed9bae3b1e5fc57e31a14a2ea12810fdf423473
 - kind: patch
   path: patches/libfyaml/i686-build-fix.patch
