@@ -89,6 +89,10 @@ before_script:
     source utils/publisher_env.sh
 
 lint:
+  tags:
+    - "x86_64"
+  variables:
+    DOCKER_IMAGE_ID: "dev-tpollard-freedesktop-sdk-26-08beta-4-flatpak-amd64"
   stage: flatpak
   timeout: 1h
   after_script: []
@@ -274,18 +278,21 @@ check_mirrors:
     - x86_64
   variables:
     ARCH: x86_64
+    DOCKER_IMAGE_ID: "dev-tpollard-freedesktop-sdk-26-08beta-4-flatpak-amd64"
 
 .builder-i686:
   tags:
     - x86_64
   variables:
     ARCH: i686
+    DOCKER_IMAGE_ID: "dev-tpollard-freedesktop-sdk-26-08beta-4-flatpak-amd64"
 
 .builder-aarch64:
   tags:
     - aarch64
   variables:
     ARCH: aarch64
+    DOCKER_IMAGE_ID: "dev-tpollard-freedesktop-sdk-26-08beta-4-flatpak-arm64"
 
 .builder-riscv64:
   tags:
@@ -299,9 +306,7 @@ check_mirrors:
   - ppc64le
   variables:
     ARCH: ppc64le
-    # Keep ppc64le jobs pinned to beta2 based container until crun issue resolved
-    # see #2050
-    DOCKER_IMAGE_ID: "d2bb7ef86ddbebcf0f966e1b3e547cfb2ea5d31c"
+    DOCKER_IMAGE_ID: "dev-tpollard-freedesktop-sdk-26-08beta-4-flatpak-ppc64le"
 
 .builder-loongarch64:
   tags:
@@ -702,9 +707,6 @@ publish_docker_ppc64le:
 publish_docker_finish:
   stage: finish-publish
   allow_failure: true
-  # Whilst #2050 is still an issue, prevent manifest job being picked up by ppc64le runners
-  tags:
-    - x86_64
   before_script: []
   script:
   - podman login -u "${DOCKER_HUB_USER}" -p "${DOCKER_HUB_PASSWORD}" "${DOCKER_HUB_ADDRESS}"
