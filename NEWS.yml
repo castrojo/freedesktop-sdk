@@ -1,3 +1,68 @@
+Version: freedesktop-sdk-26.08beta.4
+Date: '2026-08-14'
+Description: |-
+  Changes in freedesktop-sdk-26.08beta.4
+   * .gitlab-ci.yml: Use latest docker-images container before beta4
+   * libfyaml.bst: Excluse beta tags from tracking
+   * rsync-source: Update to v3.5.0-0
+   * mesa-sdk: Update to mesa-26.2.0-0
+   * appstream-source: Update to v1.1.6-0
+   * mesa-sources: Update to mesa-26.1.7-0
+   * python3-filelock: Update to 3.32.3-0
+   * python3-charset-normalizer: Update to 3.5.0-0
+   * openssh: Update to V_10_5_P1-0
+   * libp11: Update to libp11-0.4.20-0
+   * harfbuzz: Update to 14.3.1-0
+   * foomatic-db: Update to 20240504-8
+   * expat: Update to R_2_8_3-0
+   * exfat-progs: Update to 1.4.3-0
+   * doxygen: Update to Release_1_18_0-0
+   * podman.bst: Update from v6.0.2 to v6.1.0
+   * xmlto: update upstream url to codeberg
+   * Update go to go1.26.6-0
+   * Update containers-common to common/v0.69.1-0
+   * crun.bst: Bump to 1.29.1 to integrate fix for #2050
+   * Update linux-firmware to 20260810-0
+   * Update procps to v4.0.7-0
+   * Update xdg-dbus-proxy to 0.1.8-0
+   * Document buildsystem-go.bst and buildsystem-rust.bst
+   * Create and use buildsystem-go.bst
+   * Create and use buildsystem-rust.bst
+   * Fix broken link in public-stacks.md
+   * Update libpsl to 0.23.2-0
+   * .gitlab-ci.yml: increase GIT_DEPTH to 100
+   * Depend on runtime-gnu.bst instead of its separate components
+   * .gitlab-ci.yml: Bump to initial fdsdk 26.08 beta3 based container
+   * Update python3-hatchling to hatchling-v1.32.0-0
+   * Update buildbox to 1.4.17-0
+   * Update flatpak to 1.18.1-0
+   * Extend artifact build to all deps
+   * Update python3-virtualenv to 21.7.4-0
+   * Update libcupsfilters to 2.2.1-0
+   * Update libffi to v3.8.0-0
+   * Update python3-wheel to 0.48.0-0
+   * Update python3-vcs-versioning to vcs-versioning-v2.2.4-0
+   * Update linux to v7.1.8-0
+   * Upload CVE reports to package registry
+   * Add symlink for unzip from bsdunzip
+   * clinfo: depend on minimal runtime instead of gnu runtime
+   * Remove dependency on runtime from non-executable elements
+   * Add CVE patches to avahi-base.bst
+   * Add patch for CVE-2025-64503 CVE-2025-64524 in cups-filters.bst
+   * Add patch for CVE-2022-40320 in opusfile.bst
+   * Add patch for CVE-2022-40320 in libconfuse.bst
+   * Add CVE ignores to Linux Kernel
+   * Add CPE ignores for CVEs either not applicable or fixed
+   * Add sndfile patches to include fixes for CVE-2024-50612 & CVE-2025-56226
+   * Update meson to 1.12.0-0
+   * Sync FFmpeg Encoders/Decoders with Fedora
+   * project: Specify more limits to the CAS configs
+   * dbus-broker: Drop subprojects' track properties
+   * .gitlab-ci.yml: Only make riscv job uninterruptible when ran in a schedule
+   * Update python3-virtualenv to 21.7.3-0
+   * Add repro test script
+   * Improve reproducibility of scm_list
+---
 Version: freedesktop-sdk-26.08beta.3
 Date: '2026-08-11'
 Description: |-
