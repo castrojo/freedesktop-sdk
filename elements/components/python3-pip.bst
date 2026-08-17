@@ -23,4 +23,4 @@ sources:
   - "*b*"
   ref: 26.2.2-0-gb3b696fe2122f2339d782517559bfade2cb6b879
 - kind: patch
-  path: patches/python3-pip/relax-flit-core.patch
+  path: patches/python3-pip/0001-Allow-flit-core-4-to-build-pip.patch
