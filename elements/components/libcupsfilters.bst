@@ -30,6 +30,6 @@ sources:
   track: '*.*.*'
   exclude:
   - '*rc*'
-  ref: 2.2.0-0-g1dadd67902696572e5861e10cf5de82b47396b17
+  ref: 2.2.1-0-g2a00cf6aa4234e2e0ac91b9844ab8990d04c7089
 - kind: patch
   path: patches/libcupsfilters/0001-Makefile.am-Ensure-gen-lorem-text-test-supports-out-.patch
