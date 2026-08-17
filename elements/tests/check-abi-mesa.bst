@@ -4,6 +4,7 @@
 kind: script
 
 build-depends:
+- public-stacks/runtime-gnu.bst
 - components/libabigail.bst
 - components/libdrm.bst
 - extensions/mesa/libdrm.bst

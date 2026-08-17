@@ -4,6 +4,7 @@
 kind: compose
 
 build-depends:
+- public-stacks/runtime-gnu.bst
 - tests/check-abi-config.bst
 
 (?):
