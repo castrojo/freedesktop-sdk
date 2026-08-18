@@ -95,7 +95,6 @@ depends:
 - components/dummy-gbm.bst
 - components/e2fsprogs.bst
 - components/ed.bst
-- components/efitools-bin-maybe.bst
 - components/efivar.bst
 - components/elfutils.bst
 - components/ell.bst
@@ -410,7 +409,6 @@ depends:
 - components/perl-module-scandeps.bst
 - components/perl-pod-parser.bst
 - components/perl-sasl.bst
-- components/perl-slurp.bst
 - components/perl-ssleay.bst
 - components/perl-ssl.bst
 - components/perl-xml-parser.bst

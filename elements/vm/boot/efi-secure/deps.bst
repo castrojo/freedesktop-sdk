@@ -5,11 +5,11 @@ kind: stack
 
 depends:
 - public-stacks/runtime-gnu.bst
+- components/_private/efi-keys.bst
 - components/_private/shim.bst
 - components/binutils.bst
 - components/dbus.bst
 - components/dracut.bst
-- components/efitools.bst
 - components/fakecap.bst
 - components/linux-firmware.bst
 - components/lvm2.bst
