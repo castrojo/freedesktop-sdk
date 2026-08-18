@@ -195,6 +195,13 @@ weekly_update_elements:
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH =~ /^release\/.*/'
 
+weekly_clean_package_registry:
+  stage: update
+  script:
+    - utils/clean_package_registry.py
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH =~ /^release\/.*/'
+
 weekly_update_combined:
   stage: update
   timeout: 90m
