@@ -18,8 +18,9 @@ variables:
 sources:
 - kind: git_repo
   url: github:vim/vim.git
-  # we track only major releases because there are several new minor tags every day
-  track: v*.0
-  ref: v9.2.0-0-ge7e21018fc0b60c153c8e668f696d95e574cc5a4
+  # track: v*.*.0
+  # we track only minor releases because there are several new patches tags every day
+  # 9.2.0967 allowed as up to that there are fixes for multiple CVEs (CVE-2026-39881,  CVE-2026-35177, CVE-2026-34982, CVE-2026-34714, CVE-2026-33412, CVE-2026-28422, CVE-2026-28421, CVE-2026-28420, CVE-2026-28419, CVE-2026-28418, CVE-2026-28417, CVE-2026-41411)
+  ref: v9.2.0967-0-g6025ea9e029b0681df37ee19e0d3992fb7f4d7fd
 - kind: patch
   path: patches/vim/vim-not-show-in-gnome.patch
