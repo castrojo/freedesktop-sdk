@@ -19,3 +19,4 @@ sources:
   url: github:thom311/libnl.git
   track: libnl*
   ref: libnl3_12_0-0-g43878680c994989f16637dc47be19bb8dc154985
+  version-guess-pattern: '(\d+)_(\d+)_(\d+)'

@@ -18,3 +18,4 @@ sources:
   url: kernel:linux/kernel/git/gregkh/usbutils.git
   track: v*
   ref: v019-0-gd0c76b601b4b3ab9b2ab2647d604a8e3cce6d666
+  version-guess-pattern: 'v(\d+)'
