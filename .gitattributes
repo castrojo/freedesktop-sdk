@@ -1,2 +1,2 @@
-*.bst text eol=lf
+*.bst text eol=lf linguist-language=BuildStream
 *.yml text eol=lf
