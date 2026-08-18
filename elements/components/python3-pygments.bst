@@ -16,6 +16,4 @@ sources:
 - kind: git_repo
   url: github:pygments/pygments.git
   track: refs/tags/*.*.*
-  ref: 2.20.0-0-g708197d82827ba2d5ca78bcbb653c7102ce86dcd
-- kind: patch_queue
-  path: patches/python3-pygments
+  ref: 2.21.0-0-ga43b45dcf081b6010c6ab4428f149f7f6d2499c4
