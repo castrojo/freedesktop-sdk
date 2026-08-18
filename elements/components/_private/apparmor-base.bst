@@ -78,9 +78,10 @@ public:
       - '%{libdir}/pkgconfig/libapparmor.pc'
       profiles:
       - '%{sysconfdir}/apparmor.d/**'
-
   cpe:
     product: apparmor
+    ignored:
+    - CVE-2008-0731 # Only valid on kernels of 2.6.18.8 and older
 
 sources:
 - kind: git_repo

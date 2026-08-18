@@ -10,3 +10,8 @@ sources:
   ref: v7.1.8-0-g25c76bea853d0db65b51fb4697a47cbfd9e35e76
 - kind: patch_queue
   path: patches/linux
+
+public:
+  cpe:
+    vendor: linux
+    product: linux_kernel

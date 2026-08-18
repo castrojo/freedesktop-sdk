@@ -69,7 +69,3 @@ public:
         (>):
         - "%{libdir}/go/src/**"
         - "%{libdir}/go/src"
-  cpe:
-    ignored:
-    - CVE-2024-3566   # Windows Issue
-    - CVE-2023-49292   # Required ecies package (not used)

@@ -31,8 +31,8 @@ public:
         - '%{bindir}/orc'
         - '%{libdir}/liborc-0.4.so'
   cpe:
-    ignored:
-    - CVE-2025-47436   # wrong orc package
+    vendor: gstreamer
+    product: orc
 
 sources:
 - kind: git_repo
