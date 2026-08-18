@@ -20,3 +20,4 @@ sources:
   url: github:iputils/iputils.git
   track: '[0-9]*'
   ref: 20250605-0-g6e1cb146547eb6fbb127ffc8397a9241be0d33c2
+  version-guess-pattern: '(\d{8})'
