@@ -23,3 +23,4 @@ sources:
   url: fdsdk_mirror:passt/passt.git
   track: '*_*_*.*'
   ref: 2026_07_28.f8df3f1-0-gf8df3f1b228fe19a74a269334fdfe6cc7d0605ce
+  version-guess-pattern: '(\d+)_(\d+)_(\d+)'

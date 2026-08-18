@@ -21,6 +21,7 @@ sources:
   url: github:bus1/dbus-broker.git
   track: v*
   ref: v37-0-ge5b413f573b2c158bff88370944d571379977b7e
+  version-guess-pattern: '(\d+)'
 - kind: git_repo
   url: github:c-util/c-dvar.git
   directory: subprojects/libcdvar-1

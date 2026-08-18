@@ -159,7 +159,7 @@ sources:
   track: NSS_3_112*_RTM
   ref: NSS_3_112_5_RTM-0-gfddd54c0fb1444c710f442c872de3af8eaa9aec9
   directory: nss
-  version-guess-pattern: '(\d+)_(\d+)'
+  version-guess-pattern: '(\d+)_(\d+)_(\d+)'
 - kind: patch
   path: patches/nss/pkg-config-libdir.patch
 - kind: patch

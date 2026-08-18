@@ -20,3 +20,4 @@ sources:
   url: savannah:dmidecode.git
   track: dmidecode-*
   ref: dmidecode-3-7-0-g21a2ee3ff73e71875d171ed1b9b851afa27aa90b
+  version-guess-pattern: '(\d+)-(\d+)'
