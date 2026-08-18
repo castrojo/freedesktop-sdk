@@ -11,3 +11,11 @@ sources:
   ref: go1.26.6-0-g1ea5a71ad8ceb7b9f16b4b6f8ea4739a4327dd6e
 - kind: patch
   path: patches/go/disable-dwarf5.patch
+
+public:
+  cpe:
+    vendor: golang
+    product: go
+    ignored:
+    - CVE-2024-3566   # Windows Issue
+    - CVE-2023-49292   # Required ecies package (not used)
