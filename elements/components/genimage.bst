@@ -17,3 +17,4 @@ sources:
   url: github:pengutronix/genimage.git
   track: v*
   ref: v20-0-g48f63eefd69809b62f68cc78ad7c4142a94a6744
+  version-guess-pattern: '(\d+)'
