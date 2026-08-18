@@ -151,6 +151,7 @@ sources:
   track: NSS_3_92*_RTM
   ref: NSS_3_92_RTM-0-g9f609fe89b23c41b5a2f06090b9fe6145d6f8b60
   directory: nss
+  version-guess-pattern: '(\d+)_(\d+)_(\d+)'
 - kind: patch
   path: patches/nss/pkg-config-libdir.patch
 - kind: local
