@@ -1,3 +1,33 @@
+Version: freedesktop-sdk-26.08rc.1
+Date: '2026-08-18'
+Description: |-
+  Changes in freedesktop-sdk-26.08rc.1
+   * Mark ABI as stable
+   * elements/tests/check-abi*: depends on bash
+   * apparmor: Separate default AppArmor profiles into their own element
+   * .gitlab-ci.yml: Bump to initial fdsdk 26.08 beta4 based container
+   * Update swig to v4.5.0-0
+   * volume-key: add patch to fix build with swig 4.5
+   * apparmor: cherry-pick patch to fix build with swig 4.5
+   * u-boot: cherry-pick patch to fix build with swig 4.5
+   * Enable Sbsiglist in minimal secure vm
+   * Remove EFI elements
+   * Update libconfuse to v3.4-0
+   * Update frei0r to v3.3.0-0
+   * Update python3-charset-normalizer to 3.5.1-0
+   * Update extra-cmake-modules to v6.29.0-0
+   * Update libical to v4.0.5-0
+   * gnupg.bst: Drop ignored CVE-2022-34903 which is now mitigated
+   * apparmor-base.bst: Drop ignored CVE-2016-1585 which is now mitigated
+   * python3.bst: Drop ignored CVE-2015-20107 which is now mitigated
+   * openssh.bst: Drop ignored CVE's that have now been mitigated
+   * libxslt.bst: Drop ignored CVE-2022-29824 which is now mitigated
+   * libxml2.bst: Drop ignored CVE-2016-3709 which is now mitigated
+   * libarchive.bst: Drop ignored CVE-2025-1632 which is now mitigated
+   * lcms.bst: Drop ignored CVE-2016-10165 which is now mitigated
+   * glibc.bst: Drop ignored CVE's that have now been mitigated
+   * linux: Turn on DRM panic
+---
 Version: freedesktop-sdk-26.08beta.4
 Date: '2026-08-14'
 Description: |-
