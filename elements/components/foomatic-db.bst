@@ -22,3 +22,4 @@ sources:
   url: github:OpenPrinting/foomatic-db.git
   track: master
   ref: 20240504-8-ga8bdf5fbe1f736afabd188cbcacb95f459492e3f
+  version-guess-pattern: '(\d{8})'

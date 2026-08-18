@@ -49,3 +49,4 @@ sources:
   url: git_https:w1.fi/hostap.git
   track: hostap_*
   ref: hostap_2_12-0-g831364bf02710ad09c2f27d3efa92abeeb5634c0
+  version-guess-pattern: 'hostap_(\d+)_(\d+)'
