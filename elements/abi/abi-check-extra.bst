@@ -19,6 +19,7 @@ description: |
   tests/check-abi/check-abi-extra-libs.yaml.
 
 build-depends:
+- public-stacks/runtime-gnu.bst
 # Shipped by org.gnome.Platform
 - components/appstream.bst
 - components/libapparmor.bst
