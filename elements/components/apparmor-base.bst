@@ -76,6 +76,7 @@ public:
   cpe:
     product: apparmor
     ignored:
+    - CVE-2008-0731 # Only valid on kernels of 2.6.18.8 and older
     - CVE-2016-1585
 
 sources:
