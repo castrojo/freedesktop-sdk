@@ -62,3 +62,5 @@ sources:
   # So we need to load the kernel DTB from a special partition to
   # override the DTB from U-Boot
   path: patches/u-boot/unmatched-dtb.patch
+- kind: patch
+  path: patches/u-boot/pylibfdt-Replace-removed-SWIG-Python-2-compatibility.patch

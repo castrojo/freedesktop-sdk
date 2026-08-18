@@ -25,3 +25,5 @@ sources:
   url: pagure:volume_key.git
   track: volume_key-*
   ref: volume_key-0.3.12-0-gf56614199726ba1897d8687f0927535693b6603f
+- kind: patch
+  path: patches/volume-key/Replace-removed-SWIG-Python-2-compatibility-macros.patch
