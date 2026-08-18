@@ -6,3 +6,11 @@ sources:
   - '*rc*'
   - '*beta*'
   ref: go1.25.13-0-gf893f2702891503a0c7ff615af3abb5efc1c480d
+
+public:
+  cpe:
+    vendor: golang
+    product: go
+    ignored:
+    - CVE-2024-3566   # Windows Issue
+    - CVE-2023-49292   # Required ecies package (not used)

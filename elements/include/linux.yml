@@ -7,3 +7,8 @@ sources:
   ref: v7.0.12-0-gf53879e2e1e2fa053040e734c1ef8f386109a61b
 - kind: patch_queue
   path: patches/linux
+
+public:
+  cpe:
+    vendor: linux
+    product: linux_kernel

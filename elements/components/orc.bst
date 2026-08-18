@@ -21,6 +21,9 @@ public:
         (>):
         - '%{bindir}/orc'
         - '%{libdir}/liborc-0.4.so'
+  cpe:
+    vendor: gstreamer
+    product: orc
 
 config:
   install-commands:
