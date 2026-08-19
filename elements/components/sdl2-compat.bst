@@ -6,11 +6,11 @@ kind: cmake
 build-depends:
 - public-stacks/buildsystem-cmake.bst
 - components/_private/git-minimal.bst
-- components/sdl3.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
 - components/mesa-headers.bst
+- components/sdl3.bst
 - components/xorg-lib-x11.bst
 - components/xorg-proto-xorgproto.bst
 
