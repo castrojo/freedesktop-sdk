@@ -17,3 +17,4 @@ variables:
   meson-local: >-
     -DBUILD_MANS=false
     -DSKIP_TESTS=true
+  version-guess-pattern: '(\d{8})'

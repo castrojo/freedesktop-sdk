@@ -16,3 +16,4 @@ sources:
   url: github:acpica/acpica.git
   track: version-*
   ref: version-20240827-0-ge80cbd7b52de20aa8c75bfba9845e9cb61f2e681
+  version-guess-pattern: '(\d{8})'
