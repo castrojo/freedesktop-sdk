@@ -31,7 +31,7 @@ config:
 
 sources:
 - kind: git_repo
-  url: github:ArtifexSoftware/ghostpdl.git
+  url: ghostscript:ghostpdl.git
   track: ghostpdl-*
   exclude:
   - '*rc*'
