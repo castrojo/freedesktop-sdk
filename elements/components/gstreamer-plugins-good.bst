@@ -60,3 +60,5 @@ variables:
 public:
   cpe:
     product: gstreamer
+    ignored:
+    - CVE-2026-73433 # patched
