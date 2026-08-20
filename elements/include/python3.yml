@@ -1,6 +1,11 @@
 # SPDX-FileCopyrightText: Freedesktop-SDK Developers
 # SPDX-License-Identifier: MIT
 
+public:
+  cpe:
+    vendor: python
+    product: python
+
 sources:
 - kind: git_repo
   track: v*
@@ -10,5 +15,5 @@ sources:
   - v*rc*
   url: github:python/cpython.git
   ref: v3.14.7-0-g823f0323ee6ec1402088b73bce1a38473cac36dc
-- kind: patch
-  path: patches/python3/python3-multiarch-include.patch
+- kind: patch_queue
+  path: patches/python3
