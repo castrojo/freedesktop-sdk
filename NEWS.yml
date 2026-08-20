@@ -1,3 +1,97 @@
+Version: freedesktop-sdk-24.08.36
+Date: '2026-08-20'
+Description: |-
+  Changes in freedesktop-sdk-24.08.36
+   * Update python3-pygments to 2.21.0-0
+   * Update ostree to v2026.4-0
+   * Update mesa-sdk to mesa-26.1.8-0
+   * Update mesa to mesa-26.1.8-0
+   * Update linux to v7.1.8
+   * Build sign-file from the linux tree used by linux-headers.bst
+   * Update go to go1.25.14-0
+   * Update intel-media-driver to intel-media-26.3.2-0
+   * Update buildbox to 1.4.18-0
+   * Update python3-lxml to lxml-6.1.2-1-0
+   * Update python3-idna to v3.19-0
+   * Update frei0r to v3.4.0-0
+   * Update erofs-utils to v1.9.4-0
+   * Update Vim.bst to v9.2.0967 and freeze
+   * Add explicit CPE data to mislabeled elements
+   * Add version guessing patterns where missing
+   * Update strace to v7.2-0
+   * Update apparmor-base to v4.1.8-0
+   * Update iproute2 to v7.2.0-0
+   * Update libconfuse to v3.4-0
+   * Update libevdev to libevdev-1.13.7-0
+   * Update frei0r to v3.3.2-0
+   * Update frei0r to v3.3.0-0
+   * Update python3-charset-normalizer to 3.5.1-0
+   * Update python3-hatchling to hatchling-v1.32.0-0
+   * Update libcupsfilters to 2.2.1-0
+   * Update doxygen to Release_1_18_0-0
+   * Update exfat-progs to 1.4.3-0
+   * Update python3-tpm2-pytss to 3.0.0-0
+   * Update podman to v5.8.6-0
+   * Update extra-cmake-modules to v6.29.0-0
+   * Update gdk-pixbuf to 2.44.8-0
+   * Update libpsl to 0.23.3-0
+   * Update go to go1.25.13-0
+   * Update foomatic-db to 20240504-8
+   * Update python3-filelock to 3.32.3-0
+   * xmlto: update upstream url to codeberg
+   * Update mesa to mesa-26.1.7-0
+   * Update python3 to v3.12.14-0
+   * Update intel-media-driver to intel-media-26.3.1-0
+   * Update mesa-sdk to mesa-26.1.7-0
+   * Update rsync to v3.5.0-0
+   * Update erofs-utils to v1.9.3-0
+   * Update python3-wheel to 0.48.0-0
+   * Update shadow to 4.20.2-0
+   * Update openssh to V_10_5_P1-0
+   * Update xdg-dbus-proxy to 0.1.8-0
+   * Update libpsl to 0.23.2-0
+   * Update linux-firmware to 20260810-0
+   * Update buildbox to 1.4.17-0
+   * Update python3-mako to rel_1_4_1-0
+   * Update python3-virtualenv to 21.7.4-0
+   * libcupsfilters.bst: Update to 2.2.0 from 2.1.1
+   * Add element for pdfio
+   * Update python3-tenacity to 9.2.0-0
+   * Update python3-pip to 26.2.1-0
+   * Update wpa-supplicant to hostap_2_12-0
+   * Update qpdf to v12.4.0-0
+   * Update python3-virtualenv to 21.7.3-0
+   * Update ostree to v2026.3-0
+   * Update pycairo to v1.29.1-0
+   * mesa: freeze to 26.1.x
+   * Update lvm2 to v2_03_42-0
+   * Update gmmlib to intel-gmmlib-22.10.1-0
+   * Update buildbox to 1.4.16-0
+   * Update xorg-lib-xfont2 to libXfont2-2.0.9-0
+   * Update udisks to udisks-2.11.2-0
+   * Update tpm2-pkcs11 to 1.10.1-0
+   * Update p11-kit to 0.26.5-0
+   * Update python3-cffi to v2.1.1-0
+   * Update python3-packaging to 26.3-0
+   * Update perl to v5.40.5-0
+   * Update dracut to 112-0
+   * Update libpsl to 0.23.1-0
+   * Update nano to v9.2-0
+   * Update hwdata to v0.410-0
+   * Update python3-cryptography to ref: 50.0.0-0
+   * Update dictionaries to libreoffice-26.8.0.2-0
+   * Update python3-markdown to 3.10.3-0
+   * Update python3-pip to 26.2-0
+   * Update python3-filelock to 3.32.2-0
+   * Update audit to v4.2.1-0
+   * Update python3-virtualenv to 21.7.1-0
+   * Update reference-abi to freedesktop-sdk-24.08.35-0
+   * Update buildbox to 1.4.15-0
+   * Update shadow to 4.20.0-0
+   * Update mesa to mesa-26.1.6-0
+   * Update mesa-sdk to mesa-26.1.6-0
+   * Update passt to 2026_07_28.f8df3f1-0
+---
 Version: freedesktop-sdk-24.08.35
 Date: '2026-07-28'
 Description: |-
