@@ -21,7 +21,15 @@ runtime-depends:
       conf-local: >-
         TIME_T_32_BIT_OK=yes
 
+public:
+  cpe:
+    ignored:
+    - CVE-2026-41991   # Patched
+    - CVE-2026-41992   # Patched
+
 sources:
 - kind: tar
   url: ftp_gnu_org:gzip/gzip-1.14.tar.xz
   ref: 01a7b881bd220bfdf615f97b8718f80bdfd3f6add385b993dcf6efd14e8c0ac6
+- kind: patch_queue
+  path: patches/gzip
