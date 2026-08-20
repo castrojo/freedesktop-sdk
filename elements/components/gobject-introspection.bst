@@ -7,7 +7,7 @@ build-depends:
 - components/_private/gobject-introspection-base.bst
 
 runtime-depends:
-- public-stacks/runtime-gnu.bst
+- public-stacks/runtime-minimal.bst
 - components/glib.bst
 - components/python3-mako.bst
 - components/python3-markdown.bst
