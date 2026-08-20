@@ -131,6 +131,21 @@ public:
     ignored:
       - CVE-2025-25469 # Already carry fix
       - CVE-2025-25468 # Already carry fix
+      - CVE-2026-64830.patch  # patched
+      - CVE-2026-64832.patch  # patched
+      - CVE-2026-64834.patch  # patched
+      - CVE-2026-65703.patch  # patched
+      - CVE-2026-65705.patch  # patched
+      - CVE-2026-66036.patch  # patched
+      - CVE-2026-66038.patch  # patched
+      - CVE-2026-66040.patch  # patched
+      - CVE-2026-64831.patch  # patched
+      - CVE-2026-64833.patch  # patched
+      - CVE-2026-64835.patch  # patched
+      - CVE-2026-65704.patch  # patched
+      - CVE-2026-65706.patch  # patched
+      - CVE-2026-66037.patch  # patched
+      - CVE-2026-66039.patch  # patched
 
 # ffmpeg is not using autotools, but a configure and Makefile files
 config:
