@@ -1,6 +1,11 @@
 # SPDX-FileCopyrightText: Freedesktop-SDK Developers
 # SPDX-License-Identifier: MIT
 
+public:
+  cpe:
+    vendor: python
+    product: python
+
 sources:
 - kind: git_repo
   track: v*
