@@ -31,9 +31,14 @@ public:
         - '%{bindir}/xml2-config'
         - '%{libdir}/libxml2.so'
         - '%{libdir}/xml2Conf.sh'
+  cpe:
+    ignored:
+    - CVE-2026-11979 # patched
 
 sources:
 - kind: git_repo
   url: gnome:libxml2.git
   track: v*
   ref: v2.15.3-0-gc94eb0210183b9d7cb43f8e7fddc6be55843ef49
+- kind: patch
+  path: patches/libxml2/CVE-2026-11979.patch
