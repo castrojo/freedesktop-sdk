@@ -7,7 +7,8 @@ build-depends:
 - components/_private/flat-manager-client-base.bst
 
 runtime-depends:
-- public-stacks/runtime-gnu.bst
+- public-stacks/runtime-minimal.bst
+- components/glib.bst
 - components/ostree-minimal.bst
 
 config:
