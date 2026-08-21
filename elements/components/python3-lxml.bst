@@ -26,4 +26,4 @@ sources:
   - "*b*"
   - "*-pre"
   - "*-win*"
-  ref: lxml-6.1.1-0-gb4a4c595fb875d6f50ae113449834209a364643a
+  ref: lxml-6.1.2-1-0-g9716fb1e1a80db4ba5e36bf99947dfccd8730471
