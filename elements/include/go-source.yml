@@ -5,7 +5,7 @@ sources:
   exclude:
   - '*rc*'
   - '*beta*'
-  ref: go1.25.13-0-gf893f2702891503a0c7ff615af3abb5efc1c480d
+  ref: go1.25.14-0-g08118a942518cc18db507ec182acffe7364a92a3
 - kind: patch
   path: patches/go/disable-dwarf5.patch
 
