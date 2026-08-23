@@ -24,7 +24,7 @@ sources:
 - kind: git_repo
   url: github:google/fscrypt.git
   track: v*
-  ref: v0.3.6-0-g37b292434bbb79b2b145a6ede9d53dadacb6870e
+  ref: v0.3.7-0-gddb28dae679bfe4df707959dc37211d7c9142e74
 - kind: local
   path: files/fscrypt/modules.txt
 - kind: go_module
@@ -80,8 +80,8 @@ sources:
   url: github:golang/crypto.git
   module: golang.org/x/crypto
   ref:
-    go-version: v0.41.0
-    git-ref: v0.41.0-0-gef5341b70697ceb55f904384bd982587224e8b0c
+    go-version: v0.52.0
+    git-ref: v0.52.0-0-ga1c0d9929856c8aba2b31f079340f00578eda803
     explicit: True
 - kind: go_module
   url: github:golang/exp.git
@@ -102,15 +102,15 @@ sources:
   url: github:golang/sys.git
   module: golang.org/x/sys
   ref:
-    go-version: v0.35.0
-    git-ref: v0.35.0-0-g5b936e1f126baa13682eff91c2e4d5d9e3a0b71d
+    go-version: v0.45.0
+    git-ref: v0.45.0-0-g397d5f80920585bc27433d878aba498d062f81e1
     explicit: True
 - kind: go_module
   url: github:golang/term.git
   module: golang.org/x/term
   ref:
-    go-version: v0.34.0
-    git-ref: v0.34.0-0-ga35244d18d7756b12deca31a518c0fa1327d050a
+    go-version: v0.43.0
+    git-ref: v0.43.0-0-g3c3e4855f7d2eb06c3e48933554add9ec6b599b5
     explicit: True
 - kind: go_module
   url: github:golang/tools.git
