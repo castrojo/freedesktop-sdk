@@ -18,7 +18,7 @@ config:
   install-commands:
     (>):
     - |
-      ln -s %{install-root}%{bindir}/bsdunzip %{install-root}%{bindir}/unzip
+      ln -s bsdunzip %{install-root}%{bindir}/unzip
 
 public:
   bst:
