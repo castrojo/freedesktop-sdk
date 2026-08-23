@@ -18,4 +18,4 @@ sources:
 - kind: git_repo
   url: github:stevegrubb/libcap-ng.git
   track: v*
-  ref: v0.9.4-0-ga6ebe5c663ceb58519a407d4fe7efc6788c5d4c6
+  ref: v0.9.5-0-g9ae44402f4c405f08b9dd5ec070127d0d92afee4
