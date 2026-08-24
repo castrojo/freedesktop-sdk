@@ -16,4 +16,4 @@ sources:
 - kind: git_repo
   url: github:tox-dev/filelock.git
   track: "*.*.*"
-  ref: 3.32.3-0-g4aa742ca0992135fe21df290c8e9023f6981bb6f
+  ref: 3.32.4-0-gcb493d6684ed5d2f923384633c86fef12e29bce2
