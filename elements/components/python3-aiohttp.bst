@@ -32,3 +32,5 @@ sources:
   ref:
     sha256sum: 9491196535a88924a60afd5b5f434b5b203b6cc616250878dbdb223a8f7844bc
     suffix: 58/d9/22ce5786ac0c1653ae8b6c23bded02c1686d11f0dbb45b31ce128e0df985/aiohttp-3.14.3.tar.gz
+- kind: patch
+  path: patches/python3-aiohttp/0001-Fix-Cython-3.3.0-compiler-crash-when-compiling-the-W.patch
