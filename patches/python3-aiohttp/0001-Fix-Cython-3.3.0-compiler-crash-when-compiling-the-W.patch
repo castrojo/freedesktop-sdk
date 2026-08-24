@@ -1,0 +1,158 @@
+From 4be62dbb6edddd9a45432202c1c7c2bd03d0fb13 Mon Sep 17 00:00:00 2001
+From: Georgefifth <yapisaac0@gmail.com>
+Date: Mon, 24 Aug 2026 09:18:43 +0800
+Subject: [PATCH] Fix Cython 3.3.0 compiler crash when compiling the WebSocket
+ reader (#13521)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Problem: building aiohttp with Cython 3.3.0 crashes in
+`AnalyseDeclarationsTransform` while compiling the WebSocket reader
+(`make cythonize` / `python -m cython -3 --module-name
+aiohttp._websocket.reader_c aiohttp/_websocket/reader_py.py`). The crash
+is a `NoneType` annotation type in Cython's
+`_analyse_target_declaration`, triggered by `ALLOWED_CLOSE_CODES:
+Final[set[int]] = {...}` while the same name is declared `cdef set` in
+`reader_c.pxd`.
+
+Solution: drop the `Final` wrapper from that module-level annotation (a
+bare `set[int]` annotation compiles fine under both Cython 3.2.9 and
+3.3.0, verified in isolation) and remove the now-unused `Final` import.
+With the crash gone, Cython 3.3.0 also rejects `start_pos: int = 0` in
+`WebSocketReader._feed_data` as a redeclaration of the
+`start_pos=Py_ssize_t` local from `reader_c.pxd`, so that annotation is
+dropped too — the `.pxd` declaration already provides the Cython type
+and pure-Python behavior is unchanged.
+
+Result: `reader_c.c` regenerates cleanly with both Cython 3.3.0
+(previously: compiler crash) and Cython 3.2.9 (the pinned version, so no
+regression for current builds), using the exact command from the
+Makefile. WebSocket test suites pass with the pure-Python reader:
+`tests/test_websocket_parser.py` + `test_websocket_data_queue.py` (95
+passed, 2 skipped) and `test_websocket_writer.py` +
+`test_web_websocket.py` (92 passed).
+
+No runtime behavior change. `Final` is only a type-checker hint, and the
+removed local annotation changes nothing in pure-Python mode; the
+generated Cython code still gets `start_pos` typed as `Py_ssize_t` from
+the `.pxd`.
+
+No — three lines removed, no new code paths. It just keeps the existing
+source compatible with newer Cython releases.
+
+Fixes #13520
+
+- [x] I think the code is well written
+- [ ] Unit tests for the changes exist
+- [ ] Documentation reflects the changes
+- [x] If you provide code modification, please add yourself to
+`CONTRIBUTORS.txt`
+  * The format is &lt;Name&gt; &lt;Surname&gt;.
+  * Please keep alphabetical order, the file is sorted by names.
+- [x] Add a new news fragment into the `CHANGES/` folder
+  * name it `<issue_or_pr_num>.<type>.rst` (e.g. `588.bugfix.rst`)
+  * if you don't have an issue number, change it to the pull request
+    number after creating the PR
+    * `.bugfix`: A bug fix for something the maintainers deemed an
+      improper undesired behavior that got corrected to match
+      pre-agreed expectations.
+
+Applied to aiohttp-3.14.3 sdist tarball to take into account `reader_c.py`
+being a symlink in git but not in the distribution by:
+
+Tom Pollard <tom.pollard@codethink.co.uk>
+---
+ CHANGES/13520.bugfix.rst        | 5 +++++
+ CONTRIBUTORS.txt                | 1 +
+ aiohttp/_websocket/reader_c.py  | 5 ++---
+ aiohttp/_websocket/reader_py.py | 5 ++---
+ 4 files changed, 10 insertions(+), 6 deletions(-)
+ create mode 100644 CHANGES/13520.bugfix.rst
+
+diff --git a/CHANGES/13520.bugfix.rst b/CHANGES/13520.bugfix.rst
+new file mode 100644
+index 0000000..61d59dc
+--- /dev/null
++++ b/CHANGES/13520.bugfix.rst
+@@ -0,0 +1,5 @@
++Fixed Cython 3.3.0 failing to compile the WebSocket reader: dropped the
++``Final[...]`` annotation from ``ALLOWED_CLOSE_CODES`` and the ``int``
++annotation from the local ``start_pos`` in ``WebSocketReader._feed_data``,
++both of which conflicted with declarations in ``reader_c.pxd`` under
++Cython 3.3.0 -- by :user:`Georgefifth`.
+diff --git a/CONTRIBUTORS.txt b/CONTRIBUTORS.txt
+index 4bb43d0..b052d57 100644
+--- a/CONTRIBUTORS.txt
++++ b/CONTRIBUTORS.txt
+@@ -146,6 +146,7 @@ Gary Leung
+ Gary Wilson Jr.
+ Gene Hoffman
+ Gennady Andreyev
++George Fifth
+ Georges Dubus
+ goingforstudying-ctrl
+ Greg Holt
+diff --git a/aiohttp/_websocket/reader_c.py b/aiohttp/_websocket/reader_c.py
+index ff5a5b3..0b0b8ab 100644
+--- a/aiohttp/_websocket/reader_c.py
++++ b/aiohttp/_websocket/reader_c.py
+@@ -3,7 +3,6 @@
+ import asyncio
+ import builtins
+ from collections import deque
+-from typing import Final
+ 
+ from ..base_protocol import BaseProtocol
+ from ..compression_utils import ZLibDecompressor
+@@ -19,7 +18,7 @@ from .models import (
+     WSMsgType,
+ )
+ 
+-ALLOWED_CLOSE_CODES: Final[set[int]] = {int(i) for i in WSCloseCode}
++ALLOWED_CLOSE_CODES: set[int] = {int(i) for i in WSCloseCode}
+ 
+ # States for the reader, used to parse the WebSocket frame
+ # integer values are used so they can be cythonized
+@@ -328,7 +327,7 @@ class WebSocketReader:
+         if self._tail:
+             data, self._tail = self._tail + data, b""
+ 
+-        start_pos: int = 0
++        start_pos = 0
+         data_len = len(data)
+         data_cstr = data
+ 
+diff --git a/aiohttp/_websocket/reader_py.py b/aiohttp/_websocket/reader_py.py
+index ff5a5b3..0b0b8ab 100644
+--- a/aiohttp/_websocket/reader_py.py
++++ b/aiohttp/_websocket/reader_py.py
+@@ -3,7 +3,6 @@
+ import asyncio
+ import builtins
+ from collections import deque
+-from typing import Final
+ 
+ from ..base_protocol import BaseProtocol
+ from ..compression_utils import ZLibDecompressor
+@@ -19,7 +18,7 @@ from .models import (
+     WSMsgType,
+ )
+ 
+-ALLOWED_CLOSE_CODES: Final[set[int]] = {int(i) for i in WSCloseCode}
++ALLOWED_CLOSE_CODES: set[int] = {int(i) for i in WSCloseCode}
+ 
+ # States for the reader, used to parse the WebSocket frame
+ # integer values are used so they can be cythonized
+@@ -328,7 +327,7 @@ class WebSocketReader:
+         if self._tail:
+             data, self._tail = self._tail + data, b""
+ 
+-        start_pos: int = 0
++        start_pos = 0
+         data_len = len(data)
+         data_cstr = data
+ 
+-- 
+2.53.0
+
