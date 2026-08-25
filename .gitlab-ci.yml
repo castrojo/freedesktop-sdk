@@ -16,7 +16,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "cf722850a0d24d8e313ed9a867ef0050f6d7a501"
+  DOCKER_IMAGE_ID: "188e1f83de7a9cc5c4c2d779942a45b0ec3f093f"
 
   # Generic variable for invoking buildstream
   BST: bst --colors
@@ -90,6 +90,10 @@ before_script:
     source utils/publisher_env.sh
 
 lint:
+  tags:
+    - "x86_64"
+  variables:
+    DOCKER_IMAGE_ID: "dev-tpollard-freedesktop-sdk-26-08rc-1-amd64"
   stage: flatpak
   timeout: 1h
   after_script: []
@@ -275,18 +279,21 @@ check_mirrors:
     - x86_64
   variables:
     ARCH: x86_64
+    DOCKER_IMAGE_ID: "dev-tpollard-freedesktop-sdk-26-08rc-1-amd64"
 
 .builder-i686:
   tags:
     - x86_64
   variables:
     ARCH: i686
+    DOCKER_IMAGE_ID: "dev-tpollard-freedesktop-sdk-26-08rc-1-amd64"
 
 .builder-aarch64:
   tags:
     - aarch64
   variables:
     ARCH: aarch64
+    DOCKER_IMAGE_ID: "dev-tpollard-freedesktop-sdk-26-08rc-1-arm64"
 
 .builder-riscv64:
   tags:
@@ -300,6 +307,7 @@ check_mirrors:
   - ppc64le
   variables:
     ARCH: ppc64le
+    DOCKER_IMAGE_ID: "dev-tpollard-freedesktop-sdk-26-08rc-1-ppc64le"
 
 .builder-loongarch64:
   tags:
