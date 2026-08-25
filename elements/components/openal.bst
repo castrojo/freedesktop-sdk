@@ -9,6 +9,7 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/libpulse.bst
+- components/pipewire.bst
 
 variables:
   arch-conf: ''
