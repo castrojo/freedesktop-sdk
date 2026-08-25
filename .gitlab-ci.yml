@@ -68,6 +68,7 @@ stages:
   - publish
   - finish-publish
   - reproducible
+  - merge-check
 
 before_script:
   - ulimit -n 1048576
@@ -756,3 +757,15 @@ publish_gitlab_release:
         --notes-file tag_message.txt --ref "$CI_COMMIT_SHA"
   rules:
   - if: '$CI_COMMIT_TAG && $CI_COMMIT_REF_PROTECTED == "true" && $CI_PIPELINE_SOURCE != "schedule"'
+
+check_docker_images:
+  stage: merge-check
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
+        - .gitlab-ci.yml
+  dependencies: []
+  before_script: []
+  script:
+    - python3 utils/check-docker-images.py .gitlab-ci.yml
+  after_script: []
