@@ -21,6 +21,8 @@ config:
   - components/cpio.bst
   - components/docbook-xml.bst
   - components/docbook-xsl.bst
+  - components/docbook5-xml.bst
+  - components/docbook5-xsl.bst
   - components/doxygen.bst
   - components/flex.bst
   - components/gdb.bst

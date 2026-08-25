@@ -87,6 +87,8 @@ depends:
 - components/dmidecode.bst
 - components/docbook-xml.bst
 - components/docbook-xsl.bst
+- components/docbook5-xml.bst
+- components/docbook5-xsl.bst
 - components/doctest.bst
 - components/dosfstools.bst
 - components/doxygen.bst
