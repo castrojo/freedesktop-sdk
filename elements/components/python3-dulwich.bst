@@ -19,6 +19,6 @@ sources:
 - kind: git_repo
   url: github:jelmer/dulwich.git
   track: dulwich-*.*.*
-  ref: dulwich-1.2.12-0-gc9240bc94dcdec265b5df2b5d304260d9dad6f1b
+  ref: dulwich-1.2.13-0-g2d47e39d441c3192776029e4570bb02201524bcf
 - kind: patch
   path: patches/python3-dulwich/0001-index-only-reject-Windows-device-names-on-Windows.patch
