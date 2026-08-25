@@ -15,6 +15,7 @@ variables:
     -DBUILD_SHARED_LIBS=ON
     -DBUILD_TESTING=OFF
     -DBUILD_EXAMPLES=OFF
+    -DVISIBILITY_HIDDEN=ON
 
 public:
   bst:
