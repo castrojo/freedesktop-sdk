@@ -17,7 +17,7 @@ sources:
   track: v*
   exclude:
   - "*beta*"
-  ref: v1.14.1-0-g6febbe20f0006e62299c6a88b49e3ede5e2e2318
+  ref: v1.15.0-0-g479658ad9bce22c6e4955b2e47182111c166e37c
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
@@ -55,8 +55,8 @@ sources:
     sha: 291e6a250ff86cd4a820112fb8898808a366d8f9f58ce16d1f538353ad55747d
   - kind: registry
     name: anyhow
-    version: 1.0.102
-    sha: 7f202df86484c868dbad7eaa557ef785d5c66295e41b460ef922eca0723b842c
+    version: 1.0.103
+    sha: 2a4385e2e34eb35d6b3efe798b9eb88096925d87726c0798709bf56d9ed84af3
   - kind: registry
     name: ar_archive_writer
     version: 0.5.1
@@ -163,12 +163,12 @@ sources:
     sha: 87a0c0e6148f11f01f32650a2ea02d532b2ad4e81d8bd41e6e565b5adc5e6082
   - kind: registry
     name: cargo-xwin
-    version: 0.23.0
-    sha: 22a978d433c17ee532d4cb0a8ec9b7aeb121e658267ac1c637504583b12b2861
+    version: 0.23.1
+    sha: 08fe6fef95319ecc03c40127b2af811522b7918b05502ebb35b2972208993a57
   - kind: registry
     name: cargo-zigbuild
-    version: 0.23.0
-    sha: 68c7df45b9d9934aaed5987fbf422b31419f81827b13a52251a61e1e772c6ff7
+    version: 0.23.1
+    sha: 9840ba8824cf43c7efb04a268090199072ad3ca8c65c386132909aee1bd4d4bf
   - kind: registry
     name: cargo_metadata
     version: 0.18.1
@@ -315,8 +315,8 @@ sources:
     sha: 9dd111b7b7f7d55b72c0a6ae361660ee5853c9af73f70c3c2ef6858b950e2e51
   - kind: registry
     name: crossbeam-epoch
-    version: 0.9.18
-    sha: 5b82ac4a3c2ca9c3460964f020e1402edd5753411d7737aa39c3714ad1b5420e
+    version: 0.9.20
+    sha: 2d6914041f254d6e9176c01941b21115dcfb7089e55135a35411081bd106ef3f
   - kind: registry
     name: crossbeam-utils
     version: 0.8.21
@@ -695,8 +695,8 @@ sources:
     sha: b3a6a8c165077efc8f3a971534c50ea6a1a18b329ef4a66e897a7e3a1494565f
   - kind: registry
     name: libc
-    version: 0.2.185
-    sha: 52ff2c0fe9bc6cb6b14a0592c2ff4fa9ceb83eea9db979b0487cd054946a2b8f
+    version: 0.2.189
+    sha: 3eaf3ede3fee6db1a4c2ee091bf8a8b4dccdc6d17f656fb07896ee72867612f2
   - kind: registry
     name: libmimalloc-sys
     version: 0.1.46
@@ -755,8 +755,8 @@ sources:
     sha: f8ca58f447f06ed17d5fc4043ce1b10dd205e060fb3ce5b979b8ed8e59ff3f79
   - kind: registry
     name: memmap2
-    version: 0.9.10
-    sha: 714098028fe011992e1c3962653c96b2d578c4b4bce9036e15ff220319b1e0e3
+    version: 0.9.11
+    sha: d1219ed1b7f229ee7104d281dd01d6802fe28bb6e95d292942c4daacdeb798c0
   - kind: registry
     name: memo-map
     version: 0.3.3
@@ -1191,8 +1191,8 @@ sources:
     sha: 18d26a20a969b9e3fdf2fc2d9f21eda6c40e2de84c9408bb5d3b05d499aae711
   - kind: registry
     name: serde_json
-    version: 1.0.149
-    sha: 83fc039473c5595ace860d8c4fafa220ff474b3fc6bfdb4293327f1a37e94d86
+    version: 1.0.151
+    sha: c841b55ecdae098c80dcae9cf767f6f8a0c2cdb3416bbef72181df4d0fe73f14
   - kind: registry
     name: serde_spanned
     version: 0.6.9
@@ -1839,8 +1839,8 @@ sources:
     sha: 3ae8337f8a065cfc972643663ea4279e04e7256de865aa66fe25cec5fb912d3f
   - kind: registry
     name: xwin
-    version: 0.9.0
-    sha: c337699251ad0c38cf87ee63944de38c2201d017cfbb768e5a3897ae835aacc7
+    version: 0.10.0
+    sha: e3ae2ef8d627ac8d97b3aeb67e4b711520154edca5cc80fbec551415c7b671ef
   - kind: registry
     name: xz2
     version: 0.1.7
@@ -1881,10 +1881,6 @@ sources:
     name: zerovec-derive
     version: 0.11.3
     sha: 625dc425cab0dca6dc3c3319506e6593dcb08a9f387ea3b284dbd52a92c40555
-  - kind: registry
-    name: zip
-    version: 7.2.0
-    sha: c42e33efc22a0650c311c2ef19115ce232583abbe80850bc8b66509ebef02de0
   - kind: registry
     name: zip
     version: 8.5.1
