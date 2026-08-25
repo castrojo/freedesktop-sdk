@@ -1,3 +1,5 @@
+foobar
+
 # Welcome to Freedesktop SDK
 
 [Freedesktop SDK](https://freedesktop-sdk.io/) is a free, community-developed, and open-source project with a number of components that help you simplify the process of creating different software artifacts. More common use cases include building containers, Flatpak runtimes, or complete operating systems.
