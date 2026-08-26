@@ -1,3 +1,66 @@
+Version: freedesktop-sdk-26.08rc.2
+Date: '2026-08-26'
+Description: |-
+  Changes in freedesktop-sdk-26.08rc.2
+   * openal: add pipewire dependency to enable the PipeWire backend
+   * Stop leaking python3 private elements
+   * Stop leaking gobject-introspection private element
+   * fixing runtime dependency leaking of private element in flat-manager-client
+   * Update python3-dulwich to dulwich-1.2.13-0
+   * Update pkg-config to pkgconf-3.0.6-0
+   * Update python3-imagesize to 2.0.1-0
+   * Update frei0r to v3.5.0-0
+   * Update python3-maturin to ref: v1.15.0-0
+   * .gitlab-ci.yml: Use latest docker-images container before rc2
+   * Update python3-filelock to 3.32.4-0
+   * Update ccache to v4.14-0
+   * rust-stage1-riscv64.bst: Bump to 1.97.1 to bootstrap 1.98.0
+   * libarchive: fix unzip symlink
+   * Update cython to 3.3.0-0
+   * Update fscrypt to ref: v0.3.7-0
+   * go-source: Update to go1.27.0-0
+   * ostree-source: Update to v2026.4-0
+   * mesa-sources: Update to mesa-26.1.8-0
+   * python3-lxml: Update to lxml-6.1.2-1-0
+   * protobuf: Update to v36.0-0
+   * pdfio: Update to v1.6.5-0
+   * networkmanager: Update to 1.58.1-0
+   * libevdev: Update to libevdev-1.13.7-0
+   * libcap-ng: Update to v0.9.5-0
+   * frei0r: Update to v3.4.3-0
+   * erofs-utils: Update to v1.9.4-0
+   * dictionaries: Update to libreoffice-26.8.0.3-0
+   * buildbox: Update to 1.4.18-0
+   * ovmf: Update to edk2-stable202608-0
+   * Update linux to v7.2-0
+   * Update python3-protobuf to 7.36.0
+   * Update python3-vcs-versioning to vcs-versioning-v2.3.1-0
+   * Update frei0r to v3.4.0-0
+   * Update mesa-sdk to mesa-26.2.1-0
+   * Update rust from 1.97.1 to 1.98.0
+   * python3-dulwich.bst: Carry patch fix for reported upstream issue
+   * .gitlab-ci.yml: Bump to initial fdsdk 26.08 rc1 based container
+   * Update iproute2 to v7.2.0-0
+   * reference-abi.bst: Bump ref to take into account skip for abseil-cpp
+   * [abi skip] Update abseil-cpp to 20260817.0-0
+   * Revert "glslang: disable pre-compiled headers"
+   * gcc: Add patch to fix reproducibility with pre-compiled headers
+   * Revert ".gitlab-ci.yml: Bump to initial fdsdk 26.08 rc1 based container"
+   * Update python3-idna to v3.19-0
+   * sdl2-compat: sdl3 is also a runtime dependency
+   * Update reference-abi to freedesktop-sdk-26.08rc.1-0
+   * Update libpsl to 0.23.3-0
+   * Update strace to v7.2-0
+   * .gitlab-ci.yml: Bump to initial fdsdk 26.08 rc1 based container
+   * Add version guessing patterns where missing
+   * Add explicit CPE data to mislabeled elements
+   * Update Vim.bst to v9.2.0967 and freeze
+   * Update linux.bst CPE data and remove outdated CVE ignores
+   * Update python3-tpm2-pytss to 3.0.0-0
+   * Update frei0r to v3.3.2-0
+   * Update apparmor-base to v4.1.8-0
+   * Update python3-pygments to 2.21.0-0
+---
 Version: freedesktop-sdk-26.08rc.1
 Date: '2026-08-18'
 Description: |-
