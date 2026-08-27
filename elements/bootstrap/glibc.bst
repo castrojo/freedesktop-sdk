@@ -90,6 +90,7 @@ variables:
     --with-headers=%{sysroot}%{includedir}/%{gcc_triplet}:%{sysroot}%{includedir} \
     --enable-stackguard-randomization \
     --enable-stack-protector=strong \
+    --enable-kernel=4.3 \
     --enable-bind-now \
     --disable-werror \
     %{arch_options}
