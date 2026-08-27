@@ -39,6 +39,7 @@ variables:
     --enable-stackguard-randomization \
     --enable-stack-protector=strong \
     --enable-bind-now \
+    --enable-kernel=4.3 \
     --disable-werror \
     %{arch_options}
 
