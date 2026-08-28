@@ -9,6 +9,9 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/curl.bst
 
+runtime-depends:
+- components/hwdata.bst
+
 variables:
   make-args: >-
     PREFIX="%{prefix}"
@@ -26,6 +29,10 @@ variables:
 config:
   install-commands:
     (>):
+    # This directory is provided by components/hwdata.bst; remove it to prevent overlapping
+    - |
+      rm -rf "%{install-root}%{datadir}/hwdata"
+
     - |
       mkdir -p "%{install-root}%{includedir}/%{gcc_triplet}/pci"
       mv "%{install-root}%{includedir}/pci/config.h" "%{install-root}%{includedir}/%{gcc_triplet}/pci/"
