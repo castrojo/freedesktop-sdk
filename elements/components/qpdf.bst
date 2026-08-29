@@ -15,4 +15,4 @@ sources:
   track: v*
   exclude:
   - "vcpkg*"
-  ref: v12.4.0-0-gbabad179ce5db9a21635c8d1ac17baa59637eada
+  ref: v12.4.1-0-gc37f83ae468abb6cc741f43b2f6fdeb66e550ffb
