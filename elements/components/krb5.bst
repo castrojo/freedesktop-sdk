@@ -43,6 +43,9 @@ public:
         - '%{libdir}/libverto.so'
   cpe:
     product: kerberos_5
+    ignored:
+    - CVE-2026-40355 # consumed patch
+    - CVE-2026-40356 # consumed patch
 
 sources:
 - kind: git_repo
@@ -50,7 +53,5 @@ sources:
   track: "krb5-*.*.*-final"
   ref: krb5-1.22.2-final-0-g8570e77819563e036027e1da789d08ec9333ed4d
 # These fixes are not released yet.
-- kind: patch
-  path: patches/krb5/b7290e0cab5b7e39cd4aa7c098beb18a886d4a1d.patch
-- kind: patch
-  path: patches/krb5/fix-strchr-conformance-to-c23.patch
+- kind: patch_queue
+  path: patches/krb5
