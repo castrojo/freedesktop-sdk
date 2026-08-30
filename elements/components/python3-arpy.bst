@@ -10,4 +10,4 @@ sources:
 - kind: git_repo
   url: github:viraptor/arpy.git
   track: '*.*.*'
-  ref: 2.3.0-0-g68233a171c01e2242225baf084dac5c14562ef8d
+  ref: 2.4.0-0-g9bd29c69d20e9d93089f35ddadbb9c49e9a0a5b8
