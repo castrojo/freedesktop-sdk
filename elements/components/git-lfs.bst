@@ -41,7 +41,7 @@ sources:
 - kind: git_repo
   url: github:git-lfs/git-lfs.git
   track: v*
-  ref: v3.7.1-0-gb84b33847fe6458f36ef521534dc0eac953cb379
+  ref: v3.8.0-0-gaece9221f8c09221a14395d964806b956289bc07
 - kind: local
   path: files/git-lfs/modules.txt
 - kind: go_module
@@ -55,8 +55,8 @@ sources:
   url: github:avast/retry-go.git
   module: github.com/avast/retry-go
   ref:
-    go-version: v2.4.2+incompatible
-    git-ref: v2.4.2-0-ga322e24d96313ab405dec28ad5711f036c6d25a3
+    go-version: v3.0.0+incompatible
+    git-ref: v3.0.0-0-gce731f6114d3f1b81d16110b9f7d6a8637b1339b
     explicit: True
 - kind: go_module
   url: github:davecgh/go-spew.git
@@ -167,15 +167,15 @@ sources:
   url: github:leonelquinteros/gotext.git
   module: github.com/leonelquinteros/gotext
   ref:
-    go-version: v1.5.0
-    git-ref: v1.5.0-0-g1b8a993ae40a69bc9e9ed20a93b526c1e6b7d457
+    go-version: v1.7.2
+    git-ref: v1.7.2-0-gdfb32f237361d8a9dd99c5e2fe036f7a234c0b7e
     explicit: True
 - kind: go_module
   url: github:mattn/go-isatty.git
   module: github.com/mattn/go-isatty
   ref:
-    go-version: v0.0.4
-    git-ref: v0.0.4-0-g6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c
+    go-version: v0.0.24
+    git-ref: v0.0.24-0-gc44dc0b9c702c76577fdb7898032969e0611efc2
     explicit: True
 - kind: go_module
   url: github:olekukonko/ts.git
@@ -188,8 +188,8 @@ sources:
   url: github:pkg/errors.git
   module: github.com/pkg/errors
   ref:
-    go-version: v0.0.0-20170505043639-c605e284fe17
-    git-ref: c605e284fe17294bda444b34710735b29d1a9d90
+    go-version: v0.9.1
+    git-ref: v0.9.1-0-g614d223910a179a466c1767a985424175c39b465
     explicit: True
 - kind: go_module
   url: github:pmezard/go-difflib.git
@@ -209,15 +209,15 @@ sources:
   url: github:spf13/cobra.git
   module: github.com/spf13/cobra
   ref:
-    go-version: v1.7.0
-    git-ref: v1.7.0-0-g4dd4b25de38418174a6e859e8a32eaccca32dccc
+    go-version: v1.10.2
+    git-ref: v1.10.2-0-g88b30ab89da2d0d0abb153818746c5a2d30eccec
     explicit: True
 - kind: go_module
   url: github:spf13/pflag.git
   module: github.com/spf13/pflag
   ref:
-    go-version: v1.0.5
-    git-ref: v1.0.5-0-g2e9d26c8c37aae03e3f9d4e90b7116f5accb7cab
+    go-version: v1.0.9
+    git-ref: v1.0.9-0-g10438578954bba2527fe5cae3684d4532b064bbe
     explicit: True
 - kind: go_module
   url: github:ssgelm/cookiejarparser.git
@@ -230,8 +230,8 @@ sources:
   url: github:stretchr/testify.git
   module: github.com/stretchr/testify
   ref:
-    go-version: v1.6.1
-    git-ref: v1.6.1-0-gf654a9112bbeac49ca2cd45bfbe11533c4666cf8
+    go-version: v1.11.1
+    git-ref: v1.11.1-0-g2a57335dc9cd6833daa820bc94d9b40c26a7917d
     explicit: True
 - kind: go_module
   url: github:xeipuuv/gojsonpointer.git
@@ -251,43 +251,43 @@ sources:
   url: github:xeipuuv/gojsonschema.git
   module: github.com/xeipuuv/gojsonschema
   ref:
-    go-version: v0.0.0-20170210233622-6b67b3fab74d
-    git-ref: 6b67b3fab74d992bd07f72550006ab2c6907c416
+    go-version: v1.2.0
+    git-ref: v1.2.0-0-g82fcdeb203eb6ab2a67d0a623d9c19e5e5a64927
     explicit: True
 - kind: go_module
   url: git_https:go.googlesource.com/crypto
   module: golang.org/x/crypto
   ref:
-    go-version: v0.36.0
-    git-ref: v0.36.0-0-g49bf5b80c8108983f588ecabd7bf996e6e63a515
+    go-version: v0.54.0
+    git-ref: v0.54.0-0-gcdce021fa6c7d9c7eb2743bfbe551f0a98fd5d62
     explicit: True
 - kind: go_module
   url: git_https:go.googlesource.com/net
   module: golang.org/x/net
   ref:
-    go-version: v0.38.0
-    git-ref: v0.38.0-0-ge1fcd82abba34df74614020343be8eb1fe85f0d9
+    go-version: v0.57.0
+    git-ref: v0.57.0-0-gb8f09f6f062ceb4531b7af4bd17a5c8fe9c4b2b5
     explicit: True
 - kind: go_module
   url: git_https:go.googlesource.com/sync
   module: golang.org/x/sync
   ref:
-    go-version: v0.12.0
-    git-ref: v0.12.0-0-gb637f27e40ad6e222f3d301cc113e635f0fa08be
+    go-version: v0.22.0
+    git-ref: v0.22.0-0-g1eb64d4bc0cde6da1bb8ebc7f178bb577508e5d0
     explicit: True
 - kind: go_module
   url: git_https:go.googlesource.com/sys
   module: golang.org/x/sys
   ref:
-    go-version: v0.31.0
-    git-ref: v0.31.0-0-g74cfc93a99be6ca6f193856132e6799065b071af
+    go-version: v0.47.0
+    git-ref: v0.47.0-0-g9e7e939dcafac07e8ab4cffa6e5fc74908413f00
     explicit: True
 - kind: go_module
   url: git_https:go.googlesource.com/text
   module: golang.org/x/text
   ref:
-    go-version: v0.23.0
-    git-ref: v0.23.0-0-g566b44fc931e2542778a18423c655ce99b4f1402
+    go-version: v0.40.0
+    git-ref: v0.40.0-0-g724af9c35838492dcaacc1ac51a8a0187c994c54
     explicit: True
 - kind: go_module
   url: git_https:gopkg.in/yaml.v3
@@ -302,4 +302,11 @@ sources:
   ref:
     go-version: v0.0.0-20241129210726-2c02b8208cf8
     git-ref: 2c02b8208cf8c02a3e358cb1d9b60950647543fc
+    explicit: True
+- kind: go_module
+  url: github:klauspost/compress
+  module: github.com/klauspost/compress
+  ref:
+    go-version: v1.19.1
+    git-ref: v1.19.1-0-g2602f4afea09fe72f2b58d4ed04d43a6047a0131
     explicit: True
