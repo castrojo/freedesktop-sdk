@@ -18,12 +18,11 @@ depends:
 - components/curl.bst
 - components/fontconfig.bst
 - components/freetype.bst
-- components/gdk-pixbuf.bst
 - components/glib-networking.bst
 - components/glib.bst
 - components/gobject-introspection.bst
 - components/libfyaml.bst
-- components/librsvg.bst
+- components/libvips.bst
 - components/libxml2.bst
 - components/libxmlb.bst
 - components/pango.bst
