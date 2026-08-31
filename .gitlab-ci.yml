@@ -16,7 +16,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "2283e38bdb50b02798835ad0a384f9209530a28d"
+  DOCKER_IMAGE_ID: "24b74bf0e7fa84f84b23939f20f77e25b85641c6"
 
   # Generic variable for invoking buildstream
   BST: bst --colors
