@@ -321,6 +321,7 @@ depends:
 - components/libusb.bst
 - components/libva.bst
 - components/libvdpau.bst
+- components/libvips.bst
 - components/libvorbis.bst
 - components/libvpx.bst
 - components/libwacom.bst
