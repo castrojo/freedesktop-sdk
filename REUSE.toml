@@ -13,3 +13,8 @@ path = [
 ]
 SPDX-FileCopyrightText = "Freedesktop-SDK Developers"
 SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "elements/patches/openjdk25/0001-FORBID_C_FUNCTION.patch"
+SPDX-FileCopyrightText = "Oracle and/or its affiliates"
+SPDX-License-Identifier = "GPL-2.0-only"
