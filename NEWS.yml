@@ -1,3 +1,72 @@
+Version: freedesktop-sdk-26.08.0
+Date: '2026-08-31'
+Description: |-
+  Changes in freedesktop-sdk-26.08.0
+   * Noteworthy changes since 25.08:
+   * [BREAKING CHANGE] `runtime-minimal.bst` is now `runtime-gnu.bst`
+     runtime-minimal do not include bash or coreutils anymore, this allows replacing
+     userland tools in bootstrap with alternative implementations. See #1950 for details
+     Note: for components generating a kind:stack, and if the stack is missing a shell and utilities,
+     you need to add `runtime-gnu.bst` there now too so the integration-commands can run.
+     For more details, please see freedesktop-sdk.gitlab.io/documentation/concepts/userland.html
+   * [BREAKING CHANGE] elements removed: glew, glog, pyelftool (replaced with python3-pyelftools),
+     python3-pytz, python3-six, qpdf
+   * [BREAKING CHANGE] These elements are now private: git-minimal, vala-bootstrap, avahi-base
+     systemd-hwdb, lvm2-base, efitools-bin, python3-minimal, python3-build-bootstrap,
+     python3-installer-bootstrap, rr, sbsigntools, cryptsetup-base, fwupd-efi, libsmbios,
+     freetype-stage1, lvm2-stage1, bpf, gnu-efi, cmake-stage1, dbus-base, systemd-stage1,
+     u-boot-qemu, cups-base, geoclue-base, shim, flex-base, glib-stage1, gobject-introspection-base,
+     bluez-base, valgrind, polkit-base, systemd-base, apparmor-base, gamemode-base, u-boot-unmatched,
+     pipewire-base, xdg-desktop-portal-base, avahi-base, ovmf, gcc-base, flat-manager-client-base,
+     flat-manager-client-base
+   * [BREAKING CHANGE] Removal of snap support: it was not really in use, happy to reintroducce it
+     again if there is some demand for it
+   * Complete revamp of the documentaion portal, check freedesktop-sdk.gitlab.io/documentation/
+   * Updates on all elements to the most recent versions
+   * A lot of other fixes and improvements
+   * Changes since 26.08rc.2:
+   * .gitlab-ci.yml: Use latest docker-images container before 26.08 is released
+   * Update fuse-overlayfs to v1.18-0
+   * Update ccid to 1.8.3-0
+   * linux: Update to v7.2.2-0
+   * flatpak: Update to 1.18.2-0
+   * intel-media-driver: Update to intel-media-26.3.2-0
+   * wireplumber: Update to 0.5.16-0
+   * python3-virtualenv: Update to 21.7.7-0
+   * python3-dulwich: Update to dulwich-1.2.14-0
+   * python3-cryptography: Update to ref: 50.0.1-0
+   * python3-click: Update to 8.5.0
+   * python3-arpy: Update to 2.4.0-0
+   * openssl: Update to openssl-3.5.8-0
+   * libslirp: Update to v4.9.4-0
+   * git-lfs: Update to ref: v3.8.0-0
+   * aom: Update to v3.15.0-0
+   * patch.bst CVE-2026-56288 patch
+   * libxml2.bst CVE patch
+   * krb5.bst ingore consumed CVE patches
+   * python3.bst correctly identify CPE
+   * gzip.bst CVE patches
+   * ffmpeg.bst CVE patches
+   * Update cargo-c to v0.10.25-0
+   * Update buildbox to 1.4.20-0
+   * Update python3-virtualenv to 21.7.5-0
+   * Update libksba to libksba-1.8.1-0
+   * Update pygobject to 3.58.0-0
+   * Update python3-build to 1.6.0-0
+   * Update linux to v7.2.1-0
+   * Update grpc to v1.83.1-0
+   * Update reference-abi to freedesktop-sdk-26.08rc.2-0
+   * Update man-pages to man-pages-6.19-0
+   * Update libvpx to v1.17.0-0
+   * Update bubblewrap to v0.12.0-0
+   * Update buildstream2 to 2.8.0-0
+   * Update cmake to v4.4.3-0
+   * Update libgcrypt to libgcrypt-1.12.3-0
+   * .gitlab-ci.yml: Ensure pre-merge CI gates on using mainline docker-images
+   * pciutils: fix conflict with hwdata
+   * Update lvm2 to v2_03_42-0
+   * .gitlab-ci.yml: Bump to initial fdsdk 26.08 rc2 based container
+---
 Version: freedesktop-sdk-26.08rc.2
 Date: '2026-08-26'
 Description: |-
