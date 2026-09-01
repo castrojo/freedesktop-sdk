@@ -1,7 +1,7 @@
 {
   "app-id": "test.library.tracker",
   "runtime": "org.freedesktop.Platform",
-  "runtime-version": "26.08beta",
+  "runtime-version": "27.08beta",
   "sdk": "org.freedesktop.Sdk",
   "command": "library-tracker",
   "modules": [

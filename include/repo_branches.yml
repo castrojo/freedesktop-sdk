@@ -4,5 +4,5 @@
 # Versioning information related to our releases
 # is maintained here.
 #
-freedesktop-sdk-flatpak-branch: '26.08beta'
-freedesktop-sdk-flatpak-branch-extra: '26.08beta-extra'
+freedesktop-sdk-flatpak-branch: '27.08beta'
+freedesktop-sdk-flatpak-branch-extra: '27.08beta-extra'
