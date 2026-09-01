@@ -30,9 +30,12 @@ public:
   cpe:
     ignored:
     - CVE-2016-3709
+    - CVE-2026-11979 # patched
 
 sources:
 - kind: git_repo
   url: gnome:libxml2.git
   track: v2.14.*
   ref: v2.14.6-0-gd23960a130c5bb82779c9405fbbf85e65fb3c57c
+- kind: patch
+  path: patches/libxml2/CVE-2026-11979.patch

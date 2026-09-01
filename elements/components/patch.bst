@@ -11,6 +11,11 @@ depends:
 variables:
   autogen: ./bootstrap --no-git --gnulib-srcdir=%{build-root}/gnulib
 
+public:
+  cpe:
+    ignored:
+    - CVE-2026-56288   # patched
+    - CVE-2026-56289   # patched
 
 sources:
 - kind: git_repo
@@ -21,3 +26,5 @@ sources:
   path: gnulib
   url: savannah:gnulib.git
   ref: 9829f0a93c40492875f67ee738e000611bdcf0e7
+- kind: patch_queue
+  path: patches/patch

@@ -1,6 +1,11 @@
 (@):
 - elements/include/python3-variables.yml
 
+public:
+  cpe:
+    vendor: python
+    product: python
+
 sources:
 - kind: git_repo
   track: v3.13.*
