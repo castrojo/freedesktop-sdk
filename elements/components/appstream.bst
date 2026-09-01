@@ -9,6 +9,7 @@ kind: meson
 build-depends:
 - public-stacks/buildsystem-meson.bst
 - bootstrap/sed.bst
+- components/daps.bst
 - components/docbook5-xsl.bst
 - components/gperf.bst
 - components/itstool.bst
@@ -36,7 +37,7 @@ variables:
   meson-local: >-
     -Dstemming=false
     -Dcompose=true
-    -Ddocs=false
+    -Ddocs=true
     -Dapidocs=true
     -Dman=true
     -Dblake3-support=false
