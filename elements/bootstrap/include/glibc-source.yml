@@ -5,6 +5,6 @@ sources:
 - kind: git_repo
   url: sourceware:glibc.git
   track: release/2.44/master
-  ref: glibc-2.44-23-g11ac3d78fc5e4f7f2846002e099f773ad8ff82fc
+  ref: glibc-2.44-38-g5c479454d1232f71c78fa21584e90a2f57883407
 - kind: patch_queue
   path: patches/glibc
