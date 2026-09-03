@@ -129,23 +129,23 @@ public:
         - '%{datadir}/ffmpeg/examples/**'
   cpe:
     ignored:
-      - CVE-2025-25469 # Already carry fix
-      - CVE-2025-25468 # Already carry fix
-      - CVE-2026-64830.patch  # patched
-      - CVE-2026-64832.patch  # patched
-      - CVE-2026-64834.patch  # patched
-      - CVE-2026-65703.patch  # patched
-      - CVE-2026-65705.patch  # patched
-      - CVE-2026-66036.patch  # patched
-      - CVE-2026-66038.patch  # patched
-      - CVE-2026-66040.patch  # patched
-      - CVE-2026-64831.patch  # patched
-      - CVE-2026-64833.patch  # patched
-      - CVE-2026-64835.patch  # patched
-      - CVE-2026-65704.patch  # patched
-      - CVE-2026-65706.patch  # patched
-      - CVE-2026-66037.patch  # patched
-      - CVE-2026-66039.patch  # patched
+    - CVE-2025-25469   # Already carry fix
+    - CVE-2025-25468   # Already carry fix
+    - CVE-2026-64830.patch    # patched
+    - CVE-2026-64832.patch    # patched
+    - CVE-2026-64834.patch    # patched
+    - CVE-2026-65703.patch    # patched
+    - CVE-2026-65705.patch    # patched
+    - CVE-2026-66036.patch    # patched
+    - CVE-2026-66038.patch    # patched
+    - CVE-2026-66040.patch    # patched
+    - CVE-2026-64831.patch    # patched
+    - CVE-2026-64833.patch    # patched
+    - CVE-2026-64835.patch    # patched
+    - CVE-2026-65704.patch    # patched
+    - CVE-2026-65706.patch    # patched
+    - CVE-2026-66037.patch    # patched
+    - CVE-2026-66039.patch    # patched
 
 # ffmpeg is not using autotools, but a configure and Makefile files
 config:
@@ -158,4 +158,4 @@ sources:
   track: n*
   exclude:
   - '*-dev'
-  ref: n8.1.2-0-g38b88335f99e76ed89ff3c93f877fdefce736c13
+  ref: n9.0.1-0-gbf1b838f2ab88b4f8fd83443325c782ea0e0f7fa
