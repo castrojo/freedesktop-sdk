@@ -5,6 +5,8 @@ kind: autotools
 
 build-depends:
 - public-stacks/buildsystem-autotools.bst
+- components/docbook5-xsl.bst
+- components/git.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -17,15 +19,16 @@ environment:
 variables:
   build-dir: ''
   conf-local: >-
-    --disable-build-docs
+    --enable-build-docs
 
 config:
   configure-commands:
     (<):
     - |
       sed -i 's/ATTRIBUTE_UNUSED/__attribute__((unused))/g' src/xml_pyx.c
+      autoreconf -sif
 
 sources:
-- kind: tar
-  url: tar_https:downloads.sourceforge.net/project/xmlstar/xmlstarlet/1.6.1/xmlstarlet-1.6.1.tar.gz
-  ref: 15d838c4f3375332fd95554619179b69e4ec91418a3a5296e7c631b7ed19e7ca
+- kind: git_repo
+  url: sourceforge_git:xmlstar/code
+  ref: 9a470e3db6a632a31d75ed2a6112407e05f92e8d
