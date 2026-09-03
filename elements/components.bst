@@ -74,6 +74,7 @@ depends:
 - components/curl.bst
 - components/cyrus-sasl.bst
 - components/cython.bst
+- components/daps.bst
 - components/dav1d.bst
 - components/dbus-broker.bst
 - components/dbus-manifest.bst
@@ -200,6 +201,7 @@ depends:
 - components/iana-config.bst
 - components/icu.bst
 - components/iio-sensor-proxy.bst
+- components/imagemagick.bst
 - components/inih.bst
 - components/iproute2.bst
 - components/iptables.bst
@@ -208,6 +210,7 @@ depends:
 - components/itstool.bst
 - components/iwd.bst
 - components/jansson.bst
+- components/jing.bst
 - components/jpeg.bst
 - components/jq.bst
 - components/json-c.bst
@@ -379,6 +382,7 @@ depends:
 - components/open-isns.bst
 - components/openal.bst
 - components/opencl.bst
+- components/openjdk25.bst
 - components/openjpeg.bst
 - components/opensbi-u-boot-maybe.bst
 - components/openssh-systemd.bst
@@ -638,6 +642,7 @@ depends:
 - components/xdg-portal-interfaces.bst
 - components/xdg-user-dirs.bst
 - components/xfsprogs.bst
+- components/xmlstarlet.bst
 - components/xmltoman.bst
 - components/xmlto.bst
 - components/xorg-app-xkbcomp.bst

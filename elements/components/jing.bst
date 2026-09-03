@@ -6,7 +6,7 @@ kind: manual
 
 build-depends:
 - public-stacks/runtime-gnu.bst
-- components/findutils.bst
+- components/git.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
@@ -16,16 +16,20 @@ variables:
   strip-binaries: ''
 
 config:
+  build-commands:
+  - |
+    set -e
+
+    export JAVA_HOME="%{libdir}/jvm/openjdk-25"
+    ./ant
+
   install-commands:
   - |
     set -e
 
-    jing_jar="$(find . -type f -name jing.jar -print -quit)"
-    test -n "$jing_jar"
-    jing_dir="$(dirname "$jing_jar")"
-
     install -d "%{install-root}%{datadir}/java/jing"
-    cp -a "$jing_dir"/. "%{install-root}%{datadir}/java/jing/"
+    install -m 644 build/jing.jar \
+      "%{install-root}%{datadir}/java/jing/jing.jar"
 
     install -d "%{install-root}%{bindir}"
     cat > "%{install-root}%{bindir}/jing" <<'SCRIPT'
@@ -35,7 +39,11 @@ config:
     chmod 755 "%{install-root}%{bindir}/jing"
 
 sources:
-- kind: zip
-  url: github_files:relaxng/jing-trang/releases/download/V20241231/jing-20241231.zip
-  ref: d11a765f9106e398e01d66aaffb629beb1da21f8a716299e2930a751130bfad2
-  base-dir: ''
+- kind: git_repo
+  url: github:relaxng/jing-trang.git
+  ref: a6bc0041035988325dfbfe7823ef2c098fc56597
+
+- kind: git_module
+  path: relaxng.org
+  url: github:relaxng/relaxng.org.git
+  ref: 1fc8c8d337c2c75b6b15b281f2c69e86110e475f

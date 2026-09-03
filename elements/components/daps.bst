@@ -26,7 +26,7 @@ depends:
 - components/zip.bst
 
 environment:
-  XML_CATALOG_FILES: '/tmp/daps-catalog.xml /etc/xml/catalog'
+  XML_CATALOG_FILES: '%{build-root}/daps-catalog.xml /etc/xml/catalog'
 
 variables:
   build-dir: ''
@@ -40,13 +40,13 @@ config:
     - |
       set -e
 
-      xmlcatalog --noout --create /tmp/daps-catalog.xml
+      xmlcatalog --noout --create %{build-root}/daps-catalog.xml
 
       xmlcatalog --noout \
         --add rewriteSystem \
         "http://www.w3.org/2003/entities/iso8879/" \
         "file://%{datadir}/xml/docbook/xml-dtd/ent/" \
-        /tmp/daps-catalog.xml
+        %{build-root}/daps-catalog.xml
 
 public:
   bst:

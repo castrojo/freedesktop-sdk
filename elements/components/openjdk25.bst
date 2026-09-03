@@ -5,12 +5,12 @@ kind: manual
 
 build-depends:
 - public-stacks/runtime-gnu.bst
+- components/_private/openjdk25-bootstrap.bst
 - components/autoconf.bst
 - components/file.bst
 - components/gcc.bst
 - components/libarchive.bst
 - components/make.bst
-- components/openjdk25-bootstrap.bst
 - components/pkg-config.bst
 - components/which.bst
 - components/zip.bst
@@ -82,9 +82,9 @@ config:
     done
 
 sources:
-- kind: tar
-  url: github_files:openjdk/jdk25u/archive/refs/tags/jdk-25.0.4.1+1.tar.gz
-  ref: 1dd5567b315e19cf4cfb2c32931e535fd65b326960a8770f351d7655439b1eb8
+- kind: git_repo
+  url: github:openjdk/jdk25u.git
+  ref: 7b65d74bcbd7c3a0b4c1f5c5bd85e64aa2e51b4a
 
 - kind: patch_queue
   path: elements/patches/openjdk25
