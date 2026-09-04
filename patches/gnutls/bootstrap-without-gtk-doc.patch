@@ -1,0 +1,35 @@
+From: Freedesktop-SDK Developers
+Subject: [PATCH] Allow bootstrapping with documentation disabled
+
+gtkdocize is not needed when the build is configured with --disable-doc.
+Define the disabled Automake conditional directly so autoreconf can still
+process the documentation Makefiles with the existing fallback gtk-doc.make.
+
+diff --git a/bootstrap.conf b/bootstrap.conf
+index 0700dad68..6b862dfd9 100644
+--- a/bootstrap.conf
++++ b/bootstrap.conf
+@@ -50,7 +50,6 @@ automake   1.11.1
+ bison      2.4
+ gettext    0.17
+ git        1.4.4
+ gperf      -
+-gtkdocize  -
+ perl       5.5
+ "
+ 
+diff --git a/configure.ac b/configure.ac
+index f8c1511ca..49e26e569 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -406,7 +406,7 @@ AC_ARG_ENABLE(fuzzer-target,
+ dnl
+ dnl check for gtk-doc
+ dnl
+-GTK_DOC_CHECK([1.14],[--flavour no-tmpl])
++AM_CONDITIONAL([ENABLE_GTK_DOC], [false])
+ 
+ AM_GNU_GETTEXT([external])
+ AM_GNU_GETTEXT_VERSION([0.19])
+-- 
+2.51.0
