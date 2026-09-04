@@ -8,7 +8,6 @@ build-depends:
 - components/_private/git-minimal.bst
 - components/bison.bst
 - components/gperf.bst
-- components/gtk-doc.bst
 - components/patch.bst
 - components/python3.bst
 
@@ -61,3 +60,5 @@ sources:
   path: patches/gnutls/cli-codegen-no-passwd.patch
 - kind: patch
   path: patches/gnutls/drop-submodule.patch
+- kind: patch
+  path: patches/gnutls/bootstrap-without-gtk-doc.patch
