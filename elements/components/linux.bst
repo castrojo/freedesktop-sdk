@@ -145,6 +145,8 @@ public:
       devel:
         (>):
         - '%{indep-libdir}/modules/*/System.map'
+      debug:
+        (>):
         - '%{indep-libdir}/modules/*/vmlinux'
     overlap-whitelist:
     - "%{project_licensedir}"
