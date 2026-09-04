@@ -7,7 +7,6 @@ build-depends:
 - public-stacks/buildsystem-autotools.bst
 - components/_private/git-minimal.bst
 - components/bison.bst
-- components/gtk-doc.bst
 - components/help2man.bst
 - components/patch.bst
 - components/texinfo.bst
