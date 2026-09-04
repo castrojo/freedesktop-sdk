@@ -1,0 +1,38 @@
+From 667e5eacee3c8768fd0119afd5986285f76dab8a Mon Sep 17 00:00:00 2001
+From: Tom Pollard <tom.pollard@codethink.co.uk>
+Date: Fri, 4 Sep 2026 10:38:31 +0100
+Subject: [PATCH] Revert "Avoid Cython 3.3 for lxml 6.1.x."
+
+This reverts commit f9e4999ef79e1caa369f84cece0bdaf19a1ef550.
+
+As confirmed by the maintainer, this is only needed for python3.8
+support:
+
+https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/merge_requests
+/34220#note_3785913645
+---
+ pyproject.toml   | 2 +-
+ requirements.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index b37e8c65..091f095a 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["Cython>=3.2.9,<3.3", "setuptools"]
++requires = ["Cython>=3.2.4", "setuptools"]
+ 
+ [tool.cibuildwheel]
+ build-verbosity = 1
+diff --git a/requirements.txt b/requirements.txt
+index e0a786cb..cd4eb7bb 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1 +1 @@
+-Cython>=3.2.9,<3.3
++Cython>=3.2.4
+-- 
+2.53.0
+
