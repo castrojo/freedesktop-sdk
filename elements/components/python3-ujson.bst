@@ -14,4 +14,4 @@ sources:
 - kind: git_repo
   url: github:ultrajson/ultrajson.git
   track: '*.*.*'
-  ref: 5.13.0-0-g1a23a68bbc5aff84e3f78f65011362cf3389693c
+  ref: 6.0.0-0-g12492c2deb0e60ac66da40dc15f06ba967ed3e0a
