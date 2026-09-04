@@ -5,13 +5,18 @@ Look [here](https://gitlab.com/freedesktop-sdk/freedesktop-sdk/wikis/release) fo
 This document outlines the basic guidelines before contributing to freedesktop-sdk. If you want to contribute to this project please follow the steps below.
 
 In order to contribute your first patch, you will need to follow these steps:
-1. [Create a GitLab account](#create-a-gitlab-account)
-2. [Clone our GitLab repo](#clone-our-gitlab-repo)
-3. [Make a local branch](#make-a-local-branch)
-4. [Make your changes in the branch](#make-your-changes-in-the-branch)
-5. [Request developer access to the freedesktop-sdk repo](#request-developer-access-to-the-freedesktop-sdk-repo)
-6. [Push your changes to the remote](#push-your-changes-to-the-remote)
-7. [Open a merge request](#open-a-merge-request)
+- [Contributing](#contributing)
+  - [Help \& Contact](#help--contact)
+  - [Create a GitLab account](#create-a-gitlab-account)
+  - [Clone our GitLab repo](#clone-our-gitlab-repo)
+  - [Make a local branch](#make-a-local-branch)
+  - [Make your changes in the branch](#make-your-changes-in-the-branch)
+  - [When modifying a git source](#when-modifying-a-git-source)
+  - [Pre-commit hooks](#pre-commit-hooks)
+  - [Request developer access to the freedesktop-sdk repo](#request-developer-access-to-the-freedesktop-sdk-repo)
+  - [Push your changes to the remote](#push-your-changes-to-the-remote)
+  - [Open a merge request](#open-a-merge-request)
+  - [Testing locally](#testing-locally)
 
 Additionally you can [test your changes](#testing-locally) locally using our Makefile
 
@@ -101,6 +106,15 @@ tools.
 We also have CI to automatically track the latest tags of git repos, but this
 requires use of the `git_repo` plugin rather than `git`. If adding a new git
 source please use `git_repo` rather than `git`.
+
+## Pre-commit hooks
+
+This project provides a .pre-commit-hooks.yaml file that you can run some really
+simple tests on your changeset before committing that will ensure a minimum level
+of quality in your contribution.
+
+To install it you can run `make dev` which will check for the needed dependencies
+and install it for `git commit` to take into account.
 
 
 ## Request developer access to the freedesktop-sdk repo
