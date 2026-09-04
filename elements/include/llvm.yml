@@ -8,4 +8,4 @@ sources:
   exclude:
   - llvmorg-*-rc*
   - llvmorg-*-init*
-  ref: llvmorg-22.1.8-0-gca7933e47d3a3451d81e72ac174dcb5aa28b59d1
+  ref: llvmorg-23.1.0-0-gea7d852a70e8bdfaf601d6626a760f9771b2c4b4
