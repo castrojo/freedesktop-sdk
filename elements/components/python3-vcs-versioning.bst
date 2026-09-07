@@ -7,7 +7,7 @@ build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
 
 depends:
-- components/_private/git-minimal.bst
+- components/git-minimal.bst
 - components/python3-packaging.bst
 - components/python3.bst
 

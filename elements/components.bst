@@ -4,7 +4,6 @@
 kind: stack
 
 depends:
-- components/_private/git-minimal.bst
 - components/_private/vala-bootstrap.bst
 - components/aardvark-dns.bst
 - components/acpica-tools.bst
@@ -149,6 +148,7 @@ depends:
 - components/ghostscript.bst
 - components/giflib.bst
 - components/git-lfs.bst
+- components/git-minimal.bst
 - components/git.bst
 - components/glib-networking.bst
 - components/glibc-gconv-cache.bst
