@@ -22,5 +22,4 @@ public:
     script: |
       #!/bin/bash
       sysroot="${1}"
-      chmod 4755 "${sysroot}%{indep-libdir}/polkit-1/polkit-agent-helper-1"
       chmod 4755 "${sysroot}%{bindir}/pkexec"
