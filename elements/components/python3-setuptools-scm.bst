@@ -1,26 +1,17 @@
 # SPDX-FileCopyrightText: Freedesktop-SDK Developers
 # SPDX-License-Identifier: MIT
 
-kind: pyproject
+kind: filter
 
 build-depends:
-- public-stacks/buildsystem-python-setuptools.bst
+- components/_private/python3-setuptools-scm.bst
 
-depends:
-- components/_private/git-minimal.bst
+runtime-depends:
+- components/git.bst
 - components/python3-packaging.bst
 - components/python3-setuptools.bst
 - components/python3-vcs-versioning.bst
 - components/python3.bst
 
-variables:
-  command-subdir: setuptools-scm
-
-sources:
-- kind: git_repo
-  url: github:pypa/setuptools_scm.git
-  track: setuptools-scm-v*
-  exclude:
-  - "*dev*"
-  - "*vcs-*"
-  ref: setuptools-scm-v10.2.3-0-g886267d2130093e732379717b8b7deab84d4756d
+config:
+  include-orphans: True
