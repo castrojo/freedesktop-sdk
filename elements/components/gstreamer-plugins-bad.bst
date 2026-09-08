@@ -84,6 +84,7 @@ public:
         - '%{libdir}/libgstcodecs-1.0.so'
         - '%{libdir}/libgstcuda-1.0.so'
         - '%{libdir}/libgstdxva-1.0.so'
+        - '%{libdir}/libgsthip-1.0.so'
         - '%{libdir}/libgstinsertbin-1.0.so'
         - '%{libdir}/libgstisoff-1.0.so'
         - '%{libdir}/libgstmpegts-1.0.so'
@@ -100,6 +101,6 @@ public:
         - '%{libdir}/libgstwayland-1.0.so'
         - '%{libdir}/libgstwebrtc-1.0.so'
         - '%{libdir}/libgstwebrtcnice-1.0.so'
-        - '%{libdir}/libgsthip.so'
+
   cpe:
     product: gstreamer
