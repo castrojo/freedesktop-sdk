@@ -80,10 +80,3 @@ config:
 
     - |
       rm "%{install-root}%{infodir}/dir"
-
-public:
-  bst:
-    split-rules:
-      runtime: []
-      devel:
-      - /**

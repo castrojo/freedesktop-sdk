@@ -24,13 +24,6 @@ runtime-depends:
 environment:
   CXX: "%{triplet}-g++"
 
-public:
-  bst:
-    split-rules:
-      devel:
-        (>):
-        - "/**"
-
 sources:
 - kind: local
   path: files/stripper

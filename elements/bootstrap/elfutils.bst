@@ -49,7 +49,6 @@ public:
 
       devel:
         (>):
-        - '%{bindir}/**'
         - '%{libdir}/libasm.so'
         - '%{libdir}/libdw.so'
         - '%{libdir}/libelf.so'

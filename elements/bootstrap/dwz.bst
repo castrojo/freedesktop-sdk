@@ -33,10 +33,3 @@ variables:
     CFLAGS="${CFLAGS}"
     CXXFLAGS="${CXXFLAGS}"
     LDFLAGS="${LDFLAGS}"
-
-public:
-  bst:
-    split-rules:
-      devel:
-        (>):
-        - "/**"
