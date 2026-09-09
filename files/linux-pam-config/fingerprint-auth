@@ -1,5 +1,5 @@
 auth        required      pam_env.so
-auth        sufficient    pam_fprintd.so
+auth        [success=done default=ignore authinfo_unavail=done]    pam_fprintd.so
 auth        required      pam_deny.so
 
 account     required      pam_unix.so
