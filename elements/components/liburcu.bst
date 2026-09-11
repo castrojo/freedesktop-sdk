@@ -13,4 +13,4 @@ sources:
 - kind: git_repo
   url: liburcu:userspace-rcu.git
   track: v*.*.*
-  ref: v0.15.6-0-gd8bd37fb288a2da7238103f9b24bf25e190902be
+  ref: v0.15.7-0-gbbc6bc94901aebe6380e4e798858b995a8d3fd5d
