@@ -4,7 +4,7 @@ sources:
   track: v*
   exclude:
   - '*pre*'
-  ref: v1.83.1-0-gaae267021b1ac256f8b9038d0ef528c3798cc137
+  ref: v1.84.0-0-g3252a89f10d8e92997862167ca7d095ecda85973
 - kind: git_module
   url: github:google/re2.git
   path: third_party/re2
@@ -29,6 +29,10 @@ sources:
   path: third_party/protoc-gen-validate
   url: github:envoyproxy/protoc-gen-validate.git
   ref: 7b06248484ceeaa947e93ca2747eccf336a88ecc
+- kind: git_module
+  path: third_party/grpc-proto
+  url: github:grpc/grpc-proto.git
+  ref: ec30f589e2519d595688b9a42f88a91bdd6b733f
 - kind: patch
   path: patches/grpc/absl.patch
 - kind: patch
