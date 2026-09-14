@@ -2,6 +2,9 @@
 # SPDX-License-Identifier: MIT
 
 sources:
-- kind: tar
-  url: tar_https:static.rust-lang.org/dist/rustc-1.99.0-src.tar.xz
-  ref: cc41916a8c84f5d9ec4f55561b44e39f43b647b133f8a6f51be9ea13c83f7036
+- kind: anitya
+  project-id: 7635
+  url: tar_https:static.rust-lang.org/dist/rustc-{version}-src.tar.xz
+  ref:
+    version: 1.99.0
+    sha256sum: cc41916a8c84f5d9ec4f55561b44e39f43b647b133f8a6f51be9ea13c83f7036

@@ -54,6 +54,9 @@ public:
         - '%{libdir}/libfftw3f_threads.so'
 
 sources:
-- kind: tar
-  url: tar_https:www.fftw.org/fftw-3.3.11.tar.gz
-  ref: 5630c24cdeb33b131612f7eb4b1a9934234754f9f388ff8617458d0be6f239a1
+- kind: anitya
+  project-id: 803
+  url: tar_https:www.fftw.org/fftw-{version}.tar.gz
+  ref:
+    version: 3.3.11
+    sha256sum: 5630c24cdeb33b131612f7eb4b1a9934234754f9f388ff8617458d0be6f239a1
