@@ -41,6 +41,5 @@ sources:
 - kind: tar
   url: github_files:unicode-org/icu/releases/download/release-78.3/icu4c-78.3-sources.tgz
   ref: 3a2e7a47604ba702f345878308e6fefeca612ee895cf4a5f222e7955fabfe0c0
-  version-guess-pattern: '(\d+)_(\d+)'
 - kind: patch
   path: patches/icu/icu-fix-shared-linking.patch
