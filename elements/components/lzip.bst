@@ -15,6 +15,9 @@ variables:
     LDFLAGS="$LDFLAGS"
 
 sources:
-- kind: tar
-  url: tar_https:download-mirror.savannah.gnu.org/releases/lzip/lzip-1.26.tar.gz
-  ref: 641cf30961525cbe3b340cc883436c8854e9f5032f459f444de4782b621e6572
+- kind: anitya
+  project-id: 1866
+  url: tar_https:download-mirror.savannah.gnu.org/releases/lzip/lzip-{version}.tar.gz
+  ref:
+    version: 1.26
+    sha256sum: 641cf30961525cbe3b340cc883436c8854e9f5032f459f444de4782b621e6572

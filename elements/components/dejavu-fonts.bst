@@ -25,6 +25,9 @@ config:
     %{install-extra}
 
 sources:
-- kind: tar
-  url: sourceforge:projects/dejavu/files/dejavu/2.37/dejavu-fonts-ttf-2.37.tar.bz2
-  ref: fa9ca4d13871dd122f61258a80d01751d603b4d3ee14095d65453b4e846e17d7
+- kind: anitya
+  project-id: 418
+  url: sourceforge:projects/dejavu/files/dejavu/{major}.{prerelease}/dejavu-fonts-ttf-{major}.{prerelease}.tar.bz2
+  ref:
+    version: '2_37'
+    sha256sum: fa9ca4d13871dd122f61258a80d01751d603b4d3ee14095d65453b4e846e17d7
