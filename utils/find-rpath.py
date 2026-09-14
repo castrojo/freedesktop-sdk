@@ -7,6 +7,7 @@ __license__ = "MIT"
 import os
 import re
 import sys
+from os.path import commonpath
 
 from elftools.common.exceptions import ELFError
 from elftools.elf.dynamic import DynamicSection
@@ -29,7 +30,7 @@ def resolve_path(path: str, root="/"):
     assert os.path.isabs(root)
     if path == "/":
         return "/"
-    in_root = os.path.commonprefix([path, root]) == root
+    in_root = commonpath([path, root]) == root
     if not in_root:
         path = _replace_prefix(path, "/", root)
     while os.path.islink(path):
