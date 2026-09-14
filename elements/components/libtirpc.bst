@@ -21,6 +21,9 @@ public:
         - '%{libdir}/libtirpc.so'
 
 sources:
-- kind: tar
-  url: sourceforge:projects/libtirpc/files/libtirpc/1.3.7/libtirpc-1.3.7.tar.bz2
-  ref: b47d3ac19d3549e54a05d0019a6c400674da716123858cfdb6d3bdd70a66c702
+- kind: anitya
+  project-id: 1740
+  url: sourceforge:projects/libtirpc/files/libtirpc/{version}/libtirpc-{version}.tar.bz2
+  ref:
+    version: 1.3.7
+    sha256sum: b47d3ac19d3549e54a05d0019a6c400674da716123858cfdb6d3bdd70a66c702

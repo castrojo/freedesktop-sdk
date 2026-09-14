@@ -38,9 +38,11 @@ public:
 # The git repository is unreliable as tags are force-pushed
 # See https://github.com/sdispater/tomlkit/issues/322
 sources:
-- kind: tar
-  url: github_files:unicode-org/icu/releases/download/release-78.3/icu4c-78.3-sources.tgz
-  ref: 3a2e7a47604ba702f345878308e6fefeca612ee895cf4a5f222e7955fabfe0c0
-  version-guess-pattern: '(\d+)_(\d+)'
+- kind: anitya
+  project-id: 379847
+  url: github_files:unicode-org/icu/releases/download/release-{version}/icu4c-{version}-sources.tgz
+  ref:
+    version: 78.3
+    sha256sum: 3a2e7a47604ba702f345878308e6fefeca612ee895cf4a5f222e7955fabfe0c0
 - kind: patch
   path: patches/icu/icu-fix-shared-linking.patch

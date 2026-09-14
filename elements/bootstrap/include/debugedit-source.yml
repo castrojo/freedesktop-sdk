@@ -2,6 +2,9 @@
 # SPDX-License-Identifier: MIT
 
 sources:
-- kind: tar
-  url: tar_https:sourceware.org/ftp/debugedit/5.2/debugedit-5.2.tar.xz
-  ref: 705296803cc4403f38764e891b4ed38f8d8d4f8a9164bd4f86c9d4bedcac68dd
+- kind: anitya
+  project-id: 370630
+  url: tar_https:sourceware.org/ftp/debugedit/{version}/debugedit-{version}.tar.xz
+  ref:
+    version: 5.2
+    sha256sum: 705296803cc4403f38764e891b4ed38f8d8d4f8a9164bd4f86c9d4bedcac68dd

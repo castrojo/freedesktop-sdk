@@ -2,6 +2,9 @@
 # SPDX-License-Identifier: MIT
 
 sources:
-- kind: tar
-  url: ftp_gnu_org:m4/m4-1.4.21.tar.xz
-  ref: f25c6ab51548a73a75558742fb031e0625d6485fe5f9155949d6486a2408ab66
+- kind: anitya
+  project-id: 1871
+  url: ftp_gnu_org:m4/m4-{version}.tar.xz
+  ref:
+    version: 1.4.21
+    sha256sum: f25c6ab51548a73a75558742fb031e0625d6485fe5f9155949d6486a2408ab66

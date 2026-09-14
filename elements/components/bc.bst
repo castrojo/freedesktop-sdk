@@ -18,6 +18,9 @@ config:
       rm "%{install-root}%{infodir}/dir"
 
 sources:
-- kind: tar
-  url: ftp_gnu_org:bc/bc-1.08.2.tar.gz
-  ref: ae470fec429775653e042015edc928d07c8c3b2fc59765172a330d3d87785f86
+- kind: anitya
+  project-id: 170
+  url: ftp_gnu_org:bc/bc-{version}.tar.gz
+  ref:
+    version: 1.08.2
+    sha256sum: ae470fec429775653e042015edc928d07c8c3b2fc59765172a330d3d87785f86

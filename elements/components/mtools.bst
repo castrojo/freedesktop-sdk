@@ -10,6 +10,9 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 sources:
-- kind: tar
-  url: ftp_gnu_org:mtools/mtools-4.0.49.tar.bz2
-  ref: 6fe5193583d6e7c59da75e63d7234f76c0b07caf33b103894f46f66a871ffc9f
+- kind: anitya
+  project-id: 2028
+  url: ftp_gnu_org:mtools/mtools-{version}.tar.bz2
+  ref:
+    version: 4.0.49
+    sha256sum: 6fe5193583d6e7c59da75e63d7234f76c0b07caf33b103894f46f66a871ffc9f

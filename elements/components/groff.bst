@@ -25,6 +25,9 @@ config:
       rm "%{install-root}%{infodir}/dir"
 
 sources:
-- kind: tar
-  url: ftp_gnu_org:groff/groff-1.24.1.tar.gz
-  ref: 74e2819795b6aff431aeac983d63a9c8968eeaba2a2eba7df8ba4c7b41e7cfd8
+- kind: anitya
+  project-id: 1253
+  url: ftp_gnu_org:groff/groff-{version}.tar.gz
+  ref:
+    version: 1.24.1
+    sha256sum: 74e2819795b6aff431aeac983d63a9c8968eeaba2a2eba7df8ba4c7b41e7cfd8

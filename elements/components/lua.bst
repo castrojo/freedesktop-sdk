@@ -27,8 +27,11 @@ config:
     - install -Dm644 -t '%{install-root}%{libdir}/pkgconfig' lua.pc
 
 sources:
-- kind: tar
-  url: tar_https:www.lua.org/ftp/lua-5.5.1.tar.gz
-  ref: 1c4b4068d67061f2a2231ad2b5422e77acea1487ea9890f6320af614f4373dce
+- kind: anitya
+  project-id: 1847
+  url: tar_https:www.lua.org/ftp/lua-{version}.tar.gz
+  ref:
+    version: 5.5.1
+    sha256sum: 1c4b4068d67061f2a2231ad2b5422e77acea1487ea9890f6320af614f4373dce
 - kind: local
   path: files/lua/lua.pc.in

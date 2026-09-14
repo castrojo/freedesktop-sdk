@@ -28,6 +28,9 @@ config:
       find "%{install-root}" -name "lib*.a" -delete
 
 sources:
-- kind: tar
-  url: ftp_gnu_org:bison/bison-3.8.2.tar.gz
-  ref: 06c9e13bdf7eb24d4ceb6b59205a4f67c2c7e7213119644430fe82fbd14a0abb
+- kind: anitya
+  project-id: 193
+  url: ftp_gnu_org:bison/bison-{version}.tar.gz
+  ref:
+    version: 3.8.2
+    sha256sum: 06c9e13bdf7eb24d4ceb6b59205a4f67c2c7e7213119644430fe82fbd14a0abb
