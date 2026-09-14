@@ -23,6 +23,9 @@ config:
       rm "%{install-root}%{infodir}/dir"
 
 sources:
-- kind: tar
-  url: ftp_gnu_org:sed/sed-4.9.tar.xz
-  ref: 6e226b732e1cd739464ad6862bd1a1aba42d7982922da7a53519631d24975181
+- kind: anitya
+  project-id: 4789
+  url: ftp_gnu_org:sed/sed-{version}.tar.xz
+  ref:
+    version: '4.9'
+    sha256sum: 6e226b732e1cd739464ad6862bd1a1aba42d7982922da7a53519631d24975181

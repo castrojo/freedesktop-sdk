@@ -3,21 +3,33 @@ sources:
   url: gcc_gnu_org:gcc.git
   track: refs/tags/releases/gcc-15.*
   ref: releases/gcc-15.2.0-0-g5115c7e447fc07457443df874bf57840e8316d5f
-- kind: tar
-  url: ftp_gnu_org:gmp/gmp-6.3.0.tar.xz
+- kind: anitya
+  project-id: 1186
+  url: ftp_gnu_org:gmp/gmp-{version}.tar.xz
   directory: gmp
-  ref: a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898
-- kind: tar
-  url: ftp_gnu_org:mpfr/mpfr-4.2.2.tar.xz
+  ref:
+    version: '6.3.0'
+    sha256sum: a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898
+- kind: anitya
+  project-id: 2019
+  url: ftp_gnu_org:mpfr/mpfr-{version}.tar.xz
   directory: mpfr
-  ref: b67ba0383ef7e8a8563734e2e889ef5ec3c3b898a01d00fa0a6869ad81c6ce01
-- kind: tar
-  url: ftp_gnu_org:mpc/mpc-1.3.1.tar.gz
+  ref:
+    version: '4.2.2'
+    sha256sum: b67ba0383ef7e8a8563734e2e889ef5ec3c3b898a01d00fa0a6869ad81c6ce01
+- kind: anitya
+  project-id: 1667
+  url: ftp_gnu_org:mpc/mpc-{version}.tar.gz
   directory: mpc
-  ref: ab642492f5cf882b74aa0cb730cd410a81edcdbec895183ce930e706c1c759b8
-- kind: tar
-  url: tar_https:libisl.sourceforge.io/isl-0.28.tar.xz
+  ref:
+    version: '1.3.1'
+    sha256sum: ab642492f5cf882b74aa0cb730cd410a81edcdbec895183ce930e706c1c759b8
+- kind: anitya
+  project-id: 13286
+  url: tar_https:libisl.sourceforge.io/isl-{version}.tar.xz
   directory: isl
-  ref: 3dc31b8e1b18329e42d5dfbf84dd55e15c59b61569a2ab246f61497d9592f727
+  ref:
+    version: '0.28'
+    sha256sum: 3dc31b8e1b18329e42d5dfbf84dd55e15c59b61569a2ab246f61497d9592f727
 - kind: patch_queue
   path: patches/gcc

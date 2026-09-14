@@ -12,6 +12,9 @@ depends:
 - bootstrap/base-sdk/binary-seed.bst
 
 sources:
-- kind: tar
-  url: ftp_gnu_org:libtool/libtool-2.5.4.tar.xz
-  ref: f81f5860666b0bc7d84baddefa60d1cb9fa6fceb2398cc3baca6afaa60266675
+- kind: anitya
+  project-id: 1741
+  url: ftp_gnu_org:libtool/libtool-{version}.tar.xz
+  ref:
+    version: 2.5.4
+    sha256sum: f81f5860666b0bc7d84baddefa60d1cb9fa6fceb2398cc3baca6afaa60266675

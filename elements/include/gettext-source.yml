@@ -1,4 +1,7 @@
 sources:
-- kind: tar
-  url: ftp_gnu_org:gettext/gettext-0.26.tar.lz
-  ref: a0151088dad8942374dc038e461b228352581defd7055e79297f156268b8d508
+- kind: anitya
+  project-id: 898
+  url: ftp_gnu_org:gettext/gettext-{version}.tar.lz
+  ref:
+    version: '0.26'
+    sha256sum: a0151088dad8942374dc038e461b228352581defd7055e79297f156268b8d508
