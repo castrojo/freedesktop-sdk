@@ -10,6 +10,9 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 sources:
-- kind: tar
-  url: tar_https:carlowood.github.io/which/which-2.25.tar.gz
-  ref: 1cb83e4f702e60b8211ab5ec4c2afbab1b1dec80209456a7d2faf7584ed225ea
+- kind: anitya
+  project-id: 5127
+  url: tar_https:carlowood.github.io/which/which-{version}.tar.gz
+  ref:
+    version: 2.25
+    sha256sum: 1cb83e4f702e60b8211ab5ec4c2afbab1b1dec80209456a7d2faf7584ed225ea
