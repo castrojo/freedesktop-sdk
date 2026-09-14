@@ -51,7 +51,7 @@ if __name__ == "__main__":
     with open(sys.argv[1], encoding="utf-8") as news:
         documents = list(generate_documents(news))
     print(len(documents))
-    documents = documents[:]
+    documents = documents.copy()
     with open(sys.argv[2], "w", encoding="utf-8") as yaml_news:
         yaml = ruamel.yaml.YAML()
         yaml.dump_all(documents, yaml_news)

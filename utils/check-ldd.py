@@ -52,7 +52,7 @@ def parse_undefined_symbols(output: str) -> list[str]:
 
 def has_undefined_symbols(output: str) -> bool:
     pattern = r"undefined symbol:"
-    return bool(re.search(pattern, output))
+    return bool(pattern in output)
 
 
 def get_libdir(sysroot: str) -> str | None:
@@ -125,7 +125,7 @@ def check_elf_file(file: str, libdir: str) -> tuple[str, dict | None]:
         if undefined_syms:
             file_result["undefined_symbols"] = list(set(undefined_syms))
 
-    return (file_basename, file_result if file_result else None)
+    return (file_basename, file_result or None)
 
 
 def find_missing_libs(root: str, libdir: str) -> dict[str, dict[str, list[str] | bool]]:
