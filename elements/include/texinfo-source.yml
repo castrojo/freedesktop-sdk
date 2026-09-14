@@ -2,6 +2,9 @@
 # SPDX-License-Identifier: MIT
 
 sources:
-- kind: tar
-  url: ftp_gnu_org:texinfo/texinfo-7.3.tar.xz
-  ref: 51f74eb0f51cfa9873b85264dfdd5d46e8957ec95b88f0fb762f63d9e164c72e
+- kind: anitya
+  project-id: 4958
+  url: ftp_gnu_org:texinfo/texinfo-{version}.tar.xz
+  ref:
+    version: 7.3
+    sha256sum: 51f74eb0f51cfa9873b85264dfdd5d46e8957ec95b88f0fb762f63d9e164c72e

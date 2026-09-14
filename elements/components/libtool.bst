@@ -34,6 +34,9 @@ public:
         - '%{libdir}/libltdl.so'
 
 sources:
-- kind: tar
-  url: ftp_gnu_org:libtool/libtool-2.6.2.tar.xz
-  ref: 2ef1067c16c97db930fd740cc9bc3d3ba9a583804ae5ac42cc3e8719e49e191e
+- kind: anitya
+  project-id: 1741
+  url: ftp_gnu_org:libtool/libtool-{version}.tar.xz
+  ref:
+    version: 2.6.2
+    sha256sum: 2ef1067c16c97db930fd740cc9bc3d3ba9a583804ae5ac42cc3e8719e49e191e
