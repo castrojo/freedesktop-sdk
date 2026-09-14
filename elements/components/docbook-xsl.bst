@@ -55,9 +55,12 @@ public:
       add_main rewriteURI "http://docbook.sourceforge.net/release/xsl/current"
 
 sources:
-- kind: tar
-  url: github_files:docbook/xslt10-stylesheets/releases/download/release/1.79.2/docbook-xsl-nons-1.79.2.tar.gz
-  ref: f89425b44e48aad24319a2f0d38e0cb6059fdc7dbaf31787c8346c748175ca8e
+- kind: anitya
+  project-id: 13115
+  url: github_files:docbook/xslt10-stylesheets/releases/download/release/{version}/docbook-xsl-nons-{version}.tar.gz
+  ref:
+    version: 1.79.2
+    sha256sum: f89425b44e48aad24319a2f0d38e0cb6059fdc7dbaf31787c8346c748175ca8e
 - kind: patch
   strip-level: '2'
   path: patches/docbook-xsl/docbook-xsl-non-recursive_string_subst.patch

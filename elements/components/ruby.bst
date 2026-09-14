@@ -25,6 +25,9 @@ variables:
     --disable-rpath
 
 sources:
-- kind: tar
-  url: tar_https:cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.6.tar.xz
-  ref: 9c9d121fe3314ea7c801e690b9de981d2b9d12d7849db99c27482468a541ba0a
+- kind: anitya
+  project-id: 4223
+  url: tar_https:cache.ruby-lang.org/pub/ruby/{major}.{minor}/ruby-{version}.tar.xz
+  ref:
+    version: 4.0.6
+    sha256sum: 9c9d121fe3314ea7c801e690b9de981d2b9d12d7849db99c27482468a541ba0a

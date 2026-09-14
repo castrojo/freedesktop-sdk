@@ -35,6 +35,9 @@ config:
       rm "%{install-root}%{infodir}/dir"
 
 sources:
-- kind: tar
-  url: ftp_gnu_org:make/make-4.4.1.tar.lz
-  ref: 8814ba072182b605d156d7589c19a43b89fc58ea479b9355146160946f8cf6e9
+- kind: anitya
+  project-id: 1877
+  url: ftp_gnu_org:make/make-{version}.tar.lz
+  ref:
+    version: 4.4.1
+    sha256sum: 8814ba072182b605d156d7589c19a43b89fc58ea479b9355146160946f8cf6e9
