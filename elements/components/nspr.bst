@@ -13,6 +13,7 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 variables:
+  command-subdir: nspr
   arch-conf: ''
   (?):
   - target_arch in ["x86_64", "aarch64", "ppc64le", "loongarch64"]:
@@ -47,8 +48,10 @@ config:
       rm -f "%{install-root}%{bindir}/prerr.properties" "%{install-root}%{bindir}/compile-et.pl"
 
 sources:
-- kind: tar
+- kind: anitya
+  project-id: 7953
   # https://hg-edge.mozilla.org/projects/nspr
-  url: tar_https:archive.mozilla.org/pub/nspr/releases/v4.37/src/nspr-4.37.tar.gz
-  ref: 5f9344ed0e31855bd38f88b33c9d9ab94f70ce547ef3213e488d1520f61840fa
-  base-dir: '*/nspr'
+  url: tar_https:archive.mozilla.org/pub/nspr/releases/v{version}/src/nspr-{version}.tar.gz
+  ref:
+    version: '4.37'
+    sha256sum: 5f9344ed0e31855bd38f88b33c9d9ab94f70ce547ef3213e488d1520f61840fa

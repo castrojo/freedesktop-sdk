@@ -15,6 +15,9 @@ config:
     - ln -sf plocate %{install-root}%{bindir}/locate
 
 sources:
-- kind: tar
-  url: tar_https:plocate.sesse.net/download/plocate-1.1.23.tar.gz
-  ref: 06bd3b284d5d077b441bef74edb0cc6f8e3f0a6f58b4c15ef865d3c460733783
+- kind: anitya
+  project-id: 188202
+  url: tar_https:plocate.sesse.net/download/plocate-{version}.tar.gz
+  ref:
+    version: '1.1.23'
+    sha256sum: 06bd3b284d5d077b441bef74edb0cc6f8e3f0a6f58b4c15ef865d3c460733783

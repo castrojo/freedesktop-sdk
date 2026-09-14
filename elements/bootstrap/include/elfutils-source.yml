@@ -1,4 +1,7 @@
 sources:
-- kind: tar
-  url: sourceware_pub:elfutils/0.193/elfutils-0.193.tar.bz2
-  ref: 7857f44b624f4d8d421df851aaae7b1402cfe6bcdd2d8049f15fc07d3dde7635
+- kind: anitya
+  project-id: 5679
+  url: sourceware_pub:elfutils/{version}/elfutils-{version}.tar.bz2
+  ref:
+    version: '0.193'
+    sha256sum: 7857f44b624f4d8d421df851aaae7b1402cfe6bcdd2d8049f15fc07d3dde7635

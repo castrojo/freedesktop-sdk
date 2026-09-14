@@ -14,6 +14,9 @@ public:
         - '%{libdir}/libunistring.so'
 
 sources:
-- kind: tar
-  url: ftp_gnu_org:libunistring/libunistring-1.3.tar.xz
-  ref: f245786c831d25150f3dfb4317cda1acc5e3f79a5da4ad073ddca58886569527
+- kind: anitya
+  project-id: 1747
+  url: ftp_gnu_org:libunistring/libunistring-{version}.tar.xz
+  ref:
+    version: '1.3'
+    sha256sum: f245786c831d25150f3dfb4317cda1acc5e3f79a5da4ad073ddca58886569527

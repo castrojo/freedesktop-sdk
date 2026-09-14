@@ -14,6 +14,9 @@ public:
         - '%{libdir}/libgdbm.so'
 
 sources:
-- kind: tar
-  url: ftp_gnu_org:gdbm/gdbm-1.25.tar.gz
-  ref: d02db3c5926ed877f8817b81cd1f92f53ef74ca8c6db543fbba0271b34f393ec
+- kind: anitya
+  project-id: 882
+  url: ftp_gnu_org:gdbm/gdbm-{version}.tar.gz
+  ref:
+    version: '1.25'
+    sha256sum: d02db3c5926ed877f8817b81cd1f92f53ef74ca8c6db543fbba0271b34f393ec
