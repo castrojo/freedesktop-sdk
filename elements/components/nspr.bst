@@ -16,6 +16,7 @@ depends:
       - bootstrap/gnu-config.bst
 
 variables:
+  command-subdir: nspr
   arch-conf: ''
   (?):
   - target_arch in ["x86_64", "aarch64", "ppc64le", "loongarch64"]:
@@ -50,8 +51,10 @@ public:
     product: netscape_portable_runtime
 
 sources:
-- kind: tar
+- kind: anitya
+  project-id: 7953
   # https://hg-edge.mozilla.org/projects/nspr
-  url: tar_https:archive.mozilla.org/pub/nspr/releases/v4.39/src/nspr-4.39.tar.gz
-  ref: bbd02ee87a55676063a63e5bc819e0227de2666b47307b2a0134414cdf42368e
-  base-dir: '*/nspr'
+  url: tar_https:archive.mozilla.org/pub/nspr/releases/v{version}/src/nspr-{version}.tar.gz
+  ref:
+    version: '4.39'
+    sha256sum: bbd02ee87a55676063a63e5bc819e0227de2666b47307b2a0134414cdf42368e

@@ -30,9 +30,11 @@ public:
     vendor: 'info-zip'
 
 sources:
-- kind: tar
-  url: sourceforge_download:infozip/zip30.tar.gz
-  ref: f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369
-  version-guess-pattern: 'zip(\d)(\d).tar.gz'
+- kind: anitya
+  project-id: 10080
+  url: sourceforge_download:infozip/zip{major}{minor}.tar.gz
+  ref:
+    version: '3.0'
+    sha256sum: f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369
 - kind: patch_queue
   path: patches/zip

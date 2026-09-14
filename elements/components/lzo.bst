@@ -17,6 +17,9 @@ public:
         - '%{libdir}/liblzo2.so'
 
 sources:
-- kind: tar
-  url: tar_https:www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
-  ref: c0f892943208266f9b6543b3ae308fab6284c5c90e627931446fb49b4221a072
+- kind: anitya
+  project-id: 1868
+  url: tar_https:www.oberhumer.com/opensource/lzo/download/lzo-{version}.tar.gz
+  ref:
+    version: 2.10
+    sha256sum: c0f892943208266f9b6543b3ae308fab6284c5c90e627931446fb49b4221a072
