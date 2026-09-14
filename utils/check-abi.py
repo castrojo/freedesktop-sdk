@@ -292,11 +292,7 @@ def matches_lib_filter(lib_key, only_libs_patterns):
     if not only_libs_patterns:
         return True
 
-    for pattern in only_libs_patterns:
-        if fnmatch(lib_key, pattern):
-            return True
-
-    return False
+    return any(fnmatch(lib_key, pattern) for pattern in only_libs_patterns)
 
 
 def load_lib_patterns(json_file):
