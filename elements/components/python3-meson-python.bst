@@ -20,4 +20,4 @@ sources:
 - kind: git_repo
   url: github:mesonbuild/meson-python.git
   track: '*.*.*'
-  ref: 0.21.0-0-gdc5fa1116ec37706893eaa2880fa13f3fa565be1
+  ref: 0.21.1-0-gfac6a9d4553f3baf796c19bc14bcfc1cd57a47d0
