@@ -2108,6 +2108,52 @@ case "$arch" in
     ;;
 esac
 
+module HID_A4TECH
+module HID_APPLE
+module HID_APPLETB_BL
+module HID_APPLETB_KBD
+module HID_BELKIN
+module HID_CHERRY
+module HID_CHICONY
+module HID_CYPRESS
+module HID_EVISION
+module HID_EZKEY
+module HID_GOODIX_SPI
+module HID_GOOGLE_HAMMER
+module HID_GOOGLE_STADIA_FF
+module HID_KYSONA
+module HID_VRC2
+module HID_XIAOMI
+module HID_ITE
+module HID_KENSINGTON
+module HID_LENOVO_GO
+module HID_LENOVO_GO_S
+module HID_LETSKETCH
+module HID_MEGAWORLD_FF
+module HID_RAKK
+module HID_REDRAGON
+module HID_MICROSOFT
+module HID_MONTEREY
+module HID_NVIDIA_SHIELD
+module HID_OXP
+module HID_PXRC
+module HID_RAPOO
+module HID_RAZER
+module HID_SIGMAMICRO
+module HID_TOPRE
+module HID_UNIVERSAL_PIDFF
+module HID_WINWING
+module HID_SENSOR_CUSTOM_SENSOR
+module HID_MCP2200
+module HID_HUAWEI
+module HID_SENSOR_HUMIDITY
+module HID_SENSOR_PROX
+module HID_SENSOR_CUSTOM_INTEL_HINGE
+module HID_SENSOR_PRESS
+
+enable HID_HAPTIC
+enable HID_BPF
+
 # Mice
 module MOUSE_APPLETOUCH
 module MOUSE_BCM5974
