@@ -82,14 +82,20 @@ def dependency_sort_key(item: Any, config: Configuration) -> tuple[int, str]:
     else:
         return 99, repr(item)
 
+    is_junction = ":" in filename
+    element_name = filename.rsplit(":", maxsplit=1)[-1]
+
     for idx, dependency_group in enumerate(config.dependency_sort_order):
-        if filename.startswith(dependency_group):
+        if element_name.startswith(dependency_group):
             group = idx
             break
     else:
         group = len(config.dependency_sort_order) + 1
 
-    return group, filename.removesuffix(".bst")
+    if not is_junction:
+        group += len(config.dependency_sort_order) + 2
+
+    return group, element_name.removesuffix(".bst")
 
 
 def compare_dependency_items(left: Any, right: Any, config: Configuration) -> int:
