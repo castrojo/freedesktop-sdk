@@ -10,12 +10,6 @@ depends:
 - public-stacks/runtime-minimal.bst
 - components/gmp.bst
 
-variables:
-  # Work around race condition in makefiles. The following error
-  # message sometimes happen:
-  # /bin/sh: line 1: ./desdata: Text file busy
-  notparallel: True
-
 public:
   bst:
     split-rules:

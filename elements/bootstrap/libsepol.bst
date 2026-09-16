@@ -26,7 +26,6 @@ environment:
   PKG_CONFIG_PATH: '%{sysroot}%{libdir}/pkgconfig'
 
 variables:
-  notparallel: True
   command-subdir: libsepol
 
 config:
