@@ -118,3 +118,5 @@ mirrors:
   aliases:
     ftp_gnu_org:
     - https://ftpmirror.gnu.org/gnu/
+    ghostscript:
+    - https://github.com/ArtifexSoftware/
