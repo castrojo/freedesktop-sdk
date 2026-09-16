@@ -281,6 +281,11 @@ ifneq ($(origin SPDX_SBOM_WITH_LICENSE), undefined)
 		--with-licenses \
 		--spdx-comment "Components licensing information isn't guaranteed to be complete nor correct and must only be considered advisory."
 endif
+ifneq ($(origin SPDX_SBOM_WITH_CVE), undefined)
+	SPDX_SBOM_WITH_LICENSE_ARGS := \
+		--with-known-vulnerabilities "osv-scanner" \
+		--spdx-comment "Components vulnerability information isn't guaranteed to be complete nor correct and must only be considered advisory."
+endif
 UUID-sdk := $(shell uuidgen)
 UUID-platform := $(shell uuidgen)
 UUID-components := $(shell uuidgen)
@@ -293,6 +298,7 @@ ${SPDX_SBOM_DIR}/%.spdx.json: ${SPDX_SBOM_DIR}
 	@echo -e "\nCreating $@ report"
 	BST=bst $(BST_SBOM) $(SPDX_SBOM_COMMON_ARGS) \
 		$(SPDX_SBOM_WITH_LICENSE_ARGS) \
+		$(SPDX_SBOM_WITH_CVE_ARGS) \
 		--spdx-name freedesktop-sdk-${ARCH}-$* \
 		--spdx-namespace https://freedesktop-sdk.io/freedesktop_sdk/spdxdocs/$*.spdx.json-${UUID-$*} \
 		--output "$@" $*.bst
