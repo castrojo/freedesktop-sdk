@@ -3,5 +3,5 @@
 
 sources:
 - kind: tar
-  url: ftp_gnu_org:coreutils/coreutils-9.11.tar.xz
-  ref: 394024eda0a5955217ceda9cd1201e65dc8fa3aa29c2951135a49521d57c3cc3
+  url: ftp_gnu_org:coreutils/coreutils-9.12.tar.xz
+  ref: a480198559733e9b3da999e90543ac6f888a2caa544d8d664c5a1f17e528e210
