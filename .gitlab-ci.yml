@@ -34,18 +34,18 @@ default:
   image: "${DOCKER_REGISTRY}/bst2:${DOCKER_IMAGE_ID}"
   interruptible: true
   after_script:
-  - timeout 30 du -sh "${CI_PROJECT_DIR}/repo" 2>/dev/null || true
-  - timeout 60 du -chd 1 "${XDG_CACHE_HOME}/buildstream/" 2>/dev/null || true
-  - timeout 30 flatpak remote-add --if-not-exists --user --no-gpg-verify fdsdkrepo file:///${CI_PROJECT_DIR}/repo 2>/dev/null || true
-  - timeout 90 flatpak remote-ls -a --columns=ref,installed-size,download-size fdsdkrepo 2>/dev/null || true
-  - timeout 30 flatpak remote-delete --force fdsdkrepo 2>/dev/null || true
-  - make clean
-  - rm -rf "${XDG_CACHE_HOME}/buildstream/artifacts"
-  - rm -rf "${XDG_CACHE_HOME}/buildstream/build"
-  - rm -rf "${XDG_CACHE_HOME}/buildstream/cas"
-  - rm -rf "${XDG_CACHE_HOME}/buildstream/sources"
-  - rm -rf "${CI_PROJECT_DIR}/.bst"
-  - rm -rf "${CI_PROJECT_DIR}/.flatpak_builder"
+    - timeout 30 du -sh "${CI_PROJECT_DIR}/repo" 2>/dev/null || true
+    - timeout 60 du -chd 1 "${XDG_CACHE_HOME}/buildstream/" 2>/dev/null || true
+    - timeout 30 flatpak remote-add --if-not-exists --user --no-gpg-verify fdsdkrepo file:///${CI_PROJECT_DIR}/repo 2>/dev/null || true
+    - timeout 90 flatpak remote-ls -a --columns=ref,installed-size,download-size fdsdkrepo 2>/dev/null || true
+    - timeout 30 flatpak remote-delete --force fdsdkrepo 2>/dev/null || true
+    - make clean
+    - rm -rf "${XDG_CACHE_HOME}/buildstream/artifacts"
+    - rm -rf "${XDG_CACHE_HOME}/buildstream/build"
+    - rm -rf "${XDG_CACHE_HOME}/buildstream/cas"
+    - rm -rf "${XDG_CACHE_HOME}/buildstream/sources"
+    - rm -rf "${CI_PROJECT_DIR}/.bst"
+    - rm -rf "${CI_PROJECT_DIR}/.flatpak_builder"
   retry:
     max: 2
     when: runner_system_failure
@@ -55,11 +55,11 @@ default:
 
 workflow:
   rules:
-  - if: '$CI_MERGE_REQUEST_IID'
-  - if: '$CI_COMMIT_BRANCH && $CI_COMMIT_REF_PROTECTED == "true"'
-  - if: '$CI_COMMIT_TAG'
-  - if: '$CI_PIPELINE_SOURCE == "schedule"'
-  - if: '$CI_PIPELINE_SOURCE == "web"'
+    - if: '$CI_MERGE_REQUEST_IID'
+    - if: '$CI_COMMIT_BRANCH && $CI_COMMIT_REF_PROTECTED == "true"'
+    - if: '$CI_COMMIT_TAG'
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    - if: '$CI_PIPELINE_SOURCE == "web"'
 
 stages:
   - update
@@ -102,7 +102,7 @@ lint:
     - python utils/check-missing-components-stack.py --ignore-file tests/ignore-missing-from-components-stack.yaml
     - reuse lint
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
   needs: []
 
 .setup_branch: &setup_branch
@@ -168,7 +168,7 @@ daily_update_elements:
     SKIP_DAY_NUM: '5'
     TRACK_ELEMENTS: track-elements.bst
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
 
 weekly_update_elements:
   extends:
@@ -179,7 +179,7 @@ weekly_update_elements:
     EXTRA_TRACK_ARGS: >-
       --bstignore=/dev/null
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH =~ /^release\/.*/'
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH =~ /^release\/.*/'
 
 weekly_update_combined:
   stage: update
@@ -199,23 +199,23 @@ check_mirrors:
   stage: update
   timeout: 1h
   before_script:
-  # Configure Buildstream
-  - mkdir -p ~/.config
-  - |
-    cat > ~/.config/buildstream.conf << EOF
-    # Get a lot of output in case of errors
-    logging:
-      message-format: '[%{elapsed}][%{key}][%{element}] %{action} %{message}'
-      error-lines: 80
-    scheduler:
-      network-retries: 4
-      on-error: continue
-    # We want to test that everything is mirrored
-    fetch:
-      source: mirrors
-    source-caches:
-      override-project-caches: true
-    EOF
+    # Configure Buildstream
+    - mkdir -p ~/.config
+    - |
+      cat > ~/.config/buildstream.conf << EOF
+      # Get a lot of output in case of errors
+      logging:
+        message-format: '[%{elapsed}][%{key}][%{element}] %{action} %{message}'
+        error-lines: 80
+      scheduler:
+        network-retries: 4
+        on-error: continue
+      # We want to test that everything is mirrored
+      fetch:
+        source: mirrors
+      source-caches:
+        override-project-caches: true
+      EOF
 
   script:
     - |
@@ -224,7 +224,7 @@ check_mirrors:
              oci/layers/{flatpak,debug,platform,sdk}.bst
   allow_failure: true
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
 
 .flatpak_template:
   stage: flatpak
@@ -268,7 +268,7 @@ check_mirrors:
       - ${CI_PROJECT_DIR}/libabigail-tars
       - ${CI_PROJECT_DIR}/sbom-reports
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 
 .builder-x86_64:
   tags:
@@ -297,13 +297,13 @@ check_mirrors:
 
 .builder-ppc64le:
   tags:
-  - ppc64le
+    - ppc64le
   variables:
     ARCH: ppc64le
 
 .builder-loongarch64:
   tags:
-  - x86_64
+    - x86_64
   variables:
     ARCH: loongarch64
 
@@ -364,7 +364,7 @@ app_ppc64le:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
       - "${CI_PROJECT_DIR}/checkout/**/*sizes*.tsv"
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 
 desktop_systemd_vm_aarch64:
   extends:
@@ -384,9 +384,9 @@ minimal_efi_secure_vm_image_x86_64:
     - .minimal_test
     - .builder-x86_64
   needs:
-  - app_x86_64
+    - app_x86_64
   script:
-    - !reference [.minimal_test, script]
+    - !reference [ .minimal_test, script ]
     - utils/test_minimal_size.py # Warn if image size grows
   variables:
     VM_ARTIFACT_IMAGE: vm/minimal-secure/efi.bst
@@ -399,9 +399,9 @@ minimal_efi_vm_image_x86_64:
     - .minimal_test
     - .builder-x86_64
   needs:
-  - app_x86_64
+    - app_x86_64
   script:
-    - !reference [.minimal_test, script]
+    - !reference [ .minimal_test, script ]
     - utils/test_minimal_size.py # Warn if image size grows
   variables:
     VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
@@ -414,7 +414,7 @@ minimal_efi_ostree_vm_image_x86_64:
     - .minimal_test
     - .builder-x86_64
   needs:
-  - app_x86_64
+    - app_x86_64
   variables:
     DIALOG: root-login
     IMAGE: ostree-vm
@@ -503,7 +503,8 @@ spdx_sbom_report:
   script:
     - make generate-spdx-sbom-reports
     - PACKAGE_VERSION="${CI_COMMIT_TAG:-$CI_COMMIT_SHA}"
-    - PACKAGE_NAME="sbom-reports-${CI_COMMIT_BRANCH//\//-}"
+    - PACKAGE_NAME="sbom-reports-${CI_COMMIT_BRANCH:-$CI_COMMIT_TAG}"
+    - PACKAGE_NAME="${PACKAGE_NAME//\//-}"
     - tar -cJf "${UPLOAD_TARBALL}" sbom-reports/
     - |
       curl \
@@ -528,8 +529,7 @@ build_spdx_artifacts:
   stage: publish
   tags:
     - $ARCH
-  script:
-    make build-sbom-artifacts
+  script: make build-sbom-artifacts
   parallel:
     matrix:
       - ARCH: [ x86_64, aarch64 ]
@@ -546,10 +546,10 @@ spdx_sbom_report_licenses:
     SPDX_SBOM_WITH_LICENSE: "true"
     SBOM_TAG: license
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
-  - if: '$CI_COMMIT_TAG'
-  needs: 
-      - build_spdx_artifacts
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+    - if: '$CI_COMMIT_TAG'
+  needs:
+    - build_spdx_artifacts
 
 spdx_sbom_report_cve:
   stage: finish-publish
@@ -583,10 +583,10 @@ cve_report:
     paths:
       - "${CI_PROJECT_DIR}/cve-reports"
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK != "daily"'
-    when: never
-  - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
-  - if: '$CI_COMMIT_BRANCH =~ /^release\/.*/'
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK != "daily"'
+      when: never
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+    - if: '$CI_COMMIT_BRANCH =~ /^release\/.*/'
   needs: []
 
 markdown_manifest:
@@ -598,9 +598,9 @@ markdown_manifest:
       - "${CI_PROJECT_DIR}/platform-manifest/usr/"
       - "${CI_PROJECT_DIR}/sdk-manifest/usr/"
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule"'
-    when: never
-  - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH =~ /^release\/.*/'
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH =~ /^release\/.*/'
   needs: []
 
 .reproducible_template:
@@ -614,11 +614,11 @@ markdown_manifest:
     when: always
     paths:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
-      - ${CI_PROJECT_DIR}/result_folder               # All results of diffoscope for non-reproducible builds.
+      - ${CI_PROJECT_DIR}/result_folder # All results of diffoscope for non-reproducible builds.
       - ${CI_PROJECT_DIR}/reproducibility_results.html # All elements that are not reproducible
   interruptible: false
   rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly"'
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly"'
 
 reproducible_aarch64:
   extends:
@@ -634,43 +634,43 @@ reproducible_x86_64:
   stage: publish
   retry: 2
   script:
-  - |
-    [ -n "${DOCKER_HUB_USER}" ]
-  - |
-    [ -n "${DOCKER_HUB_PASSWORD}" ]
-  - |
-    [ -n "${DOCKER_HUB_ADDRESS}" ]
+    - |
+      [ -n "${DOCKER_HUB_USER}" ]
+    - |
+      [ -n "${DOCKER_HUB_PASSWORD}" ]
+    - |
+      [ -n "${DOCKER_HUB_ADDRESS}" ]
 
-  - |
-    OCI_IMAGES=(platform sdk debug flatpak toolbox)
-    BST_ELEMENTS=$(printf 'oci/%q-oci.bst ' ${OCI_IMAGES[@]})
+    - |
+      OCI_IMAGES=(platform sdk debug flatpak toolbox)
+      BST_ELEMENTS=$(printf 'oci/%q-oci.bst ' ${OCI_IMAGES[@]})
 
-    ${BST} -o target_arch ${ARCH} build ${BST_ELEMENTS[@]}
-    for element in ${BST_ELEMENTS[@]}; do
-       ${BST} -o target_arch ${ARCH} artifact checkout ${element} --tar - | podman load
-    done
+      ${BST} -o target_arch ${ARCH} build ${BST_ELEMENTS[@]}
+      for element in ${BST_ELEMENTS[@]}; do
+         ${BST} -o target_arch ${ARCH} artifact checkout ${element} --tar - | podman load
+      done
 
-  - podman login -u "${DOCKER_HUB_USER}" -p "${DOCKER_HUB_PASSWORD}" "${DOCKER_HUB_ADDRESS}"
+    - podman login -u "${DOCKER_HUB_USER}" -p "${DOCKER_HUB_PASSWORD}" "${DOCKER_HUB_ADDRESS}"
 
-  - |
-    set -eu
-    for name in ${OCI_IMAGES[@]}; do
-      full_name=freedesktopsdk/${name}
-      podman push ${full_name}:latest docker://docker.io/${full_name}:"${DOCKER_VERSION}"-"${ARCH}" \
-      --digestfile digest.txt
-      mkdir -p "docker-pushed-digests/${DOCKER_VERSION}"
-      digest=$(<digest.txt)
-      echo "${full_name}@${digest}" \
-          >"docker-pushed-digests/${DOCKER_VERSION}/${name}-${ARCH}.txt"
-    done
+    - |
+      set -eu
+      for name in ${OCI_IMAGES[@]}; do
+        full_name=freedesktopsdk/${name}
+        podman push ${full_name}:latest docker://docker.io/${full_name}:"${DOCKER_VERSION}"-"${ARCH}" \
+        --digestfile digest.txt
+        mkdir -p "docker-pushed-digests/${DOCKER_VERSION}"
+        digest=$(<digest.txt)
+        echo "${full_name}@${digest}" \
+            >"docker-pushed-digests/${DOCKER_VERSION}/${name}-${ARCH}.txt"
+      done
 
   artifacts:
     when: always
     paths:
-    - ${CI_PROJECT_DIR}/cache/buildstream/logs
-    - docker-pushed-digests
+      - ${CI_PROJECT_DIR}/cache/buildstream/logs
+      - docker-pushed-digests
   rules:
-  - if: '$CI_COMMIT_TAG && $CI_PIPELINE_SOURCE != "schedule"'
+    - if: '$CI_COMMIT_TAG && $CI_PIPELINE_SOURCE != "schedule"'
 
 publish_docker_x86_64:
   extends:
@@ -696,7 +696,6 @@ publish_docker_aarch64:
     CACHE_PUSH: 'false'
   needs: []
 
-
 publish_docker_ppc64le:
   extends:
     - .builder-ppc64le
@@ -710,37 +709,37 @@ publish_docker_finish:
   allow_failure: true
   before_script: []
   script:
-  - podman login -u "${DOCKER_HUB_USER}" -p "${DOCKER_HUB_PASSWORD}" "${DOCKER_HUB_ADDRESS}"
+    - podman login -u "${DOCKER_HUB_USER}" -p "${DOCKER_HUB_PASSWORD}" "${DOCKER_HUB_ADDRESS}"
 
-  - |
-    set -eu
+    - |
+      set -eu
 
-    LATEST_RELEASE=$(./utils/detect_latest.py)
+      LATEST_RELEASE=$(./utils/detect_latest.py)
 
-    for name in platform sdk debug flatpak; do
-      for dir in docker-pushed-digests/*; do
-        DOCKER_VERSION="$(basename "${dir}")"
-        podman manifest create "freedesktopsdk/${name}:${DOCKER_VERSION}" \
-                      $(cat "${dir}"/${name}-*.txt)
-        podman manifest push --format v2s2 \
-                      "freedesktopsdk/${name}:${DOCKER_VERSION}" \
-                      docker://docker.io/freedesktopsdk/"${name}:${DOCKER_VERSION}"
-        if [ "${RUNTIME_VERSION}" = "${LATEST_RELEASE}" ]
-        then
+      for name in platform sdk debug flatpak; do
+        for dir in docker-pushed-digests/*; do
+          DOCKER_VERSION="$(basename "${dir}")"
+          podman manifest create "freedesktopsdk/${name}:${DOCKER_VERSION}" \
+                        $(cat "${dir}"/${name}-*.txt)
           podman manifest push --format v2s2 \
                         "freedesktopsdk/${name}:${DOCKER_VERSION}" \
-                        docker://docker.io/freedesktopsdk/"${name}:latest"
-        fi
+                        docker://docker.io/freedesktopsdk/"${name}:${DOCKER_VERSION}"
+          if [ "${RUNTIME_VERSION}" = "${LATEST_RELEASE}" ]
+          then
+            podman manifest push --format v2s2 \
+                          "freedesktopsdk/${name}:${DOCKER_VERSION}" \
+                          docker://docker.io/freedesktopsdk/"${name}:latest"
+          fi
+        done
       done
-    done
 
   rules:
-  - if: '$CI_COMMIT_TAG && $CI_PIPELINE_SOURCE != "schedule"'
+    - if: '$CI_COMMIT_TAG && $CI_PIPELINE_SOURCE != "schedule"'
   needs:
-  - publish_docker_aarch64
-  - publish_docker_x86_64
-  - publish_docker_i686
-  - publish_docker_ppc64le
+    - publish_docker_aarch64
+    - publish_docker_x86_64
+    - publish_docker_i686
+    - publish_docker_ppc64le
 
 publish_gitlab_release:
   stage: publish
@@ -764,7 +763,7 @@ publish_gitlab_release:
       glab release create "$CI_COMMIT_TAG" --name "$CI_COMMIT_TAG" \
         --notes-file tag_message.txt --ref "$CI_COMMIT_SHA"
   rules:
-  - if: '$CI_COMMIT_TAG && $CI_COMMIT_REF_PROTECTED == "true" && $CI_PIPELINE_SOURCE != "schedule"'
+    - if: '$CI_COMMIT_TAG && $CI_COMMIT_REF_PROTECTED == "true" && $CI_PIPELINE_SOURCE != "schedule"'
 
 check_docker_images:
   stage: merge-check
