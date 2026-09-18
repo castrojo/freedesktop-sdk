@@ -36,4 +36,4 @@ sources:
   exclude:
   - '*rc*'
   - '*test*'
-  ref: ghostpdl-10.07.1-0-g9a39d68ca934f8e9343f46a2803e765122a3b4a9
+  ref: ghostpdl-10.08.0-0-g05631c2cba4e578fdd6bd25cae6f0939436de848
