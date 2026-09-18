@@ -16,7 +16,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "2c1e7a51fd6f46872e4c52ff00c385f6b8b7cd84"
+  DOCKER_IMAGE_ID: "dev-jjardon-flatpak"
 
   # Generic variable for invoking buildstream
   BST: bst --colors
