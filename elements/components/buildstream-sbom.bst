@@ -20,4 +20,4 @@ sources:
 - kind: git_repo
   url: gitlab:buildstream/buildstream-sbom.git
   track: '*.*'
-  ref: 1.1-0-g7201ffae97e925793eec2331a291178811ba6af1
+  ref: 1.2-0-g62d94f4c138cd4b926eef9d988fda008275dc9e7
