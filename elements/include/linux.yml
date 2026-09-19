@@ -7,7 +7,7 @@ sources:
   track: v*
   exclude:
   - '*-rc*'
-  ref: v7.2.2-0-g52c36105f76e96b638152a42e735f2e7767ed946
+  ref: v7.2.6-0-g500df175a7f9e6bc1a9c328590ca5150f84f9ff0
 - kind: patch_queue
   path: patches/linux
 
