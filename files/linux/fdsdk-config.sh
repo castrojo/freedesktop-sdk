@@ -2810,3 +2810,6 @@ enable MPTCP_IPV6
 if has HAVE_ARCH_TRANSPARENT_HUGEPAGE; then
     enable TRANSPARENT_HUGEPAGE
 fi
+
+# Needed and/or helpful for graphics and multimedia (e.g. libcamera and mesa).
+enable UDMABUF
