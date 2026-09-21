@@ -32,6 +32,7 @@ variables:
     --no-debugger
     --
     -DCMAKE_USE_OPENSSL=OFF
+    -DBUILD_CursesDialog=OFF
 
   build-dir: _build_dir
 
