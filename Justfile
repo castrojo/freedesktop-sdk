@@ -147,10 +147,12 @@ qemu_arch_args := \
   }
 
 # Pull or build virtual machine image
+[group('vm')]
 build-vm:
 	{{BST}} build {{vm_artifact_filesystem}} {{vm_artifact_boot}}
 
 # Export virtual machine image
+[group('vm')]
 [script]
 export-vm:
 	{{BST}} artifact checkout {{vm_artifact_filesystem}} --directory {{vm_checkout_root}}/{{vm_artifact_filesystem}}
@@ -164,6 +166,7 @@ export-vm:
 	esac
 
 # Remove virtual machine artifacts
+[group('vm')]
 clean-vm: copy-artifacts
 	rm -rf {{vm_checkout_root}}/{{vm_artifact_filesystem}}
 	rm -rf {{vm_checkout_root}}/{{vm_artifact_boot}}
@@ -171,10 +174,12 @@ clean-vm: copy-artifacts
 	rm -rf {{ovmf_vars}}
 
 # Run virtual machine in QEMU
+[group('vm')]
 run-vm:
 	unshare --map-root-user {{QEMU}} {{qemu_common_args}} {{qemu_virtfs_args}} {{qemu_arch_args}}
 
 # Fetch or build `elements/tests/check-abi*.bst`
+[group('test')]
 [script]
 check-abi:
 	{{BST}} build tests/check-abi-mesa.bst \
@@ -187,22 +192,27 @@ check-abi:
 	exit ${exit_code}
 
 # Fetch or build `elements/tests/check-debuginfo.bst`
+[group('test')]
 check-debuginfo:
 	{{BST}} build tests/check-debuginfo.bst
 
 # Fetch or build `elements/tests/check-dev-files.bst`
+[group('test')]
 check-dev-files:
 	{{BST}} build tests/check-dev-files.bst
 
 # Fetch or build `elements/tests/check-rpath.bst`
+[group('test')]
 check-rpath:
 	{{BST}} build tests/check-rpath.bst
 
 # Fetch or build `elements/tests/check-static-libraries.bst`
+[group('test')]
 check-static-libraries:
 	{{BST}} build tests/check-static-libraries.bst
 
 # Fetch or build `elements/utils/generate-cve-report.bst` and export the report
+[group('report')]
 [script]
 generate-cve-report: manifest
 	{{BST}} build utils/generate-cve-report.bst
@@ -237,6 +247,7 @@ generate-cve-report: manifest
 	rm -rf nvd-cve-database
 
 # Generate manifests of sdk, platform and components in JSON format.
+[group('report')]
 manifest:
 	rm -rf sdk-manifest/
 	rm -rf platform-manifest/
@@ -249,11 +260,13 @@ manifest:
 	{{BST}} artifact checkout manifests/components-manifest.bst --directory components-manifest/
 
 # Generate manifests in Markdown format.
+[group('report')]
 markdown-manifest: manifest
 	python3 utils/jsontomd.py platform-manifest/usr/manifest.json
 	python3 utils/jsontomd.py sdk-manifest/usr/manifest.json
 
 # Generate manifest of source URLs.
+[group('report')]
 url-manifest:
 	python3 utils/url_manifest.py release-url-manifest/url-manifest-no-mirrors.json \
 	  flatpak-release-repo.bst components.bst \
@@ -262,6 +275,7 @@ url-manifest:
 	  oci/layers/flatpak.bst oci/layers/debug.bst oci/layers/platform.bst oci/layers/sdk.bst
 
 # Run Flatpak application test cases against the built Flatpak runtime (run `export` first)
+[group('test')]
 [script]
 test-apps:
 	export XDG_DATA_HOME={{justfile_dir()}}/runtime
@@ -295,6 +309,7 @@ test-apps:
 	flatpak --arch={{flatpak_arch}} run io.freedesktop_sdk.test_mktime
 
 # Run Flatpak codec test cases against the built Flatpak runtime (run `export` first)
+[group('test')]
 [script]
 test-codecs:
 	export XDG_DATA_HOME={{justfile_dir()}}/runtime
@@ -323,6 +338,7 @@ test-codecs:
 	flatpak uninstall -y --all
 
 # Test runtime inheritance (run `export` first)
+[group('test')]
 [script]
 test-runtime-inheritance:
 	export XDG_DATA_HOME={{justfile_dir()}}/runtime
@@ -333,6 +349,7 @@ test-runtime-inheritance:
 
 
 # Test dynamic linker (run `export` first)
+[group('test')]
 [script]
 test-ldd:
 	export XDG_DATA_HOME={{justfile_dir()}}/runtime
@@ -360,6 +377,7 @@ clean-runtime:
 	rm -rf {{checkout_root}}
 
 # Remove test data
+[group('test')]
 clean-test:
 	rm -rf app/
 	rm -rf .flatpak-builder/
@@ -370,10 +388,12 @@ clean-oci:
 	rm -f minimal-oci.tar debug-oci.tar flatpak-oci.tar platform-oci.tar sdk-oci.tar toolbox-oci.tar
 
 # Remove UEFI Secure Boot keys
+[group('vm')]
 clean-boot-keys:
 	find files/boot-keys -maxdepth 2 ! -path "files/boot-keys/modules/.keep" ! -path "files/boot-keys/modules" ! -path "files/boot-keys" -exec rm -rvf {} +
 
 # Remove generated CVE reports
+[group('report')]
 clean-cve:
 	rm -rf cve-reports cve platform-manifest sdk-manifest
 
@@ -399,6 +419,7 @@ export-oci:
 	done
 
 # Pull/build, export and test the container images
+[group('test')]
 [script]
 test-oci:
 	{{BST}} build oci/flatpak-oci.bst; \
@@ -425,6 +446,7 @@ export OSTREE_GPG_CONFIG := (
 ostree_gpg_key := 'files/vm/ostree-config/fdsdk.gpg'
 
 # Generate a key pair for signing OSTree commits (for the example OSTree-based VM)
+[group('vm')]
 ostree-gpg:
 	rm -rf ostree-gpg.tmp
 	mkdir ostree-gpg.tmp
@@ -439,6 +461,7 @@ local_address := `ip route get 1.1.1.1 | cut -d" " -f7`
 ostree_branch := 'freedesktop-sdk/minimal' / branch / arch
 
 # Copy file size report artifacts into root of the VM checkout directory.
+[group('vm')]
 [script]
 copy-artifacts:
 	rm -rf {{vm_checkout_root}}/*SIZES*.TSV
@@ -451,15 +474,18 @@ copy-artifacts:
 	fi;
 
 # Remove EFI VM artifacts
+[group('vm')]
 clean-efi-vm: copy-artifacts
 	rm -rf {{vm_checkout_root}}/{{vm_artifact_image}}
 	rm -rf {{ovmf_vars}}
 
 # Fetch or build EFI VM
+[group('vm')]
 build-efi-vm:
 	{{BST}} build {{vm_artifact_image}}
 
 # Export EFI VM
+[group('vm')]
 [script]
 export-efi-vm: build-efi-vm
 	{{BST}} artifact checkout {{vm_artifact_image}} --directory {{vm_checkout_root}}/{{vm_artifact_image}}
@@ -472,6 +498,7 @@ export-efi-vm: build-efi-vm
 	esac
 
 # Run EFI VM
+[group('vm')]
 run-efi-vm:
 	du -BM {{vm_checkout_root}}/{{vm_artifact_image}}/DISK.IMG
 	{{QEMU}}							\
@@ -483,6 +510,7 @@ run-efi-vm:
 ostree_config_file := 'ostree-config.yml'
 
 # Set up OSTree repo (for example OSTree-based VM)
+[group('vm')]
 setup-ostree-vm: ostree-gpg
 	echo 'ostree-remote-url: "http://{{local_address}}:8000/"' >"{{ostree_config_file}}.tmp"
 	echo 'ostree-branch: "{{ostree_branch}}"' >>"{{ostree_config_file}}.tmp"
@@ -491,6 +519,7 @@ setup-ostree-vm: ostree-gpg
 # Update OSTree repo with the latest artifact from `elements/vm/minimal-ostree/repo.bst`
 #
 # You must run `setup-ostree` once before using this target.
+[group('vm')]
 update-ostree:
 	env BST={{BST}} utils/update-repo.sh		\
 	  --gpg-homedir=ostree-gpg			\
@@ -500,17 +529,21 @@ update-ostree:
 	  {{ostree_branch}}
 
 # Alias for update-ostree
+[group('vm')]
 ostree-repo: update-ostree
 
 # Serve the OSTree example VM over HTTP, so an existing VM can pull updates.
+[group('vm')]
 ostree-serve: ostree-repo
 	utils/run-local-repo.sh
 
 # Build the OSTree example VM.
+[group('vm')]
 build-ostree-vm:
 	{{BST}} build vm/minimal-ostree/image.bst
 
 # Fetch/pull and check out the OSTree example VM.
+[group('vm')]
 [script]
 export-ostree-vm: build-ostree-vm
 	{{BST}} artifact checkout vm/minimal-ostree/image.bst --directory {{invocation_dir()}}
@@ -523,6 +556,7 @@ export-ostree-vm: build-ostree-vm
 	esac
 
 # Run the OSTree example VM.
+[group('vm')]
 run-ostree-vm:
 	du -BM {{vm_checkout_root}}/ostree-vm/disk.img
 	{{QEMU}}							\
@@ -533,6 +567,7 @@ run-ostree-vm:
 	    -drive file=$<,format=raw,media=disk
 
 # Clean up OSTree VM files.
+[group('vm')]
 clean-ostree-vm:
 	rm -rf {{vm_checkout_root}}/ostree-vm
 	rm -rf {{ovmf_vars}}
@@ -545,6 +580,7 @@ all_keys := prepend('files/boot-keys/', append('.key', key_types))
 #BOOT_KEYS=$(ALL_KEYS) $(ALL_CERTS) files/boot-keys/extra-db/.keep files/boot-keys/extra-kek/.keep files/boot-keys/modules/linux-module-cert.crt
 
 # Generate local UEFI Secure Boot keys for use with example Secure Boot VM.
+[group('vm')]
 [script]
 generate_keys:
 	mkdir -p files/boot-keys/extra-db
@@ -560,6 +596,7 @@ generate_keys:
 #
 # This is optional. It's useful if you want to setup a firmware that can boot
 # other operating systems in addition to your locally built OS.
+[group('vm')]
 download-microsoft-keys:
 	curl https://www.microsoft.com/pkiops/certs/MicCorUEFCA2011_2011-06-27.crt | openssl x509 -inform der -outform pem >files/boot-keys/extra-kek/mic-kek.crt
 	echo 77fa9abd-0359-4d32-bd60-28f4e78f784b >files/boot-keys/extra-kek/mic-kek.owner
@@ -572,16 +609,19 @@ secure_vm_version_file := 'secure-version.yml'
 
 # Setup the Secure Boot VM ready to build.
 [script]
+[group('vm')]
 setup-secure-vm: generate_keys
 	tag={{last_version}} && \
 	suffix=${tag#freedesktop-sdk-} && \
 	echo "sdk-version: ${suffix}" >{{secure_vm_version_file}}
 
 # Build the Secure Boot example VM.
+[group('vm')]
 build-secure-vm:
 	{{BST}} -o prod_keys true build vm/minimal-secure/efi.bst
 
 # Export the Secure Boot VM images.
+[group('vm')]
 [script]
 export-secure-images: build-secure-vm
 	{{BST}} -o prod_keys true artifact checkout vm/minimal-secure/efi.bst --directory {{invocation_dir()}}
@@ -603,6 +643,7 @@ export-secure-images: build-secure-vm
 	cp secure-images.tmp/SHA256SUMS secure-images/SHA256SUMS
 
 # Run the Secure Boot VM.
+[group('vm')]
 run-secure-vm:
 	du -BM {{vm_checkout_root}}/SECURE-VM/DISK.IMG
 	mkdir -p {{vm_checkout_root}}/TPM/STATE
@@ -621,6 +662,7 @@ run-secure-vm:
 	    -drive file=$<,format=raw,media=disk
 
 # Remove artifacts for the Secure Boot example VM.
+[group('vm')]
 clean-secure-vm:
 	rm -rf {{vm_checkout_root}}/secure-vm
 	rm -rf {{ovmf_vars}}
@@ -629,5 +671,6 @@ clean-secure-vm:
 # Serve the exported Secure Boot images over HTTP.
 #
 # You must run `export-secure-images` target first.
+[group('vm')]
 secure-images-serve:
 	python3 -m http.server 8080 --directory secure-images
