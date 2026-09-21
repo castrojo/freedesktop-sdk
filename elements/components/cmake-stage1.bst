@@ -12,7 +12,6 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- components/openssl.bst
 
 environment:
   JOBS: "%{max-jobs}"
@@ -27,6 +26,8 @@ variables:
     --generator=Ninja
     --verbose
     --no-debugger
+    --
+    -DCMAKE_USE_OPENSSL=OFF
 
   build-dir: _build_dir
 
