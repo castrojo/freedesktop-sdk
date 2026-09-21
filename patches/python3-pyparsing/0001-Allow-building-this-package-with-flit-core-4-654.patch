@@ -1,0 +1,25 @@
+From f803ae834288032a700331977639fc49c62fcd7f Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Miro=20Hron=C4=8Dok?= <miro@hroncok.cz>
+Date: Sun, 20 Sep 2026 21:48:11 +0200
+Subject: [PATCH] Allow building this package with flit-core 4 (#654)
+
+The package already uses a [project] table in pyproject.toml,
+and it is compatible with the latest flit-core release.
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 8987ccd..9b4fe6e 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["flit_core >=3.12,<4"]
++requires = ["flit_core >=3.12,<5"]
+ build-backend = "flit_core.buildapi"
+ 
+ [project]
+-- 
+2.53.0
+
