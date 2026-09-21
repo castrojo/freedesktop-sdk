@@ -166,7 +166,7 @@ daily_update_elements:
   timeout: 1h
   variables:
     SKIP_DAY_NUM: '5'
-    TRACK_ELEMENTS: track-elements.bst
+    TRACK_ELEMENTS: "track-elements.bst plugins/buildstream-plugins.bst plugins/buildstream-plugins-community.bst"
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
 
