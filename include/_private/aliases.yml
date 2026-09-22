@@ -59,6 +59,8 @@ tar_https: https://
 #
 #Cargo Alias
 crates: https://static.crates.io/
+# Go alias
+go_proxy: https://proxy.golang.org/
 
 # OCI registries
 fdsdk_registry: https://registry.gitlab.com/freedesktop-sdk/

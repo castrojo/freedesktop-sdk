@@ -18,8 +18,6 @@ variables:
 
 config:
   build-commands:
-  - mv -vf modules.txt vendor/modules.txt
-
   - |
     go build -buildmode=pie ./cmd/fscrypt
     go build -buildmode=c-shared -o pam_fscrypt.so ./pam_fscrypt
@@ -42,111 +40,93 @@ sources:
   url: github:google/fscrypt.git
   track: v*
   ref: v0.3.7-0-gddb28dae679bfe4df707959dc37211d7c9142e74
-- kind: local
-  path: files/fscrypt/modules.txt
-- kind: go_module
-  url: github:BurntSushi/toml.git
-  module: github.com/BurntSushi/toml
+- kind: go_mod_vendor
   ref:
-    go-version: v1.5.0
-    git-ref: v1.5.0-0-gd97def528e83313822a9f98946334ffccd542bdf
+  - module: github.com/BurntSushi/toml
+    version: v1.5.0
     explicit: True
-- kind: go_module
-  url: github:client9/misspell.git
-  module: github.com/client9/misspell
-  ref:
-    go-version: v0.3.4
-    git-ref: v0.3.4-0-gb90dc15cfd220ecf8bbc9043ecb928cef381f011
+    sha256sum: a10c8d3d6c4a9b73dc885464245eec6b27d64f430d6979389cd9c58adde15855
+  - module: github.com/client9/misspell
+    version: v0.3.4
     explicit: True
-- kind: go_module
-  url: github:cpuguy83/go-md2man.git
-  module: github.com/cpuguy83/go-md2man/v2
-  ref:
-    go-version: v2.0.7
-    git-ref: v2.0.7-0-g061b6c7cbecd6752049221aa15b7a05160796698
+    sha256sum: a3af206372e131dd10a68ac470c66a1b18eaf51c6afacb55b2e2a06e39b90728
+  - module: github.com/cpuguy83/go-md2man/v2
+    version: v2.0.7
     explicit: True
-- kind: go_module
-  url: github:pkg/errors.git
-  module: github.com/pkg/errors
-  ref:
-    go-version: v0.9.1
-    git-ref: v0.9.1-0-g614d223910a179a466c1767a985424175c39b465
+    sha256sum: 9ad5f2cbc644c0bb648a9b182d6b70f92e7ac4dfab5cf0ef746bbeef944fda59
+  - module: github.com/davecgh/go-spew
+    version: v1.1.1
+    explicit: False
+    sha256sum: 6b44a843951f371b7010c754ecc3cabefe815d5ced1c5b9409fb2d697e8a890d
+  - module: github.com/google/go-cmp
+    version: v0.7.0
+    explicit: False
+    sha256sum: 64a9ce046f2c320e3783fba0d1f4a15f8a18f0b009b67bf27f7630919db3f539
+  - module: github.com/pkg/errors
+    version: v0.9.1
     explicit: True
-- kind: go_module
-  url: github:russross/blackfriday.git
-  module: github.com/russross/blackfriday/v2
-  ref:
-    go-version: v2.1.0
-    git-ref: v2.1.0-0-g4c9bf9512682b995722660a4196c0013228e2049
+    sha256sum: d4c36b8bcd0616290a3913215e0f53b931bd6e00670596f2960df1b44af2bd07
+  - module: github.com/pmezard/go-difflib
+    version: v1.0.0
+    explicit: False
+    sha256sum: de04cecc1a4b8d53e4357051026794bcbc54f2e6a260cfac508ce69d5d6457a0
+  - module: github.com/russross/blackfriday/v2
+    version: v2.1.0
     explicit: True
-- kind: go_module
-  url: github:urfave/cli.git
-  module: github.com/urfave/cli
-  ref:
-    go-version: v1.22.17
-    git-ref: v1.22.17-0-g992e53d11ad06c124eb4809a0591f15af670d401
+    sha256sum: 7852750d58a053ce38b01f2c203208817564f552ebf371b2b630081d7004c6ae
+  - module: github.com/stretchr/testify
+    version: v1.10.0
+    explicit: False
+    sha256sum: 36c87573527a97ce97fc15ce2a101e65e5ebb350db142d09f633580cb8d5c839
+  - module: github.com/urfave/cli
+    version: v1.22.17
     explicit: True
-- kind: go_module
-  url: github:wadey/gocovmerge.git
-  module: github.com/wadey/gocovmerge
-  ref:
-    go-version: v0.0.0-20160331181800-b5bfa59ec0ad
-    git-ref: b5bfa59ec0adc420475f97f89b58045c721d761c
+    sha256sum: eb2629ff4d93a527036f0ebb57cf67caa10e97fdd9181740f8877936528bf6a9
+  - module: github.com/wadey/gocovmerge
+    version: v0.0.0-20160331181800-b5bfa59ec0ad
     explicit: True
-- kind: go_module
-  url: github:golang/crypto.git
-  module: golang.org/x/crypto
-  ref:
-    go-version: v0.52.0
-    git-ref: v0.52.0-0-ga1c0d9929856c8aba2b31f079340f00578eda803
+    sha256sum: 9f5952330bf701f65988725ec1f3a34ebf3c79c1db5a70e48b48e0797f470c28
+  - module: golang.org/x/crypto
+    version: v0.52.0
     explicit: True
-- kind: go_module
-  url: github:golang/exp.git
-  module: golang.org/x/exp/typeparams
-  ref:
-    go-version: v0.0.0-20231108232855-2478ac86f678
-    git-ref: 2478ac86f6784cc492495a49c25cd184d471d9de
+    sha256sum: a4dca44f467a3d8745aef41147c7bc6a90cdcfda9c42ae0585888bf046c7941e
+  - module: golang.org/x/exp/typeparams
+    version: v0.0.0-20231108232855-2478ac86f678
     explicit: True
-    subdirectory: typeparams
-- kind: go_module
-  url: github:golang/mod.git
-  module: golang.org/x/mod
-  ref:
-    go-version: v0.27.0
-    git-ref: v0.27.0-0-gf8a9fe217cff893cb67f4acad96a0021c13ee6e7
+    sha256sum: 22c0e082f62b39c8ddaec18a9f2888158199e597adc8780e918e8976cd9fbbb0
+  - module: golang.org/x/mod
+    version: v0.27.0
     explicit: True
-- kind: go_module
-  url: github:golang/sys.git
-  module: golang.org/x/sys
-  ref:
-    go-version: v0.45.0
-    git-ref: v0.45.0-0-g397d5f80920585bc27433d878aba498d062f81e1
+    sha256sum: 19fb241d46e4397d3193b5fa899e2a9d62bb5d1c41f73d09d29c17c3c0d3953c
+  - module: golang.org/x/sync
+    version: v0.16.0
     explicit: True
-- kind: go_module
-  url: github:golang/term.git
-  module: golang.org/x/term
-  ref:
-    go-version: v0.43.0
-    git-ref: v0.43.0-0-g3c3e4855f7d2eb06c3e48933554add9ec6b599b5
+    sha256sum: ca43984183eb14f7f50d33da350312fed1c42e106dceac2437bfd5084b497dcd
+  - module: golang.org/x/sys
+    version: v0.45.0
     explicit: True
-- kind: go_module
-  url: github:golang/tools.git
-  module: golang.org/x/tools
-  ref:
-    go-version: v0.36.0
-    git-ref: v0.36.0-0-g44d18e11572cd133e1eec6811ba57d78ff20addf
+    sha256sum: e51c1c88045b4edbe48ad810122131381ff541c89edbd97ef833ed6653b59e6a
+  - module: golang.org/x/term
+    version: v0.43.0
     explicit: True
-- kind: go_module
-  url: github:protocolbuffers/protobuf-go.git
-  module: google.golang.org/protobuf
-  ref:
-    go-version: v1.36.10
-    git-ref: v1.36.10-0-gf9fa50e26c0ffec610c509850484a5fdecdb26ec
+    sha256sum: 0d12dd77f2c620f236e59421d604f6bcd1f9212a4083a1c0ec13425c67bc6e81
+  - module: golang.org/x/tools
+    version: v0.36.0
     explicit: True
-- kind: go_module
-  url: github:dominikh/go-tools.git
-  module: honnef.co/go/tools
-  ref:
-    go-version: v0.6.1
-    git-ref: v0.6.1-0-gb8ec13ce4d00445d75da053c47498e6f9ec5d7d6
+    sha256sum: 85b486030e995cd5b4d56dea92f247b32bf4e0ae2fe6816b29d4514b5a43fec8
+  - module: golang.org/x/tools/go/expect
+    version: v0.1.1-deprecated
     explicit: True
+    sha256sum: b2389159ddd768c6bd83a0cc92bbf9be01c32ca973c366fc224b79762d90dd79
+  - module: google.golang.org/protobuf
+    version: v1.36.10
+    explicit: True
+    sha256sum: 9265fbe7d073ca8571f1a9c4b8e8f20b244c35ad913346892d688e58fe4b1f22
+  - module: gopkg.in/yaml.v3
+    version: v3.0.1
+    explicit: False
+    sha256sum: aab8fbc4e6300ea08e6afe1caea18a21c90c79f489f52c53e2f20431f1a9a015
+  - module: honnef.co/go/tools
+    version: v0.6.1
+    explicit: True
+    sha256sum: c8fed1950db52dc2e2682be963d564657a1d151898cedbd0f4b822828a899dc5

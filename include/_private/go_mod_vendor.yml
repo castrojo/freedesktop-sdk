@@ -1,0 +1,5 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
+config:
+  proxy-url: "go_proxy:"
