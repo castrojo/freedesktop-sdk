@@ -84,6 +84,8 @@ mirrors:
     - https://gitlab.com/freedesktop-sdk/mirrors/ftp_gnu_org/raw-files/-/raw/master/
     github_files:
     - https://gitlab.com/freedesktop-sdk/mirrors/github_files/raw-files/-/raw/master/
+    go_proxy:
+    - https://gitlab.com/freedesktop-sdk/mirrors/go_proxy/raw-files/-/raw/master/
     http:
     - https://gitlab.com/freedesktop-sdk/mirrors/http/raw-files/-/raw/master/
     https:
