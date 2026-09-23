@@ -37,4 +37,4 @@ sources:
 - kind: git_repo
   url: kernel:linux/kernel/git/firmware/linux-firmware.git
   track: '[0-9]*'
-  ref: 20260810-0-g2135b2f7714a3a514c989b9728f51f36144cab6f
+  ref: 20260916-0-gab23307cfe7f9366c819025ca3e4778299bc2db2
