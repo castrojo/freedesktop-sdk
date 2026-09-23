@@ -17,4 +17,4 @@ sources:
 - kind: git_repo
   url: kernel:devel/pahole/pahole.git
   track: 'v*'
-  ref: v1.31-0-g1f2805b6eef104df3125143c949b391f6122e5b9
+  ref: v1.32-0-gfa725d687ce3a712ef296b46bc63ea57ef466014
