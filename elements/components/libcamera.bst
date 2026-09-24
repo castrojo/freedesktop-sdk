@@ -4,6 +4,7 @@
 kind: meson
 
 build-depends:
+- public-stacks/buildsystem-cmake.bst
 - public-stacks/buildsystem-meson.bst
 
 depends:
@@ -18,14 +19,11 @@ depends:
 - components/systemd-libs.bst
 
 variables:
-  pipelines: uvcvideo%{arch-pipelines}
-  arch-pipelines: ''
+  pipelines: 'auto'
   arch-conf: ''
   (?):
-  - target_arch == "i686" or target_arch == "x86_64":
-      arch-pipelines: ',ipu3'
   - target_arch == "aarch64":
-      arch-pipelines: ',imx8-isi,rkisp1,rpi/vc4,simple'
+      pipelines: 'uvcvideo,simple,virtual,imx8-isi,mali-c55,rkisp1,rpi/vc4'
       arch-conf: -Drpi-awb-nn=disabled
 
   meson-local: >-
@@ -49,3 +47,7 @@ sources:
   ref: v0.7.2-0-g191e202178f02430b5942397c70d215cdd2056fa
 - kind: patch
   path: patches/libcamera/disable-ipa-sign.patch
+- kind: git_module
+  path: subprojects/libyuv
+  url: chromium:libyuv/libyuv.git
+  ref: 500f45652c459cfccd20f83f297eb66cb7b015cb
