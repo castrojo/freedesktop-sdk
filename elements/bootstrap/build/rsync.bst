@@ -19,3 +19,4 @@ variables:
     --disable-md2man
     --disable-openssl
     --disable-lz4
+    --disable-idn
