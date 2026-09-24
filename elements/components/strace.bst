@@ -8,6 +8,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+- bootstrap/libselinux.bst
 - bootstrap/ncurses.bst
 - components/libunwind.bst
 
