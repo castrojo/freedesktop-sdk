@@ -23,8 +23,6 @@ mirrors:
     - https://gitlab.com/freedesktop-sdk/mirrors/freedesktop/
     gcc_gnu_org:
     - https://gitlab.com/freedesktop-sdk/mirrors/gcc_gnu_org/
-    ghostscript:
-    - https://gitlab.com/freedesktop-sdk/mirrors/ghostscript/
     github:
     - https://gitlab.com/freedesktop-sdk/mirrors/github/
     gitlab:
