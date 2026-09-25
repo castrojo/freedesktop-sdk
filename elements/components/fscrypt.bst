@@ -18,8 +18,6 @@ variables:
 
 config:
   build-commands:
-  - mv -vf modules.txt vendor/modules.txt
-
   - |
     go build -buildmode=pie ./cmd/fscrypt
     go build -buildmode=c-shared -o pam_fscrypt.so ./pam_fscrypt
@@ -42,8 +40,6 @@ sources:
   url: github:google/fscrypt.git
   track: v*
   ref: v0.3.7-0-gddb28dae679bfe4df707959dc37211d7c9142e74
-- kind: local
-  path: files/fscrypt/modules.txt
 - kind: go_module
   url: github:BurntSushi/toml.git
   module: github.com/BurntSushi/toml
@@ -116,6 +112,13 @@ sources:
     git-ref: v0.27.0-0-gf8a9fe217cff893cb67f4acad96a0021c13ee6e7
     explicit: True
 - kind: go_module
+  url: github:golang/sync.git
+  module: golang.org/x/sync
+  ref:
+    go-version: v0.16.0
+    git-ref: v0.16.0-0-g7fad2c9213e0821bd78435a9c106806f2fc383f1
+    explicit: True
+- kind: go_module
   url: github:golang/sys.git
   module: golang.org/x/sys
   ref:
@@ -136,6 +139,14 @@ sources:
     go-version: v0.36.0
     git-ref: v0.36.0-0-g44d18e11572cd133e1eec6811ba57d78ff20addf
     explicit: True
+- kind: go_module
+  url: github:golang/tools.git
+  module: golang.org/x/tools/go/expect
+  ref:
+    go-version: v0.1.1-deprecated
+    git-ref: go/expect/v0.1.1-deprecated-0-g9b68bc9966ee62cbe4704dea268ca17f0d2cd8a7
+    explicit: True
+    subdirectory: go/expect
 - kind: go_module
   url: github:protocolbuffers/protobuf-go.git
   module: google.golang.org/protobuf
