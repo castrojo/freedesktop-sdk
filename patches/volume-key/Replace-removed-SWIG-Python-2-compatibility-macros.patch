@@ -1,0 +1,58 @@
+From b95bfeb43afcd8d7b82fe13adc238c24d58f8ce9 Mon Sep 17 00:00:00 2001
+From: Nazar Kazakov <nazar.kazakov@codethink.co.uk>
+Date: Fri, 14 Aug 2026 14:49:25 +0100
+Subject: [PATCH] Replace removed SWIG Python 2 compatibility macros
+
+SWIG 4.5.0 removed Python 2 compatibility macros (PyInt_*, PyString_*)
+from its runtime header pyhead.swg (see commit 79f7a2b7cb7d). Replace
+them with their Python 3 C API equivalents:
+
+- PyString_FromString -> PyUnicode_FromString
+- PyString_AsString -> PyBytes_AsString
+
+The replacements are safe since the macros were already aliased to
+these exact functions in SWIG's Python 3 code path.
+
+Based on dtc commit 5008d1d6a356 ("pylibfdt: Replace removed SWIG
+Python 2 compatibility macros"):
+https://github.com/dgibson/dtc/commit/5008d1d6a356b8d0a78060da2e1021507d529cff
+
+Signed-off-by: Nazar Kazakov <nazar.kazakov@codethink.co.uk>
+---
+ python/volume_key.i | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/python/volume_key.i b/python/volume_key.i
+index 7b5c085..e42c424 100644
+--- a/python/volume_key.i
++++ b/python/volume_key.i
+@@ -227,7 +227,7 @@ python_generic_cb (void *data, const char *prompt, int echo)
+       Py_DECREF (res);
+       return NULL;
+     }
+-  str = PyString_AsString (res);
++  str = PyBytes_AsString (res);
+   if (str == NULL)
+     {
+       Py_DECREF (res);
+@@ -259,7 +259,7 @@ python_passphrase_cb (void *data, const char *prompt, unsigned failed_attempts)
+       Py_DECREF (res);
+       return NULL;
+     }
+-  str = PyString_AsString (res);
++  str = PyBytes_AsString (res);
+   if (str == NULL)
+     {
+       Py_DECREF (res);
+@@ -533,7 +533,7 @@ libvk_volume_create_packet_asymmetric_from_cert_data
+       SWIG_fail;
+     for (i = 0; i < $1->len; i++)
+       PyList_SetItem (warnings, i,
+-		      PyString_FromString (g_ptr_array_index ($1, i)));
++		      PyUnicode_FromString (g_ptr_array_index ($1, i)));
+     %append_output (warnings);
+   }
+   %typemap(freearg) GPtrArray *warnings {
+-- 
+2.54.0
+
