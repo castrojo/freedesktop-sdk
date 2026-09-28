@@ -10,6 +10,18 @@ depends:
 - components/libmnl.bst
 - components/libnftnl.bst
 
+config:
+  install-commands:
+    (>):
+    - |
+      for command in \
+        iptables iptables-restore iptables-save \
+        ip6tables ip6tables-restore ip6tables-save
+      do
+        ln -sfn xtables-nft-multi \
+          "%{install-root}%{bindir}/${command}"
+      done
+
 sources:
 - kind: git_repo
   url: netfilter:iptables
