@@ -6,7 +6,7 @@ variables:
   GET_SOURCES_ATTEMPTS: 3
   RUNTIME_VERSION: '24.08'
   STABLE_ABI: 'true'
-  EXPIRED: '0'
+  EXPIRED: '1'
   MAX_MERGE_REQUESTS: '4'
   CACHE_PUSH: 'true'
 
@@ -288,6 +288,7 @@ check_mirrors:
   - ppc64le
   variables:
     ARCH: ppc64le
+    DOCKER_IMAGE_ID: "0a258dcf304505c338629e6a477b3d4b6ae3f01f"
 
 .builder-loongarch64:
   tags:
