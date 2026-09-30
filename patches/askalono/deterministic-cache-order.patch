@@ -1,0 +1,54 @@
+--- a/src/store/base.rs
++++ b/src/store/base.rs
+@@ -4,4 +4,4 @@
+-use std::collections::HashMap;
++use std::collections::BTreeMap;
+
+ use anyhow::{format_err, Error};
+ use serde::{Deserialize, Serialize};
+@@ -38,7 +38,7 @@
+ /// ```
+ #[derive(Default, Serialize, Deserialize)]
+ pub struct Store {
+-    pub(crate) licenses: HashMap<String, LicenseEntry>,
++    pub(crate) licenses: BTreeMap<String, LicenseEntry>,
+ }
+ 
+ impl LicenseEntry {
+@@ -59,7 +59,7 @@
+     /// an empty store.
+     pub fn new() -> Store {
+         Store {
+-            licenses: HashMap::new(),
++            licenses: BTreeMap::new(),
+         }
+     }
+ 
+--- a/src/ngram.rs
++++ b/src/ngram.rs
+@@ -3,14 +3,14 @@
+ 
+ use std::{
+     cmp::min,
+-    collections::{hash_map::Iter, HashMap, VecDeque},
++    collections::{btree_map::Iter, BTreeMap, VecDeque},
+ };
+ 
+ use serde::{Deserialize, Serialize};
+ 
+ #[derive(PartialEq, Clone, Debug, Serialize, Deserialize)]
+ pub struct NgramSet {
+-    map: HashMap<String, u32>,
++    map: BTreeMap<String, u32>,
+     // once Rust supports it, it'd be nice to make this
+     // a type parameter & specialize
+     n: u8,
+@@ -20,7 +20,7 @@
+ impl NgramSet {
+     pub fn new(n: u8) -> NgramSet {
+         NgramSet {
+-            map: HashMap::new(),
++            map: BTreeMap::new(),
+             n,
+             size: 0,
+         }

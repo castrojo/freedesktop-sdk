@@ -23,6 +23,8 @@ sources:
   url: github:spdx/license-list-data.git
   path: datasets/modules/spdx-license-list-data
   ref: 7bd3f753d70c065dbf270598cc9736169b29835d
+- kind: patch
+  path: patches/askalono/deterministic-cache-order.patch
 - kind: cargo2
   directory: cli
   ref:
