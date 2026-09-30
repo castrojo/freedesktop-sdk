@@ -66,7 +66,6 @@ variables:
 
   meson-local: >-
     -Dmode=release
-    -Dsysvinit-path=%{sysconfdir}/init.d
     -Daudit=enabled
     -Dseccomp=enabled
     -Dsystem-uid-max=999
@@ -102,7 +101,6 @@ variables:
     -Dqrencode=enabled
     -Dxkbcommon=enabled
     -Dlibidn2=enabled
-    -Dlibiptc=enabled
     -Dxenctrl=disabled
     -Dbpf-framework=%{bpf-framework}
     -Dgnutls=disabled
