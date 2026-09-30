@@ -6,6 +6,9 @@ build-depends:
 depends:
 - components/python3.bst
 
+runtime-depends:
+- components/python3-packaging.bst
+
 variables:
   strip-binaries: ''
 
