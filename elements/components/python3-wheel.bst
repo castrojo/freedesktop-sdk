@@ -7,6 +7,7 @@ build-depends:
 - components/_private/python3-wheel.bst
 
 runtime-depends:
+- components/python3-packaging.bst
 - components/python3.bst
 
 config:
