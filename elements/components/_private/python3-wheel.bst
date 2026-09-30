@@ -10,8 +10,9 @@ build-depends:
 - components/_private/python3-installer.bst
 - components/_private/python3-minimal.bst
 
-depends:
+runtime-depends:
 - public-stacks/runtime-minimal.bst
+- components/_private/python3-packaging.bst
 
 variables:
   strip-binaries: ''
