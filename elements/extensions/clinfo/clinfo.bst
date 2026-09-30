@@ -15,4 +15,4 @@ sources:
 - kind: git_repo
   url: github:Oblomov/clinfo.git
   track: '*.*.*.*.*'
-  ref: 3.0.25.02.14-0-gc57b7e73e910ca1b558415472c8192eeb75711b1
+  ref: 3.1.26.09.26-0-g0cb539d22d6e47ec4d635c8a2173d21cab600c3b
