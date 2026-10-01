@@ -148,7 +148,7 @@ config:
 
 sources:
 - kind: git_repo
-  url: github:nss-dev/nss.git
+  url: github:mozilla/nss.git
   # https://firefox-source-docs.mozilla.org/security/nss/releases/index.html
   # Next ESR is unknown
   track: NSS_3_101*_RTM
