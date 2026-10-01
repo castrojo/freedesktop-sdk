@@ -1,3 +1,27 @@
+Version: freedesktop-sdk-24.08.37
+Date: '2026-09-28'
+Description: |-
+  Changes in freedesktop-sdk-24.08.37
+
+  [NOTE] This is the final release of freedesktop-sdk-24.08, it is now considered EOL.
+  Please upgrade to 25.08 or 26.08 for on-going support.
+
+   * git-lfs: Update to ref: v3.8.0-0
+   * Revert "Freeze libdisplay-info due to compatibility issues with weston.bst"
+   * libdisplay-info: Update to 0.4.0-0
+   * Update fscrypt to ref: v0.3.7-0
+   * Update cython to 3.3.0-0
+   * Update python3-filelock to 3.32.4-0
+   * Update ccache to v4.14-0
+   * Update libcap-ng to v0.9.5-0
+   * Update frei0r to v3.4.3-0
+   * Update dictionaries to libreoffice-26.8.0.3-0
+   * Update ovmf to edk2-stable202608-0
+   * Update reference-abi to freedesktop-sdk-24.08.36-0
+   * Update python3-protobuf to 7.36.0
+   * Update pdfio to v1.6.5-0
+   * Update libcap-ng to v0.9.4-0
+---
 Version: freedesktop-sdk-24.08.36
 Date: '2026-08-20'
 Description: |-
