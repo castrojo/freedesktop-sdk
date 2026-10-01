@@ -151,7 +151,7 @@ public:
 
 sources:
 - kind: git_repo
-  url: github:nss-dev/nss.git
+  url: github:mozilla/nss.git
   # We track only ESR releases. Switch to the latest ESR branch must be done
   # before each major freedesktop-sdk release. For latest ESR branch see:
   # https://firefox-source-docs.mozilla.org/security/nss/releases/index.html
