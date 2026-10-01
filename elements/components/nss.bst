@@ -156,13 +156,11 @@ sources:
   # before each major freedesktop-sdk release. For latest ESR branch see:
   # https://firefox-source-docs.mozilla.org/security/nss/releases/index.html
   # Next ESR branch is unknown
-  track: NSS_3_112*_RTM
-  ref: NSS_3_112_5_RTM-0-gfddd54c0fb1444c710f442c872de3af8eaa9aec9
+  track: NSS_3_125*_RTM
+  ref: NSS_3_125_RTM-0-g108de14257bf363cf53a42e1ef382d44fe39c599
   directory: nss
   version-guess-pattern: '(\d+)_(\d+)_(\d+)'
 - kind: patch
   path: patches/nss/pkg-config-libdir.patch
-- kind: patch
-  path: patches/nss/glibc243.patch
 - kind: local
   path: files/nss/load-p11-kit-trust.c
