@@ -87,7 +87,7 @@ config:
     backtrace = true
     rpath = false
     lto = "off"
-    use-lld = true
+    bootstrap-override-lld = true
     lld = false
     default-linker = "/usr/bin/clang"
     [target.%{rust-target}]
