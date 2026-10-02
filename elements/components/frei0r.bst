@@ -16,4 +16,4 @@ sources:
 - kind: git_repo
   url: github:dyne/frei0r.git
   track: v*
-  ref: v3.5.0-0-g0e664fdc1cad20800f7f1badbf001cfe580a64a8
+  ref: v3.6.0-0-gd63e2e3537ec9119d1376c3d8f021bc2bfe35470
