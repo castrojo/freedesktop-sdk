@@ -49,6 +49,6 @@ sources:
   track: v*.*.*
   exclude:
   - "*-rc*"
-  ref: v3.15.0-0-gde4c1d1edc49723a78954d30a83690aa1937422f
+  ref: v3.15.1-0-g44d0a57786f432d933ff64b653347c66f4d0fa1d
 - kind: patch
   path: patches/aom/disable-aom-static.patch
