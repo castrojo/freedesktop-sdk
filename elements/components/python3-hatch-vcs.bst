@@ -13,6 +13,7 @@ depends:
 - components/python3.bst
 
 runtime-depends:
+- components/git.bst
 - components/python3-setuptools-scm.bst
 
 variables:
