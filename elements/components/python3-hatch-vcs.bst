@@ -10,8 +10,10 @@ build-depends:
 
 depends:
 - components/python3-hatchling.bst
-- components/python3-setuptools-scm.bst
 - components/python3.bst
+
+runtime-depends:
+- components/python3-setuptools-scm.bst
 
 variables:
   strip-binaries: ''
