@@ -39,7 +39,6 @@ depends:
 - components/gdbm.bst
 - components/gdk-pixbuf.bst
 - components/geoclue-libs.bst
-- components/gettext.bst
 - components/giflib.bst
 - components/glib-networking.bst
 - components/glibc-gconv-cache.bst

@@ -23,6 +23,7 @@ depends:
 - components/doxygen.bst
 - components/flex.bst
 - components/gdb.bst
+- components/gettext.bst
 - components/git.bst
 - components/git-lfs.bst
 - components/gperf.bst
