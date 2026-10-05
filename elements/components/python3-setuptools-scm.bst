@@ -8,10 +8,12 @@ build-depends:
 
 depends:
 - components/git.bst
-- components/python3-packaging.bst
 - components/python3-setuptools.bst
 - components/python3-vcs-versioning.bst
 - components/python3.bst
+
+runtime-depends:
+- components/python3-packaging.bst
 
 variables:
   command-subdir: setuptools-scm
