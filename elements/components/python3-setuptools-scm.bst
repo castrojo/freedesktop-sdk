@@ -8,6 +8,8 @@ depends:
 - components/python3-setuptools.bst
 - components/git-minimal.bst
 - components/python3-typing-extensions.bst
+
+runtime-depends:
 - components/python3-packaging.bst
 
 sources:
