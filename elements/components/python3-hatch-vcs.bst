@@ -7,6 +7,8 @@ build-depends:
 depends:
 - components/python3.bst
 - components/python3-hatchling.bst
+
+runtime-depends:
 - components/python3-setuptools-scm.bst
 
 variables:
