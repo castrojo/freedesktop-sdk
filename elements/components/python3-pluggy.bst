@@ -5,6 +5,7 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
+- components/_private/git-minimal.bst
 - components/python3-setuptools-scm.bst
 
 depends:

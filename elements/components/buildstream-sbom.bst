@@ -7,6 +7,7 @@ description: "A tool to produce an SBoM (Software Bill of Materials) describing 
 
 build-depends:
 - public-stacks/buildsystem-python-setuptools.bst
+- components/_private/git-minimal.bst
 - components/python3-setuptools-scm.bst
 
 depends:
