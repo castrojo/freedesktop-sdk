@@ -86,7 +86,7 @@ config:
     done
     # Only fail for...
     case "%{arch}" in
-      x86_64|aarch64)
+      x86_64|aarch64|riscv64)
         [ "${missing_configs}" = 0 ]
       ;;
     esac
