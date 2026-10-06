@@ -1846,6 +1846,11 @@ case "$arch" in
         module PINCTRL_STARFIVE_JH7110_SYS
         module SND_SOC_JH7110_PWMDAC
         module SND_SOC_JH7110_TDM
+        module STARFIVE_WATCHDOG
+        enable JH71XX_PMU
+        module MMC_DW_STARFIVE
+        module PCIE_STARFIVE_HOST
+        module SENSORS_SFCTEMP  # Starfive JH71x0 temperature sensor
 
     ;;
 esac
