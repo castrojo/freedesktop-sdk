@@ -1831,57 +1831,22 @@ case "$arch" in
         enable EDAC_SIFIVE
 
         # Starfive visionfive2
-        enable DRM_PANEL_STARFIVE_10INCH
-        enable DWMAC_STARFIVE_PLAT
-        enable HW_RANDOM_STARFIVE
-        enable MMC_DW_STARFIVE
-        enable PINCTRL_STARFIVE
-        enable PINCTRL_STARFIVE_JH7110
-        enable STARFIVE_DSI
-        enable STARFIVE_DSP
-        enable STARFIVE_INNO_HDMI
-        enable STARFIVE_MBOX
-        module STARFIVE_MBOX_TEST
-        enable STARFIVE_PMU
-        enable STARFIVE_TIMER
-        enable STARFIVE_WATCHDOG
-        enable SND_SOC_SOF_STARFIVE_SUPPORT
-        enable SND_SOC_SOF_STARFIVE_TOPLEVEL
-        enable SND_SOC_STARFIVE
-        enable SND_SOC_STARFIVE_I2S
-        enable SND_SOC_STARFIVE_PWMDAC
-        enable SND_SOC_STARFIVE_SOF_TDM_DAI
-        enable SND_SOC_WM8960
-        enable SOC_STARFIVE
-        enable SOC_STARFIVE_JH7110
-        enable SPI_PL022_STARFIVE
-        enable RTC_DRV_STARFIVE
-        enable PWM_STARFIVE_PTC
-        enable CRYPTO_DEV_JH7110_ENCRYPT
-        module CRYPTO_TEST
-        enable CRYPTO_USER_API_AKCIPHER
-        enable CPU_FREQ_DEFAULT_GOV_ONDEMAND
-        enable CPU_FREQ_GOV_SCHEDUTIL
-        enable CPU_FREQ_GOV_USERSPACE
-        enable CPU_IDLE
-        enable CPU_THERMAL
-        enable RISCV_SBI_CPUIDLE
-        enable HVC_RISCV_SBI
-        enable SERIAL_8250
-        enable SERIAL_8250_CONSOLE
-        enable SERIAL_8250_EXTENDED
-        enable SERIAL_8250_MANY_PORTS
-        value_str SERIAL_8250_NR_UARTS 6
-        value_str SERIAL_8250_RUNTIME_UARTS 6
-        enable SERIAL_EARLYCON_RISCV_SBI
-        value_str SIFIVE_L2_FLUSH_SIZE 0x400000000
-        value_str SIFIVE_L2_FLUSH_START 0x40000000
-        enable SPI_SIFIVE
-        enable TTY_PRINTK
-        enable USB_CDNS3
-        enable USB_CDNS3_GADGET
-        enable USB_CDNS3_HOST
-        enable USB_CDNS3_STARFIVE
+        module RESET_STARFIVE_JH7110
+        module CLK_STARFIVE_JH7110_AON
+        module CLK_STARFIVE_JH7110_ISP
+        module CLK_STARFIVE_JH7110_STG
+        module CLK_STARFIVE_JH7110_VOUT
+        module CRYPTO_DEV_JH7110
+        module HW_RANDOM_JH7110
+        module PHY_STARFIVE_JH7110_DPHY_RX
+        module PHY_STARFIVE_JH7110_DPHY_TX
+        module PHY_STARFIVE_JH7110_PCIE
+        module PHY_STARFIVE_JH7110_USB
+        module PINCTRL_STARFIVE_JH7110_AON
+        module PINCTRL_STARFIVE_JH7110_SYS
+        module SND_SOC_JH7110_PWMDAC
+        module SND_SOC_JH7110_TDM
+
     ;;
 esac
 
