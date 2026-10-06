@@ -155,7 +155,7 @@ lint:
 daily_update_elements:
   extends:
     - .check_update_elements
-  timeout: 1h
+  timeout: 90m
   variables:
     SKIP_DAY_NUM: '5'
     TRACK_ELEMENTS: track-elements.bst
@@ -165,7 +165,7 @@ daily_update_elements:
 weekly_update_elements:
   extends:
     - .check_update_elements
-  timeout: 1h
+  timeout: 90m
   variables:
     TRACK_ELEMENTS: track-elements-weekly.bst
     EXTRA_TRACK_ARGS: >-
@@ -175,7 +175,7 @@ weekly_update_elements:
 
 weekly_update_combined:
   stage: update
-  timeout: 1h
+  timeout: 90m
   variables:
     TRACK_ELEMENTS: track-elements.bst
     GIT_SUBMODULE_STRATEGY: none
