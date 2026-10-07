@@ -55,6 +55,4 @@ sources:
   track: v*
   exclude:
   - "*rc*"
-  ref: v2026.07-0-gece349ade2973e220f524ce59e59711cc919263f
-- kind: patch
-  path: patches/u-boot/pylibfdt-Replace-removed-SWIG-Python-2-compatibility.patch
+  ref: v2026.10-0-g5508406582f6f7120dce0c4b3059819a41788db2
