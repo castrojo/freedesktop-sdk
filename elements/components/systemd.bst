@@ -38,7 +38,6 @@ runtime-depends:
 - components/p11-kit.bst
 - components/openssl.bst
 - components/libapparmor.bst
-- components/curl.bst
 - components/libmicrohttpd.bst
 - components/libbpf.bst
 
@@ -47,6 +46,10 @@ runtime-depends:
     runtime-depends:
       (>):
       - components/systemd-hwdb-maybe.bst
+- systemd_curl:
+    runtime-depends:
+      (>):
+      - components/curl.bst
 
 config:
   exclude:

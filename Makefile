@@ -26,7 +26,8 @@ FLATPAK_SUBJECT := $(shell git rev-parse HEAD)
 LAST_VERSION := $(shell awk '/^Version:/ {print $$2; exit}' NEWS.yml)
 
 MINIMAL_VM?=locale
-ARCH_OPTS=-o bootstrap_build_arch $(BOOTSTRAP_ARCH) -o target_arch $(ARCH) -o minimal_vm "${MINIMAL_VM}"
+SYSTEMD_CURL?=true
+ARCH_OPTS=-o bootstrap_build_arch $(BOOTSTRAP_ARCH) -o target_arch $(ARCH) -o minimal_vm "${MINIMAL_VM}" -o systemd_curl "$(SYSTEMD_CURL)"
 TARBALLS=            \
 	sdk          \
 	platform

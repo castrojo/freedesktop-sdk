@@ -428,6 +428,7 @@ micro_vm_image_x86_64:
     DIALOG: root-login
     IMAGE: vm
     MAX_SIZE_EFI_VM: "250000000"
+    SYSTEMD_CURL: "false"
   allow_failure: false
 
 minimal_efi_ostree_vm_image_x86_64:
