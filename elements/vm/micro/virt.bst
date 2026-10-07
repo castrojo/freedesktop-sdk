@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: Freedesktop-SDK Developers
+# SPDX-License-Identifier: MIT
+
+kind: script
+
+build-depends:
+- components/fakecap.bst
+- filename: vm/micro/filesystem.bst
+  config:
+    location: '/sysroot'
+- vm/prepare-image.bst
+
+environment:
+  LD_PRELOAD: /usr/libexec/fakecap/fakecap.so
+  FAKECAP_DB: /fakecap
+
+variables:
+  uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
+  install-root: /sysroot
+
+config:
+  commands:
+  - |
+    mkdir -p /fakecap
+    mkdir -p /tmp
+    prepare-image.sh --rootpasswd root --seed "%{uuidnamespace}" \
+                     --sysroot /sysroot \
+                     --noboot \
+                     --rootfstype 9p \
+                     --rootsource virtfs \
+                     >/tmp/vars

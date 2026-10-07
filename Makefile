@@ -191,7 +191,7 @@ run-vm: $(OVMF_CODE) $(OVMF_VARS)
 QEMU_COMMON_ARGS+=				\
 	-M q35,accel=kvm
 QEMU_VIRTFS_ARGS+=												\
-	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap console=ttyS0'	\
+	-append 'root=virtfs rw rootfstype=9p rootflags=trans=virtio,version=9p2000.L,cache=mmap init=/usr/lib/systemd/systemd console=ttyS0'	\
 	$(QEMU_EFI_ARGS)
 else ifeq ($(ARCH),aarch64)
 run-vm: $(OVMF_CODE) $(OVMF_VARS)

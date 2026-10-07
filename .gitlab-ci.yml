@@ -409,6 +409,27 @@ minimal_efi_vm_image_x86_64:
     IMAGE: efi-vm
   allow_failure: true
 
+micro_vm_image_x86_64:
+  extends:
+    - .minimal_test
+    - .builder-x86_64
+  needs:
+    - app_x86_64
+  script:
+    - !reference [.minimal_test, script]
+    - make checkout/x86_64/vm/micro/virt.bst/usr/lib/os-release
+    - make checkout/x86_64/vm/boot/micro.bst/vmlinuz
+    - test -x checkout/x86_64/vm/micro/virt.bst/usr/lib/systemd/systemd
+    - du -c -B1 checkout/x86_64/vm/micro/virt.bst checkout/x86_64/vm/boot/micro.bst > checkout/x86_64/dir_sizes_B.tsv
+    - utils/test_minimal_size.py
+  variables:
+    VM_ARTIFACT_BOOT: vm/boot/micro.bst
+    VM_ARTIFACT_FILESYSTEM: vm/micro/virt.bst
+    DIALOG: root-login
+    IMAGE: vm
+    MAX_SIZE_EFI_VM: "250000000"
+  allow_failure: false
+
 minimal_efi_ostree_vm_image_x86_64:
   extends:
     - .minimal_test
