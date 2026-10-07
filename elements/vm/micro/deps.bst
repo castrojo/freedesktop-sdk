@@ -9,7 +9,6 @@ description: |
 depends:
 - public-stacks/runtime-minimal.bst
 - bootstrap/bash.bst
-- bootstrap/coreutils.bst
 - components/os-release.bst
 - components/systemd.bst
 - vm/base-filesystem.bst
