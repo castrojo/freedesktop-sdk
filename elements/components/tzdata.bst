@@ -38,5 +38,5 @@ sources:
 - kind: git_repo
   url: github:eggert/tz.git
   track: 20*
-  ref: 2026c-0-g71f28b9ab3b67c0f9466803f6151812d4fc8e357
+  ref: 2026e-0-g039ef27cc5f062a2055cb67435d6d71adbefd27d
   version-guess-pattern: '^\d{4}[a-z]'
