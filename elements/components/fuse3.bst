@@ -2,15 +2,18 @@
 # SPDX-License-Identifier: MIT
 
 kind: meson
+description: |
+  This element provides libfuse, the reference implementation for communicating
+  with the FUSE kernel module.
+
+  FUSE needs a `usr/bin/mount` implementation at runtime. One is provided by
+  `components/util-linux-full.bst`, others are available.
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
-
-runtime-depends:
-- components/util-linux-full.bst
 
 variables:
   meson-local: >-
