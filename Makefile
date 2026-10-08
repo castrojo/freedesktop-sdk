@@ -28,7 +28,8 @@ LAST_VERSION := $(shell awk '/^Version:/ {print $$2; exit}' NEWS.yml)
 MINIMAL_VM?=locale
 SYSTEMD_CURL?=true
 SYSTEMD_CRYPTSETUP?=true
-ARCH_OPTS=-o bootstrap_build_arch $(BOOTSTRAP_ARCH) -o target_arch $(ARCH) -o minimal_vm "${MINIMAL_VM}" -o systemd_curl "$(SYSTEMD_CURL)" -o systemd_cryptsetup "$(SYSTEMD_CRYPTSETUP)"
+SYSTEMD_EXTRAS?=true
+ARCH_OPTS=-o bootstrap_build_arch $(BOOTSTRAP_ARCH) -o target_arch $(ARCH) -o minimal_vm "${MINIMAL_VM}" -o systemd_curl "$(SYSTEMD_CURL)" -o systemd_cryptsetup "$(SYSTEMD_CRYPTSETUP)" -o systemd_extras "$(SYSTEMD_EXTRAS)"
 TARBALLS=            \
 	sdk          \
 	platform

@@ -33,12 +33,10 @@ runtime-depends:
 - components/util-linux-full.bst
 - components/libidn2.bst
 - components/libseccomp.bst
-- components/kbd.bst
 - components/p11-kit.bst
 - components/openssl.bst
 - components/libapparmor.bst
 - components/libmicrohttpd.bst
-- components/libbpf.bst
 
 (?):
 - target_arch != "ppc64le":
@@ -53,6 +51,11 @@ runtime-depends:
     runtime-depends:
       (>):
       - components/cryptsetup.bst
+- systemd_extras:
+    runtime-depends:
+      (>):
+      - components/kbd.bst
+      - components/libbpf.bst
 
 config:
   exclude:

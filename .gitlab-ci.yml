@@ -434,6 +434,7 @@ micro_vm_image_x86_64:
     MAX_SIZE_EFI_VM: "250000000"
     SYSTEMD_CURL: "false"
     SYSTEMD_CRYPTSETUP: "false"
+    SYSTEMD_EXTRAS: "false"
   allow_failure: false
 
 minimal_efi_ostree_vm_image_x86_64:
