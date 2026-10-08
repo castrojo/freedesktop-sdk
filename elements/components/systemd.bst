@@ -34,7 +34,6 @@ runtime-depends:
 - components/libidn2.bst
 - components/libseccomp.bst
 - components/kbd.bst
-- components/cryptsetup.bst
 - components/p11-kit.bst
 - components/openssl.bst
 - components/libapparmor.bst
@@ -50,6 +49,10 @@ runtime-depends:
     runtime-depends:
       (>):
       - components/curl.bst
+- systemd_cryptsetup:
+    runtime-depends:
+      (>):
+      - components/cryptsetup.bst
 
 config:
   exclude:
