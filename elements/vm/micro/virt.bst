@@ -5,6 +5,7 @@ kind: script
 
 build-depends:
 - components/fakecap.bst
+- components/openssl.bst
 - filename: vm/micro/filesystem.bst
   config:
     location: '/sysroot'

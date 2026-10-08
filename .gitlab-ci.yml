@@ -435,6 +435,7 @@ micro_vm_image_x86_64:
     SYSTEMD_CURL: "false"
     SYSTEMD_CRYPTSETUP: "false"
     SYSTEMD_EXTRAS: "false"
+    SYSTEMD_OPENSSL: "false"
   allow_failure: false
 
 minimal_efi_ostree_vm_image_x86_64:

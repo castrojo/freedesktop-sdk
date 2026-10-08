@@ -29,7 +29,8 @@ MINIMAL_VM?=locale
 SYSTEMD_CURL?=true
 SYSTEMD_CRYPTSETUP?=true
 SYSTEMD_EXTRAS?=true
-ARCH_OPTS=-o bootstrap_build_arch $(BOOTSTRAP_ARCH) -o target_arch $(ARCH) -o minimal_vm "${MINIMAL_VM}" -o systemd_curl "$(SYSTEMD_CURL)" -o systemd_cryptsetup "$(SYSTEMD_CRYPTSETUP)" -o systemd_extras "$(SYSTEMD_EXTRAS)"
+SYSTEMD_OPENSSL?=true
+ARCH_OPTS=-o bootstrap_build_arch $(BOOTSTRAP_ARCH) -o target_arch $(ARCH) -o minimal_vm "${MINIMAL_VM}" -o systemd_curl "$(SYSTEMD_CURL)" -o systemd_cryptsetup "$(SYSTEMD_CRYPTSETUP)" -o systemd_extras "$(SYSTEMD_EXTRAS)" -o systemd_openssl "$(SYSTEMD_OPENSSL)"
 TARBALLS=            \
 	sdk          \
 	platform

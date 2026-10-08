@@ -34,7 +34,6 @@ runtime-depends:
 - components/libidn2.bst
 - components/libseccomp.bst
 - components/p11-kit.bst
-- components/openssl.bst
 - components/libapparmor.bst
 - components/libmicrohttpd.bst
 
@@ -56,6 +55,10 @@ runtime-depends:
       (>):
       - components/kbd.bst
       - components/libbpf.bst
+- systemd_openssl:
+    runtime-depends:
+      (>):
+      - components/openssl.bst
 
 config:
   exclude:
