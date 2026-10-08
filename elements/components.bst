@@ -400,6 +400,7 @@ depends:
 - components/patchelf.bst
 - components/patch.bst
 - components/pciutils.bst
+- components/pcre2.bst
 - components/pcsc-lite.bst
 - components/pdfio.bst
 - components/perf.bst

@@ -22,6 +22,7 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/libffi.bst
+- components/pcre2.bst
 # GIO uses libmount
 - components/util-linux-libs.bst
 
