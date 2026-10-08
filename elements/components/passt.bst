@@ -22,5 +22,5 @@ sources:
 - kind: git_repo
   url: fdsdk_mirror:passt/passt.git
   track: '*_*_*.*'
-  ref: 2026_07_28.f8df3f1-0-gf8df3f1b228fe19a74a269334fdfe6cc7d0605ce
+  ref: 2026_10_02.cba3570-0-gcba357068dc586e7540971eb40bb56c5e62c4de1
   version-guess-pattern: '(\d+)_(\d+)_(\d+)'
