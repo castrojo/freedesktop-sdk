@@ -31,7 +31,8 @@ SYSTEMD_CRYPTSETUP?=true
 SYSTEMD_EXTRAS?=true
 SYSTEMD_OPENSSL?=true
 SYSTEMD_OPTIONAL?=true
-ARCH_OPTS=-o bootstrap_build_arch $(BOOTSTRAP_ARCH) -o target_arch $(ARCH) -o minimal_vm "${MINIMAL_VM}" -o systemd_curl "$(SYSTEMD_CURL)" -o systemd_cryptsetup "$(SYSTEMD_CRYPTSETUP)" -o systemd_extras "$(SYSTEMD_EXTRAS)" -o systemd_openssl "$(SYSTEMD_OPENSSL)" -o systemd_optional "$(SYSTEMD_OPTIONAL)"
+SYSTEMD_TZDATA?=true
+ARCH_OPTS=-o bootstrap_build_arch $(BOOTSTRAP_ARCH) -o target_arch $(ARCH) -o minimal_vm "${MINIMAL_VM}" -o systemd_curl "$(SYSTEMD_CURL)" -o systemd_cryptsetup "$(SYSTEMD_CRYPTSETUP)" -o systemd_extras "$(SYSTEMD_EXTRAS)" -o systemd_openssl "$(SYSTEMD_OPENSSL)" -o systemd_optional "$(SYSTEMD_OPTIONAL)" -o systemd_tzdata "$(SYSTEMD_TZDATA)"
 TARBALLS=            \
 	sdk          \
 	platform

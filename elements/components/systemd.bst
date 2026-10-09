@@ -22,7 +22,6 @@ runtime-depends:
 - components/libgpg-error.bst
 - components/linux-pam.bst
 - components/systemd-manifest.bst
-- components/tzdata.bst
 - components/shadow.bst
 - components/util-linux-libfdisk.bst
 - components/util-linux-libs.bst
@@ -61,6 +60,10 @@ runtime-depends:
       - components/kmod.bst
       - components/p11-kit.bst
       - components/libmicrohttpd.bst
+- systemd_tzdata:
+    runtime-depends:
+      (>):
+      - components/tzdata.bst
 
 config:
   exclude:
