@@ -27,8 +27,6 @@ runtime-depends:
 - components/util-linux-libs.bst
 # systemd services exist that call `agetty`, `fsck`, `mkswap` from util-linux-full.
 - components/util-linux-full.bst
-- components/libidn2.bst
-- components/libseccomp.bst
 
 (?):
 - target_arch != "ppc64le":
@@ -64,6 +62,11 @@ runtime-depends:
     runtime-depends:
       (>):
       - components/tzdata.bst
+- systemd_filters:
+    runtime-depends:
+      (>):
+      - components/libidn2.bst
+      - components/libseccomp.bst
 
 config:
   exclude:
