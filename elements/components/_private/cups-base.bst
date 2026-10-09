@@ -77,7 +77,7 @@ sources:
   - "*b*"
   - "*rc*"
   - "*op*"
-  ref: v2.4.19-0-g6ba0487abb05afc93d639f37676add8fd65d3756
+  ref: v2.4.20-0-gef80eeaea51430a055948240eea3f28ef5354edf
 - kind: local
   path: files/cups/tmpfiles.conf
 - kind: local
