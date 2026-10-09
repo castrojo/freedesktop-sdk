@@ -8,8 +8,8 @@ description: |
 
 depends:
 - public-stacks/runtime-minimal.bst
+- bootstrap/xz.bst
 - components/dracut.bst
-- components/gzip.bst
 - components/linux.bst
 - components/os-release.bst
 - components/systemd.bst

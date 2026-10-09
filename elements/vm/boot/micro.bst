@@ -40,8 +40,8 @@ config:
            --kver ${version} \
            --add "virtfs" \
            --add-drivers "9p 9pnet 9pnet_virtio virtio_pci" \
-           --omit "multipath lvm mdraid crypt dmraid iscsi nfs network plymouth qemu" \
-           --gzip \
+           --omit "multipath lvm mdraid crypt dmraid iscsi nfs network plymouth qemu bash i18n" \
+           --xz \
            /boot/initramfs.gz
   - |
     version="$(ls -1 /lib/modules | head -n1)"
