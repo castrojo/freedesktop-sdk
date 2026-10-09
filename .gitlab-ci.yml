@@ -438,6 +438,7 @@ micro_vm_image_x86_64:
     SYSTEMD_OPENSSL: "false"
     SYSTEMD_OPTIONAL: "false"
     SYSTEMD_TZDATA: "false"
+    SYSTEMD_FILTERS: "false"
   allow_failure: false
 
 minimal_efi_ostree_vm_image_x86_64:
