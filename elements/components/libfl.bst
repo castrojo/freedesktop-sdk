@@ -7,7 +7,7 @@ build-depends:
 - components/_private/flex-base.bst
 
 runtime-depends:
-- public-stacks/runtime-minimal.bst
+#- public-stacks/runtime-minimal.bst
 - components/symlinks.bst
 - components/utf-locale.bst
 

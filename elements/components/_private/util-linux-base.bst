@@ -23,7 +23,7 @@ build-depends:
 - components/sed.bst
 
 depends:
-- bootstrap/ncurses.bst
+- components/ncurses.bst
 - components/file.bst
 - components/sqlite.bst
 

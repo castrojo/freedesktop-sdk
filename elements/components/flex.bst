@@ -9,7 +9,7 @@ build-depends:
 runtime-depends:
 - components/bash.bst
 - components/coreutils.bst
-- public-stacks/runtime-minimal.bst
+#- public-stacks/runtime-minimal.bst
 - components/symlinks.bst
 - components/libfl.bst
 - components/m4.bst

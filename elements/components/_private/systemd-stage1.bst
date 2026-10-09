@@ -20,8 +20,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/libxcrypt.bst
-- bootstrap/xz.bst
+- components/libxcrypt.bst
+- components/xz.bst
 - components/kmod.bst
 - components/libcap.bst
 - components/libgpg-error.bst

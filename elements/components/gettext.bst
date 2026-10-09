@@ -17,16 +17,13 @@ build-depends:
 - bootstrap/sed.bst
 - bootstrap/stripper.bst
 
-depends:
-- public-stacks/runtime-minimal.bst
-- components/symlinks.bst
-- components/utf-locale.bst
 
 runtime-depends:
 - components/diffutils.bst
 - components/findutils.bst
 - components/gzip.bst
 - components/tar.bst
+#- public-stacks/runtime-minimal.bst
 
 variables:
   # Removal of this is tracked at #2044

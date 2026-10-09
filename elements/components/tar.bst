@@ -16,8 +16,10 @@ build-depends:
 - bootstrap/make.bst
 - bootstrap/sed.bst
 - bootstrap/stripper.bst
+- bootstrap/symlinks.bst
+- components/utf-locale.bst
 
-depends:
-- public-stacks/runtime-minimal.bst
+runtime-depends:
+#- public-stacks/runtime-minimal.bst
 - components/symlinks.bst
 - components/utf-locale.bst

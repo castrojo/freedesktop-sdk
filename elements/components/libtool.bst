@@ -4,6 +4,11 @@
 kind: autotools
 description: GNU libtool
 
+# Note that public-stacks/runtime-minimal.bst build-depends on this element
+# via gcc-libs.bst -> _private/gcc-base.bst. So we have to use bootstrap/
+# elements in build-depends, and we cannot use
+# public-stacks/runtime-minimal.bst in runtime-depends.
+
 build-depends:
 - bootstrap/bash.bst
 - bootstrap/coreutils.bst
@@ -11,14 +16,15 @@ build-depends:
 - bootstrap/gcc.bst
 - bootstrap/grep.bst
 - bootstrap/make.bst
+- bootstrap/sed.bst
 - bootstrap/stripper.bst
 - components/autoconf.bst
 - components/automake.bst
 - components/m4.bst
 
-depends:
+runtime-depends:
 - components/file.bst
-- public-stacks/runtime-minimal.bst
+#- public-stacks/runtime-minimal.bst
 - components/sed.bst
 - components/symlinks.bst
 - components/utf-locale.bst

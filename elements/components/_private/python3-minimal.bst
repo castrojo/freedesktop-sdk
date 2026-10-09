@@ -8,6 +8,7 @@ kind: autotools
 
 build-depends:
 - bootstrap/bash.bst
+- bootstrap/bzip2.bst
 - bootstrap/coreutils.bst
 - bootstrap/gawk.bst
 - bootstrap/gcc.bst
@@ -15,15 +16,19 @@ build-depends:
 - bootstrap/make.bst
 - bootstrap/sed.bst
 - bootstrap/stripper.bst
-- components/autoconf.bst
-
-depends:
-- bootstrap/bzip2.bst
-- bootstrap/glibc.bst
 - bootstrap/symlinks.bst
 - bootstrap/zlib-ng.bst
 - bootstrap/zstd.bst
-- components/utf-locale.bst
+- components/autoconf.bst
+
+# Note that public-stacks/runtime-minimal.bst build-depends on this element
+# via gcc-libs.bst -> gcc-base.bst.
+runtime-depends:
+- bootstrap/glibc.bst
+- components/bzip2.bst
+- components/symlinks.bst
+- components/zlib-ng.bst
+- components/zstd.bst
 
 variables:
   compileall-opts: -j1  # Used for deterministic compiling

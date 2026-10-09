@@ -12,12 +12,21 @@ build-depends:
 - bootstrap/grep.bst
 - bootstrap/make.bst
 - bootstrap/stripper.bst
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
+- bootstrap/gawk.bst
+#- public-stacks/runtime-minimal.bst
+- bootstrap/ncurses.bst
+- bootstrap/sed.bst
+- components/symlinks.bst
+- components/perl.bst
+- components/utf-locale.bst
 
-depends:
+runtime-depends:
 - components/bash.bst
 - components/coreutils.bst
 - components/gawk.bst
-- public-stacks/runtime-minimal.bst
+#- public-stacks/runtime-minimal.bst
 - components/ncurses.bst
 - components/sed.bst
 - components/symlinks.bst

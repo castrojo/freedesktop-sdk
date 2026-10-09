@@ -24,6 +24,13 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent.parent
 COMPONENTS_DIR = REPO / "elements" / "components"
 
+
+def component_files():
+    """All element files under components/ (including _private/)."""
+    files = sorted(COMPONENTS_DIR.glob("*.bst"))
+    files += sorted((COMPONENTS_DIR / "_private").glob("*.bst"))
+    return files
+
 # Mapping of bootstrap/ runtime deps to their replacement.
 #
 # Two kinds of replacement:
@@ -164,8 +171,9 @@ def scan_for_bootstrap(lines: list[str], name: str) -> list[str]:
 def verify() -> list[str]:
     """Check that no bootstrap/ refs remain in runtime lists (informational)."""
     problems = []
-    for path in sorted(COMPONENTS_DIR.glob("*.bst")):
-        problems += scan_for_bootstrap(path.read_text().splitlines(), path.name)
+    for path in component_files():
+        problems += scan_for_bootstrap(path.read_text().splitlines(),
+                                       path.relative_to(COMPONENTS_DIR).as_posix())
     return problems
 
 
@@ -182,9 +190,9 @@ def main():
     print("\n== Rewriting components/ runtime dependencies ==")
     total = 0
     new_contents = {}
-    for path in sorted(COMPONENTS_DIR.glob("*.bst")):
+    for path in component_files():
         changes, new_lines = process_file(path, dry_run=args.dry_run)
-        new_contents[path.name] = new_lines
+        new_contents[path.relative_to(COMPONENTS_DIR).as_posix()] = new_lines
         for c in changes:
             print(f"  {c}")
             total += 1

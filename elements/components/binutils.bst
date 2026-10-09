@@ -1,8 +1,10 @@
 # SPDX-FileCopyrightText: Freedesktop-SDK Developers
 # SPDX-License-Identifier: MIT
 
-kind: stack
+kind: filter
 
-depends:
-- public-stacks/runtime-minimal.bst
-- components/binutils.bst
+build-depends:
+- bootstrap/binutils.bst
+
+#runtime-depends:
+#- public-stacks/runtime-minimal.bst

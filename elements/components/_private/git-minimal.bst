@@ -23,7 +23,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/zlib-ng.bst
+- components/zlib-ng.bst
 
 variables:
   meson-local: >-

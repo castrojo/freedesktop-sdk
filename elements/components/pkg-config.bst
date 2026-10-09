@@ -18,8 +18,8 @@ build-depends:
 - components/libtool.bst
 - components/m4.bst
 
-depends:
-- public-stacks/runtime-minimal.bst
+runtime-depends:
+#- public-stacks/runtime-minimal.bst
 - components/symlinks.bst
 - components/utf-locale.bst
 
