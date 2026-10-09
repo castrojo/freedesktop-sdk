@@ -22,6 +22,7 @@ build-depends:
 - public-stacks/runtime-gnu.bst
 # Shipped by org.gnome.Platform
 - components/appstream.bst
+- components/krb5.bst
 - components/libapparmor.bst
 
 config:

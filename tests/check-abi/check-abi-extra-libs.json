@@ -1,4 +1,14 @@
 [
   "libappstream*",
-  "libapparmor*"
+  "libapparmor*",
+  "libgssapi_krb5*",
+  "libgssrpc*",
+  "libk5crypto*",
+  "libkadm5clnt*",
+  "libkadm5srv*",
+  "libkdb5*",
+  "libkrad*",
+  "libkrb5*",
+  "libverto*",
+  "libnimp*"
 ]
