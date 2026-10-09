@@ -17,22 +17,15 @@ build-depends:
 
 runtime-depends:
 - bootstrap/libxcrypt.bst
-- bootstrap/xz.bst
 - components/systemd-libs.bst
-- components/libgpg-error.bst
 - components/linux-pam.bst
 - components/systemd-manifest.bst
 - components/shadow.bst
-- components/util-linux-libfdisk.bst
 - components/util-linux-libs.bst
 # systemd services exist that call `agetty`, `fsck`, `mkswap` from util-linux-full.
 - components/util-linux-full.bst
 
 (?):
-- target_arch != "ppc64le":
-    runtime-depends:
-      (>):
-      - components/systemd-hwdb-maybe.bst
 - systemd_curl:
     runtime-depends:
       (>):
@@ -67,6 +60,16 @@ runtime-depends:
       (>):
       - components/libidn2.bst
       - components/libseccomp.bst
+- systemd_nonessential:
+    runtime-depends:
+      (>):
+      - bootstrap/xz.bst
+      - components/libgpg-error.bst
+      - components/util-linux-libfdisk.bst
+- target_arch != "ppc64le" and systemd_nonessential:
+    runtime-depends:
+      (>):
+      - components/systemd-hwdb-maybe.bst
 
 config:
   exclude:
