@@ -5,7 +5,7 @@ sources:
 - kind: git_repo
   url: freedesktop:gstreamer/gstreamer.git
   track: 1.*[02468].*
-  ref: 1.28.7-0-g070125524a8422e29d3b69a372ed4f62fd343ffa
+  ref: 1.28.8-0-g1b2a95a1b72787cda146b46df9605b168e5b683b
 - kind: patch_queue
   path: patches/gstreamer
 - kind: local
