@@ -138,6 +138,31 @@ variables:
     -Dldconfig=false
     -Dsysext=false
     -Dvmspawn=disabled
+    -Dimportd=disabled
+    -Dnspawn=disabled
+    -Doomd=false
+    -Dvconsole=false
+    -Dtranslations=false
+    -Dmountfsd=false
+    -Dnsresourced=false
+    -Dstoragetm=false
+    -Dimds=disabled
+    -Dsysupdate=disabled
+    -Dpolkit=disabled
+    -Dacl=disabled
+    -Dblkid=disabled
+    -Dfdisk=disabled
+    -Dkmod=disabled
+    -Dpasswdqc=disabled
+    -Dpwquality=disabled
+    -Dmicrohttpd=disabled
+    -Dlibcurl=disabled
+    -Dgcrypt=disabled
+    -Delfutils=disabled
+    -Dpcre2=disabled
+    -Dlibarchive=disabled
+    -Dsysusers=true
+    -Dtmpfiles=true
 
 config:
   install-commands:
