@@ -10,7 +10,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/ncurses.bst
+- components/ncurses.bst
 
 variables:
   # https://github.com/gwsw/less/blob/v661-rel/README#L35

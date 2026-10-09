@@ -17,9 +17,9 @@ build-depends:
 - bootstrap/stripper.bst
 
 depends:
-- bootstrap/glibc.bst
-- bootstrap/libxcrypt.bst
-- bootstrap/symlinks.bst
+- public-stacks/runtime-minimal.bst
+- components/libxcrypt.bst
+- components/symlinks.bst
 - components/utf-locale.bst
 
 environment:

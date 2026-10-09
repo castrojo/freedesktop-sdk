@@ -10,8 +10,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/xz.bst
-- bootstrap/zlib-ng.bst
+- components/xz.bst
+- components/zlib-ng.bst
 - components/icu.bst
 
 variables:

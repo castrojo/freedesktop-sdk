@@ -11,7 +11,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/ncurses.bst
+- components/ncurses.bst
 - components/file.bst
 
 config:

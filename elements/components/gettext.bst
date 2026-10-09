@@ -18,13 +18,13 @@ build-depends:
 - bootstrap/stripper.bst
 
 depends:
-- bootstrap/glibc.bst
-- bootstrap/symlinks.bst
+- public-stacks/runtime-minimal.bst
+- components/symlinks.bst
 - components/utf-locale.bst
 
 runtime-depends:
-- bootstrap/diffutils.bst
-- bootstrap/findutils.bst
+- components/diffutils.bst
+- components/findutils.bst
 - components/gzip.bst
 - components/tar.bst
 

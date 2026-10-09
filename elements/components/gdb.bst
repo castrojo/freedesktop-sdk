@@ -15,7 +15,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/xxhash.bst
+- components/xxhash.bst
 - components/elfutils.bst
 - components/gmp.bst
 - components/mpfr.bst

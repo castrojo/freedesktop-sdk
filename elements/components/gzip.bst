@@ -4,8 +4,8 @@
 kind: stack
 
 depends:
-- bootstrap/bash.bst
-- bootstrap/glibc.bst
-- bootstrap/gzip.bst
-- bootstrap/symlinks.bst
+- components/bash.bst
+- public-stacks/runtime-minimal.bst
+- components/gzip.bst
+- components/symlinks.bst
 - components/utf-locale.bst

@@ -14,6 +14,7 @@ description: |
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- bootstrap/pcre2.bst
 - components/_private/glib-stage1.bst
 - components/_private/gobject-introspection-base.bst
 - components/python3-gi-docgen.bst
@@ -22,12 +23,12 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/libffi.bst
-- components/pcre2.bst
 # GIO uses libmount
 - components/util-linux-libs.bst
 
 runtime-depends:
 - components/elfutils.bst
+- components/pcre2.bst
 
 variables:
   meson-local: >-

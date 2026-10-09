@@ -14,13 +14,13 @@ build-depends:
 - bootstrap/stripper.bst
 
 depends:
-- bootstrap/bash.bst
-- bootstrap/coreutils.bst
-- bootstrap/gawk.bst
-- bootstrap/glibc.bst
-- bootstrap/ncurses.bst
-- bootstrap/sed.bst
-- bootstrap/symlinks.bst
+- components/bash.bst
+- components/coreutils.bst
+- components/gawk.bst
+- public-stacks/runtime-minimal.bst
+- components/ncurses.bst
+- components/sed.bst
+- components/symlinks.bst
 - components/perl.bst
 - components/utf-locale.bst
 

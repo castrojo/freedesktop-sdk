@@ -16,8 +16,8 @@ build-depends:
 - components/_private/systemd-base.bst
 
 runtime-depends:
-- bootstrap/libxcrypt.bst
-- bootstrap/xz.bst
+- components/libxcrypt.bst
+- components/xz.bst
 - components/systemd-libs.bst
 - components/audit.bst
 - components/libapparmor.bst

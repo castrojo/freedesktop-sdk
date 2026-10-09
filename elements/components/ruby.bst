@@ -8,8 +8,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/zlib-ng.bst
-- bootstrap/libxcrypt.bst
+- components/zlib-ng.bst
+- components/libxcrypt.bst
 - components/libffi.bst
 - components/gdbm.bst
 - components/libyaml.bst

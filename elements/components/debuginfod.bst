@@ -11,7 +11,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/elfutils.bst
+- components/elfutils.bst
 - components/bzip2.bst
 - components/curl.bst
 - components/json-c.bst

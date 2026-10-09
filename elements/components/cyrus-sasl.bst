@@ -9,7 +9,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/libxcrypt.bst
+- components/libxcrypt.bst
 - components/gdbm.bst
 - components/openssl.bst
 - components/sqlite.bst

@@ -15,8 +15,8 @@ build-depends:
 - components/m4.bst
 
 depends:
-- bootstrap/glibc.bst
-- bootstrap/symlinks.bst
+- public-stacks/runtime-minimal.bst
+- components/symlinks.bst
 - components/perl.bst
 - components/utf-locale.bst
 

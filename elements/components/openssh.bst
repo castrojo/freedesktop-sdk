@@ -9,7 +9,7 @@ build-depends:
 - components/openssl.bst
 
 depends:
-- bootstrap/libxcrypt.bst
+- components/libxcrypt.bst
 - public-stacks/runtime-minimal.bst
 - components/libfido2.bst
 - components/systemd-libs.bst # libfido2 depends on udev

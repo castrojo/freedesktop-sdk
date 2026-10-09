@@ -9,10 +9,10 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/zlib-ng.bst
+- components/zlib-ng.bst
 
 runtime-depends:
-- bootstrap/grep.bst # needed for create-cracklib-dict
+- components/grep.bst
 
 variables:
   autogen: |

@@ -4,6 +4,6 @@
 kind: stack
 
 depends:
-- bootstrap/binutils.bst
-- bootstrap/stripper.bst
+- components/binutils.bst
+- components/stripper.bst
 - components/gcc-libs.bst

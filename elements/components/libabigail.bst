@@ -8,8 +8,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/binutils.bst
-- bootstrap/xxhash.bst
+- components/binutils.bst
+- components/xxhash.bst
 - components/elfutils.bst
 - components/libxml2.bst
 

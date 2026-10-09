@@ -7,8 +7,8 @@ build-depends:
 - components/_private/flex-base.bst
 
 runtime-depends:
-- bootstrap/glibc.bst
-- bootstrap/symlinks.bst
+- public-stacks/runtime-minimal.bst
+- components/symlinks.bst
 - components/utf-locale.bst
 
 config:

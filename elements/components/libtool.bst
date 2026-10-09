@@ -17,10 +17,10 @@ build-depends:
 - components/m4.bst
 
 depends:
-- bootstrap/file.bst
-- bootstrap/glibc.bst
-- bootstrap/sed.bst
-- bootstrap/symlinks.bst
+- components/file.bst
+- public-stacks/runtime-minimal.bst
+- components/sed.bst
+- components/symlinks.bst
 - components/utf-locale.bst
 
 public:

@@ -8,8 +8,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/xxhash.bst
-- bootstrap/xz.bst
+- components/xxhash.bst
+- components/xz.bst
 - components/fuse3.bst
 - components/lz4.bst
 # Uses libuuid only

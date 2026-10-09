@@ -18,6 +18,6 @@ build-depends:
 - bootstrap/stripper.bst
 
 depends:
-- bootstrap/glibc.bst
-- bootstrap/symlinks.bst
+- public-stacks/runtime-minimal.bst
+- components/symlinks.bst
 - components/utf-locale.bst

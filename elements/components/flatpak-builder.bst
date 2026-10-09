@@ -11,7 +11,7 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/debugedit.bst
+- components/debugedit.bst
 - components/curl.bst
 - components/docbook-xsl.bst
 - components/flatpak.bst

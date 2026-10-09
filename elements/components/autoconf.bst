@@ -12,11 +12,11 @@ build-depends:
 - bootstrap/stripper.bst
 
 depends:
-- bootstrap/gawk.bst
-- bootstrap/glibc.bst
-- bootstrap/grep.bst
-- bootstrap/sed.bst
-- bootstrap/symlinks.bst
+- components/gawk.bst
+- public-stacks/runtime-minimal.bst
+- components/grep.bst
+- components/sed.bst
+- components/symlinks.bst
 - components/m4.bst
 - components/perl.bst
 - components/utf-locale.bst

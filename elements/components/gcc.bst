@@ -8,9 +8,9 @@ build-depends:
 
 runtime-depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/binutils.bst
-- bootstrap/libxcrypt.bst
-- bootstrap/zstd.bst
+- components/binutils.bst
+- components/libxcrypt.bst
+- components/zstd.bst
 - components/gcc-libs.bst
 - components/gcc-manifest.bst
 

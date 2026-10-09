@@ -20,9 +20,9 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
-- bootstrap/bzip2.bst
-- bootstrap/xz.bst
-- bootstrap/zlib-ng.bst
+- components/bzip2.bst
+- components/xz.bst
+- components/zlib-ng.bst
 - components/expat.bst
 - components/gdbm.bst
 - components/libffi.bst
