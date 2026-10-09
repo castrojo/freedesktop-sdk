@@ -11,5 +11,5 @@ depends:
 - bootstrap/bash.bst
 - components/os-release.bst
 - components/systemd.bst
-- vm/micro/tzdata.bst
 - vm/base-filesystem.bst
+- vm/micro/tzdata.bst
