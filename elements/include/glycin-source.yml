@@ -9,7 +9,7 @@ sources:
   - "*alpha*"
   - "*beta*"
   - "*rc*"
-  ref: 2.2.1-0-g6b7226d495755772bcd4bcfb5c8051a446e625ef
+  ref: 2.2.2-0-gc66668a0fe73c6c54608b3ebea62653945ad8a2b
 - kind: cargo2
   ref:
   - kind: registry
