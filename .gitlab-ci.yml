@@ -420,7 +420,13 @@ micro_vm_image_x86_64:
     - make checkout/x86_64/vm/micro/virt.bst/usr/lib/os-release
     - make checkout/x86_64/vm/boot/micro.bst/vmlinuz
     - test -x checkout/x86_64/vm/micro/virt.bst/usr/lib/systemd/systemd
-    - du -c -B1 checkout/x86_64/vm/micro/virt.bst checkout/x86_64/vm/boot/micro.bst > checkout/x86_64/dir_sizes_B.tsv
+    - |
+      {
+        du -B1 checkout/x86_64/vm/boot/micro.bst/vmlinuz | awk '{print $1 "\tkernel"}'
+        du -B1 checkout/x86_64/vm/boot/micro.bst/initramfs.gz | awk '{print $1 "\tinitramfs"}'
+        du -B1 checkout/x86_64/vm/micro/virt.bst | awk '{print $1 "\troot"}'
+        du -c -B1 checkout/x86_64/vm/micro/virt.bst checkout/x86_64/vm/boot/micro.bst | tail -n1
+      } > checkout/x86_64/dir_sizes_B.tsv
     - utils/test_minimal_size.py
     - |
       if [ "${DIALOG+set}" = set ]; then

@@ -43,6 +43,8 @@ def main():
         # Last line of `du` output is the total size of the filesystem
         dir_sizes = dir_sizes_file.read_text().splitlines()
         if len(dir_sizes) > 0:
+            for line in dir_sizes[:-1]:
+                print(f"Filesystem part: {line}")
             dir_size = dir_sizes[-1]
             print(f"Filesystem size: {dir_size}")
 
