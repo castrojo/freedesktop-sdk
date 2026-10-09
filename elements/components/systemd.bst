@@ -19,11 +19,8 @@ runtime-depends:
 - bootstrap/libxcrypt.bst
 - bootstrap/xz.bst
 - components/systemd-libs.bst
-- components/audit.bst
-- components/libapparmor.bst
 - components/libgpg-error.bst
 - components/linux-pam.bst
-- components/kmod.bst
 - components/systemd-manifest.bst
 - components/tzdata.bst
 - components/shadow.bst
@@ -33,9 +30,6 @@ runtime-depends:
 - components/util-linux-full.bst
 - components/libidn2.bst
 - components/libseccomp.bst
-- components/p11-kit.bst
-- components/libapparmor.bst
-- components/libmicrohttpd.bst
 
 (?):
 - target_arch != "ppc64le":
@@ -59,6 +53,14 @@ runtime-depends:
     runtime-depends:
       (>):
       - components/openssl.bst
+- systemd_optional:
+    runtime-depends:
+      (>):
+      - components/audit.bst
+      - components/libapparmor.bst
+      - components/kmod.bst
+      - components/p11-kit.bst
+      - components/libmicrohttpd.bst
 
 config:
   exclude:
