@@ -33,7 +33,7 @@ sources:
 - kind: pypi
   name: aiohttp
   ref:
-    sha256sum: 9491196535a88924a60afd5b5f434b5b203b6cc616250878dbdb223a8f7844bc
-    suffix: 58/d9/22ce5786ac0c1653ae8b6c23bded02c1686d11f0dbb45b31ce128e0df985/aiohttp-3.14.3.tar.gz
+    sha256sum: 5558a7f5a05af9ecf744af91e5baefc436f93c9333e656c27ec253f9a6bbe178
+    suffix: 6c/4c/bdccd81e9ee225b69c60e7766c9a5b05364f118f4d383713b89a682d772d/aiohttp-3.14.5.tar.gz
 - kind: patch
   path: patches/python3-aiohttp/0001-Fix-Cython-3.3.0-compiler-crash-when-compiling-the-W.patch
