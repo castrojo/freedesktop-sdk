@@ -7,4 +7,4 @@ sources:
   track: pkgconf-*
   exclude:
   - pkgconf-*.9*.9*
-  ref: pkgconf-3.0.7-0-g0c9e506b64124d8727b68d8af0ed73739e66e2ba
+  ref: pkgconf-3.0.8-0-gc942f2ec2f7e2b1e4d874d694cd92648a70e5c6e
