@@ -115,6 +115,12 @@ variables:
     %{rust_target_arch_flags}
     %{rust_local_flags}
 
+  # Go disables GCC switch recording to avoid embedding non-reproducible build paths.
+  # Preserve this behavior when passing our target flags to cgo.
+  cgo_target_flags: >-
+    %{target_flags}
+    -gno-record-gcc-switches
+
   #####################################################
   #                    Linker flags                   #
   #####################################################
@@ -172,7 +178,7 @@ environment:
   CXXFLAGS: "%{target_flags}"
   LDFLAGS:  "%{ldflags_defaults}"
   RUSTFLAGS:  "%{rust_target_flags}"
-  CGO_CFLAGS: "%{target_flags}"
-  CGO_CXXFLAGS: "%{target_flags}"
+  CGO_CFLAGS: "%{cgo_target_flags}"
+  CGO_CXXFLAGS: "%{cgo_target_flags}"
   CGO_LDFLAGS: "%{ldflags_defaults}"
   GOFLAGS: "%{goflags}"
