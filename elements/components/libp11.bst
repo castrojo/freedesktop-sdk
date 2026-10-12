@@ -51,5 +51,5 @@ public:
 sources:
 - kind: git_repo
   url: github:OpenSC/libp11.git
-  track: libp11-*
+  track: libp11-0.4.20.*
   ref: libp11-0.4.20-0-g61dc3acf95b859c88844e000001a99948c0abb48
