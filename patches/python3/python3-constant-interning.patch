@@ -1,0 +1,823 @@
+From 627eabf31cf9a2ab39761492493e1e06a6526e9b Mon Sep 17 00:00:00 2001
+From: "Gregory P. Smith" <68491+gpshead@users.noreply.github.com>
+Date: Mon, 12 Oct 2026 21:37:55 -0700
+Subject: [PATCH] gh-129724: Intern string constants in the compiler, not per
+ code object (GH-159193)
+
+The compiler merges equal constants of a module through its constant
+cache.  intern_constants() then ran on each code object and rebuilt a
+frozenset (or, in the free-threaded build, a slice) when one of its
+strings was replaced by an already interned one, so a constant shared by
+several functions was copied for some of them depending on which strings
+happened to be interned in the process.  The class body's __qualname__
+constant and co_qualname had the same problem.  marshal then wrote
+different bytes for the same source.
+
+Intern the eligible strings of the final constants of each code unit
+after optimization and before the code object is created.  Tuples are
+updated in place; a frozenset or slice is rebuilt once and stored in the
+constant cache so that later units get the same object.  The same code
+is used in both builds.
+
+Which strings are interned does not change, except that identifier-like
+strings in slice constants are now interned in the default build too.
+
+TestConstantsIdentity compares the identity graph and the marshal
+output of code compiled in differently prepared processes, including
+names tuples shared with constants.
+---
+ Include/internal/pycore_code.h                |   4 +
+ Lib/test/test_compile.py                      | 527 ++++++++++++++++++
+ ...-10-11-01-41-31.gh-issue-129724.Kq3vTz.rst |  11 +
+ Objects/codeobject.c                          |   6 +-
+ Python/compile.c                              | 153 +++++
+ 5 files changed, 698 insertions(+), 3 deletions(-)
+ create mode 100644 Misc/NEWS.d/next/Core_and_Builtins/2026-10-11-01-41-31.gh-issue-129724.Kq3vTz.rst
+
+diff --git a/Include/internal/pycore_code.h b/Include/internal/pycore_code.h
+index 293c1ea4414e23e..aeb2ad06ad07cb7 100644
+--- a/Include/internal/pycore_code.h
++++ b/Include/internal/pycore_code.h
+@@ -664,6 +664,10 @@
+ PyAPI_FUNC(int) _PyCode_CheckPureFunction(PyCodeObject *, const char **);
+ PyAPI_FUNC(int) _PyCode_ReturnsOnlyNone(PyCodeObject *);
+
+
++// Return true if the string constant *o* gets interned when it is stored in
++// the co_consts of a code object. *o* must be an exact str.
++extern int _PyCode_ShouldInternString(PyObject *o);
++
+ #ifdef __cplusplus
+ }
+diff --git a/Lib/test/test_compile.py b/Lib/test/test_compile.py
+index 8b6a07be477dcc5..53b4be1e75b65a1 100644
+--- a/Lib/test/test_compile.py
++++ b/Lib/test/test_compile.py
+@@ -1,7 +1,11 @@
+ import contextlib
++import dataclasses
+ import dis
++import inspect
+ import io
+ import itertools
++import json
++import marshal
+ import math
+ import opcode
+ import os
+@@ -22,6 +26,7 @@
+ from test.support import (script_helper, requires_debug_ranges, run_code,
+                           requires_specialization)
+ from test.support.bytecode_helper import instructions_with_positions
++from test.support import os_helper
+ from test.support.os_helper import FakePath
+ 
+ class TestSpecifics(unittest.TestCase):
+@@ -2033,6 +2038,528 @@ def test_pep_765_no_warnings(self, src):
+             compile(src, '<string>', 'exec')
+ 
+ 
++# The functions describe_code(), compile_and_describe() and
++# prepare_process_state() are also run in child processes by
++# TestConstantsIdentity: their source is passed to the child, which imports
++# the modules they use.
++
++def describe_code(code):
++    """Describe the constants and the names of a code object.
++
++    The description has their values, which strings are interned, and
++    which of them are the same object: the n-th distinct str, bytes, tuple,
++    frozenset or slice is described once and then referred to
++    as ['ref', n].
++    """
++    code_type = type(code)
++    seen = {}
++    keep = []
++
++    def describe(obj):
++        if isinstance(obj, code_type):
++            return ['code', [describe(getattr(obj, name)) for name in (
++                'co_name', 'co_qualname', 'co_filename', 'co_consts',
++                'co_names', 'co_varnames', 'co_freevars', 'co_cellvars',
++                'co_linetable', 'co_exceptiontable')]]
++        if not isinstance(obj, (str, bytes, tuple, frozenset, slice)):
++            return [type(obj).__name__, repr(obj)]
++        if id(obj) in seen:
++            return ['ref', seen[id(obj)]]
++        seen[id(obj)] = len(seen)
++        keep.append(obj)
++        if isinstance(obj, str):
++            return ['str', obj, sys._is_interned(obj)]
++        if isinstance(obj, bytes):
++            return ['bytes', obj.hex()]
++        if isinstance(obj, tuple):
++            items = obj
++        elif isinstance(obj, frozenset):
++            items = sorted(obj, key=repr)
++        else:
++            items = [obj.start, obj.stop, obj.step]
++        return [type(obj).__name__, [describe(item) for item in items]]
++
++    return describe(code)
++
++
++def compile_and_describe(source, use_ast):
++    """Compile source; return the code object and what depends on identity.
++
++    If use_ast is true, compile an AST in which the set displays are
++    frozenset constants.
++    """
++    if use_ast:
++        class Transformer(ast.NodeTransformer):
++            def visit_Set(self, node):
++                value = frozenset(ast.literal_eval(node))
++                return ast.copy_location(ast.Constant(value), node)
++        source = Transformer().visit(ast.parse(source))
++    # The marshal format also depends on reference counts (gh-156504),
++    # which a collection changes in the free-threaded build.
++    with support.disable_gc():
++        # The result must not depend on the -O option of the process.
++        code = compile(source, '<test>', 'exec', optimize=0)
++        dump = marshal.dumps(code)
++
++    def constants(code):
++        for const in code.co_consts:
++            if isinstance(const, type(code)):
++                yield from constants(const)
++            elif isinstance(const, (frozenset, slice)):
++                yield const
++    consts = list(constants(code))
++    return code, {
++        # the number of frozenset and slice constants,
++        # and the number of distinct objects among them
++        'shared': [len(consts), len(set(map(id, consts)))],
++        'graph': describe_code(code),
++        'dump': dump.hex(),
++    }
++
++
++def prepare_process_state(mode, source, strings, use_ast):
++    """Change the state of the process in a way which must not change
++    the result of compiling source; return what has to be kept alive."""
++    if mode == 'fresh':
++        return None
++    if mode == 'interned':
++        return [sys.intern(s) for s in strings]
++    if mode == 'interned_some':
++        return [sys.intern(s) for s in strings[::2]]
++    if mode == 'name':
++        # The names of a code object are interned and immortal.
++        names = [s for s in strings if s.isidentifier()]
++        return compile('\n'.join(names), '<names>', 'exec', optimize=0)
++    if mode == 'constant':
++        # The constants of a code object are interned while it is alive.
++        return compile(f'x = {strings!r}', '<constants>', 'exec',
++                       optimize=0)
++    if mode == 'compiled':
++        # The same source was compiled and its code object is alive.
++        return compile_and_describe(source, use_ast)[0]
++    raise ValueError(mode)
++
++
++class TestConstantsIdentity(unittest.TestCase):
++    # gh-129724: which constants and names of the code objects created by a
++    # compilation are the same object, and so the output of marshal.dumps(),
++    # must not depend on the state of the process: the strings which are
++    # already interned, or the code which was compiled before.
++
++    @dataclasses.dataclass(frozen=True)
++    class Case:
++        # "ID" in source and in strings is replaced by a prefix which makes
++        # the strings of each case unique, to compile them all in one
++        # process.
++        source: str
++        # The strings to intern before compiling.
++        strings: list[str]
++        # The number of frozenset and slice constants in the code objects,
++        # and the number of distinct objects among them.
++        frozensets_and_slices: int = 0
++        distinct: int = 0
++        # Compile an AST with frozenset constants.  In the free-threaded
++        # build, the constants of code compiled from an AST are also
++        # interned.
++        use_ast: bool = False
++
++    @dataclasses.dataclass(frozen=True)
++    class Job:
++        # What a process compiles: a case with "ID" replaced.
++        key: str
++        source: str
++        strings: list[str]
++        use_ast: bool
++
++    CASES = {
++        'contains_set': Case(
++            source="""
++                def f(x):
++                    if x in {"ID_a", "ID_b"}:
++                        return "f"
++                def g(x):
++                    if x not in {"ID_a", "ID_b"}:
++                        return "g"
++                """,
++            strings=['ID_a', 'ID_b'],
++            frozensets_and_slices=2, distinct=1),
++        'iter_set': Case(
++            source="""
++                def f():
++                    for x in {"ID_a", "ID_b"}:
++                        yield "f"
++                def g():
++                    for x in {"ID_a", "ID_b"}:
++                        yield "g"
++                """,
++            strings=['ID_a', 'ID_b'],
++            frozensets_and_slices=2, distinct=1),
++        'set_display': Case(
++            source="""
++                a = {"ID_a", 2, 3}
++                def f():
++                    b = {"ID_a", 2, 3}
++                """,
++            strings=['ID_a'],
++            frozensets_and_slices=2, distinct=1),
++        'several_sets': Case(
++            source="""
++                def f(x):
++                    if x in {"ID_a", "ID_b", "ID_c"}:
++                        return x in {"ID_0", "ID_1", "ID_2"}
++                def g(x):
++                    return x in {"ID_0", "ID_1", "ID_2"}
++                """,
++            strings=['ID_0', 'ID_a'],
++            frozensets_and_slices=3, distinct=2),
++        'folded_strings_in_set': Case(
++            source="""
++                def f(x):
++                    return "f", x in {"ID_" + "a", "ID_b" * 2}
++                def g(x):
++                    return "g", x in {"ID_" + "a", "ID_b" * 2}
++                """,
++            strings=['ID_a', 'ID_bID_b', 'ID_', 'ID_b'],
++            frozensets_and_slices=2, distinct=1),
++        'tuple_in_set': Case(
++            source="""
++                def f(x):
++                    return "f", x in {("ID_a", "ID_b"), "ID_c"}
++                def g(x):
++                    return "g", x in {("ID_a", "ID_b"), "ID_c"}
++                def h(x):
++                    return "h", x in {("ID_a", ("ID_b",)), 1}
++                def i(x):
++                    return "i", x in {("ID_a", ("ID_b",)), 1}
++                """,
++            strings=['ID_a', 'ID_b', 'ID_c'],
++            frozensets_and_slices=4, distinct=2),
++        'set_in_tuple': Case(
++            source="""
++                def f(x):
++                    return x in {"ID_a", "ID_b"}
++                def g(x):
++                    return (1, x in {"ID_a", "ID_b"})
++                def h(x):
++                    return [x in {"ID_a", "ID_b"}, 2]
++                """,
++            strings=['ID_a', 'ID_b'],
++            frozensets_and_slices=3, distinct=1),
++        # These strings are only interned by the free-threaded build.
++        'not_identifier_strings': Case(
++            source="""
++                def f(x):
++                    return "f", x in {"ID a", "ID-b"}
++                def g(x):
++                    return "g", x in {"ID a", "ID-b"}
++                """,
++            strings=['ID a', 'ID-b'],
++            frozensets_and_slices=2, distinct=1),
++        'tuple': Case(
++            source="""
++                def f():
++                    return "f", ("ID_a", "ID b", ("ID_c", 1.5))
++                def g():
++                    return "g", ("ID_a", "ID b", ("ID_c", 1.5)), "ID_c"
++                """,
++            strings=['ID_a', 'ID b', 'ID_c']),
++        'slice': Case(
++            source="""
++                def f(x):
++                    return "f", x["ID_a":"ID_b"]
++                def g(x):
++                    return "g", x["ID_a":"ID_b"]
++                def h(x):
++                    return "h", x["ID c":"ID-d":2]
++                def i(x):
++                    return "i", x["ID c":"ID-d":2]
++                """,
++            strings=['ID_a', 'ID_b', 'ID c', 'ID-d'],
++            frozensets_and_slices=4, distinct=2),
++        # The strings of the slice are also a name, an attribute
++        # and a constant.
++        'slice_of_names': Case(
++            source="""
++                def f(x):
++                    return x["ID_a":"ID_b":"ID_c"]
++                def g(x, ID_a):
++                    return x["ID_a":"ID_b":"ID_c"].ID_b, "ID_c"
++                """,
++            strings=['ID_a', 'ID_b', 'ID_c'],
++            frozensets_and_slices=2, distinct=1),
++        # The qualified name is a constant of the body of a class.
++        'class_qualname': Case(
++            source="""
++                class ID_A:
++                    class ID_B:
++                        pass
++                def f():
++                    class ID_C:
++                        pass
++                    return "f.<locals>.ID_C"
++                class ID_A:
++                    class ID_B:
++                        pass
++                """,
++            strings=['ID_A.ID_B', 'f.<locals>.ID_C', 'ID_A']),
++        # A private name is mangled by each compilation: the string is new,
++        # unlike the identifiers that the parser interns.  The methods
++        # have the same co_names.
++        'mangled_names': Case(
++            source="""
++                class ID_A:
++                    def f(self):
++                        return self.__x
++                    def g(self):
++                        return [self.__x]
++                """,
++            strings=['_ID_A__x']),
++        # The methods have the same names of local variables.
++        'mangled_varnames': Case(
++            source="""
++                class ID_A:
++                    def f(self, __x):
++                        return __x
++                    def g(self, __x):
++                        return [__x]
++                """,
++            strings=['_ID_A__x']),
++        # The names of the keyword arguments are a constant equal to
++        # the co_names of the function.
++        'kwnames': Case(
++            source="""
++                def f():
++                    return ID_a(ID_a=1)
++                class ID_A:
++                    def f(self):
++                        return self.__x(_ID_A__x=1)
++                """,
++            strings=['ID_a', '_ID_A__x']),
++        # The names to import are a constant equal to the co_names.
++        'fromlist': Case(
++            source="""
++                def f():
++                    from ID_a import ID_a
++                """,
++            strings=['ID_a']),
++        # __static_attributes__ is a constant of the body of the class,
++        # equal to the co_names of the method.
++        'static_attributes': Case(
++            source="""
++                class ID_A:
++                    def f(self):
++                        self.ID_a = 1
++                """,
++            strings=['ID_a']),
++        'ast_constants': Case(
++            source="""
++                def f(x):
++                    return "f", x in {"ID_a", ("ID_b", "ID_c")}
++                def g(x):
++                    return "g", x in {"ID_a", ("ID_b", "ID_c")}
++                """,
++            strings=['ID_a', 'ID_b', 'ID_c'],
++            frozensets_and_slices=2, distinct=1,
++            use_ast=True),
++    }
++
++    @classmethod
++    def jobs(cls, tag):
++        # A Job for each of the cases.  The prefix depends on tag: a
++        # process compiles a source with given strings only once.
++        jobs = []
++        for name, case in cls.CASES.items():
++            prefix = f'gh129724{tag}_{name}'
++            jobs.append(cls.Job(
++                key=f'{tag}:{name}',
++                source=textwrap.dedent(case.source).replace('ID', prefix),
++                strings=[s.replace('ID', prefix) for s in case.strings],
++                use_ast=case.use_ast))
++        return jobs
++
++    @classmethod
++    def run_child(cls, mode, jobs):
++        # Compile the sources of all the jobs in one new process,
++        # each after prepare_process_state(mode, ...).  The jobs are passed
++        # in a file: they can be too long for a command line.
++        with os_helper.temp_dir() as tmpdir:
++            filename = os.path.join(tmpdir, 'jobs.json')
++            with open(filename, 'w', encoding='utf-8') as file:
++                json.dump([dataclasses.asdict(job) for job in jobs], file)
++            rc, out, err = script_helper.assert_python_ok(
++                '-c', cls.child, mode, filename)
++        return json.loads(out)
++
++    @classmethod
++    def setUpClass(cls):
++        cls.child = '\n'.join([
++            textwrap.dedent("""\
++                import ast
++                import json
++                import marshal
++                import sys
++                from test import support
++                """),
++            inspect.getsource(describe_code),
++            inspect.getsource(compile_and_describe),
++            inspect.getsource(prepare_process_state),
++            textwrap.dedent("""\
++                mode = sys.argv[1]
++                keep = []
++                results = {}
++                with open(sys.argv[2], encoding='utf-8') as file:
++                    jobs = json.load(file)
++                for job in jobs:
++                    keep.append(prepare_process_state(
++                        mode, job['source'], job['strings'], job['use_ast']))
++                    code, results[job['key']] = compile_and_describe(
++                        job['source'], job['use_ast'])
++                    keep.append(code)
++                print(json.dumps(results))
++                """)])
++        # The reference: what a process which did nothing else gives.
++        # The tags are for the tests in child processes, and for each of
++        # the tests in this process.
++        cls.fresh = cls.run_child(
++            'fresh', cls.jobs('c') + cls.jobs('t') + cls.jobs('i'))
++
++    def check(self, key, result):
++        fresh = self.fresh[key]
++        self.assertEqual(result['shared'], fresh['shared'])
++        self.assertEqual(result['graph'], fresh['graph'])
++        self.assertEqual(result['dump'], fresh['dump'])
++
++    def check_child(self, mode):
++        jobs = self.jobs('c')
++        results = self.run_child(mode, jobs)
++        for job in jobs:
++            with self.subTest(job.key):
++                self.check(job.key, results[job.key])
++
++    def test_fresh(self):
++        # equal constants are the same object
++        for name, case in self.CASES.items():
++            with self.subTest(name):
++                self.assertEqual(self.fresh[f'c:{name}']['shared'],
++                                 [case.frozensets_and_slices, case.distinct])
++
++    def test_interned(self):
++        self.check_child('interned')
++
++    def test_interned_some(self):
++        self.check_child('interned_some')
++
++    def test_name(self):
++        self.check_child('name')
++
++    def test_constant(self):
++        self.check_child('constant')
++
++    def test_compiled(self):
++        self.check_child('compiled')
++
++    def test_same_process_compiled_twice(self):
++        # Compile twice in this process, which has done many other things,
++        # and keep the first code object alive.
++        for job in self.jobs('t'):
++            with self.subTest(job.key):
++                first_code, first = compile_and_describe(job.source,
++                                                         job.use_ast)
++                second_code, second = compile_and_describe(job.source,
++                                                           job.use_ast)
++                self.check(job.key, first)
++                self.check(job.key, second)
++
++    def test_same_process_interned(self):
++        for job in self.jobs('i'):
++            with self.subTest(job.key):
++                keep = prepare_process_state('interned', job.source,
++                                             job.strings, job.use_ast)
++                code, result = compile_and_describe(job.source, job.use_ast)
++                self.check(job.key, result)
++
++    def test_names_tuples(self):
++        # Code objects with equal names share one tuple, and a constant
++        # equal to the names is that same tuple, whatever was compiled
++        # before.  The mangled names are new strings in each compilation.
++        source = textwrap.dedent("""
++            class gh129724_names_A:
++                def f(self):
++                    return self.__x
++                def g(self):
++                    return [self.__x]
++                def kwnames(self):
++                    return self.__y(_gh129724_names_A__y=1)
++            def fromlist():
++                from gh129724_names_m import gh129724_names_m
++            class gh129724_names_B:
++                def static_attribute(self):
++                    self.gh129724_names_s = 1
++            """)
++        def code_constants(code):
++            return [const for const in code.co_consts
++                    if isinstance(const, types.CodeType)]
++        keep = []
++        for attempt in range(2):
++            with self.subTest(attempt=attempt):
++                code = compile(source, '<test>', 'exec', optimize=0)
++                keep.append(code)
++                body_a, fromlist, body_b = code_constants(code)
++                f, g, kwnames = code_constants(body_a)
++                static_attribute, = code_constants(body_b)
++                self.assertEqual(f.co_names, ('_gh129724_names_A__x',))
++                self.assertIs(f.co_names, g.co_names)
++                for names, consts in [
++                    (kwnames.co_names, kwnames.co_consts),
++                    (fromlist.co_names, fromlist.co_consts),
++                    # __static_attributes__
++                    (static_attribute.co_names, body_b.co_consts),
++                ]:
++                    self.assertEqual(len(names), 1)
++                    self.assertTrue(any(const is names for const in consts))
++
++    @support.cpython_only
++    def test_slice_strings(self):
++        # The strings of a slice constant are interned like the other
++        # constants, in all builds, and a slice with an equal name or
++        # constant has that same string, whatever was compiled before.
++        source = textwrap.dedent("""
++            def f(x):
++                return x["gh129724_slice_a":"gh129724 slice b"]
++            def g(x, gh129724_slice_a):
++                return x["gh129724_slice_a":"gh129724 slice b"]
++            def h(x):
++                y = x["gh129724_slice_a":"gh129724 slice b"]
++                return y.gh129724_slice_a
++            def i(x):
++                y = x["gh129724_slice_a":"gh129724 slice b"]
++                return y, "gh129724_slice_a"
++            """)
++        def slice_constant(code):
++            const, = [const for const in code.co_consts
++                      if isinstance(const, slice)]
++            return const
++        keep = []
++        for attempt in range(2):
++            with self.subTest(attempt=attempt):
++                code = compile(source, '<test>', 'exec', optimize=0)
++                keep.append(code)
++                f, g, h, i = [const for const in code.co_consts
++                              if isinstance(const, types.CodeType)]
++                const = slice_constant(f)
++                self.assertEqual(const.start, 'gh129724_slice_a')
++                self.assertEqual(const.stop, 'gh129724 slice b')
++                self.assertTrue(sys._is_interned(const.start))
++                # Only the free-threaded build interns all the strings.
++                self.assertEqual(sys._is_interned(const.stop),
++                                 support.Py_GIL_DISABLED)
++                for other in g, h, i:
++                    self.assertIs(slice_constant(other), const)
++                self.assertIs(g.co_varnames[1], const.start)
++                self.assertIs(h.co_names[0], const.start)
++                self.assertTrue(any(c is const.start for c in i.co_consts))
++
++
+ class TestBooleanExpression(unittest.TestCase):
+     class Value:
+         def __init__(self):
+diff --git a/Misc/NEWS.d/next/Core_and_Builtins/2026-10-11-01-41-31.gh-issue-129724.Kq3vTz.rst b/Misc/NEWS.d/next/Core_and_Builtins/2026-10-11-01-41-31.gh-issue-129724.Kq3vTz.rst
+new file mode 100644
+index 000000000000000..d48890278b50a30
+--- /dev/null
++++ b/Misc/NEWS.d/next/Core_and_Builtins/2026-10-11-01-41-31.gh-issue-129724.Kq3vTz.rst
+@@ -0,0 +1,11 @@
++Fix the output of :mod:`marshal` for compiled code, and so the content of
++``.pyc`` files, depending on what was imported or compiled before in the
++process.  A :class:`frozenset` constant (or, in the :term:`free-threaded
++build`, a :class:`slice` constant) used by several functions of a module was
++copied for each of them when one of its strings was equal to a string which
++was already interned.  The compiler now replaces the strings of the
++constants by the interned ones before the code objects are created, while
++equal constants are still one object.  Which strings are interned does not
++change, except for the strings of :class:`slice` constants made only of ASCII
++letters, digits and underscores, which are now interned in the default build
++like those of other constants.
+diff --git a/Objects/codeobject.c b/Objects/codeobject.c
+index 6b4bae40cc77de1..724243d2b8cfae1 100644
+--- a/Objects/codeobject.c
++++ b/Objects/codeobject.c
+@@ -113,8 +113,8 @@ PyCode_ClearWatcher(int watcher_id)
+ 
+ #define _PyCodeObject_CAST(op)  (assert(PyCode_Check(op)), (PyCodeObject *)(op))
+ 
+-static int
+-should_intern_string(PyObject *o)
++int
++_PyCode_ShouldInternString(PyObject *o)
+ {
+ #ifdef Py_GIL_DISABLED
+     // The free-threaded build interns (and immortalizes) all string constants
+@@ -206,7 +206,7 @@ intern_constants(PyObject *tuple, int *modified)
+     for (Py_ssize_t i = PyTuple_GET_SIZE(tuple); --i >= 0; ) {
+         PyObject *v = PyTuple_GET_ITEM(tuple, i);
+         if (PyUnicode_CheckExact(v)) {
+-            if (should_intern_string(v)) {
++            if (_PyCode_ShouldInternString(v)) {
+                 PyObject *w = v;
+                 _PyUnicode_InternMortal(interp, &v);
+                 if (w != v) {
+diff --git a/Python/compile.c b/Python/compile.c
+index ee29f7a9a5d5895..b574767a9180b1a 100644
+--- a/Python/compile.c
++++ b/Python/compile.c
+@@ -330,6 +330,14 @@ _PyCompile_SetQualname(compiler *c)
+     else {
+         name = Py_NewRef(u->u_metadata.u_name);
+     }
++    // The qualified name is interned when the code object is created,
++    // whatever its content.  The body of a class also has it as a constant,
++    // and intern_final_constants() only interns the constants selected by
++    // _PyCode_ShouldInternString().  Intern the other qualified names now,
++    // so that the same object is always used for both.
++    if (!_PyCode_ShouldInternString(name)) {
++        _PyUnicode_InternMortal(_PyInterpreterState_GET(), &name);
++    }
+     u->u_metadata.u_qualname = name;
+ 
+     return SUCCESS;
+@@ -1430,6 +1438,147 @@ consts_dict_keys_inorder(PyObject *dict)
+     return consts;
+ }
+ 
++/* Intern the strings of the constant *o* which intern_constants() in
++ * codeobject.c would intern when a code object is created.
++ *
++ * The strings of a slice are interned in all builds, although
++ * intern_constants() only looks into slices in the free-threaded build,
++ * so that the constants of a compilation are the same objects in both
++ * builds.
++ *
++ * Return a new reference to the constant to use instead of *o*.  The items
++ * of a tuple are replaced in place.  A frozenset or a slice with an item
++ * to replace cannot be modified: a new object is created and stored in its
++ * entry of *const_cache*, which is where the other users of *o* find it.
++ */
++static PyObject *
++intern_constant(PyObject *const_cache, PyObject *o)
++{
++    if (PyUnicode_CheckExact(o)) {
++        Py_INCREF(o);
++        if (_PyCode_ShouldInternString(o)) {
++            _PyUnicode_InternMortal(_PyInterpreterState_GET(), &o);
++        }
++        return o;
++    }
++    if (PyTuple_CheckExact(o)) {
++        Py_ssize_t len = PyTuple_GET_SIZE(o);
++        for (Py_ssize_t i = 0; i < len; i++) {
++            PyObject *item = PyTuple_GET_ITEM(o, i);
++            PyObject *v = intern_constant(const_cache, item);
++            if (v == NULL) {
++                return NULL;
++            }
++            if (v != item) {
++                // intern_constants() makes the same replacement in the
++                // tuple if it is not made here.
++                PyTuple_SET_ITEM(o, i, v);
++                Py_DECREF(item);
++            }
++            else {
++                Py_DECREF(v);
++            }
++        }
++        return Py_NewRef(o);
++    }
++    if (!PyFrozenSet_CheckExact(o) && !PySlice_Check(o)) {
++        return Py_NewRef(o);
++    }
++
++    // The key of a frozenset or of a slice is a pair whose second item is
++    // the object which stands for all the equal constants.
++    // See _PyCode_ConstantKey().
++    PyObject *key = const_cache_insert(const_cache, o, false);
++    if (key == NULL) {
++        return NULL;
++    }
++    assert(PyTuple_CheckExact(key));
++    assert(PyTuple_GET_SIZE(key) == 2);
++    o = PyTuple_GET_ITEM(key, 1);
++
++    PyObject *items;
++    if (PyFrozenSet_CheckExact(o)) {
++        items = PySequence_Tuple(o);
++    }
++    else {
++        PySliceObject *slice = (PySliceObject *)o;
++        items = PyTuple_Pack(3, slice->start, slice->stop, slice->step);
++    }
++    if (items == NULL) {
++        Py_DECREF(key);
++        return NULL;
++    }
++    bool modified = false;
++    Py_ssize_t len = PyTuple_GET_SIZE(items);
++    for (Py_ssize_t i = 0; i < len; i++) {
++        PyObject *item = PyTuple_GET_ITEM(items, i);
++        PyObject *v = intern_constant(const_cache, item);
++        if (v == NULL) {
++            Py_DECREF(items);
++            Py_DECREF(key);
++            return NULL;
++        }
++        if (v != item) {
++            modified = true;
++        }
++        PyTuple_SET_ITEM(items, i, v);
++        Py_DECREF(item);
++    }
++    if (modified) {
++        PyObject *new;
++        if (PyFrozenSet_CheckExact(o)) {
++            new = PyFrozenSet_New(items);
++        }
++        else {
++            new = PySlice_New(PyTuple_GET_ITEM(items, 0),
++                              PyTuple_GET_ITEM(items, 1),
++                              PyTuple_GET_ITEM(items, 2));
++        }
++        if (new == NULL) {
++            Py_DECREF(items);
++            Py_DECREF(key);
++            return NULL;
++        }
++        PyTuple_SET_ITEM(key, 1, new);
++        Py_DECREF(o);
++        o = new;
++    }
++    Py_DECREF(items);
++    Py_INCREF(o);
++    Py_DECREF(key);
++    return o;
++}
++
++/* Intern the strings of the constants of a code unit, once the optimizer
++ * has removed the constants which are not used.
++ *
++ * intern_constants() in codeobject.c interns the string constants of each
++ * new code object.  When it has to replace a string of a frozenset (or, in
++ * the free-threaded build, of a slice) by a string which is already
++ * interned, it makes a copy of the container for that code object only.
++ * The constants of a code object would then be shared with the other code
++ * objects of the compilation or not depending on which strings happen to
++ * be interned in the process, and so would the output of marshal
++ * (gh-129724).  Replace the strings here instead, where all the code units
++ * get the same container from the constant cache.
++ */
++static int
++intern_final_constants(PyObject *const_cache, PyObject *consts)
++{
++    assert(PyList_CheckExact(consts));
++    Py_ssize_t len = PyList_GET_SIZE(consts);
++    for (Py_ssize_t i = 0; i < len; i++) {
++        PyObject *item = PyList_GET_ITEM(consts, i);
++        PyObject *v = intern_constant(const_cache, item);
++        if (v == NULL) {
++            return ERROR;
++        }
++        PyList_SET_ITEM(consts, i, v);
++        Py_DECREF(item);
++    }
++    return SUCCESS;
++}
++
+ static int
+ compute_code_flags(compiler *c)
+ {
+@@ -1497,6 +1646,10 @@ optimize_and_assemble_code_unit(struct compiler_unit *u, PyObject *const_cache,
+         goto error;
+     }
+ 
++    if (intern_final_constants(const_cache, consts) < 0) {
++        goto error;
++    }
++
+     /** Assembly **/
+     co = _PyAssemble_MakeCodeObject(&u->u_metadata, const_cache, consts,
+                                     stackdepth, &optimized_instrs, nlocalsplus,
