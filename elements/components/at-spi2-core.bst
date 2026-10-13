@@ -33,6 +33,5 @@ public:
 sources:
 - kind: git_repo
   url: gnome:at-spi2-core.git
-  track: AT_SPI2_CORE_2_*[02468]_*
-  ref: AT_SPI2_CORE_2_54_0-0-g2b2085e3bb98c35cfeaf33a9b2852c610c3a9b7b
-  version-guess-pattern: '(\d+)_(\d+)_(\d+)'
+  track: "*.[02468].*"
+  ref: 2.62.0.1-0-gb33ff15213c4c09dfc0a5b261875c65c7cffd91d
