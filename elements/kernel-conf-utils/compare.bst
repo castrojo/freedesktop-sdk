@@ -3,9 +3,26 @@
 
 kind: script
 description: |
-  This compares Debian and Fedora kernel configuration. Find common
-  items.  See which of those common items are missing in Freedesktop
-  SDK.
+  ## Kernel comparison utility
+
+  <kernel-conf-utils/compare.bst> produces a `missing.txt` file.
+
+  Each line in this file represents a Linux kernel configuration option
+  that is enabled in both Debian and Fedora,
+  but is completely missing or explicitly disabled the Freedkesktop-SDK Linux kernel
+
+  ### Usage
+
+  1. Track the Debian and Fedora kernel elements
+    - `bst source track kernel-conf-utils/debian-config.bst kernel-conf-utils/fedora-config.bst`
+    - This should be done every time you use this element.
+  2. Build the utility element, to generate its results.
+    `bst build kernel-conf-utils/compare.bst`
+  3. Checkout and view the results
+    `bst artifact checkout kernel-conf-utils/compare.bst`
+  4. Use the information to update the Freedesktop-SDK config in <files/linux/fdsdk-config.sh>
+  5. Remove the refs from the debian and fedora kernel elements, as you should track every time.
+    - `git restore elements/kernel-conf-utils/debian-config.bst elements/kernel-conf-utils/fedora-config.bst`
 
 build-depends:
 - public-stacks/runtime-gnu.bst
