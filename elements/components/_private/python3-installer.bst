@@ -20,4 +20,4 @@ sources:
 - kind: git_repo
   url: github:pypa/installer.git
   track: '*.*.*'
-  ref: 1.0.1-0-g7ffa96f4ada5f38792e340ba7f9e1c43e0104768
+  ref: 1.1.0-0-g509a9b7160decebe9aa0aff429c12837346c86ef
