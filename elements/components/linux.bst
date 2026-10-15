@@ -2,7 +2,58 @@
 # SPDX-License-Identifier: MIT
 
 kind: make
-description: Linux kernel configured for use in virtual machines.
+description: |
+  ## The Freedesktop-SDK Linux kernel
+
+  The kernel is intended for use in the OS images.
+
+  The kernel supports a wide range of desktop usecases.
+
+  To achieve this the kernel has configurations for a wide range of hardware,
+  including but not limited to:
+  - Virtual machines
+  - intel and amd laptops
+  - server hardware
+  - mobile devices, such as:
+    - PinePhone Pro (aarch64)
+    - OnePlus 6
+  - development boards, such as:
+    - Sifive Unmatched(riscv)
+
+  Additionally the kernel has configurations to support
+  the standard features you'd expect for desktop usecases:
+  - Security features, for example:
+    - secure boot
+    - module signing
+    - Trusted Platform Modules
+    - selinux, apparmor landlock
+  - A wide range of peripherals, for example:
+    - wifi hardware
+    - bluetooth hardware
+    - USB devices
+    - Touchscreens
+    - networking
+  - KVM support for x86_64 and aarch64
+
+  The kernel is automatically configured appropriately for each `target_arch`.
+
+  To see an up to date list of all features enabled by the kernel configuration
+  see: <files/linux/fdsdk-config.sh>.
+
+  ### Maintaining the Kernel Configuration
+
+  The kernel configuration is defined in <files/linux/fdsdk-config.sh>.
+
+  To assist with maintaining a wide range of usecases,
+  it is maintained with reference to the common configurations used between
+  the Debian and Fedora kernel configurations.
+
+  To maintain the config before major releases of Freedesktop-SDK and when updating this kernel,
+  the `kernel-conf-utils/compare.bst` can be used.
+  The element outputs a comparison between the fdsdk kernel with common configs in the Debian and Fedora kernels,
+  to enable a developer to update the Freedesktop-SDK Kernel config.
+
+  Additionally the config may be adjusted as needed to provide support for additional features.
 
 (@):
 - elements/include/linux.yml
