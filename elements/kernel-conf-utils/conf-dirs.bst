@@ -10,7 +10,7 @@ description: |
 - elements/include/linux.yml
 
 build-depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 - components/findutils.bst
 - components/grep.bst
 - components/sed.bst
