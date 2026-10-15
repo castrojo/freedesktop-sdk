@@ -26,4 +26,4 @@ sources:
 - kind: git_repo
   url: github:libarchive/libarchive.git
   track: v*
-  ref: v3.8.9-0-g27cbc7827172698143e440801fc0ba39ccb4f1f5
+  ref: v3.8.10-0-g0c48412be2d94afe1859a807ea7896a18d8900bd
