@@ -8,7 +8,7 @@ description: |
   SDK.
 
 build-depends:
-- public-stacks/runtime-minimal.bst
+- public-stacks/runtime-gnu.bst
 - components/grep.bst
 - components/linux.bst
 - components/sed.bst
