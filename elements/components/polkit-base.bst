@@ -39,5 +39,5 @@ sources:
 - kind: git_repo
   url: github:polkit-org/polkit.git
   track: '[0-9]*'
-  ref: 127-0-g9e4894c969eecf26a3ba762f4f7a268aa0fb3e51
+  ref: 128-0-ge6373dc19975d8583568c6cd7025d03e682ca956
   version-guess-pattern: '\d+'
