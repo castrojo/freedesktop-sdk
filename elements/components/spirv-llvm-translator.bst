@@ -27,6 +27,6 @@ config:
 sources:
 - kind: git_repo
   # This needs to be in sync with LLVM version
-  track: v22.*.*
+  track: v23.*.*
   url: github:KhronosGroup/SPIRV-LLVM-Translator.git
-  ref: v22.1.7-0-gb4c9189bcba7ed9a1189d6a2c27edc3d9a3d5277
+  ref: v23.1.2-0-ge65dde28ce8f12ef7245914fa2850260328669e4
