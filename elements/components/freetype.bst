@@ -32,5 +32,5 @@ public:
         - '%{libdir}/libfreetype.so'
 
   cpe:
-    product: 'freetype2'
+    product: 'freetype'
     vendor: 'freetype'
