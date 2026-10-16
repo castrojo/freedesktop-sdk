@@ -10,7 +10,7 @@ The SDK aims to support a common interoperable platform for projects such as GNO
 Visit the [Freedesktop SDK documentation portal](https://freedesktop-sdk.gitlab.io/documentation/) to find out more about the project and its use cases:
 
 - [Getting started](https://freedesktop-sdk.gitlab.io/documentation/getting-started/)
-- [Using the SDK](https://freedesktop-sdk.gitlab.io/documentation/guides/using-the-sdk/)
+- [Using the SDK](https://freedesktop-sdk.gitlab.io/documentation/guides/os/using-the-sdk/)
 - [Contributing to the SDK](https://freedesktop-sdk.gitlab.io/documentation/getting-started/contributing/)
 - [Troubleshooting](https://freedesktop-sdk.gitlab.io/documentation/reference/troubleshooting/)
 
