@@ -5,7 +5,7 @@ sources:
 - kind: git_repo
   url: freedesktop:freetype/freetype.git
   track: VER-*
-  ref: VER-2-14-3-0-g0a0221a1347e2f1e07c395263540026e9a0aa7c7
+  ref: VER-2-15-0-0-g37515cf56ba3349656049edbed89ffc6f6466f2d
   version-guess-pattern: '(\d+)-(\d+)(?:-(\d+))?'
 - kind: patch
   path: patches/freetype/enable-cleartype-subpixel.patch
