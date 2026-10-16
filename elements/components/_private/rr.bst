@@ -29,8 +29,6 @@ config:
 
 sources:
 - kind: git_repo
-  url: github:mozilla/rr.git
+  url: github:rr-debugger/rr.git
   track: '*.*.*'
-  ref: 5.9.0-0-gaaed29dc0324444e36503a26dcec96731d1942b0
-- kind: patch
-  path: patches/rr/drop_termio_check.patch
+  ref: 5.10.0-0-g7c5a08e538e7999bf996f60a8c206e122f4b8050
