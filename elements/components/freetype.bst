@@ -30,5 +30,6 @@ variables:
     -Dbrotli=enabled
     -Dbzip2=enabled
     -Dharfbuzz=enabled
+    -Dhvf=disabled
     -Dpng=enabled
     -Dzlib=enabled
