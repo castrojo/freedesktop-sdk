@@ -18,11 +18,11 @@ depends:
 - components/curl.bst
 - components/fontconfig.bst
 - components/freetype.bst
-- components/gdk-pixbuf.bst
 - components/glib-networking.bst
 - components/glib.bst
 - components/gobject-introspection.bst
 - components/libfyaml.bst
+- components/libvips.bst
 - components/libxml2.bst
 - components/libxmlb.bst
 - components/pango.bst
@@ -31,7 +31,6 @@ variables:
   meson-local: >-
     -Dstemming=false
     -Dcompose=true
-    -Dsvg-support=false
     -Dsystemd=false
     -Ddocs=false
     -Dapidocs=false
