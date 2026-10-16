@@ -22,7 +22,7 @@ public:
 
   cpe:
     version-match: '(\d+)-(\d+)(?:-(\d+))?'
-    product: 'freetype2'
+    product: 'freetype'
     vendor: 'freetype'
 
 variables:
