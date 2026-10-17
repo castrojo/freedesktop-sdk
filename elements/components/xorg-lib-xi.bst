@@ -33,4 +33,4 @@ sources:
   track: libXi-*
   exclude:
   - libXi-*.*.99.*
-  ref: libXi-1.8.3-0-gf00f7e9140b4707775331950dd67851e55058c40
+  ref: libXi-1.8.4-0-g9ea632ab9dce9ad6630ef7db9d1850ea3d0a2419
