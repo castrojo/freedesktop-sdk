@@ -22,4 +22,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libxrender.git
   track: libXrender-*
-  ref: libXrender-0.9.12-0-g46e12ff9e8e4d3f0313a2f097df93dbfdc14f92f
+  ref: libXrender-0.9.13-0-gf30d654658ebf17d41141ed3ec2abf607d8a512e
