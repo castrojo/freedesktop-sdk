@@ -30,5 +30,5 @@ config:
 
 sources:
 - kind: tar
-  url: github_files:thesofproject/sof-bin/releases/download/v2025.12.2/sof-bin-2025.12.2.tar.gz
-  ref: 533f63e3a6d94c09ce05a782657b675fa683ff20787c0979226cf563ec79f517
+  url: github_files:thesofproject/sof-bin/releases/download/v2026.09.2/sof-bin-2026.09.2.tar.gz
+  ref: 5f7bc30b2b5c1e6b0da55a33fc44e2b7f56ae9b06952edcde614f51ef6b943e1
