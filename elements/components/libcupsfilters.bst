@@ -34,3 +34,7 @@ sources:
   exclude:
   - '*rc*'
   ref: 2.2.1-0-g2a00cf6aa4234e2e0ac91b9844ab8990d04c7089
+- kind: patch
+  path: patches/libcupsfilters/missing-root-object.patch
+- kind: patch
+  path: patches/libcupsfilters/close-output-stream.patch

@@ -1,0 +1,26 @@
+commit 1e66af63a81a188b9d4bce688d75f3a9df681165
+Author: Marshall Taplits <mtaplits@mailforce.net>
+Date:   Mon Sep 14 16:58:40 2026 -0400
+
+    bannertopdf: Close output stream so the generated PDF is not truncated (#249)
+
+diff --git a/cupsfilters/bannertopdf.c b/cupsfilters/bannertopdf.c
+index 60769e7b..9b2ce9aa 100644
+--- a/cupsfilters/bannertopdf.c
++++ b/cupsfilters/bannertopdf.c
+@@ -1021,6 +1021,14 @@ cfFilterBannerToPDF(int inputfd,         // I - File descriptor input stream
+   unlink(tempfile);
+   if (inputfp)
+     fclose(inputfp);
+-  
++  // The output stream has to be flushed and closed here. When this filter
++  // function is called from cfFilterChain() (as the "universal" filter does),
++  // the parent closes the raw output file descriptor and exits right after
++  // this function returns, so a still buffered tail of the generated PDF
++  // (cross-reference table and "%%EOF") would be lost and the following
++  // filter in the chain would fail to parse the file.
++  if (outputfp)
++    fclose(outputfp);
++
+   return (ret);
+ }
