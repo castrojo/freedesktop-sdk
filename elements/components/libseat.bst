@@ -2,6 +2,7 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- components/scdoc.bst
 
 depends:
 - components/systemd-libs.bst
