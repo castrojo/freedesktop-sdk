@@ -4,8 +4,8 @@
 sources:
 - kind: git_repo
   url: github:systemd/systemd.git
-  track: v*
+  track: v261.*
   exclude:
   - '*rc*'
-  ref: v261.2-0-g4925d9f07fc697efccd98a93046ff535b8832445
+  ref: v261.4-0-gf408418369c8d20f9025b39c03f4ece2a0ee7041
   version-guess-pattern: '(\d+)(?:\.(\d+))?'
