@@ -32,6 +32,7 @@ depends:
 - vm/config/journald.bst
 - vm/config/useradd-default.bst
 - vm/config/systemd-homed-firstboot.bst
+- vm/config/seatd.bst
 - components/wpa-supplicant.bst
 - components/steam-devices.bst
 - components/pinentry-ncurses.bst
