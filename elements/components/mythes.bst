@@ -17,5 +17,5 @@ public:
 sources:
 - kind: git_repo
   url: github:hunspell/mythes.git
-  track: v*
+  track: v1.2.5*
   ref: v1.2.5-0-g289a66571116dcc68346864de7492a55752e26ec
