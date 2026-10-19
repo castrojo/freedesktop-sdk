@@ -32,9 +32,6 @@ variables:
 config:
   build-commands:
   - cp -ra /boot-keys/* .
-  - openssl x509 -inform pem -outform der -in PK.crt -out PK.der
-  - openssl x509 -inform pem -outform der -in KEK.crt -out KEK.der
-  - openssl x509 -inform pem -outform der -in DB.crt -out DB.der
   - sbsiglist --owner '%{fdsdk-keys-uuid}' --type x509 --output PK.esl PK.der
   - sbsiglist --owner '%{fdsdk-keys-uuid}' --type x509 --output KEK.esl KEK.der
   - sbsiglist --owner '%{fdsdk-keys-uuid}' --type x509 --output DB.esl DB.der

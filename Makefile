@@ -549,7 +549,8 @@ clean-ostree-vm:
 KEY_TYPES=PK KEK DB VENDOR linux-module-cert
 ALL_CERTS=$(foreach KEY,$(KEY_TYPES),files/boot-keys/$(KEY).crt)
 ALL_KEYS=$(foreach KEY,$(KEY_TYPES),files/boot-keys/$(KEY).key)
-BOOT_KEYS=$(ALL_KEYS) $(ALL_CERTS) files/boot-keys/extra-db/.keep files/boot-keys/extra-kek/.keep files/boot-keys/modules/linux-module-cert.crt
+ALL_DERS=$(foreach KEY,$(KEY_TYPES),files/boot-keys/$(KEY).der)
+BOOT_KEYS=$(ALL_KEYS) $(ALL_CERTS) $(ALL_DERS) files/boot-keys/extra-db/.keep files/boot-keys/extra-kek/.keep files/boot-keys/modules/linux-module-cert.crt
 
 generate-keys: $(BOOT_KEYS)
 
@@ -563,6 +564,9 @@ files/boot-keys/modules/linux-module-cert.crt: files/boot-keys/linux-module-cert
 files/boot-keys/%.crt files/boot-keys/%.key:
 	[ -d files/boot-keys ] || mkdir -p files/boot-keys
 	openssl req -new -x509 -newkey rsa:2048 -subj "/CN=Freedesktop SDK $(basename $(notdir $@)) key/" -keyout "$(basename $@).key" -out "$(basename $@).crt" -days 3650 -nodes -sha256
+
+files/boot-keys/%.der: files/boot-keys/%.crt
+	openssl x509 -inform PEM -outform DER -in $< -out $@
 
 # This is optional
 download-microsoft-keys: files/boot-keys/extra-db/.keep files/boot-keys/extra-kek/.keep
