@@ -17,7 +17,7 @@ public:
 sources:
 - kind: git_repo
   url: github:libusb/libusb.git
-  track: v*
+  track: v1.0.29*
   exclude:
   - '*-rc*'
   ref: v1.0.29-0-g15a7ebb4d426c5ce196684347d2b7cafad862626
