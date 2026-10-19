@@ -1,11 +1,15 @@
 [Unit]
 Description=Create weston user
 ConditionFirstBoot=yes
+Before=seatd.service
+Before=weston.service
 
 [Service]
 Type=oneshot
-ExecStart=useradd -m weston-user
-ExecStart=usermod -a -G wheel weston-user
+# U6aMy0wojraho is empty password magic hash
+ExecStart=useradd -m weston-user -p U6aMy0wojraho
+ExecStart=groupadd -r seat
+ExecStart=usermod -a -G input,render,seat,video,wheel weston-user
 
 [Install]
 WantedBy=multi-user.target
