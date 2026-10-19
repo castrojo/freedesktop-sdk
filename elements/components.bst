@@ -574,6 +574,7 @@ depends:
 - components/taglib.bst
 - components/tex-gyre-fonts.bst
 - components/texinfo.bst
+- components/tinyxxd.bst
 - components/tpm2-pkcs11.bst
 - components/tpm2-tools.bst
 - components/tpm2-tss.bst

@@ -2,7 +2,7 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
-- components/vim.bst # provides xxd
+- components/tinyxxd.bst
 
 depends:
 - components/systemd.bst
