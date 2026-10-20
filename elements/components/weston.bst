@@ -50,6 +50,6 @@ sources:
   exclude:
   - '*.*.9[0-9]'
   url: freedesktop:wayland/weston.git
-  ref: 16.0.0-0-gd1882b0a544ae2197b597a6e39478e719bc54302
+  ref: 16.0.1-0-g3e89ccc98eb30614979507669070a129a63aa16a
 - kind: patch
   path: patches/weston/0001-Allow-libdisplay-info-0.4.0.patch
