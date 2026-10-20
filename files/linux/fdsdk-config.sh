@@ -575,9 +575,6 @@ enable BNXT_HWMON
 enable BNXT_SRIOV
 module CNIC
 module NET_VENDOR_BROADCOM
-if has PCMCIA; then
-    module PCMCIA_XIRCOM
-fi
 module FEALNX
 module I40E
 module I40EVF
@@ -2798,9 +2795,13 @@ module APPLE_MFI_FASTCHARGE
 enable IDLE_PAGE_TRACKING
 
 # Tablet mode on Framework 12
-if has ACPI; then
-  module INPUT_SOC_BUTTON_ARRAY
-fi
+case "$arch" in
+    x86_64)
+        if has ACPI; then
+            module INPUT_SOC_BUTTON_ARRAY
+        fi
+    ;;
+esac
 
 # MPTCP support
 enable MPTCP
