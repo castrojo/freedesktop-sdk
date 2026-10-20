@@ -10,6 +10,7 @@ runtime-depends:
 - public-stacks/runtime-minimal.bst
 - components/dbus.bst
 - components/gamemode-manifest.bst
+- components/inih.bst
 - components/libgamemode.bst
 - components/systemd-libs.bst
 
