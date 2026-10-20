@@ -2,7 +2,6 @@
 
 [Unit]
 Description=Weston, a Wayland compositor, as a system service
-Alias=display-manager.service
 After=systemd-user-sessions.service
 After=plymouth-quit-wait.service
 Wants=dbus.socket
@@ -29,4 +28,5 @@ UtmpIdentifier=tty7
 UtmpMode=user
 
 [Install]
+Alias=display-manager.service
 WantedBy=graphical.target
