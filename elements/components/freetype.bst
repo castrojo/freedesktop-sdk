@@ -21,6 +21,7 @@ variables:
     -Dbrotli=enabled
     -Dbzip2=enabled
     -Dharfbuzz=enabled
+    -Dhvf=disabled
     -Dpng=enabled
     -Dzlib=enabled
 
@@ -32,5 +33,5 @@ public:
         - '%{libdir}/libfreetype.so'
 
   cpe:
-    product: 'freetype2'
+    product: 'freetype'
     vendor: 'freetype'
