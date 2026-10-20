@@ -39,7 +39,7 @@ public:
 sources:
 - kind: git_repo
   url: github:sqlite/sqlite.git
-  track: version-*
+  track: version-3.53.*
   exclude:
   - "version-3.52.0"
   ref: version-3.53.4-0-gb09c88c14082339b66c7b7158d609a771e64ca69
