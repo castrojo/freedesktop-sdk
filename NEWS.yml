@@ -1,3 +1,154 @@
+Version: freedesktop-sdk-26.08.03
+Date: '2026-10-21'
+Description: |-
+  Changes in freedesktop-sdk-26.08.03
+   * Update ca-certificates
+   * Update polkit-base to 128-0
+   * Update link after docs reshuffle
+   * flags: Disable GCC switch recording for cgo reproducibility
+   * Update Vim to v9.2.1207
+   * Revert vim: track only major releases"
+   * rr.bst: Update from 5.9.0 to 5.10.0, change url to current upstream
+   * Update freetype from 2-14-3 to 2-15-0
+   * Move freetype source url from savannah to freedesktop gitlab
+   * Update pcsc-lite to 2.5.3-0
+   * Update xfsprogs to v7.2.1-0
+   * Update python3-virtualenv to 21.14.11-0
+   * Update python3-pluggy to 1.7.0-0
+   * Update libical to v4.0.7-0
+   * Update python3-tomlkit to 0.15.2-0
+   * Update cargo-c to v0.10.26-0
+   * Pin python3 tracking to v3.14.* for 26.08
+   * Update cmake to v4.4.4-0
+   * Update pkg-config to pkgconf-3.0.8-0
+   * systemd: track v261
+   * Update librsvg to ref: 2.63.3-0
+   * Update xorg-lib-xrender to libXrender-0.9.13-0
+   * Update python3-markdown to 3.11.1-0
+   * Update mesa-sdk to mesa-26.2.5-0
+   * Update python3-distlib to 0.4.4-0
+   * Update xorg-lib-xi to libXi-1.8.4-0
+   * Update xorg-lib-x11 to libX11-1.8.14-0
+   * Update python3-markupsafe to 3.0.4-0
+   * Update python3-pycparser to release_v3.11-0
+   * Update openssh to V_10_6_P1-0
+   * Update python3-multidict to v7.1.0-0
+   * Update xz to v5.8.4-0
+   * u-boot-{qemu,unmatched}.bst: Upgrade from v2026.07 to v2026.10
+   * Update crun to 1.30.1-0
+   * Update python3-filelock to 4.2.0-0
+   * Update mesa to mesa-26.2.5-0
+   * Update libslirp to v4.9.5-0
+   * Update bubblewrap to v0.13.1-0
+   * Update aom to v3.15.2-0
+   * Update linux to v7.2.11-0
+   * Update podman to v6.1.4-0
+   * Update open-iscsi to 2.1.13-0
+   * Update extra-cmake-modules to v6.31.0-0
+   * Update libgcrypt to libgcrypt-1.12.4-0
+   * Update go to go1.27.2-0
+   * Update shadow to 4.20.3-0
+   * Update libevdev to libevdev-1.14.0-0
+   * Update ghostscript to ghostpdl-10.08.0-0
+   * Update python3-filelock to 4.1.1-0
+   * Update gyp to v0.22.3-0
+   * Update python3-protobuf to 7.36.2
+   * Update python3-dulwich to dulwich-1.2.17-0
+   * Update python3-meson-python to 0.22.1-0
+   * Update pygobject to 3.58.1-0
+   * Update xwayland to xwayland-24.1.14-0
+   * Update linux to v7.2.10-0
+   * Update python3-mako to rel_1_4_3-0
+   * Update libabigail to libabigail-3.0-0
+   * Update gdb to gdb-18.1-release-0
+   * Update libical to v4.0.6-0
+   * Update python3-pyroaring to 1.2.0-0
+   * Update linux-pam-base to v1.7.3-0
+   * Update python3-build to 1.6.1-0
+   * Update librsvg to ref: 2.63.2-0
+   * Update upower to v1.91.5-0
+   * Update libeconf to v0.8.5-0
+   * Update fuse3 to fuse-3.18.3-0
+   * Update python3-tenacity to 9.2.1-0
+   * Update passt to 2026_10_02.cba3570-0
+   * Update python3-vcs-versioning to vcs-versioning-v2.6.0-0
+   * Update tzdata to 2026e-0
+   * Update ccache to v4.14.1-0
+   * Update clinfo to 3.1.26.09.26-0
+   * python3-setuptools-scm.bst: Move packaging to runtime-depends
+   * python3-hatch-vcs.bst: Move python3-setuptools-scm.bst to runtime-depends
+   * python3-urllib3.bst: Explicitly build-depend on setuptools-scm
+   * Drop setuptools-scm as a build dependency from dulwich & charset-normalizer
+   * Update sdl3-image to release-3.4.8-0
+   * Update python3-pyparsing to 3.3.3-0
+   * Update python3-setuptools-scm to setuptools-scm-v10.3.4-0
+   * Update noto-fonts to noto-monthly-release-2026.10.01-0
+   * Update lvm2 to v2_03_43-0
+   * .gitlab-ci.yml: Allow scheduled element updater jobs to run for 90 mins
+   * frei0r.bst: Update from 3.5 to 3.6, add support for new shadert0y plugin
+   * Update rust from 1.98.1 to 1.99.0
+   * Update hwdata to v0.412-0
+   * Update podman to v6.1.3-0
+   * Update spirv-llvm-translator to v22.1.7-0
+   * Update xfsprogs to v7.2.0-0
+   * Update xorg-proto-xorgproto to xorgproto-2026.1-0
+   * Update libimobiledevice-glue to 1.3.3-0
+   * Update python3-dbus to dbus-python-1.5.0-0
+   * Update python3 to v3.14.8-0
+   * Update sdl2-compat to release-2.32.74-0
+   * Update poppler to poppler-26.10.0-0
+   * Update aom to v3.15.1-0
+   * Update python3-cryptography to ref: 50.0.2-0
+   * Update pahole to v1.32-0
+   * Update mesa-sdk to mesa-26.2.4-0
+   * Update pycairo to v1.29.2-0
+   * Update libpng to v1.6.59-0
+   * Update linux to v7.2.9-0
+   * Update patchelf to 0.19.2-0
+   * Update python3-trove-classifiers to 2026.9.21.13-0
+   * Update python3-vcs-versioning to vcs-versioning-v2.5.0-0
+   * Update skopeo to v1.24.1-0
+   * Update libpaper to v2.3.0-0
+   * nss.bst: Move url from nss-dev to mozilla github group
+   * .gitlab-ci.yml: Bump to initial fdsdk 26.08.2 based container
+   * Update xdg-dbus-proxy to 0.1.9-0
+   * Update util-linux-base to v2.42.4-0
+   * Update gtk-doc to 1.37.0-0
+   * Update flatpak to 1.18.4-0
+   * Update libplist to 2.8.0-0
+   * Update fribidi to v1.0.17-0
+   * Update python3-multidict to v7.0.0-0
+   * Update openssl to openssl-3.5.9-0
+   * Update fwupd to 2.1.8-0
+   * Update python3-filelock to 4.0.8-0
+   * Update pcre2 to pcre2-10.49-0
+   * Update dictionaries to libreoffice-26.8.1.1-0
+   * Update ffmpeg to n8.1.3-0
+   * Update buildstream2 to 2.8.1-0
+   * askalono: Make embedded cache reproducible
+   * python3-wheel.bst: Add explicit runtime-dependency on packaging
+   * gstreamer-plugins-rst.bst: Update from 0.15.3 to 0.15.4
+   * cmake-stage1: Remove dependency on ncurses
+   * cmake-stage1: Remove not required openssl dependency
+   * fscrypt: drop modules.txt workarounds
+   * git-lfs: drop modules.txt workarounds
+   * Update upower to v1.91.4-0
+   * Update wireplumber to 0.5.18-0
+   * Update python3-charset-normalizer to 3.5.2-0
+   * Update cryptsetup-base to v2.8.8-0
+   * Update flatpak-builder to 1.4.12-0
+   * Update rust-bindgen to ref: v0.73.2-0
+   * Update liburcu to v0.15.7-0
+   * Update containers-common to common/v0.69.2-0
+   * Update python3-pyproject-hooks to v1.3.3-0
+   * Update git to v2.56.0-0
+   * Update reference-abi to freedesktop-sdk-26.08.2-0
+   * Update noto-fonts to noto-monthly-release-2026.09.01-0
+   * Update python3-dulwich to dulwich-1.2.15-0
+   * Update python3-pkcs11 to v0.10.0-0
+   * Update ccid to 1.8.4-0
+   * iptables: Make the nft backend the default
+---
 Version: freedesktop-sdk-26.08.2
 Date: '2026-09-27'
 Description: |-
