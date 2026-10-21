@@ -1,772 +1,770 @@
 variables:
-  # Store everything under the /builds directory. This is a separate Docker
-  # volume. Note that GitLab CI will only cache stuff inside the build
-  # directory.
-  XDG_CACHE_HOME: "${CI_PROJECT_DIR}/cache"
-  GET_SOURCES_ATTEMPTS: 3
-  RUNTIME_VERSION: '27.08'
-  STABLE_ABI: 'false'
-  EXPIRED: '0'
-  MAX_MERGE_REQUESTS: '4'
-  CACHE_PUSH: 'true'
+    # Store everything under the /builds directory. This is a separate Docker
+    # volume. Note that GitLab CI will only cache stuff inside the build
+    # directory.
+    XDG_CACHE_HOME: "${CI_PROJECT_DIR}/cache"
+    GET_SOURCES_ATTEMPTS: 3
+    RUNTIME_VERSION: "27.08"
+    STABLE_ABI: "false"
+    EXPIRED: "0"
+    MAX_MERGE_REQUESTS: "4"
+    CACHE_PUSH: "true"
 
-  RUNNER_AFTER_SCRIPT_TIMEOUT: 30m
+    RUNNER_AFTER_SCRIPT_TIMEOUT: 30m
 
-  FF_TIMESTAMPS: 1
+    FF_TIMESTAMPS: 1
 
-  # Docker Images
-  DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "0a258dcf304505c338629e6a477b3d4b6ae3f01f"
+    # Docker Images
+    DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
+    DOCKER_IMAGE_ID: "dev-aedan-bump-fdsdk-arm64"
 
-  # Generic variable for invoking buildstream
-  BST: bst --colors
+    # Generic variable for invoking buildstream
+    BST: bst --colors
 
-  # Make sure python bytecode doesn't mix up with sources
-  PYTHONPYCACHEPREFIX: "${XDG_CACHE_HOME}/python"
+    # Make sure python bytecode doesn't mix up with sources
+    PYTHONPYCACHEPREFIX: "${XDG_CACHE_HOME}/python"
 
-  GIT_SUBMODULE_STRATEGY: "recursive"
-  GIT_STRATEGY: clone
-  GIT_DEPTH: "100"
+    GIT_SUBMODULE_STRATEGY: "recursive"
+    GIT_STRATEGY: clone
+    GIT_DEPTH: "100"
 
-  MAX_SIZE_EFI_VM: "650000000" # 650 MB
+    MAX_SIZE_EFI_VM: "650000000" # 650 MB
 
 default:
-  image: "${DOCKER_REGISTRY}/bst2:${DOCKER_IMAGE_ID}"
-  interruptible: true
-  after_script:
-  - timeout 30 du -sh "${CI_PROJECT_DIR}/repo" 2>/dev/null || true
-  - timeout 60 du -chd 1 "${XDG_CACHE_HOME}/buildstream/" 2>/dev/null || true
-  - timeout 30 flatpak remote-add --if-not-exists --user --no-gpg-verify fdsdkrepo file:///${CI_PROJECT_DIR}/repo 2>/dev/null || true
-  - timeout 90 flatpak remote-ls -a --columns=ref,installed-size,download-size fdsdkrepo 2>/dev/null || true
-  - timeout 30 flatpak remote-delete --force fdsdkrepo 2>/dev/null || true
-  - make clean
-  - rm -rf "${XDG_CACHE_HOME}/buildstream/artifacts"
-  - rm -rf "${XDG_CACHE_HOME}/buildstream/build"
-  - rm -rf "${XDG_CACHE_HOME}/buildstream/cas"
-  - rm -rf "${XDG_CACHE_HOME}/buildstream/sources"
-  - rm -rf "${CI_PROJECT_DIR}/.bst"
-  - rm -rf "${CI_PROJECT_DIR}/.flatpak_builder"
-  retry:
-    max: 2
-    when: runner_system_failure
-  id_tokens:
-    CACHE_TOKEN:
-      aud: cache.freedesktop-sdk.io
+    image: "${DOCKER_REGISTRY}/bst2:${DOCKER_IMAGE_ID}"
+    interruptible: true
+    after_script:
+        - timeout 30 du -sh "${CI_PROJECT_DIR}/repo" 2>/dev/null || true
+        - timeout 60 du -chd 1 "${XDG_CACHE_HOME}/buildstream/" 2>/dev/null || true
+        - timeout 30 flatpak remote-add --if-not-exists --user --no-gpg-verify fdsdkrepo file:///${CI_PROJECT_DIR}/repo 2>/dev/null || true
+        - timeout 90 flatpak remote-ls -a --columns=ref,installed-size,download-size fdsdkrepo 2>/dev/null || true
+        - timeout 30 flatpak remote-delete --force fdsdkrepo 2>/dev/null || true
+        - make clean
+        - rm -rf "${XDG_CACHE_HOME}/buildstream/artifacts"
+        - rm -rf "${XDG_CACHE_HOME}/buildstream/build"
+        - rm -rf "${XDG_CACHE_HOME}/buildstream/cas"
+        - rm -rf "${XDG_CACHE_HOME}/buildstream/sources"
+        - rm -rf "${CI_PROJECT_DIR}/.bst"
+        - rm -rf "${CI_PROJECT_DIR}/.flatpak_builder"
+    retry:
+        max: 2
+        when: runner_system_failure
+    id_tokens:
+        CACHE_TOKEN:
+            aud: cache.freedesktop-sdk.io
 
 workflow:
-  rules:
-  - if: '$CI_MERGE_REQUEST_IID'
-  - if: '$CI_COMMIT_BRANCH && $CI_COMMIT_REF_PROTECTED == "true"'
-  - if: '$CI_COMMIT_TAG'
-  - if: '$CI_PIPELINE_SOURCE == "schedule"'
-  - if: '$CI_PIPELINE_SOURCE == "web"'
+    rules:
+        - if: "$CI_MERGE_REQUEST_IID"
+        - if: '$CI_COMMIT_BRANCH && $CI_COMMIT_REF_PROTECTED == "true"'
+        - if: "$CI_COMMIT_TAG"
+        - if: '$CI_PIPELINE_SOURCE == "schedule"'
+        - if: '$CI_PIPELINE_SOURCE == "web"'
 
 stages:
-  - update
-  - flatpak
-  - vm
-  - publish
-  - finish-publish
-  - reproducible
-  - merge-check
+    - update
+    - flatpak
+    - vm
+    - publish
+    - finish-publish
+    - reproducible
+    - merge-check
 
 before_script:
-  - ulimit -n 1048576
-  - export PATH=~/.local/bin:${PATH}
-  - |
-    if cp --reflink=always README.md .reflink-test; then
-    echo Reflinks supported, disabling buildbox-fuse
-    chmod -x /usr/bin/buildbox-fuse
-    rm .reflink-test
-    fi
-  - |
-    mkdir -p ~/.config
-    echo $CACHE_TOKEN > ~/.config/freedesktop-sdk.token
-    [ -S /run/casd/casd.sock ] && export LOCAL_CAS=true
-    python3 -mmako.cmd templates/buildstream.conf --output-file ~/.config/buildstream.conf
-    cat ~/.config/buildstream.conf
+    - ulimit -n 1048576
+    - export PATH=~/.local/bin:${PATH}
+    - |
+        if cp --reflink=always README.md .reflink-test; then
+        echo Reflinks supported, disabling buildbox-fuse
+        chmod -x /usr/bin/buildbox-fuse
+        rm .reflink-test
+        fi
+    - |
+        mkdir -p ~/.config
+        echo $CACHE_TOKEN > ~/.config/freedesktop-sdk.token
+        [ -S /run/casd/casd.sock ] && export LOCAL_CAS=true
+        python3 -mmako.cmd templates/buildstream.conf --output-file ~/.config/buildstream.conf
+        cat ~/.config/buildstream.conf
 
-  - |
-    source utils/publisher_env.sh
+    - |
+        source utils/publisher_env.sh
 
 lint:
-  stage: flatpak
-  timeout: 1h
-  after_script: []
-  script:
-    - ruff format --check
-    - ruff check
-    - git diff --name-only --diff-filter=d "${CI_MERGE_REQUEST_DIFF_BASE_SHA}" -- '*.bst' | xargs -r python utils/bst-format.py --check
-    - python utils/news_validator.py validate --path NEWS.yml
-    - python utils/flatpak_branch_validator.py validate --path include/repo_branches.yml
-    - python utils/check-missing-components-stack.py --ignore-file tests/ignore-missing-from-components-stack.yaml
-    - reuse lint
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-  needs: []
+    stage: flatpak
+    timeout: 1h
+    after_script: []
+    script:
+        - ruff format --check
+        - ruff check
+        - git diff --name-only --diff-filter=d "${CI_MERGE_REQUEST_DIFF_BASE_SHA}" -- '*.bst' | xargs -r python utils/bst-format.py --check
+        - python utils/news_validator.py validate --path NEWS.yml
+        - python utils/flatpak_branch_validator.py validate --path include/repo_branches.yml
+        - python utils/check-missing-components-stack.py --ignore-file tests/ignore-missing-from-components-stack.yaml
+        - reuse lint
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    needs: []
 
 .setup_branch: &setup_branch
-  - git remote set-url origin "https://gitlab-ci-token:${FREEDESKTOP_API_KEY}@gitlab.com/freedesktop-sdk/freedesktop-sdk.git"
-  - git config user.name "freedesktop_sdk_updater"
-  - git config user.email "freedesktop_sdk_updater@libreml.com"
-  - git branch -f "${CI_COMMIT_REF_NAME}" "origin/${CI_COMMIT_REF_NAME}"
-  - git fetch --prune --quiet
-  - cleanup_leftover_branches.py
-  - python utils/assign_marge.py
+    - git remote set-url origin "https://gitlab-ci-token:${FREEDESKTOP_API_KEY}@gitlab.com/freedesktop-sdk/freedesktop-sdk.git"
+    - git config user.name "freedesktop_sdk_updater"
+    - git config user.email "freedesktop_sdk_updater@libreml.com"
+    - git branch -f "${CI_COMMIT_REF_NAME}" "origin/${CI_COMMIT_REF_NAME}"
+    - git fetch --prune --quiet
+    - cleanup_leftover_branches.py
+    - python utils/assign_marge.py
 
 .check_update_elements:
-  stage: update
-  variables:
-    GIT_SUBMODULE_STRATEGY: none
-  script:
-    - |
-      if [ "${CI_COMMIT_REF_NAME}" = "${CI_DEFAULT_BRANCH}" ] && [ -n "${SKIP_DAY_NUM}" ]; then
-        if [ "$(date +%u)" -eq "${SKIP_DAY_NUM}" ]; then
-          echo "Skipping job on day ${SKIP_DAY_NUM} of the week"
-          exit 0
-        fi
-      fi
-    - *setup_branch
-    - |
-      case "${CI_COMMIT_REF_NAME}" in
-        "${CI_DEFAULT_BRANCH}")
-        ;;
-        release/*)
-        ;;
-        *)
-          false
-        ;;
-      esac
-    - |
-      if [ "$SCHEDULE_TASK" = "daily" ] && [ "$STABLE_ABI" = "true" ]; then
-          TRACK_ELEMENTS="$TRACK_ELEMENTS abi/reference-abi.bst"
-      fi
+    stage: update
+    variables:
+        GIT_SUBMODULE_STRATEGY: none
+    script:
+        - |
+            if [ "${CI_COMMIT_REF_NAME}" = "${CI_DEFAULT_BRANCH}" ] && [ -n "${SKIP_DAY_NUM}" ]; then
+              if [ "$(date +%u)" -eq "${SKIP_DAY_NUM}" ]; then
+                echo "Skipping job on day ${SKIP_DAY_NUM} of the week"
+                exit 0
+              fi
+            fi
+        - *setup_branch
+        - |
+            case "${CI_COMMIT_REF_NAME}" in
+              "${CI_DEFAULT_BRANCH}")
+              ;;
+              release/*)
+              ;;
+              *)
+                false
+              ;;
+            esac
+        - |
+            if [ "$SCHEDULE_TASK" = "daily" ] && [ "$STABLE_ABI" = "true" ]; then
+                TRACK_ELEMENTS="$TRACK_ELEMENTS abi/reference-abi.bst"
+            fi
 
-      # `auto_updater` is a BuildStream tool for generating merge requests that
-      # updates BuildStream elements using `bst source track`. Source
-      # <https://gitlab.com/BuildStream/infrastructure/gitlab-merge-request-generator>.
+            # `auto_updater` is a BuildStream tool for generating merge requests that
+            # updates BuildStream elements using `bst source track`. Source
+            # <https://gitlab.com/BuildStream/infrastructure/gitlab-merge-request-generator>.
 
-      GITLAB_TOKEN=$FREEDESKTOP_API_KEY auto_updater --verbose \
-      --base_branch "${CI_COMMIT_REF_NAME}" \
-      --nobuild \
-      --overwrite \
-      --push \
-      --create_mr \
-      --shuffle-branches \
-      --gitlab_project="freedesktop-sdk/freedesktop-sdk" \
-      --max_merge_requests=${MAX_MERGE_REQUESTS} \
-      --on_track_error continue \
-      $EXTRA_TRACK_ARGS \
-      $TRACK_ELEMENTS
-  interruptible: false
+            GITLAB_TOKEN=$FREEDESKTOP_API_KEY auto_updater --verbose \
+            --base_branch "${CI_COMMIT_REF_NAME}" \
+            --nobuild \
+            --overwrite \
+            --push \
+            --create_mr \
+            --shuffle-branches \
+            --gitlab_project="freedesktop-sdk/freedesktop-sdk" \
+            --max_merge_requests=${MAX_MERGE_REQUESTS} \
+            --on_track_error continue \
+            $EXTRA_TRACK_ARGS \
+            $TRACK_ELEMENTS
+    interruptible: false
 
 daily_update_elements:
-  extends:
-    - .check_update_elements
-  timeout: 90m
-  variables:
-    SKIP_DAY_NUM: '5'
-    TRACK_ELEMENTS: track-elements.bst
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
+    extends:
+        - .check_update_elements
+    timeout: 90m
+    variables:
+        SKIP_DAY_NUM: "5"
+        TRACK_ELEMENTS: track-elements.bst
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
 
 weekly_update_elements:
-  extends:
-    - .check_update_elements
-  timeout: 90m
-  variables:
-    TRACK_ELEMENTS: track-elements-weekly.bst
-    EXTRA_TRACK_ARGS: >-
-      --bstignore=/dev/null
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH =~ /^release\/.*/'
+    extends:
+        - .check_update_elements
+    timeout: 90m
+    variables:
+        TRACK_ELEMENTS: track-elements-weekly.bst
+        EXTRA_TRACK_ARGS: >-
+            --bstignore=/dev/null
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH =~ /^release\/.*/'
 
 weekly_update_combined:
-  stage: update
-  timeout: 90m
-  variables:
-    TRACK_ELEMENTS: track-elements.bst
-    GIT_SUBMODULE_STRATEGY: none
-    # @freedesktop_sdk_updater
-    GITLAB_MR_BOT_USER_ID: "4969990"
-  script:
-    - *setup_branch
-    - bst-single-updater --base-branch "$CI_DEFAULT_BRANCH" --element "$TRACK_ELEMENTS" --create-mr --skip-open-updates
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH'
+    stage: update
+    timeout: 90m
+    variables:
+        TRACK_ELEMENTS: track-elements.bst
+        GIT_SUBMODULE_STRATEGY: none
+        # @freedesktop_sdk_updater
+        GITLAB_MR_BOT_USER_ID: "4969990"
+    script:
+        - *setup_branch
+        - bst-single-updater --base-branch "$CI_DEFAULT_BRANCH" --element "$TRACK_ELEMENTS" --create-mr --skip-open-updates
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH'
 
 check_mirrors:
-  stage: update
-  timeout: 1h
-  before_script:
-  # Configure Buildstream
-  - mkdir -p ~/.config
-  - |
-    cat > ~/.config/buildstream.conf << EOF
-    # Get a lot of output in case of errors
-    logging:
-      message-format: '[%{elapsed}][%{key}][%{element}] %{action} %{message}'
-      error-lines: 80
-    scheduler:
-      network-retries: 4
-      on-error: continue
-    # We want to test that everything is mirrored
-    fetch:
-      source: mirrors
-    source-caches:
-      override-project-caches: true
-    EOF
+    stage: update
+    timeout: 1h
+    before_script:
+        # Configure Buildstream
+        - mkdir -p ~/.config
+        - |
+            cat > ~/.config/buildstream.conf << EOF
+            # Get a lot of output in case of errors
+            logging:
+              message-format: '[%{elapsed}][%{key}][%{element}] %{action} %{message}'
+              error-lines: 80
+            scheduler:
+              network-retries: 4
+              on-error: continue
+            # We want to test that everything is mirrored
+            fetch:
+              source: mirrors
+            source-caches:
+              override-project-caches: true
+            EOF
 
-  script:
-    - |
-      ${BST} source fetch --deps all flatpak-release-repo.bst components.bst \
-             components/_private/rust-stage1-{x86_64,i686,aarch64,powerpc64le,loongarch64,riscv64}.bst \
-             oci/layers/{flatpak,debug,platform,sdk}.bst
-  allow_failure: true
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
+    script:
+        - |
+            ${BST} source fetch --deps all flatpak-release-repo.bst components.bst \
+                   components/_private/rust-stage1-{x86_64,i686,aarch64,powerpc64le,loongarch64,riscv64}.bst \
+                   oci/layers/{flatpak,debug,platform,sdk}.bst
+    allow_failure: true
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
 
 .flatpak_template:
-  stage: flatpak
-  script:
-    - test -x arch-test && arch-test
-    - ./utils/validate_aliases.py include/_private/aliases.yml include/_private/mirrors.yml
-    - |
-      if [ "${ARCH}" != "i686" ];then
-        make build
-      else
-        make build-repo
-      fi
-    - make check-debuginfo
+    stage: flatpak
+    script:
+        - test -x arch-test && arch-test
+        - ./utils/validate_aliases.py include/_private/aliases.yml include/_private/mirrors.yml
+        - |
+            if [ "${ARCH}" != "i686" ];then
+              make build
+            else
+              make build-repo
+            fi
+        - make check-debuginfo
 
-    - export FLATPAK_USER_DIR="${PWD}/tmp-flatpak"
+        - export FLATPAK_USER_DIR="${PWD}/tmp-flatpak"
 
-    - |
-      # https://github.com/flatpak/flatpak/issues/5045
-      if [ "${ARCH}" = "i686" ]; then
-        make export
-      else
-        make test-apps test-codecs test-ldd test-oci
-      fi
+        - |
+            # https://github.com/flatpak/flatpak/issues/5045
+            if [ "${ARCH}" = "i686" ]; then
+              make export
+            else
+              make test-apps test-codecs test-ldd test-oci
+            fi
 
-    - |
-      ABI_SKIP=$(git log -n 1 | grep -E "\[abi skip\]|\[skip abi\]" || true)
-      if [ "${STABLE_ABI}" != "false" ]; then
-        if [ -z "${ABI_SKIP}" ]; then
-          make check-abi
-        else
-          echo ABI check skipped
-        fi
-      fi
+        - |
+            ABI_SKIP=$(git log -n 1 | grep -E "\[abi skip\]|\[skip abi\]" || true)
+            if [ "${STABLE_ABI}" != "false" ]; then
+              if [ -z "${ABI_SKIP}" ]; then
+                make check-abi
+              else
+                echo ABI check skipped
+              fi
+            fi
 
-    - make generate-spdx-sbom-reports
-  artifacts:
-    when: always
-    paths:
-      - ${CI_PROJECT_DIR}/cache/buildstream/logs/**/*-build.*.log
-      - ${CI_PROJECT_DIR}/cache/buildstream/logs/_casd
-      - ${CI_PROJECT_DIR}/libabigail-tars
-      - ${CI_PROJECT_DIR}/sbom-reports
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+        - make generate-spdx-sbom-reports
+    artifacts:
+        when: always
+        paths:
+            - ${CI_PROJECT_DIR}/cache/buildstream/logs/**/*-build.*.log
+            - ${CI_PROJECT_DIR}/cache/buildstream/logs/_casd
+            - ${CI_PROJECT_DIR}/libabigail-tars
+            - ${CI_PROJECT_DIR}/sbom-reports
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 
 .builder-x86_64:
-  tags:
-    - x86_64
-  variables:
-    ARCH: x86_64
+    tags:
+        - x86_64
+    variables:
+        ARCH: x86_64
 
 .builder-i686:
-  tags:
-    - x86_64
-  variables:
-    ARCH: i686
+    tags:
+        - x86_64
+    variables:
+        ARCH: i686
 
 .builder-aarch64:
-  tags:
-    - aarch64
-  variables:
-    ARCH: aarch64
+    tags:
+        - aarch64
+    variables:
+        ARCH: aarch64
 
 .builder-riscv64:
-  tags:
-    - riscv-native
-    - riscv-big
-  variables:
-    ARCH: riscv64
+    tags:
+        - riscv-native
+        - riscv-big
+    variables:
+        ARCH: riscv64
 
 .builder-ppc64le:
-  tags:
-  - ppc64le
-  variables:
-    ARCH: ppc64le
+    tags:
+        - ppc64le
+    variables:
+        ARCH: ppc64le
 
 .builder-loongarch64:
-  tags:
-  - x86_64
-  variables:
-    ARCH: loongarch64
+    tags:
+        - x86_64
+    variables:
+        ARCH: loongarch64
 
 app_x86_64:
-  extends:
-    - .flatpak_template
-    - .builder-x86_64
-  needs: []
+    extends:
+        - .flatpak_template
+        - .builder-x86_64
+    needs: []
 
 app_i686:
-  extends:
-    - .flatpak_template
-    - .builder-i686
-  needs: []
+    extends:
+        - .flatpak_template
+        - .builder-i686
+    needs: []
 
 app_aarch64:
-  extends:
-    - .flatpak_template
-    - .builder-aarch64
-  needs: []
+    extends:
+        - .flatpak_template
+        - .builder-aarch64
+    needs: []
 
 app_riscv64:
-  extends:
-    - .flatpak_template
-    - .builder-riscv64
-  allow_failure: true
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "riscv"'
-      interruptible: false
-    - when: manual
-  needs: []
+    extends:
+        - .flatpak_template
+        - .builder-riscv64
+    allow_failure: true
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "riscv"'
+          interruptible: false
+        - when: manual
+    needs: []
 
 app_ppc64le:
-  extends:
-    - .flatpak_template
-    - .builder-ppc64le
-  needs: []
+    extends:
+        - .flatpak_template
+        - .builder-ppc64le
+    needs: []
 
 .app_loongarch64:
-  extends:
-    - .flatpak_template
-    - .builder-loongarch64
-  allow_failure: true
-  when: manual
-  needs: []
+    extends:
+        - .flatpak_template
+        - .builder-loongarch64
+    allow_failure: true
+    when: manual
+    needs: []
 
 .minimal_test:
-  stage: vm
-  script:
-    - make build-${IMAGE}
-    - |
-      if [ "${DIALOG+set}" = set ]; then
-        utils/test_minimal_system.py --dialog "${DIALOG}" command "make run-${IMAGE}"
-      fi
-  artifacts:
-    when: always
-    paths:
-      - ${CI_PROJECT_DIR}/cache/buildstream/logs
-      - "${CI_PROJECT_DIR}/checkout/**/*sizes*.tsv"
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    stage: vm
+    script:
+        - make build-${IMAGE}
+        - |
+            if [ "${DIALOG+set}" = set ]; then
+              utils/test_minimal_system.py --dialog "${DIALOG}" command "make run-${IMAGE}"
+            fi
+    artifacts:
+        when: always
+        paths:
+            - ${CI_PROJECT_DIR}/cache/buildstream/logs
+            - "${CI_PROJECT_DIR}/checkout/**/*sizes*.tsv"
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 
 desktop_systemd_vm_aarch64:
-  extends:
-    - .minimal_test
-    - .builder-aarch64
-  variables:
-    VM_ARTIFACT_BOOT: vm/boot/virt.bst
-    VM_ARTIFACT_FILESYSTEM: vm/desktop/virt.bst
-    IMAGE: vm
-  allow_failure: true
-  needs:
-    - job: app_aarch64
-      artifacts: false
+    extends:
+        - .minimal_test
+        - .builder-aarch64
+    variables:
+        VM_ARTIFACT_BOOT: vm/boot/virt.bst
+        VM_ARTIFACT_FILESYSTEM: vm/desktop/virt.bst
+        IMAGE: vm
+    allow_failure: true
+    needs:
+        - job: app_aarch64
+          artifacts: false
 
 minimal_efi_secure_vm_image_x86_64:
-  extends:
-    - .minimal_test
-    - .builder-x86_64
-  needs:
-  - app_x86_64
-  script:
-    - !reference [.minimal_test, script]
-    - utils/test_minimal_size.py # Warn if image size grows
-  variables:
-    VM_ARTIFACT_IMAGE: vm/minimal-secure/efi.bst
-    DIALOG: secure-systemd-firstboot
-    IMAGE: secure-vm
-  allow_failure: true
+    extends:
+        - .minimal_test
+        - .builder-x86_64
+    needs:
+        - app_x86_64
+    script:
+        - !reference [.minimal_test, script]
+        - utils/test_minimal_size.py # Warn if image size grows
+    variables:
+        VM_ARTIFACT_IMAGE: vm/minimal-secure/efi.bst
+        DIALOG: secure-systemd-firstboot
+        IMAGE: secure-vm
+    allow_failure: true
 
 minimal_efi_vm_image_x86_64:
-  extends:
-    - .minimal_test
-    - .builder-x86_64
-  needs:
-  - app_x86_64
-  script:
-    - !reference [.minimal_test, script]
-    - utils/test_minimal_size.py # Warn if image size grows
-  variables:
-    VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
-    DIALOG: root-login
-    IMAGE: efi-vm
-  allow_failure: true
+    extends:
+        - .minimal_test
+        - .builder-x86_64
+    needs:
+        - app_x86_64
+    script:
+        - !reference [.minimal_test, script]
+        - utils/test_minimal_size.py # Warn if image size grows
+    variables:
+        VM_ARTIFACT_IMAGE: vm/minimal/efi.bst
+        DIALOG: root-login
+        IMAGE: efi-vm
+    allow_failure: true
 
 minimal_efi_ostree_vm_image_x86_64:
-  extends:
-    - .minimal_test
-    - .builder-x86_64
-  needs:
-  - app_x86_64
-  variables:
-    DIALOG: root-login
-    IMAGE: ostree-vm
-  allow_failure: true
+    extends:
+        - .minimal_test
+        - .builder-x86_64
+    needs:
+        - app_x86_64
+    variables:
+        DIALOG: root-login
+        IMAGE: ostree-vm
+    allow_failure: true
 
 publish_flatpak:
-  stage: publish
-  script:
-    # New arches needs to be allowlisted in utils/validate_repo.py
-    # before publish
-    - make export ARCH=x86_64 BOOTSTRAP_ARCH=x86_64
-    - make export ARCH=i686 BOOTSTRAP_ARCH=x86_64
-    - make export ARCH=aarch64 BOOTSTRAP_ARCH=aarch64
+    stage: publish
+    script:
+        # New arches needs to be allowlisted in utils/validate_repo.py
+        # before publish
+        - make export ARCH=x86_64 BOOTSTRAP_ARCH=x86_64
+        - make export ARCH=i686 BOOTSTRAP_ARCH=x86_64
+        - make export ARCH=aarch64 BOOTSTRAP_ARCH=aarch64
 
-    - |
-      case "$RELEASES_SERVER_ADDRESS" in
-        https://hub.flathub.org/)
-          for ref in $(ostree --repo=repo refs --list); do
-            case "${ref}" in
-              */*/i386/*)
-                echo "Deleting ${ref}"
-                ostree --repo=repo refs --delete "${ref}"
+        - |
+            case "$RELEASES_SERVER_ADDRESS" in
+              https://hub.flathub.org/)
+                for ref in $(ostree --repo=repo refs --list); do
+                  case "${ref}" in
+                    */*/i386/*)
+                      echo "Deleting ${ref}"
+                      ostree --repo=repo refs --delete "${ref}"
+                      ;;
+                    */org.freedesktop.Sdk*/*/*) ;&
+                    */org.freedesktop.Platform*/*/*)
+                      echo "Keeping ${ref}"
+                      ;;
+                    */*/*/*)
+                      echo "Deleting ${ref}"
+                      ostree --repo=repo refs --delete "${ref}"
+                      ;;
+                  esac
+                done
                 ;;
-              */org.freedesktop.Sdk*/*/*) ;&
-              */org.freedesktop.Platform*/*/*)
-                echo "Keeping ${ref}"
+              https://releases.freedesktop-sdk.io/)
+                for ref in $(ostree --repo=repo refs --list); do
+                  case "${ref}" in
+                    */*/i386/*)
+                      echo "Deleting ${ref}"
+                      ostree --repo=repo refs --delete "${ref}"
+                      ;;
+                    */*/*/*)
+                      echo "Keeping ${ref}"
+                      ;;
+                  esac
+                done
                 ;;
-              */*/*/*)
-                echo "Deleting ${ref}"
-                ostree --repo=repo refs --delete "${ref}"
+              *)
+                false
                 ;;
             esac
-          done
-          ;;
-        https://releases.freedesktop-sdk.io/)
-          for ref in $(ostree --repo=repo refs --list); do
-            case "${ref}" in
-              */*/i386/*)
-                echo "Deleting ${ref}"
-                ostree --repo=repo refs --delete "${ref}"
-                ;;
-              */*/*/*)
-                echo "Keeping ${ref}"
-                ;;
-            esac
-          done
-          ;;
-        *)
-          false
-          ;;
-      esac
 
-    - python utils/validate_repo.py --path repo
-    - flatpak build-update-repo --generate-static-deltas repo
-    - flat-manager-client -v create "$RELEASES_SERVER_ADDRESS" "${RELEASE_CHANNEL}" --build-log-url ${CI_PIPELINE_URL} > publish_build.txt
-    - flat-manager-client push "$(cat publish_build.txt)" repo --build-log-url ${CI_PIPELINE_URL}
-    - |
-      if [ "${EXPIRED}" = "1" ]; then
-        EOL_MESSAGE=$(utils/eol-message.py ${RUNTIME_VERSION})
-        flat-manager-client -v commit --wait "$(cat publish_build.txt)" \
-          --end-of-life "${EOL_MESSAGE}"
-      else
-        flat-manager-client -v commit --wait "$(cat publish_build.txt)"
-      fi
-    - flat-manager-client -v publish --wait-update "$(cat publish_build.txt)"
-  artifacts:
-    when: always
-    paths:
-      - ${CI_PROJECT_DIR}/cache/buildstream/logs
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "schedule"
-      when: never
-    - if: $CI_COMMIT_REF_PROTECTED == "true"
-      when: delayed
-      start_in: 1 minute
-  interruptible: false
+        - python utils/validate_repo.py --path repo
+        - flatpak build-update-repo --generate-static-deltas repo
+        - flat-manager-client -v create "$RELEASES_SERVER_ADDRESS" "${RELEASE_CHANNEL}" --build-log-url ${CI_PIPELINE_URL} > publish_build.txt
+        - flat-manager-client push "$(cat publish_build.txt)" repo --build-log-url ${CI_PIPELINE_URL}
+        - |
+            if [ "${EXPIRED}" = "1" ]; then
+              EOL_MESSAGE=$(utils/eol-message.py ${RUNTIME_VERSION})
+              flat-manager-client -v commit --wait "$(cat publish_build.txt)" \
+                --end-of-life "${EOL_MESSAGE}"
+            else
+              flat-manager-client -v commit --wait "$(cat publish_build.txt)"
+            fi
+        - flat-manager-client -v publish --wait-update "$(cat publish_build.txt)"
+    artifacts:
+        when: always
+        paths:
+            - ${CI_PROJECT_DIR}/cache/buildstream/logs
+    rules:
+        - if: $CI_PIPELINE_SOURCE == "schedule"
+          when: never
+        - if: $CI_COMMIT_REF_PROTECTED == "true"
+          when: delayed
+          start_in: 1 minute
+    interruptible: false
 
 spdx_sbom_report:
-  stage: finish-publish
-  tags:
-    - ${ARCH}
-  variables:
-    SBOM_TAG: standard
-    # Sub the / in branch names to prevent the glab url from breaking
-    UPLOAD_TARBALL: "sbom-reports_${ARCH}_${SBOM_TAG}.tar.xz"
-  script:
-    - make generate-spdx-sbom-reports
-    - PACKAGE_VERSION="${CI_COMMIT_TAG:-$CI_COMMIT_SHA}"
-    - PACKAGE_NAME="sbom-reports-${CI_COMMIT_BRANCH:-$CI_COMMIT_TAG}"
-    - PACKAGE_NAME="${PACKAGE_NAME//\//-}"
-    - tar -cJf "${UPLOAD_TARBALL}" sbom-reports/
-    - |
-      curl \
-        --fail-with-body \
-        --header "JOB-TOKEN: ${CI_JOB_TOKEN}" \
-        --upload-file "${UPLOAD_TARBALL}" \
-        "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${PACKAGE_VERSION}/${UPLOAD_TARBALL}"
-    - echo "Uploaded ${UPLOAD_TARBALL} to Package ${PACKAGE_NAME}@${PACKAGE_VERSION}"
-  artifacts:
-    paths:
-      - "${CI_PROJECT_DIR}/sbom-reports"
-  parallel:
-    matrix:
-      - ARCH: [ x86_64, aarch64 ]
-  rules:
-    - if: '$CI_COMMIT_REF_PROTECTED == "true" && $CI_PIPELINE_SOURCE != "schedule"'
-    - if: '$CI_COMMIT_TAG'
-  needs: []
+    stage: finish-publish
+    tags:
+        - ${ARCH}
+    variables:
+        SBOM_TAG: standard
+        # Sub the / in branch names to prevent the glab url from breaking
+        UPLOAD_TARBALL: "sbom-reports_${ARCH}_${SBOM_TAG}.tar.xz"
+    script:
+        - make generate-spdx-sbom-reports
+        - PACKAGE_VERSION="${CI_COMMIT_TAG:-$CI_COMMIT_SHA}"
+        - PACKAGE_NAME="sbom-reports-${CI_COMMIT_BRANCH:-$CI_COMMIT_TAG}"
+        - PACKAGE_NAME="${PACKAGE_NAME//\//-}"
+        - tar -cJf "${UPLOAD_TARBALL}" sbom-reports/
+        - |
+            curl \
+              --fail-with-body \
+              --header "JOB-TOKEN: ${CI_JOB_TOKEN}" \
+              --upload-file "${UPLOAD_TARBALL}" \
+              "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${PACKAGE_VERSION}/${UPLOAD_TARBALL}"
+        - echo "Uploaded ${UPLOAD_TARBALL} to Package ${PACKAGE_NAME}@${PACKAGE_VERSION}"
+    artifacts:
+        paths:
+            - "${CI_PROJECT_DIR}/sbom-reports"
+    parallel:
+        matrix:
+            - ARCH: [x86_64, aarch64]
+    rules:
+        - if: '$CI_COMMIT_REF_PROTECTED == "true" && $CI_PIPELINE_SOURCE != "schedule"'
+        - if: "$CI_COMMIT_TAG"
+    needs: []
 
 # Ensure that all artifacts are in the cache for the Buildstream sbom license job
 build_spdx_artifacts:
-  stage: publish
-  tags:
-    - $ARCH
-  script:
-    make build-sbom-artifacts
-  parallel:
-    matrix:
-      - ARCH: [ x86_64, aarch64 ]
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
-    - if: '$CI_COMMIT_TAG'
+    stage: publish
+    tags:
+        - $ARCH
+    script: make build-sbom-artifacts
+    parallel:
+        matrix:
+            - ARCH: [x86_64, aarch64]
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+        - if: "$CI_COMMIT_TAG"
 
 spdx_sbom_report_licenses:
-  stage: finish-publish
-  timeout: 240 minutes
-  extends: spdx_sbom_report
-  variables:
-    # Enable building the SBOM with licenses
-    SPDX_SBOM_WITH_LICENSE: "true"
-    SBOM_TAG: license
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
-  - if: '$CI_COMMIT_TAG'
-  needs: 
-      - build_spdx_artifacts
+    stage: finish-publish
+    timeout: 240 minutes
+    extends: spdx_sbom_report
+    variables:
+        # Enable building the SBOM with licenses
+        SPDX_SBOM_WITH_LICENSE: "true"
+        SBOM_TAG: license
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+        - if: "$CI_COMMIT_TAG"
+    needs:
+        - build_spdx_artifacts
 
 cve_report:
-  stage: finish-publish
-  variables:
-    SBOM_TAG: standard
-  script:
-    - make generate-cve-report
-    - PACKAGE_VERSION="${CI_COMMIT_TAG:-$CI_COMMIT_SHA}"
-    - PACKAGE_NAME="cve-reports-${CI_COMMIT_BRANCH//\//-}"
-    - |
-      for UPLOAD in cve-reports/*; do
-        [ -f "$UPLOAD" ] || continue
+    stage: finish-publish
+    variables:
+        SBOM_TAG: standard
+    script:
+        - make generate-cve-report
+        - PACKAGE_VERSION="${CI_COMMIT_TAG:-$CI_COMMIT_SHA}"
+        - PACKAGE_NAME="cve-reports-${CI_COMMIT_BRANCH//\//-}"
+        - |
+            for UPLOAD in cve-reports/*; do
+              [ -f "$UPLOAD" ] || continue
 
-        FILE=$(basename "$UPLOAD")
-        curl \
-          --fail-with-body \
-          --header "JOB-TOKEN: ${CI_JOB_TOKEN}" \
-          --upload-file "${UPLOAD}" \
-          "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${PACKAGE_VERSION}/${FILE}";
-        echo "Uploaded ${FILE} to Package ${PACKAGE_NAME}@${PACKAGE_VERSION}";
-      done;
-  artifacts:
-    paths:
-      - "${CI_PROJECT_DIR}/cve-reports"
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK != "daily"'
-    when: never
-  - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
-  - if: '$CI_COMMIT_BRANCH =~ /^release\/.*/'
-  needs: []
+              FILE=$(basename "$UPLOAD")
+              curl \
+                --fail-with-body \
+                --header "JOB-TOKEN: ${CI_JOB_TOKEN}" \
+                --upload-file "${UPLOAD}" \
+                "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${PACKAGE_VERSION}/${FILE}";
+              echo "Uploaded ${FILE} to Package ${PACKAGE_NAME}@${PACKAGE_VERSION}";
+            done;
+    artifacts:
+        paths:
+            - "${CI_PROJECT_DIR}/cve-reports"
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK != "daily"'
+          when: never
+        - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
+        - if: '$CI_COMMIT_BRANCH =~ /^release\/.*/'
+    needs: []
 
 markdown_manifest:
-  stage: finish-publish
-  script:
-    - make markdown-manifest
-  artifacts:
-    paths:
-      - "${CI_PROJECT_DIR}/platform-manifest/usr/"
-      - "${CI_PROJECT_DIR}/sdk-manifest/usr/"
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule"'
-    when: never
-  - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH =~ /^release\/.*/'
-  needs: []
+    stage: finish-publish
+    script:
+        - make markdown-manifest
+    artifacts:
+        paths:
+            - "${CI_PROJECT_DIR}/platform-manifest/usr/"
+            - "${CI_PROJECT_DIR}/sdk-manifest/usr/"
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "schedule"'
+          when: never
+        - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH =~ /^release\/.*/'
+    needs: []
 
 .reproducible_template:
-  stage: reproducible
-  script:
-    - buildstream-reprotest tests/reproducible-test.bst result_folder
-  needs: []
-  variables:
-    DISABLE_REMOTE_CACHE: "1"
-  artifacts:
-    when: always
-    paths:
-      - ${CI_PROJECT_DIR}/cache/buildstream/logs
-      - ${CI_PROJECT_DIR}/result_folder               # All results of diffoscope for non-reproducible builds.
-      - ${CI_PROJECT_DIR}/reproducibility_results.html # All elements that are not reproducible
-  interruptible: false
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly"'
+    stage: reproducible
+    script:
+        - buildstream-reprotest tests/reproducible-test.bst result_folder
+    needs: []
+    variables:
+        DISABLE_REMOTE_CACHE: "1"
+    artifacts:
+        when: always
+        paths:
+            - ${CI_PROJECT_DIR}/cache/buildstream/logs
+            - ${CI_PROJECT_DIR}/result_folder # All results of diffoscope for non-reproducible builds.
+            - ${CI_PROJECT_DIR}/reproducibility_results.html # All elements that are not reproducible
+    interruptible: false
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "weekly"'
 
 reproducible_aarch64:
-  extends:
-    - .reproducible_template
-    - .builder-aarch64
+    extends:
+        - .reproducible_template
+        - .builder-aarch64
 
 reproducible_x86_64:
-  extends:
-    - .reproducible_template
-    - .builder-x86_64
+    extends:
+        - .reproducible_template
+        - .builder-x86_64
 
 .docker_publish_template:
-  stage: publish
-  retry: 2
-  script:
-  - |
-    [ -n "${DOCKER_HUB_USER}" ]
-  - |
-    [ -n "${DOCKER_HUB_PASSWORD}" ]
-  - |
-    [ -n "${DOCKER_HUB_ADDRESS}" ]
+    stage: publish
+    retry: 2
+    script:
+        - |
+            [ -n "${DOCKER_HUB_USER}" ]
+        - |
+            [ -n "${DOCKER_HUB_PASSWORD}" ]
+        - |
+            [ -n "${DOCKER_HUB_ADDRESS}" ]
 
-  - |
-    OCI_IMAGES=(platform sdk debug flatpak toolbox)
-    BST_ELEMENTS=$(printf 'oci/%q-oci.bst ' ${OCI_IMAGES[@]})
+        - |
+            OCI_IMAGES=(platform sdk debug flatpak toolbox)
+            BST_ELEMENTS=$(printf 'oci/%q-oci.bst ' ${OCI_IMAGES[@]})
 
-    ${BST} -o target_arch ${ARCH} build ${BST_ELEMENTS[@]}
-    for element in ${BST_ELEMENTS[@]}; do
-       ${BST} -o target_arch ${ARCH} artifact checkout ${element} --tar - | podman load
-    done
+            ${BST} -o target_arch ${ARCH} build ${BST_ELEMENTS[@]}
+            for element in ${BST_ELEMENTS[@]}; do
+               ${BST} -o target_arch ${ARCH} artifact checkout ${element} --tar - | podman load
+            done
 
-  - podman login -u "${DOCKER_HUB_USER}" -p "${DOCKER_HUB_PASSWORD}" "${DOCKER_HUB_ADDRESS}"
+        - podman login -u "${DOCKER_HUB_USER}" -p "${DOCKER_HUB_PASSWORD}" "${DOCKER_HUB_ADDRESS}"
 
-  - |
-    set -eu
-    for name in ${OCI_IMAGES[@]}; do
-      full_name=freedesktopsdk/${name}
-      podman push ${full_name}:latest docker://docker.io/${full_name}:"${DOCKER_VERSION}"-"${ARCH}" \
-      --digestfile digest.txt
-      mkdir -p "docker-pushed-digests/${DOCKER_VERSION}"
-      digest=$(<digest.txt)
-      echo "${full_name}@${digest}" \
-          >"docker-pushed-digests/${DOCKER_VERSION}/${name}-${ARCH}.txt"
-    done
+        - |
+            set -eu
+            for name in ${OCI_IMAGES[@]}; do
+              full_name=freedesktopsdk/${name}
+              podman push ${full_name}:latest docker://docker.io/${full_name}:"${DOCKER_VERSION}"-"${ARCH}" \
+              --digestfile digest.txt
+              mkdir -p "docker-pushed-digests/${DOCKER_VERSION}"
+              digest=$(<digest.txt)
+              echo "${full_name}@${digest}" \
+                  >"docker-pushed-digests/${DOCKER_VERSION}/${name}-${ARCH}.txt"
+            done
 
-  artifacts:
-    when: always
-    paths:
-    - ${CI_PROJECT_DIR}/cache/buildstream/logs
-    - docker-pushed-digests
-  rules:
-  - if: '$CI_COMMIT_TAG && $CI_PIPELINE_SOURCE != "schedule"'
+    artifacts:
+        when: always
+        paths:
+            - ${CI_PROJECT_DIR}/cache/buildstream/logs
+            - docker-pushed-digests
+    rules:
+        - if: '$CI_COMMIT_TAG && $CI_PIPELINE_SOURCE != "schedule"'
 
 publish_docker_x86_64:
-  extends:
-    - .builder-x86_64
-    - .docker_publish_template
-  variables:
-    CACHE_PUSH: 'false'
-  needs: []
+    extends:
+        - .builder-x86_64
+        - .docker_publish_template
+    variables:
+        CACHE_PUSH: "false"
+    needs: []
 
 publish_docker_i686:
-  extends:
-    - .builder-i686
-    - .docker_publish_template
-  variables:
-    CACHE_PUSH: 'false'
-  needs: []
+    extends:
+        - .builder-i686
+        - .docker_publish_template
+    variables:
+        CACHE_PUSH: "false"
+    needs: []
 
 publish_docker_aarch64:
-  extends:
-    - .builder-aarch64
-    - .docker_publish_template
-  variables:
-    CACHE_PUSH: 'false'
-  needs: []
-
+    extends:
+        - .builder-aarch64
+        - .docker_publish_template
+    variables:
+        CACHE_PUSH: "false"
+    needs: []
 
 publish_docker_ppc64le:
-  extends:
-    - .builder-ppc64le
-    - .docker_publish_template
-  variables:
-    CACHE_PUSH: 'false'
-  needs: []
+    extends:
+        - .builder-ppc64le
+        - .docker_publish_template
+    variables:
+        CACHE_PUSH: "false"
+    needs: []
 
 publish_docker_finish:
-  stage: finish-publish
-  allow_failure: true
-  before_script: []
-  script:
-  - podman login -u "${DOCKER_HUB_USER}" -p "${DOCKER_HUB_PASSWORD}" "${DOCKER_HUB_ADDRESS}"
+    stage: finish-publish
+    allow_failure: true
+    before_script: []
+    script:
+        - podman login -u "${DOCKER_HUB_USER}" -p "${DOCKER_HUB_PASSWORD}" "${DOCKER_HUB_ADDRESS}"
 
-  - |
-    set -eu
+        - |
+            set -eu
 
-    LATEST_RELEASE=$(./utils/detect_latest.py)
+            LATEST_RELEASE=$(./utils/detect_latest.py)
 
-    for name in platform sdk debug flatpak; do
-      for dir in docker-pushed-digests/*; do
-        DOCKER_VERSION="$(basename "${dir}")"
-        podman manifest create "freedesktopsdk/${name}:${DOCKER_VERSION}" \
-                      $(cat "${dir}"/${name}-*.txt)
-        podman manifest push --format v2s2 \
-                      "freedesktopsdk/${name}:${DOCKER_VERSION}" \
-                      docker://docker.io/freedesktopsdk/"${name}:${DOCKER_VERSION}"
-        if [ "${RUNTIME_VERSION}" = "${LATEST_RELEASE}" ]
-        then
-          podman manifest push --format v2s2 \
-                        "freedesktopsdk/${name}:${DOCKER_VERSION}" \
-                        docker://docker.io/freedesktopsdk/"${name}:latest"
-        fi
-      done
-    done
+            for name in platform sdk debug flatpak; do
+              for dir in docker-pushed-digests/*; do
+                DOCKER_VERSION="$(basename "${dir}")"
+                podman manifest create "freedesktopsdk/${name}:${DOCKER_VERSION}" \
+                              $(cat "${dir}"/${name}-*.txt)
+                podman manifest push --format v2s2 \
+                              "freedesktopsdk/${name}:${DOCKER_VERSION}" \
+                              docker://docker.io/freedesktopsdk/"${name}:${DOCKER_VERSION}"
+                if [ "${RUNTIME_VERSION}" = "${LATEST_RELEASE}" ]
+                then
+                  podman manifest push --format v2s2 \
+                                "freedesktopsdk/${name}:${DOCKER_VERSION}" \
+                                docker://docker.io/freedesktopsdk/"${name}:latest"
+                fi
+              done
+            done
 
-  rules:
-  - if: '$CI_COMMIT_TAG && $CI_PIPELINE_SOURCE != "schedule"'
-  needs:
-  - publish_docker_aarch64
-  - publish_docker_x86_64
-  - publish_docker_i686
-  - publish_docker_ppc64le
+    rules:
+        - if: '$CI_COMMIT_TAG && $CI_PIPELINE_SOURCE != "schedule"'
+    needs:
+        - publish_docker_aarch64
+        - publish_docker_x86_64
+        - publish_docker_i686
+        - publish_docker_ppc64le
 
 publish_gitlab_release:
-  stage: publish
-  allow_failure: true
-  timeout: 10 minutes
-  variables:
-    GLAB_CHECK_UPDATE: "false"
-    GLAB_SEND_TELEMETRY: "false"
-  before_script: []
-  after_script: []
-  script:
-    - |
-      git tag -l "$CI_COMMIT_TAG" --format='%(contents)' \
-        | sed '/^-----BEGIN/,$d' \
-        | sed 's/"/\\"/g' \
-        > tag_message.txt
+    stage: publish
+    allow_failure: true
+    timeout: 10 minutes
+    variables:
+        GLAB_CHECK_UPDATE: "false"
+        GLAB_SEND_TELEMETRY: "false"
+    before_script: []
+    after_script: []
+    script:
+        - |
+            git tag -l "$CI_COMMIT_TAG" --format='%(contents)' \
+              | sed '/^-----BEGIN/,$d' \
+              | sed 's/"/\\"/g' \
+              > tag_message.txt
 
-    - glab auth login --hostname "$CI_SERVER_HOST" --job-token "$CI_JOB_TOKEN"
+        - glab auth login --hostname "$CI_SERVER_HOST" --job-token "$CI_JOB_TOKEN"
 
-    - |
-      glab release create "$CI_COMMIT_TAG" --name "$CI_COMMIT_TAG" \
-        --notes-file tag_message.txt --ref "$CI_COMMIT_SHA"
-  rules:
-  - if: '$CI_COMMIT_TAG && $CI_COMMIT_REF_PROTECTED == "true" && $CI_PIPELINE_SOURCE != "schedule"'
+        - |
+            glab release create "$CI_COMMIT_TAG" --name "$CI_COMMIT_TAG" \
+              --notes-file tag_message.txt --ref "$CI_COMMIT_SHA"
+    rules:
+        - if: '$CI_COMMIT_TAG && $CI_COMMIT_REF_PROTECTED == "true" && $CI_PIPELINE_SOURCE != "schedule"'
 
 check_docker_images:
-  stage: merge-check
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-      changes:
-        - .gitlab-ci.yml
-  dependencies: []
-  before_script: []
-  script:
-    - python3 utils/check-docker-images.py .gitlab-ci.yml
-  after_script: []
+    stage: merge-check
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+          changes:
+              - .gitlab-ci.yml
+    dependencies: []
+    before_script: []
+    script:
+        - python3 utils/check-docker-images.py .gitlab-ci.yml
+    after_script: []
