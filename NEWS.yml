@@ -1,3 +1,9 @@
+Version: freedesktop-sdk-24.08.38
+Date: '2026-10-21'
+Description: |-
+  Changes in freedesktop-sdk-24.08.38
+   * Update ca-certificates
+---
 Version: freedesktop-sdk-24.08.37
 Date: '2026-09-28'
 Description: |-
