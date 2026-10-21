@@ -192,7 +192,7 @@ sources:
 - kind: git_repo
   url: fedora_rpms:ca-certificates.git
   track: rawhide
-  ref: ca-certificates-2010_63-3_fc14-175-g5183efe86efe1997d86e3913df773ac7e3523cad
+  ref: ca-certificates-2010_63-3_fc14-179-g070c292b486904a007d155c8e2e4f484be29f790
 - kind: git_repo
   url: fedora_rpms:ca-certificates.git
   # Manually update: This is only used for update-ca-trust and its man
@@ -201,3 +201,7 @@ sources:
   # symlinks etc.
   ref: 91af9300e9ca630b72f466b317bc489446838db8
   directory: scripts
+- kind: patch
+  path: patches/ca-certificates/remove-aaa-certificate-services.patch
+- kind: patch
+  path: patches/ca-certificates/remove-emsign-ecc-root-ca-g3.patch
