@@ -1,7 +1,7 @@
-Version: freedesktop-sdk-26.08.03
+Version: freedesktop-sdk-26.08.3
 Date: '2026-10-21'
 Description: |-
-  Changes in freedesktop-sdk-26.08.03
+  Changes in freedesktop-sdk-26.08.3
    * Update ca-certificates
    * Update polkit-base to 128-0
    * Update link after docs reshuffle
