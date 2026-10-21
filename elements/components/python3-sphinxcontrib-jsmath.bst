@@ -1,15 +1,16 @@
 kind: pyproject
 
 build-depends:
-- public-stacks/buildsystem-python-setuptools.bst
+- public-stacks/buildsystem-python-flit.bst
 
 depends:
 - components/python3.bst
+
+variables:
+  strip-binaries: ''
 
 sources:
 - kind: git_repo
   url: github:sphinx-doc/sphinxcontrib-jsmath.git
   track: "*.*.*"
-  ref: 1.0.1-0-ge4c69dd2180c7f18330d5c3fb9300ea0e8461911
-- kind: patch
-  path: patches/python3-sphinxcontrib-jsmath/reproducibility.patch
+  ref: 2.0.0-0-g420ba4ebb0cabff9100e46714c67074f33f44fc5
