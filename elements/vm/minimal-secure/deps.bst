@@ -8,6 +8,7 @@ depends:
 - components/audit.bst
 - components/bash-completion.bst
 - components/bash-config.bst
+- components/ca-certificates.bst
 - components/dbus.bst
 - components/dracut.bst
 - components/hosts.bst

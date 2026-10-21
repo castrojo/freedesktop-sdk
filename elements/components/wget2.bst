@@ -12,7 +12,6 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/brotli.bst
-- components/ca-certificates.bst
 - components/gpgme.bst
 - components/libidn2.bst
 - components/libnghttp2.bst

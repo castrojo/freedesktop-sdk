@@ -30,7 +30,6 @@ depends:
 
 runtime-depends:
 - bootstrap/zlib-ng.bst
-- components/ca-certificates.bst
 - components/perl-sasl.bst
 - components/perl-ssl.bst
 

@@ -9,6 +9,7 @@ depends:
 - public-stacks/runtime-gnu.bst
 - components/bash-completion.bst
 - components/bash-config.bst
+- components/ca-certificates.bst
 - components/dbus.bst
 - components/dracut.bst
 - components/gnupg.bst

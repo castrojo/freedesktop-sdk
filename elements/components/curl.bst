@@ -18,9 +18,6 @@ depends:
 - components/zlib.bst
 - components/zstd.bst
 
-runtime-depends:
-- components/ca-certificates.bst
-
 variables:
   cmake-local: >-
     -DCURL_CA_BUNDLE=none
