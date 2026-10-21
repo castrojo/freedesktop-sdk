@@ -13,9 +13,3 @@ runtime-depends:
 
 config:
   include-orphans: True
-
-public:
-  bst:
-    integration-commands:
-    - |
-      flat-manager-client --help > /dev/null
