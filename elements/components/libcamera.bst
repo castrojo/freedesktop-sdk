@@ -39,6 +39,12 @@ variables:
     -Dcam-output-sdl2=disabled
     %{arch-conf}
 
+config:
+  install-commands:
+    (>):
+    - |
+      rm -f "%{install-root}%{prefix}/lib/libyuv.a"
+
 sources:
 - kind: git_repo
   url: git_https:git.libcamera.org/libcamera/libcamera.git
