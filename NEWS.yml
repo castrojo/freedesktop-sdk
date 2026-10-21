@@ -1,3 +1,60 @@
+Version: freedesktop-sdk-25.08.19
+Date: '2026-10-21'
+Description: |-
+  Changes in freedesktop-sdk-25.08.19
+   * Update ca-certificates
+   * Update Vim to v9.2.1207
+   * Revert vim: track only major releases"
+   * Update link after docs reshuffle
+   * Update freetype from 2-14-3 to 2-15-0
+   * Move freetype source url from savannah to freedesktop gitlab
+   * rr.bst: Update from 5.9.0 to 5.10.0, change url to current upstream
+   * Freeze libusb to 1.0.29
+   * Revert "Update libusb to v1.0.30-0"
+   * Update libusb to v1.0.30-0
+   * Update python3-markdown to 3.11.2-0
+   * Update linux-firmware to 20261019-0
+   * Update python3-certifi to 2026.10.19-0
+   * Update xfsprogs to v7.2.1-0
+   * flags: Disable GCC switch recording for cgo reproducibility
+   * Update python3-certifi to 2026.10.18-0
+   * Update python3-virtualenv to 21.14.11-0
+   * Update pcsc-lite to 2.5.3-0
+   * Update cargo-c to v0.10.26-0
+   * Update ccache to v4.14.2-0
+   * Update python3-filelock to 4.2.4-0
+   * Update buildbox to 1.4.28-0
+   * Update xorg-lib-x11 to libX11-1.8.14-0
+   * Update xorg-lib-xi to libXi-1.8.4-0
+   * Update python3-virtualenv to 21.14.10-0
+   * Update python3-filelock to 4.2.1-0
+   * Update xorg-lib-xpm to libXpm-3.5.20-0
+   * Update xorg-lib-xtst to libXtst-1.2.6-0
+   * Update xorg-lib-xrender to libXrender-0.9.13-0
+   * Update python3-tomlkit to 0.15.2-0
+   * Update python3-distlib to 0.4.4-0
+   * Update librsvg to ref: 2.63.3-0
+   * Update polkit-base to 128-0
+   * Update python3-pluggy to 1.7.0-0
+   * Update linux to v7.2.11-0
+   * Update python3-virtualenv to 21.14.8-0
+   * Update reference-abi to freedesktop-sdk-25.08.18-0
+   * Update python3-markdown to 3.11.1-0
+   * Update mesa-sdk to mesa-26.2.5-0
+   * Update python3-filelock to 4.2.0-0
+   * Update mesa to mesa-26.2.5-0
+   * Update bubblewrap to v0.13.1-0
+   * Update python3-pycparser to release_v3.11-0
+   * Update python3-multidict to v7.1.0-0
+   * Update glibc to glibc-2.42-103
+   * Update gtk-doc to 1.37.0-0
+   * python3-setuptools-scm.bst: Move packaging to runtime-depends
+   * python3-hatch-vcs.bst: Move python3-setuptools-scm.bst to runtime-depends
+   * python3-urllib3.bst: Explicitly build-depend on setuptools-scm
+   * Drop setuptools-scm as a build dependency from dulwich & charset-normalizer
+   * u-boot-{qemu,unmatched}.bst: Upgrade from v2026.07 to v2026.10
+   * Update extra-cmake-modules to v6.31.0-0
+---
 Version: freedesktop-sdk-25.08.18
 Date: '2026-10-12'
 Description: |-
