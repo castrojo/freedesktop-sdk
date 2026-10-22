@@ -211,3 +211,5 @@ sources:
   path: patches/ca-certificates/remove-aaa-certificate-services.patch
 - kind: patch
   path: patches/ca-certificates/remove-emsign-ecc-root-ca-g3.patch
+- kind: patch
+  path: patches/ca-certificates/remove-emsign-root-cs-ca-g3.patch
