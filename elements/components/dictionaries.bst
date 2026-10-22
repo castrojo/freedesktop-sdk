@@ -38,7 +38,7 @@ sources:
   - '*beta*'
   - '*macfix*'
   - "*android*"
-  ref: libreoffice-26.8.2.1-0-gfa8f3d19d7013d2a80b88e126514aef0db2699c1
+  ref: libreoffice-26.8.2.2-0-g8050ba0dbe0762855390e28bd5bc58f285ece20e
 - kind: local
   path: files/dictionaries/install_dicts.py
 - kind: local
