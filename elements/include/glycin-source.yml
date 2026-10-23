@@ -9,7 +9,7 @@ sources:
   - "*alpha*"
   - "*beta*"
   - "*rc*"
-  ref: 2.2.3-0-g90a013cf3cc89d419b9be88a5e57ee5ef275bfa1
+  ref: 2.2.4-0-g3df434b79c6276dfd289e521c5718a36468bcbf6
 - kind: cargo2
   ref:
   - kind: registry
@@ -474,8 +474,8 @@ sources:
     sha: d583cdde9eb6985dbb6e596d27677e5d353d5eee44763cbf7c7ead3147d337bf
   - kind: registry
     name: gufo-exif
-    version: 0.5.3
-    sha: 4183c4b2bf6cfd58823cf02b2e8a4d955da3605f8e1b98adbd3456a97e35ae16
+    version: 0.5.4
+    sha: 4b334a76d1df73308ef010af6a5870b7fe0f175bd66c79dc8564ac3116781f69
   - kind: registry
     name: gufo-jpeg
     version: 0.5.1
