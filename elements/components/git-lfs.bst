@@ -39,7 +39,7 @@ sources:
 - kind: git_repo
   url: github:git-lfs/git-lfs.git
   track: v*
-  ref: v3.8.0-0-gaece9221f8c09221a14395d964806b956289bc07
+  ref: v3.8.1-0-ga662a6dbfedf706cfa9fc7a5b7bcc7ba2e2c8a65
 - kind: go_module
   url: github:alexbrainman/sspi.git
   module: github.com/alexbrainman/sspi
@@ -268,3 +268,9 @@ sources:
   ref:
     go-version: v1.19.1
     git-ref: v1.19.1-0-g2602f4afea09fe72f2b58d4ed04d43a6047a0131
+- kind: go_module
+  url: github:google/shlex
+  module: github.com/google/shlex
+  ref:
+    go-version: v0.0.0-20191202100458-e7afc7fbc510
+    git-ref: e7afc7fbc51079733e9468cdfd1efcd7d196cd1d
