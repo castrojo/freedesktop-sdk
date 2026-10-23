@@ -8,6 +8,8 @@ build-depends:
 
 depends:
 - public-stacks/runtime-minimal.bst
+# `strace` requires `libdw`, which is part of `elfutils`.
+- bootstrap/elfutils.bst
 - bootstrap/libselinux.bst
 - bootstrap/ncurses.bst
 - components/libunwind.bst
