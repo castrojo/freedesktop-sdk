@@ -18,4 +18,4 @@ sources:
 - kind: git_repo
   url: github:jelmer/dulwich.git
   track: dulwich-*.*.*
-  ref: dulwich-1.2.17-0-ge81c9afd58d5440ff0e91fb86de3a261ab3d7336
+  ref: dulwich-1.2.19-0-gf50f2c17f3f06e7358d3802b5fdb96410fe299e4
