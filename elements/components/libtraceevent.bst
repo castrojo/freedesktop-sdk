@@ -23,4 +23,4 @@ sources:
 - kind: git_repo
   url: kernel:libs/libtrace/libtraceevent.git
   track: 'libtraceevent-*'
-  ref: libtraceevent-1.9.0-0-g13701b5532e0c3295bf5670361692b0d0044228d
+  ref: libtraceevent-1.9.1-0-g34ee98e346e6c8f6586fa3a67db5ba2380403bc3
