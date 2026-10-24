@@ -21,10 +21,10 @@ sources:
 - kind: git_repo
   url: savannah:patch.git
   track: v*
-  ref: v2.8-0-g48ceda8200aaf30c3ce42c31cd70ff6087db2425
+  ref: v2.8.1-0-gc2910144fe782b76222a694e59ae3d3fb94bca70
 - kind: git_module
   path: gnulib
   url: savannah:gnulib.git
-  ref: 9829f0a93c40492875f67ee738e000611bdcf0e7
+  ref: c09a5a45db5ef37297712ba2417ae2c16eface76
 - kind: patch_queue
   path: patches/patch
