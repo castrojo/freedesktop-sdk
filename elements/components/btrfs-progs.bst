@@ -25,4 +25,4 @@ sources:
 - kind: git_repo
   url: kernel:linux/kernel/git/kdave/btrfs-progs.git
   track: v*
-  ref: v7.1-0-g4ab0e80be9e3bb1db2e6038e6d4316d35fb7ba8b
+  ref: v7.3-0-gafdc3a65e33f4d42f768ad50dca20c32e5ee1496
