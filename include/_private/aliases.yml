@@ -5,6 +5,7 @@
 #
 #
 #Git source aliases
+android: https://android.googlesource.com/
 chromium: https://chromium.googlesource.com/
 codeberg: https://codeberg.org/
 debian_salsa: https://salsa.debian.org/
