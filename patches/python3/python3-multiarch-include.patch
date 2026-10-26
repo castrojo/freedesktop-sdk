@@ -1,5 +1,21 @@
+From 23df2fe885bd7ac3d5535ab03b73c6801569cd99 Mon Sep 17 00:00:00 2001
+From: Aedan McHale <aedan.mchale@codethink.co.uk>
+Date: Tue, 27 Oct 2026 09:13:06 +0000
+Subject: [PATCH 1/1] Fix issues with python architecture-specific include path
+
+---
+ Lib/sysconfig/__init__.py    |  2 +-
+ Makefile.pre.in              |  5 +++--
+ Misc/python-config.in        |  4 ++--
+ Misc/python-config.sh.in     | 20 +++++---------------
+ Misc/python.pc.in            |  2 +-
+ Modules/expat/expat_config.h |  2 +-
+ configure                    | 11 +++++++++++
+ configure.ac                 |  7 +++++++
+ 8 files changed, 31 insertions(+), 22 deletions(-)
+
 diff --git a/Lib/sysconfig/__init__.py b/Lib/sysconfig/__init__.py
-index 80aef34..49ee5b3 100644
+index a91c27f2e8f..d574d40b03a 100644
 --- a/Lib/sysconfig/__init__.py
 +++ b/Lib/sysconfig/__init__.py
 @@ -34,7 +34,7 @@
@@ -12,10 +28,10 @@ index 80aef34..49ee5b3 100644
          'data': '{base}',
          },
 diff --git a/Makefile.pre.in b/Makefile.pre.in
-index 5382292..616de5c 100644
+index 1a508f5c41c..e3b46947cb6 100644
 --- a/Makefile.pre.in
 +++ b/Makefile.pre.in
-@@ -149,7 +149,7 @@ BINDIR=		@bindir@
+@@ -158,7 +158,7 @@ BINDIR=		@bindir@
  LIBDIR=		@libdir@
  MANDIR=		@mandir@
  INCLUDEDIR=	@includedir@
@@ -24,7 +40,7 @@ index 5382292..616de5c 100644
  PLATLIBDIR=	@PLATLIBDIR@
  SCRIPTDIR=	$(prefix)/$(PLATLIBDIR)
  # executable name for shebangs
-@@ -2591,7 +2591,8 @@ libinstall:	all $(srcdir)/Modules/xxmodule.c
+@@ -2844,7 +2844,8 @@ libinstall:	all $(srcdir)/Modules/xxmodule.c
  python-config: $(srcdir)/Misc/python-config.in Misc/python-config.sh
  	@ # Substitution happens here, as the completely-expanded BINDIR
  	@ # is not available in configure
@@ -35,7 +51,7 @@ index 5382292..616de5c 100644
  	LC_ALL=C sed -e 's,\$$(\([A-Za-z0-9_]*\)),\$$\{\1\},g' < Misc/python-config.sh >python-config
  	@ # On Darwin, always use the python version of the script, the shell
 diff --git a/Misc/python-config.in b/Misc/python-config.in
-index dd5d161..fa419f8 100644
+index dd5d161ab22..fa419f8eb83 100644
 --- a/Misc/python-config.in
 +++ b/Misc/python-config.in
 @@ -41,8 +41,8 @@ for opt in opt_flags:
@@ -50,18 +66,35 @@ index dd5d161..fa419f8 100644
              flags.extend(getvar('CFLAGS').split())
          print(' '.join(flags))
 diff --git a/Misc/python-config.sh.in b/Misc/python-config.sh.in
-index 555b0cb..a47a2ad 100644
+index 39b0031b58b..f972f508520 100644
 --- a/Misc/python-config.sh.in
 +++ b/Misc/python-config.sh.in
-@@ -40,6 +40,7 @@ prefix="@prefix@"
+@@ -45,20 +45,10 @@ prefix_real=$(installed_prefix "$0") || {
+ prefix="@prefix@"
  exec_prefix="@exec_prefix@"
  exec_prefix_real=${prefix_real}
- includedir=$(echo "@includedir@" | sed "s#$prefix#$prefix_real#")
+-relocate ()
+-{
+-    case "$1" in
+-        *"$prefix"*)
+-            printf '%s\n' "${1%%"$prefix"*}${prefix_real}${1#*"$prefix"}"
+-        ;;
+-        *)
+-            printf '%s\n' "$1"
+-        ;;
+-    esac
+-}
+-includedir=$(relocate "@includedir@")
+-libdir=$(relocate "@libdir@")
+-CFLAGS=$(relocate "@CFLAGS@")
++includedir=$(echo "@includedir@" | sed "s#$prefix#$prefix_real#")
 +confincludedir=$(echo "@CONFINCLUDEDIR@" | sed "s#$exec_prefix#$exec_prefix_real#")
- libdir=$(echo "@libdir@" | sed "s#$prefix#$prefix_real#")
- CFLAGS=$(echo "@CFLAGS@" | sed "s#$prefix#$prefix_real#")
++libdir=$(echo "@libdir@" | sed "s#$prefix#$prefix_real#")
++CFLAGS=$(echo "@CFLAGS@" | sed "s#$prefix#$prefix_real#")
  VERSION="@VERSION@"
-@@ -59,7 +60,7 @@ LIBPL=$(echo "@LIBPL@" | sed "s#$prefix#$prefix_real#")
+ LIBM="@LIBM@"
+ LIBC="@LIBC@"
+@@ -76,7 +66,7 @@ LIBPL=$(relocate "@LIBPL@")
  SO="@EXT_SUFFIX@"
  PYTHONFRAMEWORK="@PYTHONFRAMEWORK@"
  INCDIR="-I$includedir/python${VERSION}${ABIFLAGS}"
@@ -70,21 +103,8 @@ index 555b0cb..a47a2ad 100644
  PY_EMBED=0
  
  # Scan for --help or unknown argument.
-@@ -94,10 +95,10 @@ do
-             echo "$exec_prefix_real"
-         ;;
-         --includes)
--            echo "$INCDIR $PLATINCDIR"
-+            echo "$PLATINCDIR $INCDIR"
-         ;;
-         --cflags)
--            echo "$INCDIR $PLATINCDIR $BASECFLAGS $CFLAGS $OPT"
-+            echo "$PLATINCDIR $INCDIR $BASECFLAGS $CFLAGS $OPT"
-         ;;
-         --libs)
-             echo "$LIBS"
 diff --git a/Misc/python.pc.in b/Misc/python.pc.in
-index 027dba3..18e0d5f 100644
+index 027dba38585..18e0d5f0a1c 100644
 --- a/Misc/python.pc.in
 +++ b/Misc/python.pc.in
 @@ -10,4 +10,4 @@ Requires:
@@ -94,12 +114,12 @@ index 027dba3..18e0d5f 100644
 -Cflags: -I${includedir}/python@VERSION@@ABIFLAGS@
 +Cflags: -I@CONFINCLUDEDIR@/python@VERSION@@ABIFLAGS@ -I${includedir}/python@VERSION@@ABIFLAGS@
 diff --git a/Modules/expat/expat_config.h b/Modules/expat/expat_config.h
-index e7d9499..76179d7 100644
+index 70df73c8e00..627cd3b9ea5 100644
 --- a/Modules/expat/expat_config.h
 +++ b/Modules/expat/expat_config.h
 @@ -5,7 +5,7 @@
  #ifndef EXPAT_CONFIG_H
- #define EXPAT_CONFIG_H
+ #define EXPAT_CONFIG_H 1
  
 -#include <pyconfig.h>
 +#include "pyconfig.h"
@@ -107,18 +127,18 @@ index e7d9499..76179d7 100644
  #define BYTEORDER 4321
  #else
 diff --git a/configure b/configure
-index 7cdd386..56fc2f0 100755
+index 2a4b6fc96cc..fbc583d4a76 100755
 --- a/configure
 +++ b/configure
-@@ -946,6 +946,7 @@ LIBRARY_DEPS
- NODE
+@@ -951,6 +951,7 @@ LIBRARY_DEPS
  HOSTRUNNER
+ NODE
  STATIC_LIBPYTHON
 +CONFINCLUDEDIR
  GNULD
  EXPORTSFROM
  EXPORTSYMS
-@@ -1128,6 +1129,7 @@ with_ensurepip
+@@ -1138,6 +1139,7 @@ with_ensurepip
  with_openssl
  with_openssl_rpath
  with_ssl_default_suites
@@ -126,7 +146,7 @@ index 7cdd386..56fc2f0 100755
  with_builtin_hashlib_hashes
  enable_test_modules
  '
-@@ -1947,6 +1949,8 @@ Optional Packages:
+@@ -1961,6 +1963,8 @@ Optional Packages:
                            leave OpenSSL's defaults untouched, STRING: use a
                            custom string, python and STRING also set TLS 1.2 as
                            minimum TLS version
@@ -135,7 +155,7 @@ index 7cdd386..56fc2f0 100755
    --with-builtin-hashlib-hashes=md5,sha1,sha2,sha3,blake2
                            builtin hash modules, md5, sha1, sha2, sha3 (with
                            shake), blake2
-@@ -2030,6 +2034,13 @@ _ACEOF
+@@ -2046,6 +2050,13 @@ _ACEOF
  ac_status=$?
  fi
  
@@ -150,10 +170,10 @@ index 7cdd386..56fc2f0 100755
    # If there are subdirs, report their specific --help.
    for ac_dir in : $ac_subdirs_all; do test "x$ac_dir" = x: && continue
 diff --git a/configure.ac b/configure.ac
-index 24e28a1..387da28 100644
+index f51935d8813..15a064df9c4 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -7776,6 +7776,13 @@ PY_STDLIB_MOD([xxlimited_35], [test "$TEST_MODULES" = yes], [test "$ac_cv_func_d
+@@ -8373,6 +8373,13 @@ PY_STDLIB_MOD([xxlimited_35], [test "$TEST_MODULES" = yes], [test "$ac_cv_func_d
  # substitute multiline block, must come after last PY_STDLIB_MOD()
  AC_SUBST([MODULE_BLOCK])
  
@@ -167,3 +187,6 @@ index 24e28a1..387da28 100644
  # generate output files
  AC_CONFIG_FILES(m4_normalize([
    Makefile.pre
+-- 
+2.56.0
+
