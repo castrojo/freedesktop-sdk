@@ -9,6 +9,7 @@ build-depends:
 
 depends:
 - components/bubblewrap.bst
+- components/curl.bst
 - components/fuse3.bst
 - components/grpc.bst
 - components/openssl.bst
