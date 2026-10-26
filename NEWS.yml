@@ -1,3 +1,62 @@
+Version: freedesktop-sdk-26.08.4
+Date: '2026-10-26'
+Description: |-
+  Changes in freedesktop-sdk-26.08.4
+   * buildbox: add curl as runtime dependency
+   * Update brotli to v1.2.1-0
+   * Update c-ares to v1.34.9-0
+   * Update libslirp to v4.9.6-0
+   * Update nano to v9.3-0
+   * Update libtraceevent to libtraceevent-1.9.1-0
+   * python3-sphinxcontrib-jsmath: Update from 1.0.1 to 2.0.0
+   * Update valgrind to VALGRIND_3_28_0-0
+   * Update python3-dbus to dbus-python-1.5.1-0
+   * Update glib-networking to 2.90.1-0
+   * Update python3-certifi to 2026.10.23-0
+   * Update buildbox to 1.4.30-0
+   * Update python3-multidict to v7.2.1-0
+   * Update fwupd to 2.1.9-0
+   * buildbox: enable HTTP CAS support
+   * buildbox: enable most tools
+   * Update xorg-lib-xtst to libXtst-1.2.6-0
+   * Update go to go1.27.3-0
+   * Update iproute2 to v7.3.0-0
+   * Update python3-multidict to v7.2.0-0
+   * Update usbutils to v020-0
+   * Update linux-firmware to 20261019-0
+   * Update grpc to v1.84.1-0
+   * Upgrade container to 26.08.3 release
+   * Update reference-abi to freedesktop-sdk-26.08.3-0
+   * Update xorg-data-xkeyboard-config to xkeyboard-config-2.49-0
+   * Update dictionaries to libreoffice-26.8.2.2-0
+   * Update buildbox to 1.4.28-0
+   * linux: Enable zswap by default
+   * libcupsfilters: Fix printing
+   * linux: Enable SDCA class driver and more Intel SOF drivers
+   * sof-firmware: Update to 2026.09.2
+   * Update python3-pycparser to release_v3.12-0
+   * Update python3-dulwich to dulwich-1.2.19-0
+   * Update python3 to v3.14.9-0
+   * Update python3-certifi to 2026.10.19-0
+   * Update man-pages to man-pages-6.20-0
+   * Update dictionaries to libreoffice-26.8.2.1-0
+   * Update gyp to v0.22.4-0
+   * intel-media-driver.bst: Drop `-DCMAKE_POLICY_VERSION_MINIMUM=3.5`
+   * Update intel-media-driver to intel-media-26.3.5-0
+   * Update to Linux 7.3
+   * Update rust from 1.99.0 to 1.99.1
+   * Update vim to v9.2.1225-0
+   * Update python3-virtualenv to 21.14.12-0
+   * gamemoded: fix missing inih runtime-depends
+   * linux: Drop patch for ppc gcc15 compat
+   * Update containers-common to common/v0.70.0-0
+   * Update python3-pip to 26.2.2-0
+   * Update xorg-lib-xpm to libXpm-3.5.20-0
+   * Update python3-filelock to 4.2.4-0
+   * Update ccache to v4.14.2-0
+   * Update buildstream-plugins-community to 2.4.0
+   * Update weston to 16.0.1-0
+---
 Version: freedesktop-sdk-26.08.3
 Date: '2026-10-21'
 Description: |-
