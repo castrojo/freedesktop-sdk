@@ -23,6 +23,7 @@ build-depends:
 - components/libcamera.bst
 - components/libebur128.bst
 - components/liblc3.bst
+- components/libldac.bst
 - components/libmysofa.bst
 - components/libpulse.bst
 - components/libusb.bst
@@ -45,7 +46,8 @@ variables:
     -Dvulkan=disabled
     -Ddocs=enabled
     -Dman=enabled
-    -Dbluez5-codec-ldac=disabled
+    -Dbluez5-codec-ldac=enabled
+    -Dbluez5-codec-ldac-dec=disabled
     -Dbluez5-codec-aptx=disabled
     -Dbluez5-codec-aac=disabled
     -Dlibcamera=enabled
@@ -61,7 +63,6 @@ variables:
     -Dsdl2=disabled
     -Dsnap=disabled
     -Dfftw=enabled
-    -Dbluez5-codec-ldac-dec=disabled
     -Dbluez5-plc-spandsp=disabled
     -Donnxruntime=disabled
 
