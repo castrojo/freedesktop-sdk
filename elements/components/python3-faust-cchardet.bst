@@ -10,6 +10,9 @@ build-depends:
 depends:
 - components/python3.bst
 
+variables:
+  build-args-local: "-Cbuild-dir=_builddir"
+
 sources:
 - kind: git_repo
   url: github:faust-streaming/cChardet.git
