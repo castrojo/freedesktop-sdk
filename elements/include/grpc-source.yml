@@ -4,7 +4,7 @@ sources:
   track: v*
   exclude:
   - '*pre*'
-  ref: v1.84.1-0-gb0c0c4f8823ba69e7e43aaaf183c30a43e549924
+  ref: v1.85.0-0-ga83eb274517ef49e95d5529dac071f4b74abae0d
 - kind: git_module
   url: github:google/re2.git
   path: third_party/re2
@@ -32,7 +32,7 @@ sources:
 - kind: git_module
   path: third_party/grpc-proto
   url: github:grpc/grpc-proto.git
-  ref: ec30f589e2519d595688b9a42f88a91bdd6b733f
+  ref: dd549fc4ed04b60b0fdd3866b82ef0a7c87c6e4f
 - kind: patch
   path: patches/grpc/absl.patch
 - kind: patch
