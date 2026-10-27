@@ -17,3 +17,5 @@ sources:
   ref: v3.14.8-0-g8e6e75d9102e39bed2a2b279203a396741180f12
 - kind: patch
   path: patches/python3/python3-multiarch-include.patch
+- kind: patch
+  path: patches/python3/python3-constant-interning.patch
