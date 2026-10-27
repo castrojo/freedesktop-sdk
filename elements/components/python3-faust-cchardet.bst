@@ -10,6 +10,10 @@ build-depends:
 depends:
 - components/python3.bst
 
+config:
+  build-commands:
+  - python -P -mbuild --no-isolation --wheel -Cbuild-dir=_builddir --outdir /buildstream-build/dist .
+
 sources:
 - kind: git_repo
   url: github:faust-streaming/cChardet.git
