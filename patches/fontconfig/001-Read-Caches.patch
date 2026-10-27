@@ -1,0 +1,398 @@
+From d2be6bc6211e1eaa504747658fc8e46a802ec474 Mon Sep 17 00:00:00 2001
+From: Akira TAGOH <akira@tagoh.org>
+Date: Thu, 17 Sep 2026 12:13:28 +0900
+Subject: [PATCH] Read caches written by older fontconfig versions
+
+Fonts exposed to a Flatpak sandbox via /run/host/fonts became invisible
+when an ostree-based host ran an older fontconfig: the host wrote a
+.cache-9 that the newer sandbox reader rejected, falling back to a stale
+runtime cache.
+
+Probe and accept caches down to FC_CACHE_MIN_COMPAT_VERSION, and
+reconstruct the genericfamily object (absent in old caches) at match
+time from the family name, so an old-cache font matches like a freshly
+scanned one.
+
+Closes #562
+
+Changelog: fixed
+Assisted-By: Claude Opus 4.8 <noreply@anthropic.com>
+---
+ meson.build                      |   7 +
+ src/fccache.c                    | 129 ++++++++++----
+ src/fcgenericalias.c             |  43 +++++
+ src/fcint.h                      |  13 ++
+ src/fcmatch.c                    |  51 ++++++
+ test/test_cache_cross_version.py | 290 ++++++++++++++++++++++++++++++-
+ 6 files changed, 489 insertions(+), 44 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index 6fa767ce..c3ffffc9 100644
+--- a/meson.build
++++ b/meson.build
+@@ -26,6 +26,13 @@ libversion = '@0@.@1@.0'.format(soversion, curversion)
+ defversion = '@0@.@1@'.format(curversion, fc_version_micro)
+ osxversion = curversion + 1
+ cacheversion = 12
++# The reader accepts caches down to cachemincompat (see FcDirCacheProcess
++# probing and the version checks in fccache.c).  Backward reading is only
++# safe while every object added since cachemincompat can be reconstructed
++# from what old caches already hold (today only genericfamily, re-derived
++# in fcmatch.c from the family name).  A future cacheversion bump that
++# changes the on-disk format, or adds an object that is NOT reconstructable
++# that way, MUST also raise cachemincompat.
+ cachemincompat = 9
+ cachesnapversion = 0
+ if cachesnapversion > 0
+diff --git a/src/fccache.c b/src/fccache.c
+index e9ea3cc3..62dfbc87 100644
+--- a/src/fccache.c
++++ b/src/fccache.c
+@@ -115,7 +115,11 @@ bail:
+ 
+ #define CACHEBASE_LEN (1 + 36 + 1 + sizeof (FC_ARCHITECTURE) + sizeof (FC_CACHE_SUFFIX))
+ 
+-#ifdef HAVE_SYMLINK
++/* Rewrite the ".cache-<N>" suffix of a cache basename to a different
++ * version.  Used both by the write side (to create compat symlinks)
++ * and by the read side (to probe for caches written by older
++ * fontconfig).  Independent of symlink support.
++ */
+ static FcChar8 *
+ FcDirCacheReplaceVersion (const FcChar8 *cache_base,
+                           FcChar8        compat_base[CACHEBASE_LEN],
+@@ -131,7 +135,6 @@ FcDirCacheReplaceVersion (const FcChar8 *cache_base,
+     sprintf ((char *)compat_base + prefix_len, ".cache-%d", version);
+     return compat_base;
+ }
+-#endif
+ 
+ static FcBool
+ FcCacheIsMmapSafe (int fd)
+@@ -351,6 +354,39 @@ FcDirCacheOpenFile (const FcChar8 *cache_file, struct stat *file_stat)
+     return fd;
+ }
+ 
++/*
++ * Open a single cache file, run the callback, and take over ownership of
++ * *cache_hashed* (either stored into *cache_file_ret* on success, or freed).
++ * Returns FcTrue if the file existed and the callback accepted it.
++ */
++static FcBool
++FcDirCacheProcessFile (FcConfig *config, FcChar8 *cache_hashed,
++                       FcBool (*callback) (FcConfig *config, int fd, struct stat *fd_stat,
++                                           struct stat *dir_stat, struct timeval *cache_mtime, void *closure),
++                       void *closure, FcChar8 **cache_file_ret,
++                       struct timeval *latest_mtime, struct stat *dir_stat)
++{
++    struct stat file_stat;
++    int         fd;
++    FcBool      ret = FcFalse;
++
++    fd = FcDirCacheOpenFile (cache_hashed, &file_stat);
++    if (fd < 0) {
++	FcStrFree (cache_hashed);
++	return FcFalse;
++    }
++    ret = (*callback) (config, fd, &file_stat, dir_stat, latest_mtime, closure);
++    close (fd);
++    if (ret && cache_file_ret) {
++	if (*cache_file_ret)
++	    FcStrFree (*cache_file_ret);
++	*cache_file_ret = cache_hashed;
++    } else
++	FcStrFree (cache_hashed);
++
++    return ret;
++}
++
+ /*
+  * Look for a cache file for the specified dir. Attempt
+  * to use each one we find, stopping when the callback
+@@ -362,11 +398,10 @@ FcDirCacheProcess (FcConfig *config, const FcChar8 *dir,
+                                        struct stat *dir_stat, struct timeval *cache_mtime, void *closure),
+                    void *closure, FcChar8 **cache_file_ret)
+ {
+-    int            fd = -1;
+     FcChar8        cache_base[CACHEBASE_LEN];
+     FcStrList     *list;
+     FcChar8       *cache_dir, *d;
+-    struct stat    file_stat, dir_stat;
++    struct stat    dir_stat;
+     FcBool         ret = FcFalse;
+     const FcChar8 *sysroot = FcConfigGetSysRoot (config);
+     struct timeval latest_mtime = (struct timeval){ 0 };
+@@ -389,9 +424,7 @@ FcDirCacheProcess (FcConfig *config, const FcChar8 *dir,
+ 
+     while ((cache_dir = FcStrListNext (list))) {
+ 	FcChar8 *cache_hashed;
+-#ifndef _WIN32
+-	FcBool retried = FcFalse;
+-#endif
++	FcBool   found;
+ 
+ 	if (sysroot)
+ 	    cache_hashed = FcStrBuildFilename (sysroot, cache_dir, cache_base, NULL);
+@@ -399,44 +432,61 @@ FcDirCacheProcess (FcConfig *config, const FcChar8 *dir,
+ 	    cache_hashed = FcStrBuildFilename (cache_dir, cache_base, NULL);
+ 	if (!cache_hashed)
+ 	    break;
+-#ifndef _WIN32
+-    retry:
+-#endif
+-	fd = FcDirCacheOpenFile (cache_hashed, &file_stat);
+-	if (fd >= 0) {
+-	    ret = (*callback) (config, fd, &file_stat, &dir_stat, &latest_mtime, closure);
+-	    close (fd);
+-	    if (ret) {
+-		if (cache_file_ret) {
+-		    if (*cache_file_ret)
+-			FcStrFree (*cache_file_ret);
+-		    *cache_file_ret = cache_hashed;
+-		} else
+-		    FcStrFree (cache_hashed);
+-	    } else
+-		FcStrFree (cache_hashed);
++	found = FcDirCacheProcessFile (config, cache_hashed, callback, closure,
++	                               cache_file_ret, &latest_mtime, &dir_stat);
++	if (found)
++	    ret = FcTrue;
++
++	/*
++	 * The current-version cache was not found in this cache directory.
++	 * Probe for caches written by older fontconfig (down to the minimum
++	 * compatible version) in the SAME directory before moving on, so a
++	 * cache written by an older reader (e.g. a Flatpak host's fonts,
++	 * issue #562) is discovered instead of being shadowed by a stale
++	 * current-version cache elsewhere.
++	 */
++	if (!found && FC_CACHE_MIN_COMPAT_VERSION < FC_CACHE_VERSION_NUMBER) {
++	    int v;
++
++	    for (v = FC_CACHE_VERSION_NUMBER - 1; v >= FC_CACHE_MIN_COMPAT_VERSION; v--) {
++		FcChar8  compat_base[CACHEBASE_LEN];
++		FcChar8 *compat_hashed;
++
++		if (!FcDirCacheReplaceVersion (cache_base, compat_base, v))
++		    break;
++		if (sysroot)
++		    compat_hashed = FcStrBuildFilename (sysroot, cache_dir, compat_base, NULL);
++		else
++		    compat_hashed = FcStrBuildFilename (cache_dir, compat_base, NULL);
++		if (!compat_hashed)
++		    break;
++		if (FcDirCacheProcessFile (config, compat_hashed, callback, closure,
++		                           cache_file_ret, &latest_mtime, &dir_stat)) {
++		    ret = FcTrue;
++		    found = FcTrue;
++		    break;
++		}
++	    }
+ 	}
+ #ifndef _WIN32
+-	else if (!retried) {
++	if (!found) {
+ 	    FcChar8 uuid_cache_base[CACHEBASE_LEN];
+ 
+-	    retried = FcTrue;
+ 	    FcDirCacheBasenameUUID (config, dir, uuid_cache_base);
+ 	    if (uuid_cache_base[0] != 0) {
+-		FcStrFree (cache_hashed);
++		FcChar8 *uuid_hashed;
++
+ 		if (sysroot)
+-		    cache_hashed = FcStrBuildFilename (sysroot, cache_dir, uuid_cache_base, NULL);
++		    uuid_hashed = FcStrBuildFilename (sysroot, cache_dir, uuid_cache_base, NULL);
+ 		else
+-		    cache_hashed = FcStrBuildFilename (cache_dir, uuid_cache_base, NULL);
+-		if (!cache_hashed)
+-		    break;
+-		goto retry;
+-	    } else
+-		FcStrFree (cache_hashed);
++		    uuid_hashed = FcStrBuildFilename (cache_dir, uuid_cache_base, NULL);
++		if (uuid_hashed &&
++		    FcDirCacheProcessFile (config, uuid_hashed, callback, closure,
++		                           cache_file_ret, &latest_mtime, &dir_stat))
++		    ret = FcTrue;
++	    }
+ 	}
+ #endif
+-	else
+-	    FcStrFree (cache_hashed);
+     }
+     FcStrListDone (list);
+ 
+@@ -817,6 +867,11 @@ FcCacheIsNewVersion (FcConfig *config, FcCache *cache)
+     }
+     if (status == CHECK_DISABLED)
+ 	return FcFalse;
++    /* The fc_version field does not exist before cache version 10; in an
++     * older cache those bytes are payload and must not be interpreted.
++     */
++    if (cache->version < 10)
++	return FcFalse;
+     if (cache->fc_version > version && fc_atomic_int_add (warned, 1) == 0) {
+ 	fprintf (stderr, "Fontconfig warning: We will not regenerate the cache because some cache files were generated by a newer version (0x%" PRIx64 ") of Fontconfig. Please regenerate the cache with the latest version of Fontconfig to avoid any unexpected behavior. (current version: 0x%" PRIx64 ")\n", cache->fc_version, version);
+     }
+@@ -1139,7 +1194,7 @@ FcDirCacheMapFd (FcConfig *config, int fd, struct stat *fd_stat, struct stat *di
+ 	allocated = FcTrue;
+     }
+     if (cache->magic != FC_CACHE_MAGIC_MMAP ||
+-        cache->version < FC_CACHE_VERSION_NUMBER ||
++        cache->version < FC_CACHE_MIN_COMPAT_VERSION ||
+         cache->size != (intptr_t)fd_stat->st_size ||
+         !FcCacheOffsetsValid (cache) ||
+         (!FcCacheTimeValid (config, cache, dir_stat) &&
+@@ -1343,7 +1398,7 @@ FcDirCacheValidateHelper (FcConfig *config, int fd, struct stat *fd_stat, struct
+ 	ret = FcFalse;
+     else if (c.magic != FC_CACHE_MAGIC_MMAP)
+ 	ret = FcFalse;
+-    else if (c.version < FC_CACHE_VERSION_NUMBER)
++    else if (c.version < FC_CACHE_MIN_COMPAT_VERSION)
+ 	ret = FcFalse;
+     else if (fd_stat->st_size != c.size)
+ 	ret = FcFalse;
+diff --git a/src/fcgenericalias.c b/src/fcgenericalias.c
+index fb07dcad..f390a418 100644
+--- a/src/fcgenericalias.c
++++ b/src/fcgenericalias.c
+@@ -38,3 +38,46 @@ FcGenericAliasGetClassification (const char *family)
+ 
+     return result;
+ }
++
++/*
++ * Derive the genericfamily integer values for a list of family-name
++ * values, using ONLY the curated classification data.
++ *
++ * Used by the matcher to reconstruct genericfamily for fonts loaded from
++ * caches that predate the genericfamily object (issue #562), so those
++ * fonts score like freshly scanned ones for families we can classify
++ * reliably.  Unlike the scanner (fcfreetype.c) it deliberately does NOT
++ * guess a generic from substrings of the family name ("mono", "sans",
++ * ...): that heuristic is prone to false positives, so a family we cannot
++ * classify is reported as FC_FAMILY_UNKNOWN rather than guessed.
++ *
++ * The result is returned by value; its fixed-size array makes it
++ * impossible to overflow (the bit loop and the array share the same
++ * bound), so there is no caller-provided buffer to size wrong.
++ */
++FcGenericFamilyValues
++FcGenericFamilyGetValues (FcValueListPtr families)
++{
++    FcGenericFamilyValues r;
++    FcValueListPtr        l;
++
++    r.n = 0;
++    /* Stop at the first family we can classify, like the scanner does. */
++    for (l = families; l && r.n == 0; l = FcValueListNext (l)) {
++	FcValue  v = FcValueCanonicalize (&l->value);
++	uint32_t field;
++	int      b;
++
++	if (v.type != FcTypeString)
++	    continue;
++	field = FcGenericAliasGetClassification ((const char *)v.u.s);
++	for (b = 0; b < FC_GENERIC_FAMILY_MAX_VALUES; b++)
++	    if ((field & (1 << b)) != 0)
++		r.values[r.n++] = b + 1;
++    }
++    /* No family could be classified. */
++    if (r.n == 0)
++	r.values[r.n++] = FC_FAMILY_UNKNOWN;
++
++    return r;
++}
+diff --git a/src/fcint.h b/src/fcint.h
+index c306391b..2c5b5d48 100644
+--- a/src/fcint.h
++++ b/src/fcint.h
+@@ -1248,6 +1248,19 @@ FcFontSetDeserialize (const FcFontSet *set);
+ FcPrivate uint32_t
+ FcGenericAliasGetClassification (const char *family);
+ 
++/* Max number of generic values a font can carry (classification bits
++ * 0..FC_FAMILY_FANGSONG-1); keep tied to the last FC_FAMILY_* value in
++ * fontconfig.h. */
++#define FC_GENERIC_FAMILY_MAX_VALUES FC_FAMILY_FANGSONG
++
++typedef struct _FcGenericFamilyValues {
++    int values[FC_GENERIC_FAMILY_MAX_VALUES];
++    int n;
++} FcGenericFamilyValues;
++
++FcPrivate FcGenericFamilyValues
++FcGenericFamilyGetValues (FcValueListPtr families);
++
+ /* fcplist.c */
+ FcPrivate FcPtrList *
+ FcPtrListCreate (FcDestroyFunc func);
+diff --git a/src/fcmatch.c b/src/fcmatch.c
+index 3a291546..5c3def78 100644
+--- a/src/fcmatch.c
++++ b/src/fcmatch.c
+@@ -616,6 +616,37 @@ FcCompareFamilies (FcPattern     *pat,
+     return FcTrue;
+ }
+ 
++/*
++ * Fonts loaded from caches that predate the genericfamily object
++ * (issue #562) carry no FC_GENERIC_FAMILY element, so the merge-join
++ * below would skip that dimension and hand them an unearned perfect
++ * score.  Re-derive the value from the font's family (curated
++ * classification only) and score it as if the scanner had stored it,
++ * so an old-cache font matches like a freshly scanned one.
++ */
++static FcBool
++FcCompareGenericFamilyBackfill (FcValueListPtr query, /* pattern genericfamily */
++                                FcPattern     *fnt,
++                                double        *value,
++                                FcResult      *result)
++{
++    const FcMatcher      *match = FcObjectToMatcher (FC_GENERIC_FAMILY_OBJECT, FcFalse);
++    FcPatternElt         *fam = FcPatternObjectFindElt (fnt, FC_FAMILY_OBJECT);
++    FcGenericFamilyValues g;
++    FcValueList           vl[FC_GENERIC_FAMILY_MAX_VALUES];
++    int                   k;
++
++    g = FcGenericFamilyGetValues (fam ? FcPatternEltValues (fam) : NULL);
++    for (k = 0; k < g.n; k++) {
++	vl[k].value.type = FcTypeInteger;
++	vl[k].value.u.i = g.values[k];
++	vl[k].binding = FcValueBindingStrong;
++	vl[k].next = (k + 1 < g.n) ? &vl[k + 1] : NULL;
++    }
++    return FcCompareValueList (FC_GENERIC_FAMILY_OBJECT, match,
++                               query, vl, NULL, value, NULL, result);
++}
++
+ /*
+  * Return a value indicating the distance between the two lists of
+  * values
+@@ -663,6 +694,26 @@ FcCompare (FcPattern     *pat,
+ 	    i2++;
+ 	}
+     }
++
++    /*
++     * genericfamily is derivable from the family name, so reconstruct it
++     * for fonts loaded from caches that predate the object rather than
++     * leaving it unscored (issue #562).  This is done outside the
++     * merge-join because the loop can exit before reaching a trailing
++     * query object that the font lacks.
++     * NOTE: when missing-object vs not-matched scoring is unified, this
++     * reconstruction must run before the missing-object policy so
++     * derivable objects are treated as present, not absent.
++     */
++    {
++	FcPatternElt *q_gf = FcPatternObjectFindElt (pat, FC_GENERIC_FAMILY_OBJECT);
++
++	if (q_gf && !FcPatternObjectFindElt (fnt, FC_GENERIC_FAMILY_OBJECT) &&
++	    !FcCompareGenericFamilyBackfill (FcPatternEltValues (q_gf),
++	                                     fnt, value, result))
++	    return FcFalse;
++    }
++
+     return FcTrue;
+ }
