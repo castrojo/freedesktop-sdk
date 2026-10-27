@@ -48,3 +48,5 @@ sources:
   exclude:
   - 2.*.9*
   ref: 2.18.3-0-g0f236723a3c26bd9745e32ba2b3ee21e5f809295
+- kind: patch
+  path: patches/fontconfig/001-Read-Caches.patch
