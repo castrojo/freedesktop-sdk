@@ -307,7 +307,9 @@ build-sbom-artifacts:
 	$(BST) build --deps all sdk.bst
 	$(BST) build --deps all components.bst
 
-manifest:
+manifest: collect-manifest spdx-manifest
+
+collect-manifest:
 	rm -rf sdk-manifest/
 	rm -rf platform-manifest/
 	rm -rf components-manifest/
@@ -317,6 +319,11 @@ manifest:
 	$(BST) artifact checkout manifests/platform-manifest.bst --directory platform-manifest/
 	$(BST) artifact checkout manifests/sdk-manifest.bst --directory sdk-manifest/
 	$(BST) artifact checkout manifests/components-manifest.bst --directory components-manifest/
+
+spdx-manifest: generate-spdx-sbom-reports
+	utils/spdx-manifest.py sbom-reports/platform.spdx.json 		-o platform-manifest/usr/manifest.spdx.json
+	utils/spdx-manifest.py sbom-reports/sdk.spdx.json 			-o sdk-manifest/usr/manifest.spdx.json
+	utils/spdx-manifest.py sbom-reports/components.spdx.json 	-o components-manifest/usr/manifest.spdx.json
 
 markdown-manifest: manifest
 	python3 utils/jsontomd.py platform-manifest/usr/manifest.json
