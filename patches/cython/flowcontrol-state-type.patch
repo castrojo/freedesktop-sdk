@@ -1,0 +1,8 @@
+diff --git a/Cython/Compiler/FlowControl.py b/Cython/Compiler/FlowControl.py
+--- a/Cython/Compiler/FlowControl.py
++++ b/Cython/Compiler/FlowControl.py
+@@ -576,3 +576,4 @@
+     block: ControlBlock
+     assmt: NameAssignment
++    i_state: cython.py_int
+     for block in flow.blocks:

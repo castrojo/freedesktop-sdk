@@ -18,3 +18,9 @@ sources:
   - "*rc*"
   - "*b*"
   ref: 3.3.0-0-gbcd04a2966842d80de6ecff4e68e8d892bec5ef7
+- kind: patch
+  path: patches/cython/sort-shared-exports.patch
+- kind: patch
+  path: patches/cython/ordered-type-inference.patch
+- kind: patch
+  path: patches/cython/flowcontrol-state-type.patch
