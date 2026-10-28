@@ -514,6 +514,7 @@ depends:
 - components/python3-ruamel-yaml-clib.bst
 - components/python3-ruamel-yaml.bst
 - components/python3-schema.bst
+- components/python3-scikit-build-core.bst
 - components/python3-semantic-version.bst
 - components/python3-setuptools-git.bst
 - components/python3-setuptools-rust.bst
