@@ -111,6 +111,20 @@ lint:
   - cleanup_leftover_branches.py
   - python utils/assign_marge.py
 
+# Whitelist of paths to run build jobs for
+.build-paths: &build-paths
+  - .gitlab-ci.yml
+  - Makefile
+  - elements/**/*
+  - files/**/*
+  - include/**/*
+  - keys/**/*
+  - patches/**/*
+  - plugins/**/*
+  - project.conf
+  - tests/**/*
+  - utils/**/*
+
 .check_update_elements:
   stage: update
   variables:
@@ -258,6 +272,8 @@ check_mirrors:
       - ${CI_PROJECT_DIR}/libabigail-tars
   rules:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    changes: 
+      paths: *build-paths
 
 .builder-x86_64:
   tags:
@@ -323,6 +339,8 @@ app_riscv64:
     - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "riscv"'
       interruptible: false
     - when: manual
+      changes:
+        paths: *build-paths
   needs: []
 
 app_ppc64le:
@@ -382,6 +400,9 @@ app_ppc64le:
       - ${CI_PROJECT_DIR}/cache/buildstream/logs
   rules:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    changes: 
+      paths: *build-paths
+
 
 minimal_systemd_vm_x86_64:
   extends:
