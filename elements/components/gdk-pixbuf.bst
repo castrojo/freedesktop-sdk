@@ -38,7 +38,7 @@ public:
 sources:
 - kind: git_repo
   url: gnome:gdk-pixbuf.git
-  track: 2.*[02468].*
+  track: 2.44.7
   exclude:
   - '2.9*'
   ref: 2.44.7-0-g3377ae234c5e2baebfaa08bca0a71541d7e9fa79
