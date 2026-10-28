@@ -31,5 +31,5 @@ public:
 sources:
 - kind: git_repo
   url: gnome:libsecret.git
-  track: '*.*.*'
+  track: '0.21.7.*'
   ref: 0.21.7-0-g0936f740c02b60f02657729cd99f581db4517a41
