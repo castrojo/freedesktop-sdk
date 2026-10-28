@@ -5,14 +5,26 @@ kind: manual
 
 build-depends:
 - public-stacks/buildsystem-go.bst
+- components/hermes.bst
 
 depends:
 - public-stacks/runtime-minimal.bst
 
 variables:
   optimize-debug: "false"
+  goflags: >-
+    %{go_buildmode_flag}
+    -modcacherw
+    "-ldflags=%{go_ldflags}"
+    %{local_goflags}
+
+environment:
+  GOPROXY: http://127.0.0.1:40000/mod
 
 config:
+  configure-commands:
+  - hermes serve --daemonize
+
   build-commands:
   - |
     go build
@@ -31,8 +43,15 @@ sources:
   url: github:cpuguy83/go-md2man.git
   track: v*
   ref: v2.0.7-0-g061b6c7cbecd6752049221aa15b7a05160796698
-- kind: go_mod_vendor
+- kind: hermes
   ref:
-  - module: github.com/russross/blackfriday/v2
-    version: v2.1.0
-    sha256sum: 7852750d58a053ce38b01f2c203208817564f552ebf371b2b630081d7004c6ae
+  - kind: GoModule
+    url: https://proxy.golang.org/github.com/russross/blackfriday/v2/@v/v2.1.0.mod
+    digest:
+      kind: Sha256Sum
+      value: c39547cce6e866e8cfa395d2937bce30801cd07f0b901c2133248f1fba12f58d
+  - kind: GoPackage
+    url: https://proxy.golang.org/github.com/russross/blackfriday/v2/@v/v2.1.0.zip
+    digest:
+      kind: Sha256Sum
+      value: 7852750d58a053ce38b01f2c203208817564f552ebf371b2b630081d7004c6ae
