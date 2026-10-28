@@ -38,7 +38,7 @@ sources:
 - kind: git_repo
   url: github:git-lfs/git-lfs.git
   track: v*
-  ref: v3.8.0-0-gaece9221f8c09221a14395d964806b956289bc07
+  ref: v3.8.1-0-ga662a6dbfedf706cfa9fc7a5b7bcc7ba2e2c8a65
 - kind: go_module
   url: github:alexbrainman/sspi.git
   module: github.com/alexbrainman/sspi
