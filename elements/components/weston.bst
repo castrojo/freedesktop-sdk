@@ -55,4 +55,4 @@ sources:
   exclude:
   - '*.*.9[0-9]'
   url: freedesktop:wayland/weston.git
-  ref: 16.0.1-0-g3e89ccc98eb30614979507669070a129a63aa16a
+  ref: 16.0.2-0-g530ae6c769d2fd55ea5157542654810be81a3193
