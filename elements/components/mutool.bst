@@ -42,15 +42,15 @@ sources:
   track: '*.*.*'
   exclude:
   - '*-*'
-  ref: 1.27.2-0-g73d3100d46d8a9ad634f6ef035bbe78f0f947886
+  ref: 1.28.5-0-g8ad45e92f0935d3d87f1db3f873086472a5e1b24
 - kind: git_module
   path: thirdparty/mujs
   url: github:ArtifexSoftware/mujs.git
-  ref: 33c83d8553048fd7710a518821cdefa5818e1559
+  ref: 2c61a7bed7e7625c03c6e82e644a711ac4471c1e
 - kind: git_module
   path: thirdparty/jbig2dec
   url: github:ArtifexSoftware/jbig2dec.git
-  ref: d915733ec69260c1fd2c458b06835cb57bb85ac7
+  ref: dc15c39bbbddc90f79c14563d2eb5a794106be8f
 - kind: git_module
   path: thirdparty/gumbo-parser
   url: github:ArtifexSoftware/thirdparty-gumbo-parser.git
@@ -58,7 +58,7 @@ sources:
 - kind: git_module
   path: thirdparty/lcms2
   url: github:ArtifexSoftware/thirdparty-lcms2.git
-  ref: f75fad71d53efd58d7312bea21c2bedca0b9e6da
+  ref: d69c64417c4a33a4629957fc0e08f4f4c5abcc3d
 - kind: git_module
   path: thirdparty/extract
   url: github:ArtifexSoftware/extract.git
