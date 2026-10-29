@@ -456,6 +456,7 @@ depends:
 - components/python3-click.bst
 - components/python3-contextlib2.bst
 - components/python3-cryptography.bst
+- components/python3-cvss.bst
 - components/python3-dbus-deviation.bst
 - components/python3-dbus.bst
 - components/python3-distlib.bst
