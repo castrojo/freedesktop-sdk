@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # SPDX-FileCopyrightText: Freedesktop-SDK Developers
-# SPDX-License-Identifier: MIT
+# SPDX-License-Identifier: LGPL-3.0-or-later
 
 """Usage python validate_repo.py --path /path/to/ostree/repo"""
 
