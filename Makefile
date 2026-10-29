@@ -287,7 +287,7 @@ endif
 ifeq ($(SPDX_SBOM_WITH_VULN), false)
 	SPDX_SBOM_WITH_VULN_ARGS :=
 endif
-ifeq ($(ARCH),ppc64) # BUG TODO fix this is a issue with ppc64 instructions in Go
+ifneq ($(filter ppc64 ppc64le,$(ARCH)),) # BUG TODO fix this is a issue with ppc64 instructions in Go
 	SPDX_SBOM_WITH_VULN_ARGS :=
 endif
 UUID-sdk := $(shell uuidgen)
@@ -318,6 +318,13 @@ build-sbom-artifacts:
 	$(BST) build --deps all components.bst
 
 manifest: collect-manifest spdx-manifest
+
+generate-spdx-vuln-reports: generate-spdx-sbom-reports
+	utils/spdx-vuln-report.py ${SPDX_SBOM_DIR}/platform.spdx.json 	-o ${SPDX_SBOM_DIR}/platform-vulns.md.html
+	utils/spdx-vuln-report.py ${SPDX_SBOM_DIR}/sdk.spdx.json 		-o ${SPDX_SBOM_DIR}/sdk-vulns.md.html
+	utils/spdx-vuln-report.py ${SPDX_SBOM_DIR}/components.spdx.json 	-o ${SPDX_SBOM_DIR}/components-vulns.md.html
+
+generate-all-spdx: generate-spdx-vuln-reports spdx-manifest
 
 collect-manifest:
 	rm -rf sdk-manifest/
