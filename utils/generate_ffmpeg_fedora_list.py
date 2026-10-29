@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: Freedesktop-SDK Developers
-# SPDX-License-Identifier: MIT
+# SPDX-License-Identifier: LGPL-3.0-or-later
 
 import urllib.request
 from itertools import batched, groupby
