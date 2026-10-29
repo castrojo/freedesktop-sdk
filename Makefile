@@ -314,6 +314,13 @@ build-sbom-artifacts:
 	$(BST) build --deps all sdk.bst
 	$(BST) build --deps all components.bst
 
+generate-spdx-vuln-reports: generate-spdx-sbom-reports
+	utils/spdx-vuln-report.py ${SPDX_SBOM_DIR}/platform.spdx.json 	-o ${SPDX_SBOM_DIR}/platform-vulns.md.html
+	utils/spdx-vuln-report.py ${SPDX_SBOM_DIR}/sdk.spdx.json 		-o ${SPDX_SBOM_DIR}/sdk-vulns.md.html
+	utils/spdx-vuln-report.py ${SPDX_SBOM_DIR}/components.spdx.json 	-o ${SPDX_SBOM_DIR}/components-vulns.md.html
+
+generate-all-spdx: generate-spdx-cve-reports
+
 manifest:
 	rm -rf sdk-manifest/
 	rm -rf platform-manifest/
