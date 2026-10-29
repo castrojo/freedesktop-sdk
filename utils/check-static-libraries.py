@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # SPDX-FileCopyrightText: Freedesktop-SDK Developers
-# SPDX-License-Identifier: MIT
+# SPDX-License-Identifier: LGPL-3.0-or-later
 
 ###ToDoList:
 #  i) Maybe use fnmatch or regular expressions to match files against the allow list, in such a way that we can specify partial directory paths along with filenames, in the allow_list
