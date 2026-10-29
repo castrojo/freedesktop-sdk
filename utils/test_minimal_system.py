@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 # SPDX-FileCopyrightText: Freedesktop-SDK Developers
-# SPDX-License-Identifier: MIT
+# SPDX-License-Identifier: LGPL-3.0-or-later
 
 # Copyright (C) 2017 Codethink Limited
 #
