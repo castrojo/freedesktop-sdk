@@ -5,7 +5,7 @@ mirrors:
 - name: freedesktop-sdk-git-mirrors
   aliases:
     android: 
-    - https://gitlab.com/freedesktop-sdk/mirrors/android
+    - https://gitlab.com/freedesktop-sdk/mirrors/android/
     chromium:
     - https://gitlab.com/freedesktop-sdk/mirrors/chromium/
     codeberg:
