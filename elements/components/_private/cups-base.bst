@@ -71,7 +71,7 @@ public:
 sources:
 - kind: git_repo
   url: github:OpenPrinting/cups.git
-  track: v*
+  track: v2.4.19
   exclude:
   - "*a*"
   - "*b*"
