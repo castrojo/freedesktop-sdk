@@ -5,6 +5,7 @@ kind: pyproject
 
 build-depends:
 - public-stacks/buildsystem-python-hatchling.bst
+- components/python3-hatch-fancy-pypi-readme.bst
 
 depends:
 - components/python3.bst
@@ -22,4 +23,4 @@ sources:
 - kind: git_repo
   url: github:pypa/virtualenv.git
   track: '*.*.*'
-  ref: 21.14.12-0-gf6512a559dc5a4561b8364881aee0f8ea7341e9b
+  ref: 21.15.1-0-gd46a1e2c1516a3ed316a608d7ef3a54d5dd8b2cc
