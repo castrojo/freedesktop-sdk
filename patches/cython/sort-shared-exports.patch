@@ -1,0 +1,13 @@
+diff --git a/Cython/Build/SharedModule.py b/Cython/Build/SharedModule.py
+index ad6ef5f0f5e..38415e77639 100644
+--- a/Cython/Build/SharedModule.py
++++ b/Cython/Build/SharedModule.py
+@@ -46,7 +46,7 @@ def _iter_exports(selected_features=None):
+     UtilityCode = Code.UtilityCode
+     match_special = UtilityCode.get_special_comment_matcher('/')
+ 
+-    for c_utility_file in os.listdir(Code.get_utility_dir()):
++    for c_utility_file in sorted(os.listdir(Code.get_utility_dir())):
+         if not c_utility_file.endswith('.c'):
+             continue
+ 
