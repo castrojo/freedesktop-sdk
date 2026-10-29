@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # SPDX-FileCopyrightText: Freedesktop-SDK Developers
-# SPDX-License-Identifier: MIT
+# SPDX-License-Identifier: LGPL-3.0-or-later
 
 # Keep variables and values in sync with utils/validate_repo.py
 
