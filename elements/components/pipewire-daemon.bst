@@ -16,6 +16,7 @@ runtime-depends:
 - components/wireplumber.bst
 - components/libcamera.bst
 - components/liblc3.bst
+- components/libldac.bst
 - components/libpulse.bst
 - components/libebur128.bst
 
