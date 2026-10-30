@@ -15,12 +15,7 @@ depends:
 runtime-depends:
 - components/askalono.bst
 - components/python3-pyyaml.bst
-
-(?):
-- target_arch == "aarch64" or target_arch == "x86_64":
-    runtime-depends:
-      (>):
-      - components/osv-scanner.bst
+- components/osv-scanner.bst
 
 sources:
 - kind: git_repo
