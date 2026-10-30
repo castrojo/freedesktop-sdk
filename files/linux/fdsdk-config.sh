@@ -2061,6 +2061,7 @@ module HID_RETRODE
 module HID_RMI
 # Touchscreen for OnePlus 6
 module RMI4_I2C
+module RMI4_SMB
 enable RMI4_F55
 module HID_ROCCAT
 module HID_SAITEK
