@@ -43,4 +43,4 @@ sources:
 - kind: git_repo
   url: github:cracklib/cracklib.git
   track: v*
-  ref: v2.10.3-0-ge73d5db1789d198b5f9ec44b68b9c775c3e6c042
+  ref: v2.10.4-gpg-0-g246592be1a654624965630b748ab4f1ac044f513
