@@ -2,6 +2,9 @@
 # SPDX-License-Identifier: MIT
 
 sources:
-- kind: tar
-  url: ftp_gnu_org:coreutils/coreutils-9.12.tar.xz
-  ref: a480198559733e9b3da999e90543ac6f888a2caa544d8d664c5a1f17e528e210
+- kind: anitya
+  project-id: 343
+  url: ftp_gnu_org:coreutils/coreutils-{version}.tar.xz
+  ref:
+    version: 9.12
+    sha256sum: a480198559733e9b3da999e90543ac6f888a2caa544d8d664c5a1f17e528e210
