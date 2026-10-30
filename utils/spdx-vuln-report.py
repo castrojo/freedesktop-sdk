@@ -10,6 +10,7 @@
 
 import argparse
 import json
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -18,6 +19,7 @@ from pathlib import Path
 
 from cvss import CVSS3, CVSS4
 
+CVSS_TYPES = ("CVSS_V4", "CVSS_V3", "CVSS_V2")
 MAX_SUMMARY = 250
 
 MARKDEEP_BLOB = (
@@ -40,6 +42,78 @@ def get_bst_element(package: dict) -> str | None:
     return None
 
 
+def _newest_affected_version(affected: list[dict]) -> str | None:
+    """Return the newest affected version or range from OSV affected entries."""
+
+    def is_version(value: str | None) -> bool:
+        return (
+            bool(value)
+            and value not in ("0", "0.0.0-0")
+            and not re.fullmatch(r"[0-9a-f]{40}", value)
+        )
+
+    def sort_key(value: str) -> tuple[int, ...]:
+        upper_bound = value.rsplit(",", maxsplit=1)[-1]
+        return tuple(int(part) for part in re.findall(r"\d+", upper_bound))
+
+    candidates = []
+    for entry in affected:
+        range_candidates = []
+        for version_range in entry.get("ranges") or []:
+            introduced = None
+            open_ended = False
+            for event in version_range.get("events") or []:
+                if "introduced" in event:
+                    introduced = event["introduced"]
+                    open_ended = True
+                    continue
+                end = (
+                    event.get("fixed")
+                    or event.get("last_affected")
+                    or event.get("limit")
+                )
+                inclusive = "last_affected" in event
+                operator = "<=" if inclusive else "<"
+                start = introduced if is_version(introduced) else None
+                stop = end if is_version(end) else None
+                if start and stop:
+                    range_candidates.append(f">= {start}, {operator} {stop}")
+                elif stop:
+                    range_candidates.append(f"{operator} {stop}")
+                elif start:
+                    range_candidates.append(f">= {start}")
+                open_ended = False
+            if open_ended and is_version(introduced):
+                range_candidates.append(f">= {introduced}")
+        candidates.extend(range_candidates or (entry.get("versions") or []))
+
+    return max(candidates, key=sort_key, default=None)
+
+
+def get_affected_info(data: dict) -> tuple[str, str]:
+    """Get the newest affected version and package identity from OSV data."""
+    affected = data.get("affected") or []
+    # Prefer entries that identify their package, as they also carry the
+    # useful version ranges rather than exhaustive version lists.
+    packaged = [entry for entry in affected if entry.get("package")]
+    if packaged:
+        affected = packaged
+
+    version = _newest_affected_version(affected) or "Unknown"
+
+    packages = []
+    for entry in affected:
+        package = entry.get("package") or {}
+        label = package.get("purl")
+        if not label and package.get("ecosystem") and package.get("name"):
+            label = f"{package['ecosystem']}:{package['name']}"
+        label = label or package.get("name")
+        if label and label not in packages:
+            packages.append(label)
+
+    return version, ", ".join(packages) if packages else " "
+
+
 def calculate_cvss_score(severity_vector: str) -> str:
     """Calculate CVSS score using cvss library if available."""
     score = "Not Scored"
@@ -50,13 +124,15 @@ def calculate_cvss_score(severity_vector: str) -> str:
             score = c.scores()[0]
         if hasattr(c, "base_score"):
             score = c.base_score
+        return f"{score} (CVSS_V4)"
     if vector_str.startswith("CVSS:3"):
         c = CVSS3(vector_str)
         if hasattr(c, "scores"):
             score = c.scores()[0]
         if hasattr(c, "base_score"):
             score = c.base_score
-    return str(score)
+        return f"{score} (CVSS_V3)"
+    return f"{score} (CVSS_V2)"
 
 
 def get_cve_info(cve_id: str) -> dict:
@@ -85,18 +161,14 @@ def get_cve_info(cve_id: str) -> dict:
         summary = summary[:MAX_SUMMARY] + "..."
 
     severity = None
-    severity_vector = None
+    severity_vectors = []
     # Try to extract severity from severity array
     for sev in data.get("severity", []) or []:
-        if sev.get("type") in ("CVSS_V4", "CVSS_V3", "CVSS_V2"):
-            severity_vector = sev.get("score")
-            severity = severity_vector
-            break
+        if sev.get("type") in CVSS_TYPES:
+            severity_vectors.append(sev.get("score"))
 
-    if severity_vector:
-        calculated = calculate_cvss_score(severity_vector)
-        if calculated is not None:
-            severity = calculated
+    if severity_vectors:
+        severity = ", ".join(calculate_cvss_score(v) for v in severity_vectors)
 
     if severity is None and data.get("database_specific"):
         db = data.get("database_specific") or {}
@@ -109,10 +181,14 @@ def get_cve_info(cve_id: str) -> dict:
                 severity = db.get("severity")
                 break
 
+    affected_versions, package = get_affected_info(data)
+
     return {
         "severity": severity,
         "summary": summary,
-        "severity_vector": severity_vector,
+        "severity_vector": ", ".join(severity_vectors) if severity_vectors else None,
+        "affected_versions": affected_versions,
+        "package": package,
     }
 
 
@@ -120,17 +196,15 @@ def fetch_cve(item: tuple) -> dict:
     cve_id, cve_data = item
     cve_info = get_cve_info(cve_id)
     severity = cve_info.get("severity")
-    severity_vector = cve_info.get("severity_vector")
     return {
         "CVE": f"[{cve_id}]({cve_data['link']})",
         "Severity": severity if severity is not None else "Not Scored",
+        "Package": cve_info.get("package") or "",
         "Affected Elements": " ".join(f"`{x}`" for x in cve_data["elements"]),
+        "Affected Versions": cve_info.get("affected_versions") or "Not Listed",
         "Summary": cve_info.get("summary")
         if cve_info.get("summary") is not None
-        else "",
-        "Severity Vector": severity_vector
-        if severity_vector is not None
-        else "Not Scored",
+        else " ",
     }
 
 
@@ -167,10 +241,17 @@ def collect_cves(spdx: dict) -> str:
         future_to_cve = {executor.submit(fetch_cve, item): item for item in cve_items}
         for future in as_completed(future_to_cve):
             result_list.append(future.result())
-    result_list.sort(
-        key=lambda x: float(x["Severity"]) if x["Severity"] != "Not Scored" else 0.0,
-        reverse=True,
-    )
+
+    def severity_sort_key(row):
+        severity = row["Severity"]
+        if severity == "Not Scored":
+            return 0.0
+        try:
+            return float(severity.split(" ")[0])
+        except ValueError:
+            return 0.0
+
+    result_list.sort(key=severity_sort_key, reverse=True)
 
     return format_as_markdown(result_list)
 
