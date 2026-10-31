@@ -25,5 +25,5 @@ sources:
 - kind: git_repo
   url: savannah:parallel.git
   track: '[0-9]*'
-  ref: 20260722-0-g4359ad0710c1b7465d7b83bb9b32b49688e93ca9
+  ref: 20261022-0-g63ed3aecbd8c9f2ee7636428c4dfd65bc2d7ee02
   version-guess-pattern: '(\d{8})'
