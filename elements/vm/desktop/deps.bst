@@ -61,6 +61,7 @@ depends:
 - vm/config/networkd.bst
 - vm/config/pipewire.bst
 - vm/config/resolved.bst
+- vm/config/seatd.bst
 - vm/config/sudo.bst
 - vm/config/systemd-homed-firstboot.bst
 - vm/config/useradd-default.bst

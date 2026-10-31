@@ -5,6 +5,7 @@ kind: meson
 
 build-depends:
 - public-stacks/buildsystem-meson.bst
+- components/scdoc.bst
 
 depends:
 - components/systemd-libs.bst
@@ -12,11 +13,14 @@ depends:
 variables:
   meson-local: >-
     -Dlibseat-logind=systemd
-    -Dlibseat-seatd=disabled
-    -Dlibseat-builtin=disabled
-    -Dserver=disabled
     -Dexamples=disabled
     -Dman-pages=enabled
+
+config:
+  install-commands:
+    (>):
+    - |
+      install -Dm644 -t "%{install-root}%{indep-libdir}/systemd/system" contrib/systemd/seatd.service
 
 sources:
 - kind: git_repo

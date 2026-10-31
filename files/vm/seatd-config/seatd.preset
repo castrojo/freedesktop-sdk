@@ -1,0 +1,2 @@
+enable multi-user.target
+enable seatd.service
