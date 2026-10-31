@@ -29,4 +29,4 @@ sources:
 - kind: git_repo
   url: github:hunspell/hyphen.git
   track: v*.*.*
-  ref: v2.8.9-0-g27439e9d339a05841cab9e661a1bbb8ca6ff1b02
+  ref: v2.8.10-0-g476ccbe1f1388e7007c4d4143ee41a063156bf88
