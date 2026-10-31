@@ -17,7 +17,7 @@ sources:
   track: v*
   exclude:
   - "*beta*"
-  ref: v1.15.0-0-g479658ad9bce22c6e4955b2e47182111c166e37c
+  ref: v1.16.0-0-g3bec0a32ae2b67ad4fac0194f762f44141e51473
 - kind: cargo2
   cargo-lock: Cargo.lock
   ref:
@@ -167,8 +167,8 @@ sources:
     sha: 08fe6fef95319ecc03c40127b2af811522b7918b05502ebb35b2972208993a57
   - kind: registry
     name: cargo-zigbuild
-    version: 0.23.1
-    sha: 9840ba8824cf43c7efb04a268090199072ad3ca8c65c386132909aee1bd4d4bf
+    version: 0.24.0
+    sha: cfd0dbe23ae1b71e74014ba62e3262d6b2fdf76251828644823bdfd21ce5d84e
   - kind: registry
     name: cargo_metadata
     version: 0.18.1
@@ -343,8 +343,8 @@ sources:
     sha: d7a1e2f27636f116493b8b860f5546edb47c8d8f8ea73e1d2a20be88e28d1fea
   - kind: registry
     name: der
-    version: 0.8.0
-    sha: 71fd89660b2dc699704064e59e9dba0147b903e85319429e131620d022be411b
+    version: 0.8.3
+    sha: 6a996a108feb8b427a6e12fcf6af4aa83409b79d72c15337d7741368131ee004
   - kind: registry
     name: deranged
     version: 0.5.8
@@ -731,8 +731,8 @@ sources:
     sha: 5e5032e24019045c762d3c0f28f5b6b8bbf38563a65908389bf7978758920897
   - kind: registry
     name: lzma-rust2
-    version: 0.16.2
-    sha: 47bb1e988e6fb779cf720ad431242d3f03167c1b3f2b1aae7f1a94b2495b36ae
+    version: 0.23.0
+    sha: f1c46f3fcd2e888afdb01a07efc071cb21300e07c68d32c3e8b01b5c8cb1fcaa
   - kind: registry
     name: lzma-sys
     version: 0.1.20
@@ -743,8 +743,8 @@ sources:
     sha: 7b29dffab797218e12e4df08ef5d15ab9efca2504038b1b32b9b32fc844b39c9
   - kind: registry
     name: mailparse
-    version: 0.16.1
-    sha: 60819a97ddcb831a5614eb3b0174f3620e793e97e09195a395bfa948fd68ed2f
+    version: 0.18.0
+    sha: 068d4f5d1083883b9e626051dc5bdaa321f5be01093e61ade3ee3ab44dafeadd
   - kind: registry
     name: matchers
     version: 0.2.0
@@ -791,8 +791,8 @@ sources:
     sha: 465500e14ea162429d264d44189adc38b199b62b1c21eea9f69e4b73cb03bbf2
   - kind: registry
     name: nix
-    version: 0.31.2
-    sha: 5d6d0705320c1e6ba1d912b5e37cf18071b6c2e9b7fa8215a1e8a7651966f5d3
+    version: 0.31.3
+    sha: cf20d2fde8ff38632c426f1165ed7436270b44f199fc55284c38276f9db47c3d
   - kind: registry
     name: nom
     version: 8.0.0
@@ -967,16 +967,16 @@ sources:
     sha: 60ebe4262ae91ddd28c8721111a0a6e9e58860e211fc92116c4bb85c98fd96ad
   - kind: registry
     name: pyo3-introspection
-    version: 0.29.0
-    sha: 7775fcc875acdce3872dcb91a4b7bd155ffba6e0ea8be88b8caab7d0b34539a6
+    version: 0.30.1
+    sha: 3b2ac30f128e6ab4ca1c464d6eabd30c84c7adc5955c3bb2eb7d203ea24ebd18
   - kind: registry
     name: pyproject-toml
     version: 0.13.7
     sha: f6d755483ad14b49e76713b52285235461a5b4f73f17612353e11a5de36a5fd2
   - kind: registry
     name: python-pkginfo
-    version: 0.6.8
-    sha: 229fe47647d6602b9b0934b21fab8aece1c5a5aeb0a934196a14355fec656623
+    version: 0.7.0
+    sha: ad0f01c29e3af9f28f5cfee9bcd599d8031b8cba40eced8a9ae7aa2d2e5b735c
   - kind: registry
     name: quote
     version: 1.0.45
@@ -1087,12 +1087,12 @@ sources:
     sha: a39e0e9135d7a7208ee80aa4e3e4b88f0f5ad7be92153ed70686c38a03db2e63
   - kind: registry
     name: rustix
-    version: 1.1.4
-    sha: b6fe4565b9518b83ef4f91bb47ce29620ca828bd32cb7e408f0062e9930ba190
+    version: 1.1.5
+    sha: 891efababe418670775f199f0d233d84843c227a0949a883ce15b37c78d6629d
   - kind: registry
     name: rustls
-    version: 0.23.38
-    sha: 69f9466fb2c14ea04357e91413efb882e2a6d4a406e625449bc0a5d360d53a21
+    version: 0.23.46
+    sha: 48e13bd8c0e9365c43cfa5c9e8f9ad49d3c8444926c9aac819e0e4dc503c8fdf
   - kind: registry
     name: rustls-native-certs
     version: 0.8.3
@@ -1111,8 +1111,8 @@ sources:
     sha: f87165f0995f63a9fbeea62b64d10b4d9d8e78ec6d7d51fb2125fda7bb36788f
   - kind: registry
     name: rustls-webpki
-    version: 0.103.13
-    sha: 61c429a8649f110dddef65e2a5ad240f747e85f7758a6bccc7e5777bd33f756e
+    version: 0.103.16
+    sha: 4443b1b6d39d7c663139942cc4558262562d2c84123bb6282ef177009ca8b281
   - kind: registry
     name: rustversion
     version: 1.0.22
@@ -1442,6 +1442,10 @@ sources:
     version: 0.12.3
     sha: 8e28f89b80c87b8fb0cf04ab448d5dd0dd0ade2f8891bae878de66a75a28600e
   - kind: registry
+    name: typed-path
+    version: 0.13.0
+    sha: 9ce898823d8cd0f028662d2f349694b1af0a5cc9be83f1d213a00d3147445e1e
+  - kind: registry
     name: typenum
     version: 1.20.0
     sha: 40ce102ab67701b8526c123c1bab5cbe42d7040ccfd0f64af1a385808d2f43de
@@ -1591,12 +1595,12 @@ sources:
     sha: 5a6580f308b1fad9207618087a65c04e7a10bc77e02c8e84e9b00dd4b12fa0bb
   - kind: registry
     name: webpki-root-certs
-    version: 1.0.7
-    sha: f31141ce3fc3e300ae89b78c0dd67f9708061d1d2eda54b8209346fd6be9a92c
+    version: 1.0.10
+    sha: 58ec80e73fd8baf57bf0d9615554c75348bda990d6d5bbeab964dd068319fecb
   - kind: registry
     name: webpki-roots
-    version: 1.0.7
-    sha: 52f5ee44c96cf55f1b349600768e3ece3a8f26010c05265ab73f945bb1a2eb9d
+    version: 1.0.10
+    sha: 1c1c8e20c8a38fc7d65abfe74eb7280e4aa667e8eec8bc84996d2874810748d9
   - kind: registry
     name: which
     version: 8.0.2
@@ -1883,8 +1887,12 @@ sources:
     sha: 625dc425cab0dca6dc3c3319506e6593dcb08a9f387ea3b284dbd52a92c40555
   - kind: registry
     name: zip
-    version: 8.5.1
-    sha: dcab981e19633ebcf0b001ddd37dd802996098bc1864f90b7c5d970ce76c1d59
+    version: 8.6.0
+    sha: 2d04a6b5381502aa6087c94c669499eb1602eb9c5e8198e534de571f7154809b
+  - kind: registry
+    name: zip
+    version: 9.1.3
+    sha: 1156b39d142a34b999c2310a50455e0cb3760bf7efad0122f796d813bee26ccb
   - kind: registry
     name: zlib-rs
     version: 0.6.3
@@ -1899,13 +1907,13 @@ sources:
     sha: f05cd8797d63865425ff89b5c4a48804f35ba0ce8d125800027ad6017d2b5249
   - kind: registry
     name: zstd
-    version: 0.13.3
-    sha: e91ee311a569c327171651566e07972200e76fcfe2242a4fa446149a3881c08a
+    version: 0.14.3
+    sha: db3ae9bf90af6e40197bef767eeefc46ad6397420fe873830bd85e5fbbfb3c70
   - kind: registry
     name: zstd-safe
-    version: 7.2.4
-    sha: 8f49c4d5f0abb602a93fb8736af2a4f4dd9512e36f7f570d66e65ff867ed3b9d
+    version: 8.2.0
+    sha: ded520f16b29e1a9b771c722221b2b0a0398c2316d9bb3c42b458a5414d7434b
   - kind: registry
     name: zstd-sys
-    version: 2.0.16+zstd.1.5.7
-    sha: 91e19ebc2adc8f83e43039e79776e3fda8ca919132d68a1fed6a5faca2683748
+    version: 2.1.2+zstd.1.5.7
+    sha: 481ada9c543b2323cbb7bbdbb5249177fbf0188ed959ed2c15e4b22421c84ed3
