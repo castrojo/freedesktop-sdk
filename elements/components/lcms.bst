@@ -32,4 +32,4 @@ sources:
   track: lcms2.*
   exclude:
   - lcms2.*rc*
-  ref: lcms2.19.1-0-g21c582a594fe5279f90c0b93437c398f93bf62b0
+  ref: lcms2.20-0-g7717fce0d85447ef3b2df0cca2e99207c15eeecd
