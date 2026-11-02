@@ -18,5 +18,5 @@ sources:
 - kind: git_repo
   url: github:benhoyt/inih.git
   track: r*
-  ref: r62-0-g26254ee9de7681f8825433415443e7116ff24b98
+  ref: r63-0-g611ab51f8dd7ec583543815b0de693495045fbf8
   version-guess-pattern: '(?<=r)\d{2}'
