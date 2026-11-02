@@ -53,7 +53,8 @@ sources:
   ref: v0.7.2-0-g191e202178f02430b5942397c70d215cdd2056fa
 - kind: patch
   path: patches/libcamera/disable-ipa-sign.patch
-- kind: git_module
-  path: subprojects/libyuv
+# Please keep in sync with the wrap file
+- kind: git_repo
+  directory: subprojects/libyuv
   url: chromium:libyuv/libyuv.git
   ref: 500f45652c459cfccd20f83f297eb66cb7b015cb
