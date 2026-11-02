@@ -17,6 +17,9 @@ sources:
   directory: spirv-headers
   track: vulkan-sdk-*
   ref: vulkan-sdk-1.4.363.0-0-g496543121ce6419f23d6fa5d7194ba66c36212d2
+- kind: patch
+  directory: spirv-headers
+  path: patches/spirv-headers/0001-support-for-SPV_INTEL_subgroup_bitcast_shuffle-634.patch
 - kind: git_repo
   url: github:KhronosGroup/SPIRV-Tools.git
   directory: spirv-tools
