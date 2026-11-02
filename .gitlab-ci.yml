@@ -225,7 +225,7 @@ weekly_update_combined:
 
 check_mirrors:
   stage: update
-  timeout: 1h
+  timeout: 3h
   before_script:
   # Configure Buildstream
   - mkdir -p ~/.config
@@ -236,6 +236,7 @@ check_mirrors:
       message-format: '[%{elapsed}][%{key}][%{element}] %{action} %{message}'
       error-lines: 80
     scheduler:
+      fetchers: 3
       network-retries: 4
       on-error: continue
     # We want to test that everything is mirrored
