@@ -221,7 +221,7 @@ def read_args(bst_data, module, bs, prefix=""):
             name = "cmake-local"
         case "meson":
             name = "meson-local"
-        case "autotools":
+        case None | "autotools":
             name = "conf-local"
 
     if name and "config-opts" in module:
