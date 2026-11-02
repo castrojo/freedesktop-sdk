@@ -764,7 +764,11 @@ module DM_INTEGRITY
 enable DM_UEVENT
 module DM_RAID
 module DM_SNAPSHOT
-module DM_VERITY
+# Verity owns its keyring keys and needs to be built-in, otherwise the
+# key can be overridden by unloading and reloading the dm-verity
+# module.
+enable DAX
+enable DM_VERITY
 enable DM_VERITY_VERIFY_ROOTHASH_SIG
 enable DM_VERITY_VERIFY_ROOTHASH_SIG_SECONDARY_KEYRING
 
