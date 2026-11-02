@@ -54,8 +54,8 @@ def archive_kind(url):
         return "tar"
 
 
-def relativise_path(path):
-    gendir = os.path.dirname(flatpak_manifest_path)
+def relativise_path(path, manifest_path):
+    gendir = os.path.dirname(manifest_path)
     if gendir == "":
         return path
     flatpak_manifest_reldir = os.path.relpath(gendir, os.getcwd())
@@ -64,8 +64,6 @@ def relativise_path(path):
 
 def cleanup_platform_split_rules(pattern):
     base = "%{prefix}" + pattern if pattern.startswith("/") else "**/" + pattern
-    if any(char in pattern for char in "*?[]"):
-        return [base]
     return [base, f"{base}/**"]
 
 
@@ -85,7 +83,7 @@ def append_split_rules(bst_data, domain, patterns):
                 existing.append(rule)
 
 
-def convert_source_to_bst(source, bst_data, name):
+def convert_source_to_bst(source, bst_data, name, manifest_path):
     source_type = source["type"]
 
     if source_type == "git":
@@ -95,7 +93,7 @@ def convert_source_to_bst(source, bst_data, name):
             gitSource = source["url"]
             bstSource = {"url": resolve_alias(gitSource)}
         elif "path" in source:
-            gitSource = relativise_path(source["path"])
+            gitSource = relativise_path(source["path"], manifest_path)
             bstSource = {"path": gitSource}
         else:
             raise ValueError("Unsupported git source: no url or path")
@@ -132,7 +130,7 @@ def convert_source_to_bst(source, bst_data, name):
             bst_source["directory"] = source["dest"]
         bst_data["sources"].append(bst_source)
     elif source_type == "archive" and "path" in source:
-        archive_path = relativise_path(source.get("path"))
+        archive_path = relativise_path(source.get("path"), manifest_path)
         checksum = source["sha256"]
         bst_source = {
             "kind": archive_kind(archive_path),
@@ -146,7 +144,7 @@ def convert_source_to_bst(source, bst_data, name):
     elif source_type == "dir":
         local_dir = source["path"]
         bst_data["sources"].append(
-            {"kind": "local", "path": relativise_path(local_dir)}
+            {"kind": "local", "path": relativise_path(local_dir, manifest_path)}
         )
 
     elif source_type == "patch":
@@ -156,7 +154,14 @@ def convert_source_to_bst(source, bst_data, name):
         if "paths" in source:
             paths.extend(source["paths"])
         for path in paths:
-            bst_data["sources"].append({"kind": "patch", "path": relativise_path(path)})
+            patch_source = {
+                "kind": "patch",
+                "path": relativise_path(path, manifest_path),
+            }
+            for option in source.get("options", []):
+                if option.startswith("--directory="):
+                    patch_source["directory"] = option.split("=", 1)[1]
+            bst_data["sources"].append(patch_source)
 
     elif source_type == "shell":
         if "config" not in bst_data:
@@ -177,7 +182,7 @@ def convert_source_to_bst(source, bst_data, name):
 
     elif source_type == "file":
         if "path" in source:
-            dest = relativise_path(source["path"])
+            dest = relativise_path(source["path"], manifest_path)
             orig = dest
             if "dest-filename" in source:
                 moduleDir = os.path.join(output_dir, name)
@@ -277,20 +282,22 @@ def path_to_dict(path):
         raise OurException("Unknown format in", path)
 
 
-def process_modules(flatpak_data):
+def process_modules(flatpak_data, manifest_path):
     for _module in flatpak_data["modules"]:
         module = None
         if isinstance(_module, str):
-            module = path_to_dict(relativise_path(_module))
+            module_path = relativise_path(_module, manifest_path)
+            module = path_to_dict(module_path)
         else:
             module = _module
+            module_path = manifest_path
         name = module["name"]
         if name in skipModules:
             previously_built_modules.append(skipModules[name])
             continue
 
         if "modules" in module:
-            process_modules(module)
+            process_modules(module, module_path)
 
         bstFile = os.path.join(output_dir, f"{name}.bst")
         bst_data = {
@@ -360,10 +367,13 @@ def process_modules(flatpak_data):
         if "sources" in module:
             for source in module["sources"]:
                 if isinstance(source, str):
-                    for included_source in path_to_dict(relativise_path(source)):
-                        convert_source_to_bst(included_source, bst_data, name)
+                    source_path = relativise_path(source, module_path)
+                    for included_source in path_to_dict(source_path):
+                        convert_source_to_bst(
+                            included_source, bst_data, name, source_path
+                        )
                 else:
-                    convert_source_to_bst(source, bst_data, name)
+                    convert_source_to_bst(source, bst_data, name, module_path)
 
         for pattern in module.get("cleanup-platform", []):
             append_split_rules(
@@ -528,7 +538,7 @@ def generate_bst(name, flatpak_data):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    process_modules(flatpak_data)
+    process_modules(flatpak_data, flatpak_manifest_path)
 
     with open(name, "w", encoding="utf-8") as f:
         f.write(f"# File generated by {os.path.basename(__file__)}\n\n")
