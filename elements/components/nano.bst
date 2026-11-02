@@ -15,8 +15,15 @@ depends:
 - components/file.bst
 
 config:
+  build-commands:
+    (>):
+    # Uncomment include for syntax highlighting in template nanorc
+    - |
+      sed -i 's,^# \(include .*/[*][.]nanorc\)$,\1,' '%{build-dir}/doc/sample.nanorc'
+
   install-commands:
     (>):
+    - install -Dm644 '%{build-dir}/doc/sample.nanorc' '%{install-root}/etc/nanorc'
     - rm "%{install-root}/usr/share/info/dir"
 
 sources:
