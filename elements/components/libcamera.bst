@@ -48,7 +48,7 @@ config:
 
 sources:
 - kind: git_repo
-  url: git_https:git.libcamera.org/libcamera/libcamera.git
+  url: freedesktop:camera/libcamera.git
   track: v*.*
   ref: v0.8.0-0-gdf8e348d64b4932a0676256ed24f0da3ee9438bc
 - kind: patch
