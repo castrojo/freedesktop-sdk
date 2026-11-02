@@ -164,9 +164,11 @@ def convert_source_to_bst(source, bst_data, name, manifest_path):
             bst_data["sources"].append(patch_source)
 
     elif source_type == "shell":
-        if "config" not in bst_data:
-            bst_data["config"] = {"configure-commands": {"(>)": []}}
-        bst_data["config"]["configure-commands"]["(>)"].extend(source["commands"])
+        config = bst_data.setdefault("config", {})
+        commands = config.setdefault("configure-commands", {}).setdefault("(<)", [])
+        commands.extend(
+            'cd "%{build-root}"\n' + command for command in source["commands"]
+        )
 
     elif source_type == "script":
         moduleDir = os.path.join(output_dir, name)
