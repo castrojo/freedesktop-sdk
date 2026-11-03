@@ -308,6 +308,7 @@ def process_modules(flatpak_data, manifest_path):
             "environment": {
                 "INSTALL_ROOT": "%{install-root}",
                 "FLATPAK_DEST": "%{prefix}",
+                "PIP_ROOT": "%{install-root}",
             },
         }
 
