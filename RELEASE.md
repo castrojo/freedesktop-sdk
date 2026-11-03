@@ -42,3 +42,9 @@
          into the documentation.
     -->
         $ ./utils/release.py publish freedesktop-sdk-23.08.1 82ccd27bb92aa3934f8c2ff62bbe46ae4af7adf4
+
+1. Await for the tag pipeline to succeed, this will:
+   1. Publish the flatpak repository to flathub
+   2. Publish the OCI container images to dockerhub
+   3. Publish SBOM and CVE reports to the package registry
+   4. Create a gitlab release with the release information
