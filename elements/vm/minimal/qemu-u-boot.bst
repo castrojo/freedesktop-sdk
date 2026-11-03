@@ -77,7 +77,7 @@ config:
             extraargs = "-U ${uuid_root}"
             use-mke2fs = true
         }
-        size = 1G
+        size = 120%
     }
     image disk.img {
         hdimage {
