@@ -361,6 +361,16 @@ def process_modules(flatpak_data, manifest_path):
 
                 read_args(bst_data, module, buildsystem)
 
+                if "make-args" in module:
+                    bst_data["variables"]["make-args"] = " ".join(module["make-args"])
+                if "make-install-args" in module or "install-rule" in module:
+                    bst_data["variables"]["make-install-args"] = (
+                        '%{make-args} DESTDIR="%{install-root}" '
+                        + module.get("install-rule", "install")
+                        + " "
+                        + " ".join(module.get("make-install-args", []))
+                    )
+
                 if not bst_data["variables"]:
                     del bst_data["variables"]
             case _:
