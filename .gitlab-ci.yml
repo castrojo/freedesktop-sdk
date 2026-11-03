@@ -651,6 +651,13 @@ markdown_manifest:
   needs: []
   variables:
     DISABLE_REMOTE_CACHE: "1"
+    # The rebuilds of this job only need to read from the remote cache.
+    # Pushing sources makes buildstream log several lines per element
+    # (about half of the whole job log, which is capped) and makes the job
+    # depend on the remote cache being writable for no benefit.
+    CACHE_PUSH: 'false'
+    # No colours: the escape sequences are about 10% of the job log.
+    BST: bst
   artifacts:
     when: always
     paths:
