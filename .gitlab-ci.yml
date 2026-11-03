@@ -283,7 +283,7 @@ check_mirrors:
       - ${CI_PROJECT_DIR}/sbom-reports
   rules:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-    changes: 
+    changes:
       paths: *build-paths
 
 .builder-x86_64:
@@ -383,7 +383,7 @@ app_ppc64le:
       - "${CI_PROJECT_DIR}/checkout/**/*sizes*.tsv"
   rules:
   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-    changes: 
+    changes:
       paths: *build-paths
 
 
@@ -766,17 +766,7 @@ publish_gitlab_release:
   before_script: []
   after_script: []
   script:
-    - |
-      git tag -l "$CI_COMMIT_TAG" --format='%(contents)' \
-        | sed '/^-----BEGIN/,$d' \
-        | sed 's/"/\\"/g' \
-        > tag_message.txt
-
-    - glab auth login --hostname "$CI_SERVER_HOST" --job-token "$CI_JOB_TOKEN"
-
-    - |
-      glab release create "$CI_COMMIT_TAG" --name "$CI_COMMIT_TAG" \
-        --notes-file tag_message.txt --ref "$CI_COMMIT_SHA"
+    - utils/publish_gitlab_release.py --actually-create-release
   rules:
   - if: '$CI_COMMIT_TAG && $CI_COMMIT_REF_PROTECTED == "true" && $CI_PIPELINE_SOURCE != "schedule"'
 
