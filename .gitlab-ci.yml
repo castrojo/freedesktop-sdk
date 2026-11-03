@@ -118,6 +118,7 @@ lint:
 .build-paths: &build-paths
   - .gitlab-ci.yml
   - Makefile
+  - NEWS.yml
   - elements/**/*
   - files/**/*
   - include/**/*
