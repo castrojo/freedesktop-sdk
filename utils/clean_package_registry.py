@@ -13,19 +13,16 @@ from datetime import UTC, datetime, timedelta
 import requests
 
 logger = logging.getLogger(__name__)
-ACCESS_TOKEN = os.environ.get("CI_JOB_TOKEN")
-PROJECT_ID = os.environ.get("CI_PROJECT_ID")
-GITLAB_API = os.environ.get("CI_API_V4_URL", "https://gitlab.com/api/v4/")
 
 
-def get_all_packages(project_id: str) -> list[dict]:
+def get_all_packages(project_id: str, token: str, glab_api: str) -> list[dict]:
     """Collect all packages from a given project."""
     assert project_id is not None, (
         "Please set a project_id or the $CI_PROJECT_ID envvar"
     )
-    url = f"{GITLAB_API}/projects/{project_id}/packages"
+    url = f"{glab_api}/projects/{project_id}/packages"
     headers = {
-        "PRIVATE-TOKEN": ACCESS_TOKEN  # Can be unset for dry runs on public repos
+        "PRIVATE-TOKEN": token  # Can be unset for dry runs on public repos
     }
     packages: list[dict] = []
     page = 1
@@ -89,12 +86,12 @@ def format_package(p: dict) -> str:
     return f"{p.get('name', '')}@{p.get('version', '')} (id:{p.get('id', '')})"
 
 
-def remove_package(project_id: str, package_id: str):
+def remove_package(project_id: str, package_id: str, token: str, glab_api: str):
     """Use gitlab API to delete a package."""
-    assert ACCESS_TOKEN is not None, "$CI_JOB_TOKEN is required for deleting packages"
+    assert token is not None, "$CI_JOB_TOKEN is required for deleting packages"
     r = requests.delete(
-        f"{GITLAB_API}/projects/{project_id}/packages/{package_id}",
-        headers={"PRIVATE-TOKEN": ACCESS_TOKEN},
+        f"{glab_api}/projects/{project_id}/packages/{package_id}",
+        headers={"PRIVATE-TOKEN": token},
         timeout=60,
     )
     r.raise_for_status()
@@ -102,7 +99,9 @@ def remove_package(project_id: str, package_id: str):
 
 def clean_package_registry(args: argparse.Namespace):
     """Remove all expired packages from the package registry."""
-    packages: list[dict] = get_all_packages(args.project_id)
+    packages: list[dict] = get_all_packages(
+        args.project_id, args.access_token, args.gitlab_api
+    )
     expired: list[dict] = filter_packages(packages, args.max_age)
     for x in expired:
         logger.info("Removing %s", format_package(x))
@@ -110,12 +109,19 @@ def clean_package_registry(args: argparse.Namespace):
             logger.info("Dry Run: Skipping...")
             continue
         if package_id := x.get("id"):
-            remove_package(args.project_id, package_id)
+            remove_package(
+                args.project_id, package_id, args.access_token, args.gitlab_api
+            )
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--project-id", default=PROJECT_ID)
+    parser.add_argument("--project-id", default=os.environ.get("CI_PROJECT_ID"))
+    parser.add_argument("--access-token", default=os.environ.get("CI_JOB_TOKEN"))
+    parser.add_argument(
+        "--gitlab-api",
+        default=os.environ.get("CI_API_V4_URL", "https://gitlab.com/api/v4/"),
+    )
     parser.add_argument(
         "--max-age", default=30, type=int, help="Max allowed age of a package (in days)"
     )
