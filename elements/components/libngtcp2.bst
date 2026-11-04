@@ -32,6 +32,6 @@ sources:
 - kind: git_repo
   url: github:ngtcp2/ngtcp2.git
   track: v*
-  ref: v1.25.0-0-gf9e9ff01ad2c8116bc09de4f644b0028a61486a6
+  ref: v1.26.0-0-g6a22a4d7a111f6b52391910e40ad3681a09cfb9c
 - kind: patch
   path: patches/libngtcp2/0001-lib-CMakeLists.txt-Include-GNUInstallDirs-to-use-CMA.patch
