@@ -132,24 +132,7 @@ lint:
   variables:
     GIT_SUBMODULE_STRATEGY: none
   script:
-    - |
-      if [ "${CI_COMMIT_REF_NAME}" = "${CI_DEFAULT_BRANCH}" ] && [ -n "${SKIP_DAY_NUM}" ]; then
-        if [ "$(date +%u)" -eq "${SKIP_DAY_NUM}" ]; then
-          echo "Skipping job on day ${SKIP_DAY_NUM} of the week"
-          exit 0
-        fi
-      fi
     - *setup_branch
-    - |
-      case "${CI_COMMIT_REF_NAME}" in
-        "${CI_DEFAULT_BRANCH}")
-        ;;
-        release/*)
-        ;;
-        *)
-          false
-        ;;
-      esac
     - |
       if [ "$SCHEDULE_TASK" = "daily" ] && [ "$STABLE_ABI" = "true" ]; then
           TRACK_ELEMENTS="$TRACK_ELEMENTS abi/reference-abi.bst"
@@ -178,7 +161,7 @@ daily_update_elements:
     - .check_update_elements
   timeout: 90m
   variables:
-    SKIP_DAY_NUM: '5'
+    SKIP_DAY_NUM: '8'
     TRACK_ELEMENTS: track-elements.bst
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
