@@ -284,7 +284,7 @@ def path_to_dict(path):
         raise OurException("Unknown format in", path)
 
 
-def process_modules(flatpak_data, manifest_path):
+def process_modules(flatpak_data, manifest_path, build_options=()):
     for _module in flatpak_data["modules"]:
         module = None
         if isinstance(_module, str):
@@ -299,7 +299,9 @@ def process_modules(flatpak_data, manifest_path):
             continue
 
         if "modules" in module:
-            process_modules(module, module_path)
+            process_modules(
+                module, module_path, (*build_options, module.get("build-options", {}))
+            )
 
         bstFile = os.path.join(output_dir, f"{name}.bst")
         bst_data = {
@@ -377,6 +379,9 @@ def process_modules(flatpak_data, manifest_path):
             case _:
                 print("Unknown buildsystem", module.get("buildsystem"))
 
+        for options in (*build_options, module.get("build-options", {})):
+            read_build_environment(bst_data, options)
+
         if "sources" in module:
             for source in module["sources"]:
                 if isinstance(source, str):
@@ -409,6 +414,25 @@ def process_modules(flatpak_data, manifest_path):
                 allow_unicode=True,
             )
         previously_built_modules.append(f"{generating_id}/{name}.bst")
+
+
+def read_build_environment(bst_data, options):
+    environment = bst_data["environment"]
+    values = options.get("env", {})
+    if isinstance(values, list):
+        values = dict(value.split("=", 1) for value in values)
+    environment.update(values)
+    for option, variable, default in (
+        ("path", "PATH", "/usr/bin:/bin:/usr/sbin:/sbin"),
+        ("ld-library-path", "LD_LIBRARY_PATH", ""),
+    ):
+        value = environment.get(variable, default)
+        if options.get("prepend-" + option):
+            value = ":".join(filter(None, [options["prepend-" + option], value]))
+        if options.get("append-" + option):
+            value = ":".join(filter(None, [value, options["append-" + option]]))
+        if value != environment.get(variable, default):
+            environment[variable] = value
 
 
 def generate_runtime_data(flatpak_data, name):
