@@ -274,7 +274,7 @@ def path_to_dict(path):
         try:
             parser.load_from_file(path)
         except GLib.Error as err:
-            print("Failed to load JSON Flatpak manifest:", err.message)
+            print("Failed to load JSON Flatpak manifest:", err)
         return json.loads(Json.to_string(parser.get_root(), False))
     elif path.endswith((".yaml", ".yml")):
         with open(path, "r", encoding="utf-8") as inputFile:
