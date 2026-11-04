@@ -6,6 +6,9 @@
 # SPDX-FileCopyrightText: 2025-2026 Aleix Pol Gonzalez <aleix.pol@codethink.co.uk>
 # SPDX-License-Identifier: MIT
 
+from typing import Any
+from encodings import aliases
+from botocore.exceptions import AliasConflictParameterError
 import argparse
 import json
 import os
@@ -26,24 +29,31 @@ class OurException(Exception):
     """Raised when we fail."""
 
 
-output_dir = None
-generating_id = None
-previously_built_modules = []
-aliases = {}
-runtime = None
-sdk = None
-
 CLEANUP_PLATFORM_DOMAIN_PREFIXES = {
     "/share/runtime/docs": "docs",
     "/share/runtime/locale": "locale",
 }
 
 
-def resolve_alias(url: str):
-    for name, aliasUrl in aliases.items():
-        if url.startswith(aliasUrl):
-            return url.replace(aliasUrl, name + ":")
-    return url
+class Aliases:
+    def __init__(self):
+        self._aliases = {}
+
+    def resolve_alias(self, url: str):
+        for name, aliasUrl in self._aliases.items():
+            if url.startswith(aliasUrl):
+                return url.replace(aliasUrl, name + ":")
+        return url
+
+    def load_aliases(self, path_to_aliases):
+        with open(path_to_aliases, "r", encoding="utf-8") as inputFile:
+            aliasesData = yaml.safe_load(inputFile)
+
+        if isinstance(aliasesData, dict):
+            if "aliases" in aliasesData and isinstance(aliasesData["aliases"], dict):
+                self._aliases = aliasesData["aliases"]
+            else:
+                self._aliases = aliasesData
 
 
 def archive_kind(url):
@@ -82,7 +92,9 @@ def append_split_rules(bst_data, domain, patterns):
                 existing.append(rule)
 
 
-def convert_source_to_bst(source, bst_data, name, manifest_path):
+def convert_source_to_bst(
+    source, bst_data, name, manifest_path, output_dir, aliases: Aliases
+):
     source_type = source["type"]
 
     if source_type == "git":
@@ -90,7 +102,7 @@ def convert_source_to_bst(source, bst_data, name, manifest_path):
         gitSource = None
         if "url" in source:
             gitSource = source["url"]
-            bstSource = {"url": resolve_alias(gitSource)}
+            bstSource = {"url": aliases.resolve_alias(gitSource)}
         elif "path" in source:
             gitSource = relativise_path(source["path"], manifest_path)
             bstSource = {"path": gitSource}
@@ -122,7 +134,7 @@ def convert_source_to_bst(source, bst_data, name, manifest_path):
         checksum = source["sha256"]
         bst_source = {
             "kind": archive_kind(archive_url),
-            "url": resolve_alias(archive_url),
+            "url": aliases.resolve_alias(archive_url),
             "ref": checksum,
         }
         if "dest" in source:
@@ -283,7 +295,17 @@ def path_to_dict(path):
         raise OurException("Unknown format in", path)
 
 
-def process_modules(flatpak_data, manifest_path, sdk_extensions, build_options=()):
+def process_modules(
+    flatpak_data,
+    manifest_path,
+    sdk_extensions,
+    output_dir,
+    sdk,
+    generating_id,
+    aliases: Aliases,
+    previously_built_modules: list[str],
+    build_options=(),
+):
     for _module in flatpak_data["modules"]:
         module = None
         if isinstance(_module, str):
@@ -303,6 +325,11 @@ def process_modules(flatpak_data, manifest_path, sdk_extensions, build_options=(
                 module,
                 module_path,
                 sdk_extensions,
+                output_dir,
+                sdk,
+                generating_id,
+                aliases,
+                previously_built_modules,
                 (*build_options, module.get("build-options", {})),
             )
 
@@ -392,10 +419,17 @@ def process_modules(flatpak_data, manifest_path, sdk_extensions, build_options=(
                     source_path = relativise_path(source, module_path)
                     for included_source in path_to_dict(source_path):
                         convert_source_to_bst(
-                            included_source, bst_data, name, source_path
+                            included_source,
+                            bst_data,
+                            name,
+                            source_path,
+                            output_dir,
+                            aliases,
                         )
                 else:
-                    convert_source_to_bst(source, bst_data, name, module_path)
+                    convert_source_to_bst(
+                        source, bst_data, name, module_path, output_dir, aliases
+                    )
 
         for pattern in module.get("cleanup-platform", []):
             append_split_rules(
@@ -479,7 +513,7 @@ def generate_runtime_data(flatpak_data, name):
     return runtime_data
 
 
-def generate_runtime(flatpak_data, output_dir):
+def generate_runtime(flatpak_data, output_dir, generating_id):
     os.makedirs(output_dir, exist_ok=True)
     runtime_data = generate_runtime_data(flatpak_data, flatpak_data["id-platform"])
     runtime_data["build-depends"] = [
@@ -533,7 +567,7 @@ def flatpak_ref(ref):
         raise OurException("Branch not found or invalid URL.")
 
 
-def generate_runtime_dependency(data, output_dir):
+def generate_runtime_dependency(data, output_dir, aliases: Aliases):
     platform_name = data["runtime"]
     platform_bst = os.path.join(output_dir, platform_name + ".bst")
     platform_version = data["runtime-version"]
@@ -544,7 +578,7 @@ def generate_runtime_dependency(data, output_dir):
             "sources": [
                 {
                     "kind": "ostree",
-                    "url": resolve_alias("https://dl.flathub.org/repo/"),
+                    "url": aliases.resolve_alias("https://dl.flathub.org/repo/"),
                     "track": f"runtime/{platform_name}/{arch}/{platform_version}",
                     "ref": flatpak_ref(f"runtime/{platform_name}//{platform_version}"),
                 }
@@ -568,7 +602,7 @@ def generate_runtime_dependency(data, output_dir):
             "sources": [
                 {
                     "kind": "ostree",
-                    "url": resolve_alias("https://flathub.org/repo/"),
+                    "url": aliases.resolve_alias("https://flathub.org/repo/"),
                     "track": f"runtime/{sdk_name}/{arch}/{platform_version}",
                     "ref": flatpak_ref(f"runtime/{sdk_name}//{platform_version}"),
                 }
@@ -587,14 +621,29 @@ def generate_runtime_dependency(data, output_dir):
         )
 
 
-def generate_bst(name, flatpak_data, flatpak_manifest_path, sdk_extensions):
+def generate_bst(
+    name,
+    flatpak_data,
+    flatpak_manifest_path,
+    sdk_extensions,
+    output_dir,
+    sdk,
+    generating_id,
+    aliases: Aliases,
+):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
+    previously_built_modules: list[str] = []
     process_modules(
         flatpak_data,
         flatpak_manifest_path,
         sdk_extensions,
+        output_dir,
+        sdk,
+        generating_id,
+        aliases,
+        previously_built_modules,
         (flatpak_data.get("build-options", {}),),
     )
 
@@ -608,6 +657,7 @@ def generate_bst(name, flatpak_data, flatpak_manifest_path, sdk_extensions):
         yaml.dump(
             data, f, default_flow_style=False, sort_keys=False, allow_unicode=True
         )
+    return previously_built_modules
 
 
 def generate_cleanup_platform_split_rules(flatpak_data, generating_id):
@@ -716,7 +766,7 @@ def generate_app(data, generating_id):
         )
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(
         description="Generates BuildStream recipes out of flatpak-builder ones."
     )
@@ -732,15 +782,9 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
     flatpak_manifest_path = args.file
+    aliases = Aliases()
     if args.aliases:
-        with open(args.aliases, "r", encoding="utf-8") as inputFile:
-            aliasesData = yaml.safe_load(inputFile)
-
-        if isinstance(aliasesData, dict):
-            if "aliases" in aliasesData and isinstance(aliasesData["aliases"], dict):
-                aliases = aliasesData["aliases"]
-            else:
-                aliases = aliasesData
+        aliases.load_aliases(args.aliases)
 
     if args.skip:
         with open(args.skip, "r", encoding="utf-8") as inputFile:
@@ -752,7 +796,16 @@ if __name__ == "__main__":
     sdk = resolve_sdk(data["sdk"])
     runtime = resolve_platform(data["runtime"])
     sdk_extensions = resolve_sdk_extensions(data)
-    generate_bst(filename, data, flatpak_manifest_path, sdk_extensions)
+    previously_built_modules = generate_bst(
+        filename,
+        data,
+        flatpak_manifest_path,
+        sdk_extensions,
+        output_dir,
+        sdk,
+        generating_id,
+        aliases,
+    )
     generate_cleanup_platform_split_rules(data, generating_id)
     if "base" in data:
         print("Bringing base apps is not yet supported")
@@ -760,7 +813,7 @@ if __name__ == "__main__":
         print("Bringing build extensions is not yet supported")
 
     if data.get("build-runtime", False):
-        generate_runtime(data, output_dir + "/flatpak-images/")
+        generate_runtime(data, output_dir + "/flatpak-images/", generating_id)
         with open(
             os.path.join("elements", data["id-platform"] + ".bst"),
             "w",
@@ -784,5 +837,9 @@ if __name__ == "__main__":
     elif ":" not in sdk:
         # only pull the runtime from flathub if we're not building it here already
         if not os.path.exists(os.path.join("elements", sdk)):
-            generate_runtime_dependency(data, "elements")
+            generate_runtime_dependency(data, "elements", aliases)
         generate_app(data, generating_id)
+
+
+if __name__ == "__main__":
+    main()
