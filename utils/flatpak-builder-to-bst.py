@@ -6,14 +6,12 @@
 # SPDX-FileCopyrightText: 2025-2026 Aleix Pol Gonzalez <aleix.pol@codethink.co.uk>
 # SPDX-License-Identifier: MIT
 
-from typing import Any
-from encodings import aliases
-from botocore.exceptions import AliasConflictParameterError
 import argparse
 import json
 import os
 import shutil
 import subprocess
+from typing import Any
 
 import gi
 import yaml
@@ -261,12 +259,9 @@ def bst_sort(bst_data):
     return dict(sorted(bst_data.items(), key=lambda item: sort_key(item[0])))
 
 
-skipModules = {}
-
-
 def git_ls_remote(url, pattern):
     result = subprocess.run(
-        ["git", "ls-remote", url, pattern], capture_output=True, text=True
+        ["git", "ls-remote", url, pattern], capture_output=True, text=True, check=False
     )
 
     if result.returncode != 0:
@@ -304,6 +299,7 @@ def process_modules(
     generating_id,
     aliases: Aliases,
     previously_built_modules: list[str],
+    skip_modules,
     build_options=(),
 ):
     for _module in flatpak_data["modules"]:
@@ -315,9 +311,9 @@ def process_modules(
             module = _module
             module_path = manifest_path
         name = module["name"]
-        if name in skipModules:
-            if skipModules[name]:
-                previously_built_modules.append(skipModules[name])
+        if name in skip_modules:
+            if skip_modules[name]:
+                previously_built_modules.append(skip_modules[name])
             continue
 
         if "modules" in module:
@@ -330,6 +326,7 @@ def process_modules(
                 generating_id,
                 aliases,
                 previously_built_modules,
+                skip_modules,
                 (*build_options, module.get("build-options", {})),
             )
 
@@ -473,7 +470,7 @@ def read_build_environment(bst_data, options):
             environment[variable] = value
 
 
-def resolve_sdk_extensions(flatpak_data):
+def resolve_sdk_extensions(flatpak_data, skipModules):
     dependencies = []
     for extension in flatpak_data.get("sdk-extensions", []):
         name = extension.partition("/")[0]
@@ -554,7 +551,7 @@ def generate_runtime(flatpak_data, output_dir, generating_id):
 
 def flatpak_ref(ref):
     result = subprocess.run(
-        ["flatpak", "info", "-c", ref], capture_output=True, text=True
+        ["flatpak", "info", "-c", ref], capture_output=True, text=True, check=False
     )
 
     if result.returncode != 0:
@@ -630,6 +627,7 @@ def generate_bst(
     sdk,
     generating_id,
     aliases: Aliases,
+    skip_modules,
 ):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
@@ -644,7 +642,8 @@ def generate_bst(
         generating_id,
         aliases,
         previously_built_modules,
-        (flatpak_data.get("build-options", {}),),
+        skip_modules,
+        build_options=(flatpak_data.get("build-options", {}),),
     )
 
     with open(name, "w", encoding="utf-8") as f:
@@ -788,14 +787,16 @@ def main():
 
     if args.skip:
         with open(args.skip, "r", encoding="utf-8") as inputFile:
-            skipModules = yaml.safe_load(inputFile)
+            skip_modules = yaml.safe_load(inputFile)
+    else:
+        skip_modules = []
     data = path_to_dict(flatpak_manifest_path)
     generating_id = data.get("id") or data.get("app-id")
     filename = os.path.join("elements", generating_id + ".bst")
     output_dir = os.path.join("elements", generating_id)
     sdk = resolve_sdk(data["sdk"])
     runtime = resolve_platform(data["runtime"])
-    sdk_extensions = resolve_sdk_extensions(data)
+    sdk_extensions = resolve_sdk_extensions(data, skip_modules)
     previously_built_modules = generate_bst(
         filename,
         data,
@@ -805,6 +806,7 @@ def main():
         sdk,
         generating_id,
         aliases,
+        skip_modules,
     )
     generate_cleanup_platform_split_rules(data, generating_id)
     if "base" in data:
