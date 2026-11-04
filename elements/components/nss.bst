@@ -157,7 +157,7 @@ sources:
   # https://firefox-source-docs.mozilla.org/security/nss/releases/index.html
   # Next ESR branch is unknown
   track: NSS_3_125*_RTM
-  ref: NSS_3_125_RTM-0-g108de14257bf363cf53a42e1ef382d44fe39c599
+  ref: NSS_3_125_1_RTM-0-gb8bd3b4c99b408d2823a6b65fd11e0df0d4bb31f
   directory: nss
   version-guess-pattern: '(\d+)_(\d+)_(\d+)'
 - kind: patch
