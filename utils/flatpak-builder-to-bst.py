@@ -32,7 +32,6 @@ previously_built_modules = []
 aliases = {}
 runtime = None
 sdk = None
-sdk_extensions = []
 
 CLEANUP_PLATFORM_DOMAIN_PREFIXES = {
     "/share/runtime/docs": "docs",
@@ -284,7 +283,7 @@ def path_to_dict(path):
         raise OurException("Unknown format in", path)
 
 
-def process_modules(flatpak_data, manifest_path, build_options=()):
+def process_modules(flatpak_data, manifest_path, sdk_extensions, build_options=()):
     for _module in flatpak_data["modules"]:
         module = None
         if isinstance(_module, str):
@@ -301,7 +300,10 @@ def process_modules(flatpak_data, manifest_path, build_options=()):
 
         if "modules" in module:
             process_modules(
-                module, module_path, (*build_options, module.get("build-options", {}))
+                module,
+                module_path,
+                sdk_extensions,
+                (*build_options, module.get("build-options", {})),
             )
 
         bstFile = os.path.join(output_dir, f"{name}.bst")
@@ -584,12 +586,15 @@ def generate_runtime_dependency(data, output_dir):
         )
 
 
-def generate_bst(name, flatpak_data, flatpak_manifest_path):
+def generate_bst(name, flatpak_data, flatpak_manifest_path, sdk_extensions):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
     process_modules(
-        flatpak_data, flatpak_manifest_path, (flatpak_data.get("build-options", {}),)
+        flatpak_data,
+        flatpak_manifest_path,
+        sdk_extensions,
+        (flatpak_data.get("build-options", {}),),
     )
 
     with open(name, "w", encoding="utf-8") as f:
@@ -746,7 +751,7 @@ if __name__ == "__main__":
     sdk = resolve_sdk(data["sdk"])
     runtime = resolve_platform(data["runtime"])
     sdk_extensions = resolve_sdk_extensions(data)
-    generate_bst(filename, data, flatpak_manifest_path)
+    generate_bst(filename, data, flatpak_manifest_path, sdk_extensions)
     generate_cleanup_platform_split_rules(data, generating_id)
     if "base" in data:
         print("Bringing base apps is not yet supported")
