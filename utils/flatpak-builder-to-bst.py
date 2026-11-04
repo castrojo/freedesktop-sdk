@@ -28,7 +28,6 @@ class OurException(Exception):
 
 output_dir = None
 generating_id = None
-flatpak_manifest_path = None
 previously_built_modules = []
 aliases = {}
 runtime = None
@@ -585,7 +584,7 @@ def generate_runtime_dependency(data, output_dir):
         )
 
 
-def generate_bst(name, flatpak_data):
+def generate_bst(name, flatpak_data, flatpak_manifest_path):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
@@ -747,7 +746,7 @@ if __name__ == "__main__":
     sdk = resolve_sdk(data["sdk"])
     runtime = resolve_platform(data["runtime"])
     sdk_extensions = resolve_sdk_extensions(data)
-    generate_bst(filename, data)
+    generate_bst(filename, data, flatpak_manifest_path)
     generate_cleanup_platform_split_rules(data, generating_id)
     if "base" in data:
         print("Bringing base apps is not yet supported")
