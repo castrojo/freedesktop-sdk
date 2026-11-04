@@ -20,7 +20,7 @@ sources:
 - kind: git_repo
   url: github:scikit-build/scikit-build-core
   track: v*
-  ref: v1.1.1-0-g67040d09985ea5683038943676f31550b5f4faf5
+  ref: v1.1.2-0-g695aa70a0db77f2c36e80c2bffcf3b4bd74df37b
   provenance:
     homepage: https://scikit-build-core.readthedocs.io/en/latest/
     issue-tracker: https://github.com/scikit-build/scikit-build-core/issues
