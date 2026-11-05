@@ -26,5 +26,5 @@ public:
 sources:
 - kind: git_repo
   url: github:lz4/lz4.git
-  track: v*
+  track: v1.10.*
   ref: v1.10.0-0-gebb370ca83af193212df4dcbadcc5d87bc0de2f0
