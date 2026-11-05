@@ -4,8 +4,10 @@
 kind: stack
 
 depends:
+- components/dbus.bst
 - components/shadow.bst
 - components/sudo.bst
+- components/systemd.bst
 - components/util-linux-full.bst
 - oci/layers/sdk-stack.bst
 
