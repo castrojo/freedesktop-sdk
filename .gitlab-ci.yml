@@ -632,6 +632,32 @@ reproducible_x86_64:
     - .reproducible_template
     - .builder-x86_64
 
+.oci_push_dev_template:
+  stage: flatpak
+  needs: []
+  script:
+  - |
+    set -e
+    ${BST} -o target_arch ${ARCH} build oci/toolbox-oci.bst
+    ${BST} -o target_arch ${ARCH} artifact checkout oci/toolbox-oci.bst --tar - | podman load
+  - |
+    podman login -u "${CI_REGISTRY_USER}" -p "${CI_REGISTRY_PASSWORD}" "${CI_REGISTRY}"
+    TAG="mr${CI_MERGE_REQUEST_IID}-${ARCH}-${CI_COMMIT_SHORT_SHA}-$(date -u +%Y%m%d-%H%M%S)"
+    podman push freedesktopsdk/toolbox:latest \
+      "docker://${CI_REGISTRY_IMAGE}/toolbox-dev:${TAG}"
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+
+push_oci_toolbox_dev_x86_64:
+  extends:
+  - .oci_push_dev_template
+  - .builder-x86_64
+
+push_oci_toolbox_dev_aarch64:
+  extends:
+  - .oci_push_dev_template
+  - .builder-aarch64
+
 .docker_publish_template:
   stage: publish
   retry: 2
