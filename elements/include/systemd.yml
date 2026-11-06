@@ -7,5 +7,5 @@ sources:
   track: v261.*
   exclude:
   - '*rc*'
-  ref: v261.4-0-gf408418369c8d20f9025b39c03f4ece2a0ee7041
+  ref: v261.5-0-g2b06553d1d3930be79d68a47998a48a1fb088387
   version-guess-pattern: '(\d+)(?:\.(\d+))?'
