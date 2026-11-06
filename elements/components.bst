@@ -390,6 +390,7 @@ depends:
 - components/os-release.bst
 - components/ostree-minimal.bst
 - components/ostree.bst
+- components/osv-scanner.bst
 - components/ovmf-maybe.bst
 - components/p11-kit.bst
 - components/pahole.bst
