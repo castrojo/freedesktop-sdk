@@ -14,6 +14,7 @@ depends:
 
 runtime-depends:
 - components/askalono.bst
+- components/osv-scanner.bst
 - components/python3-pyyaml.bst
 
 sources:
