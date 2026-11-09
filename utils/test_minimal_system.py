@@ -178,7 +178,7 @@ def main():
 
     try:
         result = asyncio.run(run_test(command, args.dialog))
-    except asyncio.TimeoutError:
+    except TimeoutError:
         logger.info("VM was considered unresponsive and test was aborted")
         return 1
 
