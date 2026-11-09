@@ -73,6 +73,13 @@ before_script:
   - ulimit -n 1048576
   - export PATH=~/.local/bin:${PATH}
   - |
+    cat > ~/.netrc <<EOF
+    machine gitlab.com
+    login gitlab-ci-token
+    password ${CI_JOB_TOKEN}
+    EOF
+    chmod 600 ~/.netrc
+  - |
     if cp --reflink=always README.md .reflink-test; then
     echo Reflinks supported, disabling buildbox-fuse
     chmod -x /usr/bin/buildbox-fuse
