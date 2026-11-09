@@ -14,7 +14,7 @@ sources:
   - v*b*
   - v*rc*
   url: github:python/cpython.git
-  ref: v3.14.8-0-g8e6e75d9102e39bed2a2b279203a396741180f12
+  ref: v3.15.2-0-g5e58eaad7c58df58dfa8ea549c87996e01dd1077
 - kind: patch
   path: patches/python3/python3-multiarch-include.patch
 - kind: patch
