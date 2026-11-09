@@ -247,7 +247,7 @@ def is_git_hash(s: str) -> bool:
 
 
 def is_recent_cve(cve_id: str) -> bool:
-    current_year = datetime.datetime.now(tz=datetime.timezone.utc).year
+    current_year = datetime.datetime.now(tz=datetime.UTC).year
     valid_years = (current_year, current_year - 1, current_year - 2)
 
     matched = re.match(r"CVE-(\d{4})-\d+", cve_id)

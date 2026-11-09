@@ -10,12 +10,12 @@ import argparse
 import logging
 import os
 import re
+import tomllib
 import urllib.request
 from collections.abc import Callable
 from typing import Any
 from urllib.error import URLError
 
-import tomllib
 from ruamel.yaml import YAML
 from ruamel.yaml.error import YAMLError
 
