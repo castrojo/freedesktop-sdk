@@ -83,6 +83,6 @@ sources:
 - kind: git_repo
   url: github:openssh/openssh-portable.git
   track: V_*
-  ref: V_10_6_P1-0-ga8c72b842423f0774f542d3c2197247c3dd28d74
+  ref: V_10_6_P2-0-gd449e662b6b8b8cb20e852d8084c269af1c5e8f1
   # We ignore the patch version because this is set in a different component in CPE
   version-guess-pattern: '(\d+)_(\d+)'
