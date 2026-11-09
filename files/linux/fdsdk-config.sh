@@ -2802,6 +2802,9 @@ esac
 # it.
 module BLK_DEV_SR
 
+# Userspace block device support, used by SDS solutions
+module BLK_DEV_UBLK
+
 # Fast charging for apple devices
 module APPLE_MFI_FASTCHARGE
 
