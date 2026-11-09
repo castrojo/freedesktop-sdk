@@ -284,10 +284,12 @@ ifneq ($(origin SPDX_SBOM_WITH_LICENSE), undefined)
 		--with-licenses \
 		--spdx-comment "Components licensing information isn't guaranteed to be complete nor correct and must only be considered advisory."
 endif
-ifeq ($(SPDX_SBOM_WITH_VULN), false)
-	SPDX_SBOM_WITH_VULN_ARGS :=
+# osv-scanner runs on the build host, and Go PIE binaries crash on ppc64x:
+# https://github.com/golang/go/issues/82324
+ifneq ($(filter ppc64 ppc64le,$(ARCH) $(BOOTSTRAP_ARCH)),)
+	SPDX_SBOM_WITH_VULN := false
 endif
-ifneq ($(filter ppc64 ppc64le,$(ARCH)),) # BUG TODO fix this is a issue with ppc64 instructions in Go
+ifeq ($(SPDX_SBOM_WITH_VULN), false)
 	SPDX_SBOM_WITH_VULN_ARGS :=
 endif
 UUID-sdk := $(shell uuidgen)
@@ -320,9 +322,13 @@ build-sbom-artifacts:
 manifest: collect-manifest spdx-manifest
 
 generate-spdx-vuln-reports: generate-spdx-sbom-reports
+ifeq ($(SPDX_SBOM_WITH_VULN), false)
+	@echo "Vulnerability scanning is disabled, skipping CVE report generation"
+else
 	utils/spdx-vuln-report.py ${SPDX_SBOM_DIR}/platform.spdx.json 	-o ${SPDX_SBOM_DIR}/platform-vulns.md.html
 	utils/spdx-vuln-report.py ${SPDX_SBOM_DIR}/sdk.spdx.json 		-o ${SPDX_SBOM_DIR}/sdk-vulns.md.html
 	utils/spdx-vuln-report.py ${SPDX_SBOM_DIR}/components.spdx.json 	-o ${SPDX_SBOM_DIR}/components-vulns.md.html
+endif
 
 generate-all-spdx: generate-spdx-vuln-reports spdx-manifest
 
