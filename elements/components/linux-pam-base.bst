@@ -25,7 +25,6 @@ depends:
 
 variables:
   meson-local: >-
-    -Dpam_lastlog=enabled
     -Dexamples=false
     -Dlogind=disabled
     -Dnis=disabled
