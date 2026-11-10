@@ -1,0 +1,2 @@
+"bootstrap/linux-headers.bst": "Linux-headers are commonly unchanged and updating them results in world rebuild, the real version of the kernel is typically several versions ahead"
+"components/_private/bpf.bst": "Linux-headers are commonly unchanged and updating them results in world rebuild, the real version of the kernel is typically several versions ahead"

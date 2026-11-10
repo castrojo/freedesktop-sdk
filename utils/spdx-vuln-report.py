@@ -2,6 +2,7 @@
 # /// script
 # dependencies = [
 #   "cvss>=3.0",
+#   "ruamel.yaml",
 # ]
 # ///
 #
@@ -18,10 +19,11 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from cvss import CVSS3, CVSS4
+from ruamel.yaml import YAML
 
 CVSS_TYPES = ("CVSS_V4", "CVSS_V3", "CVSS_V2")
 MAX_SUMMARY = 250
-
+YAML = YAML(typ="safe")
 MARKDEEP_BLOB = (
     "<!-- Markdeep: -->"
     '<style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>'
@@ -29,6 +31,8 @@ MARKDEEP_BLOB = (
     '<script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js" charset="utf-8"></script>'
     '<script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>'
 )
+
+ELEMENT_IGNORES = YAML.load(Path(__file__).parent / "spdx-vuln-ignores.yml")
 
 
 def get_bst_element(package: dict) -> str | None:
@@ -200,6 +204,7 @@ def fetch_cve(item: tuple) -> dict:
         "CVE": f"[{cve_id}]({cve_data['link']})",
         "Severity": severity if severity is not None else "Not Scored",
         "Package": cve_info.get("package") or "",
+        "Package Version": cve_data.get("version"),
         "Affected Elements": " ".join(f"`{x}`" for x in cve_data["elements"]),
         "Affected Versions": cve_info.get("affected_versions") or "Not Listed",
         "Summary": cve_info.get("summary")
@@ -209,11 +214,26 @@ def fetch_cve(item: tuple) -> dict:
 
 
 def collect_cves(spdx: dict) -> str:
-    cves = {}
-
+    cves: dict = {}
+    ignored: list[dict] = []
     for package in spdx.get("packages", []):
         element = get_bst_element(package)
         if element is None:
+            continue
+        if element in ELEMENT_IGNORES and all(
+            x.get("Element") != element for x in ignored
+        ):
+            ignored.append(
+                {
+                    "Element": element,
+                    "Times Skipped": 1,
+                    "Skip Reason": ELEMENT_IGNORES[element],
+                }
+            )
+            continue
+        elif any(x.get("Element") == element for x in ignored):
+            elem = next(x for x in ignored if x.get("Element") == element)
+            elem["Times Skipped"] = elem["Times Skipped"] + 1
             continue
 
         for ref in package.get("externalRefs", []):
@@ -233,6 +253,7 @@ def collect_cves(spdx: dict) -> str:
                         "elements": set(),
                     }
                 cves[cve_id]["elements"].add(element)
+                cves[cve_id]["version"] = package.get("versionInfo")
 
     result_list = []
     cve_items = list(cves.items())
@@ -253,7 +274,11 @@ def collect_cves(spdx: dict) -> str:
 
     result_list.sort(key=severity_sort_key, reverse=True)
 
-    return format_as_markdown(result_list)
+    return (
+        format_as_markdown(result_list)
+        + "\n\n## Ignored\n\n"
+        + format_as_markdown(sorted(ignored, key=lambda x: x.get("Element", "")))
+    ) + f"\n\n{MARKDEEP_BLOB}"
 
 
 def format_as_markdown(result: list[dict]) -> str:
@@ -263,7 +288,7 @@ def format_as_markdown(result: list[dict]) -> str:
     body = ""
     for r in result:
         body += "|" + "|".join(str(r[x]) for x in keys) + "|\n"
-    return header + sep + body + "\n\n" + MARKDEEP_BLOB
+    return header + sep + body
 
 
 def main():
@@ -294,7 +319,7 @@ def main():
         print(f"Wrote CVEs to {cve_output}")
         return 0
     except (OSError, json.JSONDecodeError, KeyError) as exc:
-        print(f"Error: {exc}", file=sys.stderr)
+        print(f"{type(exc)}: {exc}", file=sys.stderr)
         return 1
 
 
