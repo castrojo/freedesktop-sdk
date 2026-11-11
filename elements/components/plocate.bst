@@ -25,7 +25,7 @@ sources:
   project-id: 188202
   url: tar_https:plocate.sesse.net/download/plocate-{version}.tar.gz
   ref:
-    version: 1.1.24
-    sha256sum: e55a757af1d7efb15ea674993224da4f0258479f8f720bd3dae0925d27dc04a2
+    version: 1.1.25
+    sha256sum: 68c1d5fbb11864403ae39c1a5937f13afd80b03e68041368831ef58cb613578e
 - kind: local
   path: files/plocate/plocate.conf
