@@ -29,5 +29,5 @@ sources:
   project-id: 4223
   url: tar_https:cache.ruby-lang.org/pub/ruby/{major}.{minor}/ruby-{version}.tar.xz
   ref:
-    version: 4.0.6
-    sha256sum: 9c9d121fe3314ea7c801e690b9de981d2b9d12d7849db99c27482468a541ba0a
+    version: 4.0.9
+    sha256sum: a8057adb39f51ad6dc3106237504c93dd792bb515837b4fe7817ae21ed7e51f4
