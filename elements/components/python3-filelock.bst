@@ -3,6 +3,7 @@ kind: pyproject
 build-depends:
 - public-stacks/buildsystem-python-hatchling.bst
 - components/python3-hatch-fancy-pypi-readme.bst
+- components/python3-python-sbom.bst
 
 depends:
 - components/python3.bst
