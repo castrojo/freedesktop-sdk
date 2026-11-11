@@ -24,7 +24,7 @@ config:
     DIR="%{install-root}%{project_licensedir}/dictionaries"
     mkdir -p "$DIR"
     find . \( -iname "readme*" -o -iname "copying*" -o -iname "licen*" \) \
-      -exec cp --parents -t "$DIR" {} +
+      -exec cp -r --parents -t "$DIR" {} +
 
 sources:
 - kind: git_repo
