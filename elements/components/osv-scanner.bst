@@ -18,7 +18,7 @@ sources:
 - kind: git_repo
   url: github:google/osv-scanner.git
   track: v*.*.*
-  ref: v2.7.0-0-gbfe2f84abd2f09fe0b83ba7f6dad40d296762f40
+  ref: v2.7.1-0-g02f96a40691c2d155fdda799af436e111231e365
 - kind: go_mod_vendor
   ref:
   - module: bitbucket.org/creachadair/stringset
@@ -292,8 +292,8 @@ sources:
     version: v0.3.4
     sha256sum: d72810038e35518d5558e69d4f06a054cb3be66af456d0f2ef07b9262b7276e9
   - module: github.com/gkampitakis/go-snaps
-    version: v0.5.23
-    sha256sum: 11fcf55d1ba9f0f931350b13776ded4e87a80023f3c6eab97a3222c4ead36681
+    version: v0.5.25
+    sha256sum: 3a0ce484b7078d5ce608c2fd887848d4029a5ebfbe90e709dddc4a63ad40ea14
   - module: github.com/glebarez/go-sqlite
     version: v1.20.3
     sha256sum: e494f16ce62620e2bbf641542876996b385d69de755e6ec571504945cbc9c710
@@ -307,14 +307,14 @@ sources:
     version: v1.5.1-0.20230307220236-3a3c6141e376
     sha256sum: 4cd67689e108cfd654591c4a7f693ac5110634a73dabc12686fb07854556c480
   - module: github.com/go-git/go-billy/v5
-    version: v5.9.1
-    sha256sum: f763708d528588b81422068924d81f23bd16527f2c47ac2a32c0105aad4099f0
+    version: v5.9.2
+    sha256sum: 9974a305102f61aca7626622e24d9dbe307d7b62c1e690be648af326c1f274af
   - module: github.com/go-git/go-git-fixtures/v4
     version: v4.3.2-0.20231010084843-55a94097c399
     sha256sum: 50918111651335001cd5837ba71283647baab911842a20d233381148752100c2
   - module: github.com/go-git/go-git/v5
-    version: v5.19.2
-    sha256sum: 8912b30dd8f38491ea74ab818cacc50b0083fafb4c5c896b2824e36090dab133
+    version: v5.19.3
+    sha256sum: 7c4113f00a23f361a6e8b5063f981f09a981686e374271ab6dd5a613ee4fe763
   - module: github.com/go-logr/logr
     version: v1.4.4
     sha256sum: 3ab107c1d280ce798eaa744efd595982fa709d4023f3f38d24189827483c1710
@@ -364,8 +364,8 @@ sources:
     version: v0.4.3
     sha256sum: 9359ac98ff69ed2f3c51e3b2c9e3ab4cc16ca7d54dfe310fa5d258bd5decdfb5
   - module: github.com/google/osv-scalibr
-    version: v0.5.4-0.20261009010329-5be78a00e3c2
-    sha256sum: 3a248c185de32c9a00b1874d756ba496cfcdabd7627ff1f346a496ed0b94044a
+    version: v0.5.4-0.20261105012210-c80efcc25cd9
+    sha256sum: 83bcec8cfbc7c3d32139c98f47c2e0a5f5e482bf73a78081c297f0fd5d78c419
   - module: github.com/google/pprof
     version: v0.0.0-20260802141513-ef3492d7dac3
     sha256sum: ac456417ec911aaa66b5440a85c39d7e5a649532e77fe9ba26c1d03112c5c35d
@@ -382,8 +382,8 @@ sources:
     version: v1.0.3
     sha256sum: a10c3942f09bc5132268d22d4bb9d0c1849122d533fe8cdf65ea69da05cebbaf
   - module: github.com/ianlancetaylor/demangle
-    version: v0.0.0-20260724033716-83e58baca724
-    sha256sum: fabdd52cd74a737632600aea516f473f4dd233bc8a6e7ac83ba6035999bf8d1a
+    version: v0.0.0-20261012173340-cbb8aaea4290
+    sha256sum: 4eefdde3995627dc93fdb9be8446c44cd371cf8077fb662ca41db2303555ef40
   - module: github.com/icholy/digest
     version: v1.2.0
     sha256sum: 5ff9d8b2a7dcae0d50b57060035258b3d85f6a8afff00d6bf9d0e3ab37137a06
@@ -397,11 +397,8 @@ sources:
     version: v1.6.0
     sha256sum: cb3e2a23c10382dac238ea51ed1162c75cb7e986532d1ce92a2051469ca24e44
   - module: github.com/klauspost/compress
-    version: v1.19.1
-    sha256sum: a77e019f60dff8bdf00ad137985c808957cc657381daa4281824843bc6b46910
-  - module: github.com/klauspost/cpuid/v2
-    version: v2.4.0
-    sha256sum: 4e0c1281558514efccc2cc3ab78d430426486fe9101d6dcc9a1b090e05c26c69
+    version: v1.20.2
+    sha256sum: f85b4729a966a3d0313310482a11b585f0be445a20b2ea0c967937fe14c17acc
   - module: github.com/kr/pretty
     version: v0.3.1
     sha256sum: ecf5a4af24826c3ad758ce06410ca08e2d58e4d95053be3b9dde2e14852c0cdc
@@ -508,11 +505,11 @@ sources:
     version: v1.3.0
     sha256sum: 09e58e616eb70f2972ed19ada447dd661b298b39777adb0bbd35c94886bdbdf8
   - module: github.com/ossf/osv-schema/bindings/go
-    version: v0.0.0-20260902031056-b388a18021a3
-    sha256sum: efc3dc1d8fe9ffb2da8e418f9ad712dc5fd982abb61833685fbba3f97610d808
+    version: v0.0.0-20261026052736-6410c13304f9
+    sha256sum: b8e4c15345b4763f2ba097630b08794360ca2f642dad43f08adf203f9f8bbcf1
   - module: github.com/owenrumney/go-sarif/v3
-    version: v3.3.1
-    sha256sum: 38efd805c036d2d4fc3465984674d21fa5e26bb9fa044b3d5e17e9f5faf50929
+    version: v3.3.2
+    sha256sum: 9052acd9ebf06ac674999c62b9c93c09eb509b2699ee01a3b28c1826925f2249
   - module: github.com/package-url/packageurl-go
     version: v0.1.7
     sha256sum: 61a9ea183ca003f2280867dc1e10c9b8910e61f65045670a72d36722b0ea5fcf
@@ -523,8 +520,8 @@ sources:
     version: v4.1.27
     sha256sum: 702ad206ffeec8d3ac8bc1ce7e2d0b201fbc7683c8ab8758210172c54f03353f
   - module: github.com/pjbgf/sha1cd
-    version: v0.6.0
-    sha256sum: d72c5f828279f5e52c5642995441676c380a827b42c09724b7540a6de688a450
+    version: v0.7.0
+    sha256sum: 5d641862b1f2ba4f19d99089a973663378dc446b1b42d6d381c5be8300fe5bd6
   - module: github.com/pkg/errors
     version: v0.9.1
     sha256sum: d4c36b8bcd0616290a3913215e0f53b931bd6e00670596f2960df1b44af2bd07
@@ -591,12 +588,9 @@ sources:
   - module: github.com/terminalstatic/go-xsd-validate
     version: v0.1.8
     sha256sum: 361eee7a38992790b3ed47e3b2748f17909c6a135c45681bf745bfbb82c6763f
-  - module: github.com/thoas/go-funk
-    version: v0.9.3
-    sha256sum: 73e643f2368addaa84bbe0384e75255abfda75ebb4f721edfc91ca7167703bb7
   - module: github.com/tidwall/gjson
-    version: v1.19.0
-    sha256sum: 7ba89e2bab7ae946a22f6fc7317e8b5d6d5b65885185d986676553a440a3a6b6
+    version: v1.20.0
+    sha256sum: 04ffbd1edb224bfe8c68ca083aaea06837c5e211bd047a238e01f9bd3ef69af7
   - module: github.com/tidwall/jsonc
     version: v0.3.3
     sha256sum: a50aed626a275151ba633b8108269ad46fd5858eeb3a81d298a26f423ad5960b
@@ -604,8 +598,8 @@ sources:
     version: v1.2.0
     sha256sum: f35502f3dd450fa84ddc7b028310f7fecc86c8112f2397fe7ff7941c5afbcbc1
   - module: github.com/tidwall/pretty
-    version: v1.2.1
-    sha256sum: 9327579bf9e610de753eeb7c35c8cf1e3f56e6e5623cbf65e47bc8076023d1ab
+    version: v1.2.2
+    sha256sum: 07b70a5fc342be8cb14a5287f961bb00225354509bee373cd6b2b0cd7697927e
   - module: github.com/tidwall/sjson
     version: v1.2.5
     sha256sum: fc40fda87c7de55362f6386e069d674772f25c9d76411ee823acb9ac78b20565
@@ -625,8 +619,8 @@ sources:
     version: v0.5.16
     sha256sum: 0a7e01908924983df9118e62c1f49131e1e365f17b4e4e3020805e8fdfe6307a
   - module: github.com/urfave/cli/v3
-    version: v3.13.0
-    sha256sum: 90f537d1ef33c7361904ac1828f04ef6a0003d80a3a3c0902f2f0489e6a6c799
+    version: v3.14.0
+    sha256sum: c02184a74258fa8a4a78d5e45aaf38958489fa6a780971f3f5558d9e3c96f3c8
   - module: github.com/xanzy/ssh-agent
     version: v0.3.3
     sha256sum: 19a86c2623b20cc98687bddd89e3f023db0ca51c8bc9e38b9ad9c56e5b7d110d
@@ -700,8 +694,8 @@ sources:
     version: v3.0.5
     sha256sum: f2d70caa35f66283aec58b889af8c5f07c374c5934be27a738c1215263e19205
   - module: go.yaml.in/yaml/v4
-    version: v4.0.0-rc.6
-    sha256sum: 1c362e5bfb0495a037e58b8d5f7baa6df713f949ee0e394398e86c1f2992cca9
+    version: v4.0.0-rc.7
+    sha256sum: 052a0e0b9671ba2026e5ed123575785c483ffadce2cdb083f33fd5104af48cb2
   - module: golang.org/x/crypto
     version: v0.58.0
     sha256sum: b0a45594cda20ddb4264d84aeff9b588b8570bf6a2833c51a0b821734a298d95
@@ -709,11 +703,11 @@ sources:
     version: v0.0.0-20260603202125-055de637280b
     sha256sum: 58fe5c8604984923267e1cd7b9709fe37e1491c4a18df8f97adb38cc6d1b6cbf
   - module: golang.org/x/mod
-    version: v0.41.0
-    sha256sum: 201e678d0a35b18b246abe58d80017b75d60be21cbaf4cbb9e963b48872565a9
+    version: v0.42.0
+    sha256sum: 2770e372e42c30dd498d63bb094fe257edfad6882c611f8e0d82925feac159f3
   - module: golang.org/x/net
-    version: v0.61.0
-    sha256sum: f6843a98d608298e48a6ca287292c9a6fae066284050ce174d5ffb781c9b3dcf
+    version: v0.62.0
+    sha256sum: 50e869800f4921e910eb6550369f937c7187d130a7f7f78a26ef9b589a7071a6
   - module: golang.org/x/oauth2
     version: v0.36.0
     sha256sum: 15bf65ff103e5dafc809d78cd037a1d1e88ccb8451824e851156002a13304504
@@ -724,8 +718,8 @@ sources:
     version: v0.49.0
     sha256sum: e73a06591ca0d7016ce3ccb45c36a8ed7128468aecc1a357f94d815c760c6b31
   - module: golang.org/x/telemetry
-    version: v0.0.0-20260924152758-ed294f943157
-    sha256sum: fd337baf7135f8e4c98ea04830184b23b81bd1f6b86c925f82a7d0fcbb54c971
+    version: v0.0.0-20261009151841-97e8ea77aa2a
+    sha256sum: d716edef11729767caecb52ed5d76bb0d7cf17c9f91cc5a57a698e9847d3f2ba
   - module: golang.org/x/term
     version: v0.47.0
     sha256sum: d990d5ab94dfa41ba980645b721bba7490064337a01bb03e6cacace70e8df0bf
@@ -736,8 +730,8 @@ sources:
     version: v0.15.0
     sha256sum: 8cfb20e915fa5d6c3fd264304233f8d71a3385e48a37819239c532ad9da27f84
   - module: golang.org/x/tools
-    version: v0.51.0
-    sha256sum: 176a49a54ed781feb196235cc640f0454884f4e59d0b859ab4ecc9169cde513c
+    version: v0.52.0
+    sha256sum: 90b2a941aa5f2fe87564b8e38c3f03796de2e3597b7f4c52a9a6a53201b32c48
   - module: golang.org/x/tools/go/expect
     version: v0.1.1-deprecated
     sha256sum: b2389159ddd768c6bd83a0cc92bbf9be01c32ca973c366fc224b79762d90dd79
@@ -754,14 +748,14 @@ sources:
     version: v0.17.0
     sha256sum: dadeb3d260548de27375f7188bdfd5a175110120fd8ee8085a63b0dff2cae501
   - module: google.golang.org/genproto/googleapis/api
-    version: v0.0.0-20260803160001-6ac0973c030d
-    sha256sum: 81fb4ff242fb2e9ec4328eed36190bf5ba96307ff85a057e2327fbd171b47650
+    version: v0.0.0-20260817212433-ac3dfec99bb1
+    sha256sum: 88da11db859222fdd0d2c8242c876c65f52e506254372bd6a437ff8ea8e1ab64
   - module: google.golang.org/genproto/googleapis/rpc
-    version: v0.0.0-20260803160001-6ac0973c030d
-    sha256sum: a17ff826d2b2e39c2179f99cea77e36137af38f193a718c6445570d326784111
+    version: v0.0.0-20260817212433-ac3dfec99bb1
+    sha256sum: ea86b19385ad8a93819621cd90ed75db1e8ec364b6b3ada2061a601d785b7c11
   - module: google.golang.org/grpc
-    version: v1.84.0
-    sha256sum: a14bebefbac1ec115d9e1f8042006c185d65adf43a91644f3e58df0688831b95
+    version: v1.85.0
+    sha256sum: bd1ce651075f55e5bad492f9e1ee7cc013f1b96770981556d2a9cb5ee2c31e1e
   - module: google.golang.org/protobuf
     version: v1.36.12
     sha256sum: 68f8a3174aff42950fd9bd02c11b45c6986eb8060508d124d1c3dd6bf86b9be6
@@ -826,8 +820,8 @@ sources:
     version: v1.1.0
     sha256sum: 3efaa49e9fb10569da9e09e785fa230cd5c0f50fcf605f3b5439dfcd61577c58
   - module: osv.dev/bindings/go
-    version: v0.0.0-20260805021707-3a57b89df3b6
-    sha256sum: 25d81815376e1e96ae4b41ff5b4e055a895e450e11d1e9f56024c80e1347bb48
+    version: v0.0.0-20261007022941-648e046ef8ee
+    sha256sum: f403289355044e8acb169778b1a05cd132bee5dc56c75153f02364880d7ca7bd
   - module: pgregory.net/rapid
     version: v1.2.0
     sha256sum: c48fcf01d3621eb8fde71a0cfa46c3c1bb12cc5a038951bbef903b16916ae64a
