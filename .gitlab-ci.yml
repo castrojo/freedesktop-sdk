@@ -16,7 +16,7 @@ variables:
 
   # Docker Images
   DOCKER_REGISTRY: "registry.gitlab.com/freedesktop-sdk/infrastructure/freedesktop-sdk-docker-images"
-  DOCKER_IMAGE_ID: "155158de1084c629c4cd1d36624a179c6ab2bb99"
+  DOCKER_IMAGE_ID: "dev-aedan-test-gmrg"
 
   # Generic variable for invoking buildstream
   BST: bst --colors
@@ -134,16 +134,6 @@ lint:
         fi
       fi
     - *setup_branch
-    - |
-      case "${CI_COMMIT_REF_NAME}" in
-        "${CI_DEFAULT_BRANCH}")
-        ;;
-        release/*)
-        ;;
-        *)
-          false
-        ;;
-      esac
     - |
       if [ "$SCHEDULE_TASK" = "daily" ] && [ "$STABLE_ABI" = "true" ]; then
           TRACK_ELEMENTS="$TRACK_ELEMENTS abi/reference-abi.bst"
