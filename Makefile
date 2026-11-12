@@ -330,7 +330,7 @@ else
 	utils/spdx-vuln-report.py ${SPDX_SBOM_DIR}/components.spdx.json 	-o ${SPDX_SBOM_DIR}/components-vulns.md.html
 endif
 
-generate-all-spdx: generate-spdx-vuln-reports spdx-manifest
+generate-all-spdx: generate-spdx-vuln-reports spdx-manifest markdown-manifest-spdx
 
 collect-manifest:
 	rm -rf sdk-manifest/
