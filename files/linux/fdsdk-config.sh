@@ -2371,6 +2371,10 @@ enable DEBUG_INFO_BTF
 # Ramdisk
 module BLK_DEV_RAM
 
+# MGLRU
+enable LRU_GEN
+enable LRU_GEN_ENABLED
+
 # ZSWAP
 enable ZSWAP
 
