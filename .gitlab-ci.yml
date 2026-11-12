@@ -29,6 +29,8 @@ variables:
   GIT_DEPTH: "100"
 
   MAX_SIZE_EFI_VM: "650000000" # 650 MB
+  RUST_BACKTRACE: '1'
+
 
 default:
   image: "${DOCKER_REGISTRY}/bst2:${DOCKER_IMAGE_ID}"
@@ -97,6 +99,8 @@ before_script:
     source utils/publisher_env.sh
 
 lint:
+  tags:
+  - osuosl-fdsdk-runner-ppc64le-default-1
   stage: flatpak
   timeout: 1h
   after_script: []
