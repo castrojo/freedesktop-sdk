@@ -30,6 +30,12 @@ variables:
 
   MAX_SIZE_EFI_VM: "650000000" # 650 MB
 
+include:
+  - component: gitlab.com/CodethinkLabs/ci-gantt-chart/gantt@1.5.5
+    inputs:
+      read_token: $CI_JOB_TOKEN
+      image: "${DOCKER_REGISTRY}/bst2:${DOCKER_IMAGE_ID}"
+
 default:
   image: "${DOCKER_REGISTRY}/bst2:${DOCKER_IMAGE_ID}"
   interruptible: true
@@ -259,6 +265,7 @@ check_mirrors:
   script:
     - test -x arch-test && arch-test
     - ./utils/validate_aliases.py include/_private/aliases.yml include/_private/mirrors.yml
+    - echo "section_start:$(date +%s):app-build"
     - |
       if [ "${ARCH}" != "i686" ];then
         make build
@@ -266,17 +273,27 @@ check_mirrors:
         make build-repo
       fi
     - make check-debuginfo
+    - echo "section_end:$(date +%s):app-build"
 
     - export FLATPAK_USER_DIR="${PWD}/tmp-flatpak"
 
+    - echo "section_start:$(date +%s):app-test"
     - |
       # https://github.com/flatpak/flatpak/issues/5045
       if [ "${ARCH}" = "i686" ]; then
         make export
       else
-        make test-apps test-codecs test-ldd test-oci
+        make test-apps test-codecs test-ldd
       fi
-
+    - echo "section_end:$(date +%s):app-test"
+    - echo "section_start:$(date +%s):app-test-oci"
+    - |
+      # https://github.com/flatpak/flatpak/issues/5045
+      if [ "${ARCH}" != "i686" ]; then
+        make test-oci
+      fi
+    - echo "section_end:$(date +%s):app-test-oci"
+    - echo "section_start:$(date +%s):app-abi"
     - |
       ABI_SKIP=$(git log -n 1 | grep -E "\[abi skip\]|\[skip abi\]" || true)
       if [ "${STABLE_ABI}" != "false" ]; then
@@ -286,8 +303,11 @@ check_mirrors:
           echo ABI check skipped
         fi
       fi
-
+    - echo "section_end:$(date +%s):app-abi"
+    
+    - echo "section_start:$(date +%s):app-manifest"
     - make markdown-manifest-spdx
+    - echo "section_end:$(date +%s):app-manifest"
   artifacts:
     when: always
     paths:
@@ -385,11 +405,15 @@ app_ppc64le:
 .minimal_test:
   stage: vm
   script:
+    - echo "section_start:$(date +%s):vm-build"
     - make build-${IMAGE}
+    - echo "section_end:$(date +%s):vm-build"
+    - echo "section_start:$(date +%s):vm-test"
     - |
       if [ "${DIALOG+set}" = set ]; then
         utils/test_minimal_system.py --dialog "${DIALOG}" command "make run-${IMAGE}"
       fi
+    - echo "section_end:$(date +%s):vm-test"
   artifacts:
     when: always
     paths:
