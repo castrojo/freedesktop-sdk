@@ -637,6 +637,16 @@ markdown_manifest:
   stage: reproducible
   script:
     - buildstream-reprotest tests/reproducible-test.bst result_folder
+    - PACKAGE_VERSION="${CI_COMMIT_TAG:-$CI_COMMIT_SHA}"
+    - PACKAGE_NAME="reproducible-report-${CI_COMMIT_BRANCH:-$CI_COMMIT_TAG}"
+    - PACKAGE_NAME="${PACKAGE_NAME//\//-}"
+    - |
+      curl \
+        --fail-with-body \
+        --header "JOB-TOKEN: ${CI_JOB_TOKEN}" \
+        --upload-file "${CI_PROJECT_DIR}/reproducibility_results.html" \
+        "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${PACKAGE_VERSION}/reproducibility_results_${ARCH}.html"
+    - echo "Uploaded ${CI_PROJECT_DIR}/reproducibility_results_${ARCH}.html to Package ${PACKAGE_NAME}@${PACKAGE_VERSION}"
   needs: []
   variables:
     DISABLE_REMOTE_CACHE: "1"
