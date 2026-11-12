@@ -424,7 +424,7 @@ minimal_efi_secure_vm_image_x86_64:
   variables:
     VM_ARTIFACT_IMAGE: vm/minimal-secure/efi.bst
     DIALOG: secure-systemd-firstboot
-    IMAGE: secure-vm
+    IMAGE: secure-test-vm
   allow_failure: true
 
 minimal_efi_vm_image_x86_64:
