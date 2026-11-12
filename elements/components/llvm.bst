@@ -107,3 +107,8 @@ public:
 
   cpe:
     product: llvm
+
+sources:
+  (>):
+  - kind: patch
+    path: patches/llvm/fix-btf-forward-declaration-order.patch
