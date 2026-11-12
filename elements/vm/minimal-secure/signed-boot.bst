@@ -17,6 +17,28 @@ build-depends:
   config:
     location: /usr-image
 
+(?):
+- not prod_keys:
+    sources:
+    - kind: local
+      path: files/boot-keys-test/VENDOR.key
+    - kind: local
+      path: files/boot-keys-test/VENDOR.crt
+    - kind: local
+      path: files/boot-keys-test/DB.key
+    - kind: local
+      path: files/boot-keys-test/DB.crt
+- prod_keys:
+    sources:
+    - kind: local
+      path: files/boot-keys/VENDOR.key
+    - kind: local
+      path: files/boot-keys/VENDOR.crt
+    - kind: local
+      path: files/boot-keys/DB.key
+    - kind: local
+      path: files/boot-keys/DB.crt
+
 variables:
   strip-binaries: ''
   uuidnamespace: df2427db-01ec-4c99-96b1-be3edb3cd9f6
@@ -66,13 +88,3 @@ config:
     sbsign --key DB.key --cert DB.crt --output "%{install-root}/boot/EFI/BOOT/fb%{efi-arch}.efi" "/boot/EFI/BOOT/fb%{efi-arch}.efi"
     cp "%{install-root}/boot/EFI/freedesktopsdk/mm%{efi-arch}.efi" "%{install-root}/boot/EFI/BOOT/mm%{efi-arch}.efi"
     cp "%{install-root}/boot/EFI/freedesktopsdk/shim%{efi-arch}.efi" "%{install-root}/boot/EFI/BOOT/BOOT$(echo "%{efi-arch}" | tr a-z A-Z).EFI"
-
-sources:
-- kind: local
-  path: files/boot-keys/VENDOR.key
-- kind: local
-  path: files/boot-keys/VENDOR.crt
-- kind: local
-  path: files/boot-keys/DB.key
-- kind: local
-  path: files/boot-keys/DB.crt
