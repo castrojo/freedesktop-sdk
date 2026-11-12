@@ -585,6 +585,9 @@ KEY_TYPES=PK KEK DB VENDOR linux-module-cert
 ALL_CERTS=$(foreach KEY,$(KEY_TYPES),files/boot-keys/$(KEY).crt)
 ALL_KEYS=$(foreach KEY,$(KEY_TYPES),files/boot-keys/$(KEY).key)
 BOOT_KEYS=$(ALL_KEYS) $(ALL_CERTS) files/boot-keys/extra-db/.keep files/boot-keys/extra-kek/.keep files/boot-keys/modules/linux-module-cert.crt
+TEST_BOOT_KEYS=$(wildcard files/boot-keys-test/*.crt files/boot-keys-test/*.key) \
+	$(wildcard files/boot-keys-test/extra-db/*.crt files/boot-keys-test/extra-db/*.owner) \
+	$(wildcard files/boot-keys-test/extra-kek/*.crt files/boot-keys-test/extra-kek/*.owner)
 
 generate-keys: $(BOOT_KEYS)
 
@@ -613,7 +616,14 @@ $(VM_CHECKOUT_ROOT)/secure-vm/disk.img: $(BOOT_KEYS) secure-version.yml
 	$(BST) -o prod_keys true artifact checkout vm/minimal-secure/efi.bst --directory $(dir $@)
 	truncate --size=+10G $@
 
+$(VM_CHECKOUT_ROOT)/secure-test-vm/disk.img: $(TEST_BOOT_KEYS) secure-version.yml
+	$(BST) -o prod_keys false build vm/minimal-secure/efi.bst
+	$(BST) -o prod_keys false artifact checkout vm/minimal-secure/efi.bst --directory $(dir $@)
+	truncate --size=+10G $@
+
 build-secure-vm: $(VM_CHECKOUT_ROOT)/secure-vm/disk.img
+
+build-secure-test-vm: $(VM_CHECKOUT_ROOT)/secure-test-vm/disk.img
 
 run-secure-vm: $(VM_CHECKOUT_ROOT)/secure-vm/disk.img $(OVMF_VARS) $(OVMF_CODE)
 	du -BM $(VM_CHECKOUT_ROOT)/secure-vm/disk.img
@@ -631,8 +641,25 @@ run-secure-vm: $(VM_CHECKOUT_ROOT)/secure-vm/disk.img $(OVMF_VARS) $(OVMF_CODE)
 	    $(QEMU_TPM_ARGS)							\
 	    -drive file=$<,format=raw,media=disk
 
+run-secure-test-vm: $(VM_CHECKOUT_ROOT)/secure-test-vm/disk.img $(OVMF_VARS) $(OVMF_CODE)
+	du -BM $(VM_CHECKOUT_ROOT)/secure-test-vm/disk.img
+	mkdir -p $(VM_CHECKOUT_ROOT)/tpm/state
+	swtpm socket								\
+		--tpm2								\
+		--tpmstate dir=$(abspath $(VM_CHECKOUT_ROOT)/tpm/state)		\
+		--ctrl type=unixio,path=$(abspath $(VM_CHECKOUT_ROOT)/tpm/sock)	\
+		--log file=swtpm.log,level=20 &					\
+	sleep 1;								\
+	$(QEMU)									\
+	    $(QEMU_COMMON_ARGS)							\
+	    $(QEMU_EFI_ARGS)							\
+	    $(QEMU_NET_ARGS)							\
+	    $(QEMU_TPM_ARGS)							\
+	    -drive file=$<,format=raw,media=disk
+
 clean-secure-vm:
 	rm -rf $(VM_CHECKOUT_ROOT)/secure-vm
+	rm -rf $(VM_CHECKOUT_ROOT)/secure-test-vm
 	rm -rf $(OVMF_VARS)
 	rm -rf $(VM_CHECKOUT_ROOT)/tpm
 

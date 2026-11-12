@@ -18,6 +18,12 @@ runtimes/
 app/
 runtime/
 sbom-reports/
+secure-version.yml
+*.log
+
+# Buildstream checkouts
+checkout/
+source-checkout/
 
 libs.json
 

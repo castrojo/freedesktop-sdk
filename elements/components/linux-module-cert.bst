@@ -8,9 +8,15 @@
 # projects.
 kind: import
 
+(?):
+- not prod_keys:
+    sources:
+    - kind: local
+      path: files/boot-keys-test/modules
+- prod_keys:
+    sources:
+    - kind: local
+      path: files/boot-keys/modules
+
 config:
   target: /keys
-
-sources:
-- kind: local
-  path: files/boot-keys/modules

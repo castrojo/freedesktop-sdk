@@ -10,6 +10,20 @@ build-depends:
 - components/sign-file.bst
 - components/stripper.bst
 
+(?):
+- not prod_keys:
+    sources:
+    - kind: local
+      path: files/boot-keys-test/linux-module-cert.key
+    - kind: local
+      path: files/boot-keys-test/modules/linux-module-cert.crt
+- prod_keys:
+    sources:
+    - kind: local
+      path: files/boot-keys/linux-module-cert.key
+    - kind: local
+      path: files/boot-keys/modules/linux-module-cert.crt
+
 config:
   install-commands:
   - |
@@ -21,9 +35,3 @@ config:
 
   - |
     find '%{install-root}/usr/lib/modules' -type f -name "*.ko" -exec sign-file sha512 linux-module-cert.key linux-module-cert.cer {} ';' -exec zstd --rm {} ';'
-
-sources:
-- kind: local
-  path: files/boot-keys/linux-module-cert.key
-- kind: local
-  path: files/boot-keys/modules/linux-module-cert.crt
