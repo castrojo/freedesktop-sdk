@@ -158,6 +158,7 @@ lint:
           false
         ;;
       esac
+    - uv pip install "git+https://gitlab.com/BuildStream/infrastructure/gitlab-merge-request-generator.git@66632b1667c5198a1309d76d225940721ca57a83" --no-deps --system
     - |
       if [ "$SCHEDULE_TASK" = "daily" ] && [ "$STABLE_ABI" = "true" ]; then
           TRACK_ELEMENTS="$TRACK_ELEMENTS abi/reference-abi.bst"
