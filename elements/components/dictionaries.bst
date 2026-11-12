@@ -24,8 +24,12 @@ config:
     %{install-extra}
     DIR="%{install-root}%{project_licensedir}/dictionaries"
     mkdir -p "$DIR"
-    find . \( -iname "readme*" -o -iname "copying*" -o -iname "licen*" \) \
-      -exec cp --parents -t "$DIR" {} +
+    find . -type f \( \
+      -iname "readme*" -o \
+      -iname "copying*" -o \
+      -iname "licen*" -o \
+      -ipath "*/licenses/*" \
+    \) -exec cp --parents -t "$DIR" {} +
 
 sources:
 - kind: git_repo
@@ -38,7 +42,7 @@ sources:
   - '*beta*'
   - '*macfix*'
   - "*android*"
-  ref: libreoffice-26.8.2.2-0-g8050ba0dbe0762855390e28bd5bc58f285ece20e
+  ref: libreoffice-26.8.3.1-0-gc357b1c5c418f1e4cfd05756778b245462ed43b2
 - kind: local
   path: files/dictionaries/install_dicts.py
 - kind: local
