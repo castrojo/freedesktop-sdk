@@ -6,10 +6,11 @@ kind: pyproject
 build-depends:
 - public-stacks/buildsystem-python-hatchling.bst
 - components/python3-hatch-fancy-pypi-readme.bst
-- components/python3-packageurl.bst
-- components/python3-zipremove.bst
 
 depends:
+- components/python3-installer.bst
+- components/python3-packageurl.bst
+- components/python3-zipremove.bst
 - components/python3.bst
 
 variables:
