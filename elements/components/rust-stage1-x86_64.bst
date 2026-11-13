@@ -7,5 +7,5 @@ kind: manual
 # That's how upstream recommends doing it.
 sources:
 - kind: tar
-  url: tar_https:static.rust-lang.org/dist/rust-1.98.1-x86_64-unknown-linux-gnu.tar.xz
-  ref: 5326b36c53de11d148c8f8dab6553a3d1006c2cfd32123683073fad3c302605b
+  url: tar_https:static.rust-lang.org/dist/rust-1.99.1-x86_64-unknown-linux-gnu.tar.xz
+  ref: 231fcae47ee950621374725b5fc3b5441d2fbda2955ac45dd7dc816d8876cfe7
