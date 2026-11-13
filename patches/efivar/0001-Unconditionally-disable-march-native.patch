@@ -1,22 +1,31 @@
-From 0c84932508c7857db4d3d82ea6b9df3129a43030 Mon Sep 17 00:00:00 2001
+From ea16b5b9105117e53a68b286ebf029fcea877fd9 Mon Sep 17 00:00:00 2001
 From: Seppo Yli-Olli <seppo.yliolli@gmail.com>
 Date: Sun, 21 Aug 2022 10:59:24 +0300
-Subject: [PATCH 3/3] Unconditionally disable -march=native
+Subject: [PATCH] Unconditionally disable -march=native
 
 This is likely to result in reproducibility issues
 
+Signed-off-by: Nathan Williams <nathan.williams@codethink.co.uk>
+---
+ src/include/defaults.mk | 15 +--------------
+ 1 file changed, 1 insertion(+), 14 deletions(-)
+
 diff --git a/src/include/defaults.mk b/src/include/defaults.mk
-index b8cc590..1291b92 100644
+index 7f6178c..b6a2595 100644
 --- a/src/include/defaults.mk
 +++ b/src/include/defaults.mk
-@@ -71,16 +71,7 @@ override SOFLAGS = $(_SOFLAGS) \
+@@ -80,20 +80,7 @@ override SOFLAGS = $(_SOFLAGS) \
  		   -Wl,--version-script=$(MAP) \
  		   $(call family,SOFLAGS)
  
 -HOST_ARCH=$(shell uname -m)
 -ifneq ($(HOST_ARCH),ia64)
 -ifneq ($(HOST_ARCH),riscv64)
+-ifneq ($(HOST_ARCH),ppc64le)
 -	HOST_MARCH=-march=native
+-else
+-	HOST_MARCH=
+-endif
 -else
 -	HOST_MARCH=
 -endif
@@ -28,5 +37,5 @@ index b8cc590..1291b92 100644
  override _HOST_CPPFLAGS := $(HOST_CPPFLAGS)
  override HOST_CPPFLAGS = $(_HOST_CPPFLAGS) \
 -- 
-2.37.1
+2.56.0
 
