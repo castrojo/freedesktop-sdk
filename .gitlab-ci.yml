@@ -802,6 +802,7 @@ check_docker_images:
         - .gitlab-ci.yml
   dependencies: []
   before_script: []
+  needs: []
   script:
     - python3 utils/check-docker-images.py .gitlab-ci.yml
   after_script: []
