@@ -24,6 +24,7 @@ config:
 
 build-depends:
 - sdk.bst
+- components/fontconfig-flatpak-config.bst
 - components/nsswitch-config.bst
 - components/python3-sitecustomize.bst
 - multiarch/multiarch-sdk.bst
