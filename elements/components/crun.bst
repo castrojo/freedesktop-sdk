@@ -26,11 +26,11 @@ sources:
 - kind: git_repo
   url: github:containers/crun.git
   track: '*.*'
-  ref: 1.30.1-0-g079ff6a7a16d029460af882f9ea44674e6a510b6
+  ref: 1.31-0-ga84965e1278d08d6c75d5b8a41a3e72a7a11fa5b
 - kind: git_module
   path: libocispec
   url: github:containers/libocispec.git
-  ref: 872b8b0b7ccb1a121601ede0dcac8c6b8a1008a6
+  ref: 65e2c08f43f3afda5edcb81652471adfefa296dc
 - kind: git_module
   path: runtime-spec
   url: github:opencontainers/runtime-spec.git
