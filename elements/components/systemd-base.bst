@@ -48,6 +48,7 @@ build-depends:
 - components/bpf-maybe.bst
 - components/libbpf.bst
 - components/llvm.bst
+- components/git-minimal.bst
 
 config:
   install-commands:
@@ -120,6 +121,7 @@ variables:
     -Dkernel-install=true
     -Dvmlinux-h=provided
     -Dvmlinux-h-path='%{includedir}/%{gcc_triplet}/linux/vmlinux.h'
+    -Dtime-epoch=$(git log --no-show-signature -1 --format=%at $(git describe --abbrev=0 --tags))
 
 public:
   cpe:
