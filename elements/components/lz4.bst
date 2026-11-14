@@ -27,4 +27,4 @@ sources:
 - kind: git_repo
   url: github:lz4/lz4.git
   track: v*
-  ref: v1.11.0-0-gc72c7c0ec132ad2ce2fe9fad7b0c728d9faee2fc
+  ref: v1.11.1-0-gaa4647fad575d01a874aaaadcdbe8e6a40e072f5
