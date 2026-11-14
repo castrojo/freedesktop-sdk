@@ -30,4 +30,4 @@ sources:
 - kind: git_repo
   url: kernel:fs/xfs/xfsprogs-dev.git
   track: v*.*.*
-  ref: v7.2.1-0-ge504b62bf91cb5ed9308567bb47d34afc8428311
+  ref: v7.3.0-0-ge02d0a8efd81d454481641c9bd5680b5febb1261
