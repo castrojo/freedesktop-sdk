@@ -7,7 +7,6 @@ kind: flatpak_image
 - elements/flatpak-images/include/platform-vars.yml
 
 build-depends:
-- components/fontconfig-flatpak-config.bst
 - components/os-release.bst
 - flatpak-images/copy-ld-debug.bst
 - integration/app-debug-link.bst

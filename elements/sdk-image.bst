@@ -8,6 +8,7 @@ description: |
   and we define docs and local split rules.
 
 build-depends:
+- components/fontconfig-flatpak-config.bst
 - components/nsswitch-config.bst
 - components/python3-sitecustomize.bst
 - integration/debug-app-link.bst
