@@ -54,6 +54,7 @@ build-depends:
 - components/bpf-maybe.bst
 - components/libbpf.bst
 - components/llvm.bst
+- components/git.bst
 
 variables:
   efi: 'false'
@@ -112,6 +113,7 @@ variables:
     -Dvmlinux-h-path='%{includedir}/%{gcc_triplet}/linux/vmlinux.h'
     -Dselinux=disabled
     -Dsysupdated=enabled
+    -Dtime-epoch=$(git log --no-show-signature -1 --format=%at $(git describe --abbrev=0 --tags))
 
 config:
   install-commands:
