@@ -54,7 +54,7 @@ build-depends:
 - components/bpf-maybe.bst
 - components/libbpf.bst
 - components/llvm.bst
-- components/git.bst
+- components/_private/git-minimal.bst
 
 variables:
   efi: 'false'
