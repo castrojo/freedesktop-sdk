@@ -26,4 +26,4 @@ sources:
 - kind: git_repo
   url: github:PJK/libcbor.git
   track: v*
-  ref: v0.14.0-0-g6730c20ab487c0b4dc5fb3fea918937085355bac
+  ref: v0.14.1-0-g4218162778124ab87b108bac3456aecd6d9d1938
