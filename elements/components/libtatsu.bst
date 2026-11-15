@@ -16,4 +16,4 @@ sources:
 - kind: git_repo
   url: github:libimobiledevice/libtatsu.git
   track: '*.*.*'
-  ref: 1.1.0-0-gd8928042bcbb7048bc87a994d3e84c29eacf2f32
+  ref: 1.1.1-0-g726b6fa32fc86d56c9022b260df2de525a444aea

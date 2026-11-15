@@ -25,7 +25,7 @@ sources:
 - kind: git_repo
   url: github:fmtlib/fmt.git
   track: '*.*.*'
-  ref: 12.2.0-0-g1be298e1bd68957e4cd352e1f676f00e07dcfb57
+  ref: 12.2.1-0-g208219daff58f2a7438f6931cc2ddc358acf33ef
 - kind: patch
   path: patches/fmtlib/0001-Fix-fallback-uint128-bitwise-not-4813.patch
 - kind: patch
