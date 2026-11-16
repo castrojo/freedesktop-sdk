@@ -1,3 +1,189 @@
+Version: freedesktop-sdk-25.08.20
+Date: '2026-11-16'
+Description: |-
+  Changes in freedesktop-sdk-25.08.20
+   * Fix tracking on frozen elements
+   * systemd: explicitly set the time epoch
+   * Update p11-kit to 0.26.6-0
+   * Update libcbor to v0.14.1-0
+   * Update rust from 1.99.1 to 1.100.0
+   * Update and Freeze podman to v5.8.6-0
+   * Generate fontconfig cache with the Flatpak config
+   * Update glibc to glibc-2.42-109
+   * Update xfsprogs to v7.3.0-0
+   * Update tpm2-tss to 4.2.2-0
+   * Update ostree to v2026.7-0
+   * Update extra-cmake-modules to v6.32.0-0
+   * Update vim to v9.2.1345-0
+   * Update cmake to v4.5.0-0
+   * Update dbus-base to dbus-1.16.4-0
+   * Fix Scripts formatting
+   * utils/test_minimal_system.py: Small fixes
+   * Use same container as master (155158de)
+   * Freeze libffi to v3.5.*
+   * Update udisks to udisks-2.12.0-0
+   * Update frei0r to v3.7.1-0
+   * ABI SUPRESSION: gcc
+   * Update gcc to releases/gcc-15.3.0-0
+   * Freeze libp11 to libp11-0.4.18
+   * FREEZE cairo to 1.18.4
+   * Freeze libsepol to libsepol-3.10
+   * Freeze python3-docutils to 0.22.X
+   * Freeze libxmlb to 0.3.26.X
+   * dictionaries: copy new licenses directory
+   * Update dictionaries to libreoffice-26.8.3.1-0
+   * Update curl to curl-8_23_0-0
+   * ABI SUPRESSION: acl
+   * Update acl to v2.4.0-0
+   * Update libblockdev to 3.6.0-0
+   * Update mesa to mesa-26.2.7-0
+   * Add notes to RELEASE.md
+   * Add information on fd-sdk outputs to releases
+   * Add publish release script
+   * Update linux to v7.3.4-0
+   * Update exfat-progs to 1.4.4-0
+   * Update xwayland to xwayland-24.1.15-0
+   * Update git to v2.56.1-0
+   * ABI suppression aspell read_w_error
+   * Update aspell to rel-0.60.8.3-0
+   * FREEZE hunspell to v1.7.2
+   * FREEZE libsoup to 3.6.X
+   * FREEZE utf8cpp to v4.1.1
+   * Freeze libnice to 0.1.23
+   * Freeze mythes to 1.2.5
+   * Update mesa-sdk to mesa-26.3.0-0
+   * Authenticate all CI jobs with Token
+   * Freeze hotdoc to 0.17.X
+   * Update ccache to v4.14.3-0
+   * Update openssh to V_10_6_P2-0
+   * Update desktop-file-utils to 0.29-0
+   * Freeze jpeg to 3.1.X
+   * .gitlab-ci.yml: Do not push to the caches from the reproducible jobs
+   * Update linux to v7.3.3-0
+   * Update python3-virtualenv to 21.15.6-0
+   * Update cracklib to v2.10.4
+   * Update bluez to 5.88-0
+   * Update glibc to glibc-2.42-106
+   * Freeze lz4 to v1.10.X
+   * ca-certificates: Remove emsign-root-cs-ca-g3 cert
+   * Update ca-certificates to ca-certificates-2010_63-3_fc14-180
+   * Upload CVE reports to package registry
+   * Add additional Arch to SBOM generation
+   * Extend timeout for License SBOM Job
+   * Enable XZ Compression of SBOMs
+   * Enable SBOM uploads for each commit of mainline
+   * Add buildstream-sbom report generation
+   * Update python3-markdown to 3.11.3-0
+   * Update poppler to poppler-26.11.0-0
+   * Update frei0r to v3.7.0-0
+   * Update vim to v9.2.1302-0
+   * Update vim to v9.2.1293-0
+   * go-md2man: Remove deprecated explicit
+   * libcamera Freeze to v0.7.X
+   * Update python3-filelock to 4.2.9-0
+   * Update python3-virtualenv to 21.15.5-0
+   * vm: set rootfs sizes in remaining elements to 120%
+   * Update python3-virtualenv to 21.15.4-0
+   * Update hwdata to v0.413-0
+   * Update rsync to v3.5.2-0
+   * Update python3-ujson to 6.1.0-0
+   * Update python3-pip to 26.3-0
+   * Update python3-filelock to 4.2.7-0
+   * Update buildstream-plugins-community.bst to v2.5.0
+   * Update python3-filelock to 4.2.6-0
+   * Update libversion to 3.0.5-0
+   * Update cython to 3.3.1-0
+   * Update inih to r63-0
+   * Update wireplumber to 0.5.19-0
+   * Update python3-virtualenv to 21.15.2-0
+   * Update patchelf to 0.19.3-0
+   * Update ostree to v2026.6-0
+   * Update slirp4netns to v1.3.7-0
+   * Update tpm2-tss to 4.2.1-0
+   * Update kmod to v34.3-0
+   * weston.service: fix systemd warning
+   * introduce seatd with seatd service preset
+   * weston-user: add to input,render,seat,video groups and fix wheel usage
+   * libseat: enable builtin seatd server and deploy its systemd service
+   * libseat: fix missing scdoc dependency
+   * Update linux to v7.3.1-0
+   * Freeze opencl to v2.3.4
+   * Add trailing slash to fix mirror path for `android` alias
+   * Update libslirp to v4.9.7-0
+   * Update fribidi to v1.0.18-0
+   * Update mutool to 1.28.6-0
+   * Update python3-pytz to 2026.6
+   * Update python3-maturin to ref: v1.16.0-0
+   * Update buildbox to 1.4.31-0
+   * Update vim to v9.2.1252-0
+   * Update python3-virtualenv to 21.15.1-0
+   * pipewire: Add ldac encoder This allows using the ldac codec with bluetooth headphones.
+   * Update mesa-sdk to mesa-26.2.6-0
+   * Update pdfio to v1.6.6-0
+   * Update tzdata to 2026f-0
+   * Update mesa to mesa-26.2.6-0
+   * Update parallel to 20261022-0
+   * python3-faust-cchardet: Use a deterministic Meson build directory
+   * Update mutool to 1.28.5-0
+   * libcamera: Remove unused libyuv static library
+   * Update weston to 16.0.2-0
+   * Update python3-hatchling to hatchling-v1.33.0-0
+   * Update cmake to v4.4.5-0
+   * Update lvm2 to v2_03_44-0
+   * Update python3-pyasn1 to 0.6.5
+   * Update git-lfs from 3.8.0 to 3.8.1
+   * Update fwupd-efi to 1.9-0
+   * Update patch from v2.8.0 to v2.8.1
+   * Make `strace`'s dependency list more explicit
+   * `strace` links against `libselinux`
+   * `strace` links against `ncurses`
+   * weston: Update to 16.0.1-0
+   * Remove deprecated explicit in go modules
+   * intel-media-driver.bst: Drop `-DCMAKE_POLICY_VERSION_MINIMUM=3.5`
+   * Update to 26.08.4 container
+   * Update parallel to 20260922-0
+   * Update python3 to v3.13.18-0
+   * Update fwupd to 2.1.9-0
+   * Update libslirp to v4.9.6-0
+   * Update librsvg to ref: 2.63.4-0
+   * Update python3-multidict to v7.2.1-0
+   * Update python3-certifi to 2026.10.23-0
+   * python3-sphinxcontrib-jsmath: Update from 1.0.1 to 2.0.0
+   * Update buildbox to 1.4.30-0
+   * Update glib-networking to 2.90.1-0
+   * Update btrfs-progs to v7.3-0
+   * Update ostree to v2026.5-0
+   * Update python3-dbus to dbus-python-1.5.1-0
+   * Update valgrind to VALGRIND_3_28_0-0
+   * Update usbutils to v020-0
+   * Update grpc to v1.84.1-0
+   * Update strace to v7.3-0
+   * Update dictionaries to libreoffice-26.8.2.2-0
+   * Update buildbox to 1.4.29-0
+   * Update python3-pycparser to release_v3.12-0
+   * Update python3-virtualenv to 21.14.13-0
+   * Update vim to v9.2.1225-0
+   * Update glibc to glibc-2.42-104
+   * Upgrade container to 26.08.3 release
+   * Update python3 to v3.13.17-0
+   * Update to Linux 7.3
+   * Update reference-abi to freedesktop-sdk-25.08.19-0
+   * Update xorg-data-xkeyboard-config to xkeyboard-config-2.49-0
+   * Update dictionaries to libreoffice-26.8.2.1-0
+   * Update brotli to v1.2.1-0
+   * Update man-pages to man-pages-6.20-0
+   * Update nano to v9.3-0
+   * gamemoded: fix missing inih runtime-depends
+   * Update rust from 1.99.0 to 1.99.1
+   * linux: Drop patch for ppc gcc15 compat
+   * Update iproute2 to v7.3.0-0
+   * Update python3-pkcs11 to v0.10.1-0
+   * Update python3-pip to 26.2.2-0
+   * Update python3-virtualenv to 21.14.12-0
+   * Update gyp to v0.22.4-0
+   * Update c-ares to v1.34.9-0
+   * Update buildstream-plugins-community to 2.4.0
+---
 Version: freedesktop-sdk-25.08.19
 Date: '2026-10-21'
 Description: |-
