@@ -140,7 +140,7 @@ def main(args):
         "name": args.release_tag,
         "tag_name": args.release_tag,
         "description": get_release_description(args.release_tag),
-        "assets": get_release_assets(args.release_tag, args.project_id),
+        "assets": {"links": get_release_assets(args.release_tag, args.project_id)},
     }
 
     if not args.actually_create_release:
