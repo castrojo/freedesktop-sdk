@@ -1,7 +1,7 @@
 sources:
 - kind: git_repo
   url: kitware:cmake.git
-  track: v*
+  track: v4*
   exclude:
   - v*-rc*
   ref: v4.5.0-0-gf3a3cb0c6542ee497d8e9ec85f3603acb64736ca
