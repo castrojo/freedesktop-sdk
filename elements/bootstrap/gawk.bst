@@ -31,6 +31,4 @@ sources:
   track: gawk-*
   exclude:
   - '*-docs'
-  ref: gawk-5.4.1-0-g52af7f12758da12db0ddbdb117a84e0685cd2f72
-- kind: patch
-  path: patches/gawk/0001-Workaround-fix-for-systems-without-MPFR-and-GMP.patch
+  ref: gawk-5.4.2-0-gfbf218a5c15705b108d38a78804f2fe52175e6c7
