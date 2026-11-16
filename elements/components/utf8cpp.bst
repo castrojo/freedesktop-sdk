@@ -14,4 +14,4 @@ sources:
 - kind: git_repo
   url: github:nemtrif/utfcpp.git
   track: v*
-  ref: v4.1.1-0-g819011bb01628fe1aa2f1da9f2c842a48fd5680b
+  ref: v5.0.0-0-g3218d78a228e45b362d5b499d8dc9f60e6ce2e59
