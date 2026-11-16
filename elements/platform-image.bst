@@ -9,6 +9,7 @@ description: |
   a manifest.json containing version/source information.
 
 build-depends:
+- components/fontconfig-flatpak-config.bst
 - components/nsswitch-config.bst
 - components/python3-sitecustomize.bst
 - integration/split-docs.bst
