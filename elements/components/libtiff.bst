@@ -9,6 +9,7 @@ build-depends:
 depends:
 - public-stacks/runtime-minimal.bst
 - components/jpeg.bst
+- components/lerc.bst
 - components/libwebp.bst
 - components/lzip.bst
 
