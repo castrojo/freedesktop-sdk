@@ -219,6 +219,7 @@ depends:
 - components/ladspa-sdk.bst
 - components/lame.bst
 - components/lcms.bst
+- components/lerc.bst
 - components/less.bst
 - components/libabigail.bst
 - components/libaio.bst
