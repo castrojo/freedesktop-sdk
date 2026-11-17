@@ -34,6 +34,7 @@ public:
     product: libsndfile
     ignored:
     - CVE-2024-50612     # Patch Applied
+    - CVE-2025-52194     # Patch Applied
     - CVE-2025-56226     # Patch Applied
     - CVE-2026-37555     # Patch Applied
 
