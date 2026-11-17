@@ -14,7 +14,6 @@ runtime-depends:
 - components/glib.bst
 - components/libgudev.bst
 - components/pipewire-daemon.bst
-- components/xdg-desktop-portal-manifest.bst
 - components/xdg-portal-interfaces.bst
 
 config:

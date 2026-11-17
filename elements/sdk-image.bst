@@ -15,7 +15,6 @@ build-depends:
 - integration/flatpak-builder-configuration.bst
 - integration/split-docs.bst
 - integration/split-locales.bst
-- manifests/sdk-manifest.bst
 - multiarch/multiarch-sdk.bst
 - sdk.bst
 

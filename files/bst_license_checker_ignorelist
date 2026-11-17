@@ -161,18 +161,6 @@ vm/minimal-ostree/repo.bst
 vm/minimal/efi.bst
 vm/minimal/virt.bst
 
-# collect manifest elements
-components/avahi-manifest.bst
-components/cryptsetup-manifest.bst
-components/cups-manifest.bst
-components/dbus-manifest.bst
-components/ostree-manifest.bst
-components/pipewire-manifest.bst
-components/systemd-manifest.bst
-components/xdg-desktop-portal-manifest.bst
-manifests/platform-manifest.bst
-manifests/sdk-manifest.bst
-
 # flatpak_image elements
 flatpak-images/sdk-arch-libs.bst
 flatpak-images/platform.bst
@@ -235,6 +223,3 @@ oci/sdk-oci.bst
 # tar_element elements
 tarballs/platform.bst
 tarballs/sdk.bst
-
-# url_manifest elements
-manifests/release-url-manifest.bst

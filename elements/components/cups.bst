@@ -8,7 +8,6 @@ build-depends:
 
 runtime-depends:
 - components/avahi-libs.bst
-- components/cups-manifest.bst
 - components/openssl.bst
 
 config:

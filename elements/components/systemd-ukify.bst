@@ -9,7 +9,6 @@ build-depends:
 runtime-depends:
 - components/python3-pefile.bst
 - components/python3.bst
-- components/systemd-manifest.bst
 
 config:
   include:

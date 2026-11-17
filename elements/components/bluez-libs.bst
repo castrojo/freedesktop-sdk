@@ -8,7 +8,6 @@ build-depends:
 
 runtime-depends:
 - public-stacks/runtime-minimal.bst
-- components/bluez-manifest.bst
 
 config:
   include:

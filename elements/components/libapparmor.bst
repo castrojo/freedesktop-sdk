@@ -8,7 +8,6 @@ build-depends:
 
 runtime-depends:
 - public-stacks/runtime-minimal.bst
-- components/apparmor-manifest.bst
 
 config:
   include:

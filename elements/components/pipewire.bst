@@ -11,7 +11,6 @@ runtime-depends:
 - components/alsa-lib.bst
 - components/gstreamer-plugins-base.bst
 - components/libdbus.bst
-- components/pipewire-manifest.bst
 - components/systemd-libs.bst
 
 config:

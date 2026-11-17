@@ -24,7 +24,6 @@ build-depends:
 runtime-depends:
 - public-stacks/runtime-minimal.bst
 - components/libeconf.bst
-- components/util-linux-manifest.bst
 
 config:
   include:

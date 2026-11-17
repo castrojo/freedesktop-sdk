@@ -319,8 +319,6 @@ build-sbom-artifacts:
 	$(BST) build --deps all sdk.bst
 	$(BST) build --deps all components.bst
 
-manifest: collect-manifest spdx-manifest
-
 generate-spdx-vuln-reports: generate-spdx-sbom-reports
 ifeq ($(SPDX_SBOM_WITH_VULN), false)
 	@echo "Vulnerability scanning is disabled, skipping CVE report generation"
@@ -330,20 +328,10 @@ else
 	utils/spdx-vuln-report.py ${SPDX_SBOM_DIR}/components.spdx.json 	-o ${SPDX_SBOM_DIR}/components-vulns.md.html
 endif
 
-generate-all-spdx: generate-spdx-vuln-reports spdx-manifest markdown-manifest-spdx
+generate-all-spdx: generate-spdx-vuln-reports manifest markdown-manifest-spdx
 
-collect-manifest:
-	rm -rf sdk-manifest/
-	rm -rf platform-manifest/
-	rm -rf components-manifest/
 
-	$(BST) build manifests/platform-manifest.bst manifests/sdk-manifest.bst manifests/components-manifest.bst
-
-	$(BST) artifact checkout manifests/platform-manifest.bst --directory platform-manifest/
-	$(BST) artifact checkout manifests/sdk-manifest.bst --directory sdk-manifest/
-	$(BST) artifact checkout manifests/components-manifest.bst --directory components-manifest/
-
-spdx-manifest: generate-spdx-sbom-reports
+manifest: generate-spdx-sbom-reports
 	utils/spdx-manifest.py sbom-reports/platform.spdx.json   -o platform-manifest/usr/manifest.spdx.json
 	utils/spdx-manifest.py sbom-reports/sdk.spdx.json        -o sdk-manifest/usr/manifest.spdx.json
 	utils/spdx-manifest.py sbom-reports/components.spdx.json -o components-manifest/usr/manifest.spdx.json

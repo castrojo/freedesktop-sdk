@@ -10,7 +10,6 @@ runtime-depends:
 - components/duktape.bst
 - components/linux-pam.bst
 - components/polkit-gobject.bst
-- components/polkit-manifest.bst
 
 config:
   exclude:

@@ -7,7 +7,6 @@ build-depends:
 - components/_private/cryptsetup-base.bst
 
 runtime-depends:
-- components/cryptsetup-manifest.bst
 - components/json-c.bst
 - components/libdevmapper.bst
 - components/popt.bst

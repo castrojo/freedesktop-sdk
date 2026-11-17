@@ -9,7 +9,6 @@ build-depends:
 runtime-depends:
 - public-stacks/runtime-minimal.bst
 - components/avahi-libs.bst
-- components/avahi-manifest.bst
 - components/dbus.bst
 - components/glib.bst
 - components/libdaemon.bst

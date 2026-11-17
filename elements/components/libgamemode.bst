@@ -8,7 +8,6 @@ build-depends:
 
 runtime-depends:
 - public-stacks/runtime-minimal.bst
-- components/gamemode-manifest.bst
 - components/libdbus.bst
 - components/systemd-libs.bst
 

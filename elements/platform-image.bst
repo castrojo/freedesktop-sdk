@@ -14,7 +14,6 @@ build-depends:
 - components/python3-sitecustomize.bst
 - integration/split-docs.bst
 - integration/split-locales.bst
-- manifests/platform-manifest.bst
 - multiarch/multiarch-platform.bst
 - platform.bst
 

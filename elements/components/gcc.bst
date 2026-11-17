@@ -12,7 +12,6 @@ runtime-depends:
 - bootstrap/libxcrypt.bst
 - bootstrap/zstd.bst
 - components/gcc-libs.bst
-- components/gcc-manifest.bst
 
 config:
   exclude:

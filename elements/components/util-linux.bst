@@ -28,7 +28,6 @@ runtime-depends:
 - components/libeconf.bst
 - components/sqlite.bst
 - components/util-linux-libs.bst
-- components/util-linux-manifest.bst
 
 config:
   exclude:

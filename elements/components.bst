@@ -12,7 +12,6 @@ depends:
 - components/alsa-plugins.bst
 - components/amf-headers.bst
 - components/aom.bst
-- components/apparmor-manifest.bst
 - components/apparmor-profiles.bst
 - components/apparmor.bst
 - components/appstream-minimal.bst
@@ -28,7 +27,6 @@ depends:
 - components/automake.bst
 - components/avahi-gobject.bst
 - components/avahi-libs.bst
-- components/avahi-manifest.bst
 - components/avahi-ui.bst
 - components/avahi.bst
 - components/bash-completion.bst
@@ -38,7 +36,6 @@ depends:
 - components/bison.bst
 - components/bluez-headers.bst
 - components/bluez-libs.bst
-- components/bluez-manifest.bst
 - components/bluez.bst
 - components/boot-keys-test.bst
 - components/brotli.bst
@@ -63,20 +60,17 @@ depends:
 - components/cpio.bst
 - components/cracklib.bst
 - components/crun.bst
-- components/cryptsetup-manifest.bst
 - components/cryptsetup.bst
 - components/cunit.bst
 - components/cups-daemon-only.bst
 - components/cups-daemon.bst
 - components/cups-filters.bst
-- components/cups-manifest.bst
 - components/cups.bst
 - components/curl.bst
 - components/cyrus-sasl.bst
 - components/cython.bst
 - components/dav1d.bst
 - components/dbus-broker.bst
-- components/dbus-manifest.bst
 - components/dbus-tools.bst
 - components/dbus.bst
 - components/debuginfod.bst
@@ -135,7 +129,6 @@ depends:
 - components/fwupd-efi-maybe.bst
 - components/fwupd.bst
 - components/gamemode-daemon.bst
-- components/gamemode-manifest.bst
 - components/gawk.bst
 - components/gcab.bst
 - components/gdb-debuginfod.bst
@@ -420,7 +413,6 @@ depends:
 - components/perl.bst
 - components/pinentry-ncurses.bst
 - components/pipewire-daemon.bst
-- components/pipewire-manifest.bst
 - components/pipewire.bst
 - components/pixman.bst
 - components/pkg-config.bst
@@ -591,7 +583,6 @@ depends:
 - components/systemd-hwdb-maybe.bst
 - components/systemd-kernel-install.bst
 - components/systemd-libs.bst
-- components/systemd-manifest.bst
 - components/systemd-ukify.bst
 - components/systemd.bst
 - components/taglib.bst
@@ -638,7 +629,6 @@ depends:
 - components/xcb-util-wm.bst
 - components/xcb-util.bst
 - components/xdg-dbus-proxy.bst
-- components/xdg-desktop-portal-manifest.bst
 - components/xdg-desktop-portal.bst
 - components/xdg-portal-interfaces.bst
 - components/xdg-user-dirs.bst

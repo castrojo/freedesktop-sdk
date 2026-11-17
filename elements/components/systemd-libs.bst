@@ -11,7 +11,6 @@ runtime-depends:
 - components/libcap.bst
 - components/libgcrypt.bst
 - components/lz4.bst
-- components/systemd-manifest.bst
 - components/zstd.bst
 
 config:

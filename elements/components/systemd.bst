@@ -24,7 +24,6 @@ runtime-depends:
 - components/libgpg-error.bst
 - components/linux-pam.bst
 - components/kmod.bst
-- components/systemd-manifest.bst
 - components/tzdata.bst
 - components/shadow.bst
 - components/util-linux-libfdisk.bst

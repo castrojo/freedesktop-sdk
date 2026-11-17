@@ -9,7 +9,6 @@ build-depends:
 runtime-depends:
 - public-stacks/runtime-minimal.bst
 - components/glib.bst
-- components/polkit-manifest.bst
 - components/systemd-libs.bst
 
 config:

@@ -8,7 +8,6 @@ build-depends:
 
 runtime-depends:
 - bootstrap/glibc.bst
-- components/gcc-manifest.bst
 
 config:
   include:

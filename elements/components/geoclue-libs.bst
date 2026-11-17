@@ -7,7 +7,6 @@ build-depends:
 - components/_private/geoclue-base.bst
 
 runtime-depends:
-- components/geoclue-manifest.bst
 - components/glib.bst
 - components/json-glib.bst
 - components/libsoup.bst

@@ -7,7 +7,6 @@ build-depends:
 - components/_private/dbus-base.bst
 
 runtime-depends:
-- components/dbus-manifest.bst
 - components/expat.bst
 - components/systemd-libs.bst
 
