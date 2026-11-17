@@ -23,6 +23,9 @@ runtime-depends:
 - bootstrap/glibc.bst
 
 variables:
+  # Arch
+  # https://gitlab.archlinux.org/archlinux/packaging/packages/ncurses/-/blob/main/PKGBUILD?ref_type=heads#L71
+  # --with-xterm-kbs=del
   common-conf-flags: >-
     --build=%{bootstrapper-triplet}
     --host=%{triplet}
@@ -39,6 +42,7 @@ variables:
     --enable-pc-files
     --with-termlib
     --prefix=/usr
+    --with-versioned-syms
     TIC="%{tools}/bin/tic"
 
 config:
