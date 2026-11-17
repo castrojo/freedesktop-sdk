@@ -5,5 +5,6 @@ kind: junction
 
 sources:
 - kind: tar
-  url: pypi:e3/09/a56ca89a7b8126649e282432a2216e814af84d14ad7cd58dab585fb1d9fc/buildstream_plugins_community-2.5.0.tar.gz
-  ref: 0a08a520fb2b717877025f30d6088c3da2c204b813a5d2d786d09acf988ef29b
+  # tarball from tip of aedan/hermes
+  url: git_https:gitlab.com/BuildStream/buildstream-plugins-community/-/archive/aedan/hermes/buildstream-plugins-community-aedan-hermes.tar.gz
+  ref: 0687dfa979d5c4f1793e75d7a1b7b30d985e1df9225be508fcbd87faff93ca41
