@@ -15,7 +15,7 @@ sources:
 - kind: git_repo
   url: github:pybind/pybind11
   track: '*.*.*'
-  ref: v3.0.4-0-gd03662f0984f652b60e7ddce53d3868002275197
+  ref: v3.1.0-0-g97bf890db679505a14dfe547a5e77bb2bd05dc90
   provenance:
     homepage: https://pybind11.readthedocs.io/en/latest/
     issue-tracker: https://github.com/pybind/pybind11/issues
