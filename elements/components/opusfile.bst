@@ -20,6 +20,7 @@ public:
   cpe:
     ignored:
     - CVE-2022-40320   # patched
+    - CVE-2022-47021   # fix already carried
 
 sources:
 - kind: git_repo
