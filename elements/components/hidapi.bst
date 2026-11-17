@@ -25,4 +25,4 @@ sources:
   track: hidapi-*
   exclude:
   - "*rc*"
-  ref: hidapi-0.15.0-0-gd6b2a974608dec3b76fb1e36c189f22b9cf3650c
+  ref: hidapi-0.16.0-0-g750c87abb03282a237297052b84522e6bb3c0616
