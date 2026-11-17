@@ -42,7 +42,7 @@ sources:
   project-id: 379847
   url: github_files:unicode-org/icu/releases/download/release-{version}/icu4c-{version}-sources.tgz
   ref:
-    version: 78.3
-    sha256sum: 3a2e7a47604ba702f345878308e6fefeca612ee895cf4a5f222e7955fabfe0c0
+    version: 79.1
+    sha256sum: 06fa63ecb521048f8082f12ad988f6b678d90cbd88aafce24cbc94902b191d99
 - kind: patch
   path: patches/icu/icu-fix-shared-linking.patch
