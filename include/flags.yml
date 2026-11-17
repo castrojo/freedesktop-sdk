@@ -126,7 +126,7 @@ variables:
   #####################################################
 
   # Common linker flags used everywhere
-  common_ldflags: "-Wl,-z,relro,-z,now -Wl,--as-needed"
+  common_ldflags: "-Wl,-z,relro,-z,now -Wl,--as-needed -Wl,--default-symver"
 
   # Element specific linker flags
   local_ldflags: ""
