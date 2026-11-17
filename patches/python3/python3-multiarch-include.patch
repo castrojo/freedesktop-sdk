@@ -53,36 +53,19 @@ diff --git a/Misc/python-config.sh.in b/Misc/python-config.sh.in
 index 555b0cb..a47a2ad 100644
 --- a/Misc/python-config.sh.in
 +++ b/Misc/python-config.sh.in
-@@ -40,6 +40,7 @@ prefix="@prefix@"
- exec_prefix="@exec_prefix@"
- exec_prefix_real=${prefix_real}
- includedir=$(echo "@includedir@" | sed "s#$prefix#$prefix_real#")
-+confincludedir=$(echo "@CONFINCLUDEDIR@" | sed "s#$exec_prefix#$exec_prefix_real#")
- libdir=$(echo "@libdir@" | sed "s#$prefix#$prefix_real#")
- CFLAGS=$(echo "@CFLAGS@" | sed "s#$prefix#$prefix_real#")
- VERSION="@VERSION@"
-@@ -59,7 +60,7 @@ LIBPL=$(echo "@LIBPL@" | sed "s#$prefix#$prefix_real#")
- SO="@EXT_SUFFIX@"
- PYTHONFRAMEWORK="@PYTHONFRAMEWORK@"
- INCDIR="-I$includedir/python${VERSION}${ABIFLAGS}"
--PLATINCDIR="-I$includedir/python${VERSION}${ABIFLAGS}"
-+PLATINCDIR="-I$confincludedir/python${VERSION}${ABIFLAGS}"
- PY_EMBED=0
- 
- # Scan for --help or unknown argument.
 @@ -94,10 +95,10 @@ do
-             echo "$exec_prefix_real"
+             printf '%s\n' "$exec_prefix_real"
          ;;
          --includes)
--            echo "$INCDIR $PLATINCDIR"
-+            echo "$PLATINCDIR $INCDIR"
+-            printf '%s\n' "$INCDIR $PLATINCDIR"
++            printf '%s\n' "$PLATINCDIR $INCDIR"
          ;;
          --cflags)
--            echo "$INCDIR $PLATINCDIR $BASECFLAGS $CFLAGS $OPT"
-+            echo "$PLATINCDIR $INCDIR $BASECFLAGS $CFLAGS $OPT"
+-            printf '%s\n' "$INCDIR $PLATINCDIR $BASECFLAGS $CFLAGS $OPT"
++            printf '%s\n' "$PLATINCDIR $INCDIR $BASECFLAGS $CFLAGS $OPT"
          ;;
          --libs)
-             echo "$LIBS"
+             printf '%s\n' "$LIBS"
 diff --git a/Misc/python.pc.in b/Misc/python.pc.in
 index 027dba3..18e0d5f 100644
 --- a/Misc/python.pc.in
@@ -99,7 +82,7 @@ index e7d9499..76179d7 100644
 +++ b/Modules/expat/expat_config.h
 @@ -5,7 +5,7 @@
  #ifndef EXPAT_CONFIG_H
- #define EXPAT_CONFIG_H
+ #define EXPAT_CONFIG_H 1
  
 -#include <pyconfig.h>
 +#include "pyconfig.h"
@@ -110,9 +93,9 @@ diff --git a/configure b/configure
 index 7cdd386..56fc2f0 100755
 --- a/configure
 +++ b/configure
-@@ -946,6 +946,7 @@ LIBRARY_DEPS
- NODE
+@@ -951,6 +951,7 @@ LIBRARY_DEPS
  HOSTRUNNER
+ NODE
  STATIC_LIBPYTHON
 +CONFINCLUDEDIR
  GNULD
