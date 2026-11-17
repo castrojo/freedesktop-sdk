@@ -22,7 +22,7 @@ public:
 sources:
 - kind: git_repo
   url: github:libusb/hidapi.git
-  track: hidapi-*
+  track: hidapi-0.15*
   exclude:
   - "*rc*"
   ref: hidapi-0.15.0-0-gd6b2a974608dec3b76fb1e36c189f22b9cf3650c
