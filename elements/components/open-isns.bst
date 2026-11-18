@@ -26,3 +26,5 @@ sources:
   url: github:open-iscsi/open-isns.git
   track: v*
   ref: v0.103-0-g3e053e2a2c83293db7167f336940fec51f32fed7
+- kind: patch
+  path: patches/open-isns/CVE-2026-55995.patch
