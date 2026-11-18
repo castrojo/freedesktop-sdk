@@ -485,6 +485,7 @@ depends:
 - components/python3-multidict.bst
 - components/python3-networkx.bst
 - components/python3-nftables.bst
+- components/python3-packageurl.bst
 - components/python3-packaging.bst
 - components/python3-pathlib2.bst
 - components/python3-pathspec.bst
@@ -509,6 +510,7 @@ depends:
 - components/python3-pyproject-hooks.bst
 - components/python3-pyproject-metadata.bst
 - components/python3-pyroaring.bst
+- components/python3-python-sbom.bst
 - components/python3-pyyaml.bst
 - components/python3-requests.bst
 - components/python3-roman-numerals.bst
@@ -547,6 +549,7 @@ depends:
 - components/python3-wheel.bst
 - components/python3-wheezy-template.bst
 - components/python3-yarl.bst
+- components/python3-zipremove.bst
 - components/python3.bst
 - components/rdfind.bst
 - components/rr-maybe.bst
