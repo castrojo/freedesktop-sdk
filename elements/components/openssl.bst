@@ -70,3 +70,5 @@ sources:
   - openssl*alpha*
   - openssl*beta*
   ref: openssl-3.5.9-0-g45e844fa2a14ec92d146bd8f5778ac130b6625fb
+- kind: patch_queue
+  path: patches/openssl
