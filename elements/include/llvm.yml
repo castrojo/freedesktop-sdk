@@ -9,3 +9,5 @@ sources:
   - llvmorg-*-rc*
   - llvmorg-*-init*
   ref: llvmorg-22.1.8-0-gca7933e47d3a3451d81e72ac174dcb5aa28b59d1
+- kind: patch
+  path: patches/llvm/fix-btf-forward-declaration-order.patch
