@@ -57,6 +57,11 @@ public:
 
   cpe:
     vendor: 'openssl'
+    ignore:
+      - CVE-2026-88823 # Patched
+      - CVE-2026-95691 # Patched
+      - CVE-2026-95692 # Patched
+      - CVE-2026-124709 # Patched
 
 sources:
 - kind: git_repo
@@ -66,3 +71,5 @@ sources:
   - openssl*alpha*
   - openssl*beta*
   ref: openssl-3.5.9-0-g45e844fa2a14ec92d146bd8f5778ac130b6625fb
+- kind: patch_queue
+  path: patches/openssl
