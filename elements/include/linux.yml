@@ -12,3 +12,5 @@ public:
   cpe:
     vendor: linux
     product: linux_kernel
+    ignored:
+      - CVE-2020-27815 # Patch contents already carried
