@@ -16,4 +16,4 @@ sources:
 - kind: git_repo
   url: freedesktop:xorg/lib/libfontenc.git
   track: libfontenc-*
-  ref: libfontenc-1.1.9-0-g780d1f6f192a331de7b298a96e23ebc44d2a884b
+  ref: libfontenc-1.1.10-0-geb42c925cab00d235b05e649eb4fb4a1858b67b9
