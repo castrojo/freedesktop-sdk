@@ -228,7 +228,7 @@ check_mirrors:
       message-format: '[%{elapsed}][%{key}][%{element}] %{action} %{message}'
       error-lines: 80
     scheduler:
-      fetchers: 3
+      fetchers: 1
       network-retries: 4
       on-error: continue
     # We want to test that everything is mirrored
