@@ -63,7 +63,7 @@ public:
 sources:
 - kind: git_repo
   url: github:libjxl/libjxl.git
-  track: v*
+  track: v0.12*
   exclude:
   - "*rc*"
   - "*snapshot*"
