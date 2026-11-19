@@ -40,6 +40,6 @@ sources:
   exclude:
   - "*-rc*"
   - "*branchpoint*"
-  ref: v1.8.3-0-g44aa1a5be2ca68825a17acdf534be4d25cff09b3
+  ref: v1.8.3-0-g7bda80a564cddc5b215a84509026030cf16dfd94
 - kind: patch
   path: patches/libunwind/0001-configure-Fix-WCClinker-typo-should-be-XCClinker.patch
