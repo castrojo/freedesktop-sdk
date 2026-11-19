@@ -23,6 +23,8 @@ sources:
 - kind: git_repo
   url: github:rhboot/efivar.git
   track: '[0-9]*'
+  exclude:
+  - "*rc*"
   ref: 39-0-gc47820c37ac26286559ec004de07d48d05f3308c
   version-guess-pattern: '(\d+)'
 - kind: patch_queue
