@@ -1,0 +1,25 @@
+From 340c6cee507cb8a198990be296dd87d15155b2a3 Mon Sep 17 00:00:00 2001
+From: Aedan McHale <aedan.mchale@codethink.co.uk>
+Date: Thu, 19 Nov 2026 09:53:12 +0000
+Subject: [PATCH 1/1] Improve compatability with setuptools 84.2
+
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 253503b..57a6b23 100644
+--- a/setup.py
++++ b/setup.py
+@@ -326,7 +326,7 @@ class FlexExtension (Extension):
+             cmd = ['flex', '-o', built_scanner_path]
+             for s in self.__flex_sources:
+                 cmd.append(s)
+-            spawn.spawn(cmd, verbose=1)
++            spawn.spawn(cmd)
+ 
+     def build_custom(self):
+         if self.__flex_sources:
+-- 
+2.56.0
+
