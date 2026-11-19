@@ -11,4 +11,4 @@ sources:
 - kind: git_repo
   url: github:exfatprogs/exfatprogs.git
   track: '*.*.*'
-  ref: 1.4.4-0-g7713040c42cfeb2c536714677f46f674ccb2acf7
+  ref: 1.4.5-0-ge48d5ef75e88f09c3d287dc387bed0ad69a43290
