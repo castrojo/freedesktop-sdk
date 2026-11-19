@@ -20,7 +20,7 @@ variables:
 sources:
 - kind: git_repo
   url: github:mesonbuild/meson.git
-  track: '*.*.*'
+  track: '1.12.*'
   exclude:
   - '*rc*'
   ref: 1.12.1-0-g70598bb7825f0f804fb31ec2795de5e79e7692a0
