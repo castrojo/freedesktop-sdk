@@ -364,8 +364,7 @@ app_riscv64:
     - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "riscv"'
       interruptible: false
     - when: manual
-  needs:
-  - lint
+  needs: []
 
 app_ppc64le:
   extends:
