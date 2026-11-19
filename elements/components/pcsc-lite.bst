@@ -23,4 +23,4 @@ sources:
 - kind: git_repo
   url: github:LudovicRousseau/PCSC.git
   track: '*.*.*'
-  ref: 2.5.3-0-g58de510789550941e6548399e024083f54b8d4f5
+  ref: 2.5.4-0-ga9848cc4f119903f338fb3231c030640d7ca8932
