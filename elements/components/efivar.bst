@@ -23,7 +23,7 @@ sources:
 - kind: git_repo
   url: github:rhboot/efivar.git
   track: '[0-9]*'
-  ref: 39-0-gc47820c37ac26286559ec004de07d48d05f3308c
+  ref: 40.rc1-0-g226c3299ece37424e9007b555f57f54b1f458b9c
   version-guess-pattern: '(\d+)'
 - kind: patch_queue
   path: patches/efivar
