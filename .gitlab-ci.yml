@@ -361,10 +361,14 @@ app_riscv64:
     - .builder-riscv64
   allow_failure: true
   rules:
+    # We are limited on riscv runners, so only run the riscv jobs on schedule or manually in MRs
     - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "riscv"'
       interruptible: false
-    - when: manual
-  needs: []
+      needs: [] # No need to lint in the scheduled pipeline, as this should already be done in merge requests
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: manual
+  needs:
+   - lint
 
 app_ppc64le:
   extends:
