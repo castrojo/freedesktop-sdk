@@ -36,7 +36,7 @@ public:
 sources:
 - kind: git_repo
   url: savannah:aspell.git
-  track: rel-*
+  track: rel-0.60.8.2*
   exclude:
   - 'rel-*-*'
   ref: rel-0.60.8.2-0-g3de79d40aee4e9ccdc0d83856637949801a3d33b
