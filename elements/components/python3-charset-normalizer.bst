@@ -20,3 +20,5 @@ sources:
   - "*rc*"
   - "*b*"
   ref: 3.5.2-0-g935c29ad2d0d6e62fcf3a6e0617c55dc6e85db8f
+- kind: patch
+  path: patches/python3-charset-normalizer/001-allow-setuptools-84.2-builds.patch
