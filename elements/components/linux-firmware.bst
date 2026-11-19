@@ -33,6 +33,13 @@ variables:
   make: ''
   make-install: make -j1 %{make-args} DESTDIR="%{install-root}" install-zst dedup
 
+public:
+  bst:
+    split-rules:
+      doc:
+        (>):
+        - '%{indep-libdir}/firmware/**/README*'
+
 sources:
 - kind: git_repo
   url: kernel:linux/kernel/git/firmware/linux-firmware.git
