@@ -9,7 +9,8 @@ depends:
 - public-stacks/runtime-minimal.bst
 
 runtime-depends:
-- bootstrap/grep.bst # needed for create-cracklib-dict
+- components/grep.bst # needed for create-cracklib-dict
+- components/gzip.bst # needed for create-cracklib-dict
 
 variables:
   autogen: |
