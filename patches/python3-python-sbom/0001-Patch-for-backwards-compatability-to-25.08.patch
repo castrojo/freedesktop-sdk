@@ -1,0 +1,25 @@
+From fe2aac7c8b0a4c88ac9bf4c841876722aebd30f0 Mon Sep 17 00:00:00 2001
+From: Aedan McHale <aedan.mchale@codethink.co.uk>
+Date: Fri, 20 Nov 2026 10:40:18 +0000
+Subject: [PATCH 1/1] Patch for backwards compatability to 25.08
+
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 4f7fa0e..f3ff70f 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -4,7 +4,7 @@ requires = [
+   "hatch-fancy-pypi-readme>=25.1",
+   "hatch-vcs>=0.5",
+   "hatchling>=1.32.4",
+-  "installer>=1.1",
++  "installer>=0.7",
+   "packageurl-python>=0.11.1",
+   "zipremove>=0.10",
+ ]
+-- 
+2.56.0
+

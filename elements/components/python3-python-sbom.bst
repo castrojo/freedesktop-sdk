@@ -21,3 +21,5 @@ sources:
   url: github:tox-dev/python-sbom
   track: '*.*.*'
   ref: 0.3.1-0-g800cf535aec00992a891216cf7f1945167d62e89
+- kind: patch
+  path: patches/python3-python-sbom/0001-Patch-for-backwards-compatability-to-25.08.patch
