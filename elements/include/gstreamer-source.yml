@@ -1,6 +1,11 @@
 # SPDX-FileCopyrightText: Freedesktop-SDK Developers
 # SPDX-License-Identifier: MIT
 
+public:
+  cpe:
+    ignored:
+      - CVE-2026-73433 # Changes from patch already carried
+
 sources:
 - kind: git_repo
   url: freedesktop:gstreamer/gstreamer.git
