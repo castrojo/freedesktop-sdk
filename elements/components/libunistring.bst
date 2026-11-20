@@ -21,5 +21,5 @@ sources:
   project-id: 1747
   url: ftp_gnu_org:libunistring/libunistring-{version}.tar.xz
   ref:
-    version: 1.4.2
-    sha256sum: 5b46e74377ed7409c5b75e7a96f95377b095623b689d8522620927964a41499c
+    version: 1.5
+    sha256sum: fe89007a8a414ae4790b816b86859e877d3ab135db3c37f06541ff7e85ac344b
