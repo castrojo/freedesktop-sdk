@@ -1,12 +1,9 @@
 diff --git a/bootstrap.conf b/bootstrap.conf
-index fcea3310a..72183bb2c 100644
+index c389a96ba..2d2d81ce5 100644
 --- a/bootstrap.conf
 +++ b/bootstrap.conf
-@@ -52,19 +52,8 @@ git        1.4.4
- gperf      -
- gtkdocize  -
+@@ -57,16 +57,6 @@ gtkdocize  -
  perl       5.5
--wget       -
  "
  
 -# update git submodules
