@@ -6,5 +6,5 @@ sources:
   project-id: 370630
   url: tar_https:sourceware.org/ftp/debugedit/{version}/debugedit-{version}.tar.xz
   ref:
-    version: 5.2
-    sha256sum: 705296803cc4403f38764e891b4ed38f8d8d4f8a9164bd4f86c9d4bedcac68dd
+    version: 5.4
+    sha256sum: 00e1d74d31df9012913975b76ab0d864f0e2569d29e31271317161187803813a
