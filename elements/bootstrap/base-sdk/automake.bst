@@ -18,5 +18,5 @@ sources:
   project-id: 144
   url: ftp_gnu_org:automake/automake-{version}.tar.xz
   ref:
-    version: 1.18.1
-    sha256sum: 168aa363278351b89af56684448f525a5bce5079d0b6842bd910fdd3f1646887
+    version: 1.20
+    sha256sum: f6f34dad4cbe395715762b0710f7c511e39bd5cf777e6b95818ccbecf7714248
