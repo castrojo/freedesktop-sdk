@@ -45,7 +45,7 @@ sources:
   track: '*.*.*'
   exclude:
   - '*-pre*'
-  ref: 2.13.1-0-g349ce503a3594b91ad08229f83a0015fe4595ddc
+  ref: 2.13.3-0-g74f9ff6116b4855ae4d2bc446ac3449e890f35dc
 - kind: git_repo
   url: savannah:gnulib.git
   directory: gnulib
