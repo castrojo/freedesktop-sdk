@@ -13,4 +13,4 @@ sources:
 - kind: git_repo
   url: github:certifi/python-certifi.git
   track: "*.*.*"
-  ref: 2026.10.23-0-gb60466c9f2882d9cf088943c650b0faac06c080c
+  ref: 2026.11.20-0-gbf6a4859116b0cba96673893e394298bbe529b1f
