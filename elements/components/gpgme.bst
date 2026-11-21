@@ -39,6 +39,11 @@ public:
         (>):
         - '%{bindir}/gpgme-config'
         - '%{libdir}/libgpgme.so'
+  cpe:
+    vendor: gnu
+    product: gpgme
+    ignored:
+    - CVE-2026-129975     # Patch Applied
 
 sources:
 - kind: git_repo
@@ -47,3 +52,5 @@ sources:
   exclude:
   - "*-base"
   ref: gpgme-2.1.2-0-g34eaa0a69c120cd1d19365c6b24c58e98cd29cdf
+- kind: patch
+  path: patches/gpgme/CVE-2026-129975.patch
