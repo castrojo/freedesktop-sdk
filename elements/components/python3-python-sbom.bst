@@ -20,4 +20,4 @@ sources:
 - kind: git_repo
   url: github:tox-dev/python-sbom
   track: '*.*.*'
-  ref: 0.3.1-0-g800cf535aec00992a891216cf7f1945167d62e89
+  ref: 0.5.0-0-g4d1385cfe82512fcfb62e0e840b5a40aaadb00ff
