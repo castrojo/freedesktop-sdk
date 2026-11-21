@@ -98,7 +98,6 @@ variables:
     --enable-libopenjpeg
     --enable-libsvtav1
     --enable-openal
-    --enable-opengl
     --enable-sdl2
     --enable-vulkan
     --enable-zlib
@@ -158,4 +157,4 @@ sources:
   track: n*
   exclude:
   - '*-dev'
-  ref: n9.0.2-0-g946fcce07b6dcd0331c8cc609192aeff5e1924f8
+  ref: n9.1-0-g74e4393595cf2b5857f0da925c4e0dd74ea306e5
