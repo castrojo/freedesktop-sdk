@@ -17,10 +17,13 @@ depends:
 
 variables:
   local_flags: -std=gnu17
+  # Note thate zlib-ng does not seem to be compatible with ghostpdl.
+  # Allocation does not use multiples of the size of CPU registers
+  # used by zlib-ng optimizations.
   conf-local: >-
     --with-drivers=ALL
     --with-system-libtiff=yes
-    --with-local-zlib=no
+    --with-local-zlib=yes
 
 config:
   configure-commands:
