@@ -30,5 +30,5 @@ sources:
 - kind: git_repo
   url: github:dracut-ng/dracut-ng.git
   track: '[0-9]*'
-  ref: 112-0-gfe9fd498b6fb85c141b13c8067268e3c04110426
+  ref: 113-0-g091b134733d685677745dd36b4acbe1a52a2c50c
   version-guess-pattern: '(\d+)'
