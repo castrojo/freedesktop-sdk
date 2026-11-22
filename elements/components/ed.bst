@@ -30,5 +30,5 @@ sources:
   project-id: 659
   url: ftp_gnu_org:ed/ed-{version}.tar.lz
   ref:
-    version: 1.22.5
-    sha256sum: 56e107ddc2f29dad6690376c15bf9751509e1ee3b8241710e44edbe5c3a158cc
+    version: 1.22.6
+    sha256sum: 3f33b22135219c39c3c695f7b7171c2567d3e2a17c798c0a90607320cbb268f2
