@@ -14,4 +14,4 @@ sources:
 - kind: git_repo
   url: github:marzer/tomlplusplus.git
   track: v*
-  ref: v3.4.0-0-g30172438cee64926dc41fdd9c11fb3ba5b2ba9de
+  ref: v3.5.0-0-g32908904d5032b5023da2bc2cefeda81733ebc24
