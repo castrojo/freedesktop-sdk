@@ -19,5 +19,5 @@ sources:
   project-id: 138182
   url: github_files:GPUOpen-LibrariesAndSDKs/AMF/releases/download/v{version}/AMF-headers-v{version}.tar.gz
   ref:
-    version: 1.5.2
-    sha256sum: d3c12eb324edf05e214608b6a395a51dd95770ed9d45520185d6c3a206811c99
+    version: 1.5.3
+    sha256sum: 0f521ad98041f8001147cded4a660127f18b1c27a801a5cd691bda1fa48381be

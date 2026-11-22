@@ -56,5 +56,5 @@ sources:
   # https://hg-edge.mozilla.org/projects/nspr
   url: tar_https:archive.mozilla.org/pub/nspr/releases/v{version}/src/nspr-{version}.tar.gz
   ref:
-    version: '4.39'
-    sha256sum: bbd02ee87a55676063a63e5bc819e0227de2666b47307b2a0134414cdf42368e
+    version: 4.41
+    sha256sum: c562b8ddfe93704b7dc077be013f01448fdc6c124b1821c0f10471a71cb2e9e6

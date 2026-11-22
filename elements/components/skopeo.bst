@@ -43,4 +43,4 @@ sources:
   track: v*
   exclude:
   - "*rc*"
-  ref: v1.24.1-0-g77f3d92f861271c7cb9175afcf876017bcae9202
+  ref: v1.25.2-0-gbd981d14098835b559d02e7ca46d2a9696490e12
