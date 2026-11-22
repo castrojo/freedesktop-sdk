@@ -1797,6 +1797,9 @@ if has HAVE_PCI; then
     enable PCI_PASID
     enable HOTPLUG_PCI
     enable HOTPLUG_PCI_PCIE
+    if has ACPI; then
+        enable HOTPLUG_PCI_ACPI
+    fi
     enable PCIEPORTBUS
     #enable PCIE_PME
     enable PCIE_PTM
