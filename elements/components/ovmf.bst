@@ -103,7 +103,7 @@ sources:
 - kind: git_repo
   url: github:tianocore/edk2.git
   track: edk2-stable*
-  ref: edk2-stable202608-0-g2970e5699ba6267f3384ffab20f96647578aebc8
+  ref: edk2-stable202611-0-g556dcfb466e9f05affeaff881d738807f8156d3c
 - kind: git_module
   path: CryptoPkg/Library/OpensslLib/openssl
   url: github:openssl/openssl.git
@@ -127,11 +127,11 @@ sources:
 - kind: git_module
   path: MdeModulePkg/Library/BrotliCustomDecompressLib/brotli
   url: github:google/brotli.git
-  ref: e230f474b87134e8c6c85b630084c612057f253e
+  ref: db24a98aed38a16de78cc05ca15cdd8dc2a0d92d
 - kind: git_module
   path: BaseTools/Source/C/BrotliCompress/brotli
   url: github:google/brotli.git
-  ref: e230f474b87134e8c6c85b630084c612057f253e
+  ref: db24a98aed38a16de78cc05ca15cdd8dc2a0d92d
 - kind: git_module
   path: RedfishPkg/Library/JsonLib/jansson
   url: github:akheron/jansson.git
@@ -147,7 +147,7 @@ sources:
 - kind: git_module
   path: MdePkg/Library/BaseFdtLib/libfdt
   url: github:devicetree-org/pylibfdt.git
-  ref: cfff805481bdea27f900c32698171286542b8d3c
+  ref: f48b96548e2d8baef79ae2d5a2a2f8de3382260f
 - kind: git_module
   path: MdePkg/Library/MipiSysTLib/mipisyst
   url: github:MIPI-Alliance/public-mipi-sys-t.git
