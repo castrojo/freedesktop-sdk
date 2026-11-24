@@ -1,0 +1,9 @@
+diff --git a/doc/Doxyfile.in b/doc/Doxyfile.in
+--- a/doc/Doxyfile.in
++++ b/doc/Doxyfile.in
+@@ -531 +531 @@
+-SORT_BRIEF_DOCS        = NO
++SORT_BRIEF_DOCS        = YES
+@@ -560 +560 @@
+-SORT_BY_SCOPE_NAME     = NO
++SORT_BY_SCOPE_NAME     = YES
