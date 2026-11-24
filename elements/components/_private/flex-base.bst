@@ -3,6 +3,10 @@
 
 kind: autotools
 
+
+(@):
+- elements/include/flex-source.yml
+
 build-depends:
 - bootstrap/bash.bst
 - bootstrap/coreutils.bst
@@ -39,13 +43,3 @@ public:
       - '%{libdir}/libfl.so.*'
   cpe:
     product: flex
-
-sources:
-- kind: anitya
-  project-id: 819
-  url: github_files:westes/flex/releases/download/v{version}/flex-{version}.tar.gz
-  ref:
-    version: 2.6.4
-    sha256sum: e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995
-- kind: patch
-  path: patches/flex/flex-pie.patch
