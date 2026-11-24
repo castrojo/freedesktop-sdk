@@ -90,6 +90,16 @@ def _newest_affected_version(affected: list[dict]) -> str | None:
     return max(candidates, key=sort_key, default=None)
 
 
+def get_element_version(package: dict) -> str | None:
+    """Return the version of an SPDX package's source."""
+    version = package.get("versionInfo")
+    if not version:
+        return None
+    if version in ("0", "0.0.0-0") or re.fullmatch(r"[0-9a-f]{40}", version):
+        return None
+    return version
+
+
 def get_affected_info(data: dict) -> tuple[str, str]:
     """Get the newest affected version and package identity from OSV data."""
     affected = data.get("affected") or []
@@ -192,7 +202,7 @@ def get_cve_info(cve_id: str) -> dict:
     }
 
 
-def fetch_cve(item: tuple) -> dict:
+def fetch_cve(item: tuple, element_versions: dict[str, str]) -> dict:
     cve_id, cve_data = item
     cve_info = get_cve_info(cve_id)
     severity = cve_info.get("severity")
@@ -201,6 +211,14 @@ def fetch_cve(item: tuple) -> dict:
         "Severity": severity if severity is not None else "Not Scored",
         "Package": cve_info.get("package") or "",
         "Affected Elements": " ".join(f"`{x}`" for x in cve_data["elements"]),
+        "Version": ", ".join(
+            sorted(
+                {
+                    element_versions.get(element, "Unknown")
+                    for element in cve_data["elements"]
+                }
+            )
+        ),
         "Affected Versions": cve_info.get("affected_versions") or "Not Listed",
         "Summary": cve_info.get("summary")
         if cve_info.get("summary") is not None
@@ -210,11 +228,16 @@ def fetch_cve(item: tuple) -> dict:
 
 def collect_cves(spdx: dict) -> str:
     cves = {}
+    element_versions = {}
 
     for package in spdx.get("packages", []):
         element = get_bst_element(package)
         if element is None:
             continue
+
+        version = get_element_version(package)
+        if version and element not in element_versions:
+            element_versions[element] = version
 
         for ref in package.get("externalRefs", []):
             if (
@@ -238,7 +261,10 @@ def collect_cves(spdx: dict) -> str:
     cve_items = list(cves.items())
 
     with ThreadPoolExecutor(max_workers=20) as executor:
-        future_to_cve = {executor.submit(fetch_cve, item): item for item in cve_items}
+        future_to_cve = {
+            executor.submit(fetch_cve, item, element_versions): item
+            for item in cve_items
+        }
         for future in as_completed(future_to_cve):
             result_list.append(future.result())
 
