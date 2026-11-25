@@ -1,0 +1,24 @@
+From 80cd0d7b1b22f6ed956314f341468a2199afde2b Mon Sep 17 00:00:00 2001
+From: Tom Pollard <tom.pollard@codethink.co.uk>
+Date: Wed, 25 Nov 2026 10:43:15 +0000
+Subject: [PATCH] Relax hatchling build-system constraint
+
+Python 3.9 is not relevant to FDSDK
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index d873f86..f919eff 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["hatchling~=1.27.0"]  # Bump when no longer Python 3.9
++requires = ["hatchling>=1.27.0"]  # FDSDK minimum supported python is 3.13 in 25.08
+ build-backend = "hatchling.build"
+ 
+ [project]
+-- 
+2.53.0
+
