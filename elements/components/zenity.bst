@@ -22,4 +22,4 @@ sources:
 - kind: git_repo
   url: gnome:zenity.git
   track: '3.44.*'
-  ref: 3.44.5-0-gdfe1556344eedce4930b8837fbbc8a8334d783e0
+  ref: 3.44.6-0-g2754f171bf9680edcb807be3707a688e5220299c
