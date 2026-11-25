@@ -32,7 +32,7 @@ sources:
   project-id: 819
   url: github_files:westes/flex/releases/download/v{version}/flex-{version}.tar.gz
   ref:
-    version: 2.6.4
-    sha256sum: e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995
+    version: 2.7.9
+    sha256sum: eda7d158abe845c49956554488a0749a637891124824a77ab16dadbe0ce58eb7
 - kind: patch
   path: patches/flex/flex-pie.patch
