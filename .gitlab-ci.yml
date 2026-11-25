@@ -203,30 +203,12 @@ weekly_update_combined:
 check_mirrors:
   stage: update
   timeout: 1h
-  before_script:
-  # Configure Buildstream
-  - mkdir -p ~/.config
-  - |
-    cat > ~/.config/buildstream.conf << EOF
-    # Get a lot of output in case of errors
-    logging:
-      message-format: '[%{elapsed}][%{key}][%{element}] %{action} %{message}'
-      error-lines: 80
-    scheduler:
-      network-retries: 4
-      on-error: continue
-    # We want to test that everything is mirrored
-    fetch:
-      source: mirrors
-    source-caches:
-      override-project-caches: true
-    EOF
-
   script:
-    - |
-      ${BST} source fetch --deps all flatpak-release-repo.bst components.bst \
-             components/rust-stage1-{x86_64,i686,aarch64,powerpc64le}.bst \
-             oci/layers/{flatpak,debug,platform,sdk}.bst
+    - GITLAB_TOKEN=$CI_GANTT_CHART_TOKEN python3 utils/check_mirrors.py \
+        elements/flatpak-release-repo.bst \
+        elements/components.bst \
+        elements/components/_private/rust-stage1-{x86_64,i686,aarch64,powerpc64le,loongarch64,riscv64}.bst \
+        elements/oci/layers/{flatpak,debug,platform,sdk}.bst
   allow_failure: true
   rules:
   - if: '$CI_PIPELINE_SOURCE == "schedule" && $SCHEDULE_TASK == "daily"'
