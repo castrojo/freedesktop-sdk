@@ -22,7 +22,7 @@ sources:
 - kind: git_repo
   url: github:python-babel/babel.git
   track: v*.*.*
-  ref: v2.18.0-0-g56c63caf50b18b152541b5dcafd51f645d867074
+  ref: v2.19.0-0-g351b14508b0bdeeeb7b0feea92d768a753e1487d
 # Requirement set in scripts/download_import_cldr.py
 - kind: remote
   url: tar_https:unicode.org/Public/cldr/47/cldr-common-47.zip
