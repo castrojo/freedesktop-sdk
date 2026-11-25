@@ -106,7 +106,7 @@ mirrors:
     - https://gitlab.com/freedesktop-sdk/mirrors/tar_https/raw-files/-/raw/master/
 
 # "Not real mirrors" for things under our control
-- name: freedestkop-sdk
+- name: freedesktop-sdk
   aliases:
     fdsdk_registry:
     - https://registry.gitlab.com/freedesktop-sdk/
