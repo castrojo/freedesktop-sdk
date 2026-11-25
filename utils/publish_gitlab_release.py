@@ -83,42 +83,9 @@ def get_release_assets(tag, project_id):
 
 def get_release_description(tag):
     return f"""
-## Freedesktop Flatpak Runtimes & SDKs
+## Using Freedesktop SDK
 
-To use Freedesktop SDK as a Flatpak runtime and SDK checkout the [Flatpak Documentation](https://docs.flatpak.org/)
-
-- Install the runtime with `flatpak install org.freedesktop.platform//{get_release_branch(tag)}`
-- Update the runtime with `flatpak update org.freedesktop.platform//{get_release_branch(tag)}`
-
-A full list of Flatpak targets are available in the [Flatpak Targets Documentation](https://freedesktop-sdk.gitlab.io/documentation/guides/flatpak/flatpak-targets.html)
-
-## Using the SDK in your project
-
-In a junction element, specify Freedesktop SDK in the sources, as in the following example:
-
-```
-kind: junction
-sources:
-- kind:  git_repo
-  url:   gitlab:freedesktop-sdk/freedesktop-sdk.git
-  track: freedesktop-sdk-{get_release_branch(tag)}*
-  ref: {tag}-0-g{get_tag_sha(tag)}
-```
-
-For further information see: https://freedesktop-sdk.gitlab.io/documentation/guides/os/using-the-sdk/index.html
-
-## OS Images
-
-Pre-built OS images are not currently available for this release.
-A list of example OS Image targets are available in the [OS Image Targets Documentation](https://freedesktop-sdk.gitlab.io/documentation/guides/os/os-targets.html)
-See [OS Building Documentation](https://freedesktop-sdk.gitlab.io/documentation/guides/os/building-os.html) on how to build them.
-
-## OCI Images
-
-Pull image with `docker pull freedesktopsdk/platform:{get_release_branch(tag)}`
-
-Pre-built Docker images are available in the [Freedesktop SDK Docker Hub image repository](https://hub.docker.com/u/freedesktopsdk).
-A full list of OCI Image targets are available in the [OCI Image Targets Documentation](https://freedesktop-sdk.gitlab.io/documentation/guides/oci/OCI-targets.md)
+See the documentation: https://freedesktop-sdk.gitlab.io/documentation/
 
 ## {get_tag_message(tag).strip()}
 """
