@@ -33,7 +33,7 @@ variables:
 include:
   - component: gitlab.com/CodethinkLabs/ci-gantt-chart/gantt@1.5.5
     inputs:
-      read_token: $CI_GANTT_CHART_TOKEN
+      read_token: $FDSDK_REPO_READ_TOKEN
       image: "${DOCKER_REGISTRY}/bst2:${DOCKER_IMAGE_ID}"
 
 default:
@@ -212,7 +212,7 @@ check_mirrors:
   stage: update
   timeout: 1h
   script:
-    - GITLAB_TOKEN=$CI_GANTT_CHART_TOKEN python3 utils/check_mirrors.py \
+    - GITLAB_TOKEN=$FDSDK_REPO_READ_TOKEN python3 utils/check_mirrors.py \
         elements/flatpak-release-repo.bst \
         elements/components.bst \
         elements/components/_private/rust-stage1-{x86_64,i686,aarch64,powerpc64le,loongarch64,riscv64}.bst \
