@@ -53,3 +53,5 @@ sources:
   url: git_https:git.linuxtv.org/v4l-utils.git
   track: v4l-utils-*
   ref: v4l-utils-1.32.0-0-g5a666c7ce89c00d66aa8e53c8f098a0c6c401f91
+- kind: patch
+  path: patches/v4l-utils/sort-doxygen-brief-docs.patch
