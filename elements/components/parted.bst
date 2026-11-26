@@ -16,14 +16,5 @@ sources:
   project-id: 2596
   url: ftp_gnu_org:parted/parted-{version}.tar.xz
   ref:
-    version: 3.7
-    sha256sum: 008de57561a4f3c25a0648e66ed11e7b30be493889b64334a6d70f2c1951ef7b
-
-# We have decided to stay with tarballs on this one, because the build
-# system is too annoying when building from git. Parted  apparently
-# uses rsync to download the po files (translations), so the build
-# process  searches for rsync, to download them. However, buildstream
-# doesn't let builds access the network, It will be need to change the
-# parted build system so that it doesn't use rsync at all by patching it,
-# but if you just patch out the calls to rsync, then we lose translations.
-# So you'd have to rsync them beforehand, and add them to our repo as additional sources.
+    version: 3.8
+    sha256sum: a2b7811f47b0ddb1f7b1d0aa456f7c1270da70708ce231c2fe054c7199eafa63
