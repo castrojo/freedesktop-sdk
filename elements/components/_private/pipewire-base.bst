@@ -152,6 +152,6 @@ sources:
 - kind: git_repo
   url: freedesktop:PipeWire/pipewire.git
   track: '*.[02468].*'
-  ref: 1.6.11-0-g4287f31510771fc999f8a58a024c81ca10b8d55f
+  ref: 1.6.12-0-gd3069f761fe7d6e54980d55d59de22ce8cdf6bb4
 - kind: patch
   path: patches/pipewire/0001-spa-libcamera-device-0.8-compatibility.patch
