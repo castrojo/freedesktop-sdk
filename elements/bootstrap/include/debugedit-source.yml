@@ -8,3 +8,5 @@ sources:
   ref:
     version: 5.2
     sha256sum: 705296803cc4403f38764e891b4ed38f8d8d4f8a9164bd4f86c9d4bedcac68dd
+  provenance:
+    source-repo: https://sourceware.org/git/debugedit.git

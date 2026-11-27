@@ -8,3 +8,5 @@ sources:
   ref:
     version: 9.12
     sha256sum: a480198559733e9b3da999e90543ac6f888a2caa544d8d664c5a1f17e528e210
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/coreutils.git

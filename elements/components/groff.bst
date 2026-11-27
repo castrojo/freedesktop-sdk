@@ -31,3 +31,5 @@ sources:
   ref:
     version: 1.25.0
     sha256sum: 24d103a07eb79e418963bce206c8771b649871f83bda2fd4c2e65529c1c56921
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/groff.git

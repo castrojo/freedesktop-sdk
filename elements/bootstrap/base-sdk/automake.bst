@@ -20,3 +20,5 @@ sources:
   ref:
     version: 1.18.1
     sha256sum: 168aa363278351b89af56684448f525a5bce5079d0b6842bd910fdd3f1646887
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/automake.git

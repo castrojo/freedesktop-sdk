@@ -58,3 +58,5 @@ sources:
   ref:
     version: 4.41
     sha256sum: c562b8ddfe93704b7dc077be013f01448fdc6c124b1821c0f10471a71cb2e9e6
+  provenance:
+    source-repo: https://hg-edge.mozilla.org/projects/nspr

@@ -21,3 +21,5 @@ sources:
   ref:
     version: 2.6.2
     sha256sum: 2ef1067c16c97db930fd740cc9bc3d3ba9a583804ae5ac42cc3e8719e49e191e
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/libtool.git

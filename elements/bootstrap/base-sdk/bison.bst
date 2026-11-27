@@ -34,3 +34,5 @@ sources:
   ref:
     version: 3.8.2
     sha256sum: 06c9e13bdf7eb24d4ceb6b59205a4f67c2c7e7213119644430fe82fbd14a0abb
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/bison.git

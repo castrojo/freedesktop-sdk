@@ -27,5 +27,7 @@ sources:
   ref:
     version: 1.1.25
     sha256sum: 68c1d5fbb11864403ae39c1a5937f13afd80b03e68041368831ef58cb613578e
+  provenance:
+    source-repo: https://git.sesse.net/plocate/
 - kind: local
   path: files/plocate/plocate.conf

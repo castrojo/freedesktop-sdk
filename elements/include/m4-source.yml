@@ -8,3 +8,5 @@ sources:
   ref:
     version: 1.4.21
     sha256sum: f25c6ab51548a73a75558742fb031e0625d6485fe5f9155949d6486a2408ab66
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/m4.git

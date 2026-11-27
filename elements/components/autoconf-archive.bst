@@ -17,3 +17,5 @@ sources:
   ref:
     version: 2024.10.16
     sha256sum: 7bcd5d001916f3a50ed7436f4f700e3d2b1bade3ed803219c592d62502a57363
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/autoconf-archive.git

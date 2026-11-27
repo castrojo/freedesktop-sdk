@@ -33,3 +33,5 @@ sources:
   ref:
     version: 4.10
     sha256sum: b8e72182b2ec96a3574e2998c47b7aaa64cc20ce000d8e9ac313cc07cecf28c7
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/sed.git

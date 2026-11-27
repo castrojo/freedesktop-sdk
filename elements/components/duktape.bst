@@ -30,5 +30,7 @@ sources:
   ref:
     version: 2.7.0
     sha256sum: 90f8d2fa8b5567c6899830ddef2c03f3c27960b11aca222fa17aa7ac613c2890
+  provenance:
+    source-repo: https://github.com/svaarala/duktape
 - kind: patch
   path: patches/duktape/duktape-lm.patch

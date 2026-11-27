@@ -44,5 +44,7 @@ sources:
   ref:
     version: 79.1
     sha256sum: 06fa63ecb521048f8082f12ad988f6b678d90cbd88aafce24cbc94902b191d99
+  provenance:
+    source-repo: https://github.com/unicode-org/icu
 - kind: patch
   path: patches/icu/icu-fix-shared-linking.patch

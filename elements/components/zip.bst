@@ -36,5 +36,7 @@ sources:
   ref:
     version: '3.0'
     sha256sum: f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/bison.git
 - kind: patch_queue
   path: patches/zip

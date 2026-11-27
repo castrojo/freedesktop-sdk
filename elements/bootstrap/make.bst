@@ -41,3 +41,5 @@ sources:
   ref:
     version: 4.4.1
     sha256sum: 8814ba072182b605d156d7589c19a43b89fc58ea479b9355146160946f8cf6e9
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/make.git

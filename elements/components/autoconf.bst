@@ -31,3 +31,5 @@ sources:
   ref:
     version: 2.73
     sha256sum: 9fd672b1c8425fac2fa67fa0477b990987268b90ff36d5f016dae57be0d6b52e
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/autoconf.git

@@ -16,3 +16,5 @@ sources:
   ref:
     version: 4.0.50
     sha256sum: f3a58e6cfc2634b03c240442548e3b00103692357afc28e1e7104744dd6478b5
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/mtools.git

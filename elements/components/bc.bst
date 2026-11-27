@@ -24,3 +24,5 @@ sources:
   ref:
     version: 1.08.2
     sha256sum: ae470fec429775653e042015edc928d07c8c3b2fc59765172a330d3d87785f86
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/tar.git

@@ -8,3 +8,5 @@ sources:
   ref:
     version: 0.197
     sha256sum: 1fdf525f22dcf796d99a99ba3ea00a1f7b1ae5421bc62e8443a708920b99b904
+  provenance:
+    source-repo: https://sourceware.org/git/elfutils.git

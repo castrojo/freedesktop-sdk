@@ -39,6 +39,8 @@ sources:
   ref:
     version: 1.15
     sha256sum: 9aa0cc780dec156b8282844833b342ab7cb08c25d2cd9a1869cdd0df31deff48
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/gzip.git
 - kind: local
   path: files/gzip/wrapper.sh
 - kind: patch

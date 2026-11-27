@@ -31,3 +31,5 @@ sources:
   ref:
     version: '2_37'
     sha256sum: fa9ca4d13871dd122f61258a80d01751d603b4d3ee14095d65453b4e846e17d7
+  provenance:
+    source-repo: https://github.com/dejavu-fonts/dejavu-fonts

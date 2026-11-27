@@ -40,3 +40,5 @@ sources:
   ref:
     version: 3.12
     sha256sum: 2649b27c0e90e632eadcd757be06c6e9a4f48d941de51e7c0f83ff76408a07b9
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/grep.git

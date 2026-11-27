@@ -33,5 +33,7 @@ sources:
   ref:
     version: 4.11.0
     sha256sum: bfd19cb06cc71f3352d567e90284d8cdac02ac89774bbeadf0b533b0c11432fd
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/findutils.git
 - kind: patch
   path: patches/findutils/no-locate.patch

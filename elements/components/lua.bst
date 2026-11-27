@@ -33,5 +33,7 @@ sources:
   ref:
     version: 5.5.1
     sha256sum: 1c4b4068d67061f2a2231ad2b5422e77acea1487ea9890f6320af614f4373dce
+  provenance:
+    source-repo: https://github.com/lua/lua
 - kind: local
   path: files/lua/lua.pc.in

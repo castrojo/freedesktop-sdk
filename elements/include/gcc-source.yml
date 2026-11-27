@@ -20,6 +20,8 @@ sources:
   ref:
     version: 4.2.2
     sha256sum: b67ba0383ef7e8a8563734e2e889ef5ec3c3b898a01d00fa0a6869ad81c6ce01
+  provenance:
+    source-repo: https://gitlab.inria.fr/mpfr/mpfr.git
 - kind: anitya
   project-id: 1667
   url: ftp_gnu_org:mpc/mpc-{version}.tar.xz
@@ -27,6 +29,8 @@ sources:
   ref:
     version: 1.4.1
     sha256sum: 91204cd32f164bd3b7c992d4a6a8ce6519511aadab30f78b6982d0bf8d73e931
+  provenance:
+    source-repo: https://gitlab.inria.fr/mpc/mpc.git
 - kind: anitya
   project-id: 13286
   url: tar_https:libisl.sourceforge.io/isl-{version}.tar.xz
@@ -34,5 +38,7 @@ sources:
   ref:
     version: 0.28
     sha256sum: 3dc31b8e1b18329e42d5dfbf84dd55e15c59b61569a2ab246f61497d9592f727
+  provenance:
+    source-repo: https://repo.or.cz/isl.git
 - kind: patch_queue
   path: patches/gcc

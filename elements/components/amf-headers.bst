@@ -21,3 +21,5 @@ sources:
   ref:
     version: 1.5.3
     sha256sum: 0f521ad98041f8001147cded4a660127f18b1c27a801a5cd691bda1fa48381be
+  provenance:
+    source-repo: https://github.com/GPUOpen-LibrariesAndSDKs/AMF

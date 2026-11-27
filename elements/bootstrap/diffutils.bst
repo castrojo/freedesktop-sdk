@@ -37,3 +37,5 @@ sources:
   ref:
     version: 3.12
     sha256sum: 7c8b7f9fc8609141fdea9cece85249d308624391ff61dedaf528fcb337727dfd
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/diffutils.git

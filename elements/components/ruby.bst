@@ -31,3 +31,5 @@ sources:
   ref:
     version: 4.0.10
     sha256sum: 1537f7a6003c436546ecab6b48b6e7725a9af2328f45a8af7f42f41c5df90ab8
+  provenance:
+    source-repo: https://github.com/ruby/ruby

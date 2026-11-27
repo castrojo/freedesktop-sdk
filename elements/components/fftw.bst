@@ -60,3 +60,5 @@ sources:
   ref:
     version: 3.3.11
     sha256sum: 5630c24cdeb33b131612f7eb4b1a9934234754f9f388ff8617458d0be6f239a1
+  provenance:
+    source-repo: https://github.com/FFTW/fftw3

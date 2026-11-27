@@ -8,3 +8,5 @@ sources:
   ref:
     version: 1.0
     sha256sum: d6342cbe1411a2fe7d139bfed80c2d63b1babc92acfedc72501cc105184f61ee
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/gettext.git

@@ -26,3 +26,5 @@ sources:
   ref:
     version: 3.8
     sha256sum: a2b7811f47b0ddb1f7b1d0aa456f7c1270da70708ce231c2fe054c7199eafa63
+  provenance:
+    source-repo: https://https.git.savannah.gnu.org/git/parted.git
