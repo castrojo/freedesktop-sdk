@@ -43,7 +43,7 @@ public:
 sources:
 - kind: git_repo
   url: github:gpg/gpgme.git
-  track: gpgme-2.1*
+  track: gpgme-*
   exclude:
   - "*-base"
-  ref: gpgme-2.1.2-0-g34eaa0a69c120cd1d19365c6b24c58e98cd29cdf
+  ref: gpgme-2.3.1-0-gc7cbb9a4bf254a9bfcc51c90baeea7cc19349445
