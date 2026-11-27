@@ -11,6 +11,7 @@ import json
 import os
 import shutil
 import subprocess
+from typing import Any
 
 import gi
 import yaml
@@ -26,25 +27,31 @@ class OurException(Exception):
     """Raised when we fail."""
 
 
-output_dir = None
-generating_id = None
-flatpak_manifest_path = None
-previously_built_modules = []
-aliases = {}
-runtime = None
-sdk = None
-
 CLEANUP_PLATFORM_DOMAIN_PREFIXES = {
     "/share/runtime/docs": "docs",
     "/share/runtime/locale": "locale",
 }
 
 
-def resolve_alias(url: str):
-    for name, aliasUrl in aliases.items():
-        if url.startswith(aliasUrl):
-            return url.replace(aliasUrl, name + ":")
-    return url
+class Aliases:
+    def __init__(self):
+        self._aliases = {}
+
+    def resolve_alias(self, url: str):
+        for name, aliasUrl in self._aliases.items():
+            if url.startswith(aliasUrl):
+                return url.replace(aliasUrl, name + ":")
+        return url
+
+    def load_aliases(self, path_to_aliases):
+        with open(path_to_aliases, "r", encoding="utf-8") as inputFile:
+            aliasesData = yaml.safe_load(inputFile)
+
+        if isinstance(aliasesData, dict):
+            if "aliases" in aliasesData and isinstance(aliasesData["aliases"], dict):
+                self._aliases = aliasesData["aliases"]
+            else:
+                self._aliases = aliasesData
 
 
 def archive_kind(url):
@@ -54,8 +61,8 @@ def archive_kind(url):
         return "tar"
 
 
-def relativise_path(path):
-    gendir = os.path.dirname(flatpak_manifest_path)
+def relativise_path(path, manifest_path):
+    gendir = os.path.dirname(manifest_path)
     if gendir == "":
         return path
     flatpak_manifest_reldir = os.path.relpath(gendir, os.getcwd())
@@ -64,8 +71,6 @@ def relativise_path(path):
 
 def cleanup_platform_split_rules(pattern):
     base = "%{prefix}" + pattern if pattern.startswith("/") else "**/" + pattern
-    if any(char in pattern for char in "*?[]"):
-        return [base]
     return [base, f"{base}/**"]
 
 
@@ -85,7 +90,9 @@ def append_split_rules(bst_data, domain, patterns):
                 existing.append(rule)
 
 
-def convert_source_to_bst(source, bst_data, name):
+def convert_source_to_bst(
+    source, bst_data, name, manifest_path, output_dir, aliases: Aliases
+):
     source_type = source["type"]
 
     if source_type == "git":
@@ -93,9 +100,9 @@ def convert_source_to_bst(source, bst_data, name):
         gitSource = None
         if "url" in source:
             gitSource = source["url"]
-            bstSource = {"url": resolve_alias(gitSource)}
+            bstSource = {"url": aliases.resolve_alias(gitSource)}
         elif "path" in source:
-            gitSource = relativise_path(source["path"])
+            gitSource = relativise_path(source["path"], manifest_path)
             bstSource = {"path": gitSource}
         else:
             raise ValueError("Unsupported git source: no url or path")
@@ -125,14 +132,14 @@ def convert_source_to_bst(source, bst_data, name):
         checksum = source["sha256"]
         bst_source = {
             "kind": archive_kind(archive_url),
-            "url": resolve_alias(archive_url),
+            "url": aliases.resolve_alias(archive_url),
             "ref": checksum,
         }
         if "dest" in source:
             bst_source["directory"] = source["dest"]
         bst_data["sources"].append(bst_source)
     elif source_type == "archive" and "path" in source:
-        archive_path = relativise_path(source.get("path"))
+        archive_path = relativise_path(source.get("path"), manifest_path)
         checksum = source["sha256"]
         bst_source = {
             "kind": archive_kind(archive_path),
@@ -146,7 +153,7 @@ def convert_source_to_bst(source, bst_data, name):
     elif source_type == "dir":
         local_dir = source["path"]
         bst_data["sources"].append(
-            {"kind": "local", "path": relativise_path(local_dir)}
+            {"kind": "local", "path": relativise_path(local_dir, manifest_path)}
         )
 
     elif source_type == "patch":
@@ -156,12 +163,21 @@ def convert_source_to_bst(source, bst_data, name):
         if "paths" in source:
             paths.extend(source["paths"])
         for path in paths:
-            bst_data["sources"].append({"kind": "patch", "path": relativise_path(path)})
+            patch_source = {
+                "kind": "patch",
+                "path": relativise_path(path, manifest_path),
+            }
+            for option in source.get("options", []):
+                if option.startswith("--directory="):
+                    patch_source["directory"] = option.split("=", 1)[1]
+            bst_data["sources"].append(patch_source)
 
     elif source_type == "shell":
-        if "config" not in bst_data:
-            bst_data["config"] = {"configure-commands": {"(>)": []}}
-        bst_data["config"]["configure-commands"]["(>)"].extend(source["commands"])
+        config = bst_data.setdefault("config", {})
+        commands = config.setdefault("configure-commands", {}).setdefault("(<)", [])
+        commands.extend(
+            'cd "%{build-root}"\n' + command for command in source["commands"]
+        )
 
     elif source_type == "script":
         moduleDir = os.path.join(output_dir, name)
@@ -177,7 +193,7 @@ def convert_source_to_bst(source, bst_data, name):
 
     elif source_type == "file":
         if "path" in source:
-            dest = relativise_path(source["path"])
+            dest = relativise_path(source["path"], manifest_path)
             orig = dest
             if "dest-filename" in source:
                 moduleDir = os.path.join(output_dir, name)
@@ -216,7 +232,7 @@ def read_args(bst_data, module, bs, prefix=""):
             name = "cmake-local"
         case "meson":
             name = "meson-local"
-        case "autotools":
+        case None | "autotools":
             name = "conf-local"
 
     if name and "config-opts" in module:
@@ -243,12 +259,9 @@ def bst_sort(bst_data):
     return dict(sorted(bst_data.items(), key=lambda item: sort_key(item[0])))
 
 
-skipModules = {}
-
-
 def git_ls_remote(url, pattern):
     result = subprocess.run(
-        ["git", "ls-remote", url, pattern], capture_output=True, text=True
+        ["git", "ls-remote", url, pattern], capture_output=True, text=True, check=False
     )
 
     if result.returncode != 0:
@@ -268,7 +281,7 @@ def path_to_dict(path):
         try:
             parser.load_from_file(path)
         except GLib.Error as err:
-            print("Failed to load JSON Flatpak manifest:", err.message)
+            print("Failed to load JSON Flatpak manifest:", err)
         return json.loads(Json.to_string(parser.get_root(), False))
     elif path.endswith((".yaml", ".yml")):
         with open(path, "r", encoding="utf-8") as inputFile:
@@ -277,28 +290,54 @@ def path_to_dict(path):
         raise OurException("Unknown format in", path)
 
 
-def process_modules(flatpak_data):
+def process_modules(
+    flatpak_data,
+    manifest_path,
+    sdk_extensions,
+    output_dir,
+    sdk,
+    generating_id,
+    aliases: Aliases,
+    previously_built_modules: list[str],
+    skip_modules,
+    build_options=(),
+):
     for _module in flatpak_data["modules"]:
         module = None
         if isinstance(_module, str):
-            module = path_to_dict(relativise_path(_module))
+            module_path = relativise_path(_module, manifest_path)
+            module = path_to_dict(module_path)
         else:
             module = _module
+            module_path = manifest_path
         name = module["name"]
-        if name in skipModules:
-            previously_built_modules.append(skipModules[name])
+        if name in skip_modules:
+            if skip_modules[name]:
+                previously_built_modules.append(skip_modules[name])
             continue
 
         if "modules" in module:
-            process_modules(module)
+            process_modules(
+                module,
+                module_path,
+                sdk_extensions,
+                output_dir,
+                sdk,
+                generating_id,
+                aliases,
+                previously_built_modules,
+                skip_modules,
+                (*build_options, module.get("build-options", {})),
+            )
 
         bstFile = os.path.join(output_dir, f"{name}.bst")
         bst_data = {
-            "build-depends": [sdk] + previously_built_modules,
+            "build-depends": [sdk] + sdk_extensions + previously_built_modules,
             "sources": [],
             "environment": {
                 "INSTALL_ROOT": "%{install-root}",
                 "FLATPAK_DEST": "%{prefix}",
+                "PIP_ROOT": "%{install-root}",
             },
         }
 
@@ -340,30 +379,54 @@ def process_modules(flatpak_data):
                     }
                 )
             case None | "autotools":
-                bst_data.update({"kind": "autotools", "variables": {}})
+                bst_data["kind"] = "autotools"
+                variables: dict[str, Any] = {}
 
                 if module.get("no-autogen", False):
-                    bst_data["variables"].update(
-                        {"autogen": 'echo "echo $@" > configure; chmod +x configure'}
+                    variables["autogen"] = (
+                        'echo "echo $@" > configure; chmod +x configure'
                     )
 
                 if "subdir" in module:
-                    bst_data["variables"].update({"command-subdir": module["subdir"]})
+                    variables["command-subdir"] = module["subdir"]
 
                 read_args(bst_data, module, buildsystem)
 
-                if not bst_data["variables"]:
-                    del bst_data["variables"]
+                if "make-args" in module:
+                    variables["make-args"] = " ".join(module["make-args"])
+                if "make-install-args" in module or "install-rule" in module:
+                    variables["make-install-args"] = (
+                        '%{make-args} DESTDIR="%{install-root}" '
+                        + module.get("install-rule", "install")
+                        + " "
+                        + " ".join(module.get("make-install-args", []))
+                    )
+
+                if variables:
+                    bst_data["variables"] = variables
             case _:
                 print("Unknown buildsystem", module.get("buildsystem"))
+
+        for options in (*build_options, module.get("build-options", {})):
+            read_build_environment(bst_data, options)
 
         if "sources" in module:
             for source in module["sources"]:
                 if isinstance(source, str):
-                    for included_source in path_to_dict(relativise_path(source)):
-                        convert_source_to_bst(included_source, bst_data, name)
+                    source_path = relativise_path(source, module_path)
+                    for included_source in path_to_dict(source_path):
+                        convert_source_to_bst(
+                            included_source,
+                            bst_data,
+                            name,
+                            source_path,
+                            output_dir,
+                            aliases,
+                        )
                 else:
-                    convert_source_to_bst(source, bst_data, name)
+                    convert_source_to_bst(
+                        source, bst_data, name, module_path, output_dir, aliases
+                    )
 
         for pattern in module.get("cleanup-platform", []):
             append_split_rules(
@@ -386,6 +449,37 @@ def process_modules(flatpak_data):
                 allow_unicode=True,
             )
         previously_built_modules.append(f"{generating_id}/{name}.bst")
+
+
+def read_build_environment(bst_data, options):
+    environment = bst_data["environment"]
+    values = options.get("env", {})
+    if isinstance(values, list):
+        values = dict(value.split("=", 1) for value in values)
+    environment.update(values)
+    for option, variable, default in (
+        ("path", "PATH", "/usr/bin:/bin:/usr/sbin:/sbin"),
+        ("ld-library-path", "LD_LIBRARY_PATH", ""),
+    ):
+        value = environment.get(variable, default)
+        if options.get("prepend-" + option):
+            value = ":".join(filter(None, [options["prepend-" + option], value]))
+        if options.get("append-" + option):
+            value = ":".join(filter(None, [value, options["append-" + option]]))
+        if value != environment.get(variable, default):
+            environment[variable] = value
+
+
+def resolve_sdk_extensions(flatpak_data, skipModules):
+    dependencies = []
+    for extension in flatpak_data.get("sdk-extensions", []):
+        name = extension.partition("/")[0]
+        if name not in skipModules:
+            raise OurException(f"SDK extension {extension} needs a mapping in --skip")
+        dependency = skipModules[name]
+        if dependency and dependency not in dependencies:
+            dependencies.append(dependency)
+    return dependencies
 
 
 def generate_runtime_data(flatpak_data, name):
@@ -416,7 +510,7 @@ def generate_runtime_data(flatpak_data, name):
     return runtime_data
 
 
-def generate_runtime(flatpak_data, output_dir):
+def generate_runtime(flatpak_data, output_dir, generating_id):
     os.makedirs(output_dir, exist_ok=True)
     runtime_data = generate_runtime_data(flatpak_data, flatpak_data["id-platform"])
     runtime_data["build-depends"] = [
@@ -457,7 +551,7 @@ def generate_runtime(flatpak_data, output_dir):
 
 def flatpak_ref(ref):
     result = subprocess.run(
-        ["flatpak", "info", "-c", ref], capture_output=True, text=True
+        ["flatpak", "info", "-c", ref], capture_output=True, text=True, check=False
     )
 
     if result.returncode != 0:
@@ -470,7 +564,7 @@ def flatpak_ref(ref):
         raise OurException("Branch not found or invalid URL.")
 
 
-def generate_runtime_dependency(data, output_dir):
+def generate_runtime_dependency(data, output_dir, aliases: Aliases):
     platform_name = data["runtime"]
     platform_bst = os.path.join(output_dir, platform_name + ".bst")
     platform_version = data["runtime-version"]
@@ -481,7 +575,7 @@ def generate_runtime_dependency(data, output_dir):
             "sources": [
                 {
                     "kind": "ostree",
-                    "url": resolve_alias("https://dl.flathub.org/repo/"),
+                    "url": aliases.resolve_alias("https://dl.flathub.org/repo/"),
                     "track": f"runtime/{platform_name}/{arch}/{platform_version}",
                     "ref": flatpak_ref(f"runtime/{platform_name}//{platform_version}"),
                 }
@@ -505,7 +599,7 @@ def generate_runtime_dependency(data, output_dir):
             "sources": [
                 {
                     "kind": "ostree",
-                    "url": resolve_alias("https://flathub.org/repo/"),
+                    "url": aliases.resolve_alias("https://flathub.org/repo/"),
                     "track": f"runtime/{sdk_name}/{arch}/{platform_version}",
                     "ref": flatpak_ref(f"runtime/{sdk_name}//{platform_version}"),
                 }
@@ -524,11 +618,33 @@ def generate_runtime_dependency(data, output_dir):
         )
 
 
-def generate_bst(name, flatpak_data):
+def generate_bst(
+    name,
+    flatpak_data,
+    flatpak_manifest_path,
+    sdk_extensions,
+    output_dir,
+    sdk,
+    generating_id,
+    aliases: Aliases,
+    skip_modules,
+):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    process_modules(flatpak_data)
+    previously_built_modules: list[str] = []
+    process_modules(
+        flatpak_data,
+        flatpak_manifest_path,
+        sdk_extensions,
+        output_dir,
+        sdk,
+        generating_id,
+        aliases,
+        previously_built_modules,
+        skip_modules,
+        build_options=(flatpak_data.get("build-options", {}),),
+    )
 
     with open(name, "w", encoding="utf-8") as f:
         f.write(f"# File generated by {os.path.basename(__file__)}\n\n")
@@ -540,6 +656,7 @@ def generate_bst(name, flatpak_data):
         yaml.dump(
             data, f, default_flow_style=False, sort_keys=False, allow_unicode=True
         )
+    return previously_built_modules
 
 
 def generate_cleanup_platform_split_rules(flatpak_data, generating_id):
@@ -648,7 +765,7 @@ def generate_app(data, generating_id):
         )
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(
         description="Generates BuildStream recipes out of flatpak-builder ones."
     )
@@ -660,40 +777,45 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--skip",
-        help="A yaml file with flatpak module names as key and the bst counter-part to use as the values",
+        help="A YAML mapping of module names or SDK extension IDs to BuildStream elements; null skips an entry",
     )
     args = parser.parse_args()
     flatpak_manifest_path = args.file
+    aliases = Aliases()
     if args.aliases:
-        with open(args.aliases, "r", encoding="utf-8") as inputFile:
-            aliasesData = yaml.safe_load(inputFile)
-
-        if isinstance(aliasesData, dict):
-            if "aliases" in aliasesData and isinstance(aliasesData["aliases"], dict):
-                aliases = aliasesData["aliases"]
-            else:
-                aliases = aliasesData
+        aliases.load_aliases(args.aliases)
 
     if args.skip:
         with open(args.skip, "r", encoding="utf-8") as inputFile:
-            skipModules = yaml.safe_load(inputFile)
+            skip_modules = yaml.safe_load(inputFile)
+    else:
+        skip_modules = []
     data = path_to_dict(flatpak_manifest_path)
     generating_id = data.get("id") or data.get("app-id")
     filename = os.path.join("elements", generating_id + ".bst")
     output_dir = os.path.join("elements", generating_id)
     sdk = resolve_sdk(data["sdk"])
     runtime = resolve_platform(data["runtime"])
-    generate_bst(filename, data)
+    sdk_extensions = resolve_sdk_extensions(data, skip_modules)
+    previously_built_modules = generate_bst(
+        filename,
+        data,
+        flatpak_manifest_path,
+        sdk_extensions,
+        output_dir,
+        sdk,
+        generating_id,
+        aliases,
+        skip_modules,
+    )
     generate_cleanup_platform_split_rules(data, generating_id)
     if "base" in data:
         print("Bringing base apps is not yet supported")
     if "add-build-extensions" in data:
         print("Bringing build extensions is not yet supported")
-    if "sdk-extensions" in data:
-        print("Bringing SDK extensions is not yet supported")
 
     if data.get("build-runtime", False):
-        generate_runtime(data, output_dir + "/flatpak-images/")
+        generate_runtime(data, output_dir + "/flatpak-images/", generating_id)
         with open(
             os.path.join("elements", data["id-platform"] + ".bst"),
             "w",
@@ -717,5 +839,9 @@ if __name__ == "__main__":
     elif ":" not in sdk:
         # only pull the runtime from flathub if we're not building it here already
         if not os.path.exists(os.path.join("elements", sdk)):
-            generate_runtime_dependency(data, "elements")
+            generate_runtime_dependency(data, "elements", aliases)
         generate_app(data, generating_id)
+
+
+if __name__ == "__main__":
+    main()
