@@ -204,6 +204,7 @@ depends:
 - components/iproute2.bst
 - components/iptables.bst
 - components/iputils.bst
+- components/isl.bst
 - components/iso-codes.bst
 - components/itstool.bst
 - components/iwd.bst
@@ -353,6 +354,7 @@ depends:
 - components/mesa-headers.bst
 - components/meson.bst
 - components/modemmanager.bst
+- components/mpc.bst
 - components/mpfr.bst
 - components/mpg123.bst
 - components/mtdev.bst

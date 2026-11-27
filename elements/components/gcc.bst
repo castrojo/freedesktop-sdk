@@ -13,6 +13,10 @@ runtime-depends:
 - bootstrap/zstd.bst
 - components/gcc-libs.bst
 - components/gcc-manifest.bst
+- components/gmp.bst
+- components/isl.bst
+- components/mpc.bst
+- components/mpfr.bst
 
 config:
   exclude:

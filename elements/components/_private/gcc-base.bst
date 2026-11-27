@@ -18,7 +18,11 @@ build-depends:
 - components/automake.bst
 - components/flex.bst
 - components/gettext.bst
+- components/gmp.bst
+- components/isl.bst
 - components/libtool.bst
+- components/mpc.bst
+- components/mpfr.bst
 - components/pkg-config.bst
 - components/tar.bst
 - components/texinfo.bst
@@ -51,6 +55,13 @@ variables:
   optimize-debug: "false"
 
 config:
+  configure-commands:
+    (<):
+    - |
+      # Keep the sources listed in gcc-source.yml for ref reuse, but remove
+      # the staged copies so GCC links against the shared libraries.
+      rm -rf gmp mpfr mpc isl
+
   install-commands:
     (>):
     - |

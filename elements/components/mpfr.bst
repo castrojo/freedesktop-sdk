@@ -4,10 +4,21 @@
 kind: autotools
 
 build-depends:
-- public-stacks/buildsystem-autotools.bst
+- bootstrap/bash.bst
+- bootstrap/coreutils.bst
+- bootstrap/gcc.bst
+- bootstrap/make.bst
+- bootstrap/stripper.bst
+- components/autoconf.bst
+- components/automake.bst
+- components/libtool.bst
+- components/m4.bst
 
 depends:
+- bootstrap/glibc.bst
+- bootstrap/symlinks.bst
 - components/gmp.bst
+- components/utf-locale.bst
 
 variables:
   make-args: >-
