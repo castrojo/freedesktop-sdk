@@ -29,6 +29,6 @@ sources:
   - "*b*"
   - "*-pre"
   - "*-win*"
-  ref: lxml-6.1.3-1-0-gf9e4999ef79e1caa369f84cece0bdaf19a1ef550
+  ref: lxml-6.2.0-0-gae5dfef704d89218968bcad8de6f03aa051f1de7
 - kind: patch
   path: patches/python3-lxml/0001-Revert-Avoid-Cython-3.3-for-lxml-6.1.x.patch
