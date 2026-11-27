@@ -1,0 +1,319 @@
+diff --git a/include/libcamera/internal/ipa_manager.h b/include/libcamera/internal/ipa_manager.h
+index aaa3ca37..7240a441 100644
+--- a/include/libcamera/internal/ipa_manager.h
++++ b/include/libcamera/internal/ipa_manager.h
+@@ -42,7 +42,7 @@ public:
+ 			return nullptr;
+ 
+ 		auto proxy = [&]() -> std::unique_ptr<T> {
+-			if (isSignatureValid(m))
++			if (isTrusted(m))
+ 				return std::make_unique<typename T::Threaded>(m, cm_);
+ 			else
+ 				return std::make_unique<typename T::Isolated>(m, cm_);
+@@ -71,14 +71,22 @@ private:
+ 	IPAModule *module(PipelineHandler *pipe, uint32_t minVersion,
+ 			  uint32_t maxVersion);
+ 
++	bool isTrusted(IPAModule *ipa) const;
+ 	bool isSignatureValid(IPAModule *ipa) const;
+ 
++#if HAVE_IPA_TRUSTED_MODULE_CHECKSUMS
++	static bool isChecksumTrusted(IPAModule *ipa);
++#endif
++
+ 	const CameraManager &cm_;
+ 	std::vector<std::unique_ptr<IPAModule>> modules_;
+ 
+ #if HAVE_IPA_PUBKEY
+ 	static const uint8_t publicKeyData_[];
+ 	static const PubKey pubKey_;
++#endif
++
++#if HAVE_IPA_PUBKEY || HAVE_IPA_TRUSTED_MODULE_CHECKSUMS
+ 	bool forceIsolation_;
+ #endif
+ };
+diff --git a/meson_options.txt b/meson_options.txt
+index 20baacc4..7be64a4d 100644
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -131,3 +131,8 @@ option('v4l2',
+         value : 'auto',
+         description : 'Compile the V4L2 compatibility layer',
+         deprecated : {'true': 'enabled', 'false': 'disabled'})
++
++option('ipa_checksum_trusted_modules',
++        type : 'boolean',
++        value : false,
++        description : 'Trust IPA modules using SHA-256 checksums instead of signatures')
+diff --git a/src/libcamera/ipa_manager.cpp b/src/libcamera/ipa_manager.cpp
+index 41918e4c..b837c8a5 100644
+--- a/src/libcamera/ipa_manager.cpp
++++ b/src/libcamera/ipa_manager.cpp
+@@ -10,6 +10,7 @@
+ #include <algorithm>
+ #include <dirent.h>
+ #include <string.h>
++#include <cstring>
+ #include <string>
+ #include <sys/types.h>
+ #include <vector>
+@@ -23,6 +24,15 @@
+ #include "libcamera/internal/ipa_proxy.h"
+ #include "libcamera/internal/pipeline_handler.h"
+ 
++
++#if HAVE_IPA_TRUSTED_MODULE_CHECKSUMS
++#if HAVE_CRYPTO
++#include <openssl/sha.h>
++#elif HAVE_GNUTLS
++#include <gnutls/crypto.h>
++#endif
++#endif
++
+ /**
+  * \file ipa_manager.h
+  * \brief Image Processing Algorithm module manager
+@@ -113,7 +123,9 @@ IPAManager::IPAManager(const CameraManager &cm)
+ #if HAVE_IPA_PUBKEY
+ 	if (!pubKey_.isValid())
+ 		LOG(IPAManager, Warning) << "Public key not valid";
++#endif
+ 
++#if HAVE_IPA_PUBKEY || HAVE_IPA_TRUSTED_MODULE_CHECKSUMS
+ 	forceIsolation_ = configuration.option<bool>({ "ipa", "force_isolation" })
+ 				       .value_or(false);
+ #endif
+@@ -287,16 +299,27 @@ IPAModule *IPAManager::module(PipelineHandler *pipe, uint32_t minVersion,
+  */
+ #endif
+ 
+-bool IPAManager::isSignatureValid([[maybe_unused]] IPAModule *ipa) const
++bool IPAManager::isTrusted(IPAModule *ipa) const
+ {
+-#if HAVE_IPA_PUBKEY
++#if HAVE_IPA_PUBKEY || HAVE_IPA_TRUSTED_MODULE_CHECKSUMS
+ 	if (forceIsolation_) {
+ 		LOG(IPAManager, Debug)
+ 			<< "Isolation of IPA module " << ipa->path()
+ 			<< " forced through configuration";
+ 		return false;
+ 	}
++#endif
++
++#if HAVE_IPA_TRUSTED_MODULE_CHECKSUMS
++	return isChecksumTrusted(ipa);
++#else
++	return isSignatureValid(ipa);
++#endif
++}
+ 
++bool IPAManager::isSignatureValid([[maybe_unused]] IPAModule *ipa) const
++{
++#if HAVE_IPA_PUBKEY
+ 	File file{ ipa->path() };
+ 	if (!file.open(File::OpenModeFlag::ReadOnly))
+ 		return false;
+@@ -317,4 +340,75 @@ bool IPAManager::isSignatureValid([[maybe_unused]] IPAModule *ipa) const
+ #endif
+ }
+ 
++#if HAVE_IPA_TRUSTED_MODULE_CHECKSUMS
++
++/*
++ * Reserve a read-only ELF section for trusted IPA checksums.
++ * The packaging process populates this section after stripping.
++ */
++asm(R"(
++    .pushsection .ipa_trusted_checksums,"a",%progbits
++    .balign 32
++    .global ipaTrustedChecksums
++    .hidden ipaTrustedChecksums
++    .type ipaTrustedChecksums,%object
++ipaTrustedChecksums:
++    .zero 2048
++    .size ipaTrustedChecksums, . - ipaTrustedChecksums
++    .popsection
++)");
++
++extern "C" const uint8_t ipaTrustedChecksums[64][32]
++    __attribute__((visibility("hidden")));
++
++bool IPAManager::isChecksumTrusted(IPAModule *ipa)
++{
++	const std::string &modulePath = ipa->path();
++	const std::string installedDirectory = std::string(IPA_MODULE_DIR) + "/";
++
++	if (!modulePath.starts_with(installedDirectory))
++	    return false;
++
++	const std::string moduleName = modulePath.substr(installedDirectory.size());
++
++	if (moduleName.find('/') != std::string::npos ||
++	    !moduleName.ends_with(".so"))
++	    return false;
++
++	File file{ modulePath };
++
++	if (!file.open(File::OpenModeFlag::ReadOnly))
++		return false;
++
++	Span<uint8_t> data = file.map();
++	if (data.empty())
++		return false;
++
++	uint8_t digest[32];
++
++#if HAVE_CRYPTO
++	if (!SHA256(data.data(), data.size(), digest))
++		return false;
++#elif HAVE_GNUTLS
++	if (gnutls_hash_fast(GNUTLS_DIG_SHA256,
++			     data.data(), data.size(), digest) != 0)
++		return false;
++#else
++	return false;
++#endif
++
++	static constexpr uint8_t emptyChecksum[32] = {};
++
++	if (std::memcmp(digest, emptyChecksum, sizeof(digest)) == 0)
++		return false;
++
++	for (const auto &trustedChecksum : ipaTrustedChecksums) {
++		if (std::memcmp(digest, trustedChecksum, sizeof(digest)) == 0)
++			return true;
++	}
++
++	return false;
++}
++#endif
++
+ } /* namespace libcamera */
+diff --git a/src/libcamera/meson.build b/src/libcamera/meson.build
+index 17c1b2cb..ca348977 100644
+--- a/src/libcamera/meson.build
++++ b/src/libcamera/meson.build
+@@ -99,11 +99,19 @@ else
+ endif
+ 
+ if not libcrypto.found()
++    if ipa_checksum_trusted_modules
++        error('IPA checksum verification requires gnutls or libcrypto')
++    endif
++
+     warning('Neither gnutls nor libcrypto found, all IPA modules will be isolated')
+     summary({'IPA modules signed with': 'None (modules will run isolated)'},
+             section : 'Configuration')
++elif ipa_checksum_trusted_modules
++    summary({'IPA module checksum verification': libcrypto.name()},
++            section : 'Configuration')
+ else
+-    summary({'IPA modules signed with' : libcrypto.name()}, section : 'Configuration')
++    summary({'IPA modules signed with': libcrypto.name()},
++            section : 'Configuration')
+ endif
+ 
+ if liblttng.found()
+diff --git a/src/meson.build b/src/meson.build
+index 8e23d40c..f16177de 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -14,17 +14,27 @@ summary({
+          'LIBCAMERA_SYSCONF_DIR' : config_h.get('LIBCAMERA_SYSCONF_DIR'),
+          }, section : 'Paths')
+ 
+-# Module Signing
++# Module authentication
++ipa_checksum_trusted_modules = get_option('ipa_checksum_trusted_modules')
++
++if ipa_checksum_trusted_modules
++    config_h.set('HAVE_IPA_TRUSTED_MODULE_CHECKSUMS', 1)
++endif
++
+ openssl = find_program('openssl', required : false)
+-if openssl.found()
++
++if not ipa_checksum_trusted_modules and openssl.found()
+     ipa_priv_key = custom_target('ipa-priv-key',
+                                  output : ['ipa-priv-key.pem'],
+                                  command : [gen_ipa_priv_key, '@OUTPUT@'])
+     config_h.set('HAVE_IPA_PUBKEY', 1)
+     ipa_sign_module = true
+ else
+-    warning('openssl not found, all IPA modules will be isolated')
+     ipa_sign_module = false
++
++    if not ipa_checksum_trusted_modules
++        warning('openssl not found, all IPA modules will be isolated')
++    endif
+ endif
+ 
+ # libyuv, used by the Android adaptation layer and the virtual pipeline handler.
+diff --git a/utils/ipa-embed-checksums.py b/utils/ipa-embed-checksums.py
+new file mode 100644
+index 00000000..7289a6e9
+--- /dev/null
++++ b/utils/ipa-embed-checksums.py
+@@ -0,0 +1,60 @@
++import argparse
++import hashlib
++import subprocess
++import tempfile
++from pathlib import Path
++
++section_name = ".ipa_trusted_checksums"
++checksum_size = 32
++section_size = 64 * checksum_size
++
++parser = argparse.ArgumentParser()
++parser.add_argument("library", type=Path)
++parser.add_argument("modules", nargs="*", type=Path)
++arguments = parser.parse_args()
++
++library_path = arguments.library.resolve(strict=True)
++checksums = set()
++
++for module_path in arguments.modules:
++    if module_path.is_symlink() or not module_path.is_file():
++        raise SystemExit(f"Invalid IPA module: {module_path}")
++
++    checksum = hashlib.sha256(module_path.read_bytes()).digest()
++    checksums.add(checksum)
++
++    print(f"{checksum.hex()}  {module_path.name}")
++
++checksum_data = b"".join(sorted(checksums))
++
++if len(checksum_data) > section_size:
++    raise SystemExit("Too many IPA checksums")
++
++checksum_data = checksum_data.ljust(section_size, b"\x00")
++
++with tempfile.TemporaryDirectory() as directory:
++    temporary_directory = Path(directory)
++    section_file = temporary_directory / "checksums.bin"
++    inspection_file = temporary_directory / "inspection.so"
++
++    subprocess.run([
++        "objcopy",
++        "--dump-section",
++        f"{section_name}={section_file}",
++        str(library_path),
++        str(inspection_file)
++    ], check=True)
++
++    if section_file.read_bytes() != bytes(section_size):
++        raise SystemExit("Expected an empty 2048-byte checksum section")
++
++    section_file.write_bytes(checksum_data)
++
++    subprocess.run([
++        "objcopy",
++        "--update-section",
++        f"{section_name}={section_file}",
++        str(library_path)
++    ], check=True)
++
++print(f"Embedded {len(checksums)} trusted IPA checksums into {library_path}")

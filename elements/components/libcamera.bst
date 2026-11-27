@@ -37,6 +37,7 @@ variables:
     -Ddocumentation=disabled
     -Dpycamera=disabled
     -Dcam-output-sdl2=disabled
+    -Dipa_checksum_trusted_modules=true
     %{arch-conf}
 
 config:
@@ -45,8 +46,24 @@ config:
     - |
       rm -f "%{install-root}%{prefix}/lib/libyuv.a"
 
+  strip-commands:
+    (>):
+    - |
+      set -euo pipefail
+      shopt -s nullglob
+
+      ipa_directory="%{install-root}%{libdir}/libcamera/ipa"
+      library_file="%{install-root}%{libdir}/libcamera.so"
+
+      ipa_modules=("$ipa_directory"/*.so)
+
+      python3 "%{build-root}/utils/ipa-embed-checksums.py" \
+        "$library_file" "${ipa_modules[@]}"
+
 sources:
 - kind: git_repo
   url: git_https:git.libcamera.org/libcamera/libcamera.git
   track: v0.7.*
   ref: v0.7.2-0-g191e202178f02430b5942397c70d215cdd2056fa
+- kind: patch
+  path: patches/libcamera/reproducible-ipa-checksums.patch
