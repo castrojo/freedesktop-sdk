@@ -7,5 +7,5 @@ sources:
   track: v*.*.*
   exclude:
   - "*-kernel"
-  ref: v1.5.7-0-gf8745da6ff1ad1e7bab384bd1f9d742439278e99
+  ref: v1.6.0-0-g916e8e70b33317d469a41ee837e47317807815c8
 
