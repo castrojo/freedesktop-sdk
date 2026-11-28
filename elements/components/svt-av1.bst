@@ -32,4 +32,4 @@ sources:
   exclude:
   - "*rc*"
   - "*cqp-extended*"
-  ref: v4.3.0-0-ge3d63405f9ba8219913a7276c2c47d10e5d022fe
+  ref: v4.3.1-0-g462771f87694e959cc1d3f9addde23d7015662e3
