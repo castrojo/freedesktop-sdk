@@ -17,4 +17,4 @@ sources:
 - kind: git_repo
   url: github:michaelrsweet/pdfio.git
   track: v*.*.*
-  ref: v1.6.6-0-gfb05e16bb2ae8cf1b1101669b236401dcb36c906
+  ref: v1.6.7-0-gbb3cd8915ab460c052b32d9f8ac6f13aef37ec81
